@@ -49,7 +49,6 @@ namespace GLM00200Front
         private void Predef_RecurringEntry(R_InstantiateDockEventArgs eventArgs)
         {
             eventArgs.TargetPageType = typeof(RecurringEntry);
-            eventArgs.Parameter = "RECURRING ENTRY";
         }
         private void AfterPredef_RecurringEntry(R_AfterOpenPredefinedDockEventArgs eventArgs)
         { }
@@ -195,6 +194,7 @@ namespace GLM00200Front
         }
         #endregion
 
+        #region DepartmentLookup
         private async Task Dept_Before_Open_Lookup(R_BeforeOpenLookupEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -224,6 +224,6 @@ namespace GLM00200Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-
+        #endregion
     }
 }

@@ -21,7 +21,26 @@ namespace GLM00200Model
         public ObservableCollection<JournalGridDTO> JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public GSL00700DTO Dept { get; set; } = new GSL00700DTO();
-        public JournalDTO Journal { get; set; } = new JournalDTO();
+        public JournalDTO Journal { get; set; } = new JournalDTO() {
+        CDEPT_CODE= "CDEPT_CODE",
+        CDEPT_NAME="CDEPT_NAME",
+        CREF_NO= "CREF_NO",
+        CREF_DATE= "CREF_DATE",
+        CDOC_NO="CDOC_NO",
+        CDOC_DATE="CDOC_DATE",
+        IFREQUENCY=0,
+        IAPPLIED=0,
+        IPERIOD=0,
+        CSTART_DATE=DateTime.Now.ToString("yyyyMMdd"),
+        CNEXT_DATE= DateTime.Now.AddDays(1).ToString("yyyyMMdd"),
+
+
+
+
+
+
+
+        };
         public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
         public VAR_CCURRENT_PERIOD_START_DATE_DTO _CCURRENT_PERIOD_START_DATE { get; set; } = new VAR_CCURRENT_PERIOD_START_DATE_DTO();
         public VAR_CSOFT_PERIOD_START_DATE_DTO _CSOFT_PERIOD_START_DATE { get; set; } = new VAR_CSOFT_PERIOD_START_DATE_DTO();
@@ -46,7 +65,6 @@ namespace GLM00200Model
             new PeriodDTO { CPERIOD_MM_CODE = "11", CPERIOD_MM_TEXT = "11" },
             new PeriodDTO { CPERIOD_MM_CODE = "12", CPERIOD_MM_TEXT = "12" },
         };
-
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public string _CREC_ID { get; set; } = "";
 
@@ -82,6 +100,7 @@ namespace GLM00200Model
         }
         #endregion
 
+        #region Init
         public async Task ShowAllJournals()
         {
             R_Exception loEx = new R_Exception();
@@ -266,6 +285,6 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-
+        #endregion 
     }
 }

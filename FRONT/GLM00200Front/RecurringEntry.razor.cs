@@ -31,8 +31,6 @@ namespace GLM00200Front
         public DateTime DNEXT_DATE = DateTime.Now;
 
         #region Form Enable/Disable
-        public bool ENABLE_CUSER_ID = true;
-        public bool ENABLE_CJRN_ID = true;
         public bool ENABLE_CACTION = true;
         public bool ENABLE_CCOMPANY_ID = true;
         public bool ENABLE_CDEPT_CODE = true;
@@ -68,6 +66,7 @@ namespace GLM00200Front
             try
             {
                 await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
+                await _journalVM.GetCurrenciesAsync();
             }
             catch (Exception ex)
             {
@@ -77,8 +76,51 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
         }
 
+        #region AddJournal
+        private async Task BeforeAddJournal(R_BeforeAddEventArgs eventArgs)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+               
+            }
+            catch (Exception ex)
+            {
+                loEx.ThrowExceptionIfErrors();
+            }
+        }
+        private async Task JournalForm_Validation(R_ValidationEventArgs eventArgs)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
 
-        #region FORM CONTROL
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            if (loEx.HasError)
+                eventArgs.Cancel = true;
+            loEx.ThrowExceptionIfErrors();
+        }
+        private async Task JournalForm_ServiceSave(R_ServiceSaveEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                await _journalVM.SaveJournal((JournalDTO)eventArgs.Data, (eCRUDMode)eventArgs.ConductorMode);
+                eventArgs.Result = _journalVM.Journal;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        #endregion
+
+        #region Form Control
         private void DSTART_DATE_ONCHANGED()
         {
             var loEx = new R_Exception();
@@ -119,7 +161,6 @@ namespace GLM00200Front
             }
             R_DisplayException(loEx);
         }
-
         private void NLBASE_RATE_VALUE()
         {
             var loEx = new R_Exception();
@@ -137,8 +178,6 @@ namespace GLM00200Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-
-
         #endregion
 
         #region JournalDetailGrid
@@ -198,8 +237,8 @@ namespace GLM00200Front
             try
             {
                 var loTempResult = R_FrontUtility.ConvertObjectToObject<GSL00700DTO>(eventArgs.Result);
-                _journalVM._SearchParam.CDEPT_CODE = loTempResult.CDEPT_CODE;
-                _journalVM._SearchParam.CDEPT_NAME = loTempResult.CDEPT_NAME;
+                _journalVM.Journal.CDEPT_CODE = loTempResult.CDEPT_CODE;
+                _journalVM.Journal.CDEPT_NAME = loTempResult.CDEPT_NAME;
             }
             catch (Exception ex)
             {
@@ -207,51 +246,6 @@ namespace GLM00200Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-        #endregion
-
-        #region AddJournal
-        private async Task BeforeAddJournal(R_BeforeAddEventArgs eventArgs)
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                loEx.ThrowExceptionIfErrors();
-            }
-        }
-        private async Task JournalForm_Validation(R_ValidationEventArgs eventArgs)
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            if (loEx.HasError)
-                eventArgs.Cancel = true;
-            loEx.ThrowExceptionIfErrors();
-        }
-        private async Task JournalForm_ServiceSave(R_ServiceSaveEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                await _journalVM.SaveJournal((JournalDTO)eventArgs.Data, (eCRUDMode)eventArgs.ConductorMode);
-                eventArgs.Result = _journalVM.Journal;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-
         #endregion
     }
 }

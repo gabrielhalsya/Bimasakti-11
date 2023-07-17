@@ -9,24 +9,23 @@
             <R_Label>Department</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.CDEPT_CODE" R_EnableAdd></R_TextBox>
+            <R_TextBox @bind-value="@_journalVM.Journal.CDEPT_CODE" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" MaxLength="5"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout>
-            <R_Lookup R_Before_Open_Lookup="Dept_Before_Open_Lookup" R_After_Open_Lookup="Dept_After_Open_Lookup">...</R_Lookup>
+            <R_Lookup R_Before_Open_Lookup="@Dept_Before_Open_Lookup" R_After_Open_Lookup="@Dept_After_Open_Lookup">...</R_Lookup>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
+            <R_TextBox @bind-value="_journalVM.Journal.CDEPT_NAME" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" MaxLength="5"></R_TextBox>
         </R_ItemLayout>
-        <R_ItemLayout xs="1">
-            <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_NAME" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" MaxLength="5"></R_TextBox>
-        </R_ItemLayout>
+        
         <R_ItemLayout xs="1">
             <R_Label>Currency*</R_Label>
         </R_ItemLayout>
-        <R_ItemLayout xs="1">
+        <R_ItemLayout xs="2">
             <R_ComboBox @bind-Value="@_journalVM.Journal.CCURRENCY_CODE"
                         Data="_journalVM._CURRENCY_LIST"
                         ValueField="@nameof(VAR_CURRENCY.CCURRENCY_CODE)"
-                        TextField="@nameof(VAR_CURRENCY.CCURRENCY_NAME)"></R_ComboBox>
+                        TextField="@nameof(VAR_CURRENCY.CCURRENCY_NAME)" OnChanged="@NLBASE_RATE_VALUE"></R_ComboBox>
         </R_ItemLayout>
         <R_ItemLayout xs="2">
             <R_CheckBox bind-value="@_journalVM.Journal.LFIX_RATE" Enabled="ENABLE_LFIX_RATE" OnChanged="@LFIX_RATE_ONCHANGED"></R_CheckBox>
@@ -245,12 +244,13 @@
             <R_Button>Close</R_Button>
         </R_ItemLayout>
     </R_StackLayout>
+    <R_Conductor @ref="_conJournalNavigator"
+                 R_ViewModel="_journalVM"
+                 R_BeforeAdd="BeforeAddJournal"
+                 R_ServiceSave="JournalForm_ServiceSave" R_Validation="JournalForm_Validation">
+    </R_Conductor>
 </R_GroupBox>
-<R_Conductor @ref="_conJournalNavigator"
-             R_ViewModel="_journalVM"
-             R_BeforeAdd="BeforeAddJournal"
-             R_ServiceSave="JournalForm_ServiceSave" R_Validation="JournalForm_Validation">
-</R_Conductor>
+
 
 <R_GroupBox Title="Journal Detail">
     <R_Grid Class="mt-3" @ref="@_gridJournalDet"
