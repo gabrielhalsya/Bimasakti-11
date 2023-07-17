@@ -21,25 +21,29 @@ namespace GLM00200Model
         public ObservableCollection<JournalGridDTO> JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public GSL00700DTO Dept { get; set; } = new GSL00700DTO();
-        public JournalDTO Journal { get; set; } = new JournalDTO() {
-        CDEPT_CODE= "CDEPT_CODE",
-        CDEPT_NAME="CDEPT_NAME",
-        CREF_NO= "CREF_NO",
-        CREF_DATE= "CREF_DATE",
-        CDOC_NO="CDOC_NO",
-        CDOC_DATE="CDOC_DATE",
-        IFREQUENCY=0,
-        IAPPLIED=0,
-        IPERIOD=0,
-        CSTART_DATE=DateTime.Now.ToString("yyyyMMdd"),
-        CNEXT_DATE= DateTime.Now.AddDays(1).ToString("yyyyMMdd"),
-
-
-
-
-
-
-
+        public JournalDTO Journal { get; set; } = new JournalDTO()
+        {
+            CDEPT_CODE = "CDEPT_CODE",
+            CDEPT_NAME = "CDEPT_NAME",
+            CREF_NO = "CREF_NO",
+            CREF_DATE = "CREF_DATE",
+            CDOC_NO = "CDOC_NO",
+            CDOC_DATE = "CDOC_DATE",
+            IFREQUENCY = 0,
+            IAPPLIED = 0,
+            IPERIOD = 0,
+            CSTART_DATE = DateTime.Now.ToString("yyyyMMdd"),
+            CNEXT_DATE = DateTime.Now.AddDays(1).ToString("yyyyMMdd"),
+            CLAST_DATE = "CLAST_DATE",
+            CTRANS_DESC = "CTRANS_DESC",
+            NLBASE_RATE = 0,
+            CCURRENCY_CODE = "CCURRENCY_CODE",
+            NLCURRENCY_RATE = 0,
+            NBBASE_RATE = 0,
+            NBCURRENCY_RATE = 0,
+            NPRELIST_AMOUNT = 0,
+            NNTRANS_AMOUNT_D=0,
+            NNTRANS_AMOUNT_C=0,
         };
         public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
         public VAR_CCURRENT_PERIOD_START_DATE_DTO _CCURRENT_PERIOD_START_DATE { get; set; } = new VAR_CCURRENT_PERIOD_START_DATE_DTO();

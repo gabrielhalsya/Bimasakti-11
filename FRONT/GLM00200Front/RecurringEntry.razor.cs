@@ -82,7 +82,7 @@ namespace GLM00200Front
             R_Exception loEx = new R_Exception();
             try
             {
-               
+
             }
             catch (Exception ex)
             {
@@ -169,8 +169,24 @@ namespace GLM00200Front
                 if (_journalVM.Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM.Journal.LFIX_RATE == true)
                 {
                     ENABLE_NLBASE_RATE = true;
+                    ENABLE_NLCURRENCY_RATE = true;
                 }
-                else { ENABLE_NLBASE_RATE = false; }
+                else
+                {
+                    ENABLE_NLBASE_RATE = false;
+                    ENABLE_NLCURRENCY_RATE = false;
+                }
+                if (_journalVM.Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM.Journal.LFIX_RATE == true)
+                {
+                    ENABLE_NBBASE_RATE = true;
+                    ENABLE_NBCURRENCY_RATE = true;
+                }
+                else
+                {
+                    ENABLE_NBBASE_RATE = false;
+                    ENABLE_NBCURRENCY_RATE = false;
+                }
+
             }
             catch (Exception ex)
             {

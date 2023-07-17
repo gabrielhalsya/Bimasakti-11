@@ -17,7 +17,7 @@
         <R_ItemLayout xs="1">
             <R_TextBox @bind-value="_journalVM.Journal.CDEPT_NAME" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" MaxLength="5"></R_TextBox>
         </R_ItemLayout>
-        
+
         <R_ItemLayout xs="1">
             <R_Label>Currency*</R_Label>
         </R_ItemLayout>
@@ -92,16 +92,30 @@
             <R_Label>Local Currency</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.NLBASE_RATE" Enabled="ENABLE_NLBASE_RATE"></R_TextBox>
+            <R_TextBox bind-value="@_journalVM.Journal.NLBASE_RATE"
+                       Enabled="ENABLE_NLBASE_RATE"
+                       R_ConductorSource="_conJournalNavigator"
+                       R_EnableAdd="true"
+                       R_EnableEdit="true"
+                       Decimals="2"
+                       Min="0"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.CCURRENCY_CODE" Enabled="false"></R_TextBox>
+            <R_TextBox bind-value="@_journalVM.Journal.CCURRENCY_CODE"
+                       Enabled="false"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.NLCURRENCY_RATE" Enabled="ENABLE_NLCURRENCY_RATE"></R_TextBox>
+            <R_TextBox bind-value="@_journalVM.Journal.NLCURRENCY_RATE"
+                       Enabled="ENABLE_NLCURRENCY_RATE"
+                       R_ConductorSource="_conJournalNavigator"
+                       R_EnableAdd="true"
+                       R_EnableEdit="true"
+                       Decimals="2"
+                       Min="0"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE" Enabled="false"></R_TextBox>
+            <R_TextBox bind-value="@_journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE"
+                       Enabled="false"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1" Class="ms-2">
             <R_Label>Total Credit</R_Label>
@@ -128,6 +142,7 @@
         </R_ItemLayout>
         <R_ItemLayout xs="3">
             <R_NumericTextBox @bind-Value="_journalVM.Journal.NBBASE_RATE"
+                              Enabled="ENABLE_NBBASE_RATE"
                               R_ConductorSource="_conJournalNavigator"
                               R_EnableAdd="true"
                               R_EnableEdit="true"
@@ -139,6 +154,7 @@
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-value="@_journalVM.Journal.NBCURRENCY_RATE"
+                              Enabled="ENABLE_NBCURRENCY_RATE"
                               R_ConductorSource="_conJournalNavigator"
                               R_EnableAdd="true"
                               R_EnableEdit="true"
@@ -166,7 +182,7 @@
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_DateTimePicker onchange="@DSTART_DATE_ONCHANGED" @bind-Value="DSTART_DATE"
-                              R_ConductorSource="_conJournalNavigator" R_EnableAdd/>
+                              R_ConductorSource="_conJournalNavigator" R_EnableAdd />
         </R_ItemLayout>
         <R_ItemLayout Class="ms-2">
             <R_Label>Next Date</R_Label>
