@@ -8,6 +8,7 @@ using GLM00200Common.DTO_s;
 using Microsoft.Extensions.Logging.EventSource;
 using Castle.Core.Resource;
 using System.Transactions;
+using R_APICommonDTO;
 
 namespace GLM00200Back
 {
@@ -235,6 +236,38 @@ namespace GLM00200Back
             loEx.ThrowExceptionIfErrors();
             return loRtn;
 
+        }
+
+        public void RefreshCurrencyRate(REFRESH_CURRENCY_RATE_PARAM poParam)
+        {
+            R_Exception loEx = new R_Exception();
+            List<JournalDetailGridDTO> loRtn = null;
+            R_Db loDB;
+            DbConnection loConn;
+            DbCommand loCmd;
+            string lcQuery;
+            try
+            {
+                loDB = new R_Db();
+                loConn = loDB.GetConnection();
+                loCmd = loDB.GetCommand();
+
+                lcQuery = "RSP_GL_GET_RECURRING_DETAIL_LIST";
+                loCmd.CommandType = CommandType.StoredProcedure;
+                loCmd.CommandText = lcQuery;
+
+                loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 50, poParam.CREC_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 50, poParam.CLANGUAGE_ID);
+
+                var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
+                loRtn = R_Utility.R_ConvertTo<JournalDetailGridDTO>(loRtnTemp).ToList();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+            return loRtn;
         }
 
 

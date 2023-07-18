@@ -128,6 +128,7 @@ namespace GLM00200Front
             {
                 DNEXT_DATE = DSTART_DATE.AddDays(1);
                 _journalVM.Journal.CNEXT_DATE = DNEXT_DATE.ToString("yyMMdd");
+                _journalVM.
             }
             catch (Exception ex)
             {

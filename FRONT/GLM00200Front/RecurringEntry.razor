@@ -1,7 +1,6 @@
 ﻿@using GLM00200Common.DTO_s;
 @using GLM00200Common;
 @inherits R_Page
-@attribute [R_Page(Title = "RecurringEntry")]
 
 <R_GroupBox Title="Journal Description">
     <R_StackLayout Row>
@@ -12,7 +11,7 @@
             <R_TextBox @bind-value="@_journalVM.Journal.CDEPT_CODE" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" R_ConductorSource="_conJournalNavigator"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout>
-            <R_Lookup R_Before_Open_Lookup="@Dept_Before_Open_Lookup" R_After_Open_Lookup="@Dept_After_Open_Lookup">...</R_Lookup>
+            <R_Lookup R_Before_Open_Lookup="@Dept_Before_Open_Lookup" R_After_Open_Lookup="@Dept_After_Open_Lookup" R_ConductorSource="_conJournalNavigator">...</R_Lookup>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_TextBox @bind-value="_journalVM.Journal.CDEPT_NAME" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" R_ConductorSource="_conJournalNavigator"></R_TextBox>
@@ -24,10 +23,10 @@
             <R_ComboBox @bind-Value="@_journalVM.Journal.CCURRENCY_CODE"
                         Data="_journalVM._CURRENCY_LIST"
                         ValueField="@nameof(VAR_CURRENCY.CCURRENCY_CODE)"
-                        TextField="@nameof(VAR_CURRENCY.CCURRENCY_NAME)" OnChanged="@NLBASE_RATE_VALUE"></R_ComboBox>
+                        TextField="@nameof(VAR_CURRENCY.CCURRENCY_NAME)" OnChanged="@NLBASE_RATE_VALUE" R_ConductorSource="_conJournalNavigator"></R_ComboBox>
         </R_ItemLayout>
         <R_ItemLayout xs="2">
-            <R_CheckBox bind-value="@_journalVM.Journal.LFIX_RATE" Enabled="ENABLE_LFIX_RATE" OnChanged="@LFIX_RATE_ONCHANGED"></R_CheckBox>
+            <R_CheckBox bind-value="@_journalVM.Journal.LFIX_RATE" Enabled="ENABLE_LFIX_RATE" OnChanged="@LFIX_RATE_ONCHANGED" R_ConductorSource="_conJournalNavigator"></R_CheckBox>
             <R_Label>Fixed Exchange Rate</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
@@ -84,7 +83,7 @@
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_DateTimePicker @bind-Value="DDOC_DATE"
-                              R_ConductorSource="_conJournalNavigator" />
+                              R_ConductorSource="_conJournalNavigator" R_EnableAdd />
         </R_ItemLayout>
         <R_ItemLayout xs="1" Class="ms-2">
             <R_Label>Local Currency</R_Label>
@@ -131,7 +130,9 @@
                               Min="2"
                               Max="99"
                               Enabled="ENABLE_IFREQUENCY"
-                              R_ConductorSource="_conJournalNavigator"> </R_NumericTextBox>
+                              R_ConductorSource="_conJournalNavigator"
+                                    R_EnableAdd
+                                    R_EnableEdit> </R_NumericTextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Applied.</R_Label>
@@ -168,7 +169,10 @@
             <R_Label>Interval*</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_NumericTextBox bind-value="@_journalVM.Journal.IPERIOD" Min="2" Max="99" Enabled="ENABLE_IPERIOD"></R_NumericTextBox>
+            <R_NumericTextBox bind-value="@_journalVM.Journal.IPERIOD"
+                              Min="2"
+                              Max="99"
+                              Enabled="ENABLE_IPERIOD" R_ConductorSource="_conJournalNavigator" R_EnableAdd></R_NumericTextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1" Class="ms-0">
             <R_Label>Month(s)</R_Label>
@@ -179,7 +183,8 @@
             <R_Label>Start Date</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_DateTimePicker onchange="@DSTART_DATE_ONCHANGED" @bind-Value="DSTART_DATE"
+            <R_DateTimePicker @bind-Value="DSTART_DATE"
+                              OnChanged="@DSTART_DATE_ONCHANGED"
                               R_ConductorSource="_conJournalNavigator" R_EnableAdd />
         </R_ItemLayout>
         <R_ItemLayout Class="ms-2">
@@ -198,7 +203,7 @@
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Updated By</R_Label>
-        </R_ItemLayout> 
+        </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_TextBox bind-value="@_journalVM.Journal.CUPDATE_BY" Enabled="false"></R_TextBox>
         </R_ItemLayout>
@@ -212,8 +217,11 @@
         <R_ItemLayout xs="1">
             <R_Label>Description*</R_Label>
         </R_ItemLayout>
-        <R_ItemLayout xs="7">
-            <R_TextBox bind-value="@_journalVM.Journal.CTRANS_DESC" MaxLength="200" R_ConductorSource="_conJournalNavigator" R_EnableAdd></R_TextBox>
+        <R_ItemLayout xs="6">
+            <R_TextBox bind-value="@_journalVM.Journal.CTRANS_DESC"
+                       MaxLength="200"
+                       R_ConductorSource="_conJournalNavigator"
+                       R_EnableAdd></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Created By</R_Label>
@@ -265,7 +273,8 @@
     <R_Conductor @ref="_conJournalNavigator"
                  R_ViewModel="_journalVM"
                  R_BeforeAdd="BeforeAddJournal"
-                 R_ServiceSave="JournalForm_ServiceSave" R_Validation="JournalForm_Validation">
+                 R_ServiceSave="JournalForm_ServiceSave"
+                 R_Validation="JournalForm_Validation">
     </R_Conductor>
 </R_GroupBox>
 
