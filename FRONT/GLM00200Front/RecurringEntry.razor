@@ -9,15 +9,14 @@
             <R_Label>Department</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-value="@_journalVM.Journal.CDEPT_CODE" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" MaxLength="5"></R_TextBox>
+            <R_TextBox @bind-value="@_journalVM.Journal.CDEPT_CODE" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" R_ConductorSource="_conJournalNavigator"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout>
             <R_Lookup R_Before_Open_Lookup="@Dept_Before_Open_Lookup" R_After_Open_Lookup="@Dept_After_Open_Lookup">...</R_Lookup>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-value="_journalVM.Journal.CDEPT_NAME" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" MaxLength="5"></R_TextBox>
+            <R_TextBox @bind-value="_journalVM.Journal.CDEPT_NAME" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper" R_ConductorSource="_conJournalNavigator"></R_TextBox>
         </R_ItemLayout>
-
         <R_ItemLayout xs="1">
             <R_Label>Currency*</R_Label>
         </R_ItemLayout>
@@ -37,7 +36,7 @@
             <R_Label>Prelist</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.NPRELIST_AMOUNT" Enabled="ENABLE_NPRELIST_AMOUNT"></R_TextBox>
+            <R_NumericTextBox bind-value="@_journalVM.Journal.NPRELIST_AMOUNT" Min="0" R_ConductorSource="_conJournalNavigator" R_EnableAdd R_EnableEdit></R_NumericTextBox>
         </R_ItemLayout>
     </R_StackLayout>
     <R_StackLayout Row>
@@ -45,7 +44,7 @@
             <R_Label>Reference No. *</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.CREF_NO" R_EnableAdd" MaxLength="30"></R_TextBox>
+            <R_TextBox bind-value="@_journalVM.Journal.CREF_NO" R_ConductorSource="_conJournalNavigator" R_EnableAdd MaxLength="30"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Ref Date. *</R_Label>
@@ -55,7 +54,6 @@
                               R_ConductorSource="_conJournalNavigator" />
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_Label></R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Base Rate</R_Label>
@@ -71,7 +69,7 @@
             <R_Label>Total Debit</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.NNTRANS_AMOUNT_D" Enabled="false"></R_TextBox>
+            <R_NumericTextBox bind-value="@_journalVM.Journal.NNTRANS_AMOUNT_D" Min="0" Enabled="false"></R_NumericTextBox>
         </R_ItemLayout>
     </R_StackLayout>
     <R_StackLayout Row>
@@ -79,7 +77,7 @@
             <R_Label>Document No.</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.CDOC_NO" R_EnableAdd></R_TextBox>
+            <R_TextBox bind-value="@_journalVM.Journal.CDOC_NO" R_ConductorSource="_conJournalNavigator" R_EnableAdd></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Doc Date.</R_Label>
@@ -92,26 +90,26 @@
             <R_Label>Local Currency</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.NLBASE_RATE"
-                       Enabled="ENABLE_NLBASE_RATE"
-                       R_ConductorSource="_conJournalNavigator"
-                       R_EnableAdd="true"
-                       R_EnableEdit="true"
-                       Decimals="2"
-                       Min="0"></R_TextBox>
+            <R_NumericTextBox bind-value="@_journalVM.Journal.NLBASE_RATE"
+                              Enabled="ENABLE_NLBASE_RATE"
+                              R_ConductorSource="_conJournalNavigator"
+                              R_EnableAdd="true"
+                              R_EnableEdit="true"
+                              Decimals="2"
+                              Min="0"></R_NumericTextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_TextBox bind-value="@_journalVM.Journal.CCURRENCY_CODE"
                        Enabled="false"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.NLCURRENCY_RATE"
-                       Enabled="ENABLE_NLCURRENCY_RATE"
-                       R_ConductorSource="_conJournalNavigator"
-                       R_EnableAdd="true"
-                       R_EnableEdit="true"
-                       Decimals="2"
-                       Min="0"></R_TextBox>
+            <R_NumericTextBox bind-value="@_journalVM.Journal.NLCURRENCY_RATE"
+                              Enabled="ENABLE_NLCURRENCY_RATE"
+                              R_ConductorSource="_conJournalNavigator"
+                              R_EnableAdd="true"
+                              R_EnableEdit="true"
+                              Decimals="2"
+                              Min="0"></R_NumericTextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_TextBox bind-value="@_journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE"
@@ -121,7 +119,7 @@
             <R_Label>Total Credit</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox bind-value="@_journalVM.Journal.NNTRANS_AMOUNT_C" Enabled="false"></R_TextBox>
+            <R_NumericTextBox bind-value="@_journalVM.Journal.NNTRANS_AMOUNT_C" Min="0" Enabled="false"></R_NumericTextBox>
         </R_ItemLayout>
     </R_StackLayout>
     <R_StackLayout Row>
@@ -129,7 +127,11 @@
             <R_Label>Frequency*</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_NumericTextBox bind-value="@_journalVM.Journal.IFREQUENCY" Min="2" Max="99" Enabled="ENABLE_IFREQUENCY"></R_NumericTextBox>
+            <R_NumericTextBox @bind-value="@_journalVM.Journal.IFREQUENCY"
+                              Min="2"
+                              Max="99"
+                              Enabled="ENABLE_IFREQUENCY"
+                              R_ConductorSource="_conJournalNavigator"> </R_NumericTextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Applied.</R_Label>
@@ -140,12 +142,10 @@
         <R_ItemLayout xs="1" Class="ms-2">
             <R_Label>Base Currency</R_Label>
         </R_ItemLayout>
-        <R_ItemLayout xs="3">
+        <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-Value="_journalVM.Journal.NBBASE_RATE"
                               Enabled="ENABLE_NBBASE_RATE"
                               R_ConductorSource="_conJournalNavigator"
-                              R_EnableAdd="true"
-                              R_EnableEdit="true"
                               Decimals="2"
                               Min="0" />
         </R_ItemLayout>
@@ -153,16 +153,14 @@
             <R_TextBox @bind-value="@_journalVM.Journal.CCURRENCY_CODE" Enabled="false"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_NumericTextBox @bind-value="@_journalVM.Journal.NBCURRENCY_RATE"
+            <R_NumericTextBox @bind-Value="_journalVM.Journal.NBCURRENCY_RATE"
                               Enabled="ENABLE_NBCURRENCY_RATE"
                               R_ConductorSource="_conJournalNavigator"
-                              R_EnableAdd="true"
-                              R_EnableEdit="true"
                               Decimals="2"
                               Min="0" />
         </R_ItemLayout>
-        <R_ItemLayout bind-value="@_journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE" xs="1">
-            <R_TextBox></R_TextBox>
+        <R_ItemLayout>
+            <R_TextBox @bind-value="@_journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE" Enabled="false"></R_TextBox>
         </R_ItemLayout>
     </R_StackLayout>
     <R_StackLayout Row>
@@ -200,12 +198,14 @@
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Updated By</R_Label>
-        </R_ItemLayout>
+        </R_ItemLayout> 
         <R_ItemLayout xs="1">
             <R_TextBox bind-value="@_journalVM.Journal.CUPDATE_BY" Enabled="false"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="2">
-            <R_TextBox bind-value="@_journalVM.Journal.DUPDATE_DATE" Enabled="false"></R_TextBox>
+            <R_DatePicker @bind-Value="_journalVM.Journal.DUPDATE_DATE"
+                          R_ConductorSource="_conJournalNavigator"
+                          Enabled="false" />
         </R_ItemLayout>
     </R_StackLayout>
     <R_StackLayout Row>
@@ -213,7 +213,7 @@
             <R_Label>Description*</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="7">
-            <R_TextBox bind-value="@_journalVM.Journal.CTRANS_DESC" MaxLength="200" R_EnableAdd></R_TextBox>
+            <R_TextBox bind-value="@_journalVM.Journal.CTRANS_DESC" MaxLength="200" R_ConductorSource="_conJournalNavigator" R_EnableAdd></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Created By</R_Label>
@@ -222,7 +222,9 @@
             <R_TextBox bind-value="@_journalVM.Journal.CCREATE_BY" Enabled="false"></R_TextBox>
         </R_ItemLayout>
         <R_ItemLayout xs="2">
-            <R_TextBox bind-value="@_journalVM.Journal.DCREATE_DATE" Enabled="ENABLE_DCREATE_DATE"></R_TextBox>
+            <R_DatePicker @bind-Value="_journalVM.Journal.DCREATE_DATE"
+                          R_ConductorSource="_conJournalNavigator"
+                          Enabled="false" />
         </R_ItemLayout>
     </R_StackLayout>
     <R_StackLayout Row>

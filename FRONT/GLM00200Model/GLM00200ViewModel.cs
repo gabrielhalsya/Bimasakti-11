@@ -31,6 +31,7 @@ namespace GLM00200Model
             CDOC_DATE = "CDOC_DATE",
             IFREQUENCY = 0,
             IAPPLIED = 0,
+            LFIX_RATE=true,
             IPERIOD = 0,
             CSTART_DATE = DateTime.Now.ToString("yyyyMMdd"),
             CNEXT_DATE = DateTime.Now.AddDays(1).ToString("yyyyMMdd"),
