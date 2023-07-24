@@ -22,7 +22,7 @@ namespace GLM00200Front
     {
         private GLM00200ViewModel _journalVM = new GLM00200ViewModel();
         private R_Grid<JournalDetailGridDTO> _gridJournalDet;
-        private R_Conductor _conJournalDet;
+        private R_ConductorGrid _conJournalDet;
         private R_Conductor _conJournalNavigator;
         public string Title { get; set; }
         public DateTime DREF_DATE = DateTime.Now;
@@ -65,8 +65,12 @@ namespace GLM00200Front
             var loEx = new R_Exception();
             try
             {
+                _journalVM._CREC_ID = (string)poParameter;
                 await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
                 await _journalVM.GetCurrenciesAsync();
+                await _journalVM.GetJournal(new JournalDTO() { CJRN_ID=_journalVM._CREC_ID});
+                _gridJournalDet.R_RefreshGrid(null);
+                _gridJournalDet.AutoFitAllColumnsAsync();
             }
             catch (Exception ex)
             {
@@ -104,6 +108,20 @@ namespace GLM00200Front
                 eventArgs.Cancel = true;
             loEx.ThrowExceptionIfErrors();
         }
+        private async Task JournalForm_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                eventArgs.Result = _journalVM.Journal;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+
+        }
         private async Task JournalForm_ServiceSave(R_ServiceSaveEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -128,7 +146,7 @@ namespace GLM00200Front
             {
                 DNEXT_DATE = DSTART_DATE.AddDays(1);
                 _journalVM.Journal.CNEXT_DATE = DNEXT_DATE.ToString("yyMMdd");
-                _journalVM.
+                //_journalVM.
             }
             catch (Exception ex)
             {

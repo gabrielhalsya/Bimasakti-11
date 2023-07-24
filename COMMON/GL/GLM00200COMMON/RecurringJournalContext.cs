@@ -14,5 +14,8 @@ namespace GLM00200Common
         public const string OSEARCH_PARAM = "OSEARCH_PARAM";
         public const string CREC_ID = "CREC_ID";
         public const string REFRESH_CURRENCY_RATE_PARAM = "REFRESH_CURRENCY_RATE_PARAM";
+        public const string CCURRENCY_CODE = "CCURRENCY_CODE";
+        public const string CSTART_DATE = "CSTART_DATE";
+        public const string CRATETYPE_CODE = "CRATETYPE_CODE";
     }
 }

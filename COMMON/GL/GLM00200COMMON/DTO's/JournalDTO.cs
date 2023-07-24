@@ -8,6 +8,7 @@ namespace GLM00200Common
     {
         public string CUSER_ID { get; set; }
         public string CJRN_ID { get; set; }
+        public string CREC_ID { get; set; }
         public string CACTION { get; set; }
         public string CCOMPANY_ID { get; set; }
         public string CDEPT_CODE { get; set; }

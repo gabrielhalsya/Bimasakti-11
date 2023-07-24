@@ -9,6 +9,7 @@ using R_CommonFrontBackAPI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,31 +22,7 @@ namespace GLM00200Model
         public ObservableCollection<JournalGridDTO> JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public GSL00700DTO Dept { get; set; } = new GSL00700DTO();
-        public JournalDTO Journal { get; set; } = new JournalDTO()
-        {
-            CDEPT_CODE = "CDEPT_CODE",
-            CDEPT_NAME = "CDEPT_NAME",
-            CREF_NO = "CREF_NO",
-            CREF_DATE = "CREF_DATE",
-            CDOC_NO = "CDOC_NO",
-            CDOC_DATE = "CDOC_DATE",
-            IFREQUENCY = 0,
-            IAPPLIED = 0,
-            LFIX_RATE=true,
-            IPERIOD = 0,
-            CSTART_DATE = DateTime.Now.ToString("yyyyMMdd"),
-            CNEXT_DATE = DateTime.Now.AddDays(1).ToString("yyyyMMdd"),
-            CLAST_DATE = "CLAST_DATE",
-            CTRANS_DESC = "CTRANS_DESC",
-            NLBASE_RATE = 0,
-            CCURRENCY_CODE = "CCURRENCY_CODE",
-            NLCURRENCY_RATE = 0,
-            NBBASE_RATE = 0,
-            NBCURRENCY_RATE = 0,
-            NPRELIST_AMOUNT = 0,
-            NNTRANS_AMOUNT_D=0,
-            NNTRANS_AMOUNT_C=0,
-        };
+        public JournalDTO Journal { get; set; } = new JournalDTO();
         public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
         public VAR_CCURRENT_PERIOD_START_DATE_DTO _CCURRENT_PERIOD_START_DATE { get; set; } = new VAR_CCURRENT_PERIOD_START_DATE_DTO();
         public VAR_CSOFT_PERIOD_START_DATE_DTO _CSOFT_PERIOD_START_DATE { get; set; } = new VAR_CSOFT_PERIOD_START_DATE_DTO();
@@ -71,9 +48,43 @@ namespace GLM00200Model
             new PeriodDTO { CPERIOD_MM_CODE = "12", CPERIOD_MM_TEXT = "12" },
         };
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
+        public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
+
         public string _CREC_ID { get; set; } = "";
 
         #region CRUD Journal
+        public async Task ShowAllJournals()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                var loResult = new List<JournalGridDTO>();
+                _SearchParam.CSTATUS = "";
+                _SearchParam.CSEARCH_TEXT = "";
+                _SearchParam.CTRANS_CODE = "000030";
+                _SearchParam.LSHOW_ALL = true;
+                R_FrontContext.R_SetContext(RecurringJournalContext.OSEARCH_PARAM, _SearchParam);
+                loResult = await _model.GetAllRecurringListAsync();
+                JournalList = new ObservableCollection<JournalGridDTO>(loResult);
+                foreach (var loJournal in JournalList)
+                {
+                    if (loJournal.CSTART_DATE != "" || loJournal.CSTART_DATE != null)
+                    {
+                        loJournal.DSTART_DATE = DateTime.ParseExact(loJournal.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture);
+                    }
+                    if (loJournal.CNEXT_DATE != "" || loJournal.CNEXT_DATE != null)
+                    {
+
+                        loJournal.DNEXT_DATE = DateTime.ParseExact(loJournal.CNEXT_DATE, "yyyyMMdd", CultureInfo.InvariantCulture);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
         public async Task GetJournal(JournalDTO loParam)
         {
             R_Exception loEx = new R_Exception();
@@ -106,26 +117,6 @@ namespace GLM00200Model
         #endregion
 
         #region Init
-        public async Task ShowAllJournals()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var loResult = new List<JournalGridDTO>();
-                _SearchParam.CSTATUS = "";
-                _SearchParam.CSEARCH_TEXT = "";
-                _SearchParam.CTRANS_CODE = "000030";
-                _SearchParam.LSHOW_ALL = true;
-                R_FrontContext.R_SetContext(RecurringJournalContext.OSEARCH_PARAM, _SearchParam);
-                loResult = await _model.GetAllRecurringListAsync();
-                JournalList = new ObservableCollection<JournalGridDTO>(loResult);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
         public async Task GetJournalDetailList()
         {
             R_Exception loEx = new R_Exception();
@@ -290,6 +281,28 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-        #endregion 
+        #endregion
+
+        #region RefreshCurrencyRate
+        public async Task RefreshCurrencyRate()
+        {
+            R_Exception loEx = new R_Exception();
+            REFRESH_CURRENCY_RATE_RESULT loResult = null;
+            try
+            {
+                var lcSTART_DATE = _DSTART_DATE.ToString("yyyyMMdd");
+                R_FrontContext.R_SetContext(RecurringJournalContext.CCURRENCY_CODE, Journal.CCURRENCY_CODE);
+                R_FrontContext.R_SetContext(RecurringJournalContext.CRATETYPE_CODE, _GL_SYSTEM_PARAM.CRATETYPE_CODE);
+                R_FrontContext.R_SetContext(RecurringJournalContext.CSTART_DATE, lcSTART_DATE);
+                loResult = await _model.RefreshCurrencyRateAsync();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        #endregion
     }
 }

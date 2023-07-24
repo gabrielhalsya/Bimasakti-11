@@ -9,6 +9,9 @@ using Microsoft.Extensions.Logging.EventSource;
 using Castle.Core.Resource;
 using System.Transactions;
 using R_APICommonDTO;
+using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace GLM00200Back
 {
@@ -71,7 +74,7 @@ namespace GLM00200Back
             loEx.ThrowExceptionIfErrors();
         }
         protected override JournalDTO R_Display(JournalDTO poEntity)
-        {
+            {
             R_Exception loEx = new R_Exception();
             JournalDTO loRtn = null;
             R_Db loDB;
@@ -89,9 +92,9 @@ namespace GLM00200Back
                 loCmd.CommandText = lcQuery;
 
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poEntity.CCOMPANY_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CREC_ID", DbType.String, 50, poEntity.CJRN_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 50, poEntity.CLANGUAGE_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<JournalDTO>(loRtnTemp).FirstOrDefault();
@@ -237,11 +240,10 @@ namespace GLM00200Back
             return loRtn;
 
         }
-
-        public void RefreshCurrencyRate(REFRESH_CURRENCY_RATE_PARAM poParam)
+        public REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate(REFRESH_CURRENCY_RATE_PARAM poParam)
         {
             R_Exception loEx = new R_Exception();
-            List<JournalDetailGridDTO> loRtn = null;
+            REFRESH_CURRENCY_RATE_RESULT loRtn = null;
             R_Db loDB;
             DbConnection loConn;
             DbCommand loCmd;
@@ -256,16 +258,20 @@ namespace GLM00200Back
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
-                loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 50, poParam.CREC_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 50, poParam.CLANGUAGE_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.String, 50, poParam.CCURRENCY_CODE);
+                loDB.R_AddCommandParameter(loCmd, "@CRATETYPE_CODE", DbType.String, 50, poParam.CRATETYPE_CODE);
+                loDB.R_AddCommandParameter(loCmd, "@CSTART_DATE", DbType.String, 50, poParam.CSTART_DATE);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<JournalDetailGridDTO>(loRtnTemp).ToList();
+                loRtn = R_Utility.R_ConvertTo<REFRESH_CURRENCY_RATE_RESULT>(loRtnTemp).FirstOrDefault();
+
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
+
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace GLM00200Service
 {
@@ -88,7 +90,25 @@ namespace GLM00200Service
         [HttpPost]
         public R_ServiceGetRecordResultDTO<JournalDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<JournalDTO> poParameter)
         {
-            throw new NotImplementedException();
+            R_ServiceGetRecordResultDTO<JournalDTO> loRtn = null;
+            R_Exception loException = new R_Exception();
+            GLM00200Cls loCls;
+            try
+            {
+                loCls = new GLM00200Cls(); //create cls class instance
+                loRtn = new R_ServiceGetRecordResultDTO<JournalDTO>();
+                poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
+                poParameter.Entity.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
+                loRtn.data = loCls.R_GetRecord(poParameter.Entity);
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            return loRtn;
         }
 
         [HttpPost]
@@ -256,7 +276,7 @@ namespace GLM00200Service
             {
                 loCls = new GLM00200Cls(); //create cls class instance
                 loRtn = new VAR_GSM_TRANSACTION_CODE_DTO();
-                loRtn= loCls.GetGSM_TRANSACTION_CODE(
+                loRtn = loCls.GetGSM_TRANSACTION_CODE(
                     new INIT_VAR_DB_PARAM()
                     {
                         CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID
@@ -383,6 +403,35 @@ namespace GLM00200Service
             {
                 yield return loEntity;
             }
+        }
+
+        [HttpPost]
+        public REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate()
+        {
+            REFRESH_CURRENCY_RATE_RESULT loRtn = null;
+            R_Exception loException = new R_Exception();
+            GLM00200Cls loCls;
+            REFRESH_CURRENCY_RATE_PARAM poParam = null;
+            try
+            {
+                loCls = new GLM00200Cls(); //create cls class instance
+                loRtn = new REFRESH_CURRENCY_RATE_RESULT();
+                poParam = new REFRESH_CURRENCY_RATE_PARAM()
+                {
+                    CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
+                    CCURRENCY_CODE= R_Utility.R_GetContext<string>(RecurringJournalContext.CCURRENCY_CODE),
+                    CRATETYPE_CODE = R_Utility.R_GetContext<string>(RecurringJournalContext.CRATETYPE_CODE),
+                    CSTART_DATE= R_Utility.R_GetContext<string>(RecurringJournalContext.CSTART_DATE),
+                };
+                loRtn= loCls.RefreshCurrencyRate(poParam);
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            return loRtn;
         }
     }
 }

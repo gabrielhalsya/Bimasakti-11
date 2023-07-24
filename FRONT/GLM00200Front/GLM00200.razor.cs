@@ -49,6 +49,7 @@ namespace GLM00200Front
         private void Predef_RecurringEntry(R_InstantiateDockEventArgs eventArgs)
         {
             eventArgs.TargetPageType = typeof(RecurringEntry);
+            eventArgs.Parameter = _journalVM._CREC_ID;
         }
         private void AfterPredef_RecurringEntry(R_AfterOpenPredefinedDockEventArgs eventArgs)
         { }
@@ -71,11 +72,7 @@ namespace GLM00200Front
                 await _gridJournal.AutoFitAllColumnsAsync();
                 if (_journalVM.JournalList.Count == 0)
                 {
-                    R_MessageBox.Show("", "No data found!", R_eMessageBoxButtonType.OK);
-                }
-                else
-                {
-                    R_MessageBox.Show("", "GET LIST DETAIL DATA", R_eMessageBoxButtonType.OK);
+                    R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
                 }
             }
             catch (Exception ex)
@@ -94,11 +91,7 @@ namespace GLM00200Front
                 await _gridJournal.AutoFitAllColumnsAsync();
                 if (_journalVM.JournalList.Count == 0)
                 {
-                    R_MessageBox.Show("", "No data found!", R_eMessageBoxButtonType.OK);
-                }
-                else
-                {
-                    R_MessageBox.Show("", "GET LIST DETAIL DATA", R_eMessageBoxButtonType.OK);
+                    R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
                 }
             }
             catch (Exception ex)
@@ -148,7 +141,8 @@ namespace GLM00200Front
             {
                 var loData = (JournalGridDTO)eventArgs.Data;
                 _journalVM._CREC_ID = loData.CREC_ID;
-                _gridJournalDet.R_RefreshGrid(null);                
+                _gridJournalDet.R_RefreshGrid(null);  
+                _gridJournalDet.AutoFitAllColumnsAsync();
             }
             catch (Exception ex)
             {
@@ -172,25 +166,6 @@ namespace GLM00200Front
                 loEx.Add(ex);
             }
             R_DisplayException(loEx);
-        }
-        private async Task JournalDetGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                //var loParam = R_FrontUtility.ConvertObjectToObject<JournalDTO>(eventArgs.Data);
-                //await _journalVM.GetJournal(loParam);
-                //eventArgs.Result = _journalVM.Journal;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        private async Task JournalDetGrid_Display(R_DisplayEventArgs eventArgs)
-        {
-
         }
         #endregion
 

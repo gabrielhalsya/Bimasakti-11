@@ -12,13 +12,20 @@
         <R_Label>Department</R_Label>
     </R_ItemLayout>
     <R_ItemLayout xs="1">
-        <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_CODE" Enabled="false" CharacterCasing="R_eCharacterCasing.Upper"></R_TextBox>
+        <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_CODE"
+                   CharacterCasing="R_eCharacterCasing.Upper"></R_TextBox>
     </R_ItemLayout>
     <R_ItemLayout>
-        <R_Lookup R_Before_Open_Lookup="Dept_Before_Open_Lookup" R_After_Open_Lookup="Dept_After_Open_Lookup">...</R_Lookup>
+        <R_Lookup R_Before_Open_Lookup="Dept_Before_Open_Lookup"
+                  R_After_Open_Lookup="Dept_After_Open_Lookup">
+            ...
+        </R_Lookup>
     </R_ItemLayout>
     <R_ItemLayout>
-        <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_NAME " Enabled="false"></R_TextBox>
+        <R_TextBox 
+            @bind-value="_journalVM._SearchParam.CDEPT_NAME "
+            
+        ></R_TextBox>
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Label>Next Journal Period</R_Label>
@@ -53,7 +60,7 @@
         DataSource="@_journalVM.JournalList"
         Pageable
         R_ConductorGridSource="_conJournal"
-        R_GridType="R_eGridType.Original" R_ServiceGetListRecord="JournalGrid_ServiceGetListRecord" 
+        R_GridType="R_eGridType.Original" R_ServiceGetListRecord="JournalGrid_ServiceGetListRecord"
         AllowAddNewRow="false"
         AllowDeleteRow="false"
         AllowEditRow="false"
@@ -62,8 +69,8 @@
         <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CREF_NO)" HeaderText="Reference No."></R_GridTextColumn>
         <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.IFREQUENCY)" HeaderText="Freq."></R_GridNumericColumn>
         <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.IPERIOD)" HeaderText="Interval(Month)"></R_GridNumericColumn>
-        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.CSTART_DATE)" HeaderText="Start Date"></R_GridDatePickerColumn>
-        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.CNEXT_DATE)" HeaderText="Next Date"></R_GridDatePickerColumn>
+        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DSTART_DATE)" HeaderText="Start Date"></R_GridDatePickerColumn>
+        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DNEXT_DATE)" HeaderText="Next Date"></R_GridDatePickerColumn>
         <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CTRANS_DESC)" HeaderText="Description"></R_GridTextColumn>
         <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CCURRENCY_CODE)" HeaderText="Currency"></R_GridTextColumn>
         <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.NTRANS_AMOUNT)" HeaderText="Amount"></R_GridNumericColumn>

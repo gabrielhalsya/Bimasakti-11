@@ -306,6 +306,29 @@ namespace GLM00200Model
 
             return loResult;
         }
+        public async Task<REFRESH_CURRENCY_RATE_RESULT> RefreshCurrencyRateAsync()
+        {
+            var loEx = new R_Exception();
+            REFRESH_CURRENCY_RATE_RESULT loResult = null;
+            try
+            {
+                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
+                loResult = await R_HTTPClientWrapper.R_APIRequestObject<REFRESH_CURRENCY_RATE_RESULT>(
+                    _RequestServiceEndPoint,
+                    nameof(IGLM00200.RefreshCurrencyRate),
+                    DEFAULT_MODULE,
+                    _SendWithContext,
+                    _SendWithToken);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loResult;
+        }
         #endregion real function
 
         #region for implement only
@@ -357,8 +380,12 @@ namespace GLM00200Model
         {
             throw new NotImplementedException();
         }
+
+        public REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate()
+        {
+            throw new NotImplementedException();
+        }
         #endregion for implement only
 
-        
     }
 }

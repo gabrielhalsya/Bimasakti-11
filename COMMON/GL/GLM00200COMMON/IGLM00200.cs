@@ -20,5 +20,6 @@ namespace GLM00200Common
         IAsyncEnumerable<VAR_STATUS_DTO> GetSTATUS_DTO();
         IAsyncEnumerable<VAR_CURRENCY> GetVAR_CURRENCIES();
 
+        REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate();
     }
 }

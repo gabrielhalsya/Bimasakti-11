@@ -73,7 +73,6 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceGetRecordResultDTO<GSM04000DTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<GSM04000DTO> poParameter)
         {
-
             R_ServiceGetRecordResultDTO<GSM04000DTO> loRtn = null;
             R_Exception loException = new R_Exception();
             GSM04000Cls loCls;
