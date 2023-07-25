@@ -47,6 +47,8 @@ namespace GLM00200Model
             new PeriodDTO { CPERIOD_MM_CODE = "11", CPERIOD_MM_TEXT = "11" },
             new PeriodDTO { CPERIOD_MM_CODE = "12", CPERIOD_MM_TEXT = "12" },
         };
+
+        public REFRESH_CURRENCY_RATE_RESULT _CURRENCY_RATE_RESULT = new REFRESH_CURRENCY_RATE_RESULT();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
 
@@ -156,6 +158,7 @@ namespace GLM00200Model
             {
                 var rtnTemp = await _model.GetVAR_GSM_COMPANY_DTOAsync();
                 _GSM_COMPANY = rtnTemp;
+                Journal.CCURRENCY_CODE = _GSM_COMPANY.CLOCAL_CURRENCY_CODE;
             }
             catch (Exception ex)
             {
@@ -287,14 +290,29 @@ namespace GLM00200Model
         public async Task RefreshCurrencyRate()
         {
             R_Exception loEx = new R_Exception();
-            REFRESH_CURRENCY_RATE_RESULT loResult = null;
             try
             {
                 var lcSTART_DATE = _DSTART_DATE.ToString("yyyyMMdd");
                 R_FrontContext.R_SetContext(RecurringJournalContext.CCURRENCY_CODE, Journal.CCURRENCY_CODE);
                 R_FrontContext.R_SetContext(RecurringJournalContext.CRATETYPE_CODE, _GL_SYSTEM_PARAM.CRATETYPE_CODE);
                 R_FrontContext.R_SetContext(RecurringJournalContext.CSTART_DATE, lcSTART_DATE);
-                loResult = await _model.RefreshCurrencyRateAsync();
+                _CURRENCY_RATE_RESULT = await _model.RefreshCurrencyRateAsync();
+                
+                if ( _CURRENCY_RATE_RESULT != null )
+                {
+                    Journal.NLBASE_RATE = _CURRENCY_RATE_RESULT.NLBASE_RATE_AMOUNT;
+                    Journal.NLCURRENCY_RATE = _CURRENCY_RATE_RESULT.NLCURRENCY_RATE_AMOUNT;
+                    Journal.NBBASE_RATE = _CURRENCY_RATE_RESULT.NBBASE_RATE_AMOUNT;
+                    Journal.NBCURRENCY_RATE =_CURRENCY_RATE_RESULT.NBCURRENCY_RATE_AMOUNT;
+                }
+                else
+                {
+                    Journal.NLBASE_RATE = 1;
+                    Journal.NLCURRENCY_RATE = 1;
+                    Journal.NBBASE_RATE=1;
+                    Journal.NBCURRENCY_RATE=1;
+                }
+
             }
             catch (Exception ex)
             {
@@ -302,7 +320,6 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-
         #endregion
     }
 }

@@ -31,34 +31,34 @@ namespace GLM00200Front
         public DateTime DNEXT_DATE = DateTime.Now;
 
         #region Form Enable/Disable
-        public bool ENABLE_CACTION = true;
-        public bool ENABLE_CCOMPANY_ID = true;
-        public bool ENABLE_CDEPT_CODE = true;
-        public bool ENABLE_CTRANS_CODE = true;
-        public bool ENABLE_CREF_NO = true;
-        public bool ENABLE_CDOC_NO = true;
-        public bool ENABLE_CDOC_DATE = true;
-        public bool ENABLE_IFREQUENCY = true;
-        public bool ENABLE_IAPPLIED = true;
-        public bool ENABLE_IPERIOD = true;
-        public bool ENABLE_CSTART_DATE = true;
-        public bool ENABLE_CNEXT_DATE = true;
-        public bool ENABLE_CLAST_DATE = true;
-        public bool ENABLE_CTRANS_DESC = true;
-        public bool ENABLE_CCURRENCY_CODE = true;
-        public bool ENABLE_LFIX_RATE = true;
-        public bool ENABLE_NLBASE_RATE = true;
-        public bool ENABLE_NLCURRENCY_RATE = true;
-        public bool ENABLE_NBBASE_RATE = true;
-        public bool ENABLE_NBCURRENCY_RATE = true;
-        public bool ENABLE_NPRELIST_AMOUNT = true;
-        public bool ENABLE_NNTRANS_AMOUNT_C = true;
-        public bool ENABLE_NNTRANS_AMOUNT_D = true;
-        public bool ENABLE_CUPDATE_BY = true;
-        public bool ENABLE_DUPDATE_DATE = true;
-        public bool ENABLE_CCREATE_BY = true;
-        public bool ENABLE_DCREATE_DATE = true;
-        public bool ENABLE_CLANGUAGE_ID = true;
+        public bool ENABLE_CACTION = false;
+        public bool ENABLE_CCOMPANY_ID = false;
+        public bool ENABLE_CDEPT_CODE = false;
+        public bool ENABLE_CTRANS_CODE = false;
+        public bool ENABLE_CREF_NO = false;
+        public bool ENABLE_CDOC_NO = false;
+        public bool ENABLE_CDOC_DATE = false;
+        public bool ENABLE_IFREQUENCY = false;
+        public bool ENABLE_IAPPLIED=false;
+        public bool ENABLE_IPERIOD=false;
+        public bool ENABLE_CSTART_DATE=false;
+        public bool ENABLE_CNEXT_DATE=false;
+        public bool ENABLE_CLAST_DATE=false;
+        public bool ENABLE_CTRANS_DESC=false;
+        public bool ENABLE_CCURRENCY_CODE=false;
+        public bool ENABLE_LFIX_RATE=false;
+        public bool ENABLE_NLBASE_RATE=false;
+        public bool ENABLE_NLCURRENCY_RATE=false;
+        public bool ENABLE_NBBASE_RATE=false;
+        public bool ENABLE_NBCURRENCY_RATE=false;
+        public bool ENABLE_NPRELIST_AMOUNT=false;
+        public bool ENABLE_NNTRANS_AMOUNT_C=false;
+        public bool ENABLE_NNTRANS_AMOUNT_D=false;
+        public bool ENABLE_CUPDATE_BY=false;
+        public bool ENABLE_DUPDATE_DATE=false;
+        public bool ENABLE_CCREATE_BY=false;
+        public bool ENABLE_DCREATE_DATE = false;
+        public bool ENABLE_CLANGUAGE_ID = false;
         #endregion
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -139,14 +139,13 @@ namespace GLM00200Front
         #endregion
 
         #region Form Control
-        private void DSTART_DATE_ONCHANGED()
+        private async Task DSTART_DATE_ONCHANGED()
         {
             var loEx = new R_Exception();
             try
             {
                 DNEXT_DATE = DSTART_DATE.AddDays(1);
                 _journalVM.Journal.CNEXT_DATE = DNEXT_DATE.ToString("yyMMdd");
-                //_journalVM.
             }
             catch (Exception ex)
             {
@@ -154,7 +153,7 @@ namespace GLM00200Front
             }
             R_DisplayException(loEx);
         }
-        private void LFIX_RATE_ONCHANGED()
+        private async Task OnChanged_LFIX_RATE()
         {
             var loEx = new R_Exception();
             try
@@ -180,11 +179,12 @@ namespace GLM00200Front
             }
             R_DisplayException(loEx);
         }
-        private void NLBASE_RATE_VALUE()
+        private async Task OnChanged_CurrencyCode()
         {
             var loEx = new R_Exception();
             try
             {
+                await _journalVM.RefreshCurrencyRate();
                 if (_journalVM.Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM.Journal.LFIX_RATE == true)
                 {
                     ENABLE_NLBASE_RATE = true;
