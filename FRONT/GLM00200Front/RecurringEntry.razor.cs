@@ -58,18 +58,6 @@ namespace GLM00200Front
         }
 
         #region AddJournal
-        private async Task BeforeAddJournal(R_BeforeAddEventArgs eventArgs)
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                loEx.ThrowExceptionIfErrors();
-            }
-        }
         private async Task JournalForm_Validation(R_ValidationEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
@@ -84,20 +72,6 @@ namespace GLM00200Front
             if (loEx.HasError)
                 eventArgs.Cancel = true;
             loEx.ThrowExceptionIfErrors();
-        }
-        private async Task JournalForm_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                eventArgs.Result = _journalVM.Journal;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-
         }
         private async Task JournalForm_ServiceSave(R_ServiceSaveEventArgs eventArgs)
         {

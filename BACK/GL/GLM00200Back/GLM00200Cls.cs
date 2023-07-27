@@ -119,7 +119,7 @@ namespace GLM00200Back
                 loConn = loDB.GetConnection();
                 loCmd = loDB.GetCommand();
                 R_ExternalException.R_SP_Init_Exception(loConn);
-                lcQuery = "RSP_GL_SAVE_RECURRING_JRN";
+                lcQuery = "RSP_GL_SAVE_RECURRING_JRN"; 
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
