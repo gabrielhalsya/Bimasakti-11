@@ -7,6 +7,7 @@ using R_CommonFrontBackAPI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -82,6 +83,7 @@ namespace LMM03700Model
             {
                 var loResult = await _model.GetPropertyListAsync();
                 PropertyList = new List<PropertyDTO>(loResult);
+                _propertyId = PropertyList.FirstOrDefault().CPROPERTY_ID;
             }
             catch (Exception ex)
             {

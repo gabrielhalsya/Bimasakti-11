@@ -22,10 +22,7 @@
         </R_Lookup>
     </R_ItemLayout>
     <R_ItemLayout>
-        <R_TextBox 
-            @bind-value="_journalVM._SearchParam.CDEPT_NAME "
-            
-        ></R_TextBox>
+        <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_NAME "></R_TextBox>
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Label>Next Journal Period</R_Label>
@@ -63,24 +60,23 @@
         R_GridType="R_eGridType.Original" R_ServiceGetListRecord="JournalGrid_ServiceGetListRecord"
         AllowAddNewRow="false"
         AllowDeleteRow="false"
-        AllowEditRow="false"
-        Width="1000px">
+        AllowEditRow="false">
     <R_GridColumns>
-        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CREF_NO)" HeaderText="Reference No."></R_GridTextColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.IFREQUENCY)" HeaderText="Freq."></R_GridNumericColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.IPERIOD)" HeaderText="Interval(Month)"></R_GridNumericColumn>
-        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DSTART_DATE)" HeaderText="Start Date"></R_GridDatePickerColumn>
-        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DNEXT_DATE)" HeaderText="Next Date"></R_GridDatePickerColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CTRANS_DESC)" HeaderText="Description"></R_GridTextColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CCURRENCY_CODE)" HeaderText="Currency"></R_GridTextColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.NTRANS_AMOUNT)" HeaderText="Amount"></R_GridNumericColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CSTATUS_NAME)" HeaderText="Status"></R_GridTextColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CDOC_NO)" HeaderText="Document No."></R_GridTextColumn>
-        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.CDOC_DATE)" HeaderText="Document Date"></R_GridDatePickerColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CUPDATE_BY)" HeaderText="Updated By"></R_GridTextColumn>
-        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DUPDATE_DATE)" HeaderText="Updated Date"></R_GridDatePickerColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CCREATE_BY)" HeaderText="Updated By"></R_GridTextColumn>
-        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DCREATE_DATE)" HeaderText="Updated Date"></R_GridDatePickerColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CREF_NO)" HeaderText="Reference No." Width="150px"></R_GridTextColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.IFREQUENCY)" HeaderText="Freq." Width="100px"></R_GridNumericColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.IPERIOD)" HeaderText="Interval(Month)" Width="100px"></R_GridNumericColumn>
+        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DSTART_DATE)" HeaderText="Start Date" Width="100px"></R_GridDatePickerColumn>
+        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DNEXT_DATE)" HeaderText="Next Date" Width="100px"></R_GridDatePickerColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CTRANS_DESC)" HeaderText="Description" Width="150px"></R_GridTextColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CCURRENCY_CODE)" HeaderText="Currency" Width="100px"></R_GridTextColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.NTRANS_AMOUNT)" HeaderText="Amount" Width="100px"></R_GridNumericColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CSTATUS_NAME)" HeaderText="Status" Width="100px"></R_GridTextColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CDOC_NO)" HeaderText="Document No." Width="100px"></R_GridTextColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CDOC_DATE)" HeaderText="Document Date" Width="100px"></R_GridTextColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CUPDATE_BY)" HeaderText="Updated By" Width="100px"></R_GridTextColumn>
+        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DUPDATE_DATE)" HeaderText="Updated Date" Width="100px"></R_GridDatePickerColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CCREATE_BY)" HeaderText="Updated By" Width="100px"></R_GridTextColumn>
+        <R_GridDatePickerColumn FieldName="@nameof(JournalGridDTO.DCREATE_DATE)" HeaderText="Updated Date" Width="100px"></R_GridDatePickerColumn>
     </R_GridColumns>
 </R_Grid>
 
@@ -95,23 +91,24 @@
         DataSource="@_journalVM.JournaDetailList"
         Pageable
         R_ConductorGridSource="_conJournalDet"
-        R_GridType="R_eGridType.Original" R_ServiceGetListRecord="JournalDetGrid_ServiceGetListRecord" AllowAddNewRow="false"
+        R_GridType="R_eGridType.Original" 
+        R_ServiceGetListRecord="JournalDetGrid_ServiceGetListRecord" 
+        AllowAddNewRow="false"
         AllowDeleteRow="false"
-        AllowEditRow="false"
-        Width="1000px">
+        AllowEditRow="false">
     <R_GridColumns>
-        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.INO)" HeaderText="No."></R_GridNumericColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NO)" HeaderText="Account No."></R_GridTextColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NAME)" HeaderText="Account No"></R_GridTextColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CCENTER_NAME)" HeaderText="Center"></R_GridTextColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CDBCR)" HeaderText="D/C"></R_GridTextColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NDEBIT)" HeaderText="Debit"></R_GridNumericColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NCREDIT)" HeaderText="Credit"></R_GridNumericColumn>
-        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CDETAIL_DESC)" HeaderText="Description"></R_GridTextColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NLDEBIT)" HeaderText="DB (Local)"></R_GridNumericColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NLCREDIT)" HeaderText="CR (Local)"></R_GridNumericColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NBDEBIT)" HeaderText="DB (Base)"></R_GridNumericColumn>
-        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NBCREDIT)" HeaderText="CR (Base)"></R_GridNumericColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.INO)" HeaderText="No." Width="100px"></R_GridNumericColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NO)" HeaderText="Account No." Width="100px"></R_GridTextColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NAME)" HeaderText="Account Name" Width="250px"></R_GridTextColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CCENTER_NAME)" HeaderText="Center" Width="100px"></R_GridTextColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CDBCR)" HeaderText="D/C" Width="100px"></R_GridTextColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NDEBIT)" HeaderText="Debit" Width="100px"></R_GridNumericColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NCREDIT)" HeaderText="Credit" Width="100px"></R_GridNumericColumn>
+        <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CDETAIL_DESC)" HeaderText="Description" Width="150px"></R_GridTextColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NLDEBIT)" HeaderText="DB (Local)" Width="150px"></R_GridNumericColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NLCREDIT)" HeaderText="CR (Local)" Width="150px"></R_GridNumericColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NBDEBIT)" HeaderText="DB (Base)" Width="150px"></R_GridNumericColumn>
+        <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NBCREDIT)" HeaderText="CR (Base)" Width="150px"></R_GridNumericColumn>
     </R_GridColumns>
 </R_Grid>
 
@@ -127,10 +124,10 @@
     <R_ItemLayout xs="1">
         <R_Button>Commit</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout xs="1">
+    <R_ItemLayout xs="2">
         <R_Button>Rapid Approval</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout xs="1">
+    <R_ItemLayout xs="2">
         <R_Button>Rapid Commit</R_Button>
     </R_ItemLayout>
     <R_ItemLayout xs="1" Class="ms-2">

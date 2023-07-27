@@ -31,34 +31,10 @@ namespace GLM00200Front
         public DateTime DNEXT_DATE = DateTime.Now;
 
         #region Form Enable/Disable
-        public bool ENABLE_CACTION = false;
-        public bool ENABLE_CCOMPANY_ID = false;
-        public bool ENABLE_CDEPT_CODE = false;
-        public bool ENABLE_CTRANS_CODE = false;
-        public bool ENABLE_CREF_NO = false;
-        public bool ENABLE_CDOC_NO = false;
-        public bool ENABLE_CDOC_DATE = false;
-        public bool ENABLE_IFREQUENCY = false;
-        public bool ENABLE_IAPPLIED=false;
-        public bool ENABLE_IPERIOD=false;
-        public bool ENABLE_CSTART_DATE=false;
-        public bool ENABLE_CNEXT_DATE=false;
-        public bool ENABLE_CLAST_DATE=false;
-        public bool ENABLE_CTRANS_DESC=false;
-        public bool ENABLE_CCURRENCY_CODE=false;
-        public bool ENABLE_LFIX_RATE=false;
         public bool ENABLE_NLBASE_RATE=false;
         public bool ENABLE_NLCURRENCY_RATE=false;
         public bool ENABLE_NBBASE_RATE=false;
         public bool ENABLE_NBCURRENCY_RATE=false;
-        public bool ENABLE_NPRELIST_AMOUNT=false;
-        public bool ENABLE_NNTRANS_AMOUNT_C=false;
-        public bool ENABLE_NNTRANS_AMOUNT_D=false;
-        public bool ENABLE_CUPDATE_BY=false;
-        public bool ENABLE_DUPDATE_DATE=false;
-        public bool ENABLE_CCREATE_BY=false;
-        public bool ENABLE_DCREATE_DATE = false;
-        public bool ENABLE_CLANGUAGE_ID = false;
         #endregion
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -67,6 +43,7 @@ namespace GLM00200Front
             {
                 _journalVM._CREC_ID = (string)poParameter;
                 await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
+                await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
                 await _journalVM.GetCurrenciesAsync();
                 await _journalVM.GetJournal(new JournalDTO() { CJRN_ID=_journalVM._CREC_ID});
                 _gridJournalDet.R_RefreshGrid(null);

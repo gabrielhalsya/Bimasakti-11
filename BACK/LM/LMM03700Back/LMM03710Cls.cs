@@ -17,7 +17,7 @@ namespace LMM03700Back
             R_Exception loEx = new R_Exception();
             TenantClassificationDTO loRtn = null;
             R_Db loDB;
-            DbConnection loConn=null;
+            DbConnection loConn = null;
             DbCommand loCmd;
             string lcQuery;
             try
@@ -289,6 +289,8 @@ namespace LMM03700Back
                 {
                     loCmd = loDb.GetCommand();
                     loConn = loDb.GetConnection();
+                    R_ExternalException.R_SP_Init_Exception(loConn);
+
                     string lcQuery = "DECLARE @CTENANT_LIST AS RDT_TENANT_LIST ";
                     if (poParam.LTENANTS != null && poParam.LTENANTS.Count > 0)
                     {
@@ -306,7 +308,17 @@ namespace LMM03700Back
                        $",@CTENANT_CLASSIFICATION_ID = '{poParam.@CTENANT_CLASSIFICATION_ID}' " +
                        $",@CUSER_LOGIN_ID = '{poParam.CUSER_ID}' " +
                        $",@CTENANT_LIST = @CTENANT_LIST ";
-                    var loResult = loDb.SqlExecQuery(lcQuery, loConn, false);
+
+                    try
+                    {
+                        var loResult = loDb.SqlExecQuery(lcQuery, loConn, false);
+                    }
+                    catch (Exception ex)
+                    {
+                        loEx.Add(ex);
+                    }
+
+                    loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
                     TransScope.Complete();
                 }
             }

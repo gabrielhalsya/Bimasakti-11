@@ -31,7 +31,7 @@ namespace LMM03700Model
 
         //end-formove popup
 
-        public string _propertyId { get; set; }
+        public string _propertyId { get; set; } = "";
         public bool _Tab2IsActive { get; set; } = false;
         public string _tenantClassificationId { get; set; }
         public string _tenantClassificationGroupId { get; set; }
@@ -143,6 +143,7 @@ namespace LMM03700Model
             {
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CPROPERTY_ID, _propertyId);
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTENANT_CLASSIFICATION_ID, _tenantClassificationId);
+                R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTENANT_CLASSIFICATION_GROUP_ID, _tenantClassificationGroupId);
                 var loResult = await _model.GetAssignedTenantListAsync();
                 AssignedTenantList = new ObservableCollection<TenantDTO>(loResult);
             }

@@ -69,7 +69,6 @@ namespace GLM00200Front
             try
             {
                 await _gridJournal.R_RefreshGrid(null);
-                await _gridJournal.AutoFitAllColumnsAsync();
                 if (_journalVM.JournalList.Count == 0)
                 {
                     R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
@@ -88,9 +87,9 @@ namespace GLM00200Front
             try
             {
                 await _gridJournal.R_RefreshGrid(true);
-                await _gridJournal.AutoFitAllColumnsAsync();
                 if (_journalVM.JournalList.Count == 0)
                 {
+                    _journalVM.JournaDetailList.Clear();
                     R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
                 }
             }
@@ -142,7 +141,6 @@ namespace GLM00200Front
                 var loData = (JournalGridDTO)eventArgs.Data;
                 _journalVM._CREC_ID = loData.CREC_ID;
                 _gridJournalDet.R_RefreshGrid(null);  
-                _gridJournalDet.AutoFitAllColumnsAsync();
             }
             catch (Exception ex)
             {

@@ -263,6 +263,7 @@ namespace GLM00200Model
             {
                 var rtnTemp = await _model.GetSTATUS_DTOAsync();
                 _STATUS_LIST = rtnTemp;
+                _SearchParam.CSTATUS = _STATUS_LIST.FirstOrDefault().CCODE;
             }
             catch (Exception ex)
             {
