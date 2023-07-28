@@ -114,13 +114,13 @@ namespace GLM00200Service
         [HttpPost]
         public R_ServiceSaveResultDTO<JournalParamDTO> R_ServiceSave(R_ServiceSaveParameterDTO<JournalParamDTO> poParameter)
         {
-            R_ServiceSaveResultDTO<JournalDTO> loRtn = null;
+            R_ServiceSaveResultDTO<JournalParamDTO> loRtn = null;
             R_Exception loException = new R_Exception();
             GLM00200Cls loCls;
             try
             {
                 loCls = new GLM00200Cls();
-                loRtn = new R_ServiceSaveResultDTO<JournalDTO>();
+                loRtn = new R_ServiceSaveResultDTO<JournalParamDTO>();
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
                 poParameter.Entity.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;

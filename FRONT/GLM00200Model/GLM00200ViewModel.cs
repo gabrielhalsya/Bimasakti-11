@@ -39,6 +39,7 @@ namespace GLM00200Model
         public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
 
         public string _CREC_ID { get; set; } = "";
+        private const string _CTRANS_CODE = "000030";
 
         #region CRUD Journal
         public async Task ShowAllJournals()
@@ -49,7 +50,7 @@ namespace GLM00200Model
                 var loResult = new List<JournalGridDTO>();
                 _SearchParam.CSTATUS = "";
                 _SearchParam.CSEARCH_TEXT = "";
-                _SearchParam.CTRANS_CODE = "000030";
+                _SearchParam.CTRANS_CODE = _CTRANS_CODE;
                 _SearchParam.LSHOW_ALL = true;
                 R_FrontContext.R_SetContext(RecurringJournalContext.OSEARCH_PARAM, _SearchParam);
                 loResult = await _model.GetAllRecurringListAsync();
@@ -62,7 +63,6 @@ namespace GLM00200Model
                     }
                     if (loJournal.CNEXT_DATE != "" || loJournal.CNEXT_DATE != null)
                     {
-
                         loJournal.DNEXT_DATE = DateTime.ParseExact(loJournal.CNEXT_DATE, "yyyyMMdd", CultureInfo.InvariantCulture);
                     }
                 }
@@ -73,7 +73,7 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task GetJournal(JournalDTO loParam)
+        public async Task GetJournal(JournalParamDTO loParam)
         {
             R_Exception loEx = new R_Exception();
             try
@@ -92,6 +92,7 @@ namespace GLM00200Model
             var loEx = new R_Exception();
             try
             {
+                poNewEntity.CTRANS_CODE = _CTRANS_CODE;
                 var loResult = await _model.R_ServiceSaveAsync(poNewEntity, peCRUDMode);
                 Journal = loResult;
             }

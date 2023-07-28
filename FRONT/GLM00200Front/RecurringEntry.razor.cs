@@ -43,11 +43,12 @@ namespace GLM00200Front
             try
             {
                 _journalVM._CREC_ID = (string)poParameter;
+                var loParam = R_FrontUtility.ConvertObjectToObject<R_ServiceGetRecordEventArgs>(poParameter);
                 await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
                 await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
                 await _journalVM.GetCurrenciesAsync();
-                await _journalVM.GetJournal(new JournalDTO() { CJRN_ID = _journalVM._CREC_ID });
-                _gridJournalDet.R_RefreshGrid(null);
+                _conJournalNavigator.R_GetEntity(loParam);
+                await _gridJournalDet.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -88,6 +89,21 @@ namespace GLM00200Front
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
+        }
+        private async Task JournalForm_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                await _journalVM.GetJournal(new JournalParamDTO() { CREC_ID = R_FrontUtility.ConvertObjectToObject<string>(eventArgs) });
+                eventArgs.Result = _journalVM.Journal;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+
         }
         #endregion
 
