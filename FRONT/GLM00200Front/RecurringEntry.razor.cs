@@ -1,4 +1,5 @@
 ﻿using GLM00200Common;
+using GLM00200Common.DTO_s;
 using GLM00200Model;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
@@ -31,10 +32,10 @@ namespace GLM00200Front
         public DateTime DNEXT_DATE = DateTime.Now;
 
         #region Form Enable/Disable
-        public bool ENABLE_NLBASE_RATE=false;
-        public bool ENABLE_NLCURRENCY_RATE=false;
-        public bool ENABLE_NBBASE_RATE=false;
-        public bool ENABLE_NBCURRENCY_RATE=false;
+        public bool ENABLE_NLBASE_RATE = false;
+        public bool ENABLE_NLCURRENCY_RATE = false;
+        public bool ENABLE_NBBASE_RATE = false;
+        public bool ENABLE_NBCURRENCY_RATE = false;
         #endregion
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -45,9 +46,8 @@ namespace GLM00200Front
                 await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
                 await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
                 await _journalVM.GetCurrenciesAsync();
-                await _journalVM.GetJournal(new JournalDTO() { CJRN_ID=_journalVM._CREC_ID});
+                await _journalVM.GetJournal(new JournalDTO() { CJRN_ID = _journalVM._CREC_ID });
                 _gridJournalDet.R_RefreshGrid(null);
-                _gridJournalDet.AutoFitAllColumnsAsync();
             }
             catch (Exception ex)
             {
@@ -78,7 +78,9 @@ namespace GLM00200Front
             var loEx = new R_Exception();
             try
             {
-                await _journalVM.SaveJournal((JournalDTO)eventArgs.Data, (eCRUDMode)eventArgs.ConductorMode);
+                var loParam = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(eventArgs.Data);
+                loParam.ListJournalDetail = new List<JournalDetailGridDTO>(_journalVM.JournaDetailList);
+                await _journalVM.SaveJournal(loParam, (eCRUDMode)eventArgs.ConductorMode);
                 eventArgs.Result = _journalVM.Journal;
             }
             catch (Exception ex)

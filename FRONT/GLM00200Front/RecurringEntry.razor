@@ -84,8 +84,7 @@
         <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-Value="_journalVM.Journal.NNTRANS_AMOUNT_D"
                               R_ConductorSource="_conJournalNavigator"
-                              R_EnableAdd="false"
-                              R_EnableEdit="false" />
+                              Enabled="false"/>
         </R_ItemLayout>
     </R_StackLayout>
 
@@ -112,17 +111,16 @@
         <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-Value="_journalVM.Journal.NLBASE_RATE"
                               R_ConductorSource="_conJournalNavigator"
-                              Enabled="ENABLE_NLBASE_RATE"
                               R_EnableAdd="true"
                               R_EnableEdit="true"
+                              Enabled="ENABLE_NLBASE_RATE"
                               Decimals="9"
                               Min="0" />
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_TextBox @bind-value="@_journalVM.Journal.CCURRENCY_CODE"
                        R_ConductorSource="_conJournalNavigator"
-                       R_EnableAdd="false"
-                       R_EnableEdit="false" />
+                       Enabled="false"/>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-Value="@_journalVM.Journal.NLCURRENCY_RATE"
@@ -145,8 +143,7 @@
             <R_NumericTextBox @bind-Value="@_journalVM.Journal.NNTRANS_AMOUNT_C"
                               R_ConductorSource="_conJournalNavigator"
                               Min="0"
-                              R_EnableAdd="false"
-                              R_EnableEdit="false" />
+                              Enabled="false" />
         </R_ItemLayout>
     </R_StackLayout>
 
@@ -168,8 +165,7 @@
         <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-Value="@_journalVM.Journal.IAPPLIED"
                               R_ConductorSource="_conJournalNavigator"
-                              R_EnableAdd="false"
-                              R_EnableEdit="false" />
+                              Enabled="false" />
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Base Currency</R_Label>

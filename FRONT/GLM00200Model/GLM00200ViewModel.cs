@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace GLM00200Model
 {
-    public class GLM00200ViewModel : R_ViewModel<JournalDTO>
+    public class GLM00200ViewModel : R_ViewModel<JournalParamDTO>
     {
         public GLM00200Model _model = new GLM00200Model();
         public PublicLookupModel _lookupModel = new PublicLookupModel();
@@ -33,21 +33,7 @@ namespace GLM00200Model
         public VAR_IUNDO_COMMIT_JRN_DTO _IUNDO_COMMIT_JRN { get; set; } = new VAR_IUNDO_COMMIT_JRN_DTO();
         public List<VAR_STATUS_DTO> _STATUS_LIST { get; set; } = new List<VAR_STATUS_DTO>();
         public List<VAR_CURRENCY> _CURRENCY_LIST { get; set; } = new List<VAR_CURRENCY>();
-        public List<PeriodDTO> Periods = new List<PeriodDTO>{
-            new PeriodDTO { CPERIOD_MM_CODE = "01", CPERIOD_MM_TEXT= "01" },
-            new PeriodDTO { CPERIOD_MM_CODE = "02", CPERIOD_MM_TEXT = "02" },
-            new PeriodDTO { CPERIOD_MM_CODE = "03", CPERIOD_MM_TEXT = "03" },
-            new PeriodDTO { CPERIOD_MM_CODE = "04", CPERIOD_MM_TEXT = "04" },
-            new PeriodDTO { CPERIOD_MM_CODE = "05", CPERIOD_MM_TEXT = "05" },
-            new PeriodDTO { CPERIOD_MM_CODE = "06", CPERIOD_MM_TEXT = "06" },
-            new PeriodDTO { CPERIOD_MM_CODE = "07", CPERIOD_MM_TEXT = "07" },
-            new PeriodDTO { CPERIOD_MM_CODE = "08", CPERIOD_MM_TEXT = "08" },
-            new PeriodDTO { CPERIOD_MM_CODE = "09", CPERIOD_MM_TEXT = "09" },
-            new PeriodDTO { CPERIOD_MM_CODE = "10", CPERIOD_MM_TEXT = "10" },
-            new PeriodDTO { CPERIOD_MM_CODE = "11", CPERIOD_MM_TEXT = "11" },
-            new PeriodDTO { CPERIOD_MM_CODE = "12", CPERIOD_MM_TEXT = "12" },
-        };
-
+        public List<PeriodDTO> Periods = Enumerable.Range(1, 12).Select(month => new PeriodDTO { CPERIOD_MM_CODE = month.ToString("D2"), CPERIOD_MM_TEXT = month.ToString("D2") }).ToList();
         public REFRESH_CURRENCY_RATE_RESULT _CURRENCY_RATE_RESULT = new REFRESH_CURRENCY_RATE_RESULT();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
@@ -101,7 +87,7 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task SaveJournal(JournalDTO poNewEntity, eCRUDMode peCRUDMode)
+        public async Task SaveJournal(JournalParamDTO poNewEntity, eCRUDMode peCRUDMode)
         {
             var loEx = new R_Exception();
             try
@@ -127,6 +113,7 @@ namespace GLM00200Model
                 var loResult = new List<JournalDetailGridDTO>();
                 R_FrontContext.R_SetContext(RecurringJournalContext.CREC_ID, _CREC_ID);
                 loResult = await _model.GetAllJournalDetailListAsync();
+                loResult = loResult.Select((jd, index) => { jd.INO = index + 1; return jd; }).ToList();
                 JournaDetailList = new ObservableCollection<JournalDetailGridDTO>(loResult);
             }
             catch (Exception ex)
@@ -298,20 +285,20 @@ namespace GLM00200Model
                 R_FrontContext.R_SetContext(RecurringJournalContext.CRATETYPE_CODE, _GL_SYSTEM_PARAM.CRATETYPE_CODE);
                 R_FrontContext.R_SetContext(RecurringJournalContext.CSTART_DATE, lcSTART_DATE);
                 _CURRENCY_RATE_RESULT = await _model.RefreshCurrencyRateAsync();
-                
-                if ( _CURRENCY_RATE_RESULT != null )
+
+                if (_CURRENCY_RATE_RESULT != null)
                 {
                     Journal.NLBASE_RATE = _CURRENCY_RATE_RESULT.NLBASE_RATE_AMOUNT;
                     Journal.NLCURRENCY_RATE = _CURRENCY_RATE_RESULT.NLCURRENCY_RATE_AMOUNT;
                     Journal.NBBASE_RATE = _CURRENCY_RATE_RESULT.NBBASE_RATE_AMOUNT;
-                    Journal.NBCURRENCY_RATE =_CURRENCY_RATE_RESULT.NBCURRENCY_RATE_AMOUNT;
+                    Journal.NBCURRENCY_RATE = _CURRENCY_RATE_RESULT.NBCURRENCY_RATE_AMOUNT;
                 }
                 else
                 {
                     Journal.NLBASE_RATE = 1;
                     Journal.NLCURRENCY_RATE = 1;
-                    Journal.NBBASE_RATE=1;
-                    Journal.NBCURRENCY_RATE=1;
+                    Journal.NBBASE_RATE = 1;
+                    Journal.NBCURRENCY_RATE = 1;
                 }
 
             }

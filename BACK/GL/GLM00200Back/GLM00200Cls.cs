@@ -12,12 +12,13 @@ using R_APICommonDTO;
 using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Data.SqlClient;
 
 namespace GLM00200Back
 {
-    public class GLM00200Cls : R_BusinessObject<JournalDTO>
+    public class GLM00200Cls : R_BusinessObject<JournalParamDTO>
     {
-        protected override void R_Deleting(JournalDTO poEntity)
+        protected override void R_Deleting(JournalParamDTO poEntity)
         {
             R_Exception loEx = new R_Exception();
             string lcQuery = "";
@@ -73,10 +74,10 @@ namespace GLM00200Back
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
-        protected override JournalDTO R_Display(JournalDTO poEntity)
+        protected override JournalParamDTO R_Display(JournalParamDTO poEntity)
             {
             R_Exception loEx = new R_Exception();
-            JournalDTO loRtn = null;
+            JournalParamDTO loRtn = null;
             R_Db loDB;
             DbConnection loConn;
             DbCommand loCmd;
@@ -97,7 +98,7 @@ namespace GLM00200Back
                 loDB.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 50, poEntity.CLANGUAGE_ID);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<JournalDTO>(loRtnTemp).FirstOrDefault();
+                loRtn = R_Utility.R_ConvertTo<JournalParamDTO>(loRtnTemp).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -106,41 +107,71 @@ namespace GLM00200Back
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }
-        protected override void R_Saving(JournalDTO poNewEntity, eCRUDMode poCRUDMode)
+        protected override void R_Saving(JournalParamDTO poNewEntity, eCRUDMode poCRUDMode)
         {
             R_Exception loEx = new R_Exception();
             R_Db loDB = null;
             DbConnection loConn = null;
             DbCommand loCmd;
-            string lcQuery;
+            string lcQuery = null;
             try
             {
                 loDB = new R_Db();
-                loConn = loDB.GetConnection();
                 loCmd = loDB.GetCommand();
                 R_ExternalException.R_SP_Init_Exception(loConn);
-                lcQuery = "RSP_GL_SAVE_RECURRING_JRN"; 
-                loCmd.CommandType = CommandType.StoredProcedure;
-                loCmd.CommandText = lcQuery;
+                using (var TransScope = new TransactionScope(TransactionScopeOption.Required))
+                {
+                    loConn = loDB.GetConnection();
 
-                loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poNewEntity.CUSER_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 50, poNewEntity.CJRN_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50, poNewEntity.CACTION);
-                loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poNewEntity.CCOMPANY_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poNewEntity.CDEPT_CODE);
-                loDB.R_AddCommandParameter(loCmd, "@CDOC_NO", DbType.String, 50, poNewEntity.CDOC_NO);
-                loDB.R_AddCommandParameter(loCmd, "@CDOC_DATE", DbType.String, 50, poNewEntity.CDOC_DATE);
-                loDB.R_AddCommandParameter(loCmd, "@IFREQUENCY", DbType.Int32, 50, poNewEntity.IFREQUENCY);
-                loDB.R_AddCommandParameter(loCmd, "@IPERIOD", DbType.Int32, 50, poNewEntity.IPERIOD);
-                loDB.R_AddCommandParameter(loCmd, "@CSTART_DATE", DbType.Int32, 50, poNewEntity.CSTART_DATE);
-                loDB.R_AddCommandParameter(loCmd, "@CTRANS_DESC", DbType.Int32, 50, poNewEntity.CTRANS_DESC);
-                loDB.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.Int32, 50, poNewEntity.CCURRENCY_CODE);
-                loDB.R_AddCommandParameter(loCmd, "@LFIX_RATE", DbType.Boolean, 50, poNewEntity.LFIX_RATE);
-                loDB.R_AddCommandParameter(loCmd, "@NLBASE_RATE", DbType.Decimal, 50, poNewEntity.NLBASE_RATE);
-                loDB.R_AddCommandParameter(loCmd, "@NLCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NLCURRENCY_RATE);
-                loDB.R_AddCommandParameter(loCmd, "@NBBASE_RATE", DbType.Decimal, 50, poNewEntity.NBBASE_RATE);
-                loDB.R_AddCommandParameter(loCmd, "@NBCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NBCURRENCY_RATE);
-                loDB.R_AddCommandParameter(loCmd, "@NPRELIST_AMOUNT", DbType.Decimal, 50, poNewEntity.NPRELIST_AMOUNT);
+                    lcQuery += "CREATE TABLE #STAFF (	NO INT " +
+                            ", StaffId VARCHAR(20) " +
+                            ", StaffName NVARCHAR(100) " +
+                            ", Active BIT " +
+                            ", Department VARCHAR(20) " +
+                            ", Position VARCHAR(2) " +
+                            ", JoinDate VARCHAR(8) " +
+                            ", Supervisor VARCHAR(20) " +
+                            ", EmailAddress NVARCHAR(100) " +
+                            ", MobileNo1 VARCHAR(30) " +
+                            ", MobileNo2 VARCHAR(30) " +
+                            ", Gender VARCHAR(2) " +
+                            ", Address NVARCHAR(255) " +
+                            ", InActiveDate VARCHAR(8) " +
+                            ", InactiveNote  NVARCHAR(255) ) ";
+
+                    loDB.SqlExecNonQuery(lcQuery, loConn, false);
+
+                    loDB.R_BulkInsert<JournalDetailGridDTO>((SqlConnection)loConn, "#STAFF", poNewEntity.ListJournalDetail);
+
+                    lcQuery = "EXEC RSP_GL_SAVE_RECURRING_JRN @CUSER_ID, @CJRN_ID, @CACTION, @CCOMPANY_ID, ";
+                    loCmd.CommandText = lcQuery;
+                    loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poNewEntity.CUSER_ID);
+                    loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 50, poNewEntity.CJRN_ID);
+                    loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50, poNewEntity.CACTION);
+                    loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poNewEntity.CCOMPANY_ID);
+                    loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poNewEntity.CDEPT_CODE);
+                    loDB.R_AddCommandParameter(loCmd, "@CDOC_NO", DbType.String, 50, poNewEntity.CDOC_NO);
+                    loDB.R_AddCommandParameter(loCmd, "@CDOC_DATE", DbType.String, 50, poNewEntity.CDOC_DATE);
+                    loDB.R_AddCommandParameter(loCmd, "@IFREQUENCY", DbType.Int32, 50, poNewEntity.IFREQUENCY);
+                    loDB.R_AddCommandParameter(loCmd, "@IPERIOD", DbType.Int32, 50, poNewEntity.IPERIOD);
+                    loDB.R_AddCommandParameter(loCmd, "@CSTART_DATE", DbType.Int32, 50, poNewEntity.CSTART_DATE);
+                    loDB.R_AddCommandParameter(loCmd, "@CTRANS_DESC", DbType.Int32, 50, poNewEntity.CTRANS_DESC);
+                    loDB.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.Int32, 50, poNewEntity.CCURRENCY_CODE);
+                    loDB.R_AddCommandParameter(loCmd, "@LFIX_RATE", DbType.Boolean, 50, poNewEntity.LFIX_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NLBASE_RATE", DbType.Decimal, 50, poNewEntity.NLBASE_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NLCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NLCURRENCY_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NBBASE_RATE", DbType.Decimal, 50, poNewEntity.NBBASE_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NBCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NBCURRENCY_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NPRELIST_AMOUNT", DbType.Decimal, 50, poNewEntity.NPRELIST_AMOUNT);
+
+                    loDB.SqlExecNonQuery(loConn, loCmd, false);
+
+                    TransScope.Complete();
+                }
+
+                
+              
+               
 
                 try
                 {
@@ -275,7 +306,6 @@ namespace GLM00200Back
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }
-
 
         #region Init var
         //public INIT_VAR_RESULT GetInitData(INIT_VAR_DB_PARAM poParam)

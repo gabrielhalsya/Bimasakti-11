@@ -82,13 +82,13 @@ namespace GLM00200Service
         }
 
         [HttpPost]
-        public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<JournalDTO> poParameter)
+        public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<JournalParamDTO> poParameter)
         {
             throw new NotImplementedException();
         }
 
         [HttpPost]
-        public R_ServiceGetRecordResultDTO<JournalDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<JournalDTO> poParameter)
+        public R_ServiceGetRecordResultDTO<JournalParamDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<JournalParamDTO> poParameter)
         {
             R_ServiceGetRecordResultDTO<JournalDTO> loRtn = null;
             R_Exception loException = new R_Exception();
@@ -112,7 +112,7 @@ namespace GLM00200Service
         }
 
         [HttpPost]
-        public R_ServiceSaveResultDTO<JournalDTO> R_ServiceSave(R_ServiceSaveParameterDTO<JournalDTO> poParameter)
+        public R_ServiceSaveResultDTO<JournalParamDTO> R_ServiceSave(R_ServiceSaveParameterDTO<JournalParamDTO> poParameter)
         {
             R_ServiceSaveResultDTO<JournalDTO> loRtn = null;
             R_Exception loException = new R_Exception();

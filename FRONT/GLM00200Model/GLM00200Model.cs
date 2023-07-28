@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GLM00200Model
 {
-    public class GLM00200Model : R_BusinessObjectServiceClientBase<JournalDTO>, IGLM00200
+    public class GLM00200Model : R_BusinessObjectServiceClientBase<JournalParamDTO>, IGLM00200
     {
         private const string DEFAULT_HTTP_NAME = "R_DefaultServiceUrlGL";
         private const string DEFAULT_CHECKPOINT_NAME = "api/GLM00200";
