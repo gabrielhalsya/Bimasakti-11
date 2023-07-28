@@ -171,19 +171,19 @@
             <R_Label>Base Currency</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_NumericTextBox @bind-Value="_journalVM.Journal.NBBASE_RATE"
+            <R_NumericTextBox @bind-Value="_journalVM.Data.NBBASE_RATE"
                               R_ConductorSource="_conJournalNavigator"
                               Enabled="ENABLE_NBBASE_RATE"
                               Decimals="9"
                               Min="0" />
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-Value="@_journalVM.Journal.CCURRENCY_CODE"
+            <R_TextBox @bind-Value="@_journalVM.Data.CCURRENCY_CODE"
                        R_ConductorSource="_conJournalNavigator"
                        Enabled="false" />
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_NumericTextBox @bind-Value="_journalVM.Journal.NBCURRENCY_RATE"
+            <R_NumericTextBox @bind-Value="_journalVM.Data.NBCURRENCY_RATE"
                               R_ConductorSource="_conJournalNavigator"
                               Enabled="ENABLE_NBCURRENCY_RATE"
                               Decimals="9"
@@ -201,7 +201,7 @@
             <R_Label>Interval*</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_NumericTextBox @bind-Value="@_journalVM.Journal.IPERIOD"
+            <R_NumericTextBox @bind-Value="@_journalVM.Data.IPERIOD"
                               R_ConductorSource="_conJournalNavigator"
                               Min="2"
                               Max="99"
@@ -228,7 +228,7 @@
             <R_Label>Next Date</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-value="@_journalVM.Journal.CNEXT_DATE"
+            <R_TextBox @bind-value="@_journalVM.Data.CNEXT_DATE"
                        R_ConductorSource="_conJournalNavigator"
                        R_EnableAdd="false"
                        R_EnableEdit="false" />
@@ -237,7 +237,7 @@
             <R_Label>Last Date</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-value="@_journalVM.Journal.CLAST_DATE"
+            <R_TextBox @bind-value="@_journalVM.Data.CLAST_DATE"
                        R_ConductorSource="_conJournalNavigator"
                        Enabled="false" />
         </R_ItemLayout>
@@ -245,12 +245,12 @@
             <R_Label>Updated By</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-value="@_journalVM.Journal.CUPDATE_BY"
+            <R_TextBox @bind-value="@_journalVM.Data.CUPDATE_BY"
                        R_ConductorSource="_conJournalNavigator"
                        Enabled="false" />
         </R_ItemLayout>
         <R_ItemLayout xs="2">
-            <R_DatePicker @bind-Value="_journalVM.Journal.DUPDATE_DATE"
+            <R_DatePicker @bind-Value="_journalVM.Data.DUPDATE_DATE"
                           R_ConductorSource="_conJournalNavigator"
                           Enabled="false" />
         </R_ItemLayout>
@@ -269,12 +269,12 @@
             <R_Label>Created By</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-value="@_journalVM.Journal.CCREATE_BY"
+            <R_TextBox @bind-value="@_journalVM.Data.CCREATE_BY"
                        R_ConductorSource="_conJournalNavigator"
                        Enabled="false" />
         </R_ItemLayout>
         <R_ItemLayout xs="2">
-            <R_DatePicker @bind-Value="_journalVM.Journal.DCREATE_DATE"
+            <R_DatePicker @bind-Value="_journalVM.Data.DCREATE_DATE"
                           R_ConductorSource="_conJournalNavigator"
                           Enabled="false" />
         </R_ItemLayout>
@@ -288,7 +288,7 @@
             <R_Button>Copy</R_Button>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_Button R_Conductor="_conJournalNavigator" title="Modify">Modify</R_Button>
+            <R_EditButton R_Conductor="_conJournalNavigator">Modify</R_EditButton>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_DeleteButton R_Conductor="_conJournalNavigator">Delete</R_DeleteButton>

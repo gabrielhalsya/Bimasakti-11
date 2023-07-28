@@ -1,4 +1,5 @@
 ﻿using GLM00200Common;
+using GLM00200Common.DTO_s;
 using GLM00200Model;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
@@ -123,7 +124,7 @@ namespace GLM00200Front
             var loEx = new R_Exception();
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<JournalDTO>(eventArgs.Data);
+                var loParam = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(eventArgs.Data);
                 await _journalVM.GetJournal(loParam);
                 eventArgs.Result = _journalVM.Journal;
             }

@@ -94,7 +94,7 @@ namespace GLM00200Back
 
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poEntity.CCOMPANY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CREC_ID", DbType.String, 50, poEntity.CJRN_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CREC_ID", DbType.String, 50, poEntity.CREC_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 50, poEntity.CLANGUAGE_ID);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
@@ -301,6 +301,8 @@ namespace GLM00200Back
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }
+
+
 
         #region Init var
         //public INIT_VAR_RESULT GetInitData(INIT_VAR_DB_PARAM poParam)

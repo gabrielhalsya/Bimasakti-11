@@ -90,13 +90,13 @@ namespace GLM00200Service
         [HttpPost]
         public R_ServiceGetRecordResultDTO<JournalParamDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<JournalParamDTO> poParameter)
         {
-            R_ServiceGetRecordResultDTO<JournalDTO> loRtn = null;
+            R_ServiceGetRecordResultDTO<JournalParamDTO> loRtn = null;
             R_Exception loException = new R_Exception();
             GLM00200Cls loCls;
             try
             {
                 loCls = new GLM00200Cls(); //create cls class instance
-                loRtn = new R_ServiceGetRecordResultDTO<JournalDTO>();
+                loRtn = new R_ServiceGetRecordResultDTO<JournalParamDTO>();
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
                 poParameter.Entity.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;

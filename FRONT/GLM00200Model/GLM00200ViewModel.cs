@@ -22,7 +22,7 @@ namespace GLM00200Model
         public ObservableCollection<JournalGridDTO> JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public GSL00700DTO Dept { get; set; } = new GSL00700DTO();
-        public JournalDTO Journal { get; set; } = new JournalDTO();
+        public JournalParamDTO Journal { get; set; } = new JournalParamDTO();
         public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
         public VAR_CCURRENT_PERIOD_START_DATE_DTO _CCURRENT_PERIOD_START_DATE { get; set; } = new VAR_CCURRENT_PERIOD_START_DATE_DTO();
         public VAR_CSOFT_PERIOD_START_DATE_DTO _CSOFT_PERIOD_START_DATE { get; set; } = new VAR_CSOFT_PERIOD_START_DATE_DTO();
@@ -79,7 +79,7 @@ namespace GLM00200Model
             try
             {
                 var loResult = await _model.R_ServiceGetRecordAsync(loParam);
-                Journal = loResult;
+                Journal = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -114,7 +114,7 @@ namespace GLM00200Model
                 var loResult = new List<JournalDetailGridDTO>();
                 R_FrontContext.R_SetContext(RecurringJournalContext.CREC_ID, _CREC_ID);
                 loResult = await _model.GetAllJournalDetailListAsync();
-                loResult = loResult.Select((jd, index) => { jd.INO = index + 1; return jd; }).ToList();
+                loResult = loResult.Select((data, i) => { data.INO = i + 1; return data; }).ToList();
                 JournaDetailList = new ObservableCollection<JournalDetailGridDTO>(loResult);
             }
             catch (Exception ex)
