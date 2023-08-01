@@ -21,6 +21,7 @@ namespace GLM00200Model
         public PublicLookupModel _lookupModel = new PublicLookupModel();
         public ObservableCollection<JournalGridDTO> JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
+        public ObservableCollection<JournalDetailGridDTO> JournaDetailListTemp { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public GSL00700DTO Dept { get; set; } = new GSL00700DTO();
         public JournalParamDTO Journal { get; set; } = new JournalParamDTO();
         public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
@@ -37,7 +38,6 @@ namespace GLM00200Model
         public REFRESH_CURRENCY_RATE_RESULT _CURRENCY_RATE_RESULT = new REFRESH_CURRENCY_RATE_RESULT();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
-
         public string _CREC_ID { get; set; } = "";
         private const string _CTRANS_CODE = "000030";
 
@@ -302,6 +302,66 @@ namespace GLM00200Model
                     Journal.NBCURRENCY_RATE = 1;
                 }
 
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        #endregion
+
+        #region Commit/Approval
+        public async Task CommitJournal()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                string lcNewStatus = "";
+                bool llAutoCommit = false;
+                bool llUndoCommit = false;
+                EModeCmmtAprvJRN loMode = EModeCmmtAprvJRN.Commit;
+                if (Journal.CSTATUS == "80")
+                {
+                    lcNewStatus = "20";
+                    llUndoCommit = true;
+                }
+                else
+                {
+                    lcNewStatus = "80";
+                    llUndoCommit = false;
+                }
+                R_FrontContext.R_SetContext(RecurringJournalContext.CJRN_ID_LIST, _CREC_ID);
+                R_FrontContext.R_SetContext(RecurringJournalContext.CNEW_STATUS, lcNewStatus);
+                R_FrontContext.R_SetContext(RecurringJournalContext.LAUTO_COMMIT, llAutoCommit);
+                R_FrontContext.R_SetContext(RecurringJournalContext.LUNDO_COMMIT, llUndoCommit);
+                R_FrontContext.R_SetContext(RecurringJournalContext.EMODE, loMode);
+
+                await _model.JournalCommitApprovalAsync();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        public async Task ApproveJournal()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                string lcNewStatus = "20";
+                bool llAutoCommit = _GL_SYSTEM_PARAM.LCOMMIT_APVJRN;
+                bool llUndoCommit = false;
+                EModeCmmtAprvJRN loMode = EModeCmmtAprvJRN.Approval;
+
+                R_FrontContext.R_SetContext(RecurringJournalContext.CJRN_ID_LIST, _CREC_ID);
+                R_FrontContext.R_SetContext(RecurringJournalContext.CNEW_STATUS, lcNewStatus);
+                R_FrontContext.R_SetContext(RecurringJournalContext.LAUTO_COMMIT, llAutoCommit);
+                R_FrontContext.R_SetContext(RecurringJournalContext.LUNDO_COMMIT, llUndoCommit);
+                R_FrontContext.R_SetContext(RecurringJournalContext.EMODE, loMode);
+
+                await _model.JournalCommitApprovalAsync();
             }
             catch (Exception ex)
             {

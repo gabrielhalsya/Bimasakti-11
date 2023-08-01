@@ -21,6 +21,7 @@ namespace GLM00200Common
         public int IFREQUENCY { get; set; }
         public int IAPPLIED { get; set; }
         public int IPERIOD { get; set; }
+        public string CSTATUS { get; set; }
         public string CSTART_DATE { get; set; }
         public string CNEXT_DATE { get; set; }
         public string CLAST_DATE { get; set; }

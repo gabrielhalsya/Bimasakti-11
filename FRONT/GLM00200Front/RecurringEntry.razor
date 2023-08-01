@@ -5,6 +5,9 @@
 <R_GroupBox Title="Journal Description">
 
     <R_StackLayout Row>
+        <R_ItemLayout Class="row">
+
+        </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_Label>Department</R_Label>
         </R_ItemLayout>
@@ -32,6 +35,8 @@
             <R_ComboBox @bind-Value="@_journalVM.Data.CCURRENCY_CODE"
                         Data="_journalVM._CURRENCY_LIST"
                         R_ConductorSource="_conJournalNavigator"
+                        R_EnableAdd
+                        R_EnableEdit
                         ValueField="@nameof(VAR_CURRENCY.CCURRENCY_CODE)"
                         TextField="@nameof(VAR_CURRENCY.CCURRENCY_NAME)"
                         OnChanged="@OnChanged_CurrencyCode"></R_ComboBox>
@@ -320,7 +325,8 @@
                   R_IsHeader
                  R_ServiceGetRecord="JournalForm_GetRecord"
                  R_ServiceSave="JournalForm_ServiceSave"
-                 R_Validation="JournalForm_Validation">
+                 R_Validation="JournalForm_Validation"
+                >
     </R_Conductor>
 </R_GroupBox>
 
@@ -329,12 +335,12 @@
     <R_Grid Class="mt-3" @ref="@_gridJournalDet"
             DataSource="@_journalVM.JournaDetailList"
             Pageable
-            R_ConductorGridSource="_conJournalDet"
+            R_ConductorSource="_conJournalNavigator"
             R_GridType="R_eGridType.Original"
             R_ServiceGetListRecord="JournalDetGrid_ServiceGetListRecord"
-            AllowAddNewRow="false"
-            AllowDeleteRow="false"
-            AllowEditRow="false">
+            AllowAddNewRow="true"
+            AllowDeleteRow="true"
+            AllowEditRow="true">
         <R_GridColumns>
             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.INO)" HeaderText="No." Width="100px"></R_GridNumericColumn>
             <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NO)" HeaderText="Account No." Width="100px"></R_GridTextColumn>

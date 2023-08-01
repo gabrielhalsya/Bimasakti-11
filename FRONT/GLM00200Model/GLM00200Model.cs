@@ -329,6 +329,27 @@ namespace GLM00200Model
 
             return loResult;
         }
+
+        public async Task JournalCommitApprovalAsync()
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
+                await R_HTTPClientWrapper.R_APIRequestObject<JournalCommitApprovalRESULT>(
+                    _RequestServiceEndPoint,
+                    nameof(IGLM00200.JournalCommitApproval),
+                    DEFAULT_MODULE,
+                    _SendWithContext,
+                    _SendWithToken);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
         #endregion real function
 
         #region for implement only
@@ -382,6 +403,11 @@ namespace GLM00200Model
         }
 
         public REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public JournalCommitApprovalRESULT JournalCommitApproval()
         {
             throw new NotImplementedException();
         }

@@ -17,5 +17,12 @@ namespace GLM00200Common
         public const string CCURRENCY_CODE = "CCURRENCY_CODE";
         public const string CSTART_DATE = "CSTART_DATE";
         public const string CRATETYPE_CODE = "CRATETYPE_CODE";
+
+        public const string CAPPROVE_BY = "CAPPROVE_BY";
+        public const string CJRN_ID_LIST = "CJRN_ID_LIST";
+        public const string CNEW_STATUS = "CNEW_STATUS";
+        public const string LAUTO_COMMIT = "LAUTO_COMMIT";
+        public const string LUNDO_COMMIT = "LUNDO_COMMIT";
+        public const string EMODE = "EMODE";
     }
 }

@@ -19,7 +19,7 @@ namespace GLM00200Common
         VAR_GSM_PERIOD_DTO GetGSM_PERIOD();
         IAsyncEnumerable<VAR_STATUS_DTO> GetSTATUS_DTO();
         IAsyncEnumerable<VAR_CURRENCY> GetVAR_CURRENCIES();
-
         REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate();
+        JournalCommitApprovalRESULT JournalCommitApproval();
     }
 }

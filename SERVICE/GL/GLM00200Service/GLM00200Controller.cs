@@ -141,25 +141,25 @@ namespace GLM00200Service
             throw new NotImplementedException();
         }
 
-        [HttpPost]
-        public INIT_VAR_RESULT_DTO InitialData()
-        {
-            INIT_VAR_RESULT_DTO loRtn = null;
-            R_Exception loException = new R_Exception();
-            GLM00200Cls loCls;
-            try
-            {
-                loCls = new GLM00200Cls(); //create cls class instance
-                loRtn = new INIT_VAR_RESULT_DTO();
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-        EndBlock:
-            loException.ThrowExceptionIfErrors();
-            return loRtn;
-        }
+        //[HttpPost]
+        //public INIT_VAR_RESULT_DTO InitialData()
+        //{
+        //    INIT_VAR_RESULT_DTO loRtn = null;
+        //    R_Exception loException = new R_Exception();
+        //    GLM00200Cls loCls;
+        //    try
+        //    {
+        //        loCls = new GLM00200Cls(); //create cls class instance
+        //        loRtn = new INIT_VAR_RESULT_DTO();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        loException.Add(ex);
+        //    }
+        //EndBlock:
+        //    loException.ThrowExceptionIfErrors();
+        //    return loRtn;
+        //}
 
         #region init
         [HttpPost]
@@ -419,11 +419,44 @@ namespace GLM00200Service
                 poParam = new REFRESH_CURRENCY_RATE_PARAM()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
-                    CCURRENCY_CODE= R_Utility.R_GetContext<string>(RecurringJournalContext.CCURRENCY_CODE),
+                    CCURRENCY_CODE = R_Utility.R_GetContext<string>(RecurringJournalContext.CCURRENCY_CODE),
                     CRATETYPE_CODE = R_Utility.R_GetContext<string>(RecurringJournalContext.CRATETYPE_CODE),
-                    CSTART_DATE= R_Utility.R_GetContext<string>(RecurringJournalContext.CSTART_DATE),
+                    CSTART_DATE = R_Utility.R_GetContext<string>(RecurringJournalContext.CSTART_DATE),
                 };
-                loRtn= loCls.RefreshCurrencyRate(poParam);
+                loRtn = loCls.RefreshCurrencyRate(poParam);
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            return loRtn;
+        }
+
+        [HttpPost]
+        public JournalCommitApprovalRESULT JournalCommitApproval()
+        {
+            JournalCommitApprovalRESULT loRtn = null;
+            R_Exception loException = new R_Exception();
+            GLM00200Cls loCls;
+            JournalCommitApprovalPARAM poParam = null;
+            try
+            {
+                loCls = new GLM00200Cls(); //create cls class instance
+                loRtn = new JournalCommitApprovalRESULT();
+                poParam = new JournalCommitApprovalPARAM()
+                {
+                    CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
+                    CUSER_ID = R_BackGlobalVar.USER_ID,
+                    CAPPROVE_BY = R_BackGlobalVar.USER_ID,
+                    CJRN_ID_LIST = R_Utility.R_GetContext<string>(RecurringJournalContext.CJRN_ID_LIST),
+                    CNEW_STATUS = R_Utility.R_GetContext<string>(RecurringJournalContext.CNEW_STATUS),
+                    LAUTO_COMMIT = R_Utility.R_GetContext<bool>(RecurringJournalContext.LAUTO_COMMIT),
+                    LUNDO_COMMIT = R_Utility.R_GetContext<bool>(RecurringJournalContext.LAUTO_COMMIT),
+                    EMODE = R_Utility.R_GetContext<EModeCmmtAprvJRN>(RecurringJournalContext.EMODE)
+                };
+                loCls.CommitApproveJournal(poParam);
             }
             catch (Exception ex)
             {

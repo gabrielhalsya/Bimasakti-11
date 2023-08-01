@@ -31,6 +31,11 @@ namespace GLM00200Front
         public DateTime DSTART_DATE = DateTime.Now;
         public DateTime DNEXT_DATE = DateTime.Now;
 
+        public bool _enableCrudJournalDetail = false;
+        public bool _enableAddJournalDetail = false;
+        public bool _enableEditJournalDetail = false;
+        public bool _enableDeleteJournalDetail = false;
+
         #region Form Enable/Disable
         public bool ENABLE_NLBASE_RATE = false;
         public bool ENABLE_NLCURRENCY_RATE = false;
@@ -58,7 +63,7 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
         }
 
-        #region AddJournal
+        #region JournalForm
         private async Task JournalForm_Validation(R_ValidationEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
@@ -105,6 +110,20 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
 
         }
+        //private async Task JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
+        //{
+        //    var loEx = new R_Exception();
+        //    try
+        //    {
+        //        _enableCrudJournalDetail = true;
+        //        _journalVM.JournaDetailListTemp = _journalVM.JournaDetailList;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        loEx.Add(ex);
+        //    }
+        //    loEx.ThrowExceptionIfErrors();
+        //}
         #endregion
 
         #region Form Control

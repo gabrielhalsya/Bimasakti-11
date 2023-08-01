@@ -302,8 +302,6 @@ namespace GLM00200Back
             return loRtn;
         }
 
-
-
         #region Init var
         //public INIT_VAR_RESULT GetInitData(INIT_VAR_DB_PARAM poParam)
         //{
@@ -561,5 +559,39 @@ namespace GLM00200Back
             return loRtn;
         }
         #endregion Init Var
+
+        #region Commit/Approve
+        public void CommitApproveJournal(JournalCommitApprovalPARAM poParameter)
+        {
+            R_Exception loEx = new R_Exception();
+            R_Db loDB;
+            DbCommand loCmd;
+            DbConnection loConn;
+            string lcQuery = "";
+            try
+            {
+                loDB = new R_Db();
+                loConn = loDB.GetConnection("R_DefaultConnectionString");
+                loCmd = loDB.GetCommand();
+                lcQuery = "RSP_GL_UPDATE_RECURRING_STATUS";
+                loCmd.CommandType = CommandType.StoredProcedure;
+                loCmd.CommandText = lcQuery;
+                loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParameter.CCOMPANY_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poParameter.CUSER_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CAPPROVE_BY", DbType.String, 50, poParameter.CAPPROVE_BY);
+                loDB.R_AddCommandParameter(loCmd, "@CJRN_ID_LIST", DbType.String, 50, poParameter.CJRN_ID_LIST);
+                loDB.R_AddCommandParameter(loCmd, "@CNEW_STATUS", DbType.String, 50, poParameter.CNEW_STATUS);
+                loDB.R_AddCommandParameter(loCmd, "@LAUTO_COMMIT", DbType.Boolean, 50, poParameter.LAUTO_COMMIT);
+                loDB.R_AddCommandParameter(loCmd, "@LUNDO_COMMIT", DbType.Boolean, 50, poParameter.LUNDO_COMMIT);
+                loDB.SqlExecNonQuery(loConn, loCmd, true);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+        }
+        #endregion
     }
 }
