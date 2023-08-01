@@ -301,6 +301,39 @@ namespace GLM00200Back
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }
+        public List<JournalDetailActualGridDTO> GetActualJournalDetailList(RecurringJournalListParamDTO poParam)
+        {
+            R_Exception loEx = new R_Exception();
+            List<JournalDetailActualGridDTO> loRtn = null;
+            R_Db loDB;
+            DbConnection loConn;
+            DbCommand loCmd;
+            string lcQuery;
+            try
+            {
+                loDB = new R_Db();
+                loConn = loDB.GetConnection();
+                loCmd = loDB.GetCommand();
+
+                lcQuery = "RSP_GL_GET_RECURRING_ACTUAL_JRN_LIST";
+                loCmd.CommandType = CommandType.StoredProcedure;
+                loCmd.CommandText = lcQuery;
+                loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poParam.CDEPT_CODE);
+                loDB.R_AddCommandParameter(loCmd, "@CREF_NO", DbType.String, 50, poParam.CREF_NO);
+                loDB.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 50, poParam.CLANGUAGE_ID);
+
+                var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
+                loRtn = R_Utility.R_ConvertTo<JournalDetailActualGridDTO>(loRtnTemp).ToList();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+            return loRtn;
+
+        }
 
         #region Init var
         //public INIT_VAR_RESULT GetInitData(INIT_VAR_DB_PARAM poParam)

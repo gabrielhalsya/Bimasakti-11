@@ -20,6 +20,7 @@ namespace GLM00200Model
         public GLM00200Model _model = new GLM00200Model();
         public PublicLookupModel _lookupModel = new PublicLookupModel();
         public ObservableCollection<JournalGridDTO> JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
+        public ObservableCollection<JournalDetailActualGridDTO> ActualJournalList { get; set; } = new ObservableCollection<JournalDetailActualGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailListTemp { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public GSL00700DTO Dept { get; set; } = new GSL00700DTO();
@@ -105,7 +106,6 @@ namespace GLM00200Model
         }
         #endregion
 
-        #region Init
         public async Task GetJournalDetailList()
         {
             R_Exception loEx = new R_Exception();
@@ -123,6 +123,25 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
+        public async Task GetActualJournalDetailList()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                var loResult = new List<JournalDetailActualGridDTO>();
+                R_FrontContext.R_SetContext(RecurringJournalContext.CREC_ID, _CREC_ID);
+                loResult = await _model.GetAllJournalActualDetailListAsync();
+                //loResult = loResult.Select((data, i) => { data.INO = i + 1; return data; }).ToList();
+                ActualJournalList = new ObservableCollection<JournalDetailActualGridDTO>(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        #region Init
         public async Task GetFirstDepartData()
         {
             R_Exception loEx = new R_Exception();

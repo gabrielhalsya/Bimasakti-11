@@ -82,6 +82,41 @@ namespace GLM00200Service
         }
 
         [HttpPost]
+        public IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList()
+        {
+            R_Exception loException = new R_Exception();
+            List<JournalDetailGridDTO> loRtnTemp = null;
+            RecurringJournalListParamDTO loDbParam;
+            GLM00200Cls loCls;
+            try
+            {
+                loCls = new GLM00200Cls();
+                loRtnTemp = loCls.GetJournalDetailList(new RecurringJournalListParamDTO()
+                {
+                    CCOMPANY_ID=R_BackGlobalVar.COMPANY_ID,
+                    CDEPT_CODE = R_Utility.R_GetContext<string>(RecurringJournalContext.CDEPT_CODE),
+                    CREF_NO = R_Utility.R_GetContext<string>(RecurringJournalContext.CREF_NO)
+                    CLANGUAGE_ID = R_BackGlobalVar.CULTURE,
+                });
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            return JournalDetailListStreamListHelper(loRtnTemp);
+        }
+
+        private async IAsyncEnumerable<JournalDetailActualGridDTO> ActualJournalDetailListStreamListHelper(List<JournalDetailActualGridDTO> loRtnTemp)
+        {
+            foreach (JournalDetailGridDTO loEntity in loRtnTemp)
+            {
+                yield return loEntity;
+            }
+        }
+
+        [HttpPost]
         public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<JournalParamDTO> poParameter)
         {
             throw new NotImplementedException();
@@ -396,7 +431,6 @@ namespace GLM00200Service
             loException.ThrowExceptionIfErrors();
             return StreamVAR_CURRENCY_DTOHelper(loRtnTemp);
         }
-        #endregion
         private async IAsyncEnumerable<VAR_CURRENCY> StreamVAR_CURRENCY_DTOHelper(List<VAR_CURRENCY> loRtnTemp)
         {
             foreach (VAR_CURRENCY loEntity in loRtnTemp)
@@ -404,6 +438,7 @@ namespace GLM00200Service
                 yield return loEntity;
             }
         }
+        #endregion
 
         [HttpPost]
         public REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate()

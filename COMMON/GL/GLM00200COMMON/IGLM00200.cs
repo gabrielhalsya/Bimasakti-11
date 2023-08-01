@@ -10,6 +10,7 @@ namespace GLM00200Common
         IAsyncEnumerable<JournalGridDTO> GetAllRecurringList();
         IAsyncEnumerable<JournalGridDTO> GetFilteredRecurringList();
         IAsyncEnumerable<JournalDetailGridDTO> GetAllJournalDetailList();
+        IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList();
         VAR_GSM_COMPANY_DTO GetVAR_GSM_COMPANY();
         VAR_GL_SYSTEM_PARAM_DTO GetVAR_GL_SYSTEM_PARAM();
         VAR_CCURRENT_PERIOD_START_DATE_DTO GetCCURRENT_PERIOD_START_DATE();

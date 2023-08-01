@@ -24,5 +24,7 @@ namespace GLM00200Common
         public const string LAUTO_COMMIT = "LAUTO_COMMIT";
         public const string LUNDO_COMMIT = "LUNDO_COMMIT";
         public const string EMODE = "EMODE";
+
+        public static string CREF_NO = "CREF_NO";
     }
 }

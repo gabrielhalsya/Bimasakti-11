@@ -141,7 +141,7 @@ namespace GSM04000Front
                 var loData = (GSM04000DTO)eventArgs.Data;
                 if (_deptViewModel.Department.LEVERYONE == false && loData.LEVERYONE == true)
                 {
-                    _deptViewModel.CheckIsUserDeptExistAsync();
+                    await _deptViewModel.CheckIsUserDeptExistAsync();
                     if (_deptViewModel.IsUserDeptExist)
                     {
                         var loConfirm = await R_MessageBox.Show("Delete Confirmation", "Changing Value Everyone will delete User for this Department", R_eMessageBoxButtonType.OKCancel);

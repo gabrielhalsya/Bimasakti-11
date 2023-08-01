@@ -32,16 +32,7 @@ namespace GLM00200Front
         public DateTime DNEXT_DATE = DateTime.Now;
 
         public bool _enableCrudJournalDetail = false;
-        public bool _enableAddJournalDetail = false;
-        public bool _enableEditJournalDetail = false;
-        public bool _enableDeleteJournalDetail = false;
 
-        #region Form Enable/Disable
-        public bool ENABLE_NLBASE_RATE = false;
-        public bool ENABLE_NLCURRENCY_RATE = false;
-        public bool ENABLE_NBBASE_RATE = false;
-        public bool ENABLE_NBCURRENCY_RATE = false;
-        #endregion
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
@@ -69,6 +60,7 @@ namespace GLM00200Front
             R_Exception loEx = new R_Exception();
             try
             {
+                var loData = (JournalParamDTO)eventArgs.Data;
 
             }
             catch (Exception ex)
@@ -110,24 +102,30 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        //private async Task JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
-        //{
-        //    var loEx = new R_Exception();
-        //    try
-        //    {
-        //        _enableCrudJournalDetail = true;
-        //        _journalVM.JournaDetailListTemp = _journalVM.JournaDetailList;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        loEx.Add(ex);
-        //    }
-        //    loEx.ThrowExceptionIfErrors();
-        //}
+        private async Task JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                _enableCrudJournalDetail = true;
+                _journalVM.JournaDetailListTemp = _journalVM.JournaDetailList;
+                _journalVM.JournaDetailList.Clear();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
         #endregion
 
+
         #region Form Control
-        private async Task DSTART_DATE_ONCHANGED()
+        public bool ENABLE_NLBASE_RATE = false;
+        public bool ENABLE_NLCURRENCY_RATE = false;
+        public bool ENABLE_NBBASE_RATE = false;
+        public bool ENABLE_NBCURRENCY_RATE = false;
+        private async Task OnChangedStartDate()
         {
             var loEx = new R_Exception();
             try
