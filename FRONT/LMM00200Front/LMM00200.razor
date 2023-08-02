@@ -7,7 +7,7 @@
         R_ConductorSource="@_conductorRef"
         R_GridType="@R_eGridType.Navigator"
         R_ServiceGetListRecord="@Grid_R_ServiceGetListRecord"
-        Pageable PageSize="2">
+        Pageable PageSize="5">
     <R_GridColumns>
         <R_GridTextColumn FieldName="CCODE" HeaderText="Code"
                           R_EnableEdit="false" Width="100px"></R_GridTextColumn>
@@ -99,7 +99,6 @@
     <R_ItemLayout xs="1">
         <R_SaveButton R_Conductor="@_conductorRef"></R_SaveButton>
     </R_ItemLayout>
-
 </R_StackLayout>
 
 <R_Conductor @ref="@_conductorRef"

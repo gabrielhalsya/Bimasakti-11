@@ -99,7 +99,6 @@ namespace GLM00200Model
 
             return loResult;
         }
-            
         public async Task<List<JournalGridDTO>> GetFilteredRecurringListAsync()
         {
             var loEx = new R_Exception();
@@ -353,7 +352,6 @@ namespace GLM00200Model
 
             return loResult;
         }
-
         public async Task JournalCommitApprovalAsync()
         {
             var loEx = new R_Exception();
@@ -373,7 +371,6 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-
         #endregion real function
 
         #region for implement only
