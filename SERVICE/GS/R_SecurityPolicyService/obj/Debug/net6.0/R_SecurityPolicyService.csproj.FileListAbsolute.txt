@@ -80,6 +80,7 @@ D:\repos\BS Program\SOURCE\SERVICE\GS\R_SecurityPolicyService\bin\Debug\net6.0\R
 D:\repos\BS Program\SOURCE\SERVICE\GS\R_SecurityPolicyService\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\R_SecurityPolicyService\bin\Debug\net6.0\R_ContextBackEnd.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\R_SecurityPolicyService\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
+D:\repos\BS Program\SOURCE\SERVICE\GS\R_SecurityPolicyService\bin\Debug\net6.0\R_StorageCommon.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\R_SecurityPolicyService\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\R_SecurityPolicyService\bin\Debug\net6.0\R_SecurityPolicyBack.pdb
 D:\repos\BS Program\SOURCE\SERVICE\GS\R_SecurityPolicyService\bin\Debug\net6.0\R_SecurityTokenBack.pdb

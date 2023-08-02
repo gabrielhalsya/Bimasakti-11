@@ -79,6 +79,14 @@
           }
         }
       },
+      "R_StorageCommon/1.0.0.0": {
+        "runtime": {
+          "R_StorageCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "R_Security/1.0.0.0": {
         "runtime": {
           "R_Security.dll": {
@@ -126,6 +134,11 @@
       "sha512": ""
     },
     "R_CommonFrontBackAPI/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_StorageCommon/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

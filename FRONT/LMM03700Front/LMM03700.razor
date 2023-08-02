@@ -5,7 +5,7 @@
 @using R_BlazorFrontEnd.Controls.Tab
 @inherits R_Page
 
-<R_StackLayout Class="my-4" Row>
+<R_StackLayout Row>
     <R_ItemLayout xs="1">
         <R_Label FontStyle="R_eFontStyle.Bold">PROPERTY</R_Label>
     </R_ItemLayout>
@@ -13,37 +13,33 @@
         <R_ComboBox Data="@_viewTCGModel.PropertyList"
                     @bind-Value="@_viewTCGModel._propertyId"
                     ValueField="@nameof(PropertyDTO.CPROPERTY_ID)"
-                    TextField="@nameof(PropertyDTO.CPROPERTY_NAME)" 
+                    TextField="@nameof(PropertyDTO.CPROPERTY_NAME)"
                     OnChanged="@ComboboxPropertyOnChanged"
                     Enabled="@_comboboxPropertyEnabled"></R_ComboBox>
     </R_ItemLayout>
 </R_StackLayout>
 <R_TabStrip @ref="_tabStrip" OnActiveTabIndexChanging="@OnActiveTabIndexChanging">
-    
+
     <R_TabStripTab Title="Tenant Classificaiton Group" id="TGC">
-        <R_StackLayout>
-            <R_ItemLayout>
-                <R_Grid @ref="_gridT1_TCGRef"
-                        DataSource="@_viewTCGModel.TenantClassificationGroupList"
-                        R_ConductorGridSource="_conT1_TCGRef"
-                        Pageable="true"
-                        R_GridType="R_eGridType.Original"
-                        AllowAddNewRow="true"
-                        AllowDeleteRow="true"
-                        AllowEditRow="true"
-                        R_ServiceGetListRecord="@TCG_ServiceGetListRecord"
-                        Width="1000px">
-                    <R_GridColumns>
-                        <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_ID)" HeaderText="Tenant Classification Group Id" R_EnableAdd></R_GridTextColumn>
-                        <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_NAME)" HeaderText="Tenant Classification Group Name" R_EnableAdd R_EnableEdit></R_GridTextColumn>
-                        <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CUPDATE_BY)" HeaderText="Updated By"></R_GridTextColumn>
-                        <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.DUPDATE_DATE)" HeaderText="Updated Date"></R_GridTextColumn>
-                        <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CCREATE_BY)" HeaderText="Created By"></R_GridTextColumn>
-                        <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.DCREATE_DATE)" HeaderText="Created Date"></R_GridTextColumn>
-                    </R_GridColumns>
-                </R_Grid>
-            </R_ItemLayout>
-        </R_StackLayout>
+        <R_Grid @ref="_gridT1_TCGRef"
+                DataSource="@_viewTCGModel.TenantClassificationGroupList"
+                R_ConductorGridSource="_conT1_TCGRef"
+                Pageable="true"
+                R_GridType="R_eGridType.Original"
+                AllowAddNewRow="true"
+                AllowDeleteRow="true"
+                AllowEditRow="true"
+                R_ServiceGetListRecord="@TCG_ServiceGetListRecord"
+                Width="1000px">
+            <R_GridColumns>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_ID)" HeaderText="Tenant Classification Group Id" R_EnableAdd></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_NAME)" HeaderText="Tenant Classification Group Name" R_EnableAdd R_EnableEdit></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CUPDATE_BY)" HeaderText="Updated By"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.DUPDATE_DATE)" HeaderText="Updated Date"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CCREATE_BY)" HeaderText="Created By"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.DCREATE_DATE)" HeaderText="Created Date"></R_GridTextColumn>
+            </R_GridColumns>
+        </R_Grid>
         <R_ConductorGrid @ref="@_conT1_TCGRef"
                          R_ViewModel="@_viewTCGModel"
                          R_ServiceGetRecord="@TCG_ServiceGetRecord"

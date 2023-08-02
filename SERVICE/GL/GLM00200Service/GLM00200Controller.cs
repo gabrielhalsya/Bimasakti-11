@@ -85,17 +85,17 @@ namespace GLM00200Service
         public IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList()
         {
             R_Exception loException = new R_Exception();
-            List<JournalDetailGridDTO> loRtnTemp = null;
+            List<JournalDetailActualGridDTO> loRtnTemp = null;
             RecurringJournalListParamDTO loDbParam;
             GLM00200Cls loCls;
             try
             {
                 loCls = new GLM00200Cls();
-                loRtnTemp = loCls.GetJournalDetailList(new RecurringJournalListParamDTO()
+                loRtnTemp = loCls.GetActualJournalDetailList(new RecurringJournalListParamDTO()
                 {
                     CCOMPANY_ID=R_BackGlobalVar.COMPANY_ID,
                     CDEPT_CODE = R_Utility.R_GetContext<string>(RecurringJournalContext.CDEPT_CODE),
-                    CREF_NO = R_Utility.R_GetContext<string>(RecurringJournalContext.CREF_NO)
+                    CREF_NO = R_Utility.R_GetContext<string>(RecurringJournalContext.CREF_NO),
                     CLANGUAGE_ID = R_BackGlobalVar.CULTURE,
                 });
             }
@@ -105,12 +105,12 @@ namespace GLM00200Service
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
-            return JournalDetailListStreamListHelper(loRtnTemp);
+            return ActualJournalDetailListStreamListHelper(loRtnTemp);
         }
 
         private async IAsyncEnumerable<JournalDetailActualGridDTO> ActualJournalDetailListStreamListHelper(List<JournalDetailActualGridDTO> loRtnTemp)
         {
-            foreach (JournalDetailGridDTO loEntity in loRtnTemp)
+            foreach (JournalDetailActualGridDTO loEntity in loRtnTemp)
             {
                 yield return loEntity;
             }

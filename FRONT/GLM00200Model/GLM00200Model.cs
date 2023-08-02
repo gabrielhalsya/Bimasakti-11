@@ -75,38 +75,15 @@ namespace GLM00200Model
             loEx.ThrowExceptionIfErrors();
 
             return loResult;
-        public async Task<List<JournalDetailGridDTO>> GetAllJournalDetailListAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            List<JournalDetailGridDTO> loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<JournalDetailGridDTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetAllJournalDetailList),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
         }
         public async Task<List<JournalDetailActualGridDTO>> GetAllJournalActualDetailListAsync()
         {
             R_Exception loEx = new R_Exception();
-            List<JournalDetailGridDTO> loResult = null;
+            List<JournalDetailActualGridDTO> loResult = null;
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<JournalDetailGridDTO>(
+                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<JournalDetailActualGridDTO>(
                     _RequestServiceEndPoint,
                     nameof(IGLM00200.GetAllJournalDetailList),
                     DEFAULT_MODULE,
@@ -121,30 +98,8 @@ namespace GLM00200Model
             loEx.ThrowExceptionIfErrors();
 
             return loResult;
-            public async Task<List<JournalDetailGridDTO>> GetAllJournalDetailListAsync()
-            {
-                R_Exception loEx = new R_Exception();
-                List<JournalDetailGridDTO> loResult = null;
-                try
-                {
-                    R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                    loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<JournalDetailGridDTO>(
-                        _RequestServiceEndPoint,
-                        nameof(IGLM00200.GetAllJournalDetailList),
-                        DEFAULT_MODULE,
-                        _SendWithContext,
-                        _SendWithToken);
-                }
-                catch (Exception ex)
-                {
-                    loEx.Add(ex);
-                }
-
-                loEx.ThrowExceptionIfErrors();
-
-                return loResult;
-            }
         }
+            
         public async Task<List<JournalGridDTO>> GetFilteredRecurringListAsync()
         {
             var loEx = new R_Exception();

@@ -36,35 +36,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\BlazorMenuBack\\BlazorMenuBack.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\BlazorMenuBack\\BlazorMenuBack.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityPolicyBack\\R_SecurityPolicyBack.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityPolicyBack\\R_SecurityPolicyBack.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityTokenBack\\R_SecurityTokenBack.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityTokenBack\\R_SecurityTokenBack.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\BlazorMenuCommon\\BlazorMenuCommon.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\BlazorMenuCommon\\BlazorMenuCommon.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\R_SecurityPolicyCommon\\R_SecurityPolicyCommon.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\R_SecurityPolicyCommon\\R_SecurityPolicyCommon.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\R_SecurityTokenCommon\\R_SecurityTokenCommon.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\R_SecurityTokenCommon\\R_SecurityTokenCommon.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\BlazorMenuService\\BlazorMenuService.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\BlazorMenuService\\BlazorMenuService.csproj"
-              },
               "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04000Service\\GSM04000Service.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04000Service\\GSM04000Service.csproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityPolicyService\\R_SecurityPolicyService.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityPolicyService\\R_SecurityPolicyService.csproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityTokenService\\R_SecurityTokenService.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityTokenService\\R_SecurityTokenService.csproj"
               },
               "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\GFF00900SERVICES\\GFF00900SERVICES.csproj": {
                 "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\GFF00900SERVICES\\GFF00900SERVICES.csproj"
@@ -92,10 +65,6 @@
             "Realta.CommonCollectionNuGet": {
               "target": "Package",
               "version": "[1.0.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.2.3, )"
             }
           },
           "imports": [
@@ -774,81 +743,6 @@
         }
       }
     },
-    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\BlazorMenuService\\BlazorMenuService.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\BlazorMenuService\\BlazorMenuService.csproj",
-        "projectName": "BlazorMenuService",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\BlazorMenuService\\BlazorMenuService.csproj",
-        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\BlazorMenuService\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {},
-          "https://packagesource": {},
-          "https://www1.realta.net/realtanuget/nuget": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\BlazorMenuBack\\BlazorMenuBack.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\BlazorMenuBack\\BlazorMenuBack.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\BlazorMenuCommon\\BlazorMenuCommon.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\BlazorMenuCommon\\BlazorMenuCommon.vbproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Mvc.Core": {
-              "target": "Package",
-              "version": "[2.2.5, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04000Service\\GSM04000Service.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -906,156 +800,6 @@
             "Realta.BackCollectionNuGet": {
               "target": "Package",
               "version": "[1.0.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityPolicyService\\R_SecurityPolicyService.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityPolicyService\\R_SecurityPolicyService.csproj",
-        "projectName": "R_SecurityPolicyService",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityPolicyService\\R_SecurityPolicyService.csproj",
-        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityPolicyService\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {},
-          "https://packagesource": {},
-          "https://www1.realta.net/realtanuget/nuget": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityPolicyBack\\R_SecurityPolicyBack.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityPolicyBack\\R_SecurityPolicyBack.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityTokenBack\\R_SecurityTokenBack.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityTokenBack\\R_SecurityTokenBack.vbproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\R_SecurityPolicyCommon\\R_SecurityPolicyCommon.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\R_SecurityPolicyCommon\\R_SecurityPolicyCommon.vbproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Mvc.Core": {
-              "target": "Package",
-              "version": "[2.2.5, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityTokenService\\R_SecurityTokenService.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityTokenService\\R_SecurityTokenService.csproj",
-        "projectName": "R_SecurityTokenService",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityTokenService\\R_SecurityTokenService.csproj",
-        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\R_SecurityTokenService\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {},
-          "https://packagesource": {},
-          "https://www1.realta.net/realtanuget/nuget": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityTokenBack\\R_SecurityTokenBack.vbproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\R_SecurityTokenBack\\R_SecurityTokenBack.vbproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Mvc.Core": {
-              "target": "Package",
-              "version": "[2.2.5, )"
             }
           },
           "imports": [

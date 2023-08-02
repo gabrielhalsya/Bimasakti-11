@@ -60,6 +60,7 @@ D:\repos\BS Program\SOURCE\BACK\GS\BlazorMenuBack\bin\Debug\net6.0\R_ContextBack
 D:\repos\BS Program\SOURCE\BACK\GS\BlazorMenuBack\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\BACK\GS\BlazorMenuBack\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\BACK\GS\BlazorMenuBack\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
+D:\repos\BS Program\SOURCE\BACK\GS\BlazorMenuBack\bin\Debug\net6.0\R_StorageCommon.dll
 D:\repos\BS Program\SOURCE\BACK\GS\BlazorMenuBack\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\BACK\GS\BlazorMenuBack\bin\Debug\net6.0\BlazorMenuCommon.pdb
 D:\repos\BS Program\SOURCE\BACK\GS\BlazorMenuBack\bin\Debug\net6.0\id\R_APIBackEnd.resources.dll

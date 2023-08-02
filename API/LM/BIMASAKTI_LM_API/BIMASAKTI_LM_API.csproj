@@ -11,10 +11,9 @@
 	 <PackageReference Include="Realta.CommonCollectionNuGet" Version="1.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
+	
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\SERVICE\GS\BlazorMenuService\BlazorMenuService.csproj" />
-		<ProjectReference Include="..\..\..\SERVICE\GS\R_SecurityPolicyService\R_SecurityPolicyService.csproj" />
-		<ProjectReference Include="..\..\..\SERVICE\GS\R_SecurityTokenService\R_SecurityTokenService.csproj" />
 		<ProjectReference Include="..\..\..\SERVICE\LM\LMM00200Service\LMM00200Service.csproj" />
 		<ProjectReference Include="..\..\..\SERVICE\LM\LMM03700Service\LMM03700Service.csproj" />
 	</ItemGroup>

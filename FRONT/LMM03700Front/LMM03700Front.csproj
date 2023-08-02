@@ -6,21 +6,13 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <Compile Remove="LMM00200.razor.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="LMM03700.razor.cs" />
-	</ItemGroup>
-
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.15" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.15" />
 	</ItemGroup>
 
 	<ItemGroup>

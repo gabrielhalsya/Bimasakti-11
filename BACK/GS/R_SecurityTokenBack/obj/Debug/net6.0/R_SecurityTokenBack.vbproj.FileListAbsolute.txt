@@ -30,6 +30,7 @@ D:\repos\BS Program\SOURCE\BACK\GS\R_SecurityTokenBack\bin\Debug\net6.0\R_APICom
 D:\repos\BS Program\SOURCE\BACK\GS\R_SecurityTokenBack\bin\Debug\net6.0\R_SecurityTokenCommon.dll
 D:\repos\BS Program\SOURCE\BACK\GS\R_SecurityTokenBack\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\BACK\GS\R_SecurityTokenBack\bin\Debug\net6.0\R_ContextBackEnd.dll
+D:\repos\BS Program\SOURCE\BACK\GS\R_SecurityTokenBack\bin\Debug\net6.0\R_StorageCommon.dll
 D:\repos\BS Program\SOURCE\BACK\GS\R_SecurityTokenBack\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\BACK\GS\R_SecurityTokenBack\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\BACK\GS\R_SecurityTokenBack\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
