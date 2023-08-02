@@ -2,9 +2,17 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<Nullable>enable</Nullable>
+		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="LMM00200.razor.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="LMM03700.razor.cs" />
+	</ItemGroup>
 
 
 	<ItemGroup>
@@ -16,6 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\COMMON\LM\LMM03700Common\LMM03700Common.csproj" />
 		<ProjectReference Include="..\LMM03700Model\LMM03700Model.csproj" />
 	</ItemGroup>
 

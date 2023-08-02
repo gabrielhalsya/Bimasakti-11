@@ -576,6 +576,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "LMM03700Common >= 1.0.0",
       "LMM03700Model >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.15"
     ]
@@ -615,6 +616,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM03700Common\\LMM03700Common.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM03700Common\\LMM03700Common.csproj"
+            },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM03700Model\\LMM03700Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM03700Model\\LMM03700Model.csproj"
             }

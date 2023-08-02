@@ -1,21 +1,21 @@
 ﻿@using LMM03700Common.DTO_s;
 @inherits R_Page
 <R_StackLayout Row>
-    <R_ItemLayout xs="3">
+    <R_ItemLayout col="3">
         <R_Label>From Tenant Classification</R_Label>
     </R_ItemLayout>
-    <R_ItemLayout xs="3">
+    <R_ItemLayout col="3">
         <R_TextBox @bind-Value="@_viewModelTC.TenantClassForMoveTenant.CTENANT_CLASSIFICATION_ID" Enabled=false></R_TextBox>
     </R_ItemLayout>
-    <R_ItemLayout xs="6">
+    <R_ItemLayout col="6">
         <R_TextBox @bind-Value="@_viewModelTC.TenantClassForMoveTenant.CTENANT_CLASSIFICATION_NAME" Enabled=false></R_TextBox>
     </R_ItemLayout>
 </R_StackLayout>
 <R_StackLayout Row>
-    <R_ItemLayout xs="3">
+    <R_ItemLayout col="3">
         <R_Label>To Tenant Classification</R_Label>
     </R_ItemLayout>
-    <R_ItemLayout xs="6">
+    <R_ItemLayout col="6">
         <R_ComboBox Data="@_viewModelTC.TenantClassListForMoveTenant"
                     @bind-Value="@_viewModelTC._toTenantClassificationId"
                     ValueField="@nameof(TenantClassificationDTO.CTENANT_CLASSIFICATION_ID)"
@@ -42,12 +42,12 @@
     </R_GridColumns>
 </R_Grid>
 <R_StackLayout Row Class="justify-content-end">
-    <R_ItemLayout xs="2">
+    <R_ItemLayout col="2">
         <R_Button OnClick="Button_OnClickOkAsync" @*@ref="@ProcessBtn" *@>
             Process
         </R_Button>
     </R_ItemLayout>
-    <R_ItemLayout xs="2">
+    <R_ItemLayout col="2">
         <R_Button OnClick="Button_OnClickCloseAsync">
             Cancel
         </R_Button>

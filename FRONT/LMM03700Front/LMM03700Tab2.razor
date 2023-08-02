@@ -3,64 +3,78 @@
 @inherits R_Page
 
 <R_StackLayout Row>
-    <R_ItemLayout xs="3">
-        <R_Grid @ref="@_gridT2_TCGRef"
-                DataSource="@_viewTCModel.TenantClassGrpList"
-                R_ConductorSource="@_conT2_TCGRef"
+    <R_ItemLayout col="3">
+        <R_Grid @ref="@_gridTenantClassGrp"
+                DataSource="@_vmTenantClass.TenantClassGrpList"
+                R_ConductorSource="@_conTenantClassGrp"
                 R_GridType="@R_eGridType.Navigator"
-                R_ServiceGetListRecord="@T2_TCG_ServiceGetListRecord"
+                R_ServiceGetListRecord="@TenantClassGroup_ServiceGetListRecord"
                 AllowAddNewRow="false"
                 AllowDeleteRow="false"
-                AllowEditRow="false" 
-                Width="200px">
+                AllowEditRow="false" Pageable>
             <R_GridColumns>
-                <R_GridTextColumn Filterable="false" FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_NAME)" HeaderText="Tenant Classification Group"></R_GridTextColumn>
+                <R_GridTextColumn Filterable="false" FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_NAME)" HeaderText="Tenant Classification Group" Width="222px"></R_GridTextColumn>
             </R_GridColumns>
         </R_Grid>
-        <R_Conductor @ref="@_conT2_TCGRef"
-                         R_ViewModel="@_viewTCGModel"
-                         R_ServiceGetRecord="@T2_TCG_ServiceGetRecord"
-                         R_Display="@T2_TCG_ServiceDisplay">
+        <R_Conductor @ref="@_conTenantClassGrp"
+                     R_ViewModel="@_vmTenantClassGrp"
+                     R_ServiceGetRecord="@TenantClassGroup_ServiceGetRecord"
+                     R_Display="@TenantClassGroup_ServiceDisplay">
         </R_Conductor>
     </R_ItemLayout>
-    <R_ItemLayout xs="9">
-        <R_Grid @ref="_gridTCRef"
-                DataSource="@_viewTCModel.TenantClassList"
-                R_ConductorGridSource="_conTCRef"
-                Pageable="true"
+    <R_ItemLayout col="9">
+        <R_Grid @ref="_gridTenantClass"
+                DataSource="@_vmTenantClass.TenantClassList"
+                R_ConductorGridSource="_conTenantClass"
                 R_GridType="R_eGridType.Original"
                 AllowAddNewRow="true"
                 AllowDeleteRow="true"
                 AllowEditRow="true"
-                R_ServiceGetListRecord="T2_TC_ServiceGetListRecord" Width="700px">
+                R_ServiceGetListRecord="TenantClass_ServiceGetListRecord"
+                Pageable="true"
+                PageSize="2">
             <R_GridColumns>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CTENANT_CLASSIFICATION_ID)" HeaderText="Tenant Classification Id" R_EnableAdd></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CTENANT_CLASSIFICATION_NAME)" HeaderText="Tenant Classification Name" R_EnableAdd R_EnableEdit></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CUPDATE_BY)" HeaderText="Updated By"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.DUPDATE_DATE)" HeaderText="Updated Date"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CCREATE_BY)" HeaderText="Created By"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.DCREATE_DATE)" HeaderText="Created Date"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CTENANT_CLASSIFICATION_ID)"
+                                  HeaderText="Tenant Classification Id"
+                                  R_EnableAdd="true"
+                                  Width="200px" />
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CTENANT_CLASSIFICATION_NAME)"
+                                  HeaderText="Tenant Classification Name"
+                                  R_EnableAdd="true"
+                                  R_EnableEdit="false"
+                                  Width="200px" />
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CUPDATE_BY)"
+                                  HeaderText="Updated By"
+                                  Width="100px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.DUPDATE_DATE)"
+                                  HeaderText="Updated Date"
+                                  Width="200px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CCREATE_BY)"
+                                  HeaderText="Created By"
+                                  Width="100px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.DCREATE_DATE)"
+                                  HeaderText="Created Date"
+                                  Width="200px"></R_GridTextColumn>
             </R_GridColumns>
         </R_Grid>
-        <R_ConductorGrid @ref="@_conTCRef"
-                         R_ViewModel="@_viewTCModel"
+        <R_ConductorGrid @ref="@_conTenantClass"
+                         R_ViewModel="@_vmTenantClass"
                               R_IsHeader
-                         R_ServiceGetRecord="@T2_TC_ServiceGetRecord"
-                         R_Display="T2_TC_ServiceDisplay"
-                         R_ServiceDelete="@T2_TC_ServiceDelete"
-                         R_ServiceSave="@T2_TC_ServiceSave">
+                         R_ServiceGetRecord="@TenantClass_ServiceGetRecord"
+                         R_Display="TenantClass_ServiceDisplay"
+                         R_ServiceDelete="@TenantClass_ServiceDelete"
+                         R_ServiceSave="@TenantClass_ServiceSave">
         </R_ConductorGrid>
-        <R_StackLayout Row Class="mt-1">
-            <R_ItemLayout xs="2">
-                <R_Popup @ref="R_PopupCheck"
-                         R_Before_Open_Popup="@R_Before_Open_PopupAssignTenant"
+        <R_StackLayout Row>
+            <R_ItemLayout col="2">
+                <R_Popup R_Before_Open_Popup="@R_Before_Open_PopupAssignTenant"
                          R_After_Open_Popup="@R_After_Open_PopupAssignTenant"
                          Enabled>
                     <R_Label>Assign Tenant</R_Label>
                 </R_Popup>
             </R_ItemLayout>
-            <R_ItemLayout xs="2">
-                <R_Popup R_ConductorGridSource="@_conTRef"
+            <R_ItemLayout col="2">
+                <R_Popup R_ConductorGridSource="@_conTenant"
                          R_Before_Open_Popup="R_Before_Open_Popup_MoveTenant"
                          R_After_Open_Popup="R_After_Open_Popup_MoveTenant"
                          Enabled>
@@ -68,35 +82,36 @@
                 </R_Popup>
             </R_ItemLayout>
         </R_StackLayout>
-        <R_StackLayout Class="mt-4">
-            <R_Grid @ref="@_gridTRef"
-                    DataSource="@_viewTCModel.AssignedTenantList"
-                    Pageable="true"
-                    R_ConductorGridSource="@_conTRef"
-                    R_GridType="@R_eGridType.Original"
-                    R_ServiceGetListRecord="@T2_T_ServiceGetListRecord"
-                    AllowAddNewRow="false"
-                    AllowDeleteRow="false"
-                    AllowEditRow="false" Width="700px">
-                <R_GridColumns>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CTENANT_ID)" HeaderText="Tenant ID"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CTENANT_NAME)" HeaderText="Tenant Name"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CTENANT_CATEGORY_NAME)" HeaderText="Tenant Category"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CTENANT_TYPE_NAME)" HeaderText="Tenant Type"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CUNIT_NAME)" HeaderText="Units"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CPHONE)" HeaderText="Phone 1"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CEMAIL)" HeaderText="Email"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CUPDATE_BY)" HeaderText="Last Updated By"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.DUPDATE_DATE)" HeaderText="Last Updated Date"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.CCREATE_BY)" HeaderText="Created By"></R_GridTextColumn>
-                    <R_GridTextColumn FieldName="@nameof(TenantDTO.DCREATE_DATE)" HeaderText="Created Date"></R_GridTextColumn>
-                </R_GridColumns>
-            </R_Grid>
-            <R_ConductorGrid @ref="@_conTRef"
-                             R_ViewModel="@_viewTCModel"
-                             R_ConductorParent="_conTCRef"
-                             R_ServiceGetRecord="T2_T_GetRecord">
-            </R_ConductorGrid>
-        </R_StackLayout>
+        <R_Grid @ref="@_gridTenant"
+                DataSource="@_vmTenantClass.AssignedTenantList"
+                Pageable="true"
+                R_ConductorGridSource="@_conTenant"
+                R_GridType="@R_eGridType.Original"
+                R_ServiceGetListRecord="@Tenant_ServiceGetListRecord"
+                AllowAddNewRow="false"
+                AllowDeleteRow="false"
+                AllowEditRow="false" PageSize="2">
+            <R_GridColumns>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CTENANT_ID)" HeaderText="Tenant ID" Width="120px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CTENANT_NAME)" HeaderText="Tenant Name" Width="150px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CTENANT_CATEGORY_NAME)" HeaderText="Tenant Category" Width="200px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CTENANT_TYPE_NAME)" HeaderText="Tenant Type" Width="150px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CUNIT_NAME)" HeaderText="Units" Width="100px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CPHONE)" HeaderText="Phone 1" Width="100px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CEMAIL)" HeaderText="Email" Width="150px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CUPDATE_BY)" Width="150px" HeaderText="Last Updated By"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.DUPDATE_DATE)" HeaderText="Last Updated Date" Width="150px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.CCREATE_BY)" HeaderText="Created By" Width="150px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantDTO.DCREATE_DATE)" HeaderText="Created Date" Width="150px"></R_GridTextColumn>
+            </R_GridColumns>
+        </R_Grid>
+        <R_ConductorGrid @ref="@_conTenant"
+                         R_ViewModel="@_vmTenantClass"
+                         R_ConductorParent="_conTenantClass"
+                         R_ServiceGetRecord="Tenant_GetRecord">
+        </R_ConductorGrid>
     </R_ItemLayout>
 </R_StackLayout>
+
+
+

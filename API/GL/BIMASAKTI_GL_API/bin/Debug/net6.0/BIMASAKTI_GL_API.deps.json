@@ -1701,19 +1701,6 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "BlazorMenuBack/1.0.0": {
-        "dependencies": {
-          "BlazorMenuCommon": "1.0.0"
-        },
-        "runtime": {
-          "BlazorMenuBack.dll": {}
-        }
-      },
-      "BlazorMenuCommon/1.0.0": {
-        "runtime": {
-          "BlazorMenuCommon.dll": {}
-        }
-      },
       "BlazorMenuService/1.0.0": {
         "dependencies": {
           "BlazorMenuBack": "1.0.0",
@@ -1830,9 +1817,17 @@
           }
         }
       },
-      "R_ContextBackEnd/1.0.0.0": {
+      "BlazorMenuCommon.Reference/1.0.0.0": {
         "runtime": {
-          "R_ContextBackEnd.dll": {
+          "BlazorMenuCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "BlazorMenuBack.Reference/1.0.0.0": {
+        "runtime": {
+          "BlazorMenuBack.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1849,6 +1844,14 @@
       "R_AuthenticationBack/1.0.0.0": {
         "runtime": {
           "R_AuthenticationBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_ContextBackEnd/1.0.0.0": {
+        "runtime": {
+          "R_ContextBackEnd.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1894,14 +1897,6 @@
           }
         }
       },
-      "R_ContextEnumAndInterface/1.0.0.0": {
-        "runtime": {
-          "R_ContextEnumAndInterface.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "R_PluginsCommon/1.0.0.0": {
         "runtime": {
           "R_PluginsCommon.dll": {
@@ -1913,6 +1908,14 @@
       "R_AuthenticationEnumAndInterface/1.0.0.0": {
         "runtime": {
           "R_AuthenticationEnumAndInterface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_ContextEnumAndInterface/1.0.0.0": {
+        "runtime": {
+          "R_ContextEnumAndInterface.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -3137,16 +3140,6 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
-    "BlazorMenuBack/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "BlazorMenuCommon/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "BlazorMenuService/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -3207,7 +3200,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_ContextBackEnd/1.0.0.0": {
+    "BlazorMenuCommon.Reference/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BlazorMenuBack.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -3218,6 +3216,11 @@
       "sha512": ""
     },
     "R_AuthenticationBack/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ContextBackEnd/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -3247,17 +3250,17 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_ContextEnumAndInterface/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "R_PluginsCommon/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "R_AuthenticationEnumAndInterface/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ContextEnumAndInterface/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

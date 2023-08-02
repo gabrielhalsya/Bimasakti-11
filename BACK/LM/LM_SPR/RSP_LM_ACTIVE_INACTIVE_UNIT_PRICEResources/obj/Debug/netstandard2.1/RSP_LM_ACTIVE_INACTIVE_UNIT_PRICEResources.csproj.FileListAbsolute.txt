@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\bin\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\bin\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\bin\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.pdb

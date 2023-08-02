@@ -1,0 +1,10 @@
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\bin\Debug\netstandard2.1\LMM03700BackResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\bin\Debug\netstandard2.1\LMM03700BackResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\bin\Debug\netstandard2.1\LMM03700BackResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\obj\Debug\netstandard2.1\LMM03700BackResources.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\obj\Debug\netstandard2.1\LMM03700BackResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\obj\Debug\netstandard2.1\LMM03700BackResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\obj\Debug\netstandard2.1\LMM03700BackResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\obj\Debug\netstandard2.1\LMM03700BackResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\obj\Debug\netstandard2.1\LMM03700BackResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700BackResources\obj\Debug\netstandard2.1\LMM03700BackResources.pdb

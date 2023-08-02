@@ -10,8 +10,8 @@
         <R_Label FontStyle="R_eFontStyle.Bold">PROPERTY</R_Label>
     </R_ItemLayout>
     <R_ItemLayout xs="2">
-        <R_ComboBox Data="@_viewTCGModel.PropertyList"
-                    @bind-Value="@_viewTCGModel._propertyId"
+        <R_ComboBox Data="@_vmTenantClassGrp.PropertyList"
+                    @bind-Value="@_vmTenantClassGrp._propertyId"
                     ValueField="@nameof(PropertyDTO.CPROPERTY_ID)"
                     TextField="@nameof(PropertyDTO.CPROPERTY_NAME)"
                     OnChanged="@ComboboxPropertyOnChanged"
@@ -19,38 +19,36 @@
     </R_ItemLayout>
 </R_StackLayout>
 <R_TabStrip @ref="_tabStrip" OnActiveTabIndexChanging="@OnActiveTabIndexChanging">
-
     <R_TabStripTab Title="Tenant Classificaiton Group" id="TGC">
-        <R_Grid @ref="_gridT1_TCGRef"
-                DataSource="@_viewTCGModel.TenantClassificationGroupList"
-                R_ConductorGridSource="_conT1_TCGRef"
+        <R_Grid @ref="_gridTenantClassGrp"
+                DataSource="@_vmTenantClassGrp.TenantClassificationGroupList"
+                R_ConductorGridSource="_conTenantClassGrp"
                 Pageable="true"
+                PageSize="5"
                 R_GridType="R_eGridType.Original"
                 AllowAddNewRow="true"
                 AllowDeleteRow="true"
                 AllowEditRow="true"
-                R_ServiceGetListRecord="@TCG_ServiceGetListRecord"
-                Width="1000px">
+                R_ServiceGetListRecord="@TenantClassGrp_ServiceGetListRecord">
             <R_GridColumns>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_ID)" HeaderText="Tenant Classification Group Id" R_EnableAdd></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_NAME)" HeaderText="Tenant Classification Group Name" R_EnableAdd R_EnableEdit></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CUPDATE_BY)" HeaderText="Updated By"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.DUPDATE_DATE)" HeaderText="Updated Date"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CCREATE_BY)" HeaderText="Created By"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.DCREATE_DATE)" HeaderText="Created Date"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_ID)" HeaderText="Tenant Classification Group Id" R_EnableAdd Width="200px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CTENANT_CLASSIFICATION_GROUP_NAME)" HeaderText="Tenant Classification Group Name" R_EnableAdd R_EnableEdit Width="250px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CUPDATE_BY)" HeaderText="Updated By" Width="100px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.DUPDATE_DATE)" HeaderText="Updated Date" Width="150px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.CCREATE_BY)" HeaderText="Created By" Width="100px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantClassificationGroupDTO.DCREATE_DATE)" HeaderText="Created Date" Width="150px"></R_GridTextColumn>
             </R_GridColumns>
         </R_Grid>
-        <R_ConductorGrid @ref="@_conT1_TCGRef"
-                         R_ViewModel="@_viewTCGModel"
-                         R_ServiceGetRecord="@TCG_ServiceGetRecord"
-                         R_ServiceDelete="@TCG_ServiceDelete"
-                         R_Validation="TGC_Validation"
-                         R_ServiceSave="@TCG_ServiceSave">
+        <R_ConductorGrid @ref="@_conTenantClassGrp"
+                         R_ViewModel="@_vmTenantClassGrp"
+                         R_ServiceGetRecord="@TenantClassGrp_ServiceGetRecord"
+                         R_ServiceDelete="@TenantClassGrp_ServiceDelete"
+                         R_Validation="TenantClassGrp_Validation"
+                         R_ServiceSave="@TenantClassGrp_ServiceSave">
         </R_ConductorGrid>
     </R_TabStripTab>
-
     <R_TabStripTab Title="Tenant Classificaiton" Id="TC">
-        <R_TabPage @ref="@_tab2TenantClass"
+        <R_TabPage @ref="@_tabPageTenantClass"
                    R_Before_Open_TabPage="@R_Before_Open_TabPage"
                    R_After_Open_TabPage="@R_After_Open_TabPage"
                    R_TabEventCallback="@R_TabEventCallback">

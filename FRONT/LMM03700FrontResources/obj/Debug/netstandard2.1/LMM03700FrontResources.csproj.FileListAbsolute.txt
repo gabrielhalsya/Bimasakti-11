@@ -1,0 +1,10 @@
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\bin\Debug\netstandard2.1\LMM03700FrontResources.deps.json
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\bin\Debug\netstandard2.1\LMM03700FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\bin\Debug\netstandard2.1\LMM03700FrontResources.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.pdb

@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.RSP_LM_MAINTAIN_TENANT_CTGResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CTGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CTGResources.pdb

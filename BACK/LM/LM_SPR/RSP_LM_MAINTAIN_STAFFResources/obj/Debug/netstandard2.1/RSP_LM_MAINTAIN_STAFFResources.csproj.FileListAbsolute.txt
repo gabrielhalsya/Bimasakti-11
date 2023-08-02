@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.RSP_LM_MAINTAIN_STAFFResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_STAFFResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_STAFFResources.pdb

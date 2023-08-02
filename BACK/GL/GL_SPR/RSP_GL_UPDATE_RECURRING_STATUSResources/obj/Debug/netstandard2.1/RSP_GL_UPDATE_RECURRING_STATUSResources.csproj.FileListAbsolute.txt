@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\bin\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\bin\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\bin\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.RSP_GL_UPDATE_RECURRING_STATUSResources.msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.pdb

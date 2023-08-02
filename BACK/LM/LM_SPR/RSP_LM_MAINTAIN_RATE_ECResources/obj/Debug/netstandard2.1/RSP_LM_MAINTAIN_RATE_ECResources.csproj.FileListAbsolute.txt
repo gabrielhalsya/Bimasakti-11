@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.RSP_LM_MAINTAIN_RATE_ECResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_ECResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_ECResources.pdb
