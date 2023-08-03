@@ -166,7 +166,6 @@ namespace LMM03700Front
                 var loEntity = R_FrontUtility.ConvertObjectToObject<TenantClassificationDTO>(eventArgs.Data);
                 _vmTenantClass._tenantClassificationId = loEntity.CTENANT_CLASSIFICATION_ID;
                 await _gridTenant.R_RefreshGrid(null);
-                //await _gridTRef.AutoFitAllColumnsAsync();
             }
             catch (Exception ex)
             {

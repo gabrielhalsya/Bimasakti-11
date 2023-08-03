@@ -20,8 +20,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = R1NNMDQwMDAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/repos/BS Program/SOURCE/FRONT/GSM04000FRONT/GSM04000Popup.razor]
-build_metadata.AdditionalFiles.TargetPath = R1NNMDQwMDBQb3B1cC5yYXpvcg==
+[D:/repos/BS Program/SOURCE/FRONT/GSM04000FRONT/GSM04000PopupAssignUser.razor]
+build_metadata.AdditionalFiles.TargetPath = R1NNMDQwMDBQb3B1cEFzc2lnblVzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/GSM04000FRONT/GSM04000PopupUpload.razor]
+build_metadata.AdditionalFiles.TargetPath = R1NNMDQwMDBQb3B1cFVwbG9hZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/repos/BS Program/SOURCE/FRONT/GSM04000FRONT/_Imports.razor]
