@@ -33,8 +33,8 @@ namespace LMM03700Model
 
         public string _propertyId { get; set; } = "";
         public bool _Tab2IsActive { get; set; } = false;
-        public string _tenantClassificationId { get; set; }
-        public string _tenantClassificationGroupId { get; set; }
+        public string _tenantClassificationId { get; set; } = "";
+        public string _tenantClassificationGroupId { get; set; } = "";
 
         //this string is using to move tenant
         public string _toTenantClassificationId = "";

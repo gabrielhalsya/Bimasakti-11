@@ -13,7 +13,7 @@ namespace LMM03700Back
     {
         protected override void R_Deleting(TenantClassificationGroupDTO poEntity)
         {
-            R_Exception loEx = new R_Exception();
+            R_Exception loEx = new ();
             TenantClassificationGroupDTO loRtn = null;
             R_Db loDB;
             DbConnection loConn;
@@ -47,7 +47,7 @@ namespace LMM03700Back
 
         protected override TenantClassificationGroupDTO R_Display(TenantClassificationGroupDTO poEntity)
         {
-            R_Exception loEx = new R_Exception();
+            R_Exception loEx = new ();
             TenantClassificationGroupDTO loRtn = null;
             R_Db loDB;
             DbConnection loConn;
@@ -81,8 +81,7 @@ namespace LMM03700Back
 
         protected override void R_Saving(TenantClassificationGroupDTO poNewEntity, eCRUDMode poCRUDMode)
         {
-            R_Exception loEx = new R_Exception();
-            string lcQuery = null;
+            R_Exception loEx = new ();
             R_Db loDb;
             DbCommand loCmd;
             DbConnection loConn = null;
@@ -108,7 +107,7 @@ namespace LMM03700Back
                         break;
                 }
 
-                lcQuery = "RSP_LM_MAINTAIN_TENANT_CLASS_GRP";
+                string lcQuery = "RSP_LM_MAINTAIN_TENANT_CLASS_GRP";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
@@ -156,7 +155,7 @@ namespace LMM03700Back
 
         public List<TenantClassificationGroupDTO> GetTCGList(TenantClassificationGroupDTO poEntity)
         {
-            R_Exception loEx = new R_Exception();
+            R_Exception loEx = new();
             List<TenantClassificationGroupDTO> loRtn = null;
             R_Db loDB;
             DbConnection loConn;

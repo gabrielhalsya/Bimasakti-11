@@ -2,7 +2,7 @@
 @inherits R_Page
 @attribute [R_Page(Title="Assign Tenant")]
 
-<R_StackLayout Row Style="width:600px">
+<R_StackLayout Row Style="width:1000px">
     <R_ItemLayout col="12">
         <R_Grid @ref="@_Grid"
                 DataSource="_viewModelTC.TenantToAssignList"
@@ -17,13 +17,13 @@
                 <R_GridCheckBoxSelectColumn FieldName="@nameof(SelectedTenantGridPopupDTO.LSELECTED)"
                                                                 R_EnableAdd
                                                                 R_EnableEdit
-                                                                ShowSelectAllHeader Width="100px" />
+                                                                ShowSelectAllHeader Width="80px" />
                 <R_GridTextColumn FieldName="@nameof(TenantGridPopupDTO.CTENANT_ID)" HeaderText="Tenant Id" Width="100px"></R_GridTextColumn>
                 <R_GridTextColumn FieldName="@nameof(TenantGridPopupDTO.CTENANT_NAME)" HeaderText="Tenant Name" Width="200px"></R_GridTextColumn>
                 <R_GridTextColumn FieldName="@nameof(TenantGridPopupDTO.CTENANT_CATEGORY_NAME)" HeaderText="Tenant Category" Width="200px"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantGridPopupDTO.CTENANT_TYPE_NAME)" HeaderText="Tenant Type" Width="200px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantGridPopupDTO.CTENANT_TYPE_NAME)" HeaderText="Tenant Type" Width="100px"></R_GridTextColumn>
                 <R_GridTextColumn FieldName="@nameof(TenantGridPopupDTO.CPHONE)" HeaderText="Phone 1" Width="150px"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="@nameof(TenantGridPopupDTO.CEMAIL)" HeaderText="Email" Width="200px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(TenantGridPopupDTO.CEMAIL)" HeaderText="Email" Width="150px"></R_GridTextColumn>
             </R_GridColumns>
         </R_Grid>
         <R_StackLayout Row Class="justify-content-end">

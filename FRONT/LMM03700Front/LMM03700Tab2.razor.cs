@@ -227,7 +227,7 @@ namespace LMM03700Front
         }
         private async Task R_After_Open_PopupAssignTenant(R_AfterOpenPopupEventArgs eventArgs)
         {
-            R_Exception loEx = new R_Exception();
+            R_Exception loEx = new();
             try
             {
                 if (eventArgs.Result == null)
@@ -266,7 +266,7 @@ namespace LMM03700Front
         }
         private async Task R_After_Open_Popup_MoveTenant(R_AfterOpenPopupEventArgs eventArgs)
         {
-            R_Exception loEx = new R_Exception();
+            R_Exception loEx = new();
             try
             {
                 if (eventArgs.Result == null)

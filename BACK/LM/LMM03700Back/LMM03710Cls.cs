@@ -104,7 +104,6 @@ namespace LMM03700Back
         protected override void R_Saving(TenantClassificationDTO poNewEntity, eCRUDMode poCRUDMode)
         {
             R_Exception loEx = new R_Exception();
-            string lcQuery = null;
             R_Db loDb;
             DbCommand loCmd;
             DbConnection loConn = null;
@@ -130,7 +129,7 @@ namespace LMM03700Back
                         break;
                 }
 
-                lcQuery = "RSP_LM_MAINTAIN_TENANT_CLASS";
+                string lcQuery = "RSP_LM_MAINTAIN_TENANT_CLASS";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
@@ -406,6 +405,7 @@ namespace LMM03700Back
                        $",@CTO_TENANT_CLASSIFICATION_ID = '{poParam.CTO_TENANT_CLASSIFICATION_ID}' " +
                        $",@CUSER_LOGIN_ID = '{poParam.CUSER_ID}' " +
                        $",@CTENANT_LIST = @CTENANT_LIST ";
+
                     var loResult = loDb.SqlExecQuery(lcQuery, loConn, false);
                     TransScope.Complete();
                 }
