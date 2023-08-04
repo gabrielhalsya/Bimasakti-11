@@ -29,8 +29,6 @@ D:\RealCode\RSF\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\SERVICE\GS\GSM04000S
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Debug\net6.0\GSM04000Service.deps.json
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Debug\net6.0\GSM04000Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Debug\net6.0\GSM04000Service.pdb
-D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Debug\net6.0\FastReport.Compat.dll
-D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Debug\net6.0\FastReport.DataVisualization.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Debug\net6.0\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Debug\net6.0\GSM04000Common.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Debug\net6.0\RSP_GS_MAINTAIN_DEPARTMENTResources.dll

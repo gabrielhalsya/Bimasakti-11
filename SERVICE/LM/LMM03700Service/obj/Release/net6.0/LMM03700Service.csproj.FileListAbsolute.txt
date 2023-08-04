@@ -28,3 +28,4 @@ D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Release\net6.0\LMM0370
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Release\net6.0\refint\LMM03700Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Release\net6.0\LMM03700Service.pdb
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Release\net6.0\ref\LMM03700Service.dll
+D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\bin\Release\net6.0\R_StorageCommon.dll

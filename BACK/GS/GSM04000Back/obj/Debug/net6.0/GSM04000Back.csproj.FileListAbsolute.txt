@@ -53,8 +53,6 @@ D:\repos\BS Program\SOURCE\BACK\GS\GSM4000Back\bin\Debug\net6.0\RSP_GS_MAINTAIN_
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\GSM04000Back.deps.json
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\GSM04000Back.pdb
-D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\FastReport.Compat.dll
-D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\FastReport.DataVisualization.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\GSM04000Common.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\RSP_GS_MAINTAIN_DEPARTMENTResources.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\R_APIBackEnd.dll

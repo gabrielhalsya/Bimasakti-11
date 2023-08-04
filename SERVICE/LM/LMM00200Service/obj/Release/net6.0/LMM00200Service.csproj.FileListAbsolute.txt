@@ -26,3 +26,4 @@ D:\repos\BS Program\SOURCE\SERVICE\LM\LMM00200Service\obj\Release\net6.0\LMM0020
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM00200Service\obj\Release\net6.0\refint\LMM00200Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM00200Service\obj\Release\net6.0\LMM00200Service.pdb
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM00200Service\obj\Release\net6.0\ref\LMM00200Service.dll
+D:\repos\BS Program\SOURCE\SERVICE\LM\LMM00200Service\bin\Release\net6.0\R_StorageCommon.dll

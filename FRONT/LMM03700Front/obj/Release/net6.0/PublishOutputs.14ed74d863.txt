@@ -19,12 +19,12 @@ C:\Users\gabriel.codeid\Desktop\LMM03700\R_BlazorFrontEnd.Controls.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700\R_BlazorFrontEnd.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700\R_BlazorFrontEnd.Excel.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700\R_CommonFrontBackAPI.dll
+C:\Users\gabriel.codeid\Desktop\LMM03700\R_APICommonDTO.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700\R_BusinessObjectFront.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700\R_APIClient.dll
-C:\Users\gabriel.codeid\Desktop\LMM03700\R_APICommonDTO.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700\R_ContextFrontEnd.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700\R_ContextEnumAndInterface.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700\R_AuthenticationEnumAndInterface.dll
-C:\Users\gabriel.codeid\Desktop\LMM03700\LMM03700Model.pdb
 C:\Users\gabriel.codeid\Desktop\LMM03700\LMM03700Common.pdb
+C:\Users\gabriel.codeid\Desktop\LMM03700\LMM03700Model.pdb
 C:\Users\gabriel.codeid\Desktop\LMM03700\id\R_BlazorFrontEnd.Controls.resources.dll
