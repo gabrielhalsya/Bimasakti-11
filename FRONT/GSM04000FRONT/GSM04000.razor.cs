@@ -345,13 +345,13 @@ namespace GSM04000Front
         {
             var loData = (GSM04000DTO)eventArgs.Data;
 
-           //if (loData.GenderId == "M")
-           // {
-           //     eventArgs.RowStyle = new R_GridRowRenderStyle
-           //     {
-           //         FontColor = "red"
-           //     };
-           // }
+            //if (loData.GenderId == "M")
+            // {
+            //     eventArgs.RowStyle = new R_GridRowRenderStyle
+            //     {
+            //         FontColor = "red"
+            //     };
+            // }
         }
         #endregion
 

@@ -24,3 +24,6 @@ D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Release\net6.0\GSM04000Back.
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Release\net6.0\refint\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Release\net6.0\GSM04000Back.pdb
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Release\net6.0\ref\GSM04000Back.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Release\net6.0\FastReport.Compat.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Release\net6.0\FastReport.DataVisualization.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Release\net6.0\R_StorageCommon.dll
