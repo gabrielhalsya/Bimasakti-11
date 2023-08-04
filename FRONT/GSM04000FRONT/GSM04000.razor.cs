@@ -42,7 +42,6 @@ namespace GSM04000Front
             try
             {
                 await _gridDeptRef.R_RefreshGrid(null);
-                await _gridDeptRef.AutoFitAllColumnsAsync();
             }
             catch (Exception ex)
             {

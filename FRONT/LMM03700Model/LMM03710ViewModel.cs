@@ -207,9 +207,19 @@ namespace LMM03700Model
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CPROPERTY_ID, _propertyId);
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTENANT_CLASSIFICATION_GROUP_ID, _tenantClassificationGroupId);
                 var loResult = await _model.GetTenantClassificationListAsync();
-                var loListTenantClassUnfilteredList = new List<TenantClassificationDTO>(loResult);
-                TenantClassListForMoveTenant = loListTenantClassUnfilteredList.Where(d => d.CTENANT_CLASSIFICATION_ID != _tenantClassificationId).ToList(); //filter tenant class list except recent tenant positiion
-                _toTenantClassificationId = TenantClassListForMoveTenant.FirstOrDefault().CTENANT_CLASSIFICATION_ID; //set default selected destination tenant to move
+                if (loResult.Count != 0 || loResult != null)
+                {
+                    var loListTenantClassUnfilteredList = new List<TenantClassificationDTO>(loResult);
+                    TenantClassListForMoveTenant = loListTenantClassUnfilteredList.Where(d => d.CTENANT_CLASSIFICATION_ID != _tenantClassificationId).ToList(); //filter tenant class list except recent tenant positiion
+                    if (TenantClassListForMoveTenant.Count != 0)
+                    {
+                        _toTenantClassificationId = TenantClassListForMoveTenant.FirstOrDefault().CTENANT_CLASSIFICATION_ID; //set default selected destination tenant to move
+                    }
+                    else
+                    {
+                        _toTenantClassificationId = "";
+                    }
+                }
             }
             catch (Exception ex)
             {

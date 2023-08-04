@@ -33,6 +33,7 @@ namespace GSM04000Front
             try
             {
                 await _deptUserToAssignViewModel.GetUserToAssignList();
+                eventArgs.ListEntityResult = _deptUserToAssignViewModel.UsersToAssignList;
             }
             catch (Exception ex)
             {

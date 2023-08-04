@@ -308,7 +308,7 @@ namespace LMM03700Back
                        $",@CUSER_LOGIN_ID = '{poParam.CUSER_ID}' " +
                        $",@CTENANT_LIST = @CTENANT_LIST ";
 
-                    try
+                    try     
                     {
                         var loResult = loDb.SqlExecQuery(lcQuery, loConn, false);
                     }

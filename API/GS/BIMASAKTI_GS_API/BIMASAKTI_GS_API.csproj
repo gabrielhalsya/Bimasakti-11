@@ -56,4 +56,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SERVICE\GS\GSM04000Service\GSM04000Service.csproj" />
+  </ItemGroup>
+
 </Project>

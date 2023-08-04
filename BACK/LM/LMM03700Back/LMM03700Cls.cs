@@ -44,7 +44,6 @@ namespace LMM03700Back
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
-
         protected override TenantClassificationGroupDTO R_Display(TenantClassificationGroupDTO poEntity)
         {
             R_Exception loEx = new ();
@@ -78,7 +77,6 @@ namespace LMM03700Back
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }
-
         protected override void R_Saving(TenantClassificationGroupDTO poNewEntity, eCRUDMode poCRUDMode)
         {
             R_Exception loEx = new ();
@@ -152,7 +150,6 @@ namespace LMM03700Back
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
-
         public List<TenantClassificationGroupDTO> GetTCGList(TenantClassificationGroupDTO poEntity)
         {
             R_Exception loEx = new();
