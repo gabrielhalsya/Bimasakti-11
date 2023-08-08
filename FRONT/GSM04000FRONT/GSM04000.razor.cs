@@ -358,17 +358,20 @@ namespace GSM04000Front
         #region Template
         private async Task DownloadTemplateAsync()
         {
+
             var loEx = new R_Exception();
             try
             {
-                var loDataTable = R_FrontUtility.R_ConvertTo(new List<GSM04000ExcelDTO>());
-                loDataTable.TableName = "Department";
+                var loValidate = await R_MessageBox.Show("", "Are you sure download this template?", R_eMessageBoxButtonType.YesNo);
 
-                //export to excel
-                var loByteFile = _excelProvider.R_WriteToExcel(loDataTable);
-                var saveFileName = $"{_clientHelper.CompanyId}.xlsx";
+                if (loValidate == R_eMessageBoxResult.Yes)
+                {
+                    var loByteFile = await _deptViewModel.DownloadTemplate();
 
-                await JS.downloadFileFromStreamHandler(saveFileName, loByteFile);
+                    var saveFileName = $"{_clientHelper.CompanyId}.xlsx";
+
+                    await JS.downloadFileFromStreamHandler(saveFileName, loByteFile.FileBytes);
+                }
             }
             catch (Exception ex)
             {

@@ -24,6 +24,10 @@ namespace GSM04000Model
         public bool ActiveDept { get; set; }
         public bool IsUserDeptExist { get; set; }
 
+        public string _sourceFileName { get; set; }
+        public bool _isErrorEmptyFile = false;
+
+
         public async Task GetDepartmentList()
         {
             R_Exception loEx = new R_Exception();
@@ -141,6 +145,27 @@ namespace GSM04000Model
             }
             loEx.ThrowExceptionIfErrors();
         }
+
+        #region Template
+        public async Task<UploadFileDTO> DownloadTemplate()
+        {
+            var loEx = new R_Exception();
+            UploadFileDTO loResult = null;
+
+            try
+            {
+                loResult = await _model.DownloadTemplateDeptartmentAsync();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loResult;
+        }
+        #endregion
 
     }
 

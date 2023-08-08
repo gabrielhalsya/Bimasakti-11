@@ -137,5 +137,32 @@ namespace GSM04000Model
             }
             return loRtn;
         }
+
+        public UploadFileDTO DownloadTemplateDeptartment()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<UploadFileDTO> DownloadTemplateDeptartmentAsync()
+        {
+            var loEx = new R_Exception();
+            UploadFileDTO loResult = new UploadFileDTO();
+            try
+            {
+                R_HTTPClientWrapper.httpClientName = _HttpClientName;
+                loResult = await R_HTTPClientWrapper.R_APIRequestObject<UploadFileDTO>(
+                    _RequestServiceEndPoint,
+                    nameof(IGSM04000.DownloadTemplateDeptartment),
+                    DEFAULT_MODULE,
+                    _SendWithContext,
+                    _SendWithToken);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+            return loResult;
+        }
     }
 }

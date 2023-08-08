@@ -99,29 +99,29 @@ namespace GLM00200Model
 
             return loResult;
         }
-        public async Task<List<JournalGridDTO>> GetFilteredRecurringListAsync()
-        {
-            var loEx = new R_Exception();
-            List<JournalGridDTO> loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<JournalGridDTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetAllRecurringList),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
+        //public async Task<List<JournalGridDTO>> GetFilteredRecurringListAsync()
+        //{
+        //    var loEx = new R_Exception();
+        //    List<JournalGridDTO> loResult = null;
+        //    try
+        //    {
+        //        R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
+        //        loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<JournalGridDTO>(
+        //            _RequestServiceEndPoint,
+        //            nameof(IGLM00200.GetAllRecurringList),
+        //            DEFAULT_MODULE,
+        //            _SendWithContext,
+        //            _SendWithToken);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        loEx.Add(ex);
+        //    }
 
-            loEx.ThrowExceptionIfErrors();
+        //    loEx.ThrowExceptionIfErrors();
 
-            return loResult;
-        }
+        //    return loResult;
+        //}
         public async Task<VAR_GL_SYSTEM_PARAM_DTO> GetVAR_GL_SYSTEM_PARAMAsync()
         {
             var loEx = new R_Exception();

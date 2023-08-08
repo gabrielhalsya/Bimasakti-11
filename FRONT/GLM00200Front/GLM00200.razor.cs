@@ -199,5 +199,22 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
         }
         #endregion
+
+        #region RapidApprove
+        private async Task RapidApproval_BeforeOpenPopup(R_BeforeOpenPopupEventArgs eventArgs)
+        {
+            //if (_JournalListViewModel.JournalList.Count < 1)
+            //{
+            //    R_MessageBox.Show("", "You don’t have right to approve this journal type!", R_eMessageBoxButtonType.OK);
+            //    goto EndBlock;
+            //}
+            //eventArgs.Parameter = _JournalListViewModel.JournalList;
+            //eventArgs.TargetPageType = typeof(RapidApproveGLT00300);
+        EndBlock:;
+        }
+        private async Task RapidApproval_AfterOpenPopup(R_AfterOpenPopupEventArgs eventArgs)
+        {
+        }
+        #endregion
     }
 }

@@ -6,6 +6,7 @@ using R_CommonFrontBackAPI;
 using GSM04000Back;
 using System.Drawing.Text;
 using System.Xml.Linq;
+using System.Reflection;
 
 namespace GSM04000Service
 {
@@ -188,5 +189,35 @@ namespace GSM04000Service
             loException.ThrowExceptionIfErrors();
             return new GSM04000DeleteAssignedUserWhenEveryoneTrueDTO() { LSUCCESS = true};
 }
+
+        [HttpPost]
+        public UploadFileDTO DownloadTemplateDeptartment()
+        {
+            var loEx = new R_Exception();
+            var loRtn = new UploadFileDTO();
+
+            try
+            {
+                Assembly loAsm = Assembly.Load("BIMASAKTI_GS_API");
+                var lcResourceFile = "BIMASAKTI_GS_API.Template.Department.xlsx";
+
+                using (Stream resFilestream = loAsm.GetManifestResourceStream(lcResourceFile))
+                {
+                    var ms = new MemoryStream();
+                    resFilestream.CopyTo(ms);
+                    var bytes = ms.ToArray();
+
+                    loRtn.FileBytes = bytes;
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
     }
 }

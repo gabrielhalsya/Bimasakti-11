@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj",
-      "projectName": "GLM00200COMMON",
-      "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj",
+      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
+      "projectName": "GLM00200Common",
+      "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
       "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
       "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\obj\\",
       "projectStyle": "PackageReference",
@@ -69,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

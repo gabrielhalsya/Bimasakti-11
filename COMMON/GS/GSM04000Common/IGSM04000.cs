@@ -12,5 +12,6 @@ namespace GSM04000Common
         GSM04000ActiveInactiveDTO RSP_GS_ACTIVE_INACTIVE_DEPTMethod();
         GSM04000CheckUserExistResultDTO CheckIsUserDeptExist();
         GSM04000DeleteAssignedUserWhenEveryoneTrueDTO DeleteDeptUserWhenChaningEveryone();
+        UploadFileDTO DownloadTemplateDeptartment();
     }
 }
