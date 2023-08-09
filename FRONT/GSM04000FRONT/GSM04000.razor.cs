@@ -80,18 +80,18 @@ namespace GSM04000Front
                 loDeptode.CDEPT_CODE = loParam.CDEPT_CODE;
                 loDeptode.CDEPT_NAME = loParam.CDEPT_NAME;
                 //set to viewmodel parent
-                _deptViewModel.DepartmentCode = loParam.CDEPT_CODE;
-                _deptViewModel.ActiveDept = loParam.LACTIVE;
+                _deptViewModel._departmentCode = loParam.CDEPT_CODE;
+                _deptViewModel._activeDept = loParam.LACTIVE;
 
                 if (loParam.LACTIVE)
                 {
                     loLabelActiveInactive = "Inactive";
-                    _deptViewModel.ActiveDept = false;
+                    _deptViewModel._activeDept = false;
                 }
                 else
                 {
                     loLabelActiveInactive = "Activate";
-                    _deptViewModel.ActiveDept = true;
+                    _deptViewModel._activeDept = true;
                 }
                 //set to view model child
                 _deptUserViewModel.DepartmentCode = loParam.CDEPT_CODE;
@@ -141,7 +141,7 @@ namespace GSM04000Front
                 if (_deptViewModel.Department.LEVERYONE == false && loData.LEVERYONE == true)
                 {
                     await _deptViewModel.CheckIsUserDeptExistAsync();
-                    if (_deptViewModel.IsUserDeptExist)
+                    if (_deptViewModel._isUserDeptExist)
                     {
                         var loConfirm = await R_MessageBox.Show("Delete Confirmation", "Changing Value Everyone will delete User for this Department", R_eMessageBoxButtonType.OKCancel);
                         if (loConfirm == R_eMessageBoxResult.Cancel)

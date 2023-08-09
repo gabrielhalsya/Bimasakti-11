@@ -2998,7 +2998,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "GSM04000Common": "1.0.0",
-          "RSP_GS_MAINTAIN_DEPARTMENTResources": "1.0.0"
+          "RSP_GS_MAINTAIN_DEPARTMENTResources": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
           "bin/placeholder/GSM04000Back.dll": {}
@@ -8937,7 +8938,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.telerik.com/v3/index.json": {},
         "https://packagesource": {},
@@ -8995,7 +8995,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

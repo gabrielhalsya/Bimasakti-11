@@ -10,22 +10,19 @@
                 DataSource="@_deptViewModel.DepartmentExcelList"
                 R_ConductorGridSource="_conGridDeptExcelRef"
                 Pageable="true"
-                R_GridType="R_eGridType.Original"
+                R_GridType="R_eGridType.Batch"
                 R_RowRender="@((R_GridRowRenderEventArgs args) => R_RowRender(args))"
-                AllowAddNewRow="false"
-                AllowDeleteRow="false"
-                AllowEditRow="false"
-                R_ServiceGetListRecord="DeptGrid_ServiceGetListRecord">
+                R_ServiceGetListRecord="DeptExcelGrid_ServiceGetListRecord">
             <R_GridColumns>
-                <R_GridTextColumn FieldName="CDEPT_CODE" HeaderText="Department Code" R_EnableAdd></R_GridTextColumn>
-                <R_GridTextColumn FieldName="CDEPT_NAME" HeaderText="Department Name" R_EnableAdd R_EnableEdit></R_GridTextColumn>
-                <R_GridTextColumn FieldName="CCENTER_CODE" HeaderText="Center Code" R_EnableAdd R_EnableEdit></R_GridTextColumn>
-                <R_GridTextColumn FieldName="CCENTER_NAME" HeaderText="Center Name"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="CMANAGER_NAME" HeaderText="Manager" R_EnableAdd R_EnableEdit></R_GridTextColumn>
-                <R_GridCheckBoxColumn FieldName="LEVERYONE" HeaderText="Everyone" R_EnableAdd R_EnableEdit></R_GridCheckBoxColumn>
-                <R_GridCheckBoxColumn FieldName="LACTIVE" HeaderText="Active" R_EnableAdd R_EnableEdit></R_GridCheckBoxColumn>
-                <R_GridTextColumn FieldName="CUPDATE_BY" HeaderText="Last Update By"></R_GridTextColumn>
-                <R_GridTextColumn FieldName="DUPDATE_DATE" HeaderText="Last Update Date"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(GSM04000ExcelGridDTO.CDEPT_CODE)" HeaderText="Department Code" R_EnableAdd></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(GSM04000ExcelGridDTO.CDEPT_NAME)" HeaderText="Department Name" R_EnableAdd R_EnableEdit></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(GSM04000ExcelGridDTO.CCENTER_CODE)" HeaderText="Center Code" R_EnableAdd R_EnableEdit></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(GSM04000ExcelGridDTO.CCENTER_NAME)" HeaderText="Center Name"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(GSM04000ExcelGridDTO.CMANAGER_NAME)" HeaderText="Manager" R_EnableAdd R_EnableEdit></R_GridTextColumn>
+                <R_GridCheckBoxColumn FieldName="@nameof(GSM04000ExcelGridDTO.LEVERYONE)" HeaderText="Everyone" R_EnableAdd R_EnableEdit></R_GridCheckBoxColumn>
+                <R_GridCheckBoxColumn FieldName="@nameof(GSM04000ExcelGridDTO.LACTIVE)" HeaderText="Active" R_EnableAdd R_EnableEdit></R_GridCheckBoxColumn>
+                <R_GridTextColumn FieldName="@nameof(GSM04000ExcelGridDTO.CUPDATE_BY)" HeaderText="Updated By"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(GSM04000ExcelGridDTO.DUPDATE_DATE)" HeaderText="Updated  Date"></R_GridTextColumn>
             </R_GridColumns>
         </R_Grid>
     </R_ItemLayout>

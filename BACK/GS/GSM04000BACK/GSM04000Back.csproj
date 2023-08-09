@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\..\..\COMMON\GS\GSM04000Common\GSM04000Common.csproj" />
 		<ProjectReference Include="..\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\RSP_GS_MAINTAIN_DEPARTMENTResources.csproj" />
 	</ItemGroup>

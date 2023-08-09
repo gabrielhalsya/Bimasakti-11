@@ -1,11 +1,9 @@
-﻿using GSM04000Common;
+﻿using GSM04000Back;
+using GSM04000Common;
 using Microsoft.AspNetCore.Mvc;
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
-using GSM04000Back;
-using System.Drawing.Text;
-using System.Xml.Linq;
 using System.Reflection;
 
 namespace GSM04000Service
@@ -176,19 +174,20 @@ namespace GSM04000Service
             try
             {
                 loCls = new GSM04000Cls(); //create cls class instance
-                loCls.DeleteAssignedUserDept(new GSM04000DTO() { 
-                    CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID, 
+                loCls.DeleteAssignedUserDept(new GSM04000DTO()
+                {
+                    CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
                     CDEPT_CODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CDEPT_CODE)
-            });
-        }
+                });
+            }
             catch (Exception ex)
             {
                 loException.Add(ex);
             }
-    EndBlock:
+        EndBlock:
             loException.ThrowExceptionIfErrors();
-            return new GSM04000DeleteAssignedUserWhenEveryoneTrueDTO() { LSUCCESS = true};
-}
+            return new GSM04000DeleteAssignedUserWhenEveryoneTrueDTO() { LSUCCESS = true };
+        }
 
         [HttpPost]
         public UploadFileDTO DownloadTemplateDeptartment()
@@ -219,5 +218,37 @@ namespace GSM04000Service
 
             return loRtn;
         }
+
+        [HttpPost]
+        public IAsyncEnumerable<GSM04000ExcelGridDTO> GetErrorProcess()
+        {
+            var loEx = new R_Exception();
+            GSM04000ListExcelGridDTO loRtn = null;
+            try
+            {
+                var lcKeyGuid = R_Utility.R_GetContext<string>("DepartmentKeyGuid");
+                var loCls = new GSM00400UploadCls();
+                loRtn = new GSM04000ListExcelGridDTO();
+                var loResult = loCls.GetErrorProcess(R_BackGlobalVar.COMPANY_ID, R_BackGlobalVar.USER_ID, lcKeyGuid);
+                loRtn.Data = loResult;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            //return loRtn;
+            return GetErrorProcessListHelper(loRtn.Data);
+        }
+        private async IAsyncEnumerable<GSM04000ExcelGridDTO> GetErrorProcessListHelper(List<GSM04000ExcelGridDTO> loRtnTemp)
+        {
+            foreach (GSM04000ExcelGridDTO loEntity in loRtnTemp)
+            {
+                yield return loEntity;
+            }
+        }
+
     }
 }

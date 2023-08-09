@@ -21,7 +21,7 @@ namespace GSM04000Front
     public partial class GSM04000PopupUpload : R_Page
     {
         private GSM04000ViewModel _deptViewModel = new GSM04000ViewModel();
-        private R_Grid<GSM04000DTO> _gridDeptExcelRef;
+        private R_Grid<GSM04000ExcelGridDTO> _gridDeptExcelRef;
         private R_ConductorGrid _conGridDeptExcelRef;
         [Inject] private R_IExcel _excelProvider { get; set; }
         [Inject] IClientHelper _clientHelper { get; set; }
@@ -47,7 +47,7 @@ namespace GSM04000Front
             R_DisplayException(loEx);
         }
 
-        private async Task DeptGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
+        private async Task DeptExcelGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -131,6 +131,7 @@ namespace GSM04000Front
                 var loResult = R_FrontUtility.R_ConvertTo<GSM04000ExcelDTO>(loDataSet.Tables[0]);
                 loExtract = new List<GSM04000ExcelDTO>(loResult);
 
+                //
             }
             catch (Exception ex)
             {
