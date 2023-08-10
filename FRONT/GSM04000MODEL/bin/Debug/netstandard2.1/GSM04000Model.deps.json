@@ -15,7 +15,8 @@
           "R_BlazorFrontEnd": "1.0.0.0",
           "R_BusinessObjectFront": "1.0.0.0",
           "R_CommonFrontBackAPI": "1.0.0.0",
-          "R_ContextFrontEnd": "1.0.0.0"
+          "R_ContextFrontEnd": "1.0.0.0",
+          "R_ProcessAndUploadFront": "1.0.0.0"
         },
         "runtime": {
           "GSM04000Model.dll": {}
@@ -69,6 +70,14 @@
       "R_ContextFrontEnd/1.0.0.0": {
         "runtime": {
           "R_ContextFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_ProcessAndUploadFront/1.0.0.0": {
+        "runtime": {
+          "R_ProcessAndUploadFront.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -129,6 +138,11 @@
       "sha512": ""
     },
     "R_ContextFrontEnd/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ProcessAndUploadFront/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

@@ -52,8 +52,9 @@ namespace GSM04000Front
             var loEx = new R_Exception();
             try
             {
-                await _deptViewModel.GetDepartmentList();
-                eventArgs.ListEntityResult = _deptViewModel.DepartmentList;
+                var loData = (List<GSM04000ExcelToUploadDTO>)eventArgs.Parameter;
+                await _deptViewModel.AttachFile(loData, _clientHelper.CompanyId, _clientHelper.UserId);
+                eventArgs.ListEntityResult = _deptViewModel.DepartmentExcelList;
             }
             catch (Exception ex)
             {
@@ -64,17 +65,6 @@ namespace GSM04000Front
 
         private async Task UploadExcel(InputFileChangeEventArgs eventArgs)
         {
-            //var loMS = new MemoryStream();
-            //await eventArgs.File.OpenReadStream().CopyToAsync(loMS);
-            //var loByteFile = loMS.ToArray();
-
-            ////import from excel
-            //var loDataSet = _excelProvider.R_ReadFromExcel(loByteFile);
-
-            //var resultEmployee = R_FrontUtility.R_ConvertTo<GSM04000DTO>(loDataSet.Tables[0]);
-            //ObservableCollection<GSM04000DTO> listEmployee = new ObservableCollection<GSM04000DTO>(resultEmployee);
-            //_deptViewModel.DepartmentExcelList = listEmployee;
-
             var loEx = new R_Exception();
 
             try
@@ -102,7 +92,6 @@ namespace GSM04000Front
                 }
 
                 ReadExcelFile();
-                //await JournalGroup_gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -119,19 +108,20 @@ namespace GSM04000Front
             loEx.ThrowExceptionIfErrors();
         }
 
-        private void ReadExcelFile()
+        private async Task ReadExcelFile()
         {
             var loEx = new R_Exception();
-            List<GSM04000ExcelDTO> loExtract = new List<GSM04000ExcelDTO>();
+            List<GSM04000ExcelToUploadDTO> loExtract = new List<GSM04000ExcelToUploadDTO>();
             try
             {
                 //Read From EXCEL
                 var loExcel = new R_Excel();
                 var loDataSet = loExcel.R_ReadFromExcel(_fileByte, new string[] { "Department" });
-                var loResult = R_FrontUtility.R_ConvertTo<GSM04000ExcelDTO>(loDataSet.Tables[0]);
-                loExtract = new List<GSM04000ExcelDTO>(loResult);
+                var loResult = R_FrontUtility.R_ConvertTo<GSM04000ExcelToUploadDTO>(loDataSet.Tables[0]);
+                loExtract = new List<GSM04000ExcelToUploadDTO>(loResult);
 
-                //
+                //refresh grid
+                await _gridDeptExcelRef.R_RefreshGrid(loExtract);
             }
             catch (Exception ex)
             {

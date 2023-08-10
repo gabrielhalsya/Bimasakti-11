@@ -25,6 +25,7 @@ namespace GSM04000Model
         public string _sourceFileName { get; set; }
         public bool _isErrorEmptyFile = false;
         public bool _isOverwrite = false;
+        public const int _CONST_NBATCH_STEP = 12; 
 
         public async Task GetDepartmentList()
         {
@@ -216,6 +217,47 @@ namespace GSM04000Model
         public Task ReportProgress(int pnProgress, string pcStatus)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task AttachFile(List<GSM04000ExcelToUploadDTO> poBigObject, string pcCompanyId, string pcUserId)
+        {
+            var loEx = new R_Exception();
+            R_BatchParameter loUploadPar;
+            R_ProcessAndUploadClient loCls;
+            List<GSM04000ExcelToUploadDTO> Bigobject;
+            List<R_KeyValue> loUserParameneters;
+            R_IProcessProgressStatus loProgressStatus;
+
+            try
+            {
+                loUserParameneters = new List<R_KeyValue>();
+                //loUserParameneters.Add(new R_KeyValue() { Key = ContextConstant.CPROPERTY_ID, Value = PropertyValue });
+
+                //preapare Batch Parameter
+                loUploadPar = new R_BatchParameter();
+                loUploadPar.COMPANY_ID = pcCompanyId;
+                loUploadPar.USER_ID = pcUserId;
+                loUploadPar.UserParameters = loUserParameneters;
+                loUploadPar.ClassName = "GSM04000Back.LMM06500UploadStaffCls";
+                loUploadPar.BigObject = poBigObject;
+
+                //Instantiate ProcessClient
+                loCls = new R_ProcessAndUploadClient(
+                    poProcessProgressStatus: this,
+                    pcModuleName: "GS",
+                    plSendWithContext: true,
+                    plSendWithToken: true,
+                    pcHttpClientName: "R_DefaultServiceUrl");
+
+                var loKeyGuid = await loCls.R_BatchProcess<List<GSM04000ExcelToUploadDTO>>(loUploadPar, _CONST_NBATCH_STEP);
+
+                //DepartmentExcelList = new ObservableCollection<GSM04000ExcelToReadDTO>(poBigObject);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
         }
         #endregion
     }

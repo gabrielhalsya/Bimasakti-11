@@ -27,8 +27,8 @@ namespace GSM04000Back
             try
             {
                 loDb = new R_Db();
-                var loTempObject = R_NetCoreUtility.R_DeserializeObjectFromByte<List<GSM04000ExcelDTO>>(poBatchProcessPar.BigObject);
-                var loObject = loTempObject.Select(loTemp => new GSM04000ExcelDTO
+                var loTempObject = R_NetCoreUtility.R_DeserializeObjectFromByte<List<GSM04000ExcelToUploadDTO>>(poBatchProcessPar.BigObject);
+                var loObject = loTempObject.Select(loTemp => new GSM04000ExcelToUploadDTO
                 {
                     DepartmentCode = loTemp.DepartmentCode,
                     DepartmentName = loTemp.DepartmentName,
@@ -61,7 +61,7 @@ namespace GSM04000Back
 
                     loDb.SqlExecNonQuery(lcQuery, loConn, false);
 
-                    loDb.R_BulkInsert<GSM04000ExcelDTO>((SqlConnection)loConn, "#DEPARTMENT", loObject);
+                    loDb.R_BulkInsert<GSM04000ExcelToUploadDTO>((SqlConnection)loConn, "#DEPARTMENT", loObject);
 
                     lcQuery = "RSP_GS_UPLOAD_DEPARTMENT";
                     loCommand.CommandText = lcQuery;

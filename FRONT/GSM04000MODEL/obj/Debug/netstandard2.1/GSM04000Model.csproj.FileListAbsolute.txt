@@ -61,3 +61,4 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ProcessAndUploadFront.dll
