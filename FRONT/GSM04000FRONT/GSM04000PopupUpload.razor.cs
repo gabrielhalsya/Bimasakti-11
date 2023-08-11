@@ -20,15 +20,22 @@ namespace GSM04000Front
 {
     public partial class GSM04000PopupUpload : R_Page
     {
-        private GSM04000ViewModel _deptViewModel = new GSM04000ViewModel();
+        private GSM04000ViewModelUploadDept _deptUploadViewModel = new GSM04000ViewModelUploadDept();
+
         private R_Grid<GSM04000ExcelGridDTO> _gridDeptExcelRef;
+
         private R_ConductorGrid _conGridDeptExcelRef;
+
         [Inject] private R_IExcel _excelProvider { get; set; }
+
         [Inject] IClientHelper _clientHelper { get; set; }
 
         private R_eFileSelectAccept[] _accepts = { R_eFileSelectAccept.Excel };
+
         public byte[] _fileByte = null;
+
         private bool _isFileExist = false;
+
         private bool _isUploadSuccesful = true;
 
         protected override async Task R_Init_From_Master(object poParameter)
@@ -53,8 +60,8 @@ namespace GSM04000Front
             try
             {
                 var loData = (List<GSM04000ExcelToUploadDTO>)eventArgs.Parameter;
-                await _deptViewModel.AttachFile(loData, _clientHelper.CompanyId, _clientHelper.UserId);
-                eventArgs.ListEntityResult = _deptViewModel.DepartmentExcelList;
+                await _deptUploadViewModel.AttachFile(loData, _clientHelper.CompanyId, _clientHelper.UserId);
+                eventArgs.ListEntityResult = _deptUploadViewModel.DepartmentExcelList;
             }
             catch (Exception ex)
             {
@@ -70,7 +77,7 @@ namespace GSM04000Front
             try
             {
                 //get file name
-                _deptViewModel._sourceFileName = eventArgs.File.Name;
+                _deptUploadViewModel._sourceFileName = eventArgs.File.Name;
 
                 //import excel from user
                 var loMS = new MemoryStream();
@@ -95,8 +102,8 @@ namespace GSM04000Front
             }
             catch (Exception ex)
             {
-                if (_deptViewModel._isErrorEmptyFile)
-                {
+                if (_deptUploadViewModel._isErrorEmptyFile)
+                {   
                     await R_MessageBox.Show("", "File is Empty", R_eMessageBoxButtonType.OK);
                 }
                 else
@@ -115,8 +122,7 @@ namespace GSM04000Front
             try
             {
                 //Read From EXCEL
-                var loExcel = new R_Excel();
-                var loDataSet = loExcel.R_ReadFromExcel(_fileByte, new string[] { "Department" });
+                var loDataSet = _excelProvider.R_ReadFromExcel(_fileByte, new string[] { "Department" });
                 var loResult = R_FrontUtility.R_ConvertTo<GSM04000ExcelToUploadDTO>(loDataSet.Tables[0]);
                 loExtract = new List<GSM04000ExcelToUploadDTO>(loResult);
 

@@ -33,7 +33,9 @@ namespace GSM04000Front
         [Inject] IClientHelper _clientHelper { get; set; }
 
         private R_Popup R_PopupAssignUser;
+
         private R_Popup R_PopupActiveInactive;
+
         private string loLabelActiveInactive = "Active/Inactive";
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -230,7 +232,6 @@ namespace GSM04000Front
             }
         }
         #endregion//GridLookup
-
 
         #region DepartmentUser(CHILD)
         private async Task DeptUserGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)

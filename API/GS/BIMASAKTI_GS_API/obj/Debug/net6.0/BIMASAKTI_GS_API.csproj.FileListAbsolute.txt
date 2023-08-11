@@ -430,7 +430,6 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.csproj.CoreCompileInputs.cache
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.MvcApplicationPartsAssemblyInfo.cs
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.MvcApplicationPartsAssemblyInfo.cache
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\staticwebassets\msbuild.BIMASAKTI_GS_API.Microsoft.AspNetCore.StaticWebAssets.props
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\staticwebassets\msbuild.build.BIMASAKTI_GS_API.props

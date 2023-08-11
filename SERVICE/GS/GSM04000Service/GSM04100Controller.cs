@@ -55,7 +55,6 @@ namespace GSM04000Service
             return GetUserListHelper(loRtnTemp);
 
         }
-
         private async IAsyncEnumerable<GSM04100DTO> GetUserListHelper(List<GSM04100DTO> loRtnTemp)
         {
             foreach (GSM04100DTO loEntity in loRtnTemp)
@@ -63,7 +62,6 @@ namespace GSM04000Service
                 yield return loEntity;
             }
         }
-
 
         [HttpPost]
         public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<GSM04100DTO> poParameter)
@@ -121,7 +119,7 @@ namespace GSM04000Service
             try
             {
                 loRtn = new R_ServiceSaveResultDTO<GSM04100DTO>();
-                loCls = new GSM04100Cls(); //create cls class instance
+                loCls = new GSM04100Cls(); //create instance
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_LOGIN_ID = R_BackGlobalVar.USER_ID;
                 loCls.R_Save(poParameter.Entity, poParameter.CRUDMode);
