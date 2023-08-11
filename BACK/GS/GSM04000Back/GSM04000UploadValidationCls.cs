@@ -23,7 +23,6 @@ namespace GSM04000Back
             R_Db loDb = null;
             DbConnection loConn = null;
             var loCommand = loDb.GetCommand();
-
             try
             {
                 loDb = new R_Db();
@@ -55,7 +54,6 @@ namespace GSM04000Back
                               $"NonActiveDate VARCHAR(8))";
 
                     loDb.SqlExecNonQuery(lcQuery, loConn, false);
-
                     loDb.R_BulkInsert<GSM04000ExcelToUploadDTO>((SqlConnection)loConn, "#DEPARTMENT", loObject);
 
                     lcQuery = "RSP_GS_VALIDATE_UPLOAD_DEPARTMENT";
@@ -64,7 +62,6 @@ namespace GSM04000Back
 
                     loDb.R_AddCommandParameter(loCommand, "@CCOMPANY_ID", DbType.String, 8, poBatchProcessPar.Key.COMPANY_ID);
                     loDb.R_AddCommandParameter(loCommand, "@CUSER_ID", DbType.String, 20, poBatchProcessPar.Key.USER_ID);
-
                     loDb.R_AddCommandParameter(loCommand, "@CKEY_GUID", DbType.String, 20, poBatchProcessPar.Key.KEY_GUID);
 
                     loDb.SqlExecNonQuery(loConn, loCommand, false);
@@ -85,7 +82,6 @@ namespace GSM04000Back
                     loConn.Dispose();
                 }
             }
-
             loException.ThrowExceptionIfErrors();
         }
         

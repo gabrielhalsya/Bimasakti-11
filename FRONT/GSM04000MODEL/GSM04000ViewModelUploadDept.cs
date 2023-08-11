@@ -82,7 +82,6 @@ namespace GSM04000Model
         {
             throw new NotImplementedException();
         }
-
         public async Task AttachFile(List<GSM04000ExcelToUploadDTO> poBigObject, string pcCompanyId, string pcUserId)
         {
             var loEx = new R_Exception();
@@ -121,7 +120,6 @@ namespace GSM04000Model
             {
                 loEx.Add(ex);
             }
-
         }
         #endregion
     }

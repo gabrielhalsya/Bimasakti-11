@@ -117,8 +117,9 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_CommonFrontBac
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_CrossPlatformSecurity.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_BusinessObjectFront.dll
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ContextFrontEnd.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ProcessAndUploadFront.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_APIClient.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ContextFrontEnd.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSCOMMON.pdb
@@ -148,4 +149,3 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000Front.dl
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\refint\GSM04000Front.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\ref\GSM04000Front.dll
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ProcessAndUploadFront.dll

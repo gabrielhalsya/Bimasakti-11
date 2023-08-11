@@ -126,7 +126,7 @@ namespace GSM04000Front
                 var loResult = R_FrontUtility.R_ConvertTo<GSM04000ExcelToUploadDTO>(loDataSet.Tables[0]);
                 loExtract = new List<GSM04000ExcelToUploadDTO>(loResult);
 
-                //refresh grid
+                //Refresh grid
                 await _gridDeptExcelRef.R_RefreshGrid(loExtract);
             }
             catch (Exception ex)

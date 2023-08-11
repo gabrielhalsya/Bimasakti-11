@@ -50,6 +50,7 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_Blazor
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_BusinessObjectFront.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ContextFrontEnd.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ProcessAndUploadFront.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_AuthenticationEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\GSM04000Common.pdb
@@ -61,4 +62,3 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ProcessAndUploadFront.dll
