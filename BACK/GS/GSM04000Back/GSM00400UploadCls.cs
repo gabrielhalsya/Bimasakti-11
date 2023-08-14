@@ -33,10 +33,10 @@ namespace GSM04000Back
                     DepartmentCode = loTemp.DepartmentCode,
                     DepartmentName = loTemp.DepartmentName,
                     CenterCode = loTemp.CenterCode,
-                    ManagerName= loTemp.ManagerName,
-                    Everyone=loTemp.Everyone,
-                    Active=loTemp.Active,
-                    NonActiveDate=loTemp.NonActiveDate,
+                    ManagerName = loTemp.ManagerName,
+                    Everyone = loTemp.Everyone,
+                    Active = loTemp.Active,
+                    NonActiveDate = loTemp.NonActiveDate,
                 }).ToList();
 
                 //get parameter
@@ -122,8 +122,8 @@ namespace GSM04000Back
                 foreach (var item in loResult)
                 {
                     item.LEXISTS = true;
-                    item.LSELECTED= false;
-                    item.LOVERWRITE= false;
+                    item.LSELECTED = false;
+                    item.LOVERWRITE = false;
                 }
             }
             catch (Exception ex)
@@ -144,6 +144,33 @@ namespace GSM04000Back
             loEx.ThrowExceptionIfErrors();
 
             return loResult;
+        }
+
+        public List<GSM04000DTO> GetDeptDataToCompare(string piCompanyId)
+        {
+            R_Exception loException = new R_Exception();
+            List<GSM04000DTO> loRtn = null;
+            R_Db loDb;
+            DbConnection loConn;
+            DbCommand loCmd;
+            try
+            {
+                loDb = new R_Db();
+                loConn = loDb.GetConnection("R_DefaultConnectionString");
+                string lcQuery = $"SELECT * FROM GSM_DEPARTMENT (NOLCOK) WHERE CCOMPANY_ID = @CCOMPANY_ID";
+                loCmd = loDb.GetCommand();
+                loCmd.CommandText = lcQuery;
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, piCompanyId);
+                var loResult = loDb.SqlExecQuery(loConn, loCmd, true);
+                loRtn = R_Utility.R_ConvertTo<GSM04000DTO>(loResult).ToList();
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            return loRtn;
         }
     }
 }

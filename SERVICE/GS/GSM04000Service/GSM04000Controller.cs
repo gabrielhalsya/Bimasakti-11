@@ -220,15 +220,15 @@ namespace GSM04000Service
         }
 
         [HttpPost]
-        public IAsyncEnumerable<GSM04000ExcelGridDTO> GetErrorProcess()
+        GSM04000List<GSM04000ExcelGridDTO> IGSM04000.GetErrorProcess()
         {
             var loEx = new R_Exception();
-            GSM04000ListExcelGridDTO loRtn = null;
+            GSM04000List<GSM04000ExcelGridDTO> loRtn = null;
             try
             {
                 var lcKeyGuid = R_Utility.R_GetContext<string>("DepartmentKeyGuid");
                 var loCls = new GSM00400UploadCls();
-                loRtn = new GSM04000ListExcelGridDTO();
+                loRtn = new GSM04000List<GSM04000ExcelGridDTO>();
                 var loResult = loCls.GetErrorProcess(R_BackGlobalVar.COMPANY_ID, R_BackGlobalVar.USER_ID, lcKeyGuid);
                 loRtn.Data = loResult;
             }
@@ -240,15 +240,28 @@ namespace GSM04000Service
             loEx.ThrowExceptionIfErrors();
 
             //return loRtn;
-            return GetErrorProcessListHelper(loRtn.Data);
-        }
-        private async IAsyncEnumerable<GSM04000ExcelGridDTO> GetErrorProcessListHelper(List<GSM04000ExcelGridDTO> loRtnTemp)
-        {
-            foreach (GSM04000ExcelGridDTO loEntity in loRtnTemp)
-            {
-                yield return loEntity;
-            }
+            return loRtn;
         }
 
+        [HttpPost]
+        public IAsyncEnumerable<GSM04000DTO> GetDeptDatatoCompare()
+        {
+            R_Exception loException = new R_Exception();
+            List<GSM04000DTO> loRtnTemp = null;
+            GSM04000ListDBParameterDTO loDbParam;
+            GSM00400UploadCls loCls;
+            try
+            {
+                loCls = new GSM00400UploadCls();
+                loRtnTemp = loCls.GetDeptDataToCompare(R_BackGlobalVar.COMPANY_ID);
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            return GSM0400StreamListHelper(loRtnTemp);
+        }
     }
 }

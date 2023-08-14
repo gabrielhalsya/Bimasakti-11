@@ -6,23 +6,47 @@ using R_ProcessAndUploadFront;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Numerics;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace GSM04000Model
 {
     public class GSM04000ViewModelUploadDept : R_IProcessProgressStatus
     {
-        public ObservableCollection<GSM04000ExcelGridDTO> DepartmentExcelList { get; set; } = new ObservableCollection<GSM04000ExcelGridDTO>();
+        public ObservableCollection<GSM04000ExcelToUploadDTO> DepartmentExcelList { get; set; } = new ObservableCollection<GSM04000ExcelToUploadDTO>();
+        public ObservableCollection<GSM04000DTO> DepartmentList { get; set; } = new ObservableCollection<GSM04000DTO>();
+
+        GSM04000Model _model = new GSM04000Model();
         public string _sourceFileName { get; set; }
         public bool _isErrorEmptyFile = false;
         public bool _isOverwrite = false;
-
+        public Action StateChangeAction { get; set; }
         public const int _batchStep = 12;
-
         public string _progressBarMessage = "";
-
         public int _progressBarPercentage = 0;
+        public bool _showNotesErrorColumn = false;
+        public bool _enableSaveButton = false;
+
+
+        public async Task GetDepartmentToCompareList()
+        {
+            R_Exception loEx = new R_Exception();
+            List<GSM04000DTO> loResult = null;
+            try
+            {
+                loResult = new List<GSM04000DTO>();
+                loResult = await _model.GetDeptDatatoCompareAsync();
+                DepartmentList = new ObservableCollection<GSM04000DTO>(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
 
         #region Upload
         public async Task SaveFileBulkFile(string pcCompanyId, string pcUserId)
@@ -48,8 +72,8 @@ namespace GSM04000Model
                     poProcessProgressStatus: this);
 
                 //Set Data
-                //if (JournalGroupValidateUploadError.Count == 0)
-                //return;
+                if (DepartmentExcelList.Count == 0)
+                    return;
 
                 //ListFromExcel = JournalGroupValidateUploadError.ToList();
 
@@ -70,15 +94,26 @@ namespace GSM04000Model
 
             loEx.ThrowExceptionIfErrors();
         }
-        public Task ProcessComplete(string pcKeyGuid, eProcessResultMode poProcessResultMode)
+        public async Task ProcessComplete(string pcKeyGuid, eProcessResultMode poProcessResultMode)
+        {
+            switch (poProcessResultMode)
+            {
+                case eProcessResultMode.Success:
+                    _progressBarMessage = string.Format("Process Complete and success with GUID {0}", pcKeyGuid);
+                    break;
+                case eProcessResultMode.Fail:
+
+                    break;
+                default:
+                    break;
+            }
+            StateChangeAction();
+        }
+        public async Task ProcessError(string pcKeyGuid, R_APIException ex)
         {
             throw new NotImplementedException();
         }
-        public Task ProcessError(string pcKeyGuid, R_APIException ex)
-        {
-            throw new NotImplementedException();
-        }
-        public Task ReportProgress(int pnProgress, string pcStatus)
+        public async Task ReportProgress(int pnProgress, string pcStatus)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +136,7 @@ namespace GSM04000Model
                 loUploadPar.COMPANY_ID = pcCompanyId;
                 loUploadPar.USER_ID = pcUserId;
                 loUploadPar.UserParameters = loUserParameneters;
-                loUploadPar.ClassName = "GSM04000Back.LMM06500UploadStaffCls";
+                loUploadPar.ClassName = "GSM04000Back.UploadClsSS";
                 loUploadPar.BigObject = poBigObject;
 
                 //Instantiate ProcessClient
@@ -113,8 +148,7 @@ namespace GSM04000Model
                     pcHttpClientName: "R_DefaultServiceUrl");
 
                 var loKeyGuid = await loCls.R_BatchProcess<List<GSM04000ExcelToUploadDTO>>(loUploadPar, _batchStep);
-
-                //DepartmentExcelList = new ObservableCollection<GSM04000ExcelToReadDTO>(poBigObject);
+                DepartmentExcelList = new ObservableCollection<GSM04000ExcelToUploadDTO>(poBigObject);
             }
             catch (Exception ex)
             {
@@ -122,5 +156,61 @@ namespace GSM04000Model
             }
         }
         #endregion
+
+        public async Task ValidateDataList(List<GSM04000ExcelToUploadDTO> poEntity)
+        {
+            var loEx = new R_Exception();
+
+            try
+            {
+                await GetDepartmentToCompareList();
+
+                var loObject = poEntity.Select(loTemp => new GSM04000ExcelGridDTO
+                {
+                    CDEPT_CODE = loTemp.DepartmentCode,
+                    CDEPT_NAME = loTemp.DepartmentName,
+                    CCENTER_CODE = loTemp.CenterCode,
+                    CMANAGER_NAME = loTemp.ManagerName,
+                    LEVERYONE = loTemp.Everyone,
+                    LACTIVE = loTemp.Active,
+                    CNON_ACTIVE_DATE = loTemp.NonActiveDate,
+                }).ToList();
+
+                var comparedList = loObject.Join(DepartmentList, loDept1 => loDept1.CDEPT_CODE, loDept2 => loDept2.CDEPT_CODE, (loDept1, loDept2) => new GSM04000ExcelGridDTO
+                {
+                    CDEPT_CODE = loDept1.CDEPT_CODE,
+                    LEXISTS = true,  // Set to 1 when the code exists in both lists
+                    LSELECTED = false,
+                    LOVERWRITE = false
+                }).Union(DepartmentList.Where(loDept2 => !loObject.Any(loDept1 => loDept1.CDEPT_CODE == loDept2.CDEPT_CODE)).Select(loDept2 => new GSM04000ExcelGridDTO
+                {
+                    CDEPT_CODE = loDept2.CDEPT_CODE,
+                    LEXISTS = false,
+                    LSELECTED = true,
+                    LOVERWRITE = false
+                })).Union(loObject.Where(loDept1 => !DepartmentList.Any(loDept2 => loDept2.CDEPT_CODE == loDept1.CDEPT_CODE)).Select(loDept1 => new GSM04000ExcelGridDTO
+                {
+                    CDEPT_CODE = loDept1.CDEPT_CODE,
+                    LEXISTS = false,
+                    LSELECTED = true,
+                    LOVERWRITE = false
+                })).ToList();
+
+                var loData = poEntity.Select(item =>
+                {
+                    //item.Var_Exists = loMasterData.Contains(item.StaffId);
+                    return item;
+                }).ToList();
+
+                //await ConvertGrid(loData);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+        }
     }
 }

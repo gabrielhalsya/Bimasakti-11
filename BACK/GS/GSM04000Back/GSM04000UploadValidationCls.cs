@@ -84,7 +84,49 @@ namespace GSM04000Back
             }
             loException.ThrowExceptionIfErrors();
         }
-        
 
+        public List<GSM04000ExcelGridDTO> GetErrorValidateUploadDept(string pcCompanyId, string pcUserId, string pcKeyGuid)
+        {
+            var loEx = new R_Exception();
+            var lcQuery = "";
+            var loDb = new R_Db();
+            List<GSM04000ExcelGridDTO> loResult = null;
+            DbConnection loConn = null;
+
+            try
+            {
+                loConn = loDb.GetConnection();
+                var loCmd = loDb.GetCommand();
+
+                lcQuery = "EXECUTE RSP_ConvertXMLToTable @CCOMPANY_ID, @CUSER_ID, @CKEY_GUID";
+                loCmd.CommandText = lcQuery;
+
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, pcCompanyId);
+                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, pcUserId);
+                loDb.R_AddCommandParameter(loCmd, "@CKEY_GUID", DbType.String, 50, pcKeyGuid);
+
+                var loDataTableResult = loDb.SqlExecQuery(loConn, loCmd, false);
+
+                loResult = R_Utility.R_ConvertTo<GSM04000ExcelGridDTO>(loDataTableResult).ToList();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            finally
+            {
+                if (loConn != null)
+                {
+                    if (loConn.State != ConnectionState.Closed)
+                        loConn.Close();
+
+                    loConn.Dispose();
+                    loConn = null;
+                }
+            }
+            loEx.ThrowExceptionIfErrors();
+
+            return loResult;
+        }
     }
 }

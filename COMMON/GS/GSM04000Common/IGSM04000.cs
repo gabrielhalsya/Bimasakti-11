@@ -13,5 +13,8 @@ namespace GSM04000Common
         GSM04000CheckUserExistResultDTO CheckIsUserDeptExist();
         GSM04000DeleteAssignedUserWhenEveryoneTrueDTO DeleteDeptUserWhenChaningEveryone();
         UploadFileDTO DownloadTemplateDeptartment();
+        GSM04000List<GSM04000ExcelGridDTO> GetErrorProcess();
+        IAsyncEnumerable<GSM04000DTO> GetDeptDatatoCompare();
+
     }
 }
