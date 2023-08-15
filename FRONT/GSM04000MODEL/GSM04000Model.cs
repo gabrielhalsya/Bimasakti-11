@@ -170,14 +170,14 @@ namespace GSM04000Model
         {
             throw new NotImplementedException();
         }
-        public async Task<GSM04000List<GSM04000ExcelGridDTO>> GetErrorProcessAsync(string pcKeyGuid)
+
+        public async Task<List<GSM04000ExcelGridDTO>> GetErrorProcessAsync(string pcKeyGuid)
         {
             var loEx = new R_Exception();
             GSM04000List<GSM04000ExcelGridDTO> loResult = new GSM04000List<GSM04000ExcelGridDTO>();
             try
             {
                 R_FrontContext.R_SetContext("DepartmentKeyGuid", pcKeyGuid); //key change to constant
-
                 R_HTTPClientWrapper.httpClientName = _HttpClientName;
                 loResult = await R_HTTPClientWrapper.R_APIRequestObject<GSM04000List<GSM04000ExcelGridDTO>>(
                     _RequestServiceEndPoint,
@@ -193,7 +193,7 @@ namespace GSM04000Model
 
             loEx.ThrowExceptionIfErrors();
 
-            return loResult;
+            return loResult.Data;
         }
 
         public IAsyncEnumerable<GSM04000DTO> GetDeptDatatoCompare()
@@ -201,7 +201,7 @@ namespace GSM04000Model
             throw new NotImplementedException();
         }
 
-        public async Task<List<GSM04000DTO>> GetDeptDatatoCompareAsync()
+        public async Task<List<GSM04000DTO>> GetDeptDataToCompareAsync()
         {
             var loEx = new R_Exception();
             List<GSM04000DTO> loResult = null;

@@ -1,9 +1,11 @@
 ﻿using GSM04000Common;
 using R_APICommonDTO;
 using R_BlazorFrontEnd.Exceptions;
+using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
 using R_ProcessAndUploadFront;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,20 +18,19 @@ namespace GSM04000Model
 {
     public class GSM04000ViewModelUploadDept : R_IProcessProgressStatus
     {
-        public ObservableCollection<GSM04000ExcelToUploadDTO> DepartmentExcelList { get; set; } = new ObservableCollection<GSM04000ExcelToUploadDTO>();
-        public ObservableCollection<GSM04000DTO> DepartmentList { get; set; } = new ObservableCollection<GSM04000DTO>();
-
         GSM04000Model _model = new GSM04000Model();
+        public ObservableCollection<GSM04000ExcelGridDTO> DepartmentExcelValidatedData { get; set; } = new ObservableCollection<GSM04000ExcelGridDTO>();
+        public ObservableCollection<GSM04000ExcelToUploadDTO> DepartmentExcelData { get; set; } = new ObservableCollection<GSM04000ExcelToUploadDTO>();
+        public ObservableCollection<GSM04000DTO> CurrentDepartmentData { get; set; } = new ObservableCollection<GSM04000DTO>();
         public string _sourceFileName { get; set; }
         public bool _isErrorEmptyFile = false;
         public bool _isOverwrite = false;
-        public Action StateChangeAction { get; set; }
-        public const int _batchStep = 12;
+        public Action _stateChangeAction { get; set; }
+        public const int NBATCH_STEP = 12;
         public string _progressBarMessage = "";
         public int _progressBarPercentage = 0;
         public bool _showNotesErrorColumn = false;
-        public bool _enableSaveButton = false;
-
+        public bool _enableSaveButton { get; set; } = false;
 
         public async Task GetDepartmentToCompareList()
         {
@@ -38,8 +39,8 @@ namespace GSM04000Model
             try
             {
                 loResult = new List<GSM04000DTO>();
-                loResult = await _model.GetDeptDatatoCompareAsync();
-                DepartmentList = new ObservableCollection<GSM04000DTO>(loResult);
+                loResult = await _model.GetDeptDataToCompareAsync();
+                CurrentDepartmentData = new ObservableCollection<GSM04000DTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -47,8 +48,64 @@ namespace GSM04000Model
             }
             loEx.ThrowExceptionIfErrors();
         }
+        public async Task ValidateDataList(ObservableCollection<GSM04000ExcelToUploadDTO> poEntity)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                //get department master
+                await GetDepartmentToCompareList();
 
-        #region Upload
+                //parsing parameter to list in order to compare
+                var loListDeptFromExcel = poEntity.Select(loTemp => new GSM04000ExcelGridDTO
+                {
+                    CDEPT_CODE = loTemp.DepartmentCode,
+                    CDEPT_NAME = loTemp.DepartmentName,
+                    CCENTER_CODE = loTemp.CenterCode,
+                    CMANAGER_NAME = loTemp.ManagerName,
+                    LEVERYONE = loTemp.Everyone,
+                    LACTIVE = loTemp.Active,
+                    CNON_ACTIVE_DATE = loTemp.NonActiveDate,
+                }).ToList();
+
+                //compare list
+                var loComparedData = CurrentDepartmentData.Union(loListDeptFromExcel).GroupBy(loDept => loDept.CDEPT_CODE).Select(group => new GSM04000ExcelGridDTO
+                {
+                    CDEPT_CODE = group.Key,
+                    LEXISTS = group.Count() > 1,
+                    LSELECTED = group.Count() > 1,
+                    LOVERWRITE = false
+                }).ToList();
+
+                //assign data to list grid binding
+                DepartmentExcelValidatedData = new ObservableCollection<GSM04000ExcelGridDTO>(loComparedData);
+
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+        }
+        private async Task GetError(string pcKeyGuid)
+        {
+            R_APIException loException;
+            try
+            {
+                var loError = await _model.GetErrorProcessAsync(pcKeyGuid);
+                foreach (var item in DepartmentExcelValidatedData)
+                {
+                    item.CERROR_MESSAGE = loError.Where(x => x.CDEPT_CODE == item.CDEPT_CODE).Select(x => x.CERROR_MESSAGE).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
         public async Task SaveFileBulkFile(string pcCompanyId, string pcUserId)
         {
             var loEx = new R_Exception();
@@ -72,7 +129,7 @@ namespace GSM04000Model
                     poProcessProgressStatus: this);
 
                 //Set Data
-                if (DepartmentExcelList.Count == 0)
+                if (DepartmentExcelData.Count == 0)
                     return;
 
                 //ListFromExcel = JournalGroupValidateUploadError.ToList();
@@ -94,29 +151,6 @@ namespace GSM04000Model
 
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task ProcessComplete(string pcKeyGuid, eProcessResultMode poProcessResultMode)
-        {
-            switch (poProcessResultMode)
-            {
-                case eProcessResultMode.Success:
-                    _progressBarMessage = string.Format("Process Complete and success with GUID {0}", pcKeyGuid);
-                    break;
-                case eProcessResultMode.Fail:
-
-                    break;
-                default:
-                    break;
-            }
-            StateChangeAction();
-        }
-        public async Task ProcessError(string pcKeyGuid, R_APIException ex)
-        {
-            throw new NotImplementedException();
-        }
-        public async Task ReportProgress(int pnProgress, string pcStatus)
-        {
-            throw new NotImplementedException();
-        }
         public async Task AttachFile(List<GSM04000ExcelToUploadDTO> poBigObject, string pcCompanyId, string pcUserId)
         {
             var loEx = new R_Exception();
@@ -135,8 +169,8 @@ namespace GSM04000Model
                 loUploadPar = new R_BatchParameter();
                 loUploadPar.COMPANY_ID = pcCompanyId;
                 loUploadPar.USER_ID = pcUserId;
-                loUploadPar.UserParameters = loUserParameneters;
-                loUploadPar.ClassName = "GSM04000Back.UploadClsSS";
+                //loUploadPar.UserParameters = loUserParameneters;
+                loUploadPar.ClassName = "GSM04000Back.GSM04000UploadValidationCls";
                 loUploadPar.BigObject = poBigObject;
 
                 //Instantiate ProcessClient
@@ -147,70 +181,61 @@ namespace GSM04000Model
                     plSendWithToken: true,
                     pcHttpClientName: "R_DefaultServiceUrl");
 
-                var loKeyGuid = await loCls.R_BatchProcess<List<GSM04000ExcelToUploadDTO>>(loUploadPar, _batchStep);
-                DepartmentExcelList = new ObservableCollection<GSM04000ExcelToUploadDTO>(poBigObject);
+                var loKeyGuid = await loCls.R_BatchProcess<List<GSM04000ExcelToUploadDTO>>(loUploadPar, NBATCH_STEP);
+                DepartmentExcelData = new ObservableCollection<GSM04000ExcelToUploadDTO>(poBigObject);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
+        }
+
+        #region Upload
+        public async Task ProcessComplete(string pcKeyGuid, eProcessResultMode poProcessResultMode)
+        {
+            switch (poProcessResultMode)
+            {
+                case eProcessResultMode.Success:
+                    //shown message
+                    _progressBarMessage = string.Format("Process Complete and success with GUID {0}", pcKeyGuid);
+                    
+                    //enable save button and hide errorcolumn
+                    _enableSaveButton = true;
+                    _showNotesErrorColumn = false;
+
+                    //convert & assign data to binded grid data
+                    await ValidateDataList(DepartmentExcelData);
+
+                    break;
+                case eProcessResultMode.Fail:
+                    _enableSaveButton=false;
+                    _showNotesErrorColumn = true;
+                    _progressBarMessage = string.Format("Process Complete but fail with GUID {0}", pcKeyGuid);
+                    await GetError(pcKeyGuid);
+                    break;
+                default:
+                    break;
+            }
+            _stateChangeAction();
+        }
+        public async Task ProcessError(string pcKeyGuid, R_APIException ex)
+        {
+            foreach (R_APICommonDTO.R_Error loerror in ex.ErrorList)
+            {
+                _progressBarMessage = string.Format($"{loerror.ErrDescp}");
+            }
+            _stateChangeAction();
+            await Task.CompletedTask;
+        }
+        public async Task ReportProgress(int pnProgress, string pcStatus)
+        {
+            _progressBarMessage = string.Format("Process Progress {0} with status {1}", pnProgress, pcStatus);
+            _progressBarPercentage = pnProgress;
+            _progressBarMessage = string.Format("Process Progress {0} with status {1}", pnProgress, pcStatus);
+            _stateChangeAction();
+            await Task.CompletedTask;
         }
         #endregion
 
-        public async Task ValidateDataList(List<GSM04000ExcelToUploadDTO> poEntity)
-        {
-            var loEx = new R_Exception();
-
-            try
-            {
-                await GetDepartmentToCompareList();
-
-                var loObject = poEntity.Select(loTemp => new GSM04000ExcelGridDTO
-                {
-                    CDEPT_CODE = loTemp.DepartmentCode,
-                    CDEPT_NAME = loTemp.DepartmentName,
-                    CCENTER_CODE = loTemp.CenterCode,
-                    CMANAGER_NAME = loTemp.ManagerName,
-                    LEVERYONE = loTemp.Everyone,
-                    LACTIVE = loTemp.Active,
-                    CNON_ACTIVE_DATE = loTemp.NonActiveDate,
-                }).ToList();
-
-                var comparedList = loObject.Join(DepartmentList, loDept1 => loDept1.CDEPT_CODE, loDept2 => loDept2.CDEPT_CODE, (loDept1, loDept2) => new GSM04000ExcelGridDTO
-                {
-                    CDEPT_CODE = loDept1.CDEPT_CODE,
-                    LEXISTS = true,  // Set to 1 when the code exists in both lists
-                    LSELECTED = false,
-                    LOVERWRITE = false
-                }).Union(DepartmentList.Where(loDept2 => !loObject.Any(loDept1 => loDept1.CDEPT_CODE == loDept2.CDEPT_CODE)).Select(loDept2 => new GSM04000ExcelGridDTO
-                {
-                    CDEPT_CODE = loDept2.CDEPT_CODE,
-                    LEXISTS = false,
-                    LSELECTED = true,
-                    LOVERWRITE = false
-                })).Union(loObject.Where(loDept1 => !DepartmentList.Any(loDept2 => loDept2.CDEPT_CODE == loDept1.CDEPT_CODE)).Select(loDept1 => new GSM04000ExcelGridDTO
-                {
-                    CDEPT_CODE = loDept1.CDEPT_CODE,
-                    LEXISTS = false,
-                    LSELECTED = true,
-                    LOVERWRITE = false
-                })).ToList();
-
-                var loData = poEntity.Select(item =>
-                {
-                    //item.Var_Exists = loMasterData.Contains(item.StaffId);
-                    return item;
-                }).ToList();
-
-                //await ConvertGrid(loData);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-        }
     }
 }

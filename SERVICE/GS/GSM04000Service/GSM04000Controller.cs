@@ -220,7 +220,28 @@ namespace GSM04000Service
         }
 
         [HttpPost]
-        GSM04000List<GSM04000ExcelGridDTO> IGSM04000.GetErrorProcess()
+        public IAsyncEnumerable<GSM04000DTO> GetDeptDatatoCompare()
+        {
+            R_Exception loException = new R_Exception();
+            List<GSM04000DTO> loRtnTemp = null;
+            GSM04000ListDBParameterDTO loDbParam;
+            GSM00400UploadCls loCls;
+            try
+            {
+                loCls = new GSM00400UploadCls();
+                loRtnTemp = loCls.GetDeptDataToCompare(R_BackGlobalVar.COMPANY_ID);
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            return GSM0400StreamListHelper(loRtnTemp);
+        }
+
+        [HttpPost]
+        public GSM04000List<GSM04000ExcelGridDTO> GetErrorProcess()
         {
             var loEx = new R_Exception();
             GSM04000List<GSM04000ExcelGridDTO> loRtn = null;
@@ -241,27 +262,6 @@ namespace GSM04000Service
 
             //return loRtn;
             return loRtn;
-        }
-
-        [HttpPost]
-        public IAsyncEnumerable<GSM04000DTO> GetDeptDatatoCompare()
-        {
-            R_Exception loException = new R_Exception();
-            List<GSM04000DTO> loRtnTemp = null;
-            GSM04000ListDBParameterDTO loDbParam;
-            GSM00400UploadCls loCls;
-            try
-            {
-                loCls = new GSM00400UploadCls();
-                loRtnTemp = loCls.GetDeptDataToCompare(R_BackGlobalVar.COMPANY_ID);
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-        EndBlock:
-            loException.ThrowExceptionIfErrors();
-            return GSM0400StreamListHelper(loRtnTemp);
         }
     }
 }

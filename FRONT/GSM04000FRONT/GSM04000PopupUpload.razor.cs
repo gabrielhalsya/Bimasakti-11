@@ -38,20 +38,26 @@ namespace GSM04000Front
 
         private bool _isUploadSuccesful = true;
 
-        protected override async Task R_Init_From_Master(object poParameter)
+        private void StateChangeInvoke()
+        {
+            StateHasChanged();
+        }
+
+        protected override  Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
 
             try
             {
-                await _gridDeptExcelRef.R_RefreshGrid(null);
+                _deptUploadViewModel._stateChangeAction = StateChangeInvoke;
+                //await _gridDeptExcelRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
-
             R_DisplayException(loEx);
+            return Task.CompletedTask;
         }
 
         private async Task DeptExcelGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
@@ -61,7 +67,7 @@ namespace GSM04000Front
             {
                 var loData = (List<GSM04000ExcelToUploadDTO>)eventArgs.Parameter;
                 await _deptUploadViewModel.AttachFile(loData, _clientHelper.CompanyId, _clientHelper.UserId);
-                eventArgs.ListEntityResult = _deptUploadViewModel.DepartmentExcelList;
+                eventArgs.ListEntityResult = _deptUploadViewModel.DepartmentExcelValidatedData;
             }
             catch (Exception ex)
             {
@@ -138,15 +144,41 @@ namespace GSM04000Front
 
         private void R_RowRender(R_GridRowRenderEventArgs eventArgs)
         {
-            var loData = (GSM04000DTO)eventArgs.Data;
+            var loData = (GSM04000ExcelGridDTO)eventArgs.Data;
 
-            if (loData.LACTIVE)
+            if (loData.LEXISTS)
             {
                 eventArgs.RowStyle = new R_GridRowRenderStyle
                 {
                     FontColor = "red"
                 };
             }
+        }
+
+        public async Task OnClick_ButtonOK()
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loValidate = await R_MessageBox.Show("", "Are you sure want to import data?", R_eMessageBoxButtonType.YesNo);
+
+                if (loValidate == R_eMessageBoxResult.Yes)
+                {
+                    await _deptUploadViewModel.SaveFileBulkFile(_clientHelper.CompanyId, _clientHelper.UserId);
+                    await this.Close(true, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        public async Task OnClick_ButtonClose()
+        {
+            await this.Close(true, false);
         }
     }
 }
