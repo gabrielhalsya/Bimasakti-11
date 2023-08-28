@@ -35,7 +35,6 @@ namespace LMM03700Front
             {
                 loEx.Add(ex);
             }
-
             loEx.ThrowExceptionIfErrors();
         }
         public async Task RefreshTabPageAsync(object poParam)
@@ -240,7 +239,8 @@ namespace LMM03700Front
                 var loAssignTenantParam = R_FrontUtility.ConvertCollectionToCollection<TenantGridPopupDTO>(loSelectedResult);
                 if (loAssignTenantParam.Count > 0)
                 {
-                    await _vmTenantClass.AssignTenantCategory(loAssignTenantParam);
+                    await _vmTenantClass.AssignTenantCategory(new List<TenantGridPopupDTO>(loAssignTenantParam));
+
                     await _gridTenant.R_RefreshGrid(null);
                 }
             }

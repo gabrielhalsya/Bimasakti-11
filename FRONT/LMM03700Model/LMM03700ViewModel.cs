@@ -49,7 +49,6 @@ namespace LMM03700Model
             try
             {
                 poNewEntity.CPROPERTY_ID = _propertyId;
-
                 var loResult = await _model.R_ServiceSaveAsync(poNewEntity, peCRUDMode);
                 TenantClassificationGroup = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(loResult);
             }

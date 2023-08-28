@@ -18,6 +18,8 @@ namespace GSM04000Model
 {
     public class GSM04000ViewModelUploadDept : R_IProcessProgressStatus
     {
+        public const int NBATCH_STEP = 12;
+
         GSM04000Model _model = new GSM04000Model();
         public ObservableCollection<GSM04000ExcelGridDTO> DepartmentExcelValidatedData { get; set; } = new ObservableCollection<GSM04000ExcelGridDTO>();
         public ObservableCollection<GSM04000ExcelToUploadDTO> DepartmentExcelData { get; set; } = new ObservableCollection<GSM04000ExcelToUploadDTO>();
@@ -26,11 +28,11 @@ namespace GSM04000Model
         public bool _isErrorEmptyFile = false;
         public bool _isOverwrite = false;
         public Action _stateChangeAction { get; set; }
-        public const int NBATCH_STEP = 12;
         public string _progressBarMessage = "";
         public int _progressBarPercentage = 0;
         public bool _showNotesErrorColumn = false;
         public bool _enableSaveButton { get; set; } = false;
+        private bool _isValidationProcess = false;
 
         public async Task GetDepartmentToCompareList()
         {
@@ -69,13 +71,17 @@ namespace GSM04000Model
                 }).ToList();
 
                 //compare list
-                var loComparedData = CurrentDepartmentData.Union(loListDeptFromExcel).GroupBy(loDept => loDept.CDEPT_CODE).Select(group => new GSM04000ExcelGridDTO
+                var loComparedData = CurrentDepartmentData
+                    .Union(loListDeptFromExcel)
+                    .GroupBy(loDept => loDept.CDEPT_CODE)
+                    .Select(group => new GSM04000ExcelGridDTO
                 {
                     CDEPT_CODE = group.Key,
                     LEXISTS = group.Count() > 1,
                     LSELECTED = group.Count() > 1,
                     LOVERWRITE = false
-                }).ToList();
+                }).
+                ToList();
 
                 //assign data to list grid binding
                 DepartmentExcelValidatedData = new ObservableCollection<GSM04000ExcelGridDTO>(loComparedData);
@@ -106,7 +112,7 @@ namespace GSM04000Model
                 Console.WriteLine(ex);
             }
         }
-        public async Task SaveFileBulkFile(string pcCompanyId, string pcUserId)
+        public async Task SaveBatch_UploadValidatedData(string pcCompanyId, string pcUserId)
         {
             var loEx = new R_Exception();
             R_BatchParameter loBatchPar;
@@ -151,7 +157,7 @@ namespace GSM04000Model
 
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task AttachFile(List<GSM04000ExcelToUploadDTO> poBigObject, string pcCompanyId, string pcUserId)
+        public async Task SaveBatch_ValidateData(List<GSM04000ExcelToUploadDTO> poBigObject, string pcCompanyId, string pcUserId)
         {
             var loEx = new R_Exception();
             R_BatchParameter loUploadPar;
@@ -162,6 +168,7 @@ namespace GSM04000Model
 
             try
             {
+                _isValidationProcess= true;
                 loUserParameneters = new List<R_KeyValue>();
                 //loUserParameneters.Add(new R_KeyValue() { Key = ContextConstant.CPROPERTY_ID, Value = PropertyValue });
 
@@ -190,7 +197,7 @@ namespace GSM04000Model
             }
         }
 
-        #region Upload
+        #region BatchProcess
         public async Task ProcessComplete(string pcKeyGuid, eProcessResultMode poProcessResultMode)
         {
             switch (poProcessResultMode)

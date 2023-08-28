@@ -155,7 +155,6 @@ namespace LMM03700Front
                 var loParam = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(eventArgs.Data);
                 await _vmTenantClassGrp.SaveTenantClassGroup(loParam, (eCRUDMode)eventArgs.ConductorMode);
                 eventArgs.Result = _vmTenantClassGrp.TenantClassificationGroup;
-                //await _gridT2_TCGRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {

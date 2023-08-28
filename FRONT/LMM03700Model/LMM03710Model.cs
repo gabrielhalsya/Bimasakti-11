@@ -113,21 +113,23 @@ namespace LMM03700Model
             return loResult;
 
         }
-        public AssignTenantResult AssignTenant()
+        public AssignTenantResult AssignTenant(List<TenantGridPopupDTO> poParam)
         {
             throw new NotImplementedException();
         }
-        public async Task<AssignTenantResult> AssignTenantAsync()
+        public async Task<AssignTenantResult> AssignTenantAsync(List<TenantGridPopupDTO> poParam)
         {
             var loEx = new R_Exception();
             AssignTenantResult loResult = null;
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<AssignTenantResult>(
+                loResult = await R_HTTPClientWrapper.R_APIRequestObject<AssignTenantResult, List<TenantGridPopupDTO>>(
                     _RequestServiceEndPoint,
                     nameof(ILMM03710.AssignTenant),
-                    DEFAULT_MODULE, _SendWithContext,
+                    poParam,
+                    DEFAULT_MODULE
+                    ,_SendWithContext,
                     _SendWithToken);
             }
             catch (Exception ex)

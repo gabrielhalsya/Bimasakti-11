@@ -66,7 +66,7 @@ namespace GSM04000Front
             try
             {
                 var loData = (List<GSM04000ExcelToUploadDTO>)eventArgs.Parameter;
-                await _deptUploadViewModel.AttachFile(loData, _clientHelper.CompanyId, _clientHelper.UserId);
+                await _deptUploadViewModel.SaveBatch_ValidateData(loData, _clientHelper.CompanyId, _clientHelper.UserId);
                 eventArgs.ListEntityResult = _deptUploadViewModel.DepartmentExcelValidatedData;
             }
             catch (Exception ex)
@@ -124,13 +124,13 @@ namespace GSM04000Front
         private async Task ReadExcelFile()
         {
             var loEx = new R_Exception();
-            List<GSM04000ExcelToUploadDTO> loExtract = new List<GSM04000ExcelToUploadDTO>();
+            List<GSM04000ExcelToUploadDTO> loExtract = null;
             try
             {
                 //Read From EXCEL
                 var loDataSet = _excelProvider.R_ReadFromExcel(_fileByte, new string[] { "Department" });
-                var loResult = R_FrontUtility.R_ConvertTo<GSM04000ExcelToUploadDTO>(loDataSet.Tables[0]);
-                loExtract = new List<GSM04000ExcelToUploadDTO>(loResult);
+                loExtract = R_FrontUtility.R_ConvertTo<GSM04000ExcelToUploadDTO>(loDataSet.Tables[0]).ToList();
+                //loExtract = new List<GSM04000ExcelToUploadDTO>(loResult);
 
                 //Refresh grid
                 await _gridDeptExcelRef.R_RefreshGrid(loExtract);
@@ -138,6 +138,13 @@ namespace GSM04000Front
             catch (Exception ex)
             {
                 loEx.Add(ex);
+            }
+            finally
+            {
+                if (loExtract != null)
+                {
+                    loExtract.Clear();
+                }
             }
             loEx.ThrowExceptionIfErrors();
         }
@@ -164,7 +171,7 @@ namespace GSM04000Front
 
                 if (loValidate == R_eMessageBoxResult.Yes)
                 {
-                    await _deptUploadViewModel.SaveFileBulkFile(_clientHelper.CompanyId, _clientHelper.UserId);
+                    await _deptUploadViewModel.SaveBatch_UploadValidatedData(_clientHelper.CompanyId, _clientHelper.UserId);
                     await this.Close(true, true);
                 }
             }

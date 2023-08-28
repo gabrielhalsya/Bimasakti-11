@@ -189,7 +189,7 @@ namespace LMM03700Service
         }
 
         [HttpPost]
-        public AssignTenantResult AssignTenant()
+        public AssignTenantResult AssignTenant(List<TenantGridPopupDTO> poparam)
         {
             AssignTenantResult loRtn = new AssignTenantResult();
             R_Exception loException = new R_Exception();
@@ -204,7 +204,7 @@ namespace LMM03700Service
                     CUSER_ID = R_BackGlobalVar.USER_ID,
                     CTENANT_CLASSIFICATION_GROUP_ID = R_Utility.R_GetStreamingContext<string>(LMM03700ContextConstant.CTENANT_CLASSIFICATION_GROUP_ID),
                     CTENANT_CLASSIFICATION_ID = R_Utility.R_GetStreamingContext<string>(LMM03700ContextConstant.CTENANT_CLASSIFICATION_ID),
-                    LTENANTS = R_Utility.R_GetStreamingContext<List<TenantGridPopupDTO>>(LMM03700ContextConstant.OTENANT)
+                    LTENANTS = poparam
                 });
             }
             catch (Exception ex)

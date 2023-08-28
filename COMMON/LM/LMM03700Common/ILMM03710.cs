@@ -11,7 +11,7 @@ namespace LMM03700Common
         IAsyncEnumerable<TenantDTO> GetAssignedTenantList();
         IAsyncEnumerable<TenantGridPopupDTO> GetTenanToAssigntList();
         IAsyncEnumerable<TenantGridPopupDTO> GetTenanToMoveList();
-        AssignTenantResult AssignTenant();
+        AssignTenantResult AssignTenant(List<TenantGridPopupDTO> poParam);
         MoveTenantResult MoveTenant();
     }
 
