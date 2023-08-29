@@ -21,15 +21,32 @@ namespace LMM03700Front
 
             try
             {
-                await TenantClassDetail(poParameter);//get detail recent tenant class
-                await TenantClassForMoveTenant_GetList(poParameter); //get destination tenant class
+                await TenantClassDetail(poParameter);//get detail
+                await TenantClassForMoveTenant_GetList(poParameter);
                 await _Grid.R_RefreshGrid(poParameter);//refresh grid param
+                //get list tc for drowdown
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
 
+            R_DisplayException(loEx);
+        }
+        private async Task TenantClassForMoveTenant_GetList(object poParam)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loParam = (TenantGridPopupDTO)poParam;
+                _viewModelTC._propertyId = loParam.CPROPERTY_ID;
+                _viewModelTC._tenantClassificationGroupId = loParam.CTENANT_CLASSIFICATION_GROUP_ID;
+                await _viewModelTC.GetTenantClassListForMove();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
             R_DisplayException(loEx);
         }
         private async Task TenantClassDetail(object poParam)
@@ -41,23 +58,6 @@ namespace LMM03700Front
                 _viewModelTC._propertyId = loParam.CPROPERTY_ID;
                 _viewModelTC._tenantClassificationGroupId = loParam.CTENANT_CLASSIFICATION_GROUP_ID;
                 await _viewModelTC.GetTenantClassRecordForMove(loParam);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            R_DisplayException(loEx);
-        }
-        private async Task TenantClassForMoveTenant_GetList(object poParam)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                var loParam = (TenantGridPopupDTO)poParam;
-                _viewModelTC._propertyId = loParam.CPROPERTY_ID;
-                _viewModelTC._tenantClassificationId = loParam.CTENANT_CLASSIFICATION_ID;
-                _viewModelTC._tenantClassificationGroupId = loParam.CTENANT_CLASSIFICATION_GROUP_ID;
-                await _viewModelTC.GetTenantClassListForMove();
             }
             catch (Exception ex)
             {
@@ -98,7 +98,8 @@ namespace LMM03700Front
             if (_viewModelTC._toTenantClassificationId == "" || _viewModelTC._toTenantClassificationId == null)
             {
                 R_MessageBox.Show("", "Please select Tennat Classification Destination", R_eMessageBoxButtonType.OK);
-            }   
+                return;
+            }
         }
         private async Task R_ServiceSaveBatchAsync(R_ServiceSaveBatchEventArgs eventArgs)
         {

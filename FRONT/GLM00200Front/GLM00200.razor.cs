@@ -7,10 +7,8 @@ using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
 using R_BlazorFrontEnd.Controls.MessageBox;
-using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
-using System;
 
 namespace GLM00200Front
 {
@@ -72,7 +70,7 @@ namespace GLM00200Front
                 await _gridJournal.R_RefreshGrid(null);
                 if (_journalVM.JournalList.Count == 0)
                 {
-                    R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
+                    await R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
                 }
             }
             catch (Exception ex)
@@ -91,7 +89,7 @@ namespace GLM00200Front
                 if (_journalVM.JournalList.Count == 0)
                 {
                     _journalVM.JournaDetailList.Clear();
-                    R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
+                    await R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
                 }
             }
             catch (Exception ex)
@@ -141,7 +139,7 @@ namespace GLM00200Front
             {
                 var loData = (JournalGridDTO)eventArgs.Data;
                 _journalVM._CREC_ID = loData.CREC_ID;
-                _gridJournalDet.R_RefreshGrid(null);  
+                await _gridJournalDet.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -169,7 +167,7 @@ namespace GLM00200Front
         #endregion
 
         #region DepartmentLookup
-        private async Task Dept_Before_Open_Lookup(R_BeforeOpenLookupEventArgs eventArgs)
+        private void Dept_Before_Open_Lookup(R_BeforeOpenLookupEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -183,7 +181,7 @@ namespace GLM00200Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-        private async Task Dept_After_Open_Lookup(R_AfterOpenLookupEventArgs eventArgs)
+        private void Dept_After_Open_Lookup(R_AfterOpenLookupEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -197,23 +195,6 @@ namespace GLM00200Front
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
-        }
-        #endregion
-
-        #region RapidApprove
-        private async Task RapidApproval_BeforeOpenPopup(R_BeforeOpenPopupEventArgs eventArgs)
-        {
-            //if (_JournalListViewModel.JournalList.Count < 1)
-            //{
-            //    R_MessageBox.Show("", "You don’t have right to approve this journal type!", R_eMessageBoxButtonType.OK);
-            //    goto EndBlock;
-            //}
-            //eventArgs.Parameter = _JournalListViewModel.JournalList;
-            //eventArgs.TargetPageType = typeof(RapidApproveGLT00300);
-        EndBlock:;
-        }
-        private async Task RapidApproval_AfterOpenPopup(R_AfterOpenPopupEventArgs eventArgs)
-        {
         }
         #endregion
     }

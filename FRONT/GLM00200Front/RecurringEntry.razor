@@ -16,7 +16,7 @@
         <R_ItemLayout>
             <R_Lookup R_Before_Open_Lookup="@Dept_Before_Open_Lookup"
                       R_After_Open_Lookup="@Dept_After_Open_Lookup"
-                      R_ConductorSource="_conJournalNavigator">...</R_Lookup>
+                      R_ConductorSource="_conJournalNavigator" R_EnableAdd>...</R_Lookup>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_TextBox @bind-value="_journalVM.Data.CDEPT_NAME"
@@ -311,31 +311,23 @@
             <R_Button>Close</R_Button>
         </R_ItemLayout>
     </R_StackLayout>
-    <R_Conductor @ref="_conJournalNavigator"
-                 R_ViewModel="_journalVM"
-                  R_IsHeader
-                 R_ServiceGetRecord="JournalForm_GetRecord"
-                 R_ServiceSave="JournalForm_ServiceSave"
-                 R_Validation="JournalForm_Validation"
-                 R_AfterAdd="JournalForm_AfterAdd">
-    </R_Conductor>
 </R_GroupBox>
 
 <R_GroupBox Title="Journal Detail">
     <R_Grid @ref="@_gridJournalDet"
             DataSource="@_journalVM.JournaDetailList"
             Pageable
-            R_ConductorSource="_conJournalNavigator"
-            R_GridType="R_eGridType.Original"
+            R_ConductorGridSource="_conJournalDetail"
+            R_GridType="R_eGridType.Batch"
             R_ServiceGetListRecord="JournalDetGrid_ServiceGetListRecord"
             AllowAddNewRow="_enableCrudJournalDetail"
             AllowDeleteRow="_enableCrudJournalDetail"
             AllowEditRow="_enableCrudJournalDetail">
         <R_GridColumns>
-            <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.INO)" HeaderText="No." Width="100px"></R_GridNumericColumn>
-            <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NO)" HeaderText="Account No." Width="100px"></R_GridTextColumn>
-            <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NAME)" HeaderText="Account Name" Width="250px"></R_GridTextColumn>
-            <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CCENTER_NAME)" HeaderText="Center" Width="100px"></R_GridTextColumn>
+            <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.INO)" HeaderText="No." R_EnableAdd Width="100px"></R_GridNumericColumn>
+            <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NO)" HeaderText="Account No." R_EnableAdd Width="100px"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NAME)" HeaderText="Account Name" R_EnableAdd Width="250px"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CCENTER_NAME)" HeaderText="Center" R_EnableAdd Width="100px"></R_GridTextColumn>
             <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CDBCR)" HeaderText="D/C" Width="100px"></R_GridTextColumn>
             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NDEBIT)" HeaderText="Debit" Width="100px"></R_GridNumericColumn>
             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NCREDIT)" HeaderText="Credit" Width="100px"></R_GridNumericColumn>
@@ -348,3 +340,20 @@
     </R_Grid>
   
 </R_GroupBox>
+
+<R_Conductor @ref="_conJournalNavigator"
+             R_ViewModel="_journalVM"
+             R_IsHeader
+             R_ServiceGetRecord="JournalForm_GetRecord"
+             R_ServiceSave="JournalForm_ServiceSave"
+             R_Validation="JournalForm_Validation"
+             R_AfterAdd="JournalForm_AfterAdd" 
+             R_BeforeCancel="@JournalForm_BeforeCancel" 
+             R_BeforeEdit="@JournalForm_BeforeEdit">
+</R_Conductor>
+
+<R_ConductorGrid @ref="_conJournalDetail" 
+                 R_ViewModel="@_journalVM" 
+                 R_ConductorParent="@_conJournalNavigator" R_ServiceGetRecord="@JurnalDetail_GetRecord">
+
+</R_ConductorGrid>

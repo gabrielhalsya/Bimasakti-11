@@ -1,8 +1,3 @@
-D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.csproj.AssemblyReference.cache
-D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.GeneratedMSBuildEditorConfig.editorconfig
-D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.AssemblyInfoInputs.cache
-D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.AssemblyInfo.cs
-D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\GLM00200Service.deps.json
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\GLM00200Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\GLM00200Service.pdb
@@ -22,6 +17,11 @@ D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\GLM00200B
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\GLM00200Common.pdb
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\id\R_APIBackEnd.resources.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\ja\R_APIBackEnd.resources.dll
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\refint\GLM00200Service.dll

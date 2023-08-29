@@ -6,16 +6,9 @@ using Lookup_GSFRONT;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
-using R_BlazorFrontEnd.Controls.MessageBox;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GLM00200Front
 {
@@ -25,6 +18,8 @@ namespace GLM00200Front
         private R_Grid<JournalDetailGridDTO> _gridJournalDet;
         private R_ConductorGrid _conJournalDet;
         private R_Conductor _conJournalNavigator;
+        private R_ConductorGrid _conJournalDetail;
+
         public string Title { get; set; }
         public DateTime DREF_DATE = DateTime.Now;
         public DateTime DDOC_DATE = DateTime.Now;
@@ -43,7 +38,7 @@ namespace GLM00200Front
                 await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
                 await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
                 await _journalVM.GetCurrenciesAsync();
-                _conJournalNavigator.R_GetEntity(_journalVM._CREC_ID);
+                await _conJournalNavigator.R_GetEntity(_journalVM._CREC_ID);
                 await _gridJournalDet.R_RefreshGrid(null);
             }
             catch (Exception ex)
@@ -55,7 +50,7 @@ namespace GLM00200Front
         }
 
         #region JournalForm
-        private async Task JournalForm_Validation(R_ValidationEventArgs eventArgs)
+        private void JournalForm_Validation(R_ValidationEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
             try
@@ -92,7 +87,20 @@ namespace GLM00200Front
             var loEx = new R_Exception();
             try
             {
-                await _journalVM.GetJournal(new JournalParamDTO() { CREC_ID = R_FrontUtility.ConvertObjectToObject<string>(eventArgs.Data) });
+                JournalParamDTO loParam = default;
+                if (eventArgs.Data.GetType() == typeof(string))
+                {
+                    loParam = new JournalParamDTO()
+                    {
+                        CREC_ID = R_FrontUtility.ConvertObjectToObject<string>(eventArgs.Data)
+                    };
+                }
+                else
+                {
+                    loParam = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(eventArgs.Data);
+                }
+                //await _journalVM.GetJournal(new JournalParamDTO() { CREC_ID = R_FrontUtility.ConvertObjectToObject<string>(eventArgs.Data) });
+                await _journalVM.GetJournal(loParam);
                 eventArgs.Result = _journalVM.Journal;
             }
             catch (Exception ex)
@@ -102,20 +110,38 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private async Task JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
+        private void JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
                 _enableCrudJournalDetail = true;
                 _journalVM.JournaDetailListTemp = _journalVM.JournaDetailList;
-                _journalVM.JournaDetailList.Clear();
+                _journalVM.JournaDetailList = new();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
+        }
+
+        private void JournalForm_BeforeCancel(R_BeforeCancelEventArgs eventArgs)
+        {
+            _enableCrudJournalDetail = false;
+
+            if (eventArgs.ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Add)
+                _journalVM.JournaDetailList = _journalVM.JournaDetailListTemp;
+        }
+
+        private void JournalForm_BeforeEdit(R_BeforeEditEventArgs eventArgs)
+        {
+            _enableCrudJournalDetail = true;
+        }
+
+        private void JurnalDetail_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        {
+            eventArgs.Result = eventArgs.Data;
         }
         #endregion
 
@@ -125,7 +151,7 @@ namespace GLM00200Front
         public bool ENABLE_NLCURRENCY_RATE = false;
         public bool ENABLE_NBBASE_RATE = false;
         public bool ENABLE_NBCURRENCY_RATE = false;
-        private async Task OnChangedStartDate()
+        private void OnChangedStartDate()
         {
             var loEx = new R_Exception();
             try
@@ -139,7 +165,7 @@ namespace GLM00200Front
             }
             R_DisplayException(loEx);
         }
-        private async Task OnChanged_LFIX_RATE()
+        private void OnChanged_LFIX_RATE()
         {
             var loEx = new R_Exception();
             try
@@ -216,7 +242,7 @@ namespace GLM00200Front
             }
             R_DisplayException(loEx);
         }
-        private async Task JournalDetGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        private void JournalDetGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -231,14 +257,14 @@ namespace GLM00200Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-        private async Task JournalDetGrid_Display(R_DisplayEventArgs eventArgs)
+        private void JournalDetGrid_Display(R_DisplayEventArgs eventArgs)
         {
 
         }
         #endregion
 
         #region DepartmentLookup
-        private async Task Dept_Before_Open_Lookup(R_BeforeOpenLookupEventArgs eventArgs)
+        private void Dept_Before_Open_Lookup(R_BeforeOpenLookupEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -252,7 +278,7 @@ namespace GLM00200Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-        private async Task Dept_After_Open_Lookup(R_AfterOpenLookupEventArgs eventArgs)
+        private void Dept_After_Open_Lookup(R_AfterOpenLookupEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try

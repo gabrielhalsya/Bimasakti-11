@@ -8,17 +8,14 @@
     ".NETCoreApp,Version=v6.0": {
       "GLM00200Front/1.0.0": {
         "dependencies": {
-          "GLM00200Common": "1.0.0",
           "GLM00200Model": "1.0.0",
           "Lookup_GSCOMMON": "1.0.0",
           "Lookup_GSFRONT": "1.0.0",
+          "Lookup_GSModel": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.15",
-          "BlazorClientHelper": "1.0.0.0",
           "R_BlazorFrontEnd.Controls": "1.0.0.0",
           "R_BlazorFrontEnd": "1.0.0.0",
-          "R_BlazorFrontEnd.Excel": "1.0.0.0",
-          "R_CommonFrontBackAPI": "1.0.0.0",
-          "R_CrossPlatformSecurity": "1.0.0.0"
+          "R_CommonFrontBackAPI": "1.0.0.0"
         },
         "runtime": {
           "GLM00200Front.dll": {}
@@ -190,14 +187,6 @@
           "Lookup_GSModel.dll": {}
         }
       },
-      "BlazorClientHelper/1.0.0.0": {
-        "runtime": {
-          "BlazorClientHelper.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "R_BlazorFrontEnd.Controls/1.0.0.0": {
         "runtime": {
           "R_BlazorFrontEnd.Controls.dll": {
@@ -219,25 +208,9 @@
           }
         }
       },
-      "R_BlazorFrontEnd.Excel/1.0.0.0": {
-        "runtime": {
-          "R_BlazorFrontEnd.Excel.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "R_CommonFrontBackAPI/1.0.0.0": {
         "runtime": {
           "R_CommonFrontBackAPI.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "R_CrossPlatformSecurity/1.0.0.0": {
-        "runtime": {
-          "R_CrossPlatformSecurity.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -422,11 +395,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BlazorClientHelper/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "R_BlazorFrontEnd.Controls/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -437,17 +405,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_BlazorFrontEnd.Excel/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "R_CommonFrontBackAPI/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "R_CrossPlatformSecurity/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

@@ -631,10 +631,10 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "GLM00200Common >= 1.0.0",
       "GLM00200Model >= 1.0.0",
       "Lookup_GSCOMMON >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
+      "Lookup_GSModel >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.15"
     ]
   },
@@ -673,9 +673,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200Common\\GLM00200Common.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200Common\\GLM00200Common.csproj"
-            },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLM00200MODEL\\GLM00200Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLM00200MODEL\\GLM00200Model.csproj"
             },
@@ -684,6 +681,9 @@
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFRONT\\Lookup_GSFRONT.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFRONT\\Lookup_GSFRONT.csproj"
+            },
+            "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSModel\\Lookup_GSModel.csproj": {
+              "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSModel\\Lookup_GSModel.csproj"
             }
           }
         }
@@ -719,7 +719,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

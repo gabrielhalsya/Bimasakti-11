@@ -5,14 +5,13 @@
 @inherits R_Page
 
 <R_PredefinedDock R_InstantiateDock="@Predef_RecurringEntry" R_AfterOpenPredefinedDock="@AfterPredef_RecurringEntry" Title="Recurring Entry"></R_PredefinedDock>
-
 <R_PredefinedDock R_InstantiateDock="@Predef_ActualJournalList" R_AfterOpenPredefinedDock="@AfterPredef_ActualJournalList" Title="Actual Journal List"></R_PredefinedDock>
 
 <R_StackLayout Row="true">
-    <R_ItemLayout col="1">
+    <R_ItemLayout xs="1">
         <R_Label>Department</R_Label>   
     </R_ItemLayout>
-    <R_ItemLayout col="1">
+    <R_ItemLayout xs="1">
         <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_CODE"
                    CharacterCasing="R_eCharacterCasing.Upper"></R_TextBox>
     </R_ItemLayout>
@@ -28,10 +27,10 @@
     <R_ItemLayout>
         <R_Label>Next Journal Period</R_Label>
     </R_ItemLayout>
-    <R_ItemLayout col="1">
+    <R_ItemLayout xs="1">
         <R_ComboBox @bind-Value="@_journalVM._SearchParam.CPERIOD_MM" Data="_journalVM.Periods" ValueField="@nameof(PeriodDTO.CPERIOD_MM_CODE)" TextField="@nameof(PeriodDTO.CPERIOD_MM_TEXT)"></R_ComboBox>
     </R_ItemLayout>
-    <R_ItemLayout col="1">
+    <R_ItemLayout xs="1">
         <R_NumericTextBox @bind-Value="@_journalVM._SearchParam.CPERIOD_YYYY" Min="_journalVM._GSM_PERIOD.IMIN_YEAR" Max="_journalVM._GSM_PERIOD.IMAX_YEAR"></R_NumericTextBox>
     </R_ItemLayout>
     <R_ItemLayout>
@@ -61,7 +60,7 @@
         R_GridType="R_eGridType.Original" R_ServiceGetListRecord="JournalGrid_ServiceGetListRecord"
         AllowAddNewRow="false"
         AllowDeleteRow="false"
-        AllowEditRow="false">
+        AllowEditRow="false" Height="50%">
     <R_GridColumns>
         <R_GridTextColumn FieldName="@nameof(JournalGridDTO.CREF_NO)" HeaderText="Reference No." Width="150px"></R_GridTextColumn>
         <R_GridNumericColumn FieldName="@nameof(JournalGridDTO.IFREQUENCY)" HeaderText="Freq." Width="100px"></R_GridNumericColumn>
@@ -96,7 +95,7 @@
         R_ServiceGetListRecord="JournalDetGrid_ServiceGetListRecord" 
         AllowAddNewRow="false"
         AllowDeleteRow="false"
-        AllowEditRow="false">
+        AllowEditRow="false" Height="50%">
     <R_GridColumns>
         <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.INO)" HeaderText="No." Width="100px"></R_GridNumericColumn>
         <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NO)" HeaderText="Account No." Width="100px"></R_GridTextColumn>
@@ -119,23 +118,22 @@
 </R_ConductorGrid>
 
 <R_StackLayout Row>
-    <R_ItemLayout col="1">
+    <R_ItemLayout xs="1">
         <R_Button>Approve</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout col="1">
+    <R_ItemLayout xs="1">
         <R_Button>Commit</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout col="2">
-        <R_Popup R_Before_Open_Popup="RapidApproval_BeforeOpenPopup"
-                 R_After_Open_Popup="RapidApproval_AfterOpenPopup">Rapid Approval</R_Popup>
+    <R_ItemLayout xs="2">
+        <R_Button>Rapid Approval</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout col="2">
-        <R_Button >Rapid Commit</R_Button>
+    <R_ItemLayout xs="2">
+        <R_Button>Rapid Commit</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout col="1" Class="ms-2">
+    <R_ItemLayout xs="1" Class="ms-2">
         <R_Popup>Upload</R_Popup>
     </R_ItemLayout>
-    <R_ItemLayout col="1">
+    <R_ItemLayout xs="1">
         <R_Button>Template</R_Button>
     </R_ItemLayout>
 </R_StackLayout>
