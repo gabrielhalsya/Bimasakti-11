@@ -397,6 +397,9 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\FastReport.D
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Common.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Service.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSBACK.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSCOMMON.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSSERVICES.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\RSP_GS_MAINTAIN_DEPARTMENTResources.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_APIStartUp.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_CrossPlatformSecurity.dll
@@ -405,9 +408,9 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_SecurityPo
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_SecurityPolicyService.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_SecurityTokenBack.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_SecurityTokenCommon.dll
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_APICommon.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_APIBackEnd.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_ControllerPlugins.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_AuthenticationBack.dll
@@ -420,9 +423,12 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_Security.d
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_StorageCommon.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_PluginsCommon.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSSERVICES.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Service.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Back.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Common.pdb
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSBACK.pdb
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSCOMMON.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\RSP_GS_MAINTAIN_DEPARTMENTResources.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\id\R_APIBackEnd.resources.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\ja\R_APIBackEnd.resources.dll

@@ -151,7 +151,7 @@ namespace LMM00200Front
             R_Exception loEx = new R_Exception();
             try
             {
-                await _viewModel.ActiveInactiveProcessAsync();
+                await _viewModel.ActiveInactiveProcessAsync();//do activeinactive
                 var loParam = R_FrontUtility.ConvertObjectToObject<LMM00200DTO>(_conductorRef.R_GetCurrentData());
                 await _viewModel.GetUserParamRecord(loParam);
                 await _conductorRef.R_SetCurrentData(_viewModel.loUserParam);

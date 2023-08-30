@@ -13,7 +13,6 @@
           "GFF00900Model": "1.0.0",
           "GSM04000Common": "1.0.0",
           "GSM04000Model": "1.0.0",
-          "Lookup_GSCOMMON": "1.0.0",
           "Lookup_GSFRONT": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.15",
           "BlazorClientHelper": "1.0.0.0",

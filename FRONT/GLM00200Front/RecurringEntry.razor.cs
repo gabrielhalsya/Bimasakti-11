@@ -21,10 +21,10 @@ namespace GLM00200Front
         private R_ConductorGrid _conJournalDetail;
 
         public string Title { get; set; }
-        public DateTime DREF_DATE = DateTime.Now;
-        public DateTime DDOC_DATE = DateTime.Now;
-        public DateTime DSTART_DATE = DateTime.Now;
-        public DateTime DNEXT_DATE = DateTime.Now;
+        public DateTime _defaultValue_DREF_DATE = DateTime.Now;
+        public DateTime _defaultValue_DDOC_DATE = DateTime.Now;
+        public DateTime _defaultValue_DSTART_DATE = DateTime.Now;
+        public DateTime _defaultValue_DNEXT_DATE = DateTime.Now;
 
         public bool _enableCrudJournalDetail = false;
 
@@ -125,7 +125,6 @@ namespace GLM00200Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-
         private void JournalForm_BeforeCancel(R_BeforeCancelEventArgs eventArgs)
         {
             _enableCrudJournalDetail = false;
@@ -133,12 +132,10 @@ namespace GLM00200Front
             if (eventArgs.ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Add)
                 _journalVM.JournaDetailList = _journalVM.JournaDetailListTemp;
         }
-
         private void JournalForm_BeforeEdit(R_BeforeEditEventArgs eventArgs)
         {
             _enableCrudJournalDetail = true;
         }
-
         private void JurnalDetail_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
             eventArgs.Result = eventArgs.Data;
@@ -147,17 +144,18 @@ namespace GLM00200Front
 
 
         #region Form Control
-        public bool ENABLE_NLBASE_RATE = false;
-        public bool ENABLE_NLCURRENCY_RATE = false;
-        public bool ENABLE_NBBASE_RATE = false;
-        public bool ENABLE_NBCURRENCY_RATE = false;
+        public bool _enable_NLBASE_RATE = false;
+        public bool _enable_NLCURRENCY_RATE = false;
+        public bool _enable_NBBASE_RATE = false;
+        public bool _enable_NBCURRENCY_RATE = false;
+
         private void OnChangedStartDate()
         {
             var loEx = new R_Exception();
             try
             {
-                DNEXT_DATE = DSTART_DATE.AddDays(1);
-                _journalVM.Journal.CNEXT_DATE = DNEXT_DATE.ToString("yyMMdd");
+                _defaultValue_DNEXT_DATE = _defaultValue_DSTART_DATE.AddDays(1);
+                _journalVM.Journal.CNEXT_DATE = _defaultValue_DNEXT_DATE.ToString("yyMMdd");
             }
             catch (Exception ex)
             {
@@ -172,17 +170,17 @@ namespace GLM00200Front
             {
                 if (_journalVM.Journal.LFIX_RATE)
                 {
-                    ENABLE_NLBASE_RATE = false;
-                    ENABLE_NBBASE_RATE = false;
-                    ENABLE_NLCURRENCY_RATE = false;
-                    ENABLE_NBCURRENCY_RATE = false;
+                    _enable_NLBASE_RATE = false;
+                    _enable_NBBASE_RATE = false;
+                    _enable_NLCURRENCY_RATE = false;
+                    _enable_NBCURRENCY_RATE = false;
                 }
                 else
                 {
-                    ENABLE_NLBASE_RATE = true;
-                    ENABLE_NBBASE_RATE = true;
-                    ENABLE_NLCURRENCY_RATE = true;
-                    ENABLE_NBCURRENCY_RATE = true;
+                    _enable_NLBASE_RATE = true;
+                    _enable_NBBASE_RATE = true;
+                    _enable_NLCURRENCY_RATE = true;
+                    _enable_NBCURRENCY_RATE = true;
                 }
             }
             catch (Exception ex)
@@ -199,23 +197,23 @@ namespace GLM00200Front
                 await _journalVM.RefreshCurrencyRate();
                 if (_journalVM.Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM.Journal.LFIX_RATE == true)
                 {
-                    ENABLE_NLBASE_RATE = true;
-                    ENABLE_NLCURRENCY_RATE = true;
+                    _enable_NLBASE_RATE = true;
+                    _enable_NLCURRENCY_RATE = true;
                 }
                 else
                 {
-                    ENABLE_NLBASE_RATE = false;
-                    ENABLE_NLCURRENCY_RATE = false;
+                    _enable_NLBASE_RATE = false;
+                    _enable_NLCURRENCY_RATE = false;
                 }
                 if (_journalVM.Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM.Journal.LFIX_RATE == true)
                 {
-                    ENABLE_NBBASE_RATE = true;
-                    ENABLE_NBCURRENCY_RATE = true;
+                    _enable_NBBASE_RATE = true;
+                    _enable_NBCURRENCY_RATE = true;
                 }
                 else
                 {
-                    ENABLE_NBBASE_RATE = false;
-                    ENABLE_NBCURRENCY_RATE = false;
+                    _enable_NBBASE_RATE = false;
+                    _enable_NBCURRENCY_RATE = false;
                 }
 
             }

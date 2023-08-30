@@ -66,7 +66,7 @@
             <R_Label>Ref Date. *</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_DateTimePicker @bind-Value="DREF_DATE"
+            <R_DateTimePicker @bind-Value="_defaultValue_DREF_DATE"
                               R_ConductorSource="_conJournalNavigator" />
         </R_ItemLayout>
         <R_ItemLayout xs="1" />
@@ -100,7 +100,7 @@
             <R_Label>Doc Date.</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_DateTimePicker @bind-Value="DDOC_DATE"
+            <R_DateTimePicker @bind-Value="_defaultValue_DDOC_DATE"
                               R_ConductorSource="_conJournalNavigator"
                               R_EnableAdd="true" />
         </R_ItemLayout>
@@ -112,7 +112,7 @@
                               R_ConductorSource="_conJournalNavigator"
                               R_EnableAdd="true"
                               R_EnableEdit="true"
-                              Enabled="ENABLE_NLBASE_RATE"
+                              Enabled="_enable_NLBASE_RATE"
                               Decimals="9"
                               Min="0" />
         </R_ItemLayout>
@@ -123,7 +123,7 @@
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-Value="@_journalVM.Data.NLCURRENCY_RATE"
-                              Enabled="ENABLE_NLCURRENCY_RATE"
+                              Enabled="_enable_NLCURRENCY_RATE"
                               R_ConductorSource="_conJournalNavigator"
                               R_EnableAdd="true"
                               R_EnableEdit="true"
@@ -171,7 +171,7 @@
         <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-Value="_journalVM.Data.NBBASE_RATE"
                               R_ConductorSource="_conJournalNavigator"
-                              Enabled="ENABLE_NBBASE_RATE"
+                              Enabled="_enable_NBBASE_RATE"
                               Decimals="9"
                               Min="0" />
         </R_ItemLayout>
@@ -183,7 +183,7 @@
         <R_ItemLayout xs="1">
             <R_NumericTextBox @bind-Value="_journalVM.Data.NBCURRENCY_RATE"
                               R_ConductorSource="_conJournalNavigator"
-                              Enabled="ENABLE_NBCURRENCY_RATE"
+                              Enabled="_enable_NBCURRENCY_RATE"
                               Decimals="9"
                               Min="0" />
         </R_ItemLayout>
@@ -214,7 +214,7 @@
             <R_Label>Start Date</R_Label>
         </R_ItemLayout>
         <R_ItemLayout xs="2">
-            <R_DateTimePicker @bind-Value="DSTART_DATE"
+            <R_DateTimePicker @bind-Value="_defaultValue_DSTART_DATE"
                               R_ConductorSource="_conJournalNavigator"
                               OnChanged="@OnChangedStartDate"
                               R_EnableAdd="true"

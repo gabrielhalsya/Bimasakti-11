@@ -44,6 +44,7 @@ D:\Realta NetCore Library\Test Project\GLM00200\GLM00200Front\bin\Debug\net6.0\L
 D:\Realta NetCore Library\Test Project\GLM00200\GLM00200Front\bin\Debug\net6.0\Lookup_GSModel.pdb
 D:\Realta NetCore Library\Test Project\GLM00200\GLM00200Front\bin\Debug\net6.0\Lookup_GSFRONT.dll
 D:\Realta NetCore Library\Test Project\GLM00200\GLM00200Front\bin\Debug\net6.0\Lookup_GSFRONT.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Properties\launchSettings.json
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Lookup_GSFRONT.staticwebassets.runtime.json
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Front.staticwebassets.runtime.json
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Front.deps.json
@@ -57,17 +58,17 @@ D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Lookup_GSModel.d
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_BlazorFrontEnd.Controls.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_BlazorFrontEnd.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_BusinessObjectFront.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_APIClient.dll
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_ContextFrontEnd.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Lookup_GSCOMMON.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Lookup_GSFRONT.pdb
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Lookup_GSModel.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Model.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Common.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Lookup_GSCOMMON.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Lookup_GSModel.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\id\R_BlazorFrontEnd.Controls.resources.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.csproj.AssemblyReference.cache
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.GeneratedMSBuildEditorConfig.editorconfig

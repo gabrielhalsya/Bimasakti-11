@@ -63,6 +63,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\..\BS Shared Form\SOURCE\SERVICES\Lookup_GSSERVICES\Lookup_GSSERVICES.csproj" />
 		<ProjectReference Include="..\..\..\SERVICE\GS\GSM04000Service\GSM04000Service.csproj" />
 	</ItemGroup>
 

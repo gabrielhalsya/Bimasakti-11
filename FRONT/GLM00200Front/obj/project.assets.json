@@ -632,9 +632,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "GLM00200Model >= 1.0.0",
-      "Lookup_GSCOMMON >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
-      "Lookup_GSModel >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.15"
     ]
   },
@@ -676,14 +674,8 @@
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLM00200MODEL\\GLM00200Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLM00200MODEL\\GLM00200Model.csproj"
             },
-            "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj": {
-              "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj"
-            },
             "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFRONT\\Lookup_GSFRONT.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFRONT\\Lookup_GSFRONT.csproj"
-            },
-            "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSModel\\Lookup_GSModel.csproj": {
-              "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSModel\\Lookup_GSModel.csproj"
             }
           }
         }

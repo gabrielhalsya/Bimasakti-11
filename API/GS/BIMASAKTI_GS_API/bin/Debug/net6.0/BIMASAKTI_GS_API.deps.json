@@ -9,6 +9,7 @@
       "BIMASAKTI_GS_API/1.0.0": {
         "dependencies": {
           "GSM04000Service": "1.0.0",
+          "Lookup_GSSERVICES": "1.0.0",
           "Realta.BackCollectionNuGet": "1.0.0",
           "Realta.CommonCollectionNuGet": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
@@ -1673,6 +1674,28 @@
         },
         "runtime": {
           "GSM04000Service.dll": {}
+        }
+      },
+      "Lookup_GSBACK/1.0.0": {
+        "dependencies": {
+          "Lookup_GSCOMMON": "1.0.0"
+        },
+        "runtime": {
+          "Lookup_GSBACK.dll": {}
+        }
+      },
+      "Lookup_GSCOMMON/1.0.0": {
+        "runtime": {
+          "Lookup_GSCOMMON.dll": {}
+        }
+      },
+      "Lookup_GSSERVICES/1.0.0": {
+        "dependencies": {
+          "Lookup_GSBACK": "1.0.0",
+          "Lookup_GSCOMMON": "1.0.0"
+        },
+        "runtime": {
+          "Lookup_GSSERVICES.dll": {}
         },
         "resources": {
           "id/R_APIBackEnd.resources.dll": {
@@ -1792,14 +1815,6 @@
           }
         }
       },
-      "R_CommonFrontBackAPI/1.0.0.0": {
-        "runtime": {
-          "R_CommonFrontBackAPI.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "R_APICommon/1.0.0.0": {
         "runtime": {
           "R_APICommon.dll": {
@@ -1821,6 +1836,14 @@
           },
           "ja/R_APIBackEnd.resources.dll": {
             "locale": "ja"
+          }
+        }
+      },
+      "R_CommonFrontBackAPI/1.0.0.0": {
+        "runtime": {
+          "R_CommonFrontBackAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -3105,6 +3128,21 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Lookup_GSBACK/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Lookup_GSCOMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Lookup_GSSERVICES/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -3175,17 +3213,17 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_CommonFrontBackAPI/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "R_APICommon/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "R_APIBackEnd/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_CommonFrontBackAPI/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

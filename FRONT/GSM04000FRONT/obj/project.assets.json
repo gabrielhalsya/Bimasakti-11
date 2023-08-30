@@ -687,7 +687,6 @@
       "GFF00900Model >= 1.0.0",
       "GSM04000Common >= 1.0.0",
       "GSM04000Model >= 1.0.0",
-      "Lookup_GSCOMMON >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.15"
     ]
@@ -735,9 +734,6 @@
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj"
-            },
-            "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj": {
-              "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj"
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\GFF00900FRONT.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\GFF00900FRONT.csproj"
