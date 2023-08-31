@@ -17,13 +17,17 @@ namespace GLM00200Model
 {
     public class GLM00200ViewModel : R_ViewModel<JournalParamDTO>
     {
+        private const string _CTRANS_CODE = "000030";
+
         public GLM00200Model _model = new GLM00200Model();
         public PublicLookupModel _lookupModel = new PublicLookupModel();
+
         public ObservableCollection<JournalGridDTO> JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
         public ObservableCollection<JournalDetailActualGridDTO> ActualJournalList { get; set; } = new ObservableCollection<JournalDetailActualGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> JournaDetailListTemp { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public GSL00700DTO Dept { get; set; } = new GSL00700DTO();
+        public List<GSL00900DTO> _ListCenter { get; set; } = new List<GSL00900DTO>();
         public JournalParamDTO Journal { get; set; } = new JournalParamDTO();
         public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
         public VAR_CCURRENT_PERIOD_START_DATE_DTO _CCURRENT_PERIOD_START_DATE { get; set; } = new VAR_CCURRENT_PERIOD_START_DATE_DTO();
@@ -40,7 +44,6 @@ namespace GLM00200Model
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
         public string _CREC_ID { get; set; } = "";
-        private const string _CTRANS_CODE = "000030";
 
         #region CRUD Journal
         public async Task ShowAllJournals()
@@ -151,6 +154,20 @@ namespace GLM00200Model
                 Dept = loResult.Data.FirstOrDefault();
                 _SearchParam.CDEPT_CODE = Dept.CDEPT_CODE;
                 _SearchParam.CDEPT_NAME = Dept.CDEPT_NAME;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        public async Task GetListCenter()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                var loResult = await _lookupModel.GSL00900GetCenterListAsync(new GSL00900ParameterDTO());
+                _ListCenter = loResult.Data;
             }
             catch (Exception ex)
             {
@@ -389,5 +406,11 @@ namespace GLM00200Model
             loEx.ThrowExceptionIfErrors();
         }
         #endregion
+
+        #region BatchJournalDetail
+
+        #endregion
+
+
     }
 }

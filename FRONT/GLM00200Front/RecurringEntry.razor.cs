@@ -114,14 +114,15 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private void JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
+        private async Task JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
-                _enableCrudJournalDetail = true;
-                _journalVM.JournaDetailListTemp = _journalVM.JournaDetailList;
+                _enableCrudJournalDetail = true; //enable grid to add/edit/delete
+                _journalVM.JournaDetailListTemp = _journalVM.JournaDetailList; //add recent 
                 _journalVM.JournaDetailList = new();
+                await _journalVM.GetListCenter();
             }
             catch (Exception ex)
             {
@@ -144,8 +145,25 @@ namespace GLM00200Front
         {
             eventArgs.Result = eventArgs.Data;
         }
+
+        #region JournalDetailGrid
+        private async Task JournalDetGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                await _journalVM.GetJournalDetailList();
+                eventArgs.ListEntityResult = _journalVM.JournaDetailList;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            R_DisplayException(loEx);
+        }
         #endregion
 
+        #endregion
 
         #region Form Control
         public bool _enable_NLBASE_RATE = false;
@@ -229,23 +247,6 @@ namespace GLM00200Front
         }
         #endregion
 
-        #region JournalDetailGrid
-        private async Task JournalDetGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                await _journalVM.GetJournalDetailList();
-                eventArgs.ListEntityResult = _journalVM.JournaDetailList;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            R_DisplayException(loEx);
-        }
-        #endregion
-
         #region DepartmentLookup
         private void Dept_Before_Open_Lookup(R_BeforeOpenLookupEventArgs eventArgs)
         {
@@ -277,5 +278,7 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
         }
         #endregion
+
+
     }
 }

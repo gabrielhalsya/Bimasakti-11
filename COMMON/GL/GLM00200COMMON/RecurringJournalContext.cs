@@ -25,6 +25,7 @@ namespace GLM00200Common
         public const string LUNDO_COMMIT = "LUNDO_COMMIT";
         public const string EMODE = "EMODE";
 
-        public static string CREF_NO = "CREF_NO";
+        public const string CREF_NO = "CREF_NO";
+        public const string HEADER_JRN_RCN = "HEADER_JRN_RCN";
     }
 }
