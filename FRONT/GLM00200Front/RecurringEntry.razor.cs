@@ -20,7 +20,7 @@ namespace GLM00200Front
         private R_Conductor _conJournalNavigator;
         private R_ConductorGrid _conJournalDetail;
 
-        public string Title { get; set; }
+        public string _Title { get; set; }
         public DateTime _defaultValue_DREF_DATE = DateTime.Now;
         public DateTime _defaultValue_DDOC_DATE = DateTime.Now;
         public DateTime _defaultValue_DSTART_DATE = DateTime.Now;
@@ -33,13 +33,17 @@ namespace GLM00200Front
             var loEx = new R_Exception();
             try
             {
-                _journalVM._CREC_ID = (string)poParameter;
+                string pcParam = poParameter.ToString();
+                if (!string.IsNullOrWhiteSpace(pcParam))
+                {
+                    _journalVM._CREC_ID = pcParam;
+                    await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
+                    await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
+                    await _journalVM.GetCurrenciesAsync();
+                    await _conJournalNavigator.R_GetEntity(_journalVM._CREC_ID);
+                    await _gridJournalDet.R_RefreshGrid(null);
+                }
                 //var loParam = R_FrontUtility.ConvertObjectToObject<R_ServiceGetRecordEventArgs>(poParameter);
-                await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
-                await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
-                await _journalVM.GetCurrenciesAsync();
-                await _conJournalNavigator.R_GetEntity(_journalVM._CREC_ID);
-                await _gridJournalDet.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -239,25 +243,6 @@ namespace GLM00200Front
                 loEx.Add(ex);
             }
             R_DisplayException(loEx);
-        }
-        private void JournalDetGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                //var loParam = R_FrontUtility.ConvertObjectToObject<JournalDTO>(eventArgs.Data);
-                //await _journalVM.GetJournal(loParam);
-                //eventArgs.Result = _journalVM.Journal;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        private void JournalDetGrid_Display(R_DisplayEventArgs eventArgs)
-        {
-
         }
         #endregion
 

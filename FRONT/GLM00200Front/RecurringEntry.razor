@@ -285,7 +285,7 @@
         </R_ItemLayout>
         <R_ItemLayout xs="1">
             <R_EditButton R_Conductor="_conJournalNavigator">Modify</R_EditButton>
-        </R_ItemLayout>
+        </R_ItemLayout> 
         <R_ItemLayout xs="1">
             <R_DeleteButton R_Conductor="_conJournalNavigator">Delete</R_DeleteButton>
         </R_ItemLayout>
@@ -354,6 +354,7 @@
 
 <R_ConductorGrid @ref="_conJournalDetail" 
                  R_ViewModel="@_journalVM" 
-                 R_ConductorParent="@_conJournalNavigator" R_ServiceGetRecord="@JurnalDetail_GetRecord">
+                 R_ConductorParent="@_conJournalNavigator" 
+                 R_ServiceGetRecord="@JurnalDetail_GetRecord">
 
 </R_ConductorGrid>

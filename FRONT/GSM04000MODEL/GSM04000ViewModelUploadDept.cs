@@ -170,8 +170,6 @@ namespace GSM04000Model
             {
                 _isValidationProcess= true;
                 loUserParameneters = new List<R_KeyValue>();
-                //loUserParameneters.Add(new R_KeyValue() { Key = ContextConstant.CPROPERTY_ID, Value = PropertyValue });
-
                 //preapare Batch Parameter
                 loUploadPar = new R_BatchParameter();
                 loUploadPar.COMPANY_ID = pcCompanyId;
