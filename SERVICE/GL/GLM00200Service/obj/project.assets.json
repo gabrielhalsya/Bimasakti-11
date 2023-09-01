@@ -3131,6 +3131,9 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "GLM00200Common": "1.0.0",
+          "RSP_GL_PROCESS_RECURRINGResources": "1.0.0",
+          "RSP_GL_SAVE_RECURRING_JRNResources": "1.0.0",
+          "RSP_GL_UPDATE_RECURRING_STATUSResources": "1.0.0",
           "Realta.BackCollectionNuGet": "1.0.0",
           "Realta.CommonCollectionNuGet": "1.0.0"
         },
@@ -3149,6 +3152,36 @@
         },
         "runtime": {
           "bin/placeholder/GLM00200Common.dll": {}
+        }
+      },
+      "RSP_GL_PROCESS_RECURRINGResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/RSP_GL_PROCESS_RECURRINGResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RSP_GL_PROCESS_RECURRINGResources.dll": {}
+        }
+      },
+      "RSP_GL_SAVE_RECURRING_JRNResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/RSP_GL_SAVE_RECURRING_JRNResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RSP_GL_SAVE_RECURRING_JRNResources.dll": {}
+        }
+      },
+      "RSP_GL_UPDATE_RECURRING_STATUSResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/RSP_GL_UPDATE_RECURRING_STATUSResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RSP_GL_UPDATE_RECURRING_STATUSResources.dll": {}
         }
       }
     }
@@ -9091,6 +9124,21 @@
       "type": "project",
       "path": "../../../COMMON/GL/GLM00200COMMON/GLM00200Common.csproj",
       "msbuildProject": "../../../COMMON/GL/GLM00200COMMON/GLM00200Common.csproj"
+    },
+    "RSP_GL_PROCESS_RECURRINGResources/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GL/GL_SPR/RSP_GL_PROCESS_RECURRINGResources/RSP_GL_PROCESS_RECURRINGResources.csproj",
+      "msbuildProject": "../../../BACK/GL/GL_SPR/RSP_GL_PROCESS_RECURRINGResources/RSP_GL_PROCESS_RECURRINGResources.csproj"
+    },
+    "RSP_GL_SAVE_RECURRING_JRNResources/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GL/GL_SPR/RSP_GL_SAVE_RECURRING_JRNResources/RSP_GL_SAVE_RECURRING_JRNResources.csproj",
+      "msbuildProject": "../../../BACK/GL/GL_SPR/RSP_GL_SAVE_RECURRING_JRNResources/RSP_GL_SAVE_RECURRING_JRNResources.csproj"
+    },
+    "RSP_GL_UPDATE_RECURRING_STATUSResources/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GL/GL_SPR/RSP_GL_UPDATE_RECURRING_STATUSResources/RSP_GL_UPDATE_RECURRING_STATUSResources.csproj",
+      "msbuildProject": "../../../BACK/GL/GL_SPR/RSP_GL_UPDATE_RECURRING_STATUSResources/RSP_GL_UPDATE_RECURRING_STATUSResources.csproj"
     }
   },
   "projectFileDependencyGroups": {

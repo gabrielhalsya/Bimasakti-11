@@ -13,6 +13,9 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\COMMON\GL\GLM00200COMMON\GLM00200Common.csproj" />
+	  <ProjectReference Include="..\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\RSP_GL_PROCESS_RECURRINGResources.csproj" />
+	  <ProjectReference Include="..\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\RSP_GL_SAVE_RECURRING_JRNResources.csproj" />
+	  <ProjectReference Include="..\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

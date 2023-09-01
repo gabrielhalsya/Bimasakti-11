@@ -142,28 +142,28 @@ namespace GLM00200Back
                         "@CDEPT_CODE, @CTRANS_CODE, @CREF_NO, @CDOC_NO, @CDOC_DATE " +
                         "@IFREQUENCY, @IPERIOD, @CSTART_DATE, @CTRANS_DESC, @CCURRENCY_CODE, @LFIX_RATE " +
                         "@NLBASE_RATE, @NLCURRENCY_RATE, @NBBASE_RATE, @NBCURRENCY_RATE, @NPRELIST_AMOUNT " +
-                        "";
+                        " ";
                     loCmd.CommandText = lcQuery;
-                    loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poNewEntity.CUSER_ID);
-                    loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 50, poNewEntity.CJRN_ID);
-                    loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50, poNewEntity.CACTION);
-                    loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poNewEntity.CCOMPANY_ID);
-                    loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poNewEntity.CDEPT_CODE);
-                    loDB.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String, 50, poNewEntity.CTRANS_CODE);
-                    loDB.R_AddCommandParameter(loCmd, "@CREF_NO", DbType.String, 50, poNewEntity.CREF_NO);
-                    loDB.R_AddCommandParameter(loCmd, "@CDOC_NO", DbType.String, 50, poNewEntity.CDOC_NO);
-                    loDB.R_AddCommandParameter(loCmd, "@CDOC_DATE", DbType.String, 50, poNewEntity.CDOC_DATE);
-                    loDB.R_AddCommandParameter(loCmd, "@IFREQUENCY", DbType.Int32, 50, poNewEntity.IFREQUENCY);
-                    loDB.R_AddCommandParameter(loCmd, "@IPERIOD", DbType.Int32, 50, poNewEntity.IPERIOD);
-                    loDB.R_AddCommandParameter(loCmd, "@CSTART_DATE", DbType.Int32, 50, poNewEntity.CSTART_DATE);
-                    loDB.R_AddCommandParameter(loCmd, "@CTRANS_DESC", DbType.Int32, 50, poNewEntity.CTRANS_DESC);
-                    loDB.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.Int32, 50, poNewEntity.CCURRENCY_CODE);
-                    loDB.R_AddCommandParameter(loCmd, "@LFIX_RATE", DbType.Boolean, 50, poNewEntity.LFIX_RATE);
-                    loDB.R_AddCommandParameter(loCmd, "@NLBASE_RATE", DbType.Decimal, 50, poNewEntity.NLBASE_RATE);
-                    loDB.R_AddCommandParameter(loCmd, "@NLCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NLCURRENCY_RATE);
-                    loDB.R_AddCommandParameter(loCmd, "@NBBASE_RATE", DbType.Decimal, 50, poNewEntity.NBBASE_RATE);
-                    loDB.R_AddCommandParameter(loCmd, "@NBCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NBCURRENCY_RATE);
-                    loDB.R_AddCommandParameter(loCmd, "@NPRELIST_AMOUNT", DbType.Decimal, 50, poNewEntity.NPRELIST_AMOUNT);
+                    loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, poNewEntity.CUSER_ID.Length, poNewEntity.CUSER_ID);
+                    loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, poNewEntity.CJRN_ID.Length, poNewEntity.CJRN_ID);
+                    loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, poNewEntity.CACTION.Length, poNewEntity.CACTION);
+                    loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, poNewEntity.CCOMPANY_ID.Length, poNewEntity.CCOMPANY_ID);
+                    loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, poNewEntity.CDEPT_CODE.Length, poNewEntity.CDEPT_CODE);
+                    loDB.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String, poNewEntity.CTRANS_CODE.Length, poNewEntity.CTRANS_CODE);
+                    loDB.R_AddCommandParameter(loCmd, "@CREF_NO", DbType.String, poNewEntity.CREF_NO.Length, poNewEntity.CREF_NO);
+                    loDB.R_AddCommandParameter(loCmd, "@CDOC_NO", DbType.String, poNewEntity.CDOC_NO.Length, poNewEntity.CDOC_NO);
+                    loDB.R_AddCommandParameter(loCmd, "@CDOC_DATE", DbType.String, poNewEntity.CDOC_DATE.Length, poNewEntity.CDOC_DATE);
+                    loDB.R_AddCommandParameter(loCmd, "@IFREQUENCY", DbType.Int32, 2, poNewEntity.IFREQUENCY);
+                    loDB.R_AddCommandParameter(loCmd, "@IPERIOD", DbType.Int32, 2, poNewEntity.IPERIOD);
+                    loDB.R_AddCommandParameter(loCmd, "@CSTART_DATE", DbType.String, poNewEntity.CSTART_DATE.Length, poNewEntity.CSTART_DATE);
+                    loDB.R_AddCommandParameter(loCmd, "@CTRANS_DESC", DbType.String, poNewEntity.CTRANS_DESC.Length, poNewEntity.CTRANS_DESC);
+                    loDB.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.String, poNewEntity.CCURRENCY_CODE.Length, poNewEntity.CCURRENCY_CODE);
+                    loDB.R_AddCommandParameter(loCmd, "@LFIX_RATE", DbType.Boolean, 2, poNewEntity.LFIX_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NLBASE_RATE", DbType.Decimal, Decimal.MaxValue.ToString().Length, poNewEntity.NLBASE_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NLCURRENCY_RATE", DbType.Decimal, Decimal.MaxValue.ToString().Length, poNewEntity.NLCURRENCY_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NBBASE_RATE", DbType.Decimal, Decimal.MaxValue.ToString().Length, poNewEntity.NBBASE_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NBCURRENCY_RATE", DbType.Decimal, Decimal.MaxValue.ToString().Length, poNewEntity.NBCURRENCY_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NPRELIST_AMOUNT", DbType.Decimal, Decimal.MaxValue.ToString().Length, poNewEntity.NPRELIST_AMOUNT);
 
                     try
                     {

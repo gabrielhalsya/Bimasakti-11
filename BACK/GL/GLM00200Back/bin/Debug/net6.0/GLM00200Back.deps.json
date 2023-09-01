@@ -9,6 +9,9 @@
       "GLM00200Back/1.0.0": {
         "dependencies": {
           "GLM00200Common": "1.0.0",
+          "RSP_GL_PROCESS_RECURRINGResources": "1.0.0",
+          "RSP_GL_SAVE_RECURRING_JRNResources": "1.0.0",
+          "RSP_GL_UPDATE_RECURRING_STATUSResources": "1.0.0",
           "Realta.BackCollectionNuGet": "1.0.0",
           "Realta.CommonCollectionNuGet": "1.0.0",
           "FastReport.Compat.Reference": "2023.1.8.0",
@@ -1648,6 +1651,21 @@
           "GLM00200Common.dll": {}
         }
       },
+      "RSP_GL_PROCESS_RECURRINGResources/1.0.0": {
+        "runtime": {
+          "RSP_GL_PROCESS_RECURRINGResources.dll": {}
+        }
+      },
+      "RSP_GL_SAVE_RECURRING_JRNResources/1.0.0": {
+        "runtime": {
+          "RSP_GL_SAVE_RECURRING_JRNResources.dll": {}
+        }
+      },
+      "RSP_GL_UPDATE_RECURRING_STATUSResources/1.0.0": {
+        "runtime": {
+          "RSP_GL_UPDATE_RECURRING_STATUSResources.dll": {}
+        }
+      },
       "FastReport.Compat.Reference/2023.1.8.0": {
         "runtime": {
           "FastReport.Compat.dll": {
@@ -2907,6 +2925,21 @@
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
     "GLM00200Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_PROCESS_RECURRINGResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_SAVE_RECURRING_JRNResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_UPDATE_RECURRING_STATUSResources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

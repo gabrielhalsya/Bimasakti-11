@@ -151,3 +151,9 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\refint\BIMAS
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.pdb
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.genruntimeconfig.cache
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\ref\BIMASAKTI_GL_API.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_PROCESS_RECURRINGResources.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_SAVE_RECURRING_JRNResources.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_UPDATE_RECURRING_STATUSResources.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_PROCESS_RECURRINGResources.pdb
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_SAVE_RECURRING_JRNResources.pdb
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_UPDATE_RECURRING_STATUSResources.pdb

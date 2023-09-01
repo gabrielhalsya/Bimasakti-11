@@ -27,3 +27,9 @@ D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200S
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\refint\GLM00200Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.pdb
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\ref\GLM00200Service.dll
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\RSP_GL_PROCESS_RECURRINGResources.dll
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\RSP_GL_SAVE_RECURRING_JRNResources.dll
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\RSP_GL_UPDATE_RECURRING_STATUSResources.dll
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\RSP_GL_PROCESS_RECURRINGResources.pdb
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\RSP_GL_SAVE_RECURRING_JRNResources.pdb
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\RSP_GL_UPDATE_RECURRING_STATUSResources.pdb
