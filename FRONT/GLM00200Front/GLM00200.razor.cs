@@ -68,7 +68,7 @@ namespace GLM00200Front
             try
             {
                 await _gridJournal.R_RefreshGrid(null);
-                if (_journalVM.JournalList.Count == 0)
+                if (_journalVM._JournalList.Count == 0)
                 {
                     await R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
                 }
@@ -86,9 +86,9 @@ namespace GLM00200Front
             try
             {
                 await _gridJournal.R_RefreshGrid(true);
-                if (_journalVM.JournalList.Count == 0)
+                if (_journalVM._JournalList.Count == 0)
                 {
-                    _journalVM.JournaDetailList.Clear();
+                    _journalVM._JournaDetailList.Clear();
                     await R_MessageBox.Show("Warning", "No data found!", R_eMessageBoxButtonType.OK);
                 }
             }
@@ -109,7 +109,7 @@ namespace GLM00200Front
             {
                 var param = eventArgs.Parameter;
                 await _journalVM.ShowAllJournals();
-                eventArgs.ListEntityResult = _journalVM.JournalList;
+                eventArgs.ListEntityResult = _journalVM._JournalList;
             }
             catch (Exception ex)
             {
@@ -124,7 +124,7 @@ namespace GLM00200Front
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(eventArgs.Data);
                 await _journalVM.GetJournal(loParam);
-                eventArgs.Result = _journalVM.Journal;
+                eventArgs.Result = _journalVM._Journal;
             }
             catch (Exception ex)
             {
@@ -156,7 +156,7 @@ namespace GLM00200Front
             try
             {
                 await _journalVM.GetJournalDetailList();
-                eventArgs.ListEntityResult = _journalVM.JournaDetailList;
+                eventArgs.ListEntityResult = _journalVM._JournaDetailList;
             }
             catch (Exception ex)
             {

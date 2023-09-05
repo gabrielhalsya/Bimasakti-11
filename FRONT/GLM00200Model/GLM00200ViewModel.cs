@@ -17,18 +17,18 @@ namespace GLM00200Model
 {
     public class GLM00200ViewModel : R_ViewModel<JournalParamDTO>
     {
-        private const string _CTRANS_CODE = "000030";
+        private const string CTRANS_CODE = "000030";
 
         public GLM00200Model _model = new GLM00200Model();
         public PublicLookupModel _lookupModel = new PublicLookupModel();
 
-        public ObservableCollection<JournalGridDTO> JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
-        public ObservableCollection<JournalDetailActualGridDTO> ActualJournalList { get; set; } = new ObservableCollection<JournalDetailActualGridDTO>();
-        public ObservableCollection<JournalDetailGridDTO> JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
-        public ObservableCollection<JournalDetailGridDTO> JournaDetailListTemp { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
-        public GSL00700DTO Dept { get; set; } = new GSL00700DTO();
+        public ObservableCollection<JournalGridDTO> _JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
+        public ObservableCollection<JournalDetailActualGridDTO> _ActualJournalList { get; set; } = new ObservableCollection<JournalDetailActualGridDTO>();
+        public ObservableCollection<JournalDetailGridDTO> _JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
+        public ObservableCollection<JournalDetailGridDTO> _JournaDetailListTemp { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
+        public GSL00700DTO _Dept { get; set; } = new GSL00700DTO();
         public List<GSL00900DTO> _ListCenter { get; set; } = new List<GSL00900DTO>();
-        public JournalParamDTO Journal { get; set; } = new JournalParamDTO();
+        public JournalParamDTO _Journal { get; set; } = new JournalParamDTO();
         public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
         public VAR_CCURRENT_PERIOD_START_DATE_DTO _CCURRENT_PERIOD_START_DATE { get; set; } = new VAR_CCURRENT_PERIOD_START_DATE_DTO();
         public VAR_CSOFT_PERIOD_START_DATE_DTO _CSOFT_PERIOD_START_DATE { get; set; } = new VAR_CSOFT_PERIOD_START_DATE_DTO();
@@ -54,12 +54,12 @@ namespace GLM00200Model
                 var loResult = new List<JournalGridDTO>();
                 _SearchParam.CSTATUS = "";
                 _SearchParam.CSEARCH_TEXT = "";
-                _SearchParam.CTRANS_CODE = _CTRANS_CODE;
+                _SearchParam.CTRANS_CODE = CTRANS_CODE;
                 _SearchParam.LSHOW_ALL = true;
                 R_FrontContext.R_SetContext(RecurringJournalContext.OSEARCH_PARAM, _SearchParam);
                 loResult = await _model.GetAllRecurringListAsync();
-                JournalList = new ObservableCollection<JournalGridDTO>(loResult);
-                foreach (var loJournal in JournalList)
+                _JournalList = new ObservableCollection<JournalGridDTO>(loResult);
+                foreach (var loJournal in _JournalList)
                 {
                     if (loJournal.CSTART_DATE != "" || loJournal.CSTART_DATE != null)
                     {
@@ -83,7 +83,7 @@ namespace GLM00200Model
             try
             {
                 var loResult = await _model.R_ServiceGetRecordAsync(loParam);
-                Journal = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(loResult);
+                _Journal = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -96,9 +96,9 @@ namespace GLM00200Model
             var loEx = new R_Exception();
             try
             {
-                poNewEntity.CTRANS_CODE = _CTRANS_CODE;
+                poNewEntity.CTRANS_CODE = CTRANS_CODE;
                 var loResult = await _model.R_ServiceSaveAsync(poNewEntity, peCRUDMode);
-                Journal = loResult;
+                _Journal = loResult;
             }
             catch (Exception ex)
             {
@@ -118,7 +118,7 @@ namespace GLM00200Model
                 R_FrontContext.R_SetContext(RecurringJournalContext.CREC_ID, _CREC_ID);
                 loResult = await _model.GetAllJournalDetailListAsync();
                 loResult = loResult.Select((data, i) => { data.INO = i + 1; return data; }).ToList();
-                JournaDetailList = new ObservableCollection<JournalDetailGridDTO>(loResult);
+                _JournaDetailList = new ObservableCollection<JournalDetailGridDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -135,7 +135,7 @@ namespace GLM00200Model
                 R_FrontContext.R_SetContext(RecurringJournalContext.CREC_ID, _CREC_ID);
                 loResult = await _model.GetAllJournalActualDetailListAsync();
                 //loResult = loResult.Select((data, i) => { data.INO = i + 1; return data; }).ToList();
-                ActualJournalList = new ObservableCollection<JournalDetailActualGridDTO>(loResult);
+                _ActualJournalList = new ObservableCollection<JournalDetailActualGridDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -151,9 +151,9 @@ namespace GLM00200Model
             try
             {
                 var loResult = await _lookupModel.GSL00700GetDepartmentListAsync(new GSL00700ParameterDTO());
-                Dept = loResult.Data.FirstOrDefault();
-                _SearchParam.CDEPT_CODE = Dept.CDEPT_CODE;
-                _SearchParam.CDEPT_NAME = Dept.CDEPT_NAME;
+                _Dept = loResult.Data.FirstOrDefault();
+                _SearchParam.CDEPT_CODE = _Dept.CDEPT_CODE;
+                _SearchParam.CDEPT_NAME = _Dept.CDEPT_NAME;
             }
             catch (Exception ex)
             {
@@ -182,7 +182,7 @@ namespace GLM00200Model
             {
                 var rtnTemp = await _model.GetVAR_GSM_COMPANY_DTOAsync();
                 _GSM_COMPANY = rtnTemp;
-                Journal.CCURRENCY_CODE = _GSM_COMPANY.CLOCAL_CURRENCY_CODE;
+                _Journal.CCURRENCY_CODE = _GSM_COMPANY.CLOCAL_CURRENCY_CODE;
             }
             catch (Exception ex)
             {
@@ -318,24 +318,24 @@ namespace GLM00200Model
             try
             {
                 var lcSTART_DATE = _DSTART_DATE.ToString("yyyyMMdd");
-                R_FrontContext.R_SetContext(RecurringJournalContext.CCURRENCY_CODE, Journal.CCURRENCY_CODE);
+                R_FrontContext.R_SetContext(RecurringJournalContext.CCURRENCY_CODE, _Journal.CCURRENCY_CODE);
                 R_FrontContext.R_SetContext(RecurringJournalContext.CRATETYPE_CODE, _GL_SYSTEM_PARAM.CRATETYPE_CODE);
                 R_FrontContext.R_SetContext(RecurringJournalContext.CSTART_DATE, lcSTART_DATE);
                 _CURRENCY_RATE_RESULT = await _model.RefreshCurrencyRateAsync();
 
                 if (_CURRENCY_RATE_RESULT != null)
                 {
-                    Journal.NLBASE_RATE = _CURRENCY_RATE_RESULT.NLBASE_RATE_AMOUNT;
-                    Journal.NLCURRENCY_RATE = _CURRENCY_RATE_RESULT.NLCURRENCY_RATE_AMOUNT;
-                    Journal.NBBASE_RATE = _CURRENCY_RATE_RESULT.NBBASE_RATE_AMOUNT;
-                    Journal.NBCURRENCY_RATE = _CURRENCY_RATE_RESULT.NBCURRENCY_RATE_AMOUNT;
+                    _Journal.NLBASE_RATE = _CURRENCY_RATE_RESULT.NLBASE_RATE_AMOUNT;
+                    _Journal.NLCURRENCY_RATE = _CURRENCY_RATE_RESULT.NLCURRENCY_RATE_AMOUNT;
+                    _Journal.NBBASE_RATE = _CURRENCY_RATE_RESULT.NBBASE_RATE_AMOUNT;
+                    _Journal.NBCURRENCY_RATE = _CURRENCY_RATE_RESULT.NBCURRENCY_RATE_AMOUNT;
                 }
                 else
                 {
-                    Journal.NLBASE_RATE = 1;
-                    Journal.NLCURRENCY_RATE = 1;
-                    Journal.NBBASE_RATE = 1;
-                    Journal.NBCURRENCY_RATE = 1;
+                    _Journal.NLBASE_RATE = 1;
+                    _Journal.NLCURRENCY_RATE = 1;
+                    _Journal.NBBASE_RATE = 1;
+                    _Journal.NBCURRENCY_RATE = 1;
                 }
 
             }
@@ -357,7 +357,7 @@ namespace GLM00200Model
                 bool llAutoCommit = false;
                 bool llUndoCommit = false;
                 EModeCmmtAprvJRN loMode = EModeCmmtAprvJRN.Commit;
-                if (Journal.CSTATUS == "80")
+                if (_Journal.CSTATUS == "80")
                 {
                     lcNewStatus = "20";
                     llUndoCommit = true;

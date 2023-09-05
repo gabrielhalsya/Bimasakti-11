@@ -20,5 +20,6 @@ namespace GLM00200Common
         public decimal NLCREDIT { get; set; }
         public decimal NBDEBIT { get; set; }
         public decimal NBCREDIT { get; set; }
+        public char CBSIS { get; set; }
     }
 }

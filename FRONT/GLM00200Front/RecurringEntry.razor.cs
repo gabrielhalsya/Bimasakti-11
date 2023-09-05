@@ -1,8 +1,10 @@
-﻿using GLM00200Common;
+﻿using BlazorClientHelper;
+using GLM00200Common;
 using GLM00200Common.DTO_s;
 using GLM00200Model;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
+using Microsoft.AspNetCore.Components;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
@@ -19,14 +21,13 @@ namespace GLM00200Front
         private R_ConductorGrid _conJournalDet;
         private R_Conductor _conJournalNavigator;
         private R_ConductorGrid _conJournalDetail;
-
-        public string _Title { get; set; }
-        public DateTime _defaultValue_DREF_DATE = DateTime.Now;
-        public DateTime _defaultValue_DDOC_DATE = DateTime.Now;
-        public DateTime _defaultValue_DSTART_DATE = DateTime.Now;
-        public DateTime _defaultValue_DNEXT_DATE = DateTime.Now;
-
-        public bool _enableCrudJournalDetail = false;
+        private string _Title { get; set; }
+        private DateTime _defaultValue_DREF_DATE = DateTime.Now;
+        private DateTime _defaultValue_DDOC_DATE = DateTime.Now;
+        private DateTime _defaultValue_DSTART_DATE = DateTime.Now;
+        private DateTime _defaultValue_DNEXT_DATE = DateTime.Now;
+        private bool _enableCrudJournalDetail = false;
+        [Inject] IClientHelper _clientHelper { get; set; }
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -76,9 +77,9 @@ namespace GLM00200Front
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(eventArgs.Data);
-                loParam.ListJournalDetail = new List<JournalDetailGridDTO>(_journalVM.JournaDetailList);
+                loParam.ListJournalDetail = new List<JournalDetailGridDTO>(_journalVM._JournaDetailList);
                 await _journalVM.SaveJournal(loParam, (eCRUDMode)eventArgs.ConductorMode);
-                eventArgs.Result = _journalVM.Journal;
+                eventArgs.Result = _journalVM._Journal;
             }
             catch (Exception ex)
             {
@@ -105,7 +106,7 @@ namespace GLM00200Front
                 }
                 //await _journalVM.GetJournal(new JournalParamDTO() { CREC_ID = R_FrontUtility.ConvertObjectToObject<string>(eventArgs.Data) });
                 await _journalVM.GetJournal(loParam);
-                eventArgs.Result = _journalVM.Journal;
+                eventArgs.Result = _journalVM._Journal;
             }
             catch (Exception ex)
             {
@@ -120,8 +121,8 @@ namespace GLM00200Front
             try
             {
                 _enableCrudJournalDetail = true; //enable grid to add/edit/delete
-                _journalVM.JournaDetailListTemp = _journalVM.JournaDetailList; //add recent 
-                _journalVM.JournaDetailList = new();
+                _journalVM._JournaDetailListTemp = _journalVM._JournaDetailList; //add recent 
+                _journalVM._JournaDetailList = new();
                 await _journalVM.GetListCenter();
             }
             catch (Exception ex)
@@ -135,7 +136,7 @@ namespace GLM00200Front
             _enableCrudJournalDetail = false;
 
             if (eventArgs.ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Add)
-                _journalVM.JournaDetailList = _journalVM.JournaDetailListTemp;
+            { _journalVM._JournaDetailList = _journalVM._JournaDetailListTemp; }
         }
         private void JournalForm_BeforeEdit(R_BeforeEditEventArgs eventArgs)
         {
@@ -144,106 +145,6 @@ namespace GLM00200Front
         private void JurnalDetail_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
             eventArgs.Result = eventArgs.Data;
-        }
-
-        #region JournalDetailGrid
-        private async Task JournalDetGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                await _journalVM.GetJournalDetailList();
-                eventArgs.ListEntityResult = _journalVM.JournaDetailList;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            R_DisplayException(loEx);
-        }
-        #endregion
-
-        #endregion
-
-        #region Form Control
-        public bool _enable_NLBASE_RATE = false;
-        public bool _enable_NLCURRENCY_RATE = false;
-        public bool _enable_NBBASE_RATE = false;
-        public bool _enable_NBCURRENCY_RATE = false;
-
-        private void OnChangedStartDate()
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                _defaultValue_DNEXT_DATE = _defaultValue_DSTART_DATE.AddDays(1);
-                _journalVM.Journal.CNEXT_DATE = _defaultValue_DNEXT_DATE.ToString("yyMMdd");
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            R_DisplayException(loEx);
-        }
-        private void OnChanged_LFIX_RATE()
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                if (_journalVM.Journal.LFIX_RATE)
-                {
-                    _enable_NLBASE_RATE = false;
-                    _enable_NBBASE_RATE = false;
-                    _enable_NLCURRENCY_RATE = false;
-                    _enable_NBCURRENCY_RATE = false;
-                }
-                else
-                {
-                    _enable_NLBASE_RATE = true;
-                    _enable_NBBASE_RATE = true;
-                    _enable_NLCURRENCY_RATE = true;
-                    _enable_NBCURRENCY_RATE = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            R_DisplayException(loEx);
-        }
-        private async Task OnChanged_CurrencyCode()
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                await _journalVM.RefreshCurrencyRate();
-                if (_journalVM.Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM.Journal.LFIX_RATE == true)
-                {
-                    _enable_NLBASE_RATE = true;
-                    _enable_NLCURRENCY_RATE = true;
-                }
-                else
-                {
-                    _enable_NLBASE_RATE = false;
-                    _enable_NLCURRENCY_RATE = false;
-                }
-                if (_journalVM.Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM.Journal.LFIX_RATE == true)
-                {
-                    _enable_NBBASE_RATE = true;
-                    _enable_NBCURRENCY_RATE = true;
-                }
-                else
-                {
-                    _enable_NBBASE_RATE = false;
-                    _enable_NBCURRENCY_RATE = false;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
         }
         #endregion
 
@@ -268,8 +169,8 @@ namespace GLM00200Front
             try
             {
                 var loTempResult = R_FrontUtility.ConvertObjectToObject<GSL00700DTO>(eventArgs.Result);
-                _journalVM.Journal.CDEPT_CODE = loTempResult.CDEPT_CODE;
-                _journalVM.Journal.CDEPT_NAME = loTempResult.CDEPT_NAME;
+                _journalVM._Journal.CDEPT_CODE = loTempResult.CDEPT_CODE;
+                _journalVM._Journal.CDEPT_NAME = loTempResult.CDEPT_NAME;
             }
             catch (Exception ex)
             {
@@ -278,6 +179,138 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
         }
         #endregion
+
+        #region JournalDetailGrid
+        private async Task JournalDetGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                await _journalVM.GetJournalDetailList();
+                eventArgs.ListEntityResult = _journalVM._JournaDetailList;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            R_DisplayException(loEx);
+        }
+        private void JournalDetailBeforeOpenLookup(R_BeforeOpenGridLookupColumnEventArgs eventArgs)
+        {
+            var param = new GSL00500ParameterDTO
+            {
+                CCOMPANY_ID = _clientHelper.CompanyId,
+                CPROGRAM_CODE = "GLM00100",
+                CUSER_ID = _clientHelper.UserId,
+                CUSER_LANGUAGE = _clientHelper.CultureUI.TwoLetterISOLanguageName,
+                CBSIS = "",
+                CDBCR = "",
+                CCENTER_CODE = "",
+                CPROPERTY_ID = "",
+                LCENTER_RESTR = false,
+                LUSER_RESTR = false
+            };
+            eventArgs.Parameter = param;
+            eventArgs.TargetPageType = typeof(GSL00500);
+        }
+        private void JournalDetailAfterOpenLookup(R_AfterOpenGridLookupColumnEventArgs eventArgs)
+        {
+            var loTempResult = (GSL00500DTO)eventArgs.Result;
+            if (loTempResult == null)
+                return;
+            var loGetData = (JournalDetailGridDTO)eventArgs.ColumnData;
+            loGetData.CGLACCOUNT_NO = loTempResult.CGLACCOUNT_NO;
+            loGetData.CGLACCOUNT_NAME = loTempResult.CGLACCOUNT_NAME;
+            loGetData.CBSIS = loTempResult.CBSIS;
+            //loGetData.CBSIS = loTempResult.CBSIS_DESCR.Contains("B") ? 'B' : (loTempResult.CBSIS_DESCR.Contains("I") ? 'I' :default(char));
+        }
+        private void JurnalDetail_Display(R_DisplayEventArgs eventArgs) { }
+        private void JurnalDetail_AfterAdd(R_AfterAddEventArgs eventArgs) { }
+        private void JurnalDetail_Validation(R_ValidationEventArgs eventArgs) { }
+        #endregion
+
+        #region Form Control
+        private bool _enable_NLBASE_RATE = false;
+        private bool _enable_NLCURRENCY_RATE = false;
+        private bool _enable_NBBASE_RATE = false;
+        private bool _enable_NBCURRENCY_RATE = false;
+        private void OnChangedStartDate()
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                _defaultValue_DNEXT_DATE = _defaultValue_DSTART_DATE.AddDays(1);
+                _journalVM._Journal.CNEXT_DATE = _defaultValue_DNEXT_DATE.ToString("yyMMdd");
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            R_DisplayException(loEx);
+        }
+        private void OnChanged_LFIX_RATE()
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                if (_journalVM._Journal.LFIX_RATE)
+                {
+                    _enable_NLBASE_RATE = false;
+                    _enable_NBBASE_RATE = false;
+                    _enable_NLCURRENCY_RATE = false;
+                    _enable_NBCURRENCY_RATE = false;
+                }
+                else
+                {
+                    _enable_NLBASE_RATE = true;
+                    _enable_NBBASE_RATE = true;
+                    _enable_NLCURRENCY_RATE = true;
+                    _enable_NBCURRENCY_RATE = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            R_DisplayException(loEx);
+        }
+        private async Task OnChanged_CurrencyCodeAsync()
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                await _journalVM.RefreshCurrencyRate();
+                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM._Journal.LFIX_RATE == true)
+                {
+                    _enable_NLBASE_RATE = true;
+                    _enable_NLCURRENCY_RATE = true;
+                }
+                else
+                {
+                    _enable_NLBASE_RATE = false;
+                    _enable_NLCURRENCY_RATE = false;
+                }
+                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM._Journal.LFIX_RATE == true)
+                {
+                    _enable_NBBASE_RATE = true;
+                    _enable_NBCURRENCY_RATE = true;
+                }
+                else
+                {
+                    _enable_NBBASE_RATE = false;
+                    _enable_NBCURRENCY_RATE = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        #endregion
+
+
 
 
     }
