@@ -8,9 +8,14 @@ using Microsoft.AspNetCore.Components;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
+using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
+using System.Diagnostics.Metrics;
+using System.Globalization;
+using System.Reflection.Metadata;
+using System.Xml.Linq;
 
 namespace GLM00200Front
 {
@@ -18,14 +23,8 @@ namespace GLM00200Front
     {
         private GLM00200ViewModel _journalVM = new GLM00200ViewModel();
         private R_Grid<JournalDetailGridDTO> _gridJournalDet;
-        private R_ConductorGrid _conJournalDet;
         private R_Conductor _conJournalNavigator;
         private R_ConductorGrid _conJournalDetail;
-        private string _Title { get; set; }
-        private DateTime _defaultValue_DREF_DATE = DateTime.Now;
-        private DateTime _defaultValue_DDOC_DATE = DateTime.Now;
-        private DateTime _defaultValue_DSTART_DATE = DateTime.Now;
-        private DateTime _defaultValue_DNEXT_DATE = DateTime.Now;
         private bool _enableCrudJournalDetail = false;
         [Inject] IClientHelper _clientHelper { get; set; }
 
@@ -60,8 +59,79 @@ namespace GLM00200Front
             R_Exception loEx = new R_Exception();
             try
             {
-                var loData = (JournalParamDTO)eventArgs.Data;
+                var loData = (JournalDTO)eventArgs.Data;
+                if (eventArgs.ConductorMode != R_eConductorMode.Normal)
+                {
+                    if (string.IsNullOrEmpty(loData.CREF_NO) || string.IsNullOrWhiteSpace(loData.CREF_NO))
+                    {
+                        loEx.Add("", "Account No. is required!");
+                    }
+                    if (_journalVM._defaultValue_DREF_DATE == DateTime.MinValue)
+                    {
+                        loEx.Add("", "Reference Date is required!");
+                    }
+                    if (_journalVM._defaultValue_DREF_DATE < DateTime.ParseExact(_journalVM._CCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    {
+                        loEx.Add("", "Reference Date cannot be before Current Period!");
+                    }
+                    if (_journalVM._defaultValue_DREF_DATE > _journalVM._defaultValue_DSTART_DATE)
+                    {
+                        loEx.Add("", "Reference Date cannot be after Start Date!");
+                    }
+                    if (_journalVM._defaultValue_DSTART_DATE < DateTime.ParseExact(_journalVM._CCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    {
+                        loEx.Add("", "Start Date cannot be before Current Period!");
+                    }
+                    if (string.IsNullOrEmpty(loData.CDOC_NO) || string.IsNullOrWhiteSpace(loData.CDOC_NO) && _journalVM._defaultValue_DDOC_DATE != DateTime.MinValue)
+                    {
+                        loEx.Add("", "Please input Document No.!");
+                    }
+                    if (_journalVM._defaultValue_DDOC_DATE == DateTime.MinValue && _journalVM._defaultValue_DDOC_DATE > DateTime.Now)
+                    {
+                        loEx.Add("", "Document Date cannot be after today");
+                    }
+                    if (_journalVM._defaultValue_DDOC_DATE == DateTime.MinValue && _journalVM._defaultValue_DDOC_DATE < DateTime.ParseExact(_journalVM._CCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    {
+                        loEx.Add("", "Document Date cannot be before Current Period!");
+                    }
+                    if (!string.IsNullOrEmpty(loData.CDOC_NO) || !string.IsNullOrWhiteSpace(loData.CDOC_NO) && _journalVM._defaultValue_DDOC_DATE == DateTime.MinValue)
+                    {
+                        loEx.Add("", "Please input Document Date!");
+                    }
+                    if (_journalVM._defaultValue_DDOC_DATE > _journalVM._defaultValue_DSTART_DATE)
+                    {
+                        loEx.Add("", "Document Date cannot be after Start Date!");
+                    }
+                    if (string.IsNullOrEmpty(loData.CTRANS_DESC) || string.IsNullOrWhiteSpace(loData.CTRANS_DESC))
+                    {
+                        loEx.Add("", "Description is required!");
+                    }
 
+                    if (loData.NPRELIST_AMOUNT > 0 && loData.NPRELIST_AMOUNT != loData.NNTRANS_AMOUNT_D)
+                    {
+                        loEx.Add("", "Journal amount is not equal to Prelist!");
+                    }
+
+                    if (loData.NLBASE_RATE <= 0)
+                    {
+                        loEx.Add("", "Local Currency Base Rate must be greater than 0!");
+                    }
+
+                    if (loData.NLCURRENCY_RATE <= 0)
+                    {
+                        loEx.Add("", "Local Currency Rate must be greater than 0!");
+                    }
+
+                    if (loData.NBBASE_RATE <= 0)
+                    {
+                        loEx.Add("", "Base Currency Base Rate must be greater than 0!");
+                    }
+
+                    if (loData.NBCURRENCY_RATE <= 0)
+                    {
+                        loEx.Add("", "Base Currency Rate must be greater than 0!");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -104,7 +174,6 @@ namespace GLM00200Front
                 {
                     loParam = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(eventArgs.Data);
                 }
-                //await _journalVM.GetJournal(new JournalParamDTO() { CREC_ID = R_FrontUtility.ConvertObjectToObject<string>(eventArgs.Data) });
                 await _journalVM.GetJournal(loParam);
                 eventArgs.Result = _journalVM._Journal;
             }
@@ -224,9 +293,104 @@ namespace GLM00200Front
             loGetData.CBSIS = loTempResult.CBSIS;
             //loGetData.CBSIS = loTempResult.CBSIS_DESCR.Contains("B") ? 'B' : (loTempResult.CBSIS_DESCR.Contains("I") ? 'I' :default(char));
         }
-        private void JurnalDetail_Display(R_DisplayEventArgs eventArgs) { }
-        private void JurnalDetail_AfterAdd(R_AfterAddEventArgs eventArgs) { }
-        private void JurnalDetail_Validation(R_ValidationEventArgs eventArgs) { }
+        private void JurnalDetail_Validation(R_ValidationEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loData = (JournalDetailGridDTO)eventArgs.Data;
+                if (eventArgs.ConductorMode != R_eConductorMode.Normal)
+                {
+                    if (string.IsNullOrWhiteSpace(loData.CGLACCOUNT_NO))
+                    {
+                        loEx.Add("", "Account No. is required!");
+                    }
+
+                    if (string.IsNullOrWhiteSpace(loData.CCENTER_CODE) && (loData.CBSIS == 'B' && _journalVM._GSM_COMPANY.LENABLE_CENTER_BS == true) || (loData.CBSIS == 'I' && _journalVM._GSM_COMPANY.LENABLE_CENTER_IS == true))
+                    {
+                        loEx.Add("", $"Center Code is required for Account No. {loData.CGLACCOUNT_NO}!");
+                    }
+
+                    if (loData.NDEBIT == 0 && loData.NCREDIT == 0)
+                    {
+                        loEx.Add("", "Journal amount cannot be 0!");
+                    }
+
+                    if (loData.NDEBIT > 0 && loData.NCREDIT > 0)
+                    {
+                        loEx.Add("", "Journal amount can only be either Debit or Credit!");
+                    }
+
+                    if (eventArgs.ConductorMode == R_eConductorMode.Add)
+                    {
+                        if (_journalVM._JournaDetailList.Any(item => item.CGLACCOUNT_NO == loData.CGLACCOUNT_NO))
+                        {
+                            loEx.Add("", $"Account No. {loData.CGLACCOUNT_NO} already exists!");
+                        }
+                    }
+
+                    if (_journalVM._JournaDetailList.Count(item => item.CGLACCOUNT_NO == loData.CGLACCOUNT_NO) > 1 ||
+                        (_journalVM._JournaDetailList.Any(item => item.CGLACCOUNT_NO == loData.CGLACCOUNT_NO) && eventArgs.ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Edit))
+                    {
+                        loEx.Add("", $"Account No. {loData.CGLACCOUNT_NO} already exists!");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        private void JurnalDetail_Display(R_DisplayEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loData = (JournalDetailGridDTO)eventArgs.Data;
+
+                //findout CREDIT OR DEBIT
+                loData.CDBCR = loData.NDEBIT > 0 ? "D" : "C";
+
+                //fill ccentercode if null based on ccentername
+                if (string.IsNullOrEmpty(loData.CCENTER_CODE) || string.IsNullOrWhiteSpace(loData.CCENTER_CODE))
+                {
+                    foreach (var loItem in _journalVM._ListCenter)
+                    {
+                        if(loData.CCENTER_NAME==loItem.CCENTER_NAME)
+                            loData.CCENTER_CODE = loItem.CCENTER_CODE;
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        private void JurnalDetail_AfterAdd(R_AfterAddEventArgs eventArgs)
+        {
+            var loData = (JournalDetailGridDTO)eventArgs.Data;
+
+            //create increment data grid
+            if (_journalVM._JournaDetailList.Any())
+            {
+                // Find the maximum INO value in the list and increment it by 1
+                int maxINO = _journalVM._JournaDetailList.Max(item => item.INO);
+                loData.INO = maxINO + 1;
+            }
+            else
+            {
+                // If the list is empty, set INO to 1 (or another initial value)
+                loData.INO = 1;
+            }
+
+
+            //assign to data grid
+            eventArgs.Data = loData;
+        }
         #endregion
 
         #region Form Control
@@ -239,8 +403,8 @@ namespace GLM00200Front
             var loEx = new R_Exception();
             try
             {
-                _defaultValue_DNEXT_DATE = _defaultValue_DSTART_DATE.AddDays(1);
-                _journalVM._Journal.CNEXT_DATE = _defaultValue_DNEXT_DATE.ToString("yyMMdd");
+                _journalVM._defaultValue_DNEXT_DATE = _journalVM._defaultValue_DSTART_DATE.AddDays(1);
+                _journalVM._Journal.CNEXT_DATE = _journalVM._defaultValue_DNEXT_DATE.ToString("yyMMdd");
             }
             catch (Exception ex)
             {

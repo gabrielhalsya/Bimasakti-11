@@ -10,6 +10,7 @@ namespace GLM00200Common
         public int INO { get; set; }
         public string CGLACCOUNT_NO { get; set; }
         public string CGLACCOUNT_NAME { get; set; }
+        public char CBSIS { get; set; }
         public string CCENTER_CODE { get; set; } = "";
         public string CCENTER_NAME { get; set; }
         public string CDBCR { get; set; }
@@ -20,6 +21,5 @@ namespace GLM00200Common
         public decimal NLCREDIT { get; set; }
         public decimal NBDEBIT { get; set; }
         public decimal NBCREDIT { get; set; }
-        public char CBSIS { get; set; }
     }
 }

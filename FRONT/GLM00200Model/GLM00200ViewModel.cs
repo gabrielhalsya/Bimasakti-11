@@ -42,8 +42,15 @@ namespace GLM00200Model
         public List<PeriodDTO> Periods = Enumerable.Range(1, 12).Select(month => new PeriodDTO { CPERIOD_MM_CODE = month.ToString("D2"), CPERIOD_MM_TEXT = month.ToString("D2") }).ToList();
         public REFRESH_CURRENCY_RATE_RESULT _CURRENCY_RATE_RESULT = new REFRESH_CURRENCY_RATE_RESULT();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
+        public DateTime _DDOC_DATE { get; set; } = DateTime.Now;
         public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
         public string _CREC_ID { get; set; } = "";
+
+        public DateTime _defaultValue_DREF_DATE = DateTime.Now;
+        public DateTime _defaultValue_DDOC_DATE = DateTime.Now;
+        public DateTime _defaultValue_DSTART_DATE = DateTime.Now;
+        public DateTime _defaultValue_DNEXT_DATE = DateTime.Now;
+
 
         #region CRUD Journal
         public async Task ShowAllJournals()
