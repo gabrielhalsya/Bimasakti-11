@@ -39,7 +39,6 @@ namespace GLM00200Front
                     _journalVM._CREC_ID = pcParam;
                     await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
                     await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
-                    await _journalVM.GetCurrenciesAsync();
                     await _conJournalNavigator.R_GetEntity(_journalVM._CREC_ID);
                     await _gridJournalDet.R_RefreshGrid(null);
                 }
@@ -185,14 +184,21 @@ namespace GLM00200Front
 
         }
         private async Task JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
-        {
+        { 
             var loEx = new R_Exception();
             try
             {
+                var loData = (JournalDTO)eventArgs.Data;
+                await _journalVM.GetCurrenciesAsync();//get list currencies
+                await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();//get company data
+                await _journalVM.GetListCenter(); // get center list for add/edit detail(grid) data
+
                 _enableCrudJournalDetail = true; //enable grid to add/edit/delete
                 _journalVM._JournaDetailListTemp = _journalVM._JournaDetailList; //add recent 
                 _journalVM._JournaDetailList = new();
-                await _journalVM.GetListCenter();
+
+                loData.CCURRENCY_CODE = _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE;//set default ccurrency data when addmode
+                eventArgs.Data = loData;    //return
             }
             catch (Exception ex)
             {
@@ -203,17 +209,12 @@ namespace GLM00200Front
         private void JournalForm_BeforeCancel(R_BeforeCancelEventArgs eventArgs)
         {
             _enableCrudJournalDetail = false;
-
             if (eventArgs.ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Add)
             { _journalVM._JournaDetailList = _journalVM._JournaDetailListTemp; }
         }
         private void JournalForm_BeforeEdit(R_BeforeEditEventArgs eventArgs)
         {
             _enableCrudJournalDetail = true;
-        }
-        private void JurnalDetail_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
-        {
-            eventArgs.Result = eventArgs.Data;
         }
         #endregion
 
@@ -238,8 +239,12 @@ namespace GLM00200Front
             try
             {
                 var loTempResult = R_FrontUtility.ConvertObjectToObject<GSL00700DTO>(eventArgs.Result);
-                _journalVM._Journal.CDEPT_CODE = loTempResult.CDEPT_CODE;
-                _journalVM._Journal.CDEPT_NAME = loTempResult.CDEPT_NAME;
+                if (loTempResult == null)
+                {
+                    return;
+                }
+                _journalVM.Data.CDEPT_CODE = loTempResult.CDEPT_CODE;
+                _journalVM.Data.CDEPT_NAME = loTempResult.CDEPT_NAME;
             }
             catch (Exception ex)
             {
@@ -250,6 +255,10 @@ namespace GLM00200Front
         #endregion
 
         #region JournalDetailGrid
+        private void JurnalDetail_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        {
+            eventArgs.Result = eventArgs.Data;
+        }
         private async Task JournalDetGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -269,7 +278,7 @@ namespace GLM00200Front
             var param = new GSL00500ParameterDTO
             {
                 CCOMPANY_ID = _clientHelper.CompanyId,
-                CPROGRAM_CODE = "GLM00100",
+                CPROGRAM_CODE = "GLM00200",
                 CUSER_ID = _clientHelper.UserId,
                 CUSER_LANGUAGE = _clientHelper.CultureUI.TwoLetterISOLanguageName,
                 CBSIS = "",
@@ -358,11 +367,11 @@ namespace GLM00200Front
                 {
                     foreach (var loItem in _journalVM._ListCenter)
                     {
-                        if(loData.CCENTER_NAME==loItem.CCENTER_NAME)
+                        if (loData.CCENTER_NAME == loItem.CCENTER_NAME)
                             loData.CCENTER_CODE = loItem.CCENTER_CODE;
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -404,7 +413,7 @@ namespace GLM00200Front
             try
             {
                 _journalVM._defaultValue_DNEXT_DATE = _journalVM._defaultValue_DSTART_DATE.AddDays(1);
-                _journalVM._Journal.CNEXT_DATE = _journalVM._defaultValue_DNEXT_DATE.ToString("yyMMdd");
+                _journalVM.Data.CNEXT_DATE = _journalVM._defaultValue_DNEXT_DATE.ToString("yyMMdd");
             }
             catch (Exception ex)
             {
@@ -417,7 +426,7 @@ namespace GLM00200Front
             var loEx = new R_Exception();
             try
             {
-                if (_journalVM._Journal.LFIX_RATE)
+                if (_journalVM.Data.LFIX_RATE)
                 {
                     _enable_NLBASE_RATE = false;
                     _enable_NBBASE_RATE = false;
@@ -444,7 +453,7 @@ namespace GLM00200Front
             try
             {
                 await _journalVM.RefreshCurrencyRate();
-                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM._Journal.LFIX_RATE == true)
+                if (_journalVM.Data.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
                 {
                     _enable_NLBASE_RATE = true;
                     _enable_NLCURRENCY_RATE = true;
@@ -454,7 +463,7 @@ namespace GLM00200Front
                     _enable_NLBASE_RATE = false;
                     _enable_NLCURRENCY_RATE = false;
                 }
-                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM._Journal.LFIX_RATE == true)
+                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
                 {
                     _enable_NBBASE_RATE = true;
                     _enable_NBCURRENCY_RATE = true;
@@ -473,9 +482,5 @@ namespace GLM00200Front
             loEx.ThrowExceptionIfErrors();
         }
         #endregion
-
-
-
-
     }
 }

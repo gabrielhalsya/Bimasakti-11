@@ -189,7 +189,6 @@ namespace GLM00200Model
             {
                 var rtnTemp = await _model.GetVAR_GSM_COMPANY_DTOAsync();
                 _GSM_COMPANY = rtnTemp;
-                _Journal.CCURRENCY_CODE = _GSM_COMPANY.CLOCAL_CURRENCY_CODE;
             }
             catch (Exception ex)
             {

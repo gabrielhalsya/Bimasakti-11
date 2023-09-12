@@ -15,6 +15,8 @@ using R_BlazorFrontEnd.Controls.Grid;
 using R_BlazorFrontEnd.Controls.MessageBox;
 using R_BlazorFrontEnd.Excel;
 using BlazorClientHelper;
+using Microsoft.JSInterop;
+using R_APICommonDTO;
 
 namespace GSM04000Front
 {
@@ -27,30 +29,46 @@ namespace GSM04000Front
         private R_ConductorGrid _conGridDeptExcelRef;
 
         [Inject] private R_IExcel _excelProvider { get; set; }
-
-        [Inject] IClientHelper _clientHelper { get; set; }
+        [Inject] private IClientHelper _clientHelper { get; set; }
 
         private R_eFileSelectAccept[] _accepts = { R_eFileSelectAccept.Excel };
 
         public byte[] _fileByte = null;
 
-        private bool _isFileExist = false;
-
         private bool _isUploadSuccesful = true;
+        private bool _isFileHasData { get; set; }
 
+        // Create Method Action StateHasChange
         private void StateChangeInvoke()
         {
             StateHasChanged();
         }
 
-        protected override  Task R_Init_From_Master(object poParameter)
+        // Create Method Action For Download Excel if Has Error
+        private async Task ActionFuncDataSetExcel()
+        {
+            var loByte = _excelProvider.R_WriteToExcel(_deptUploadViewModel._ExcelDataset);
+            var lcName = $"{_clientHelper.CompanyId}" + ".xlsx";
+
+            await _JSRuntime.downloadFileFromStreamHandler(lcName, loByte);
+        }
+
+        // Create Method Action For Error Unhandle
+        private void ShowErrorInvoke(R_APIException poEx)
+        {
+            var loEx = new R_Exception(poEx.ErrorList.Select(x => new R_BlazorFrontEnd.Exceptions.R_Error(x.ErrNo, x.ErrDescp)).ToList());
+            this.R_DisplayException(loEx);
+        }
+
+        protected override Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
 
             try
             {
                 _deptUploadViewModel._stateChangeAction = StateChangeInvoke;
-                //await _gridDeptExcelRef.R_RefreshGrid(null);
+                _deptUploadViewModel._ShowErrorAction = ShowErrorInvoke;
+                _deptUploadViewModel._ActionDataSetExcel = ActionFuncDataSetExcel;
             }
             catch (Exception ex)
             {
@@ -59,107 +77,52 @@ namespace GSM04000Front
             R_DisplayException(loEx);
             return Task.CompletedTask;
         }
-
-        private async Task DeptExcelGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                var loData = (List<GSM04000ExcelToUploadDTO>)eventArgs.Parameter;
-                await _deptUploadViewModel.SaveBatch_ValidateData(loData, _clientHelper.CompanyId, _clientHelper.UserId);
-                eventArgs.ListEntityResult = _deptUploadViewModel.DepartmentExcelValidatedData;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            R_DisplayException(loEx);
-        }
-
+        
         private async Task UploadExcel(InputFileChangeEventArgs eventArgs)
         {
             var loEx = new R_Exception();
 
             try
             {
-                //get file name
                 _deptUploadViewModel._sourceFileName = eventArgs.File.Name;
-
-                //import excel from user
+                //import from excel
                 var loMS = new MemoryStream();
                 await eventArgs.File.OpenReadStream().CopyToAsync(loMS);
-                _fileByte = loMS.ToArray();
+                var loFileByte = loMS.ToArray();
 
-                //validate type file
-                if (eventArgs.File.Name.Contains(".xlsx") == false)
-                {
-                    await R_MessageBox.Show("", "File Type must Microsoft Excel .xlsx", R_eMessageBoxButtonType.OK);
-                }
-                if (eventArgs.File.Name.Length > 0)
-                {
-                    _isFileExist = true;
-                }
-                else
-                {
-                    _isFileExist = false;
-                }
+                //add filebyte to DTO
+                var loExcel = _excelProvider;
 
-                ReadExcelFile();
-            }
-            catch (Exception ex)
-            {
-                if (_deptUploadViewModel._isErrorEmptyFile)
-                {   
-                    await R_MessageBox.Show("", "File is Empty", R_eMessageBoxButtonType.OK);
-                }
-                else
-                {
-                    loEx.Add(ex);
-                }
-            }
-        B:
-            loEx.ThrowExceptionIfErrors();
-        }
+                var loDataSet = loExcel.R_ReadFromExcel(loFileByte, new string[] { "Department" });
 
-        private async Task ReadExcelFile()
-        {
-            var loEx = new R_Exception();
-            List<GSM04000ExcelToUploadDTO> loExtract = null;
-            try
-            {
-                //Read From EXCEL
-                var loDataSet = _excelProvider.R_ReadFromExcel(_fileByte, new string[] { "Department" });
-                loExtract = R_FrontUtility.R_ConvertTo<GSM04000ExcelToUploadDTO>(loDataSet.Tables[0]).ToList();
-                //loExtract = new List<GSM04000ExcelToUploadDTO>(loResult);
+                var loResult = R_FrontUtility.R_ConvertTo<GSM04000ExcelToUploadDTO>(loDataSet.Tables[0]);
 
-                //Refresh grid
-                await _gridDeptExcelRef.R_RefreshGrid(loExtract);
+                _isFileHasData = loResult.Count > 0 ? true : false;
+
+                await _gridDeptExcelRef.R_RefreshGrid(loResult);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
-            finally
-            {
-                if (loExtract != null)
-                {
-                    loExtract.Clear();
-                }
-            }
-            loEx.ThrowExceptionIfErrors();
+
+            R_DisplayException(loEx);
         }
-
-        private void R_RowRender(R_GridRowRenderEventArgs eventArgs)
+        
+        private async Task DeptExcelGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
-            var loData = (GSM04000ExcelGridDTO)eventArgs.Data;
-
-            if (loData.LEXISTS)
+            var loEx = new R_Exception();
+            try
             {
-                eventArgs.RowStyle = new R_GridRowRenderStyle
-                {
-                    FontColor = "red"
-                };
+                var loData = (List<GSM04000ExcelToUploadDTO>)eventArgs.Parameter;
+                await _deptUploadViewModel.ConvertGridExelToGridDTO(loData);
+                eventArgs.ListEntityResult = _deptUploadViewModel._DepartmentExcelGridData;
             }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            R_DisplayException(loEx);
         }
 
         public async Task OnClick_ButtonOK()
@@ -171,9 +134,30 @@ namespace GSM04000Front
 
                 if (loValidate == R_eMessageBoxResult.Yes)
                 {
-                    await _deptUploadViewModel.SaveBatch_UploadValidatedData(_clientHelper.CompanyId, _clientHelper.UserId);
+                    //await _deptUploadViewModel.SaveBatch_UploadValidatedData(_clientHelper.CompanyId, _clientHelper.UserId);
                     await this.Close(true, true);
                 }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        public async Task OnClick_ButtonSaveExcelAsync()
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                //var loValidate = await R_MessageBox.Show("", "Are you sure want to import data?", R_eMessageBoxButtonType.YesNo);
+
+                //if (loValidate == R_eMessageBoxResult.Yes)
+                //{
+                //    await _deptUploadViewModel.SaveBatch_UploadValidatedData(_clientHelper.CompanyId, _clientHelper.UserId);
+                //    await this.Close(true, true);
+                //}
             }
             catch (Exception ex)
             {
