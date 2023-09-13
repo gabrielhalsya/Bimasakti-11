@@ -9,7 +9,7 @@ namespace GSM04000Common
 
     {
         public int INO { get; set; }
-        public bool LVALID { get; set; }
+        public string CVALID { get; set; }
         public string CNOTES { get; set; }
         public string CNON_ACTIVE_DATE{ get; set; } //YYYYMMDD
         public DateTime DNON_ACTIVE_DATE_DISPLAY{ get; set; } //YYYYMMDD
@@ -19,4 +19,6 @@ namespace GSM04000Common
     {
         public List<GSM04000ExcelGridDTO> Data { get; set; }   
     }
+    
+
 }

@@ -11,46 +11,96 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using System.Xml.Linq;
 
 namespace GSM04000Back
 {
     public class GSM00400UploadCls : R_IBatchProcess
     {
+
         public void R_BatchProcess(R_BatchProcessPar poBatchProcessPar)
         {
             R_Exception loException = new R_Exception();
-            string lcQuery = "";
-            R_Db loDb = null;
-            DbConnection loConn = null;
-            var loCommand = loDb.GetCommand();
+            var loDb = new R_Db();
 
             try
             {
+                if (loDb.R_TestConnection() == false)
+                {
+                    loException.Add("01", "Database Connection Failed");
+                    goto EndBlock;
+                }
+
+                var loTask = Task.Run(() =>
+                {
+                    _BatchProcessAsync(poBatchProcessPar);
+                });
+
+                while (!loTask.IsCompleted)
+                {
+                    Thread.Sleep(100);
+                }
+
+                if (loTask.IsFaulted)
+                {
+                    loException.Add(loTask.Exception.InnerException != null ?
+                        loTask.Exception.InnerException :
+                        loTask.Exception);
+
+                    goto EndBlock;
+                }
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+
+        EndBlock:
+
+            loException.ThrowExceptionIfErrors();
+        }
+
+        public async Task _BatchProcessAsync(R_BatchProcessPar poBatchProcessPar)
+        {
+            R_Exception loException = new R_Exception();
+            R_Db loDb = new R_Db();
+            DbCommand loCmd = null;
+            DbConnection loConn = null;
+            var lcQuery = "";
+            try
+            {
+                // must delay for wait this method is completed in syncronous
+                await Task.Delay(100);
+
+                //getting data
                 loDb = new R_Db();
-                var loTempObject = R_NetCoreUtility.R_DeserializeObjectFromByte<List<GSM04000ExcelToUploadDTO>>(poBatchProcessPar.BigObject);
+                var loTempObject = R_NetCoreUtility.R_DeserializeObjectFromByte<List<GSM04000ExcelGridDTO>>(poBatchProcessPar.BigObject);
+
+                //convert to dto
                 var loObject = loTempObject.Select(loTemp => new GSM04000ExcelToUploadDTO
                 {
-                    DepartmentCode = loTemp.DepartmentCode,
-                    DepartmentName = loTemp.DepartmentName,
-                    CenterCode = loTemp.CenterCode,
-                    ManagerName = loTemp.ManagerName,
-                    Everyone = loTemp.Everyone,
-                    Active = loTemp.Active,
-                    NonActiveDate = loTemp.NonActiveDate,
+                    No = loTemp.INO,
+                    DepartmentCode = loTemp.CDEPT_CODE,
+                    DepartmentName = loTemp.CDEPT_NAME,
+                    CenterCode = loTemp.CCENTER_CODE,
+                    ManagerName = loTemp.CMANAGER_CODE,
+                    Everyone = loTemp.LEVERYONE,
+                    Active = loTemp.LACTIVE,
+                    NonActiveDate = loTemp.CNON_ACTIVE_DATE,
                 }).ToList();
+
+                loConn = loDb.GetConnection();
+                loCmd = loDb.GetCommand();
 
                 //get parameter
 
 
-                var loTempVar = poBatchProcessPar.UserParameters.Where((x) => x.Key.Equals(ContextConstant.LOVERWRITE)).FirstOrDefault().Value;
-                var lbOverwrite = ((System.Text.Json.JsonElement)loTempVar).GetBoolean();
+                //get command & connection
+                loConn = loDb.GetConnection();
+                loCmd = loDb.GetCommand();
 
-                using (var TransScope = new TransactionScope(TransactionScopeOption.Required))
-                {
-                    loConn = loDb.GetConnection();
-
-                    lcQuery = $"CREATE TABLE #DEPARTMENT " +
-                              $"(No INT, " +
+                lcQuery += $"CREATE TABLE #DEPARTMENT " +
+                              $"( No INT, " +
                               $"DepartmentCode VARCHAR(8), " +
                               $"DepartmentName VARCHAR(80), " +
                               $"CenterCode VARCHAR(8)," +
@@ -59,23 +109,19 @@ namespace GSM04000Back
                               $"Active BIT," +
                               $"NonActiveDate VARCHAR(8))";
 
-                    loDb.SqlExecNonQuery(lcQuery, loConn, false);
+                loDb.SqlExecNonQuery(lcQuery, loConn, false);
 
-                    loDb.R_BulkInsert<GSM04000ExcelToUploadDTO>((SqlConnection)loConn, "#DEPARTMENT", loObject);
+                loDb.R_BulkInsert<GSM04000ExcelToUploadDTO>((SqlConnection)loConn, "#DEPARTMENT", loObject);
 
-                    lcQuery = "RSP_GS_UPLOAD_DEPARTMENT";
-                    loCommand.CommandText = lcQuery;
-                    loCommand.CommandType = CommandType.StoredProcedure;
+                lcQuery = "EXECUTE RSP_GS_UPLOAD_DEPARTMENT @CCOMPANY_ID, @CUSER_ID, @CKEY_GUID";
+                loCmd.CommandText = lcQuery;
 
-                    loDb.R_AddCommandParameter(loCommand, "@CCOMPANY_ID", DbType.String, 8, poBatchProcessPar.Key.COMPANY_ID);
-                    loDb.R_AddCommandParameter(loCommand, "@CUSER_ID", DbType.String, 20, poBatchProcessPar.Key.USER_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, poBatchProcessPar.Key.COMPANY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, poBatchProcessPar.Key.USER_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CKEY_GUID", DbType.String, 50, poBatchProcessPar.Key.KEY_GUID);
 
-                    loDb.R_AddCommandParameter(loCommand, "@CKEY_GUID", DbType.String, 20, poBatchProcessPar.Key.KEY_GUID);
-                    loDb.R_AddCommandParameter(loCommand, "@LOVERWRITE", DbType.Boolean, 20, lbOverwrite);
+                loDb.SqlExecNonQuery(loConn, loCmd, false);
 
-                    loDb.SqlExecNonQuery(loConn, loCommand, false);
-                    TransScope.Complete();
-                }
             }
             catch (Exception ex)
             {
@@ -85,14 +131,33 @@ namespace GSM04000Back
             {
                 if (loConn != null)
                 {
-                    if (loConn.State != ConnectionState.Closed)
+                    if (!(loConn.State == ConnectionState.Closed))
                         loConn.Close();
-
                     loConn.Dispose();
+                    loConn = null;
+                }
+
+                if (loCmd != null)
+                {
+                    loCmd.Dispose();
+                    loCmd = null;
                 }
             }
 
-            loException.ThrowExceptionIfErrors();
+            if (loException.Haserror)
+            {
+                lcQuery = $"INSERT INTO GST_UPLOAD_ERROR_STATUS(CCOMPANY_ID,CUSER_ID,CKEY_GUID,ISEQ_NO,CERROR_MESSAGE) VALUES" +
+                    $"('{poBatchProcessPar.Key.COMPANY_ID}', '{poBatchProcessPar.Key.USER_ID}', " +
+                    $"'{poBatchProcessPar.Key.KEY_GUID}', -1, '{loException.ErrorList[0].ErrDescp}')";
+                loDb.SqlExecNonQuery(lcQuery);
+
+                lcQuery = $"EXEC RSP_WriteUploadProcessStatus '{poBatchProcessPar.Key.COMPANY_ID}', " +
+                   $"'{poBatchProcessPar.Key.USER_ID}', " +
+                   $"'{poBatchProcessPar.Key.KEY_GUID}', " +
+                   $"100, '{loException.ErrorList[0].ErrDescp}', 9";
+
+                loDb.SqlExecNonQuery(lcQuery);
+            }
         }
 
         public List<GSM04000ExcelGridDTO> GetErrorProcess(string pcCompanyId, string pcUserId, string pcKeyGuid)
@@ -105,8 +170,31 @@ namespace GSM04000Back
 
             try
             {
+                loConn = loDb.GetConnection();
+                var loCmd = loDb.GetCommand();
 
+                lcQuery = "EXECUTE RSP_ConvertXMLToTable @CCOMPANY_ID, @CUSER_ID, @CKEY_GUID";
+                loCmd.CommandText = lcQuery;
 
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, pcCompanyId);
+                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, pcUserId);
+                loDb.R_AddCommandParameter(loCmd, "@CKEY_GUID", DbType.String, 50, pcKeyGuid);
+
+                var loDataTableResult = loDb.SqlExecQuery(loConn, loCmd, false);
+                var loTempDdata = R_Utility.R_ConvertTo<GSM04000ExcelToUploadDTO>(loDataTableResult).ToList();
+
+                loResult= loTempDdata.Select(loTemp => new GSM04000ExcelGridDTO
+                {
+                    INO=loTemp.No,
+                    CDEPT_CODE = loTemp.DepartmentCode,
+                    CDEPT_NAME= loTemp.DepartmentName,
+                    CCENTER_CODE= loTemp.CenterCode,
+                    CMANAGER_CODE= loTemp.ManagerName,
+                    LEVERYONE= loTemp.Everyone,
+                    LACTIVE= loTemp.Active,
+                    CNON_ACTIVE_DATE= loTemp.NonActiveDate,
+                    CNOTES=loTemp.ErrorMessage
+                }).ToList();
             }
             catch (Exception ex)
             {
@@ -126,33 +214,6 @@ namespace GSM04000Back
             loEx.ThrowExceptionIfErrors();
 
             return loResult;
-        }
-
-        public List<GSM04000DTO> GetDeptDataToCompare(string piCompanyId)
-        {
-            R_Exception loException = new R_Exception();
-            List<GSM04000DTO> loRtn = null;
-            R_Db loDb;
-            DbConnection loConn;
-            DbCommand loCmd;
-            try
-            {
-                loDb = new R_Db();
-                loConn = loDb.GetConnection("R_DefaultConnectionString");
-                string lcQuery = $"SELECT * FROM GSM_DEPARTMENT (NOLCOK) WHERE CCOMPANY_ID = @CCOMPANY_ID";
-                loCmd = loDb.GetCommand();
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, piCompanyId);
-                var loResult = loDb.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<GSM04000DTO>(loResult).ToList();
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-        EndBlock:
-            loException.ThrowExceptionIfErrors();
-            return loRtn;
         }
 
     }

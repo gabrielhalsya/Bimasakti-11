@@ -220,38 +220,20 @@ namespace GSM04000Service
         }
 
         [HttpPost]
-        public IAsyncEnumerable<GSM04000DTO> GetDeptDatatoCompare()
-        {
-            R_Exception loException = new R_Exception();
-            List<GSM04000DTO> loRtnTemp = null;
-            GSM04000ListDBParameterDTO loDbParam;
-            GSM00400UploadCls loCls;
-            try
-            {
-                loCls = new GSM00400UploadCls();
-                loRtnTemp = loCls.GetDeptDataToCompare(R_BackGlobalVar.COMPANY_ID);
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-        EndBlock:
-            loException.ThrowExceptionIfErrors();
-            return GSM0400StreamListHelper(loRtnTemp);
-        }
-
-        [HttpPost]
-        public GSM04000List<GSM04000ExcelGridDTO> GetErrorProcess()
+        public IAsyncEnumerable<GSM04000ExcelGridDTO> GetErrorProcess()
         {
             var loEx = new R_Exception();
-            GSM04000List<GSM04000ExcelGridDTO> loRtn = null;
+            IAsyncEnumerable<GSM04000ExcelGridDTO> loRtn = null;
+
             try
             {
-                var lcKeyGuid = R_Utility.R_GetContext<string>("DepartmentKeyGuid");
+                var lcKeyGuid = R_Utility.R_GetStreamingContext<string>("UploadStaffDepartmentGuid");
+
                 var loCls = new GSM00400UploadCls();
-                loRtn = new GSM04000List<GSM04000ExcelGridDTO>();
+
                 var loResult = loCls.GetErrorProcess(R_BackGlobalVar.COMPANY_ID, R_BackGlobalVar.USER_ID, lcKeyGuid);
-                loRtn.Data = loResult;
+
+                loRtn = GetStream<GSM04000ExcelGridDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -260,8 +242,15 @@ namespace GSM04000Service
 
             loEx.ThrowExceptionIfErrors();
 
-            //return loRtn;
             return loRtn;
         }
+        private async IAsyncEnumerable<T> GetStream<T>(List<T> poList)
+        {
+            foreach (var item in poList)
+            {
+                yield return item;
+            }
+        }
+
     }
 }

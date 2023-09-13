@@ -45,7 +45,7 @@ namespace GSM04000Front
         }
 
         // Create Method Action For Download Excel if Has Error
-        private async Task ActionFuncDataSetExcel()
+        private async Task SaveValidatedDataToExcel()
         {
             var loByte = _excelProvider.R_WriteToExcel(_deptUploadViewModel._ExcelDataset);
             var lcName = $"{_clientHelper.CompanyId}" + ".xlsx";
@@ -68,7 +68,10 @@ namespace GSM04000Front
             {
                 _deptUploadViewModel._stateChangeAction = StateChangeInvoke;
                 _deptUploadViewModel._ShowErrorAction = ShowErrorInvoke;
-                _deptUploadViewModel._ActionDataSetExcel = ActionFuncDataSetExcel;
+                _deptUploadViewModel._ActionDataSetExcel = SaveValidatedDataToExcel;
+
+                _deptUploadViewModel._ccompanyId = _clientHelper.CompanyId;
+                _deptUploadViewModel._cuserId = _clientHelper.UserId;
             }
             catch (Exception ex)
             {
@@ -128,36 +131,20 @@ namespace GSM04000Front
         public async Task OnClick_ButtonOK()
         {
             var loEx = new R_Exception();
+
             try
             {
                 var loValidate = await R_MessageBox.Show("", "Are you sure want to import data?", R_eMessageBoxButtonType.YesNo);
 
                 if (loValidate == R_eMessageBoxResult.Yes)
                 {
-                    //await _deptUploadViewModel.SaveBatch_UploadValidatedData(_clientHelper.CompanyId, _clientHelper.UserId);
-                    await this.Close(true, true);
+                    await _deptUploadViewModel.SaveBulk_DeptExcelData();
+
+                    if (_deptUploadViewModel._visibleError)
+                    {
+                        await R_MessageBox.Show("", "Department uploaded successfully!", R_eMessageBoxButtonType.OK);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-        }
-
-        public async Task OnClick_ButtonSaveExcelAsync()
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                //var loValidate = await R_MessageBox.Show("", "Are you sure want to import data?", R_eMessageBoxButtonType.YesNo);
-
-                //if (loValidate == R_eMessageBoxResult.Yes)
-                //{
-                //    await _deptUploadViewModel.SaveBatch_UploadValidatedData(_clientHelper.CompanyId, _clientHelper.UserId);
-                //    await this.Close(true, true);
-                //}
             }
             catch (Exception ex)
             {
@@ -171,5 +158,16 @@ namespace GSM04000Front
         {
             await this.Close(true, false);
         }
+
+        public async Task OnClick_ButtonSaveExcelAsync()
+        {
+            var loValidate = await R_MessageBox.Show("", "Are you sure want to save to excel again?", R_eMessageBoxButtonType.YesNo);
+
+            if (loValidate == R_eMessageBoxResult.Yes)
+            {
+                await SaveValidatedDataToExcel();
+            }
+        }
+
     }
 }
