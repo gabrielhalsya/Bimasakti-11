@@ -15,7 +15,5 @@ namespace GSM04000Common
         public bool Everyone { get; set; }
         public bool Active { get; set; }
         public string NonActiveDate { get; set; }
-        public string Notes { get; set; }
-        public string ErrorMessage { get; set; }
     }
 }

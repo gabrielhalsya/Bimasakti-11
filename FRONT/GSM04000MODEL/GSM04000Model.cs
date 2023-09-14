@@ -166,38 +166,5 @@ namespace GSM04000Model
             return loResult;
         }
 
-        public async Task<List<GSM04000ExcelGridDTO>> GetErrorProcessAsync(string pcKeyGuid)
-        {
-            var loEx = new R_Exception();
-            List<GSM04000ExcelGridDTO> loResult = null;
-
-            try
-            {
-                R_FrontContext.R_SetStreamingContext("UploadStaffDepartmentGuid", pcKeyGuid); //key change to constant
-
-                R_HTTPClientWrapper.httpClientName = _HttpClientName;
-
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<GSM04000ExcelGridDTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGSM04000.GetErrorProcess),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-
-
-        public IAsyncEnumerable<GSM04000ExcelGridDTO> GetErrorProcess()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

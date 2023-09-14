@@ -67,7 +67,7 @@ namespace GSM04000Model
                     LACTIVE = loTemp.Active,
                     LEVERYONE = loTemp.Everyone,
                     CNON_ACTIVE_DATE = loTemp.NonActiveDate,
-                    CNOTES = loTemp.Notes,
+                    //CNOTES = loTemp.Notes,
                     DNON_ACTIVE_DATE_DISPLAY = !string.IsNullOrWhiteSpace(loTemp.NonActiveDate) ? DateTime.ParseExact(loTemp.NonActiveDate, "yyyyMMdd", CultureInfo.InvariantCulture) : default,//create 1 property to display date
                 }).ToList();
 
@@ -104,10 +104,10 @@ namespace GSM04000Model
                 //instance processclient
                 loCls = new R_ProcessAndUploadClient(
                     poProcessProgressStatus: this,
-                    pcModuleName: DEFAULT_MODULE,
+                    pcModuleName: "GS",
                     plSendWithContext: true,
                     plSendWithToken: true,
-                    pcHttpClientName: DEFAULT_HTTP_NAME);
+                    pcHttpClientName: "R_DefaultServiceUrl");
 
                 //assign data
                 if (_DepartmentExcelGridData.Count <= 0)
@@ -120,7 +120,7 @@ namespace GSM04000Model
                 loBatchPar.COMPANY_ID = _ccompanyId;
                 loBatchPar.USER_ID = _cuserId;
                 loBatchPar.UserParameters = loUserParameneters;
-                loBatchPar.ClassName = DEFAULT_CLASSNAME;
+                loBatchPar.ClassName = "GSM04000Back.GSM00400UploadCls";
                 loBatchPar.BigObject = Bigobject;
 
 
@@ -150,7 +150,7 @@ namespace GSM04000Model
                 if (poProcessResultMode == eProcessResultMode.Fail)
                 {
                     _progressBarMessage = $"Process Complete but fail with GUID {pcKeyGuid}";
-                    await GetError(pcKeyGuid);
+                    await ServiceGetError(pcKeyGuid);
                     _visibleError = true;
                 }
             }
@@ -190,7 +190,8 @@ namespace GSM04000Model
         }
 
         #endregion
-        private async Task GetError(string pcKeyGuid)
+        
+        private async Task ServiceGetError(string pcKeyGuid)
         {
             R_Exception loException = new R_Exception();
 

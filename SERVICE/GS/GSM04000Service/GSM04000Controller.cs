@@ -219,38 +219,6 @@ namespace GSM04000Service
             return loRtn;
         }
 
-        [HttpPost]
-        public IAsyncEnumerable<GSM04000ExcelGridDTO> GetErrorProcess()
-        {
-            var loEx = new R_Exception();
-            IAsyncEnumerable<GSM04000ExcelGridDTO> loRtn = null;
-
-            try
-            {
-                var lcKeyGuid = R_Utility.R_GetStreamingContext<string>("UploadStaffDepartmentGuid");
-
-                var loCls = new GSM00400UploadCls();
-
-                var loResult = loCls.GetErrorProcess(R_BackGlobalVar.COMPANY_ID, R_BackGlobalVar.USER_ID, lcKeyGuid);
-
-                loRtn = GetStream<GSM04000ExcelGridDTO>(loResult);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loRtn;
-        }
-        private async IAsyncEnumerable<T> GetStream<T>(List<T> poList)
-        {
-            foreach (var item in poList)
-            {
-                yield return item;
-            }
-        }
 
     }
 }

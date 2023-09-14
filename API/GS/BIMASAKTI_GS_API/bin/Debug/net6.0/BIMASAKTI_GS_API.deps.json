@@ -21,6 +21,7 @@
           "FastReport.DataVisualization.Reference": "2023.1.0.0",
           "R_APIStartUp": "1.0.0.0",
           "R_CrossPlatformSecurity": "1.0.0.0",
+          "R_HelperController": "1.0.0.0",
           "R_SecurityPolicyBack": "1.0.0.0",
           "R_SecurityPolicyCommon": "1.0.0.0",
           "R_SecurityPolicyService": "1.0.0.0",
@@ -1775,6 +1776,14 @@
           }
         }
       },
+      "R_HelperController/1.0.0.0": {
+        "runtime": {
+          "R_HelperController.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "R_SecurityPolicyBack/1.0.0.0": {
         "runtime": {
           "R_SecurityPolicyBack.dll": {
@@ -3184,6 +3193,11 @@
       "sha512": ""
     },
     "R_CrossPlatformSecurity/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_HelperController/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
