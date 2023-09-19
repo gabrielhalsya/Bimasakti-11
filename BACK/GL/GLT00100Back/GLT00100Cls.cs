@@ -29,8 +29,8 @@ namespace GLT00100Back
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, poEntity.CCOMPANY_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, poEntity.CUSER_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CAPPROVE_BY", DbType.String, 20, poEntity.CUSER_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 100, poEntity.CUSER_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CAPPROVE_BY", DbType.String, 100, poEntity.CUSER_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CJRN_ID_LIST", DbType.String, 2047483647, poEntity.CREC_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CNEW_STATUS", DbType.String, 2, "99");
                 loDb.R_AddCommandParameter(loCmd, "@LAUTO_COMMIT", DbType.String, 2, "0");
@@ -82,9 +82,9 @@ namespace GLT00100Back
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 20, poEntity.CCOMPANY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 100, poEntity.CCOMPANY_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 100, poEntity.CUSER_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CREC_ID", DbType.String, 100, poEntity.CREC_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CREC_ID", DbType.String, 200, poEntity.CREC_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 3, poEntity.CLANGUAGE_ID);
 
                 var loDataTable = loDb.SqlExecQuery(loConn, loCmd, true);
@@ -193,6 +193,75 @@ namespace GLT00100Back
             }
         EndBlock:
             loEx.ThrowExceptionIfErrors();
+        }
+
+        public List<GLT00100GridDTO> GetJournalList(GLT00100ParamDTO poParameter)
+        {
+            var loEx = new R_Exception();
+            List<GLT00100GridDTO> loResult = null;
+
+            try
+            {
+                var loDb = new R_Db();
+                var loConn = loDb.GetConnection("R_DefaultConnectionString");
+                var loCmd = loDb.GetCommand();
+
+                var lcQuery = "RSP_GL_SEARCH_REVERSING_LIST";
+                loCmd.CommandType = CommandType.StoredProcedure;
+                loCmd.CommandText = lcQuery;
+
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 20, poParameter.CCOMPANY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, poParameter.CUSER_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 20, poParameter.CDEPT_CODE);
+                loDb.R_AddCommandParameter(loCmd, "@CSEARCH_TEXT", DbType.String, 20, poParameter.CSEARCH_TEXT);
+                loDb.R_AddCommandParameter(loCmd, "@CSTATUS", DbType.String, 20, poParameter.CSTATUS);
+                loDb.R_AddCommandParameter(loCmd, "@CPERIOD", DbType.String, 20, poParameter.CPERIOD);
+                loDb.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 20, poParameter.CLANGUAGE_ID);
+
+
+
+                var loDataTable = loDb.SqlExecQuery(loConn, loCmd, true);
+                loResult = R_Utility.R_ConvertTo<GLT00100GridDTO>(loDataTable).ToList();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loResult;
+        }
+        public List<GLT00100DetailDTO> GetJournalDetailList(GLT00100ParamDTO poParameter)
+        {
+            R_Exception loEx = new R_Exception();
+            List<GLT00100DetailDTO> loRtn = null;
+            R_Db loDB;
+            DbConnection loConn;
+            DbCommand loCmd;
+            string lcQuery;
+            try
+            {
+                loDB = new R_Db();
+                loConn = loDB.GetConnection();
+                loCmd = loDB.GetCommand();
+
+                lcQuery = "RSP_GL_GET_JOURNAL_DETAIL_LIST";
+                loCmd.CommandType = CommandType.StoredProcedure;
+                loCmd.CommandText = lcQuery;
+
+                loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 50, poParameter.CREC_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 50, poParameter.CLANGUAGE_ID);
+
+                var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
+                loRtn = R_Utility.R_ConvertTo<GLT00100DetailDTO>(loRtnTemp).ToList();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+            return loRtn;
         }
 
     }
