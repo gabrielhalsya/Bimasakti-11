@@ -91,7 +91,6 @@ namespace GSM04000Back
 
                 loConn = loDb.GetConnection();
                 loCmd = loDb.GetCommand();
-
                 //get parameter
 
 
@@ -146,15 +145,20 @@ namespace GSM04000Back
 
             if (loException.Haserror)
             {
-                lcQuery = $"INSERT INTO GST_UPLOAD_ERROR_STATUS(CCOMPANY_ID,CUSER_ID,CKEY_GUID,ISEQ_NO,CERROR_MESSAGE) VALUES" +
-                    $"('{poBatchProcessPar.Key.COMPANY_ID}', '{poBatchProcessPar.Key.USER_ID}', " +
-                    $"'{poBatchProcessPar.Key.KEY_GUID}', -1, '{loException.ErrorList[0].ErrDescp}')";
-                loDb.SqlExecNonQuery(lcQuery);
 
-                lcQuery = $"EXEC RSP_WriteUploadProcessStatus '{poBatchProcessPar.Key.COMPANY_ID}', " +
-                   $"'{poBatchProcessPar.Key.USER_ID}', " +
-                   $"'{poBatchProcessPar.Key.KEY_GUID}', " +
-                   $"100, '{loException.ErrorList[0].ErrDescp}', 9";
+                lcQuery = $"INSERT INTO GST_UPLOAD_ERROR_STATUS(CCOMPANY_ID,CUSER_ID,CKEY_GUID,ISEQ_NO,CERROR_MESSAGE) VALUES " +
+                    $"('{poBatchProcessPar.Key.COMPANY_ID}', '{poBatchProcessPar.Key.USER_ID}','{poBatchProcessPar.Key.KEY_GUID}', -1, '{loException.ErrorList[0].ErrDescp}')";
+                try
+                {
+                    loDb.SqlExecNonQuery(lcQuery);
+                }
+                catch (Exception ex)
+                {
+                    loException.Add(ex);
+                }
+                loException.ThrowExceptionIfErrors();
+
+                lcQuery = $"EXEC RSP_WriteUploadProcessStatus '{poBatchProcessPar.Key.COMPANY_ID}', '{poBatchProcessPar.Key.USER_ID}', '{poBatchProcessPar.Key.KEY_GUID}', 100, '{loException.ErrorList[0].ErrDescp}', 9";
 
                 loDb.SqlExecNonQuery(lcQuery);
             }

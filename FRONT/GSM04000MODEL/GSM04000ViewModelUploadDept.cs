@@ -141,17 +141,17 @@ namespace GSM04000Model
 
             try
             {
-                if (poProcessResultMode == eProcessResultMode.Success)
+                switch (poProcessResultMode)
                 {
-                    _progressBarMessage = string.Format("Process Complete and success with GUID {0}", pcKeyGuid);
-                    _visibleError = false;
-                }
-
-                if (poProcessResultMode == eProcessResultMode.Fail)
-                {
-                    _progressBarMessage = $"Process Complete but fail with GUID {pcKeyGuid}";
-                    await ServiceGetError(pcKeyGuid);
-                    _visibleError = true;
+                    case eProcessResultMode.Success:
+                        _progressBarMessage = string.Format("Process Complete and success with GUID {0}", pcKeyGuid);
+                        _visibleError = false;
+                        break;
+                    case eProcessResultMode.Fail:
+                        _progressBarMessage = $"Process Complete but fail with GUID {pcKeyGuid}";
+                        await ServiceGetError(pcKeyGuid);
+                        _visibleError = true;
+                        break;
                 }
             }
             catch (Exception ex)
