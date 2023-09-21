@@ -38,6 +38,7 @@ namespace GLT00100Common
         public string CCREATE_BY { get; set; }
         public DateTime DCREATE_DATE { get; set; }
 
+
         public List<GLT00100DetailDTO> LIST_JOURNAL_DETAIL { get; set; }
     }
 

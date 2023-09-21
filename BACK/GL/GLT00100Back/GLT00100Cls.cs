@@ -210,15 +210,13 @@ namespace GLT00100Back
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 20, poParameter.CCOMPANY_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, poParameter.CUSER_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 20, poParameter.CDEPT_CODE);
-                loDb.R_AddCommandParameter(loCmd, "@CSEARCH_TEXT", DbType.String, 20, poParameter.CSEARCH_TEXT);
-                loDb.R_AddCommandParameter(loCmd, "@CSTATUS", DbType.String, 20, poParameter.CSTATUS);
-                loDb.R_AddCommandParameter(loCmd, "@CPERIOD", DbType.String, 20, poParameter.CPERIOD);
-                loDb.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 20, poParameter.CLANGUAGE_ID);
-
-
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, poParameter.CCOMPANY_ID.Length, poParameter.CCOMPANY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, poParameter.CUSER_ID.Length, poParameter.CUSER_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, poParameter.CDEPT_CODE.Length, poParameter.CDEPT_CODE);
+                loDb.R_AddCommandParameter(loCmd, "@CSEARCH_TEXT", DbType.String, poParameter.CSEARCH_TEXT.Length, poParameter.CSEARCH_TEXT);
+                loDb.R_AddCommandParameter(loCmd, "@CSTATUS", DbType.String, poParameter.CSTATUS.Length, poParameter.CSTATUS);
+                loDb.R_AddCommandParameter(loCmd, "@CPERIOD", DbType.String, poParameter.CPERIOD.Length, poParameter.CPERIOD);
+                loDb.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, poParameter.CLANGUAGE_ID.Length, poParameter.CLANGUAGE_ID);
 
                 var loDataTable = loDb.SqlExecQuery(loConn, loCmd, true);
                 loResult = R_Utility.R_ConvertTo<GLT00100GridDTO>(loDataTable).ToList();
@@ -232,6 +230,7 @@ namespace GLT00100Back
 
             return loResult;
         }
+
         public List<GLT00100DetailDTO> GetJournalDetailList(GLT00100ParamDTO poParameter)
         {
             R_Exception loEx = new R_Exception();
