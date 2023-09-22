@@ -124,19 +124,19 @@
     <value>Phone No 1 can not be empty</value>
   </data>
   <data name="EMPTY_TENANT_ID" xml:space="preserve">
-    <value>Tenant/Contractor Id can not be empty</value>
+    <value>{0} Id can not be empty</value>
   </data>
   <data name="EMPTY_TENANT_NAME" xml:space="preserve">
-    <value>Tenant/Contractor Name can not be empty</value>
+    <value>{0} Name can not be empty</value>
   </data>
   <data name="EXCESS_EMAIL_ADDRESS" xml:space="preserve">
     <value>Email Address is bigger than 100 Character</value>
   </data>
   <data name="EXCESS_TENANT_ID" xml:space="preserve">
-    <value>Tenant/Contractor Id is bigger than 20 Character</value>
+    <value>{0} Id is bigger than 20 Character</value>
   </data>
   <data name="EXCESS_TENANT_NAME" xml:space="preserve">
-    <value>Tenant/Contractor Name is bigger than 100 Character</value>
+    <value>{0} Name is bigger than 100 Character</value>
   </data>
   <data name="INVALID TENANT TYPE" xml:space="preserve">
     <value>Invalid Tenant Type</value>
@@ -157,9 +157,9 @@
     <value>Invalid Salesman</value>
   </data>
   <data name="INVALID_TENANT_CATEGORY" xml:space="preserve">
-    <value>Invalid Tenant/Contractor Category Category</value>
+    <value>Invalid {0} Category</value>
   </data>
   <data name="INVALID_TENANT_GROUP" xml:space="preserve">
-    <value>Invalid Tenant/contractor Group</value>
+    <value>Invalid {0} Group</value>
   </data>
 </root>

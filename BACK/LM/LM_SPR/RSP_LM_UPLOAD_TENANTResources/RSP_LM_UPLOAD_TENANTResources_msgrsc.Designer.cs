@@ -79,7 +79,7 @@ namespace RSP_LM_UPLOAD_TENANTResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tenant/Contractor Id can not be empty.
+        ///   Looks up a localized string similar to {0} Id can not be empty.
         /// </summary>
         internal static string EMPTY_TENANT_ID {
             get {
@@ -88,7 +88,7 @@ namespace RSP_LM_UPLOAD_TENANTResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tenant/Contractor Name can not be empty.
+        ///   Looks up a localized string similar to {0} Name can not be empty.
         /// </summary>
         internal static string EMPTY_TENANT_NAME {
             get {
@@ -106,7 +106,7 @@ namespace RSP_LM_UPLOAD_TENANTResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tenant/Contractor Id is bigger than 20 Character.
+        ///   Looks up a localized string similar to {0} Id is bigger than 20 Character.
         /// </summary>
         internal static string EXCESS_TENANT_ID {
             get {
@@ -115,7 +115,7 @@ namespace RSP_LM_UPLOAD_TENANTResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tenant/Contractor Name is bigger than 100 Character.
+        ///   Looks up a localized string similar to {0} Name is bigger than 100 Character.
         /// </summary>
         internal static string EXCESS_TENANT_NAME {
             get {
@@ -169,7 +169,7 @@ namespace RSP_LM_UPLOAD_TENANTResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid Tenant/Contractor Category Category.
+        ///   Looks up a localized string similar to Invalid {0} Category.
         /// </summary>
         internal static string INVALID_TENANT_CATEGORY {
             get {
@@ -178,7 +178,7 @@ namespace RSP_LM_UPLOAD_TENANTResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid Tenant/contractor Group.
+        ///   Looks up a localized string similar to Invalid {0} Group.
         /// </summary>
         internal static string INVALID_TENANT_GROUP {
             get {

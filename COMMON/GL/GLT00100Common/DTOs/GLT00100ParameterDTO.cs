@@ -1,10 +1,11 @@
-﻿using System;
+﻿using R_APICommonDTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GLT00100Common
+namespace GLT00100Common.DTOs
 {
-    public class GLT00100ParamDTO
+    public class GLT00100ParameterDTO : R_APIResultBaseDTO
     {
         public string CSTATUS_NAME { get; set; }
         public string CCOMPANY_ID { get; set; }

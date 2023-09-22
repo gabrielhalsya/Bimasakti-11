@@ -4,6 +4,12 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="DTO%27s\**" />
+	  <EmbeddedResource Remove="DTO%27s\**" />
+	  <None Remove="DTO%27s\**" />
+	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="R_APICommon">
 			<HintPath>..\..\..\..\..\SYSTEM\SOURCE\LIBRARY\Back\R_APICommon.dll</HintPath>
