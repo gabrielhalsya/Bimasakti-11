@@ -1,0 +1,5 @@
+D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.csproj.CoreCompileInputs.cache

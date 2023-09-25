@@ -28,7 +28,6 @@ namespace GLT00100Common
         CurrencyCodeListDTO GetCurrencyCodeList();
         GetCenterListDTO GetCenterList();
         GSM_TRANSACTION_APPROVALDTO GetTransactionApproval();
-
         #endregion
     }
  

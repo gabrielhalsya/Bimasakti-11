@@ -16,20 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\repos\BS Program\SOURCE\FRONT\GLT00100Front
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/GLT00300.razor]
-build_metadata.AdditionalFiles.TargetPath = R0xUMDAzMDAucmF6b3I=
+[D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/GLT00100.razor]
+build_metadata.AdditionalFiles.TargetPath = R0xUMDAxMDAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/GLT00300JournalEntry.razor]
-build_metadata.AdditionalFiles.TargetPath = R0xUMDAzMDBKb3VybmFsRW50cnkucmF6b3I=
+[D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/GLT00100JournalEntry.razor]
+build_metadata.AdditionalFiles.TargetPath = R0xUMDAxMDBKb3VybmFsRW50cnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/RapidApproveGLT00300.razor]
-build_metadata.AdditionalFiles.TargetPath = UmFwaWRBcHByb3ZlR0xUMDAzMDAucmF6b3I=
+[D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/RapidApproveGLT00100.razor]
+build_metadata.AdditionalFiles.TargetPath = UmFwaWRBcHByb3ZlR0xUMDAxMDAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/RapidCommitGLT00300.razor]
-build_metadata.AdditionalFiles.TargetPath = UmFwaWRDb21taXRHTFQwMDMwMC5yYXpvcg==
+[D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/RapidCommitGLT00100.razor]
+build_metadata.AdditionalFiles.TargetPath = UmFwaWRDb21taXRHTFQwMDEwMC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/repos/BS Program/SOURCE/FRONT/GLT00100Front/_Imports.razor]

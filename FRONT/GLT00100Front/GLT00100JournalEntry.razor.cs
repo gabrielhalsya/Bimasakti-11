@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using BlazorClientHelper;
 using GLT00100Common.DTOs;
 using GLT00100Model;
-using GLTR00100COMMON;
-using GLTR00100FRONT;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
 using Microsoft.AspNetCore.Components;
@@ -344,7 +342,7 @@ namespace GLT00100Front
         }
 
         #endregion
-
+        kjou
         #region Detail
         private async Task JournalDet_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
