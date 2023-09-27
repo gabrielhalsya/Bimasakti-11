@@ -1,5 +1,6 @@
 ﻿using GLT00100Back;
 using GLT00100Common;
+using GLT00100Common.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using R_BackEnd;
 using R_Common;
@@ -11,83 +12,16 @@ namespace GLT00100Service
     [Route("api/[controller]/[action]")]
     public class GLT00100Controller : ControllerBase, IGLT00100
     {
-        public IAsyncEnumerable<GLT00100DetailDTO> GetAllJournalDetailList()
-        {
-            R_Exception loException = new R_Exception();
-            IAsyncEnumerable<GLT00100DetailDTO> loRtn = null;
-            GLT00100ParamDTO loDbPar;
-            GLT00100Cls loCls;
-            List<GLT00100DetailDTO> loRtnTemp;
-            try
-            {
-                loCls = new GLT00100Cls();
-                loDbPar = new GLT00100ParamDTO();
-                loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
-                loDbPar.CREC_ID = R_Utility.R_GetContext<string>(GLT00100ContextConstant.CREC_ID);
-                loRtnTemp = loCls.GetJournalDetailList(loDbPar);
-                loRtn = StreamHelper(loRtnTemp);
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-            return loRtn;
-        }
-
-        public IAsyncEnumerable<GLT00100GridDTO> GetJournalList()
-        {
-            R_Exception loEx = new R_Exception();
-            IAsyncEnumerable<GLT00100GridDTO> loRtn = null;
-            GLT00100ParamDTO loDbPar;
-            GLT00100Cls loCls;
-            List<GLT00100GridDTO> loRtnTemp;
-            try
-            {
-                loDbPar = new GLT00100ParamDTO();
-                loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
-                loDbPar.CUSER_ID = R_BackGlobalVar.USER_ID;
-                loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
-
-                loDbPar.CPERIOD = R_Utility.R_GetContext<string>(GLT00100ContextConstant.CPERIOD);
-                loDbPar.CSEARCH_TEXT = R_Utility.R_GetContext<string>(GLT00100ContextConstant.CSEARCH_TEXT);
-                loDbPar.CDEPT_CODE = R_Utility.R_GetContext<string>(GLT00100ContextConstant.CDEPT_CODE);
-                loDbPar.CSTATUS = R_Utility.R_GetContext<string>(GLT00100ContextConstant.CSTATUS);
-                loCls = new GLT00100Cls();
-                loRtnTemp = loCls.GetJournalList(loDbPar);
-                loRtn = StreamHelper(loRtnTemp);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loRtn;
-        }
-
-        private async IAsyncEnumerable<T> StreamHelper<T>(List<T> poList)
-        {
-            foreach (var item in poList)
-            {
-                yield return item;
-            }
-        }
-
-        public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<GLT00100DTO> poParameter)
-        {
-            throw new NotImplementedException();
-        }
-
+        [HttpPost]
         public R_ServiceGetRecordResultDTO<GLT00100DTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<GLT00100DTO> poParameter)
         {
             var loEx = new R_Exception();
             var loRtn = new R_ServiceGetRecordResultDTO<GLT00100DTO>();
-            GLT00100ParamDTO loDbPar;
+            GLT00100ParameterDTO loDbPar;
             try
             {
                 var loCls = new GLT00100Cls();
-                loDbPar = new GLT00100ParamDTO();
+                loDbPar = new GLT00100ParameterDTO();
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
                 poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
@@ -102,7 +36,7 @@ namespace GLT00100Service
 
             return loRtn;
         }
-
+        [HttpPost]
         public R_ServiceSaveResultDTO<GLT00100DTO> R_ServiceSave(R_ServiceSaveParameterDTO<GLT00100DTO> poParameter)
         {
             R_ServiceSaveResultDTO<GLT00100DTO> loRtn = null;
@@ -125,5 +59,454 @@ namespace GLT00100Service
             loException.ThrowExceptionIfErrors();
             return loRtn;
         }
+        [HttpPost]
+        public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<GLT00100DTO> poParameter)
+        {
+            throw new NotImplementedException();
+        }
+        [HttpPost]
+        public IAsyncEnumerable<GLT00100JournalGridDetailDTO> GetAllJournalDetailList()
+        {
+            R_Exception loException = new R_Exception();
+            IAsyncEnumerable<GLT00100JournalGridDetailDTO> loRtn = null;
+            GLT00100ParameterDTO loDbPar;
+            GLT00100Cls loCls;
+            List<GLT00100JournalGridDetailDTO> loRtnTemp;
+            try
+            {
+                loCls = new GLT00100Cls();
+                loDbPar = new GLT00100ParameterDTO();
+                loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
+                loDbPar.CREC_ID = R_Utility.R_GetContext<string>(ContextConstant.CREC_ID);
+                loRtnTemp = loCls.GetJournalDetailList(loDbPar);
+                loRtn = GetJournalGridDetailStream(loRtnTemp);
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+
+            return loRtn;
+        }
+        [HttpPost]
+        public IAsyncEnumerable<GLT00100JournalGridDTO> GetJournalList()
+        {
+            R_Exception loEx = new R_Exception();
+            IAsyncEnumerable<GLT00100JournalGridDTO> loRtn = null;
+            GLT00100ParameterDTO loDbPar;
+            GLT00100Cls loCls;
+            List<GLT00100JournalGridDTO> loRtnTemp;
+            try
+            {
+                loDbPar = new GLT00100ParameterDTO();
+                loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loDbPar.CUSER_ID = R_BackGlobalVar.USER_ID;
+                loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
+
+                loDbPar.CPERIOD = R_Utility.R_GetContext<string>(ContextConstant.CPERIOD);
+                loDbPar.CSEARCH_TEXT = R_Utility.R_GetContext<string>(ContextConstant.CSEARCH_TEXT);
+                loDbPar.CDEPT_CODE = R_Utility.R_GetContext<string>(ContextConstant.CDEPT_CODE);
+                loDbPar.CSTATUS = R_Utility.R_GetContext<string>(ContextConstant.CSTATUS);
+                loCls = new GLT00100Cls();
+                loRtnTemp = loCls.GetJournalList(loDbPar);
+                loRtn = GetJournalGridStream(loRtnTemp);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
+        [HttpPost]
+        public GLT00100JournalGridDTO JournalProcesStatus(GLT00100JournalGridDTO poData)
+        {
+            R_Exception loEx = new R_Exception();
+            GLT00100ParameterDTO loParam = new GLT00100ParameterDTO();
+            GLT00100JournalGridDTO loRtn = new GLT00100JournalGridDTO();
+            GLT00100Cls loCls = new GLT00100Cls();
+
+            try
+            {
+                loParam.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loParam.CUSER_ID = R_BackGlobalVar.USER_ID;
+
+                loCls.ProcessJournalStatus(loParam, poData);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
+        [HttpPost]
+        public GLT00100JournalGridDTO ProcessReversingJournal(GLT00100JournalGridDTO poData)
+        {
+            R_Exception loEx = new R_Exception();
+            GLT00100ParameterDTO loParam = new GLT00100ParameterDTO();
+            GLT00100JournalGridDTO loRtn = new GLT00100JournalGridDTO();
+            GLT00100Cls loCls = new GLT00100Cls();
+
+            try
+            {
+                loParam.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loParam.CUSER_ID = R_BackGlobalVar.USER_ID;
+                loCls.ProcessReversing(loParam, poData);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
+        [HttpPost]
+        public GLT00100JournalGridDTO UndoReversingJournal(GLT00100JournalGridDTO poData)
+        {
+            R_Exception loEx = new R_Exception();
+            GLT00100ParameterDTO loParam = new GLT00100ParameterDTO();
+            GLT00100JournalGridDTO loRtn = new GLT00100JournalGridDTO();
+            GLT00100Cls loCls = new GLT00100Cls();
+
+            try
+            {
+                loParam.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loParam.CUSER_ID = R_BackGlobalVar.USER_ID;
+                loCls.UndoReversingJournal(loParam, poData);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
+
+        #region INIT
+        [HttpPost]
+        public VAR_GSM_COMPANYDTO GetCompanyDTO()
+        {
+            R_Exception loException = new R_Exception();
+            GLT00100ParameterDTO loDbParameter = new();
+            VAR_GSM_COMPANYDTO loReturn = null;
+            try
+            {
+                var loCls = new GLT00100Cls();
+                loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loReturn = loCls.GetJournalCompany(loDbParameter);
+
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+
+            return loReturn;
+        }
+
+        [HttpPost]
+        public VAR_GL_SYSTEM_PARAMDTO GetSystemParam()
+        {
+            R_Exception loException = new R_Exception();
+            GLT00100ParameterDTO loDbPar = new();
+            VAR_GL_SYSTEM_PARAMDTO loReturn = null;
+            GLT00100Cls loCls;
+            try
+            {
+                loCls = new GLT00100Cls();
+                loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
+                loReturn = loCls.GetSystemParam(loDbPar);
+
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+
+            return loReturn;
+        }
+
+        [HttpPost]
+        public VAR_USER_DEPARTMENT_LISTDTO GetDeptList()
+        {
+            var loEx = new R_Exception();
+            VAR_USER_DEPARTMENT_LISTDTO loRtn = null;
+            GLT00100ParameterDTO loDbPar;
+            GLT00100Cls loCls;
+            try
+            {
+                loDbPar = new GLT00100ParameterDTO();
+                loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loDbPar.CUSER_ID = R_BackGlobalVar.USER_ID;
+                loCls = new GLT00100Cls();
+
+                loRtn = new VAR_USER_DEPARTMENT_LISTDTO();
+                loRtn.Data = loCls.GetDeptList(loDbPar);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public VAR_CCURRENT_PERIOD_START_DATEDTO GetCurrentPeriodStartDate(VAR_GL_SYSTEM_PARAMDTO poData)
+        {
+            R_Exception loException = new R_Exception();
+            GLT00100ParameterDTO loDbParameter = new();
+            VAR_CCURRENT_PERIOD_START_DATEDTO loReturn = null;
+            try
+            {
+                var loCls = new GLT00100Cls();
+                loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loReturn = loCls.GetCurrentPeriodStartDate(loDbParameter, poData);
+
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+
+            return loReturn;
+        }
+
+        [HttpPost]
+        public VAR_CSOFT_PERIOD_START_DATEDTO GetSoftPeriodStartDate(VAR_GL_SYSTEM_PARAMDTO poData)
+        {
+            R_Exception loException = new R_Exception();
+            GLT00100ParameterDTO loDbParameter = new();
+            VAR_CSOFT_PERIOD_START_DATEDTO loReturn = null;
+            try
+            {
+                var loCls = new GLT00100Cls();
+                loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loReturn = loCls.GetSoftPeriodStartDate(loDbParameter, poData);
+
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+
+            return loReturn;
+        }
+
+        [HttpPost]
+        public VAR_IUNDO_COMMIT_JRNDTO GetIOption()
+        {
+            R_Exception loException = new R_Exception();
+            GLT00100ParameterDTO loDbParameter = new();
+            VAR_IUNDO_COMMIT_JRNDTO loReturn = null;
+            try
+            {
+                var loCls = new GLT00100Cls();
+                loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loReturn = loCls.GetIOption(loDbParameter);
+
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+
+            return loReturn;
+        }
+
+        [HttpPost]
+        public VAR_GSM_TRANSACTION_CODEDTO GetLincementLapproval()
+        {
+            R_Exception loException = new R_Exception();
+            GLT00100ParameterDTO loDbParameter = new();
+            VAR_GSM_TRANSACTION_CODEDTO loReturn = null;
+            try
+            {
+                var loCls = new GLT00100Cls();
+                loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loReturn = loCls.GetLincementLapproval(loDbParameter);
+
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+
+            return loReturn;
+        }
+
+        [HttpPost]
+        public VAR_GSM_PERIODDTO GetPeriod()
+        {
+            R_Exception loException = new R_Exception();
+            GLT00100ParameterDTO loDbParameter = new();
+            VAR_GSM_PERIODDTO loReturn = null;
+            try
+            {
+                var loCls = new GLT00100Cls();
+                loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loReturn = loCls.GetPeriod(loDbParameter);
+
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+
+            return loReturn;
+        }
+
+        [HttpPost]
+        public StatusListDTO GetStatusList()
+        {
+            R_Exception loEx = new R_Exception();
+            StatusListDTO loRtn = null;
+            List<StatusDTO> loResult;
+            GLT00100ParameterDTO loDbPar;
+            GLT00100Cls loCls;
+
+            try
+            {
+                loDbPar = new GLT00100ParameterDTO();
+                loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
+                loCls = new GLT00100Cls();
+                loResult = loCls.GetStatus(loDbPar);
+                loRtn = new StatusListDTO { Data = loResult };
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public CurrencyCodeListDTO GetCurrencyCodeList()
+        {
+
+            R_Exception loEx = new R_Exception();
+            CurrencyCodeListDTO loRtn = null;
+            List<CurrencyCodeDTO> loResult;
+            GLT00100ParameterDTO loDbPar;
+            GLT00100Cls loCls;
+
+            try
+            {
+                loDbPar = new GLT00100ParameterDTO();
+                loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loDbPar.CUSER_ID = R_BackGlobalVar.USER_ID;
+                loCls = new GLT00100Cls();
+                loResult = loCls.GetCurrency(loDbPar);
+                loRtn = new CurrencyCodeListDTO { Data = loResult };
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public GetCenterListDTO GetCenterList()
+        {
+            R_Exception loEx = new R_Exception();
+            GetCenterListDTO loRtn = null;
+            List<GetCenterDTO> loResult;
+            GLT00100ParameterDTO loDbPar;
+            GLT00100Cls loCls;
+
+            try
+            {
+                loDbPar = new GLT00100ParameterDTO();
+                loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loDbPar.CUSER_ID = R_BackGlobalVar.USER_ID;
+                loCls = new GLT00100Cls();
+                loResult = loCls.GetCenterList(loDbPar);
+                loRtn = new GetCenterListDTO() { Data = loResult };
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public GSM_TRANSACTION_APPROVALDTO GetTransactionApproval()
+        {
+            R_Exception loException = new R_Exception();
+            GLT00100ParameterDTO loDbParameter = new();
+            GSM_TRANSACTION_APPROVALDTO loReturn = null;
+            try
+            {
+                var loCls = new GLT00100Cls();
+                loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                loReturn = loCls.GetTransactionApproval(loDbParameter);
+
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+
+            return loReturn;
+        }
+        #endregion
+
+        #region Helper
+        private async IAsyncEnumerable<GLT00100JournalGridDetailDTO> GetJournalGridDetailStream(List<GLT00100JournalGridDetailDTO> poParameter)
+        {
+            foreach (GLT00100JournalGridDetailDTO item in poParameter)
+            {
+                yield return item;
+            }
+        }
+        private async IAsyncEnumerable<GLT00100JournalGridDTO> GetJournalGridStream(List<GLT00100JournalGridDTO> poParameter)
+        {
+            foreach (GLT00100JournalGridDTO item in poParameter)
+            {
+                yield return item;
+            }
+        }
+
+        #endregion
     }
 }

@@ -111,12 +111,12 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\GSM04000Model.dl
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSCOMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSFRONT.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSModel.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_BlazorFrontEnd.Controls.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_BlazorFrontEnd.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_BlazorFrontEnd.Excel.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_CrossPlatformSecurity.dll
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_BusinessObjectFront.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ProcessAndUploadFront.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_APIClient.dll

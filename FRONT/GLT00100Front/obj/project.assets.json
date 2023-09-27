@@ -225,6 +225,16 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
+      "BaseHeaderReportCOMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        }
+      },
       "GLT00100Common/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -246,6 +256,46 @@
         },
         "runtime": {
           "bin/placeholder/GLT00100Model.dll": {}
+        }
+      },
+      "GLTR00100COMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLTR00100COMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLTR00100COMMON.dll": {}
+        }
+      },
+      "GLTR00100FRONT/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GLTR00100MODEL": "1.0.0",
+          "Microsoft.AspNetCore.Components.Web": "6.0.15"
+        },
+        "compile": {
+          "bin/placeholder/GLTR00100FRONT.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLTR00100FRONT.dll": {}
+        }
+      },
+      "GLTR00100MODEL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "GLTR00100COMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLTR00100MODEL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLTR00100MODEL.dll": {}
         }
       },
       "Lookup_GSCOMMON/1.0.0": {
@@ -601,6 +651,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "path": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
+      "msbuildProject": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
+    },
     "GLT00100Common/1.0.0": {
       "type": "project",
       "path": "../../COMMON/GL/GLT00100Common/GLT00100Common.csproj",
@@ -610,6 +665,21 @@
       "type": "project",
       "path": "../GLT00100Model/GLT00100Model.csproj",
       "msbuildProject": "../GLT00100Model/GLT00100Model.csproj"
+    },
+    "GLTR00100COMMON/1.0.0": {
+      "type": "project",
+      "path": "../../COMMON/GL/GLTR00100COMMON/GLTR00100COMMON.csproj",
+      "msbuildProject": "../../COMMON/GL/GLTR00100COMMON/GLTR00100COMMON.csproj"
+    },
+    "GLTR00100FRONT/1.0.0": {
+      "type": "project",
+      "path": "../GLTR00100FRONT/GLTR00100FRONT.csproj",
+      "msbuildProject": "../GLTR00100FRONT/GLTR00100FRONT.csproj"
+    },
+    "GLTR00100MODEL/1.0.0": {
+      "type": "project",
+      "path": "../GLTR00100MODEL/GLTR00100MODEL.csproj",
+      "msbuildProject": "../GLTR00100MODEL/GLTR00100MODEL.csproj"
     },
     "Lookup_GSCOMMON/1.0.0": {
       "type": "project",
@@ -629,8 +699,11 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BaseHeaderReportCOMMON >= 1.0.0",
       "GLT00100Common >= 1.0.0",
       "GLT00100Model >= 1.0.0",
+      "GLTR00100COMMON >= 1.0.0",
+      "GLTR00100FRONT >= 1.0.0",
       "Lookup_GSCOMMON >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.20"
@@ -671,11 +744,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj"
+            },
             "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100Common\\GLT00100Common.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100Common\\GLT00100Common.csproj"
             },
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLTR00100COMMON\\GLTR00100COMMON.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLTR00100COMMON\\GLTR00100COMMON.csproj"
+            },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FRONT\\GLTR00100FRONT.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FRONT\\GLTR00100FRONT.csproj"
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj"

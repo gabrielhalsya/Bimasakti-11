@@ -130,6 +130,14 @@
           }
         }
       },
+      "R_APICommonDTO/1.0.0.0": {
+        "runtime": {
+          "R_APICommonDTO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "R_ContextBackEnd/1.0.0.0": {
         "runtime": {
           "R_ContextBackEnd.dll": {
@@ -141,14 +149,6 @@
       "R_StorageCommon/1.0.0.0": {
         "runtime": {
           "R_StorageCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "R_APICommonDTO/1.0.0.0": {
-        "runtime": {
-          "R_APICommonDTO.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -261,17 +261,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "R_APICommonDTO/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "R_ContextBackEnd/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "R_StorageCommon/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "R_APICommonDTO/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

@@ -50,6 +50,7 @@ D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Front.st
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Front.deps.json
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Front.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Front.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\BlazorClientHelper.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Common.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\GLM00200Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\Lookup_GSCOMMON.dll
@@ -88,4 +89,3 @@ D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.dl
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\refint\GLM00200Front.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\ref\GLM00200Front.dll
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\bin\Debug\net6.0\BlazorClientHelper.dll

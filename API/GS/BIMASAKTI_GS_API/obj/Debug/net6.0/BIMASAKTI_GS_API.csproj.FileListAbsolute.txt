@@ -403,6 +403,7 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSSER
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\RSP_GS_MAINTAIN_DEPARTMENTResources.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_APIStartUp.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_CrossPlatformSecurity.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_HelperController.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_SecurityPolicyBack.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_SecurityPolicyCommon.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_SecurityPolicyService.dll
@@ -453,4 +454,3 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\refint\BIMAS
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.genruntimeconfig.cache
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\ref\BIMASAKTI_GS_API.dll
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_HelperController.dll

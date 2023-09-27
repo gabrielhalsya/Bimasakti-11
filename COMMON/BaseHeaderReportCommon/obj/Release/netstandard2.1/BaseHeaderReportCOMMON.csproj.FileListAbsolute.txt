@@ -1,0 +1,9 @@
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\bin\Release\netstandard2.1\BaseHeaderReportCOMMON.deps.json
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\bin\Release\netstandard2.1\BaseHeaderReportCOMMON.dll
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\bin\Release\netstandard2.1\BaseHeaderReportCOMMON.pdb
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Release\netstandard2.1\BaseHeaderReportCOMMON.GeneratedMSBuildEditorConfig.editorconfig
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Release\netstandard2.1\BaseHeaderReportCOMMON.AssemblyInfoInputs.cache
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Release\netstandard2.1\BaseHeaderReportCOMMON.AssemblyInfo.cs
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Release\netstandard2.1\BaseHeaderReportCOMMON.csproj.CoreCompileInputs.cache
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Release\netstandard2.1\BaseHeaderReportCOMMON.dll
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Release\netstandard2.1\BaseHeaderReportCOMMON.pdb

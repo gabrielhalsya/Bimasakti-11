@@ -5,9 +5,9 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\GLT00100Common.
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_APIBackEnd.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_APICommon.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_ContextBackEnd.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_StorageCommon.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\GLT00100Common.pdb

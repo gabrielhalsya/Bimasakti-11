@@ -59,7 +59,7 @@ namespace GLT00100Model
             {
                 R_FrontContext.R_SetContext(ContextConstant.CREC_ID, lcCrecId);
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                var loResTemp = await R_HTTPClientWrapper.R_APIRequestStreamingObject<GLT00100JourdnalGridDetailDTO>(
+                var loResTemp = await R_HTTPClientWrapper.R_APIRequestStreamingObject<GLT00100JournalGridDetailDTO>(
                     _RequestServiceEndPoint,
                     nameof(IGLT00100.GetAllJournalDetailList),
                     DEFAULT_MODULE,

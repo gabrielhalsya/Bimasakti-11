@@ -20,29 +20,29 @@ namespace GLT00100Model
 {
     public class GLT00100ViewModel : R_ViewModel<GLT00100DTO>, R_IProcessProgressStatus
     {
-        private GLT00100Model _JournalListModel = new();
+        private GLT00100Model _JournalListModel = new GLT00100Model();
 
-        public ObservableCollection<GLT00100JournalGridDTO> JournalList = new();
-        public GLT00100JournalGridDTO JournalEntity = new();
-        public ObservableCollection<GLT00100JournalGridDetailDTO> JournaDetailList { get; set; } = new();
-        public ObservableCollection<GLT00100JournalGridDetailDTO> JournaDetailListTemp { get; set; } = new();
-        public GLT00100DTO Journal = new();
+        public ObservableCollection<GLT00100JournalGridDTO> JournalList = new ObservableCollection<GLT00100JournalGridDTO>();
+        public GLT00100JournalGridDTO JournalEntity = new GLT00100JournalGridDTO();
+        public ObservableCollection<GLT00100JournalGridDetailDTO> JournaDetailList { get; set; } = new ObservableCollection<GLT00100JournalGridDetailDTO>();
+        public ObservableCollection<GLT00100JournalGridDetailDTO> JournaDetailListTemp { get; set; } = new ObservableCollection<GLT00100JournalGridDetailDTO>();
+        public GLT00100DTO Journal = new GLT00100DTO();
 
         #region Collection
-        public VAR_CCURRENT_PERIOD_START_DATEDTO CurrentPeriodStartCollection = new();
-        public VAR_CSOFT_PERIOD_START_DATEDTO SoftPeriodStartCollection = new();
-        public VAR_GL_SYSTEM_PARAMDTO SystemParamCollection = new();
-        public VAR_GSM_COMPANYDTO CompanyCollection = new();
-        public VAR_GSM_PERIODDTO GSMPeriodCollection = new();
-        public VAR_GSM_TRANSACTION_CODEDTO TransactionCodeCollection = new();
-        public GSM_TRANSACTION_APPROVALDTO TransactionApprovalCollection = new();
-        public VAR_IUNDO_COMMIT_JRNDTO IundoCollection = new();
-        public List<StatusDTO> allStatusData = new();
-        public List<CurrencyCodeDTO> currencyData = new();
-        public List<GetCenterDTO> CenterListData { get; set; } = new();
-        public List<GLT00100JournalGridDTO> loProcessRapidApproveOrCommitList = new();
+        public VAR_CCURRENT_PERIOD_START_DATEDTO CurrentPeriodStartCollection = new VAR_CCURRENT_PERIOD_START_DATEDTO();
+        public VAR_CSOFT_PERIOD_START_DATEDTO SoftPeriodStartCollection = new VAR_CSOFT_PERIOD_START_DATEDTO();
+        public VAR_GL_SYSTEM_PARAMDTO SystemParamCollection = new VAR_GL_SYSTEM_PARAMDTO();
+        public VAR_GSM_COMPANYDTO CompanyCollection = new VAR_GSM_COMPANYDTO();
+        public VAR_GSM_PERIODDTO GSMPeriodCollection = new VAR_GSM_PERIODDTO();
+        public VAR_GSM_TRANSACTION_CODEDTO TransactionCodeCollection = new VAR_GSM_TRANSACTION_CODEDTO();
+        public GSM_TRANSACTION_APPROVALDTO TransactionApprovalCollection = new GSM_TRANSACTION_APPROVALDTO();
+        public VAR_IUNDO_COMMIT_JRNDTO IundoCollection = new VAR_IUNDO_COMMIT_JRNDTO();
+        public List<StatusDTO> allStatusData = new List<StatusDTO>();
+        public List<CurrencyCodeDTO> currencyData = new List<CurrencyCodeDTO>();
+        public List<GetCenterDTO> CenterListData { get; set; } = new List<GetCenterDTO>();
+        public List<GLT00100JournalGridDTO> loProcessRapidApproveOrCommitList = new List<GLT00100JournalGridDTO>();
         public List<GetMonthDTO> GetMonthList { get; set; }
-        public List<VAR_USER_DEPARTMENTDTO> AllDeptData = new();
+        public List<VAR_USER_DEPARTMENTDTO> AllDeptData = new List<VAR_USER_DEPARTMENTDTO>();
         public Dictionary<string, string> statusMappings = new Dictionary<string, string>
         {
             [""] = "All",

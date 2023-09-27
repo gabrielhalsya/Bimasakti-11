@@ -4,6 +4,9 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\GLM00200Back.pd
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\FastReport.Compat.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\FastReport.DataVisualization.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\GLM00200Common.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_PROCESS_RECURRINGResources.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_SAVE_RECURRING_JRNResources.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_UPDATE_RECURRING_STATUSResources.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\R_APIBackEnd.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\R_APICommon.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\R_APICommonDTO.dll
@@ -13,6 +16,9 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\R_StorageCommon
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\GLM00200Common.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_PROCESS_RECURRINGResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_SAVE_RECURRING_JRNResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_UPDATE_RECURRING_STATUSResources.pdb
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\id\R_APIBackEnd.resources.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\ja\R_APIBackEnd.resources.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.csproj.AssemblyReference.cache
@@ -25,9 +31,3 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.dl
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\refint\GLM00200Back.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.pdb
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\ref\GLM00200Back.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_PROCESS_RECURRINGResources.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_SAVE_RECURRING_JRNResources.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_UPDATE_RECURRING_STATUSResources.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_PROCESS_RECURRINGResources.pdb
-D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_SAVE_RECURRING_JRNResources.pdb
-D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\RSP_GL_UPDATE_RECURRING_STATUSResources.pdb

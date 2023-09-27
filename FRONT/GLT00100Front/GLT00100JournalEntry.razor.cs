@@ -7,6 +7,8 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using BlazorClientHelper;
+using GLTR00100COMMON;
+using GLTR00100FRONT;
 using GLT00100Common.DTOs;
 using GLT00100Model;
 using Lookup_GSCOMMON.DTOs;
@@ -342,7 +344,7 @@ namespace GLT00100Front
         }
 
         #endregion
-        kjou
+        
         #region Detail
         private async Task JournalDet_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
