@@ -664,6 +664,4 @@ namespace GLT00100Back
         }
         #endregion
     }
-
-
 }
