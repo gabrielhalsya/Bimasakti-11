@@ -315,7 +315,7 @@ namespace GLM00200Front
                         loEx.Add("", "Account No. is required!");
                     }
 
-                    if (string.IsNullOrWhiteSpace(loData.CCENTER_CODE) && (loData.CBSIS == 'B' && _journalVM._GSM_COMPANY.LENABLE_CENTER_BS == true) || (loData.CBSIS == 'I' && _journalVM._GSM_COMPANY.LENABLE_CENTER_IS == true))
+                    if (string.IsNullOrWhiteSpace(loData.CCENTER_CODE) && (loData.CBSIS == "B" && _journalVM._GSM_COMPANY.LENABLE_CENTER_BS == true) || (loData.CBSIS == "I" && _journalVM._GSM_COMPANY.LENABLE_CENTER_IS == true))
                     {
                         loEx.Add("", $"Center Code is required for Account No. {loData.CGLACCOUNT_NO}!");
                     }

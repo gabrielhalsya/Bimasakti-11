@@ -30,6 +30,7 @@ D:\BIMASAKTI\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100MODEL\bi
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\GLTR00100MODEL.deps.json
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\GLTR00100MODEL.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\GLTR00100MODEL.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\BaseHeaderReportCOMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\BlazorClientHelper.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\GLTR00100COMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\R_APIClient.dll
@@ -39,7 +40,6 @@ D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\R_Blazo
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\R_BusinessObjectFront.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\R_ProcessAndUploadFront.dll
-D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\BaseHeaderReportCOMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\R_APICommon.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\R_ContextFrontEnd.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.dll

@@ -3062,8 +3062,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Lookup_GSBACK": "1.0.0",
-          "Lookup_GSCOMMON": "1.0.0"
+          "Lookup_GSBACK": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Lookup_GSSERVICES.dll": {}

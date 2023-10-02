@@ -1692,8 +1692,7 @@
       },
       "Lookup_GSSERVICES/1.0.0": {
         "dependencies": {
-          "Lookup_GSBACK": "1.0.0",
-          "Lookup_GSCOMMON": "1.0.0"
+          "Lookup_GSBACK": "1.0.0"
         },
         "runtime": {
           "Lookup_GSSERVICES.dll": {}

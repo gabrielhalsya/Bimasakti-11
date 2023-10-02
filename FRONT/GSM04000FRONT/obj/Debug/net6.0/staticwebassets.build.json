@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CV5Nnzz3ISG2Zf2gTLPp4kQKcyUFMbRaIAwy4rQJXyM=",
+  "Hash": "OiyZIwAiMYGZeLpjZPi9YTekq/SgE4YHWZ9v1dCJ5fY=",
   "Source": "GSM04000Front",
   "BasePath": "_content/GSM04000Front",
   "Mode": "Default",
@@ -11,11 +11,11 @@
       "Version": 2,
       "Source": "GFF00900FRONT",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
-      "AdditionalPublishPropertiesToRemove": "Configuration;Platform;TargetFramework;RuntimeIdentifier;SelfContained",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
-      "AdditionalBuildPropertiesToRemove": "Configuration;Platform;TargetFramework;RuntimeIdentifier;SelfContained"
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework;RuntimeIdentifier;SelfContained"
     },
     {
       "Identity": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFRONT\\Lookup_GSFRONT.csproj",

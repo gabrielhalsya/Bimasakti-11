@@ -29,7 +29,8 @@ namespace RSP_GL_PROCESS_RECURRINGResources {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        
+        internal RSP_GL_PROCESS_RECURRINGResources_msgrsc() {
+        }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.

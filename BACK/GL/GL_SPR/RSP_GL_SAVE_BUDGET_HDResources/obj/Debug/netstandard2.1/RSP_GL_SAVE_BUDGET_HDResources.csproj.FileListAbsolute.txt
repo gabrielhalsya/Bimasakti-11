@@ -1,0 +1,11 @@
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.deps.json
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.dll
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.pdb
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.RSP_GL_SAVE_BUDGET_HDResources_msgrsc.resources
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.csproj.GenerateResource.cache
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.AssemblyInfoInputs.cache
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.AssemblyInfo.cs
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.csproj.CoreCompileInputs.cache
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.dll
+D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_BUDGET_HDResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_BUDGET_HDResources.pdb

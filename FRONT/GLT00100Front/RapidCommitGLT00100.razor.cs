@@ -144,7 +144,7 @@ namespace GLT00100Front
                 var itemToCheck = _JournalListViewModel.loProcessRapidApproveOrCommitList.FirstOrDefault(item => item.CSTATUS == "80");
                 if (itemToCheck != null)
                 {
-                    R_MessageBox.Show("", "Selected Journal Committed Successfully!", R_eMessageBoxButtonType.OK);
+                    await R_MessageBox.Show("", "Selected Journal Committed Successfully!", R_eMessageBoxButtonType.OK);
                     _JournalListViewModel.buttonRapidCommit = true;
                 }
             }

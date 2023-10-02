@@ -522,9 +522,6 @@
             "projectReferences": {
               "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSBACK\\Lookup_GSBACK.csproj": {
                 "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSBACK\\Lookup_GSBACK.csproj"
-              },
-              "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj": {
-                "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj"
               }
             }
           }

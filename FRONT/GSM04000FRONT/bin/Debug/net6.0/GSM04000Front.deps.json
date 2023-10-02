@@ -283,17 +283,17 @@
           }
         }
       },
-      "R_ProcessAndUploadFront/1.0.0.0": {
+      "R_APIClient/1.0.0.0": {
         "runtime": {
-          "R_ProcessAndUploadFront.dll": {
+          "R_APIClient.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "R_APIClient/1.0.0.0": {
+      "R_ProcessAndUploadFront/1.0.0.0": {
         "runtime": {
-          "R_APIClient.dll": {
+          "R_ProcessAndUploadFront.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -509,12 +509,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_ProcessAndUploadFront/1.0.0.0": {
+    "R_APIClient/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "R_APIClient/1.0.0.0": {
+    "R_ProcessAndUploadFront/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

@@ -157,8 +157,8 @@ namespace GLM00200Model
             R_Exception loEx = new R_Exception();
             try
             {
-                var loResult = await _lookupModel.GSL00700GetDepartmentListAsync(new GSL00700ParameterDTO());
-                _Dept = loResult.Data.FirstOrDefault();
+                var loResult = await _lookupModel.GSL00700GetDepartmentListAsync();
+                _Dept = loResult.FirstOrDefault();
                 _SearchParam.CDEPT_CODE = _Dept.CDEPT_CODE;
                 _SearchParam.CDEPT_NAME = _Dept.CDEPT_NAME;
             }
@@ -173,8 +173,8 @@ namespace GLM00200Model
             R_Exception loEx = new R_Exception();
             try
             {
-                var loResult = await _lookupModel.GSL00900GetCenterListAsync(new GSL00900ParameterDTO());
-                _ListCenter = loResult.Data;
+                var loResult = await _lookupModel.GSL00900GetCenterListAsync();
+                _ListCenter = loResult;
             }
             catch (Exception ex)
             {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Fake\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\RSP_GS_MAINTAIN_RATE_TYPEResources.csproj": {}
+    "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\RSP_GS_MAINTAIN_RATE_TYPEResources.csproj": {}
   },
   "projects": {
-    "D:\\Fake\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\RSP_GS_MAINTAIN_RATE_TYPEResources.csproj": {
+    "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\RSP_GS_MAINTAIN_RATE_TYPEResources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Fake\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\RSP_GS_MAINTAIN_RATE_TYPEResources.csproj",
+        "projectUniqueName": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\RSP_GS_MAINTAIN_RATE_TYPEResources.csproj",
         "projectName": "RSP_GS_MAINTAIN_RATE_TYPEResources",
-        "projectPath": "D:\\Fake\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\RSP_GS_MAINTAIN_RATE_TYPEResources.csproj",
+        "projectPath": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\RSP_GS_MAINTAIN_RATE_TYPEResources.csproj",
         "packagesPath": "C:\\Users\\ericson.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\Fake\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\obj\\",
+        "outputPath": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_RATE_TYPEResources\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

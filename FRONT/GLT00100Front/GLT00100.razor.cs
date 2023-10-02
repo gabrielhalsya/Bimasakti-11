@@ -309,11 +309,11 @@ namespace GLT00100Front
                 });
                 if (_JournalListViewModel.CSTATUS_TEMP == "80")
                 {
-                    R_MessageBox.Show("", "Selected Journal Undo Commit Successfully!", R_eMessageBoxButtonType.OK);
+                    await R_MessageBox.Show("", "Selected Journal Undo Commit Successfully!", R_eMessageBoxButtonType.OK);
                 }
                 else
                 {
-                    R_MessageBox.Show("", "Selected Journal Committed Successfully!", R_eMessageBoxButtonType.OK);
+                    await R_MessageBox.Show("", "Selected Journal Committed Successfully!", R_eMessageBoxButtonType.OK);
                 }
                 await _JournalListViewModel.ShowAllJournals();
             EndBlock:;
@@ -397,9 +397,9 @@ namespace GLT00100Front
         private async Task R_Before_Open_PopupRapidApprove(R_BeforeOpenPopupEventArgs eventArgs)
         {
 
-            if (_JournalListViewModel.TransactionApprovalCollection.CRESULT  == null)
+            if (_JournalListViewModel.TransactionApprovalCollection.CRESULT == null)
             {
-                R_MessageBox.Show("", "You don’t have right to approve this journal type!", R_eMessageBoxButtonType.OK);
+                await R_MessageBox.Show("", "You don’t have right to approve this journal type!", R_eMessageBoxButtonType.OK);
                 goto EndBlock;
             }
             eventArgs.Parameter = _JournalListViewModel.JournalList;

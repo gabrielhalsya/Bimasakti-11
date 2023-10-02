@@ -28,12 +28,12 @@ D:\BIMASAKTI\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GLTR00100BACK\o
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\GLTR00100BACK.deps.json
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\GLTR00100BACK.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\GLTR00100BACK.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\BaseHeaderReportCOMMON.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\GLTR00100COMMON.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_APIBackEnd.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_APICommon.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_APICommonDTO.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\BaseHeaderReportCOMMON.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_ContextBackEnd.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_StorageCommon.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_Security.dll
