@@ -17,7 +17,9 @@ namespace GSM04000Front
 
             try
             {
-                await _gridDeptUserToAssignRef.R_RefreshGrid(null);
+                string lcDeptCode = (string)poParameter;
+                _deptUserToAssignViewModel._DepartmentCode = lcDeptCode;
+                await _gridDeptUserToAssignRef.R_RefreshGrid(lcDeptCode);
             }
             catch (Exception ex)
             {
@@ -33,7 +35,7 @@ namespace GSM04000Front
             try
             {
                 await _deptUserToAssignViewModel.GetUserToAssignList();
-                eventArgs.ListEntityResult = _deptUserToAssignViewModel.UsersToAssignList;
+                eventArgs.ListEntityResult = _deptUserToAssignViewModel._UsersToAssignList;
             }
             catch (Exception ex)
             {

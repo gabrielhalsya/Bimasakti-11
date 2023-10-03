@@ -1,4 +1,6 @@
 ﻿using BlazorClientHelper;
+using GFF00900COMMON.DTOs;
+using GFF00900Model.ViewModel;
 using GSM04000Common;
 using GSM04000Model;
 using Lookup_GSCOMMON.DTOs;
@@ -29,7 +31,6 @@ namespace GSM04000Front
         private R_Grid<GSM04100StreamDTO> _gridDeptUserRef;
         private R_ConductorGrid _conGridDeptUserRef;
 
-        [Inject] private R_IExcel _excelProvider { get; set; }
         [Inject] IClientHelper _clientHelper { get; set; }
 
         private R_Popup R_PopupAssignUser;
@@ -65,6 +66,7 @@ namespace GSM04000Front
                 {
                     R_PopupActiveInactive.Enabled = false;
                     R_PopupAssignUser.Enabled = false;
+                    await R_MessageBox.Show("", "There is no data", R_eMessageBoxButtonType.OK);
                 }
             }
             catch (Exception ex)
@@ -81,6 +83,7 @@ namespace GSM04000Front
                 var loDeptode = (GSM04100DTO)_conGridDeptUserRef.R_GetCurrentData();
                 loDeptode.CDEPT_CODE = loParam.CDEPT_CODE;
                 loDeptode.CDEPT_NAME = loParam.CDEPT_NAME;
+
                 //set to viewmodel parent
                 _deptViewModel._departmentCode = loParam.CDEPT_CODE;
                 _deptViewModel._activeDept = loParam.LACTIVE;
@@ -95,8 +98,9 @@ namespace GSM04000Front
                     loLabelActiveInactive = "Activate";
                     _deptViewModel._activeDept = true;
                 }
+
                 //set to view model child
-                _deptUserViewModel.DepartmentCode = loParam.CDEPT_CODE;
+                _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
                 if (loParam.LEVERYONE == true)
                 {
                     R_PopupAssignUser.Enabled = false;
@@ -228,6 +232,7 @@ namespace GSM04000Front
                 case "CMANAGER_NAME":
                     var loTempResult2 = R_FrontUtility.ConvertObjectToObject<GSL01000DTO>(eventArgs.Result);
                     ((GSM04000DTO)eventArgs.ColumnData).CMANAGER_CODE = loTempResult2.CUSER_ID;
+                    ((GSM04000DTO)eventArgs.ColumnData).CMANAGER_NAME = loTempResult2.CUSER_NAME;
                     break;
             }
         }
@@ -240,9 +245,9 @@ namespace GSM04000Front
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<GSM04000DTO>(eventArgs.Parameter);
-                _deptUserViewModel.DepartmentCode = loParam.CDEPT_CODE;
+                _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
                 await _deptUserViewModel.GetDepartmentListByDeptCode();
-                eventArgs.ListEntityResult = _deptUserViewModel.DepartmentUserList;
+                eventArgs.ListEntityResult = _deptUserViewModel._DepartmentUserList;
             }
             catch (Exception ex)
             {
@@ -257,9 +262,9 @@ namespace GSM04000Front
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<GSM04100DTO>(eventArgs.Data);
-                loParam.CDEPT_CODE = _deptUserViewModel.DepartmentCode;
+                loParam.CDEPT_CODE = _deptUserViewModel._DepartmentCode;
                 await _deptUserViewModel.GetDepartmentUser(loParam);
-                eventArgs.Result = _deptUserViewModel.UserToAssign;
+                eventArgs.Result = _deptUserViewModel._UserToAssign;
             }
             catch (Exception ex)
             {
@@ -283,7 +288,7 @@ namespace GSM04000Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-        #endregion
+        #endregion//DepartmentUser(CHILD)
 
         #region Assign User
         private void R_Before_Open_PopupAssignUser(R_BeforeOpenPopupEventArgs eventArgs)
@@ -294,7 +299,7 @@ namespace GSM04000Front
         {
             var loTempResult = (GSM04100DTO)eventArgs.Result;
             var loDeptode = (GSM04100DTO)_conGridDeptUserRef.R_GetCurrentData();
-            if (loTempResult == null)
+            if (loTempResult == null) //if there is no user select on popup
             {
                 return;
             }
@@ -306,19 +311,52 @@ namespace GSM04000Front
             eCRUDMode.AddMode);
             await _gridDeptUserRef.R_RefreshGrid(loDeptode);
         }
-        #endregion
+        #endregion//Assign User
 
         #region Active/Inactive
-        private void R_Before_Open_Popup_ActivateInactive(R_BeforeOpenPopupEventArgs eventArgs)
+        private async Task R_Before_Open_Popup_ActivateInactiveAsync(R_BeforeOpenPopupEventArgs eventArgs)
         {
-            eventArgs.Parameter = "GSM04001";
-            eventArgs.TargetPageType = typeof(GFF00900FRONT.GFF00900);
+            R_Exception loException = new R_Exception();
+            try
+            {
+                var loValidateViewModel = new GFF00900Model.ViewModel.GFF00900ViewModel();
+                loValidateViewModel.ACTIVATE_INACTIVE_ACTIVITY_CODE = "GSM04001"; //Uabh Approval Code sesuai Spec masing masing
+                await loValidateViewModel.RSP_ACTIVITY_VALIDITYMethodAsync(); //Jika IAPPROVAL_CODE == 3, maka akan keluar RSP_ERROR disini
+
+                //Jika Approval User ALL dan Approval Code 1, maka akan langsung menjalankan ActiveInactive
+                if (loValidateViewModel.loRspActivityValidityList.FirstOrDefault().CAPPROVAL_USER == "ALL" && loValidateViewModel.loRspActivityValidityResult.Data.FirstOrDefault().IAPPROVAL_MODE == 1)
+                {
+                    await _deptViewModel.ActiveInactiveProcessAsync(); //Ganti jadi method ActiveInactive masing masing
+                    await _gridDeptRef.R_RefreshGrid(null);
+                    return;
+                }
+                else //Disini Approval Code yang didapat adalah 2, yang berarti Active Inactive akan dijalankan jika User yang diinput ada di RSP_ACTIVITY_VALIDITY
+                {
+                    eventArgs.Parameter = new GFF00900ParameterDTO()
+                    {
+                        Data = loValidateViewModel.loRspActivityValidityList,
+                        IAPPROVAL_CODE = "GSM04001" //Uabh Approval Code sesuai Spec masing masing
+                    };
+                    eventArgs.TargetPageType = typeof(GFF00900FRONT.GFF00900);
+                }
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+            }
+            loException.ThrowExceptionIfErrors();
         }
+
+      
         private async Task R_After_Open_Popup_ActivateInactive(R_AfterOpenPopupEventArgs eventArgs)
         {
             R_Exception loException = new R_Exception();
             try
             {
+                if (eventArgs.Success == false)
+                {
+                    return;
+                }
                 bool result = (bool)eventArgs.Result;
                 if (result == true)
                 {
@@ -331,30 +369,16 @@ namespace GSM04000Front
             }
             loException.ThrowExceptionIfErrors();
             await _gridDeptRef.R_RefreshGrid(null);
+            _conGridDeptRef.R_GetCurrentData();
         }
-        #endregion
+        #endregion//Active/Inactive
 
         #region Upload
         private void R_Before_Open_PopupUpload(R_BeforeOpenPopupEventArgs eventArgs)
         {
             eventArgs.TargetPageType = typeof(GSM04000PopupUpload);
         }
-        #endregion
-
-        #region Rowrender
-        private void R_RowRender(R_GridRowRenderEventArgs eventArgs)
-        {
-            var loData = (GSM04000DTO)eventArgs.Data;
-
-            //if (loData.GenderId == "M")
-            // {
-            //     eventArgs.RowStyle = new R_GridRowRenderStyle
-            //     {
-            //         FontColor = "red"
-            //     };
-            // }
-        }
-        #endregion
+        #endregion//Upload
 
         #region Template
         private async Task DownloadTemplateAsync()
@@ -381,6 +405,6 @@ namespace GSM04000Front
             loEx.ThrowExceptionIfErrors();
             R_DisplayException(loEx);
         }
-        #endregion
+        #endregion//Template
     }
 }

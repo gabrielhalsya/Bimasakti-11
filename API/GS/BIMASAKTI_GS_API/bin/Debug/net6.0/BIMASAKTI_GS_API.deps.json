@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "BIMASAKTI_GS_API/1.0.0": {
         "dependencies": {
+          "GFF00900SERVICES": "1.0.0",
           "GSM04000Service": "1.0.0",
           "Lookup_GSSERVICES": "1.0.0",
           "Realta.BackCollectionNuGet": "1.0.0",
@@ -1653,6 +1654,38 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "GFF00900BACK/1.0.0": {
+        "dependencies": {
+          "GFF00900COMMON": "1.0.0",
+          "RSP_ACTIVITY_VALIDITYResources": "1.0.0",
+          "RSP_GS_VALIDATE_USER_ACT_APPRResources": "1.0.0"
+        },
+        "runtime": {
+          "GFF00900BACK.dll": {}
+        }
+      },
+      "GFF00900COMMON/1.0.0": {
+        "runtime": {
+          "GFF00900COMMON.dll": {}
+        }
+      },
+      "GFF00900SERVICES/1.0.0": {
+        "dependencies": {
+          "GFF00900BACK": "1.0.0",
+          "GFF00900COMMON": "1.0.0"
+        },
+        "runtime": {
+          "GFF00900SERVICES.dll": {}
+        },
+        "resources": {
+          "id/R_APIBackEnd.resources.dll": {
+            "locale": "id"
+          },
+          "ja/R_APIBackEnd.resources.dll": {
+            "locale": "ja"
+          }
+        }
+      },
       "GSM04000Back/1.0.0": {
         "dependencies": {
           "GSM04000Common": "1.0.0",
@@ -1696,19 +1729,21 @@
         },
         "runtime": {
           "Lookup_GSSERVICES.dll": {}
-        },
-        "resources": {
-          "id/R_APIBackEnd.resources.dll": {
-            "locale": "id"
-          },
-          "ja/R_APIBackEnd.resources.dll": {
-            "locale": "ja"
-          }
+        }
+      },
+      "RSP_ACTIVITY_VALIDITYResources/1.0.0": {
+        "runtime": {
+          "RSP_ACTIVITY_VALIDITYResources.dll": {}
         }
       },
       "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
         "runtime": {
           "RSP_GS_MAINTAIN_DEPARTMENTResources.dll": {}
+        }
+      },
+      "RSP_GS_VALIDATE_USER_ACT_APPRResources/1.0.0": {
+        "runtime": {
+          "RSP_GS_VALIDATE_USER_ACT_APPRResources.dll": {}
         }
       },
       "BackExtension/1.0.0.0": {
@@ -3121,6 +3156,21 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
+    "GFF00900BACK/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GFF00900COMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GFF00900SERVICES/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "GSM04000Back/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -3151,7 +3201,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "RSP_ACTIVITY_VALIDITYResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GS_VALIDATE_USER_ACT_APPRResources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

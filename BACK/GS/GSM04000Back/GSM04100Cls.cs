@@ -143,7 +143,7 @@ namespace GSM04000Back
             return loRtn;
         }
 
-        public List<GSM04100DTO> GetUserToAssignList()
+        public List<GSM04100DTO> GetUserToAssignList(GSM04100ListDBParameterDTO poParam)
         {
             List<GSM04100DTO> loRtn = null;
             R_Exception loEx = new R_Exception();
@@ -157,9 +157,14 @@ namespace GSM04000Back
                 loConn = loDB.GetConnection();
                 loCmd = loDB.GetCommand();
 
-                lcQuery = "SELECT CUSER_ID, CUSER_NAME FROM SAM_USER (NOLOCK)";
-                loCmd.CommandType = CommandType.Text;
+                lcQuery = "RSP_GS_GET_DEPT_USER_LIST";
+                loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
+
+                loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poParam.CDEPT_CODE);
+                loDB.R_AddCommandParameter(loCmd, "@CPROGRAM_CODE", DbType.String, 50, poParam.CPROGRAM_CODE);
+
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<GSM04100DTO>(loRtnTemp).ToList();
