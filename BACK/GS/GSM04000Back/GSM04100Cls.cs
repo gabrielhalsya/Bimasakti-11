@@ -157,14 +157,13 @@ namespace GSM04000Back
                 loConn = loDB.GetConnection();
                 loCmd = loDB.GetCommand();
 
-                lcQuery = "RSP_GS_GET_DEPT_USER_LIST";
+                lcQuery = "RSP_GS_GET_LOOKUP_USER_LIST";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poParam.CDEPT_CODE);
-                loDB.R_AddCommandParameter(loCmd, "@CPROGRAM_CODE", DbType.String, 50, poParam.CPROGRAM_CODE);
-
+                loDB.R_AddCommandParameter(loCmd, "@CPROGRAM_ID", DbType.String, 50, poParam.CPROGRAM_CODE);
+                loDB.R_AddCommandParameter(loCmd, "@CPARAMETER_ID", DbType.String, 50, poParam.CDEPT_CODE);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<GSM04100DTO>(loRtnTemp).ToList();

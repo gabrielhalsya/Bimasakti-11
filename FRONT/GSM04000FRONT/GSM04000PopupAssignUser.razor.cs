@@ -8,7 +8,7 @@ namespace GSM04000Front
 {
     public partial class GSM04000PopupAssignUser : R_Page
     {
-        private GSM04100ViewModel _deptUserToAssignViewModel = new GSM04100ViewModel();
+        private GSM04100ViewModel _deptUserViewModel = new GSM04100ViewModel();
         private R_Grid<GSM04100DTO> _gridDeptUserToAssignRef;
 
         protected override async Task R_Init_From_Master(object poParameter)
@@ -18,7 +18,7 @@ namespace GSM04000Front
             try
             {
                 string lcDeptCode = (string)poParameter;
-                _deptUserToAssignViewModel._DepartmentCode = lcDeptCode;
+                _deptUserViewModel._DepartmentCode = lcDeptCode;
                 await _gridDeptUserToAssignRef.R_RefreshGrid(lcDeptCode);
             }
             catch (Exception ex)
@@ -34,8 +34,8 @@ namespace GSM04000Front
             var loEx = new R_Exception();
             try
             {
-                await _deptUserToAssignViewModel.GetUserToAssignList();
-                eventArgs.ListEntityResult = _deptUserToAssignViewModel._UsersToAssignList;
+                await _deptUserViewModel.GetUserToAssignList();
+                eventArgs.ListEntityResult = _deptUserViewModel._UsersToAssignList;
             }
             catch (Exception ex)
             {

@@ -39,8 +39,6 @@ namespace GSM04000Service
         [HttpPost]
         public IAsyncEnumerable<GSM04100DTO> GetUserToAssignList()
         {
-
-
             List<GSM04100DTO> loRtnTemp = null;
             R_Exception loEx = new R_Exception();
             GSM04100Cls loCls;
@@ -50,8 +48,8 @@ namespace GSM04000Service
                 loRtnTemp = loCls.GetUserToAssignList(new GSM04100ListDBParameterDTO()
                 {
                     CPROGRAM_CODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CPROGRAM_CODE),
+                    CDEPT_CODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CDEPT_CODE),
                     CCOMPANY_ID=R_BackGlobalVar.COMPANY_ID,
-                    CUSER_ID=R_BackGlobalVar.USER_ID,
                 }
                 );
             }

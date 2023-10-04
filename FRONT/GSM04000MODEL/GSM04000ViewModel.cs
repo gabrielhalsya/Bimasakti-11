@@ -15,8 +15,8 @@ namespace GSM04000Model
     public class GSM04000ViewModel : R_ViewModel<GSM04000DTO>
     {
         private GSM04000Model _model = new GSM04000Model();
-        public ObservableCollection<GSM04000DTO> DepartmentList { get; set; } = new ObservableCollection<GSM04000DTO>();
-        public GSM04000DTO Department { get; set; } = new GSM04000DTO();
+        public ObservableCollection<GSM04000DTO> _DepartmentList { get; set; } = new ObservableCollection<GSM04000DTO>();
+        public GSM04000DTO _Department { get; set; } = new GSM04000DTO();
         public string _departmentCode { get; set; } = "";
         public bool _activeDept { get; set; }
         public bool _isUserDeptExist { get; set; }
@@ -31,7 +31,7 @@ namespace GSM04000Model
             {
                 loResult = new List<GSM04000DTO>();
                 loResult = await _model.GetGSM04000ListAsync();
-                DepartmentList = new ObservableCollection<GSM04000DTO>(loResult);
+                _DepartmentList = new ObservableCollection<GSM04000DTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -47,7 +47,7 @@ namespace GSM04000Model
                 GSM04000DTO loParam = new GSM04000DTO();
                 loParam = poDept;
                 var loResult = await _model.R_ServiceGetRecordAsync(loParam);
-                Department = loResult;
+                _Department = loResult;
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace GSM04000Model
             {
                 poNewEntity.CMANAGER_NAME = poNewEntity.CMANAGER_CODE;
                 var loResult = await _model.R_ServiceSaveAsync(poNewEntity, peCRUDMode);
-                Department = loResult;
+                _Department = loResult;
             }
             catch (Exception ex)
             {

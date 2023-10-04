@@ -17,7 +17,7 @@ namespace GSM04000Model
         public ObservableCollection<GSM04100DTO> _UsersToAssignList { get; set; } = new ObservableCollection<GSM04100DTO>();
         public GSM04100DTO _DepartmentUser { get; set; } = new GSM04100DTO();
         public GSM04100DTO _UserToAssign { get; set; } = new GSM04100DTO();
-        public string _DepartmentCode { get; set; }
+        public string _DepartmentCode { get; set; } = "";
         public const string CPROGRAM_CODE = "GSM04000";
         public async Task GetDepartmentListByDeptCode()
         {

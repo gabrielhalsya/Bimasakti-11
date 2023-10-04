@@ -5,7 +5,7 @@
 @inject IJSRuntime JS
 
 <R_Grid @ref="_gridDeptRef"
-        DataSource="@_deptViewModel.DepartmentList"
+        DataSource="@_deptViewModel._DepartmentList"
         Pageable="true"
         R_ConductorGridSource="_conGridDeptRef"
         R_GridType="R_eGridType.Original"
@@ -64,7 +64,7 @@
         </R_Popup>
     </R_ItemLayout>
 </R_StackLayout>
-<R_Label FontStyle="R_eFontStyle.Bold">Assigned Users</R_Label>
+<h1 FontStyle="R_eFontStyle.Bold">Assigned Users</h1>
 <R_StackLayout Row>
     <R_ItemLayout col="1">
         <R_Label>Department</R_Label>

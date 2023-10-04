@@ -61,7 +61,7 @@ namespace GSM04000Front
             try
             {
                 await _deptViewModel.GetDepartmentList();
-                eventArgs.ListEntityResult = _deptViewModel.DepartmentList;
+                eventArgs.ListEntityResult = _deptViewModel._DepartmentList;
                 if (eventArgs.ListEntityResult == null)
                 {
                     R_PopupActiveInactive.Enabled = false;
@@ -130,7 +130,7 @@ namespace GSM04000Front
                 var loParam = R_FrontUtility.ConvertObjectToObject<GSM04000DTO>(eventArgs.Data);
                 await _deptViewModel.GetDepartment(loParam);
 
-                eventArgs.Result = _deptViewModel.Department;
+                eventArgs.Result = _deptViewModel._Department;
             }
             catch (Exception ex)
             {
@@ -144,7 +144,7 @@ namespace GSM04000Front
             try
             {
                 var loData = (GSM04000DTO)eventArgs.Data;
-                if (_deptViewModel.Department.LEVERYONE == false && loData.LEVERYONE == true)
+                if (_deptViewModel._Department.LEVERYONE == false && loData.LEVERYONE == true)
                 {
                     await _deptViewModel.CheckIsUserDeptExistAsync();
                     if (_deptViewModel._isUserDeptExist)
@@ -173,7 +173,7 @@ namespace GSM04000Front
             try
             {
                 await _deptViewModel.SaveDepartment((GSM04000DTO)eventArgs.Data, (eCRUDMode)eventArgs.ConductorMode);
-                eventArgs.Result = _deptViewModel.Department;
+                eventArgs.Result = _deptViewModel._Department;
             }
             catch (Exception ex)
             {
@@ -293,6 +293,7 @@ namespace GSM04000Front
         #region Assign User
         private void R_Before_Open_PopupAssignUser(R_BeforeOpenPopupEventArgs eventArgs)
         {
+            eventArgs.Parameter = _deptViewModel._departmentCode;
             eventArgs.TargetPageType = typeof(GSM04000PopupAssignUser);
         }
         private async Task R_After_Open_PopupAssignUser(R_AfterOpenPopupEventArgs eventArgs)
@@ -346,8 +347,6 @@ namespace GSM04000Front
             }
             loException.ThrowExceptionIfErrors();
         }
-
-      
         private async Task R_After_Open_Popup_ActivateInactive(R_AfterOpenPopupEventArgs eventArgs)
         {
             R_Exception loException = new R_Exception();
