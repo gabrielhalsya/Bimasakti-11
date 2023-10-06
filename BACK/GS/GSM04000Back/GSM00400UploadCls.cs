@@ -112,8 +112,9 @@ namespace GSM04000Back
 
                 loDb.R_BulkInsert<GSM04000ExcelToUploadDTO>((SqlConnection)loConn, "#DEPARTMENT", loObject);
 
-                lcQuery = "EXECUTE RSP_GS_UPLOAD_DEPARTMENT @CCOMPANY_ID, @CUSER_ID, @CKEY_GUID";
+                lcQuery = "RSP_GS_UPLOAD_DEPARTMENT";
                 loCmd.CommandText = lcQuery;
+                loCmd.CommandType = CommandType.StoredProcedure;
 
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, poBatchProcessPar.Key.COMPANY_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, poBatchProcessPar.Key.USER_ID);

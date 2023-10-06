@@ -47,8 +47,7 @@ namespace GSM04000Model
 
         public async Task ConvertGridExelToGridDTO(List<GSM04000ExcelToUploadDTO> poEntity)
         {
-            var loEx = new R_Exception();
-
+            R_Exception loEx = new R_Exception();
             try
             {
                 // Onchange Visible Error
@@ -190,7 +189,7 @@ namespace GSM04000Model
         }
 
         #endregion
-        
+
         private async Task ServiceGetError(string pcKeyGuid)
         {
             R_Exception loException = new R_Exception();

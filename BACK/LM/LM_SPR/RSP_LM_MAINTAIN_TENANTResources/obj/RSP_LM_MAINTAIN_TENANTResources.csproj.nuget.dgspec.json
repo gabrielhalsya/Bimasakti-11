@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.csproj": {}
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANTResources\\RSP_LM_MAINTAIN_TENANTResources.csproj": {}
   },
   "projects": {
-    "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANTResources\\RSP_LM_MAINTAIN_TENANTResources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.csproj",
-        "projectName": "RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANTResources\\RSP_LM_MAINTAIN_TENANTResources.csproj",
+        "projectName": "RSP_LM_MAINTAIN_TENANTResources",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANTResources\\RSP_LM_MAINTAIN_TENANTResources.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_ACTIVE_INACTIVE_UNIT_PRICEResources\\obj\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANTResources\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
