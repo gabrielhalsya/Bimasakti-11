@@ -89,11 +89,6 @@ namespace GSM04000Back
                     NonActiveDate = loTemp.CNON_ACTIVE_DATE,
                 }).ToList();
 
-                loConn = loDb.GetConnection();
-                loCmd = loDb.GetCommand();
-                //get parameter
-
-
                 //get command & connection
                 loConn = loDb.GetConnection();
                 loCmd = loDb.GetCommand();

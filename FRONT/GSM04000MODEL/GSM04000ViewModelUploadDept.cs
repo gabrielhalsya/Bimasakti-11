@@ -31,9 +31,11 @@ namespace GSM04000Model
         public string _sourceFileName { get; set; }
         public bool _isErrorEmptyFile { get; set; } = false;
         public Action _stateChangeAction { get; set; }
-        public Action<R_APIException> _ShowErrorAction { get; set; }
-        public Func<Task> _ActionDataSetExcel { get; set; }
-        public DataSet _ExcelDataset { get; set; }
+        public DataSet _excelDataset { get; set; }
+        public Func<Task> _actionDataSetExcel { get; set; }
+        public Action<R_Exception> _showErrorAction { get; set; }
+        public Action _showSuccessAction { get; set; }
+
 
         public string _progressBarMessage = "";
         public int _progressBarPercentage = 0;
@@ -102,26 +104,25 @@ namespace GSM04000Model
 
                 //instance processclient
                 loCls = new R_ProcessAndUploadClient(
-                    poProcessProgressStatus: this,
                     pcModuleName: "GS",
                     plSendWithContext: true,
                     plSendWithToken: true,
-                    pcHttpClientName: "R_DefaultServiceUrl");
+                    pcHttpClientName: "R_DefaultServiceUrl",
+                    poProcessProgressStatus: this
+                    );
 
                 //assign data
                 if (_DepartmentExcelGridData.Count <= 0)
                 {
                     return;
                 }
-                Bigobject = _DepartmentExcelGridData.ToList<GSM04000ExcelGridDTO>();
 
                 loBatchPar = new R_BatchParameter();
                 loBatchPar.COMPANY_ID = _ccompanyId;
                 loBatchPar.USER_ID = _cuserId;
                 loBatchPar.UserParameters = loUserParameneters;
                 loBatchPar.ClassName = "GSM04000Back.GSM00400UploadCls";
-                loBatchPar.BigObject = Bigobject;
-
+                loBatchPar.BigObject = _DepartmentExcelGridData.ToList<GSM04000ExcelGridDTO>();
 
                 var loKeyGuid = await loCls.R_BatchProcess<List<GSM04000ExcelGridDTO>>(loBatchPar, NBATCH_STEP);
             }
@@ -144,12 +145,13 @@ namespace GSM04000Model
                 {
                     case eProcessResultMode.Success:
                         _progressBarMessage = string.Format("Process Complete and success with GUID {0}", pcKeyGuid);
+                        _showSuccessAction();
                         _visibleError = false;
                         break;
                     case eProcessResultMode.Fail:
                         _progressBarMessage = $"Process Complete but fail with GUID {pcKeyGuid}";
-                        await ServiceGetError(pcKeyGuid);
                         _visibleError = true;
+                        await ServiceGetError(pcKeyGuid);
                         break;
                 }
             }
@@ -159,27 +161,27 @@ namespace GSM04000Model
             }
             // Call Method Action StateHasChange
             _stateChangeAction();
-            loEx.ThrowExceptionIfErrors();
+            await Task.CompletedTask;
         }
 
         public async Task ProcessError(string pcKeyGuid, R_APIException ex)
         {
+            R_Exception loEx = new R_Exception();
             _progressBarMessage = string.Format("Process Error with GUID {0}", pcKeyGuid);
+            ex.ErrorList.ForEach(x => loEx.Add(x.ErrNo, x.ErrDescp));
 
             // Call Method Action Error Unhandle
-            _ShowErrorAction(ex);
+            _showErrorAction.Invoke(loEx);
 
             // Call Method Action StateHasChange
             _stateChangeAction();
-
             await Task.CompletedTask;
         }
 
         public async Task ReportProgress(int pnProgress, string pcStatus)
         {
-            _progressBarMessage = string.Format("Process Progress {0} with status {1}", pnProgress, pcStatus);
-
             _progressBarPercentage = pnProgress;
+            _progressBarMessage = string.Format("Process Progress {0} with status {1}", pnProgress, pcStatus);
             _progressBarMessage = string.Format("Process Progress {0} with status {1}", pnProgress, pcStatus);
 
             // Call Method Action StateHasChange
@@ -206,9 +208,11 @@ namespace GSM04000Model
                     COMPANY_ID = _ccompanyId,
                     USER_ID = _cuserId,
                     KEY_GUID = pcKeyGuid,
+                    RESOURCE_NAME = "RSP_GS_UPLOAD_DEPARTMENTResources"
                 };
 
-                loCls = new R_ProcessAndUploadClient(pcModuleName: DEFAULT_MODULE,
+                loCls = new R_ProcessAndUploadClient(
+                    pcModuleName: DEFAULT_MODULE,
                     plSendWithContext: true,
                     plSendWithToken: true,
                     pcHttpClientName: DEFAULT_HTTP_NAME);
@@ -216,13 +220,14 @@ namespace GSM04000Model
                 // Get error result
                 loResultData = await loCls.R_GetStreamErrorProcess(loParameterData);
 
-                // check error if unhandle
+                // check error if unhandle, if negative seq then error unhandle separate here
                 if (loResultData.Any(y => y.SeqNo <= 0))
                 {
                     var loUnhandleEx = loResultData.Where(y => y.SeqNo <= 0).Select(x => new R_BlazorFrontEnd.Exceptions.R_Error(x.SeqNo.ToString(), x.ErrorMessage)).ToList();
                     loUnhandleEx.ForEach(x => loException.Add(x));
                 }
 
+                //error, if positive seq then error handle from inputed data
                 if (loResultData.Any(y => y.SeqNo > 0))
                 {
                     // Display Error Handle if get seq
@@ -243,16 +248,14 @@ namespace GSM04000Model
                     });
 
                     //Set DataSetTable and get error
-                    var loExcelData = R_FrontUtility.ConvertCollectionToCollection<GSM04000ExcelGridDTO>(_DepartmentExcelGridData);
-
-                    var loDataTable = R_FrontUtility.R_ConvertTo<GSM04000ExcelGridDTO>(loExcelData);
+                    var loDataTable = R_FrontUtility.R_ConvertTo<GSM04000ExcelGridDTO>(_DepartmentExcelGridData);
                     loDataTable.TableName = "Department";
 
                     var loDataSet = new DataSet();
                     loDataSet.Tables.Add(loDataTable);
 
                     // Asign Dataset
-                    _ExcelDataset = loDataSet;
+                    _excelDataset = loDataSet;
 
                 }
             }

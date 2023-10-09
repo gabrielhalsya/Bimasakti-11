@@ -77,3 +77,5 @@ D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.dl
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\refint\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.pdb
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\ref\GSM04000Back.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\RSP_GS_UPLOAD_DEPARTMENTResources.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\RSP_GS_UPLOAD_DEPARTMENTResources.pdb

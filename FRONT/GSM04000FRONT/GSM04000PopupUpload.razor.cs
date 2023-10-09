@@ -47,14 +47,14 @@ namespace GSM04000Front
         // Create Method Action For Download Excel if Has Error
         private async Task SaveValidatedDataToExcel()
         {
-            var loByte = _excelProvider.R_WriteToExcel(_deptUploadViewModel._ExcelDataset);
+            var loByte = _excelProvider.R_WriteToExcel(_deptUploadViewModel._excelDataset);
             var lcName = $"{_clientHelper.CompanyId}" + ".xlsx";
 
             await _JSRuntime.downloadFileFromStreamHandler(lcName, loByte);
         }
 
         // Create Method Action For Error Unhandle
-        private void ShowErrorInvoke(R_APIException poEx)
+        private void ShowErrorInvoke(R_Exception poEx)
         {
             var loEx = new R_Exception(poEx.ErrorList.Select(x => new R_BlazorFrontEnd.Exceptions.R_Error(x.ErrNo, x.ErrDescp)).ToList());
             this.R_DisplayException(loEx);
@@ -67,8 +67,8 @@ namespace GSM04000Front
             try
             {
                 _deptUploadViewModel._stateChangeAction = StateChangeInvoke;
-                _deptUploadViewModel._ShowErrorAction = ShowErrorInvoke;
-                _deptUploadViewModel._ActionDataSetExcel = SaveValidatedDataToExcel;
+                _deptUploadViewModel._showErrorAction = ShowErrorInvoke;
+                _deptUploadViewModel._actionDataSetExcel = SaveValidatedDataToExcel;
 
                 _deptUploadViewModel._ccompanyId = _clientHelper.CompanyId;
                 _deptUploadViewModel._cuserId = _clientHelper.UserId;

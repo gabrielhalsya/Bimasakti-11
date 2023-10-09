@@ -153,6 +153,7 @@
         "dependencies": {
           "GSM04000Common": "1.0.0",
           "RSP_GS_MAINTAIN_DEPARTMENTResources": "1.0.0",
+          "RSP_GS_UPLOAD_DEPARTMENTResources": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
@@ -180,6 +181,16 @@
         },
         "runtime": {
           "bin/placeholder/RSP_GS_MAINTAIN_DEPARTMENTResources.dll": {}
+        }
+      },
+      "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/RSP_GS_UPLOAD_DEPARTMENTResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RSP_GS_UPLOAD_DEPARTMENTResources.dll": {}
         }
       }
     }
@@ -512,6 +523,11 @@
       "type": "project",
       "path": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_DEPARTMENTResources/RSP_GS_MAINTAIN_DEPARTMENTResources.csproj",
       "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_DEPARTMENTResources/RSP_GS_MAINTAIN_DEPARTMENTResources.csproj"
+    },
+    "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GS/GS_SPR/RSP_GS_UPLOAD_DEPARTMENTResources/RSP_GS_UPLOAD_DEPARTMENTResources.csproj",
+      "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_UPLOAD_DEPARTMENTResources/RSP_GS_UPLOAD_DEPARTMENTResources.csproj"
     }
   },
   "projectFileDependencyGroups": {

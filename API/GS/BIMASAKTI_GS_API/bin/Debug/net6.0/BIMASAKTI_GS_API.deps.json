@@ -1690,6 +1690,7 @@
         "dependencies": {
           "GSM04000Common": "1.0.0",
           "RSP_GS_MAINTAIN_DEPARTMENTResources": "1.0.0",
+          "RSP_GS_UPLOAD_DEPARTMENTResources": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -1739,6 +1740,11 @@
       "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
         "runtime": {
           "RSP_GS_MAINTAIN_DEPARTMENTResources.dll": {}
+        }
+      },
+      "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
+        "runtime": {
+          "RSP_GS_UPLOAD_DEPARTMENTResources.dll": {}
         }
       },
       "RSP_GS_VALIDATE_USER_ACT_APPRResources/1.0.0": {
@@ -3207,6 +3213,11 @@
       "sha512": ""
     },
     "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
