@@ -38,29 +38,28 @@ namespace GSM04000Front
         private bool _isUploadSuccesful = true;
         private bool _isFileHasData { get; set; }
 
+        #region invoke
         // Create Method Action StateHasChange
         private void StateChangeInvoke()
         {
             StateHasChanged();
         }
-
-        // Create Method Action For Download Excel if Has Error
-        private async Task SaveValidatedDataToExcel()
-        {
-            var loByte = _excelProvider.R_WriteToExcel(_deptUploadViewModel._excelDataset);
-            var lcName = $"{_clientHelper.CompanyId}" + ".xlsx";
-
-            await _JSRuntime.downloadFileFromStreamHandler(lcName, loByte);
-        }
-
         // Create Method Action For Error Unhandle
         private void ShowErrorInvoke(R_Exception poEx)
         {
-            var loEx = new R_Exception(poEx.ErrorList.Select(x => new R_BlazorFrontEnd.Exceptions.R_Error(x.ErrNo, x.ErrDescp)).ToList());
-            this.R_DisplayException(loEx);
+            this.R_DisplayException(poEx);
         }
+        public async Task ShowSuccessInvoke()
+        {
+            var loValidate = await R_MessageBox.Show("", "Upload Data Successfully", R_eMessageBoxButtonType.OK);
+            if (loValidate == R_eMessageBoxResult.OK)
+            {
+                await this.Close(true, true);
+            }
+        }
+        #endregion invoke
 
-        protected override Task R_Init_From_Master(object poParameter)
+        protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
 
@@ -72,15 +71,19 @@ namespace GSM04000Front
 
                 _deptUploadViewModel._ccompanyId = _clientHelper.CompanyId;
                 _deptUploadViewModel._cuserId = _clientHelper.UserId;
+
+                _deptUploadViewModel._showSuccessAction = async () =>
+                {
+                    await ShowSuccessInvoke();
+                };
+                await Task.CompletedTask;
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
             R_DisplayException(loEx);
-            return Task.CompletedTask;
         }
-        
         private async Task UploadExcel(InputFileChangeEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -111,7 +114,7 @@ namespace GSM04000Front
 
             R_DisplayException(loEx);
         }
-        
+
         private async Task DeptExcelGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -127,7 +130,6 @@ namespace GSM04000Front
             }
             R_DisplayException(loEx);
         }
-
         public async Task OnClick_ButtonOK()
         {
             var loEx = new R_Exception();
@@ -150,24 +152,30 @@ namespace GSM04000Front
             {
                 loEx.Add(ex);
             }
-
-            loEx.ThrowExceptionIfErrors();
+            R_DisplayException(loEx);
         }
-
-        public async Task OnClick_ButtonClose()
-        {
-            await this.Close(true, false);
-        }
-
         public async Task OnClick_ButtonSaveExcelAsync()
         {
-            var loValidate = await R_MessageBox.Show("", "Are you sure want to save to excel again?", R_eMessageBoxButtonType.YesNo);
+            var loValidate = await R_MessageBox.Show("", "Are you sure want to save to excel ?", R_eMessageBoxButtonType.YesNo);
 
             if (loValidate == R_eMessageBoxResult.Yes)
             {
                 await SaveValidatedDataToExcel();
             }
         }
+        // Create Method Action For Download Excel if Has Error
+        private async Task SaveValidatedDataToExcel()
+        {
+            var loByte = _excelProvider.R_WriteToExcel(_deptUploadViewModel._excelDataset);
+            var lcName = $"{_clientHelper.CompanyId}" + ".xlsx";
 
+            await _JSRuntime.downloadFileFromStreamHandler(lcName, loByte);
+        }
+        public async Task OnClick_ButtonClose()
+        {
+            await this.Close(true, false);
+        }
+
+ 
     }
 }
