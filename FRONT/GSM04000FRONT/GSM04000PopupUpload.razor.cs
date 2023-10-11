@@ -114,7 +114,6 @@ namespace GSM04000Front
 
             R_DisplayException(loEx);
         }
-
         private async Task DeptExcelGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();

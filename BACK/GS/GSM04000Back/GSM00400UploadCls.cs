@@ -95,10 +95,10 @@ namespace GSM04000Back
 
                 lcQuery += $"CREATE TABLE #DEPARTMENT " +
                               $"( No INT, " +
-                              $"DepartmentCode VARCHAR(8), " +
-                              $"DepartmentName VARCHAR(80), " +
-                              $"CenterCode VARCHAR(8)," +
-                              $"ManagerName VARCHAR(8)," +
+                              $"DepartmentCode VARCHAR(254), " +
+                              $"DepartmentName VARCHAR(254), " +
+                              $"CenterCode VARCHAR(254)," +
+                              $"ManagerName VARCHAR(254)," +
                               $"Everyone BIT," +
                               $"Active BIT," +
                               $"NonActiveDate VARCHAR(8))";
@@ -144,15 +144,7 @@ namespace GSM04000Back
 
                 lcQuery = $"INSERT INTO GST_UPLOAD_ERROR_STATUS(CCOMPANY_ID,CUSER_ID,CKEY_GUID,ISEQ_NO,CERROR_MESSAGE) VALUES " +
                     $"('{poBatchProcessPar.Key.COMPANY_ID}', '{poBatchProcessPar.Key.USER_ID}','{poBatchProcessPar.Key.KEY_GUID}', -1, '{loException.ErrorList[0].ErrDescp}')";
-                try
-                {
-                    loDb.SqlExecNonQuery(lcQuery);
-                }
-                catch (Exception ex)
-                {
-                    loException.Add(ex);
-                }
-                loException.ThrowExceptionIfErrors();
+                loDb.SqlExecNonQuery(lcQuery);
 
                 lcQuery = $"EXEC RSP_WriteUploadProcessStatus '{poBatchProcessPar.Key.COMPANY_ID}', '{poBatchProcessPar.Key.USER_ID}', '{poBatchProcessPar.Key.KEY_GUID}', 100, '{loException.ErrorList[0].ErrDescp}', 9";
 

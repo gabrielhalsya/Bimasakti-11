@@ -96,7 +96,6 @@ namespace GSM04000Model
             R_ProcessAndUploadClient loCls;
             List<GSM04000ExcelGridDTO> Bigobject;
             List<R_KeyValue> loUserParameneters;
-            //R_IProcessProgressStatus loProgressStatus;
             try
             {
                 //set param
@@ -104,10 +103,10 @@ namespace GSM04000Model
 
                 //instance processclient
                 loCls = new R_ProcessAndUploadClient(
-                    pcModuleName: "GS",
+                    pcModuleName: DEFAULT_MODULE,
                     plSendWithContext: true,
                     plSendWithToken: true,
-                    pcHttpClientName: "R_DefaultServiceUrl",
+                    pcHttpClientName: DEFAULT_HTTP_NAME,
                     poProcessProgressStatus: this
                     );
 
@@ -121,7 +120,7 @@ namespace GSM04000Model
                 loBatchPar.COMPANY_ID = _ccompanyId;
                 loBatchPar.USER_ID = _cuserId;
                 loBatchPar.UserParameters = loUserParameneters;
-                loBatchPar.ClassName = "GSM04000Back.GSM00400UploadCls";
+                loBatchPar.ClassName = DEFAULT_CLASSNAME;
                 loBatchPar.BigObject = _DepartmentExcelGridData.ToList<GSM04000ExcelGridDTO>();
 
                 var loKeyGuid = await loCls.R_BatchProcess<List<GSM04000ExcelGridDTO>>(loBatchPar, NBATCH_STEP);
@@ -145,8 +144,8 @@ namespace GSM04000Model
                 {
                     case eProcessResultMode.Success:
                         _progressBarMessage = string.Format("Process Complete and success with GUID {0}", pcKeyGuid);
-                        _showSuccessAction();
                         _visibleError = false;
+                        _showSuccessAction();
                         break;
                     case eProcessResultMode.Fail:
                         _progressBarMessage = $"Process Complete but fail with GUID {pcKeyGuid}";
@@ -161,7 +160,7 @@ namespace GSM04000Model
             }
             // Call Method Action StateHasChange
             _stateChangeAction();
-            await Task.CompletedTask;
+            loEx.ThrowExceptionIfErrors();
         }
 
         public async Task ProcessError(string pcKeyGuid, R_APIException ex)
@@ -248,14 +247,14 @@ namespace GSM04000Model
                     });
 
                     //Set DataSetTable and get error
-                    var loDataTable = R_FrontUtility.R_ConvertTo<GSM04000ExcelGridDTO>(_DepartmentExcelGridData);
-                    loDataTable.TableName = "Department";
+                    //var loDataTable = R_FrontUtility.R_ConvertTo<GSM04000ExcelGridDTO>(_DepartmentExcelGridData);
+                    //loDataTable.TableName = "Department";
 
-                    var loDataSet = new DataSet();
-                    loDataSet.Tables.Add(loDataTable);
+                    //var loDataSet = new DataSet();
+                    //loDataSet.Tables.Add(loDataTable);
 
-                    // Asign Dataset
-                    _excelDataset = loDataSet;
+                    //// Asign Dataset
+                    //_excelDataset = loDataSet;
 
                 }
             }
