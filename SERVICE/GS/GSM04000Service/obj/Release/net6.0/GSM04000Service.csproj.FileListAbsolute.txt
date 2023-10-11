@@ -27,3 +27,5 @@ D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\obj\Release\net6.0\refint\
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\obj\Release\net6.0\GSM04000Service.pdb
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\obj\Release\net6.0\ref\GSM04000Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Release\net6.0\R_StorageCommon.dll
+D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Release\net6.0\RSP_GS_UPLOAD_DEPARTMENTResources.dll
+D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Release\net6.0\RSP_GS_UPLOAD_DEPARTMENTResources.pdb

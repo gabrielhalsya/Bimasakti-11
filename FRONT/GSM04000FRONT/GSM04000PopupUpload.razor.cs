@@ -35,7 +35,6 @@ namespace GSM04000Front
 
         public byte[] _fileByte = null;
 
-        private bool _isUploadSuccesful = true;
         private bool _isFileHasData { get; set; }
 
         #region invoke

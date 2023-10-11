@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z9rA//wK1UQkalN0I8gb8OMjq5W7QyGpwnu2v50bih8=",
+  "Hash": "v476cuQYxyigj1OVa0jN6YRFuCnBK9rKt9f7YapGVfA=",
   "Source": "GSM04000Front",
   "BasePath": "_content/GSM04000Front",
   "Mode": "Default",
@@ -11,11 +11,11 @@
       "Version": 2,
       "Source": "GFF00900FRONT",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
-      "AdditionalPublishPropertiesToRemove": "Configuration;Platform;TargetFramework;RuntimeIdentifier;SelfContained",
+      "AdditionalPublishProperties": "Configuration=Release;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
-      "AdditionalBuildPropertiesToRemove": "Configuration;Platform;TargetFramework;RuntimeIdentifier;SelfContained"
+      "AdditionalBuildProperties": "Configuration=Release;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework;RuntimeIdentifier;SelfContained"
     },
     {
       "Identity": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFRONT\\Lookup_GSFRONT.csproj",
@@ -64,10 +64,10 @@
       "OriginalItemSpec": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GSM04000FRONT\\obj\\Release\\net6.0\\scopedcss\\bundle\\GSM04000Front.styles.css"
     },
     {
-      "Identity": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\GFF00900FRONT.bundle.scp.css",
+      "Identity": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\GFF00900FRONT.bundle.scp.css",
       "SourceId": "GFF00900FRONT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/GFF00900FRONT",
       "RelativePath": "GFF00900FRONT.bundle.scp.css",
       "AssetKind": "All",
@@ -78,7 +78,7 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\GFF00900FRONT.bundle.scp.css"
+      "OriginalItemSpec": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\GFF00900FRONT.bundle.scp.css"
     },
     {
       "Identity": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\wwwroot\\background.png",
