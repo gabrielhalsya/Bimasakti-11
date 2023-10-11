@@ -377,6 +377,22 @@ namespace GSM04000Front
         {
             eventArgs.TargetPageType = typeof(GSM04000PopupUpload);
         }
+
+        public async Task R_After_Open_PopupUpload(R_AfterOpenPopupEventArgs eventArgs)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                await _gridDeptRef.R_RefreshGrid(null);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+
+        }
+
         #endregion//Upload
 
         #region Template
