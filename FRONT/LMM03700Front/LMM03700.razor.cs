@@ -14,32 +14,21 @@ namespace LMM03700Front
 {
     public partial class LMM03700 : R_Page
     {
-        private LMM03700ViewModel _viewTCGModel = new();
-        private LMM03710ViewModel _viewTCModel = new();
-
-        private R_ConductorGrid _conT1_TCGRef; //conductor grid tenantclassgrp tab 1
-
-        private R_Grid<TenantClassificationGroupDTO> _gridT1_TCGRef; //gridref  tenantclassgrp tab 1 
-        private R_Grid<TenantClassificationGroupDTO> _gridT2_TCGRef; //gridref tenantclassgrp tab 2
-        private R_Grid<TenantClassificationDTO> _gridTCRef; //gridref tenantclassgrp tab 2
-        private R_Grid<TenantDTO> _gridTRef; //gridref tenantclassgrp tab 2
-
-        private R_Popup R_PopupCheck;
-
-        private R_TabPage _tab2TenantClass; //refTabPageTab2
-        private R_TabStrip _tabStrip; //refTabstrip
-
+        private LMM03700ViewModel _viewTenantClassGrpModel = new();
+        private R_ConductorGrid _conTenantClassGroupRef; //ref conductor TenantClassGrp
+        private R_Grid<TenantClassificationGroupDTO> _gridTenantClassGroupRef; //ref grid TenantClassGrp
+        private R_TabPage _tab2TenantClass; //ref TabPage tab2
+        private R_TabStrip _tabStrip; //ref Tabstrip
         public bool _pageTenantClassOnCRUDmode = false; //to disable moving tab while crudmode
         private bool _comboboxPropertyEnabled = true; //to disable combobox while crudmode
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
-
             try
             {
                 await Property_ServiceGetListRecord(null);
-                await _gridT1_TCGRef.R_RefreshGrid(null); //refresh grid tab 1
+                await _gridTenantClassGroupRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -56,7 +45,7 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                await _viewTCGModel.GetPropertyList();
+                await _viewTenantClassGrpModel.GetPropertyList();
             }
             catch (Exception ex)
             {
@@ -66,39 +55,36 @@ namespace LMM03700Front
             R_DisplayException(loEx);
 
         }
-
         public async Task ComboboxPropertyValueChanged(string poParam)
         {
             R_Exception loEx = new R_Exception();
             try
             {
-                if (_conT1_TCGRef.R_ConductorMode == R_eConductorMode.Normal)
+                if (_conTenantClassGroupRef.R_ConductorMode == R_eConductorMode.Normal)
                 {
-                    _viewTCModel._propertyId = _viewTCGModel._propertyId; //assign property_id as param grid
-                    await _gridT1_TCGRef.R_RefreshGrid(null); //refresh grid tab 1
+                    _viewTenantClassGrpModel._propertyId = poParam;//re assign when property klicked on combobox
+                    await _gridTenantClassGroupRef.R_RefreshGrid(null);
 
                     if (_tabStrip.ActiveTab.Id == "TC")
                     {
-                        await _tab2TenantClass.InvokeRefreshTabPageAsync(_viewTCModel._propertyId);
+                        //sending property ud to tab2 (will be catch at init master tab2)
+                        await _tab2TenantClass.InvokeRefreshTabPageAsync(_viewTenantClassGrpModel._propertyId);
                     }
                 }
-            } 
+            }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
             R_DisplayException(loEx);
-
-
         }
-
         #endregion
 
         #region TabPage
         private void R_Before_Open_TabPage(R_BeforeOpenTabPageEventArgs eventArgs)
         {
             eventArgs.TargetPageType = typeof(LMM03700Tab2);
-            eventArgs.Parameter = _viewTCGModel._propertyId;
+            eventArgs.Parameter = _viewTenantClassGrpModel._propertyId;
         }
         private void R_After_Open_TabPage(R_AfterOpenTabPageEventArgs eventArgs)
         {
@@ -114,19 +100,19 @@ namespace LMM03700Front
         #region TabSet
         private void OnActiveTabIndexChanging(R_TabStripActiveTabIndexChangingEventArgs eventArgs)
         {
-            eventArgs.Cancel = _pageTenantClassOnCRUDmode;
+            eventArgs.Cancel = _pageTenantClassOnCRUDmode;//prevent move to another tab
         }
         #endregion
 
         #region Tab1-TenantClassificationGroup
-        private async Task TCG_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
+        private async Task TenantClassGrp_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
 
             try
             {
-                await _viewTCGModel.GetTenantClassGroupList();
-                eventArgs.ListEntityResult = _viewTCGModel._TenantClassificationGroupList;
+                await _viewTenantClassGrpModel.GetTenantClassGroupList();
+                eventArgs.ListEntityResult = _viewTenantClassGrpModel._TenantClassificationGroupList;
             }
             catch (Exception ex)
             {
@@ -136,14 +122,14 @@ namespace LMM03700Front
             R_DisplayException(loEx);
 
         }
-        private async Task TCG_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        private async Task TenantClassGrp_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(eventArgs.Data);
-                await _viewTCGModel.GetTenantClassGroupRecord(loParam);
-                eventArgs.Result = _viewTCGModel._TenantClassificationGroup;
+                await _viewTenantClassGrpModel.GetTenantClassGroupRecord(loParam);
+                eventArgs.Result = _viewTenantClassGrpModel._TenantClassificationGroup;
             }
             catch (Exception ex)
             {
@@ -151,13 +137,13 @@ namespace LMM03700Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-        private async Task TCG_ServiceDelete(R_ServiceDeleteEventArgs eventArgs)
+        private async Task TenantClassGrp_ServiceDelete(R_ServiceDeleteEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(eventArgs.Data);
-                await _viewTCGModel.DeleteTenantClassGroup(loParam);
+                await _viewTenantClassGrpModel.DeleteTenantClassGroup(loParam);
             }
             catch (Exception ex)
             {
@@ -166,14 +152,14 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private async Task TCG_ServiceSave(R_ServiceSaveEventArgs eventArgs)
+        private async Task TenantClassGrp_ServiceSave(R_ServiceSaveEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(eventArgs.Data);
-                await _viewTCGModel.SaveTenantClassGroup(loParam, (eCRUDMode)eventArgs.ConductorMode);
-                eventArgs.Result = _viewTCGModel._TenantClassificationGroup;
+                await _viewTenantClassGrpModel.SaveTenantClassGroup(loParam, (eCRUDMode)eventArgs.ConductorMode);
+                eventArgs.Result = _viewTenantClassGrpModel._TenantClassificationGroup;
                 //await _gridT2_TCGRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
@@ -183,7 +169,7 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private void TGC_Validation(R_ValidationEventArgs eventArgs)
+        private void TenantClassGrp_Validation(R_ValidationEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
             try

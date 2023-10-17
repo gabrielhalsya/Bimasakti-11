@@ -154,7 +154,7 @@ namespace LMM00200Front
                 await _viewModel.ActiveInactiveProcessAsync();//do activeinactive
                 var loParam = R_FrontUtility.ConvertObjectToObject<LMM00200DTO>(_conductorRef.R_GetCurrentData());
                 await _viewModel.GetUserParamRecord(loParam);
-                await _conductorRef.R_SetCurrentData(_viewModel.loUserParam);
+                await _gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {

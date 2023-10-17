@@ -4,11 +4,11 @@
 
 <R_StackLayout Row>
     <R_ItemLayout xs="3">
-        <R_Grid @ref="@_gridT2_TCGRef"
-                DataSource="@_viewTCModel.TenantClassGrpList"
-                R_ConductorSource="@_conT2_TCGRef"
+        <R_Grid @ref="@_gridTenantClassGrpRef"
+                DataSource="@_viewModelTenantClass.TenantClassGrpList"
+                R_ConductorSource="@_conTenantClassGrpRef"
                 R_GridType="@R_eGridType.Navigator"
-                R_ServiceGetListRecord="@T2_TCG_ServiceGetListRecord"
+                R_ServiceGetListRecord="@TenantClassGrp_ServiceGetListRecord"
                 AllowAddNewRow="false"
                 AllowDeleteRow="false"
                 AllowEditRow="false">
@@ -18,15 +18,15 @@
         </R_Grid>
     </R_ItemLayout>
     <R_ItemLayout Class="ms-4">
-        <R_Grid @ref="_gridTCRef"
-                DataSource="@_viewTCModel.TenantClassList"
-                R_ConductorGridSource="_conTCRef"
+        <R_Grid @ref="_gridTenantClassRef"
+                DataSource="@_viewModelTenantClass.TenantClassList"
+                R_ConductorGridSource="_conTenantClassRef"
                 Pageable="true"
                 R_GridType="R_eGridType.Original"
                 AllowAddNewRow="true"
                 AllowDeleteRow="true"
                 AllowEditRow="true"
-                R_ServiceGetListRecord="T2_TC_ServiceGetListRecord">
+                R_ServiceGetListRecord="TenantClass_ServiceGetListRecord">
             <R_GridColumns>
                 <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CTENANT_CLASSIFICATION_ID)" HeaderText="Tenant Classification Id" R_EnableAdd></R_GridTextColumn>
                 <R_GridTextColumn FieldName="@nameof(TenantClassificationDTO.CTENANT_CLASSIFICATION_NAME)" HeaderText="Tenant Classification Name" R_EnableAdd R_EnableEdit></R_GridTextColumn>
@@ -40,14 +40,14 @@
         <R_StackLayout Row Class="mt-2">
             <R_ItemLayout xs="2">
                 <R_Popup @ref="R_PopupCheck"
-                         R_Before_Open_Popup="@R_Before_Open_PopupAssignTenant"
-                         R_After_Open_Popup="@R_After_Open_PopupAssignTenant"
+                         R_Before_Open_Popup="@R_Before_Open_Popup_AssignTenant"
+                         R_After_Open_Popup="@R_After_Open_Popup_AssignTenant"
                          Enabled>
                     <R_Label>Assign Tenant</R_Label>
                 </R_Popup>
             </R_ItemLayout>
             <R_ItemLayout xs="2">
-                <R_Popup R_ConductorGridSource="@_conTRef"
+                <R_Popup R_ConductorGridSource="@_conTenantRef"
                          R_Before_Open_Popup="R_Before_Open_Popup_MoveTenant"
                          R_After_Open_Popup="R_After_Open_Popup_MoveTenant"
                          Enabled>
@@ -56,12 +56,12 @@
             </R_ItemLayout>
         </R_StackLayout>
         <R_StackLayout Class="mt-4">
-            <R_Grid @ref="@_gridTRef"
-                    DataSource="@_viewTCModel.AssignedTenantList"
+            <R_Grid @ref="@_gridTenantRef"
+                    DataSource="@_viewModelTenantClass.AssignedTenantList"
                     Pageable="true"
-                    R_ConductorGridSource="@_conTRef"
+                    R_ConductorGridSource="@_conTenantRef"
                     R_GridType="@R_eGridType.Original"
-                    R_ServiceGetListRecord="@T2_T_ServiceGetListRecord"
+                    R_ServiceGetListRecord="@Tenant_ServiceGetListRecord"
                     AllowAddNewRow="false"
                     AllowDeleteRow="false"
                     AllowEditRow="false">
@@ -84,23 +84,23 @@
     </R_ItemLayout>
 </R_StackLayout>
 
-<R_Conductor @ref="@_conT2_TCGRef"
-             R_ViewModel="@_viewTCGModel"
-             R_ServiceGetRecord="@T2_TCG_ServiceGetRecord"
-             R_Display="@T2_TCG_ServiceDisplay">
+<R_Conductor @ref="@_conTenantClassGrpRef"
+             R_ViewModel="@_viewModelTenantClassGrp"
+             R_ServiceGetRecord="@TenantClassGrp_ServiceGetRecord"
+             R_Display="@TenantClassGrp_ServiceDisplay">
 </R_Conductor>
 
-<R_ConductorGrid @ref="@_conTCRef"
-                 R_ViewModel="@_viewTCModel"
+<R_ConductorGrid @ref="@_conTenantClassRef"
+                 R_ViewModel="@_viewModelTenantClass"
                  R_IsHeader
-                 R_ServiceGetRecord="@T2_TC_ServiceGetRecord"
-                 R_Display="T2_TC_ServiceDisplay"
-                 R_ServiceDelete="@T2_TC_ServiceDelete"
-                 R_ServiceSave="@T2_TC_ServiceSave">
+                 R_ServiceGetRecord="@TenantClass_ServiceGetRecord"
+                 R_Display="TenantClass_ServiceDisplay"
+                 R_ServiceDelete="@TenantClass_ServiceDelete"
+                 R_ServiceSave="@TenantClass_ServiceSave">
 </R_ConductorGrid>
 
-<R_ConductorGrid @ref="@_conTRef"
-                 R_ViewModel="@_viewTCModel"
-                 R_ConductorParent="_conTCRef"
-                 R_ServiceGetRecord="T2_T_GetRecord">
+<R_ConductorGrid @ref="@_conTenantRef"
+                 R_ViewModel="@_viewModelTenantClass"
+                 R_ConductorParent="_conTenantClassRef"
+                 R_ServiceGetRecord="Tenant_GetRecord">
 </R_ConductorGrid>

@@ -1,0 +1,11 @@
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\bin\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\bin\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\bin\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.RSP_LM_UPLOAD_TENANTResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.pdb

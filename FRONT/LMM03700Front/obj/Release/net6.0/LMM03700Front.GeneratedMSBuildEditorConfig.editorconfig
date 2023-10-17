@@ -1,0 +1,37 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows,browser
+build_property.RootNamespace = LMM03700Front
+build_property.RootNamespace = LMM03700Front
+build_property.ProjectDir = D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\repos\BS Program\SOURCE\FRONT\LMM03700Front
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM03700Front/LMM03700.razor]
+build_metadata.AdditionalFiles.TargetPath = TE1NMDM3MDAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM03700Front/LMM03700Tab2.razor]
+build_metadata.AdditionalFiles.TargetPath = TE1NMDM3MDBUYWIyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM03700Front/PopupAssignTenant.razor]
+build_metadata.AdditionalFiles.TargetPath = UG9wdXBBc3NpZ25UZW5hbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM03700Front/PopupMoveTenant.razor]
+build_metadata.AdditionalFiles.TargetPath = UG9wdXBNb3ZlVGVuYW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM03700Front/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
