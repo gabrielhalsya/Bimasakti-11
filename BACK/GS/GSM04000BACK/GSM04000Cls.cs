@@ -112,7 +112,6 @@ namespace GSM04000Back
         protected override void R_Saving(GSM04000DTO poNewEntity, eCRUDMode poCRUDMode)
         {
             R_Exception loEx = new R_Exception();
-            GSM04000DTO loTmpEntity;
             string lcQuery;
             R_Db loDb;
             DbCommand loCmd;

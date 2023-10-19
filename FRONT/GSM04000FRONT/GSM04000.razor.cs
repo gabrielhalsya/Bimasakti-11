@@ -13,11 +13,13 @@ using R_BlazorFrontEnd.Controls.Events;
 using R_BlazorFrontEnd.Controls.Grid;
 using R_BlazorFrontEnd.Controls.Grid.Columns;
 using R_BlazorFrontEnd.Controls.MessageBox;
+using R_BlazorFrontEnd.Controls.Popup;
 using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 
 namespace GSM04000Front
 {
@@ -31,6 +33,7 @@ namespace GSM04000Front
         private R_Grid<GSM04100StreamDTO> _gridDeptUserRef;
         private R_ConductorGrid _conGridDeptUserRef;
 
+        [Inject] R_PopupService PopupService { get; set; }
         [Inject] IClientHelper _clientHelper { get; set; }
 
         private R_Popup R_PopupAssignUser;
@@ -138,24 +141,79 @@ namespace GSM04000Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-        private async Task DeptGrid_Validation(R_ValidationEventArgs eventArgs)
+        private async Task DeptGrid_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
             try
             {
+                var loData =(GSM04000DTO)eventArgs.Data;
+                loData.LACTIVE = true;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        private async Task DeptGrid_Validation(R_ValidationEventArgs eventArgs)
+        {
+            R_Exception loEx = new R_Exception();
+            GFF00900ParameterDTO loParam = null;
+            R_PopupResult loResult = null;
+            try
+            {
+                //get data
                 var loData = (GSM04000DTO)eventArgs.Data;
-                if (_deptViewModel._Department.LEVERYONE == false && loData.LEVERYONE == true)
+
+                switch (_conGridDeptRef.R_ConductorMode)
                 {
-                    await _deptViewModel.CheckIsUserDeptExistAsync();
-                    if (_deptViewModel._isUserDeptExist)
-                    {
-                        var loConfirm = await R_MessageBox.Show("Delete Confirmation", "Changing Value Everyone will delete User for this Department", R_eMessageBoxButtonType.OKCancel);
-                        if (loConfirm == R_eMessageBoxResult.Cancel)
+                    case R_eConductorMode.Add:
+
+                        //Approval before saving
+                        if (loData.LACTIVE == true)
                         {
-                            eventArgs.Cancel = true;
-                        }
-                        await _deptViewModel.DeleteAssignedUserWhenChangeEveryone();
-                    }
+                            var loValidateViewModel = new GFF00900Model.ViewModel.GFF00900ViewModel();
+                            loValidateViewModel.ACTIVATE_INACTIVE_ACTIVITY_CODE = "GSM04001";
+                            await loValidateViewModel.RSP_ACTIVITY_VALIDITYMethodAsync();
+
+                            if (loValidateViewModel.loRspActivityValidityList.FirstOrDefault().CAPPROVAL_USER == "ALL" && loValidateViewModel.loRspActivityValidityResult.Data.FirstOrDefault().IAPPROVAL_MODE == 1)
+                            {
+                                eventArgs.Cancel = false;
+                            }
+                            else
+                            {
+                                loParam = new GFF00900ParameterDTO()
+                                {
+                                    Data = loValidateViewModel.loRspActivityValidityList,
+                                    IAPPROVAL_CODE = "GSM04001"
+                                };
+                                loResult = await PopupService.Show(typeof(GFF00900FRONT.GFF00900), loParam);
+                                if (loResult.Success == false || (bool)loResult.Result == false)
+                                {
+                                    eventArgs.Cancel = true;
+                                }
+                            }
+                        }//~End approval
+                        break;
+
+                    //case validation when editmode
+                    case R_eConductorMode.Edit:
+
+                        //check when changing everyone then delete user
+                        if (_deptViewModel._Department.LEVERYONE == false && loData.LEVERYONE == true)
+                        {
+                            await _deptViewModel.CheckIsUserDeptExistAsync();
+                            if (_deptViewModel._isUserDeptExist)
+                            {
+                                var loConfirm = await R_MessageBox.Show("Delete Confirmation", "Changing Value Everyone will delete User for this Department", R_eMessageBoxButtonType.OKCancel);
+                                if (loConfirm == R_eMessageBoxResult.Cancel)
+                                {
+                                    eventArgs.Cancel = true;
+                                }
+                                await _deptViewModel.DeleteAssignedUserWhenChangeEveryone();
+                            }
+                        }//
+                        break;
                 }
             }
             catch (Exception ex)
@@ -377,7 +435,6 @@ namespace GSM04000Front
         {
             eventArgs.TargetPageType = typeof(GSM04000PopupUpload);
         }
-
         public async Task R_After_Open_PopupUpload(R_AfterOpenPopupEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
@@ -392,7 +449,6 @@ namespace GSM04000Front
             loEx.ThrowExceptionIfErrors();
 
         }
-
         #endregion//Upload
 
         #region Template
@@ -421,5 +477,6 @@ namespace GSM04000Front
             R_DisplayException(loEx);
         }
         #endregion//Template
+
     }
 }
