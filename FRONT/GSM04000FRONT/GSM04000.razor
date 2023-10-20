@@ -6,10 +6,10 @@
 
 <R_Grid @ref="_gridDeptRef"
         DataSource="@_deptViewModel._DepartmentList"
-        Pageable="true"
-        R_ConductorGridSource="@_conGridDeptRef"
+        R_ConductorGridSource="_conGridDeptRef"
         R_GridType="R_eGridType.Original"
         R_ServiceGetListRecord="DeptGrid_ServiceGetListRecord"
+        Pageable="true"
         AllowAddNewRow="true"
         AllowDeleteRow="true"
         AllowEditRow="true"
@@ -30,16 +30,7 @@
          <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DCREATE_DATE)" HeaderText="Created Date" Width="200px"></R_GridTextColumn>
      </R_GridColumns>
  </R_Grid>
- <R_ConductorGrid @ref="@_conGridDeptRef"
-                  R_ViewModel="@_deptViewModel"
-                  R_IsHeader="true"
-                  R_Display="@DeptGrid_Display"
-                  R_ServiceGetRecord="@DeptGrid_ServiceGetRecord"
-                  R_ServiceDelete="@DeptGrid_ServiceDelete"
-                  R_AfterAdd="@DeptGrid_AfterAdd"
-                  R_ServiceSave="@DeptGrid_ServiceSave"
-                  R_Validation="@DeptGrid_Validation">
- </R_ConductorGrid>
+ 
  <R_StackLayout Row="true">
      <R_ItemLayout>
          <R_Button OnClick="@DownloadTemplateAsync" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
@@ -94,6 +85,16 @@
          <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.DUPDATE_DATE)" HeaderText="Last Update Date" Width="150px"></R_GridTextColumn>
      </R_GridColumns>
  </R_Grid>
+ <R_ConductorGrid @ref="@_conGridDeptRef"
+                  R_ViewModel="@_deptViewModel"
+                  R_IsHeader
+                  R_Display="@DeptGrid_Display"
+                  R_ServiceGetRecord="@DeptGrid_ServiceGetRecord"
+                  R_ServiceDelete="@DeptGrid_ServiceDelete"
+                  R_AfterAdd="@DeptGrid_AfterAdd"
+                  R_ServiceSave="@DeptGrid_ServiceSave"
+                  R_Validation="@DeptGrid_Validation">
+ </R_ConductorGrid>
  <R_ConductorGrid @ref="@_conGridDeptUserRef"
                   R_ViewModel="@_deptUserViewModel"
                   R_ConductorParent="@_conGridDeptRef"
