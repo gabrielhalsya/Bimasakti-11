@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>GSM04000Front</id>
+    <version>1.0.0</version>
+    <authors>GSM04000Front</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="GSM04000Common" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="GSM04000Model" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="GFF00900COMMON" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="GFF00900FRONT" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="GFF00900Model" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Lookup_GSFRONT" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Components.Web" version="6.0.15" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\GSM04000Front.dll" target="lib\net6.0\GSM04000Front.dll" />
+  </files>
+</package>

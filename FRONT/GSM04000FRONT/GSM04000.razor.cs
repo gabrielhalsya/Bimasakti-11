@@ -141,13 +141,13 @@ namespace GSM04000Front
             }
             loEx.ThrowExceptionIfErrors();
         }
-        private async Task DeptGrid_AfterAdd(R_AfterAddEventArgs eventArgs)
+        private void DeptGrid_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
             try
             {
                 var loData =(GSM04000DTO)eventArgs.Data;
-                loData.LACTIVE = true;
+                loData.LACTIVE = true;//set active=true as default
             }
             catch (Exception ex)
             {
@@ -322,7 +322,7 @@ namespace GSM04000Front
                 var loParam = R_FrontUtility.ConvertObjectToObject<GSM04100DTO>(eventArgs.Data);
                 loParam.CDEPT_CODE = _deptUserViewModel._DepartmentCode;
                 await _deptUserViewModel.GetDepartmentUser(loParam);
-                eventArgs.Result = _deptUserViewModel._UserToAssign;
+                eventArgs.Result = _deptUserViewModel._DepartmentUser;
             }
             catch (Exception ex)
             {

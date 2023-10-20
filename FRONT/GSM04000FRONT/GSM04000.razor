@@ -7,7 +7,7 @@
 <R_Grid @ref="_gridDeptRef"
         DataSource="@_deptViewModel._DepartmentList"
         Pageable="true"
-        R_ConductorGridSource="_conGridDeptRef"
+        R_ConductorGridSource="@_conGridDeptRef"
         R_GridType="R_eGridType.Original"
         R_ServiceGetListRecord="DeptGrid_ServiceGetListRecord"
         AllowAddNewRow="true"
@@ -36,7 +36,7 @@
                   R_Display="@DeptGrid_Display"
                   R_ServiceGetRecord="@DeptGrid_ServiceGetRecord"
                   R_ServiceDelete="@DeptGrid_ServiceDelete"
-                  R_AfterAdd="DeptGrid_AfterAdd"
+                  R_AfterAdd="@DeptGrid_AfterAdd"
                   R_ServiceSave="@DeptGrid_ServiceSave"
                   R_Validation="@DeptGrid_Validation">
  </R_ConductorGrid>
@@ -47,7 +47,8 @@
         </R_Button>
     </R_ItemLayout>
     <R_ItemLayout>
-        <R_Popup R_Before_Open_Popup="R_Before_Open_PopupUpload" R_After_Open_Popup="R_After_Open_PopupUpload" R_ConductorGridSource="_conGridDeptRef" Enabled="true"><R_Label>Upload</R_Label></R_Popup>
+        <R_Popup R_Before_Open_Popup="R_Before_Open_PopupUpload" R_After_Open_Popup="R_After_Open_PopupUpload" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
+            <R_Label>Upload</R_Label></R_Popup>
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Popup @ref="R_PopupAssignUser" R_Before_Open_Popup="@R_Before_Open_PopupAssignUser" R_After_Open_Popup="@R_After_Open_PopupAssignUser" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
@@ -79,7 +80,7 @@
  </R_StackLayout>
  <R_Grid @ref="_gridDeptUserRef"
          DataSource="@_deptUserViewModel._DepartmentUserList"
-         R_ConductorGridSource="_conGridDeptUserRef"
+         R_ConductorGridSource="@_conGridDeptUserRef"
          Pageable="true"
          R_GridType="R_eGridType.Original"
          AllowAddNewRow="false"

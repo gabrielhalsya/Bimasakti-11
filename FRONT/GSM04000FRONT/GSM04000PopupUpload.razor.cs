@@ -23,20 +23,13 @@ namespace GSM04000Front
     public partial class GSM04000PopupUpload : R_Page
     {
         private GSM04000ViewModelUploadDept _deptUploadViewModel = new GSM04000ViewModelUploadDept();
-
         private R_Grid<GSM04000ExcelGridDTO> _gridDeptExcelRef;
-
         private R_ConductorGrid _conGridDeptExcelRef;
-
         [Inject] private R_IExcel _excelProvider { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
-
         private R_eFileSelectAccept[] _accepts = { R_eFileSelectAccept.Excel };
-
         public byte[] _fileByte = null;
-
         private bool _isFileHasData { get; set; }
-
         #region invoke
         // Create Method Action StateHasChange
         private void StateChangeInvoke()

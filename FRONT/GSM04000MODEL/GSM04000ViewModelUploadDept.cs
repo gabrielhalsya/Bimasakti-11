@@ -1,32 +1,20 @@
 ﻿using GSM04000Common;
 using R_APICommonDTO;
 using R_BlazorFrontEnd.Exceptions;
-using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
 using R_ProcessAndUploadFront;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.Design;
 using System.Data;
 using System.Globalization;
 using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace GSM04000Model
 {
     public class GSM04000ViewModelUploadDept : R_IProcessProgressStatus
     {
-        public const int NBATCH_STEP = 11;
-        private const string DEFAULT_MODULE = "GS";
-        private const string DEFAULT_HTTP_NAME = "R_DefaultServiceUrl";
-        private const string DEFAULT_CLASSNAME = "GSM04000Back.GSM00400UploadCls";
-
-        GSM04000Model _model = new GSM04000Model();
         public ObservableCollection<GSM04000ExcelGridDTO> _DepartmentExcelGridData { get; set; } = new ObservableCollection<GSM04000ExcelGridDTO>();
         public string _sourceFileName { get; set; }
         public bool _isErrorEmptyFile { get; set; } = false;
@@ -103,10 +91,10 @@ namespace GSM04000Model
 
                 //instance processclient
                 loCls = new R_ProcessAndUploadClient(
-                    pcModuleName: DEFAULT_MODULE,
+                    pcModuleName: "GS",
                     plSendWithContext: true,
                     plSendWithToken: true,
-                    pcHttpClientName: DEFAULT_HTTP_NAME,
+                    pcHttpClientName: "R_DefaultServiceUrl",
                     poProcessProgressStatus: this
                     );
 
@@ -120,10 +108,10 @@ namespace GSM04000Model
                 loBatchPar.COMPANY_ID = _ccompanyId;
                 loBatchPar.USER_ID = _cuserId;
                 loBatchPar.UserParameters = loUserParameneters;
-                loBatchPar.ClassName = DEFAULT_CLASSNAME;
+                loBatchPar.ClassName = "GSM04000Back.GSM04000UploadCls";
                 loBatchPar.BigObject = _DepartmentExcelGridData.ToList<GSM04000ExcelGridDTO>();
 
-                var loKeyGuid = await loCls.R_BatchProcess<List<GSM04000ExcelGridDTO>>(loBatchPar, NBATCH_STEP);
+                var loKeyGuid = await loCls.R_BatchProcess<List<GSM04000ExcelGridDTO>>(loBatchPar, 11);
             }
             catch (Exception ex)
             {
@@ -211,10 +199,10 @@ namespace GSM04000Model
                 };
 
                 loCls = new R_ProcessAndUploadClient(
-                    pcModuleName: DEFAULT_MODULE,
+                    pcModuleName: "GS",
                     plSendWithContext: true,
                     plSendWithToken: true,
-                    pcHttpClientName: DEFAULT_HTTP_NAME);
+                    pcHttpClientName: "R_DefaultServiceUrl");
 
                 // Get error result
                 loResultData = await loCls.R_GetStreamErrorProcess(loParameterData);

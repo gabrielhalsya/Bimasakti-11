@@ -83,11 +83,9 @@ namespace GSM04000Model
 
             loEx.ThrowExceptionIfErrors();
         }
-
         public async Task DeleteUserDepartment(GSM04100StreamDTO poDept)
         {
             var loEx = new R_Exception();
-
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<GSM04100DTO>(poDept);
@@ -100,10 +98,5 @@ namespace GSM04000Model
 
             loEx.ThrowExceptionIfErrors();
         }
-
-        
-
-
-
     }
 }
