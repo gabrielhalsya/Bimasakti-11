@@ -19,7 +19,6 @@ namespace LMM03700Model
         public ObservableCollection<TenantClassificationGroupDTO> _TenantClassificationGroupList { get; set; } = new ObservableCollection<TenantClassificationGroupDTO>();
         public TenantClassificationGroupDTO _TenantClassificationGroup { get; set; } = new TenantClassificationGroupDTO();
         public List<PropertyDTO> _PropertyList { get; set; } = new List<PropertyDTO>();
-        public PropertyDTO _Propertiy { get; set; } = new PropertyDTO();
         public string _propertyId { get; set; } = "";
 
         public async Task GetTenantClassGroupList()
@@ -27,6 +26,10 @@ namespace LMM03700Model
             R_Exception loEx = new R_Exception();
             try
             {
+                if (_PropertyList.Count==0)
+                {
+                    return;
+                }
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CPROPERTY_ID, _propertyId);
                 var loResult = await _modelLMM03700.GetTenantClassRecord();
                 _TenantClassificationGroupList = new ObservableCollection<TenantClassificationGroupDTO>(loResult);
@@ -39,7 +42,7 @@ namespace LMM03700Model
         }
         public async Task GetTenantClassGroupRecord(TenantClassificationGroupDTO loParam)
         {
-            loParam.CPROPERTY_ID= _propertyId;
+            loParam.CPROPERTY_ID = _propertyId;
             var loResult = await _modelLMM03700.R_ServiceGetRecordAsync(loParam);
             _TenantClassificationGroup = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(loResult);
         }
@@ -81,8 +84,15 @@ namespace LMM03700Model
             try
             {
                 var loResult = await _modelLMM03700.GetPropertyListAsync();
-                _PropertyList = new List<PropertyDTO>(loResult);
-                _propertyId = _PropertyList.FirstOrDefault().CPROPERTY_ID;
+                if (loResult.Count >= 1)
+                {
+                    _PropertyList = new List<PropertyDTO>(loResult);
+                    _propertyId = _PropertyList.FirstOrDefault().CPROPERTY_ID;
+                }
+                else
+                {
+                    return;
+                }
             }
             catch (Exception ex)
             {

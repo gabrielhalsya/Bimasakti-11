@@ -28,7 +28,10 @@ namespace LMM03700Front
             try
             {
                 await Property_ServiceGetListRecord(null);
-                await _gridTenantClassGroupRef.R_RefreshGrid(null);
+                if (_viewTenantClassGrpModel._PropertyList.Count >= 1)
+                {
+                    await TenantClassGrp_ServiceGetListRecord(null);
+                }
             }
             catch (Exception ex)
             {
@@ -45,13 +48,12 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                await _viewTenantClassGrpModel.GetPropertyList();
+                await _viewTenantClassGrpModel.GetPropertyList();//getting property
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
-
             R_DisplayException(loEx);
 
         }
@@ -169,31 +171,6 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private void TenantClassGrp_Validation(R_ValidationEventArgs eventArgs)
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var loData = (TenantClassificationGroupDTO)eventArgs.Data;
-
-                if (string.IsNullOrWhiteSpace(loData.CTENANT_CLASSIFICATION_GROUP_ID))
-                    loEx.Add("", "Please fill Tenant Classification Group Id ");
-
-                if (string.IsNullOrWhiteSpace(loData.CTENANT_CLASSIFICATION_GROUP_NAME))
-                    loEx.Add("", "Please fill Tenant Classification Group Name ");
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            if (loEx.HasError)
-                eventArgs.Cancel = true;
-
-            loEx.ThrowExceptionIfErrors();
-        }
         #endregion
-
     }
-
 }

@@ -168,7 +168,6 @@ namespace LMM03700Model
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTENANT_CLASSIFICATION_ID, poParam.CTENANT_CLASSIFICATION_ID);
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTENANT_CLASSIFICATION_GROUP_ID, poParam.CTENANT_CLASSIFICATION_GROUP_ID);
                 var loResult = await _modelTenantClass.GetTenanToAssigntListAsync();
-                //TenantToAssignList = new ObservableCollection<TenantGridPopupDTO>(loResult);
                 var loResultWithSelectProperty = R_FrontUtility.ConvertCollectionToCollection<SelectedTenantGridPopupDTO>(loResult);
                 TenantToAssignList = new ObservableCollection<SelectedTenantGridPopupDTO>(loResultWithSelectProperty);
             }
@@ -186,7 +185,6 @@ namespace LMM03700Model
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CPROPERTY_ID, _propertyId);
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTENANT_CLASSIFICATION_ID, _tenantClassificationId);
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTENANT_CLASSIFICATION_GROUP_ID, _tenantClassificationGroupId);
-                //R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.OTENANT, poListParam);
                 await _modelTenantClass.AssignTenantAsync(poListParam);
             }
             catch (Exception ex)

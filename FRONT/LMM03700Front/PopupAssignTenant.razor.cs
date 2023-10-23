@@ -37,6 +37,7 @@ namespace LMM03700Front
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<TenantGridPopupDTO>(eventArgs.Parameter);
                 await _viewModelTC.GetTenantToAssignList(loParam);
+                eventArgs.ListEntityResult = _viewModelTC.TenantToAssignList;
             }
             catch (Exception ex)
             {
