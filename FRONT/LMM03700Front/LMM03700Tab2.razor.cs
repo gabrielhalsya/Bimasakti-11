@@ -28,8 +28,11 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                _viewModelTenantClass._propertyId = (string)poParameter;
-                await _gridTenantClassGrpRef.R_RefreshGrid(null);
+                _viewModelTenantClass._propertyId = (string)poParameter; //getting parameter
+                if (!string.IsNullOrEmpty(_viewModelTenantClass._propertyId) || !string.IsNullOrEmpty(_viewModelTenantClass._propertyId)) //check is property id exist or not,
+                {
+                    await _gridTenantClassGrpRef.R_RefreshGrid(null);
+                }
             }
             catch (Exception ex)
             {
@@ -40,8 +43,17 @@ namespace LMM03700Front
         }
         public async Task RefreshTabPageAsync(object poParam)
         {
-            _viewModelTenantClass._propertyId = (string)poParam;
-            await _gridTenantClassGrpRef.R_RefreshGrid(null);
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                _viewModelTenantClass._propertyId = (string)poParam;
+                await _gridTenantClassGrpRef.R_RefreshGrid(null);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
         }
 
         #region TenantClassGrp
@@ -62,14 +74,12 @@ namespace LMM03700Front
             R_DisplayException(loEx);
 
         }
-        private async Task TenantClassGrp_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        private void TenantClassGrp_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(eventArgs.Data);
-                await _viewModelTenantClass.GetTenantClassGroupRecord(loParam);
-                eventArgs.Result = _viewModelTenantClass.TenantClassiGrp;
+                eventArgs.Result = eventArgs.Data;
             }
             catch (Exception ex)
             {

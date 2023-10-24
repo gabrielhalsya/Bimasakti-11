@@ -15,18 +15,17 @@
                     ValueField="@nameof(PropertyDTO.CPROPERTY_ID)"
                     TextField="@nameof(PropertyDTO.CPROPERTY_NAME)"
                     ValueChanged="@((string value) => ComboboxPropertyValueChanged(value))"
-                    Enabled="@_comboboxPropertyEnabled"
-                    R_ConductorGridSource="_conTenantClassGroupRef">
+                    Enabled="@_comboboxPropertyEnabled">
         </R_ComboBox>
     </R_ItemLayout>
 </R_StackLayout>
 <R_TabStrip @ref="_tabStrip" OnActiveTabIndexChanging="@OnActiveTabIndexChanging">
     <R_TabStripTab Title="Tenant Classificaiton Group" id="TGC">
-        <R_Grid @ref="_gridTenantClassGroupRef"
+        <R_Grid @ref="@_gridTenantClassGroupRef"
                 DataSource="@_viewTenantClassGrpModel._TenantClassificationGroupList"
-                R_ConductorGridSource="_conTenantClassGroupRef"
+                R_ConductorGridSource="@_conTenantClassGroupRef"
                 Pageable="true"
-                R_GridType="R_eGridType.Original"
+                R_GridType="@R_eGridType.Original"
                 AllowAddNewRow="true"
                 AllowDeleteRow="true"
                 AllowEditRow="true"
@@ -43,6 +42,7 @@
          </R_Grid>
          <R_ConductorGrid @ref="@_conTenantClassGroupRef"
                           R_ViewModel="@_viewTenantClassGrpModel"
+                          R_IsHeader="true"
                           R_ServiceGetRecord="@TenantClassGrp_ServiceGetRecord"
                           R_ServiceDelete="@TenantClassGrp_ServiceDelete"
                           R_ServiceSave="@TenantClassGrp_ServiceSave">
@@ -51,9 +51,8 @@
      <R_TabStripTab Title="Tenant Classificaiton" Id="TC">
          <R_TabPage @ref="@_tab2TenantClass"
                     R_Before_Open_TabPage="@R_Before_Open_TabPage"
-                    R_After_Open_TabPage="@R_After_Open_TabPage"
                     R_TabEventCallback="@R_TabEventCallback"
-                    R_ConductorParent="_conTenantClassGroupRef">
+                    >
          </R_TabPage>
      </R_TabStripTab>
  </R_TabStrip>

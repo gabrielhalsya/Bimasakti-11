@@ -27,10 +27,10 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                await Property_ServiceGetListRecord(null);
+                await _viewTenantClassGrpModel.GetPropertyList();
                 if (_viewTenantClassGrpModel._PropertyList.Count >= 1)
                 {
-                    await TenantClassGrp_ServiceGetListRecord(null);
+                    await _gridTenantClassGroupRef.R_RefreshGrid(null);
                 }
             }
             catch (Exception ex)
@@ -43,28 +43,15 @@ namespace LMM03700Front
         }
 
         #region PropertyDropdown
-        private async Task Property_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                await _viewTenantClassGrpModel.GetPropertyList();//getting property
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            R_DisplayException(loEx);
-
-        }
         public async Task ComboboxPropertyValueChanged(string poParam)
         {
             R_Exception loEx = new R_Exception();
             try
             {
+                _viewTenantClassGrpModel._propertyId = poParam;//re assign when property klicked on combobox
+
                 if (_conTenantClassGroupRef.R_ConductorMode == R_eConductorMode.Normal)
                 {
-                    _viewTenantClassGrpModel._propertyId = poParam;//re assign when property klicked on combobox
                     await _gridTenantClassGroupRef.R_RefreshGrid(null);
 
                     if (_tabStrip.ActiveTab.Id == "TC")
@@ -87,10 +74,6 @@ namespace LMM03700Front
         {
             eventArgs.TargetPageType = typeof(LMM03700Tab2);
             eventArgs.Parameter = _viewTenantClassGrpModel._propertyId;
-        }
-        private void R_After_Open_TabPage(R_AfterOpenTabPageEventArgs eventArgs)
-        {
-
         }
         private void R_TabEventCallback(object poValue)
         {
@@ -137,7 +120,7 @@ namespace LMM03700Front
             {
                 loEx.Add(ex);
             }
-            loEx.ThrowExceptionIfErrors();
+            R_DisplayException(loEx);
         }
         private async Task TenantClassGrp_ServiceDelete(R_ServiceDeleteEventArgs eventArgs)
         {
@@ -162,7 +145,6 @@ namespace LMM03700Front
                 var loParam = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(eventArgs.Data);
                 await _viewTenantClassGrpModel.SaveTenantClassGroup(loParam, (eCRUDMode)eventArgs.ConductorMode);
                 eventArgs.Result = _viewTenantClassGrpModel._TenantClassificationGroup;
-                //await _gridT2_TCGRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {

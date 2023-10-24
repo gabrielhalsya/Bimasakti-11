@@ -93,15 +93,15 @@
 
 <R_ConductorGrid @ref="@_conTenantClassRef"
                  R_ViewModel="@_viewModelTenantClass"
-                      R_IsHeader
-                  R_ServiceGetRecord="@TenantClass_ServiceGetRecord"
-                  R_Display="TenantClass_ServiceDisplay"
-                  R_ServiceDelete="@TenantClass_ServiceDelete"
-                  R_ServiceSave="@TenantClass_ServiceSave">
- </R_ConductorGrid>
+                 R_IsHeader="true"
+                 R_ServiceGetRecord="@TenantClass_ServiceGetRecord"
+                 R_Display="TenantClass_ServiceDisplay"
+                 R_ServiceDelete="@TenantClass_ServiceDelete"
+                 R_ServiceSave="@TenantClass_ServiceSave">
+</R_ConductorGrid>
 
- <R_ConductorGrid @ref="@_conTenantRef"
-                  R_ViewModel="@_viewModelTenantClass"
-                  R_ConductorParent="_conTenantClassRef"
-                  R_ServiceGetRecord="Tenant_GetRecord">
- </R_ConductorGrid>
+<R_ConductorGrid @ref="@_conTenantRef"
+                 R_ViewModel="@_viewModelTenantClass"
+                 R_ConductorParent="_conTenantClassRef"
+                 R_ServiceGetRecord="Tenant_GetRecord">
+</R_ConductorGrid>

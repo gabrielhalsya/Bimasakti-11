@@ -30,7 +30,7 @@
          <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DCREATE_DATE)" HeaderText="Created Date" Width="200px"></R_GridTextColumn>
      </R_GridColumns>
  </R_Grid>
- 
+
  <R_StackLayout Row="true">
      <R_ItemLayout>
          <R_Button OnClick="@DownloadTemplateAsync" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
@@ -39,7 +39,8 @@
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Popup R_Before_Open_Popup="R_Before_Open_PopupUpload" R_After_Open_Popup="R_After_Open_PopupUpload" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
-            <R_Label>Upload</R_Label></R_Popup>
+            <R_Label>Upload</R_Label>
+        </R_Popup>
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Popup @ref="R_PopupAssignUser" R_Before_Open_Popup="@R_Before_Open_PopupAssignUser" R_After_Open_Popup="@R_After_Open_PopupAssignUser" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
@@ -87,7 +88,7 @@
  </R_Grid>
  <R_ConductorGrid @ref="@_conGridDeptRef"
                   R_ViewModel="@_deptViewModel"
-                  R_IsHeader
+                  R_IsHeader="true"
                   R_Display="@DeptGrid_Display"
                   R_ServiceGetRecord="@DeptGrid_ServiceGetRecord"
                   R_ServiceDelete="@DeptGrid_ServiceDelete"
