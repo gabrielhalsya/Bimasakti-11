@@ -19,7 +19,7 @@ namespace GSM04000Model
         public GSM04100DTO _UserToAssign { get; set; } = new GSM04100DTO();
         public string _DepartmentCode { get; set; } = "";
         public const string CPROGRAM_CODE = "GSM04000";
-        public async Task GetDepartmentListByDeptCode()
+        public async Task GetDeptUserListByDeptCode()
         {
             R_Exception loEx = new R_Exception();
             try

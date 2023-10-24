@@ -20,6 +20,7 @@ using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace GSM04000Front
 {
@@ -65,11 +66,10 @@ namespace GSM04000Front
             {
                 await _deptViewModel.GetDepartmentList();
                 eventArgs.ListEntityResult = _deptViewModel._DepartmentList;
-                if (eventArgs.ListEntityResult == null)
+                if (_deptViewModel._DepartmentList.Count==0)
                 {
                     R_PopupActiveInactive.Enabled = false;
                     R_PopupAssignUser.Enabled = false;
-                    await R_MessageBox.Show("", "There is no data", R_eMessageBoxButtonType.OK);
                 }
             }
             catch (Exception ex)
@@ -100,7 +100,6 @@ namespace GSM04000Front
             try
             {
                 var loData = (GSM04000DTO)eventArgs.Data;
-
                 await _deptViewModel.DeleteDepartment(loData);
                 await _gridDeptRef.R_RefreshGrid(null);
             }
@@ -152,18 +151,16 @@ namespace GSM04000Front
                             _deptViewModel._activeDept = true;
                         }
 
-                        //set to view model child
-                        _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
-                        if (loParam.LEVERYONE == true)
-                        {
-                            R_PopupAssignUser.Enabled = false;
-                        }
-                        else
-                        {
-                            R_PopupAssignUser.Enabled = true;
-                        }
+                        //set button assign user base on data
+                        R_PopupAssignUser.Enabled = (loParam.LEVERYONE == true) ? false : true;
 
-                        await _gridDeptUserRef.R_RefreshGrid(loParam);
+                        //set deptcode to view model child
+                        _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
+                        //refresh grid child
+                        if (!string.IsNullOrWhiteSpace(_deptUserViewModel._DepartmentCode))
+                        {
+                            await _gridDeptUserRef.R_RefreshGrid(loParam);
+                        }
                         break;
 
                     case R_eConductorMode.Edit:
@@ -294,6 +291,7 @@ namespace GSM04000Front
                 case "CCENTER":
                     var loTempResult = R_FrontUtility.ConvertObjectToObject<GSL00900DTO>(eventArgs.Result);
                     ((GSM04000DTO)eventArgs.ColumnData).CCENTER_CODE = loTempResult.CCENTER_CODE;
+                    ((GSM04000DTO)eventArgs.ColumnData).CCENTER_NAME = loTempResult.CCENTER_NAME;
                     break;
                 case "CMANAGER_NAME":
                     var loTempResult2 = R_FrontUtility.ConvertObjectToObject<GSL01000DTO>(eventArgs.Result);
@@ -312,7 +310,7 @@ namespace GSM04000Front
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<GSM04000DTO>(eventArgs.Parameter);
                 _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
-                await _deptUserViewModel.GetDepartmentListByDeptCode();
+                await _deptUserViewModel.GetDeptUserListByDeptCode();
                 eventArgs.ListEntityResult = _deptUserViewModel._DepartmentUserList;
             }
             catch (Exception ex)
@@ -346,7 +344,6 @@ namespace GSM04000Front
             {
                 var loData = (GSM04100StreamDTO)eventArgs.Data;
                 await _deptUserViewModel.DeleteUserDepartment(loData);
-                await _gridDeptUserRef.R_RefreshGrid(loData);
             }
             catch (Exception ex)
             {
@@ -416,6 +413,7 @@ namespace GSM04000Front
         private async Task R_After_Open_Popup_ActivateInactive(R_AfterOpenPopupEventArgs eventArgs)
         {
             R_Exception loException = new R_Exception();
+            var loData = (GSM04000DTO)_conGridDeptRef.R_GetCurrentData();
             try
             {
                 if (eventArgs.Success == false)
@@ -426,6 +424,8 @@ namespace GSM04000Front
                 if (result == true)
                 {
                     await _deptViewModel.ActiveInactiveProcessAsync();
+                    await _gridDeptRef.R_RefreshGrid(null);
+                    //await _gridDeptRef.SelectItem(loData);
                 }
             }
             catch (Exception ex)
@@ -433,8 +433,6 @@ namespace GSM04000Front
                 loException.Add(ex);
             }
             loException.ThrowExceptionIfErrors();
-            await _gridDeptRef.R_RefreshGrid(null);
-            _conGridDeptRef.R_GetCurrentData();
         }
         #endregion//Active/Inactive
 
