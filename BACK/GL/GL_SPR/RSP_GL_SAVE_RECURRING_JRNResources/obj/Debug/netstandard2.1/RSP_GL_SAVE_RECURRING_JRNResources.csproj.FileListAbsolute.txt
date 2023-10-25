@@ -9,14 +9,3 @@ D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURR
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.csproj.CoreCompileInputs.cache
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.dll
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.pdb
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.deps.json
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.pdb
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.RSP_GL_SAVE_RECURRING_JRNResources_msgrsc.resources
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.csproj.GenerateResource.cache
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.GeneratedMSBuildEditorConfig.editorconfig
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.AssemblyInfoInputs.cache
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.AssemblyInfo.cs
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.csproj.CoreCompileInputs.cache
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.pdb
