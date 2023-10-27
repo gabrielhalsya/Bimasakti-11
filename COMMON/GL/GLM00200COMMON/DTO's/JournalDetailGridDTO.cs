@@ -11,7 +11,7 @@ namespace GLM00200Common
         public string CGLACCOUNT_NO { get; set; }
         public string CGLACCOUNT_NAME { get; set; }
         public string CBSIS { get; set; }
-        public string CCENTER_CODE { get; set; } = "";
+        public string CCENTER_CODE { get; set; }
         public string CCENTER_NAME { get; set; }
         public string CDBCR { get; set; }
         public decimal NDEBIT { get; set; }

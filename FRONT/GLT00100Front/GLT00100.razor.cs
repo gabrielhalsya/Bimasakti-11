@@ -104,9 +104,9 @@ namespace GLT00100Front
                 }
 
                 await _JournalListViewModel.ShowAllJournals();
-                if (_JournalListViewModel.JournalList.Count() < 1)
+                if (_JournalListViewModel._JournalList.Count() < 1)
                 {
-                    _JournalListViewModel.JournaDetailList.Clear();
+                    _JournalListViewModel._JournaDetailList.Clear();
                     loEx.Add(new Exception("Data Not Found!"));
                     _JournalListViewModel.EnableButton = false;
                 }
@@ -136,9 +136,9 @@ namespace GLT00100Front
             {
                 _JournalListViewModel.Data.CSEARCH_TEXT = "";
                 await _JournalListViewModel.ShowAllJournals();
-                if (_JournalListViewModel.JournalList.Count() < 1)
+                if (_JournalListViewModel._JournalList.Count() < 1)
                 {
-                    _JournalListViewModel.JournaDetailList.Clear();
+                    _JournalListViewModel._JournaDetailList.Clear();
                     loEx.Add(new Exception("Data Not Found!"));
                     _JournalListViewModel.EnableButton = false;
                 }
@@ -167,7 +167,7 @@ namespace GLT00100Front
             try
             {
                 await _JournalListViewModel.ShowAllJournals();
-                eventArgs.ListEntityResult = _JournalListViewModel.JournalList;
+                eventArgs.ListEntityResult = _JournalListViewModel._JournalList;
 
             }
             catch (Exception ex)
@@ -197,8 +197,8 @@ namespace GLT00100Front
             try
             {
 
-                _JournalListViewModel.JournalEntity = (GLT00100JournalGridDTO)eventArgs.Data;
-                _JournalListViewModel.LcCrecID = _JournalListViewModel.JournalEntity.CREC_ID;
+                _JournalListViewModel._Journal = (GLT00100JournalGridDTO)eventArgs.Data;
+                _JournalListViewModel.LcCrecID = _JournalListViewModel._Journal.CREC_ID;
 
                 await _JournalListViewModel.GetJournalDetailList();
                 _JournalListViewModel.EnableDept = false;
@@ -206,7 +206,7 @@ namespace GLT00100Front
                 if (eventArgs.ConductorMode == R_eConductorMode.Normal)
                 {
 
-                    if (_JournalListViewModel.JournalList == null)
+                    if (_JournalListViewModel._JournalList == null)
                     {
                         _JournalListViewModel.EnableButton = false;
                     }
@@ -228,7 +228,7 @@ namespace GLT00100Front
             var loEx = new R_Exception();
             try
             {
-                if (_JournalListViewModel.JournalEntity.LALLOW_APPROVE == false)
+                if (_JournalListViewModel._Journal.LALLOW_APPROVE == false)
                 {
                     R_MessageBox.Show("", "You don’t have right to approve this journal!", R_eMessageBoxButtonType.OK);
                     goto EndBlock;
@@ -236,13 +236,13 @@ namespace GLT00100Front
 
                 GLT00100JournalGridDTO data = new GLT00100JournalGridDTO()
                 {
-                    CSTATUS = _JournalListViewModel.JournalEntity.CSTATUS,
-                    LCOMMIT_APRJRN = _JournalListViewModel.JournalEntity.LCOMMIT_APRJRN,
-                    LUNDO_COMMIT = _JournalListViewModel.JournalEntity.LUNDO_COMMIT,
-                    CREC_ID = _JournalListViewModel.JournalEntity.CREC_ID
+                    CSTATUS = _JournalListViewModel._Journal.CSTATUS,
+                    LCOMMIT_APRJRN = _JournalListViewModel._Journal.LCOMMIT_APRJRN,
+                    LUNDO_COMMIT = _JournalListViewModel._Journal.LUNDO_COMMIT,
+                    CREC_ID = _JournalListViewModel._Journal.CREC_ID
                 };
                 await _JournalListViewModel.ApproveJournal(data);
-                await _JournalListViewModel.GetJournal(new GLT00100DTO() { CREC_ID = _JournalListViewModel.JournalEntity.CREC_ID });
+                await _JournalListViewModel.GetJournal(new GLT00100DTO() { CREC_ID = _JournalListViewModel._Journal.CREC_ID });
                 if (_JournalListViewModel.Journal.CSTATUS == "20")
                 {
                     R_MessageBox.Show("", "Selected Journal Approved Successfully!", R_eMessageBoxButtonType.OK);
@@ -265,11 +265,11 @@ namespace GLT00100Front
             {
                 GLT00100JournalGridDTO lcdata = new GLT00100JournalGridDTO()
                 {
-                    CDEPT_CODE = _JournalListViewModel.JournalEntity.CDEPT_CODE,
-                    CREF_NO = _JournalListViewModel.JournalEntity.CREF_NO,
-                    CREC_ID = _JournalListViewModel.JournalEntity.CREC_ID
+                    CDEPT_CODE = _JournalListViewModel._Journal.CDEPT_CODE,
+                    CREF_NO = _JournalListViewModel._Journal.CREF_NO,
+                    CREC_ID = _JournalListViewModel._Journal.CREC_ID
                 };
-                if (_JournalListViewModel.JournalEntity.CSTATUS == "80" && _JournalListViewModel.IundoCollection.IOPTION == 2)
+                if (_JournalListViewModel._Journal.CSTATUS == "80" && _JournalListViewModel.IundoCollection.IOPTION == 2)
                 {
                     var result = await R_MessageBox.Show("", "Are you sure want to undo commit this journal? [Yes/No]", R_eMessageBoxButtonType.YesNo);
                     await _JournalListViewModel.UndoReversingJournal(lcdata);
@@ -298,14 +298,14 @@ namespace GLT00100Front
             commit:;
                 GLT00100JournalGridDTO data = new GLT00100JournalGridDTO()
                 {
-                    CSTATUS = _JournalListViewModel.JournalEntity.CSTATUS,
-                    LCOMMIT_APRJRN = _JournalListViewModel.JournalEntity.LCOMMIT_APRJRN,
-                    LUNDO_COMMIT = _JournalListViewModel.JournalEntity.LUNDO_COMMIT
+                    CSTATUS = _JournalListViewModel._Journal.CSTATUS,
+                    LCOMMIT_APRJRN = _JournalListViewModel._Journal.LCOMMIT_APRJRN,
+                    LUNDO_COMMIT = _JournalListViewModel._Journal.LUNDO_COMMIT
                 };
                 await _JournalListViewModel.CommitJournal(data);
                 await _JournalListViewModel.GetJournal(new GLT00100DTO()
                 {
-                    CREC_ID = _JournalListViewModel.JournalEntity.CREC_ID,
+                    CREC_ID = _JournalListViewModel._Journal.CREC_ID,
                 });
                 if (_JournalListViewModel.CSTATUS_TEMP == "80")
                 {
@@ -333,7 +333,7 @@ namespace GLT00100Front
             try
             {
                 await _JournalListViewModel.GetJournalDetailList();
-                eventArgs.ListEntityResult = _JournalListViewModel.JournaDetailList;
+                eventArgs.ListEntityResult = _JournalListViewModel._JournaDetailList;
             }
             catch (Exception ex)
             {
@@ -348,7 +348,7 @@ namespace GLT00100Front
         {
 
             eventArgs.TargetPageType = typeof(GLT00100JournalEntry);
-            eventArgs.Parameter = _JournalListViewModel.JournalEntity;
+            eventArgs.Parameter = _JournalListViewModel._Journal;
         }
         private async Task AfterPredef_JournalEntry(R_AfterOpenPredefinedDockEventArgs eventArgs)
         {
@@ -402,7 +402,7 @@ namespace GLT00100Front
                 await R_MessageBox.Show("", "You don’t have right to approve this journal type!", R_eMessageBoxButtonType.OK);
                 goto EndBlock;
             }
-            eventArgs.Parameter = _JournalListViewModel.JournalList;
+            eventArgs.Parameter = _JournalListViewModel._JournalList;
             eventArgs.TargetPageType = typeof(RapidApproveGLT00100);
         EndBlock:;
         }
@@ -410,21 +410,21 @@ namespace GLT00100Front
         {
             GLT00100ParameterDTO param = new GLT00100ParameterDTO()
             {
-                CPERIOD = _JournalListViewModel.JournalEntity.CPERIOD,
-                CSEARCH_TEXT = _JournalListViewModel.JournalEntity.CSEARCH_TEXT,
+                CPERIOD = _JournalListViewModel._Journal.CPERIOD,
+                CSEARCH_TEXT = _JournalListViewModel._Journal.CSEARCH_TEXT,
                 CSTATUS = "20",
-                CDEPT_CODE = _JournalListViewModel.JournalEntity.CDEPT_CODE
+                CDEPT_CODE = _JournalListViewModel._Journal.CDEPT_CODE
             };
 
             await _gridRef.R_RefreshGrid(param);
-            var firstJournal = _JournalListViewModel.JournalList.FirstOrDefault();
+            var firstJournal = _JournalListViewModel._JournalList.FirstOrDefault();
             if (firstJournal != null)
             {
                 await _gridDetailRef.R_RefreshGrid(firstJournal);
             }
             else
             {
-                _JournalListViewModel.JournaDetailList.Clear();
+                _JournalListViewModel._JournaDetailList.Clear();
             }
         }
         #endregion
@@ -433,7 +433,7 @@ namespace GLT00100Front
         private async Task R_Before_Open_PopupRapidCommit(R_BeforeOpenPopupEventArgs eventArgs)
         {
 
-            eventArgs.Parameter = _JournalListViewModel.JournalList;
+            eventArgs.Parameter = _JournalListViewModel._JournalList;
             eventArgs.TargetPageType = typeof(RapidCommitGLT00100);
         }
         private async Task R_After_Open_PopupRapidCommit(R_AfterOpenPopupEventArgs eventArgs)
@@ -444,21 +444,21 @@ namespace GLT00100Front
 
             GLT00100ParameterDTO param = new GLT00100ParameterDTO()
             {
-                CPERIOD = _JournalListViewModel.JournalEntity.CPERIOD,
-                CSEARCH_TEXT = _JournalListViewModel.JournalEntity.CSEARCH_TEXT,
+                CPERIOD = _JournalListViewModel._Journal.CPERIOD,
+                CSEARCH_TEXT = _JournalListViewModel._Journal.CSEARCH_TEXT,
                 CSTATUS = "80",
-                CDEPT_CODE = _JournalListViewModel.JournalEntity.CDEPT_CODE
+                CDEPT_CODE = _JournalListViewModel._Journal.CDEPT_CODE
             };
 
             await _gridRef.R_RefreshGrid(param);
-            var firstJournal = _JournalListViewModel.JournalList.FirstOrDefault();
+            var firstJournal = _JournalListViewModel._JournalList.FirstOrDefault();
             if (firstJournal != null)
             {
                 await _gridDetailRef.R_RefreshGrid(firstJournal);
             }
             else
             {
-                _JournalListViewModel.JournaDetailList.Clear();
+                _JournalListViewModel._JournaDetailList.Clear();
             }
         }
         #endregion

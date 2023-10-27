@@ -67,7 +67,7 @@
     </R_StackLayout>
 
 <R_Grid @ref="_gridRef"
-        DataSource="@_JournalListViewModel.JournalList"
+        DataSource="@_JournalListViewModel._JournalList"
         R_ConductorGridSource="_conductorGridRef"
         R_ServiceGetListRecord="JournalGrid_ServiceGetListRecord"
         R_GridType="R_eGridType.Original"
@@ -100,7 +100,7 @@
 </R_ConductorGrid>
 
 <R_Grid @ref="_gridDetailRef"
-        DataSource="@_JournalListViewModel.JournaDetailList"
+        DataSource="@_JournalListViewModel._JournaDetailList"
         Pageable
         R_ConductorGridSource="_conductorGridDetailRef"
         R_GridType="R_eGridType.Original"

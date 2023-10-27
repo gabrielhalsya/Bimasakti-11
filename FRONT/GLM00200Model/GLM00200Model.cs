@@ -30,6 +30,75 @@ namespace GLM00200Model
 
         //FUNCTION
         #region real function
+        public async Task<InitResult> GetInitDataAsync()
+        {
+            var loEx = new R_Exception();
+            InitResult loResult = null;
+            try
+            {
+                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
+                loResult = await R_HTTPClientWrapper.R_APIRequestObject<InitResult>(
+                    _RequestServiceEndPoint,
+                    nameof(IGLM00200.GetInitData),
+                    DEFAULT_MODULE,
+                    _SendWithContext,
+                    _SendWithToken);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loResult;
+        }
+        public async Task<List<StatusDTO>> GetStatusListAsync()
+        {
+            var loEx = new R_Exception();
+            List<StatusDTO> loResult = null;
+            try
+            {
+                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
+                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<StatusDTO>(
+                    _RequestServiceEndPoint,
+                    nameof(IGLM00200.GetStatusList),
+                    DEFAULT_MODULE,
+                    _SendWithContext,
+                    _SendWithToken);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loResult;
+        }
+        public async Task<List<CurrencyDTO>> GetCurrencyListAsync()
+        {
+            var loEx = new R_Exception();
+            List<CurrencyDTO> loResult = null;
+            try
+            {
+                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
+                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<CurrencyDTO>(
+                    _RequestServiceEndPoint,
+                    nameof(IGLM00200.GetCurrencyList),
+                    DEFAULT_MODULE,
+                    _SendWithContext,
+                    _SendWithToken);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loResult;
+        }
         public async Task<List<JournalGridDTO>> GetAllRecurringListAsync()
         {
             R_Exception loEx = new R_Exception();
@@ -99,244 +168,14 @@ namespace GLM00200Model
 
             return loResult;
         }
-        //public async Task<List<JournalGridDTO>> GetFilteredRecurringListAsync()
-        //{
-        //    var loEx = new R_Exception();
-        //    List<JournalGridDTO> loResult = null;
-        //    try
-        //    {
-        //        R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-        //        loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<JournalGridDTO>(
-        //            _RequestServiceEndPoint,
-        //            nameof(IGLM00200.GetAllRecurringList),
-        //            DEFAULT_MODULE,
-        //            _SendWithContext,
-        //            _SendWithToken);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        loEx.Add(ex);
-        //    }
-
-        //    loEx.ThrowExceptionIfErrors();
-
-        //    return loResult;
-        //}
-        public async Task<VAR_GL_SYSTEM_PARAM_DTO> GetVAR_GL_SYSTEM_PARAMAsync()
+        public async Task<CurrencyRateResult> RefreshCurrencyRateAsync()
         {
             var loEx = new R_Exception();
-            VAR_GL_SYSTEM_PARAM_DTO loResult = null;
+            CurrencyRateResult loResult = null;
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<VAR_GL_SYSTEM_PARAM_DTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetVAR_GL_SYSTEM_PARAM),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<VAR_CCURRENT_PERIOD_START_DATE_DTO> GetCCURRENT_PERIOD_START_DATEAsync()
-        {
-            var loEx = new R_Exception();
-            VAR_CCURRENT_PERIOD_START_DATE_DTO loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<VAR_CCURRENT_PERIOD_START_DATE_DTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetCCURRENT_PERIOD_START_DATE),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<VAR_CSOFT_PERIOD_START_DATE_DTO> GetCSOFT_PERIOD_START_DATEAsync()
-        {
-            var loEx = new R_Exception();
-            VAR_CSOFT_PERIOD_START_DATE_DTO loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<VAR_CSOFT_PERIOD_START_DATE_DTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetCSOFT_PERIOD_START_DATE),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<VAR_IUNDO_COMMIT_JRN_DTO> GetIUNDO_COMMIT_JRNAsync()
-        {
-            var loEx = new R_Exception();
-            VAR_IUNDO_COMMIT_JRN_DTO loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<VAR_IUNDO_COMMIT_JRN_DTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetIUNDO_COMMIT_JRN),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<VAR_GSM_TRANSACTION_CODE_DTO> GetGSM_TRANSACTION_CODEAsync()
-        {
-            var loEx = new R_Exception();
-            VAR_GSM_TRANSACTION_CODE_DTO loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<VAR_GSM_TRANSACTION_CODE_DTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetGSM_TRANSACTION_CODE),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<VAR_GSM_PERIOD_DTO> GetGSM_PERIODAsync()
-        {
-            var loEx = new R_Exception();
-            VAR_GSM_PERIOD_DTO loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<VAR_GSM_PERIOD_DTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetGSM_PERIOD),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<List<VAR_STATUS_DTO>> GetSTATUS_DTOAsync()
-        {
-            var loEx = new R_Exception();
-            List<VAR_STATUS_DTO> loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<VAR_STATUS_DTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetSTATUS_DTO),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<VAR_GSM_COMPANY_DTO> GetVAR_GSM_COMPANY_DTOAsync()
-        {
-            var loEx = new R_Exception();
-            VAR_GSM_COMPANY_DTO loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<VAR_GSM_COMPANY_DTO>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetVAR_GSM_COMPANY),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<List<VAR_CURRENCY>> GetVAR_CURRENCIESAsync()
-        {
-            var loEx = new R_Exception();
-            List<VAR_CURRENCY> loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<VAR_CURRENCY>(
-                    _RequestServiceEndPoint,
-                    nameof(IGLM00200.GetVAR_CURRENCIES),
-                    DEFAULT_MODULE,
-                    _SendWithContext,
-                    _SendWithToken);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public async Task<REFRESH_CURRENCY_RATE_RESULT> RefreshCurrencyRateAsync()
-        {
-            var loEx = new R_Exception();
-            REFRESH_CURRENCY_RATE_RESULT loResult = null;
-            try
-            {
-                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<REFRESH_CURRENCY_RATE_RESULT>(
+                loResult = await R_HTTPClientWrapper.R_APIRequestObject<CurrencyRateResult>(
                     _RequestServiceEndPoint,
                     nameof(IGLM00200.RefreshCurrencyRate),
                     DEFAULT_MODULE,
@@ -374,6 +213,18 @@ namespace GLM00200Model
         #endregion real function
 
         #region for implement only
+        public InitResult GetInitData()
+        {
+            throw new NotImplementedException();
+        }
+        public IAsyncEnumerable<StatusDTO> GetStatusList()
+        {
+            throw new NotImplementedException();
+        }
+        public IAsyncEnumerable<CurrencyDTO> GetCurrencyList()
+        {
+            throw new NotImplementedException();
+        }
         public IAsyncEnumerable<JournalGridDTO> GetAllRecurringList()
         {
             throw new NotImplementedException();
@@ -386,54 +237,15 @@ namespace GLM00200Model
         {
             throw new NotImplementedException();
         }
-        public IAsyncEnumerable<VAR_STATUS_DTO> GetSTATUS_DTO()
-        {
-            throw new NotImplementedException();
-        }
-        public VAR_GL_SYSTEM_PARAM_DTO GetVAR_GL_SYSTEM_PARAM()
-        {
-            throw new NotImplementedException();
-        }
-        public VAR_CCURRENT_PERIOD_START_DATE_DTO GetCCURRENT_PERIOD_START_DATE()
-        {
-            throw new NotImplementedException();
-        }
-        public VAR_CSOFT_PERIOD_START_DATE_DTO GetCSOFT_PERIOD_START_DATE()
-        {
-            throw new NotImplementedException();
-        }
-        public VAR_IUNDO_COMMIT_JRN_DTO GetIUNDO_COMMIT_JRN()
-        {
-            throw new NotImplementedException();
-        }
-        public VAR_GSM_TRANSACTION_CODE_DTO GetGSM_TRANSACTION_CODE()
-        {
-            throw new NotImplementedException();
-        }
-        public VAR_GSM_PERIOD_DTO GetGSM_PERIOD()
-        {
-            throw new NotImplementedException();
-        }
-        public VAR_GSM_COMPANY_DTO GetVAR_GSM_COMPANY()
-        {
-            throw new NotImplementedException();
-        }
-        public IAsyncEnumerable<VAR_CURRENCY> GetVAR_CURRENCIES()
-        {
-            throw new NotImplementedException();
-        }
-
-        public REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate()
-        {
-            throw new NotImplementedException();
-        }
-
-        public JournalCommitApprovalRESULT JournalCommitApproval()
-        {
-            throw new NotImplementedException();
-        }
-
         public IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList()
+        {
+            throw new NotImplementedException();
+        }
+        public CurrencyRateResult RefreshCurrencyRate()
+        {
+            throw new NotImplementedException();
+        }
+        public JournalCommitApprovalRESULT JournalCommitApproval()
         {
             throw new NotImplementedException();
         }

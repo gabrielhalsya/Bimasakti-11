@@ -43,9 +43,6 @@
     <Reference Include="R_CommonFrontBackAPI">
       <HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_CommonFrontBackAPI.dll</HintPath>
     </Reference>
-    <Reference Include="R_CrossPlatformSecurity">
-      <HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_CrossPlatformSecurity.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

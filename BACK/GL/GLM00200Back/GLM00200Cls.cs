@@ -4,7 +4,6 @@ using R_Common;
 using R_CommonFrontBackAPI;
 using System.Data.Common;
 using System.Data;
-using GLM00200Common.DTO_s;
 using Microsoft.Extensions.Logging.EventSource;
 using Castle.Core.Resource;
 using System.Transactions;
@@ -13,6 +12,9 @@ using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Data.SqlClient;
+using System.Dynamic;
+using Castle.Core.Internal;
+using System.Drawing.Text;
 
 namespace GLM00200Back
 {
@@ -266,10 +268,10 @@ namespace GLM00200Back
             return loRtn;
 
         }
-        public REFRESH_CURRENCY_RATE_RESULT RefreshCurrencyRate(REFRESH_CURRENCY_RATE_PARAM poParam)
+        public CurrencyRateResult RefreshCurrencyRate(CurrencyRateParamDTO poParam)
         {
             R_Exception loEx = new R_Exception();
-            REFRESH_CURRENCY_RATE_RESULT loRtn = null;
+            CurrencyRateResult loRtn = null;
             R_Db loDB;
             DbConnection loConn;
             DbCommand loCmd;
@@ -290,7 +292,7 @@ namespace GLM00200Back
                 loDB.R_AddCommandParameter(loCmd, "@CRATE_DATE", DbType.String, 50, poParam.CSTART_DATE);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<REFRESH_CURRENCY_RATE_RESULT>(loRtnTemp).FirstOrDefault();
+                loRtn = R_Utility.R_ConvertTo<CurrencyRateResult>(loRtnTemp).FirstOrDefault();
 
             }
             catch (Exception ex)
@@ -336,210 +338,113 @@ namespace GLM00200Back
         }
 
         #region Init var
-        //public INIT_VAR_RESULT GetInitData(INIT_VAR_DB_PARAM poParam)
-        //{
-        //    R_Exception loEx = new R_Exception();
-        //    INIT_VAR_RESULT loRtn = null;
-        //    try
-        //    {
-        //        using (TransactionScope TransScope = new TransactionScope(TransactionScopeOption.RequiresNew))
-        //        {
-        //            loRtn = new INIT_VAR_RESULT()
-        //            {
-        //            };
-
-        //            TransScope.Complete();
-        //            loRtn.IsSuccess = true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        loEx.Add(ex);
-
-        //    }
-        //    loEx.ThrowExceptionIfErrors();
-        //    return loRtn;
-        //}
-        public VAR_GSM_COMPANY_DTO GetVAR_GSM_COMPANY(INIT_VAR_DB_PARAM poParam)
+        public InitResultData GetInitData(InitParamDTO poParam)
         {
-
-            R_Exception loException = new R_Exception();
-            VAR_GSM_COMPANY_DTO loResult = null;
+            R_Exception loEx = new R_Exception();
+            string lcQuery;
+            DbConnection loConn = null;
+            DbCommand loCmd = null;
+            DataTable loDataTable = null;
+            InitResultData loReturn = new();
             try
             {
-                R_Db loDb = new R_Db();
-                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
-                string lcQuery = "SELECT CCOGS_METHOD,LENABLE_CENTER_IS,LENABLE_CENTER_BS,LPRIMARY_ACCOUNT,CBASE_CURRENCY_CODE ,CLOCAL_CURRENCY_CODE FROM GSM_COMPANY (NOLOCK) WHERE CCOMPANY_ID = @CCOMPANY_ID";
-                DbCommand loCmd = loDb.GetCommand();
+
+                var loDb = new R_Db();
+                loConn = loDb.GetConnection("R_DefaultConnectionString");
+                loCmd = loDb.GetCommand();
+                loCmd.CommandType = CommandType.StoredProcedure;
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 10, poParam.CCOMPANY_ID);
+
+                //get system param
+                lcQuery = "RSP_GL_GET_SYSTEM_PARAM";
                 loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
-                var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
-                loResult = R_Utility.R_ConvertTo<VAR_GSM_COMPANY_DTO>(loRtnTemp).FirstOrDefault();
+                loDb.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 10, poParam.CLANGUAGE_ID);
+                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
+                loReturn.OGL_SYSTEM_PARAM = R_Utility.R_ConvertTo<SystemParamDTO>(loDataTable).FirstOrDefault();
+
+                //get gsm company
+                lcQuery = "RSP_GS_GET_COMPANY_INFO";
+                loCmd.CommandText = lcQuery;
+                var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, false);
+                loReturn.OGSM_COMPANY = R_Utility.R_ConvertTo<CompanyDTO>(loRtnTemp).FirstOrDefault();
+
+                //get current period start date
+                lcQuery = "RSP_GS_GET_PERIOD_DT_INFO";
+                loCmd.CommandText = lcQuery;
+                loDb.R_AddCommandParameter(loCmd, "@CCURRENT_PERIOD_YY", DbType.String, 50, loReturn.OGL_SYSTEM_PARAM.CCURRENT_PERIOD_YY);
+                loDb.R_AddCommandParameter(loCmd, "@CCURRENT_PERIOD_MM", DbType.String, 50, loReturn.OGL_SYSTEM_PARAM.CCURRENT_PERIOD_MM);
+                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
+                loReturn.OCURRENT_PERIOD_START_DATE = R_Utility.R_ConvertTo<PeriodDetailInfoDTO>(loRtnTemp).FirstOrDefault();
+
+                //get soft period start date
+                lcQuery = "RSP_GS_GET_PERIOD_DT_INFO";
+                loCmd.CommandText = lcQuery;
+                loDb.R_AddCommandParameter(loCmd, "@CSOFT_PERIOD_YY", DbType.String, 50, loReturn.OGL_SYSTEM_PARAM.CSOFT_PERIOD_YY);
+                loDb.R_AddCommandParameter(loCmd, "@CSOFT_PERIOD_MM", DbType.String, 50, loReturn.OGL_SYSTEM_PARAM.CSOFT_PERIOD_MM);
+                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
+                loReturn.OSOFT_PERIOD_START_DATE = R_Utility.R_ConvertTo<PeriodDetailInfoDTO>(loRtnTemp).FirstOrDefault();
+
+                //get iundo commit journal
+                const string COPTION_CODE = "GL014001";
+                lcQuery = "RSP_GL_GET_SYSTEM_ENABLE_OPTION_INFO";
+                loCmd.CommandText = lcQuery;
+                loDb.R_AddCommandParameter(loCmd, "@COPTION_CODE", DbType.String, 50, COPTION_CODE);
+                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
+                loReturn.OOUNDO_COMMIT_JRN = R_Utility.R_ConvertTo<UndoCommitJrnDTO>(loRtnTemp).FirstOrDefault();
+
+                //get trans code
+                const string CTRANS_CODE = "000000";
+                lcQuery = "RSP_GS_GET_TRANS_CODE_INFO";
+                loCmd.CommandText = lcQuery;
+                loDb.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String, 50, CTRANS_CODE);
+                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
+                loReturn.OGSM_TRANSACTION_CODE= R_Utility.R_ConvertTo<TransCodeDTO>(loRtnTemp).FirstOrDefault();
+
+                //get gsm period
+                lcQuery = "RSP_GS_GET_PERIOD_YEAR_RANGE";
+                loCmd.CommandText = lcQuery;
+                loDb.R_AddCommandParameter(loCmd, "@CYEAR", DbType.String, 50, "");
+                loDb.R_AddCommandParameter(loCmd, "@CMODE", DbType.String, 50, "");
+                loDataTable= loDb.SqlExecQuery(loConn, loCmd, false);
+                loReturn.OGSM_PERIOD= R_Utility.R_ConvertTo<GSM_PeriodDTO>(loRtnTemp).FirstOrDefault();
+
+                //get today
+                lcQuery = "SELECT dbo.RFN_GET_DB_TODAY(@CCOMPANY_ID) AS DTODAY";
+                loCmd.CommandText = lcQuery;
+                loCmd.CommandType = CommandType.Text;
+                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
+                loReturn.OTODAY= R_Utility.R_ConvertTo<TodayDTO>(loRtnTemp).FirstOrDefault();
+
             }
             catch (Exception ex)
             {
-                loException.Add(ex);
+                loEx.Add(ex);
             }
-
-            loException.ThrowExceptionIfErrors();
-
-            return loResult;
-
-        }
-        public VAR_GL_SYSTEM_PARAM_DTO GetVAR_GL_SYSTEM_PARAM(INIT_VAR_DB_PARAM poParam)
-        {
-
-            R_Exception loException = new R_Exception();
-            VAR_GL_SYSTEM_PARAM_DTO loResult = null;
-            try
+            finally
             {
-                R_Db loDb = new R_Db();
-                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
-                string lcQuery = "EXEC RSP_GL_GET_SYSTEM_PARAM @CCOMPANY_ID,''";
-                DbCommand loCmd = loDb.GetCommand();
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
-                var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
-                loResult = R_Utility.R_ConvertTo<VAR_GL_SYSTEM_PARAM_DTO>(loRtnTemp).FirstOrDefault();
+                if (loConn != null)
+                {
+                    if (loConn.State != System.Data.ConnectionState.Closed)
+                        loConn.Close();
+
+                    loConn.Dispose();
+                    loConn = null;
+                }
+
+                if (loCmd != null)
+                {
+                    loCmd.Dispose();
+                    loCmd = null;
+                }
             }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
+            loEx.ThrowExceptionIfErrors();
 
-            loException.ThrowExceptionIfErrors();
-
-            return loResult;
-
+            return loReturn;
         }
-        public VAR_CCURRENT_PERIOD_START_DATE_DTO GetCCURRENT_PERIOD_START_DATE(INIT_VAR_DB_PARAM poParam)
+        public List<StatusDTO> GetSTATUS_DTO(InitParamDTO poParam)
         {
             R_Exception loException = new R_Exception();
-            VAR_CCURRENT_PERIOD_START_DATE_DTO loResult = null;
-            try
-            {
-                R_Db loDb = new R_Db();
-                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
-                string lcQuery = "SELECT CSTART_DATE FROM GSM_PERIOD_DT (NOLOCK) WHERE CCOMPANY_ID=@CCOMPANY_ID AND CCYEAR=@CCURRENT_PERIOD_YY AND CPERIOD_NO= @CCURRENT_PERIOD_MM";
-                DbCommand loCmd = loDb.GetCommand();
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CCURRENT_PERIOD_YY", DbType.String, 50, poParam.CCURRENT_PERIOD_YY);
-                loDb.R_AddCommandParameter(loCmd, "@CCURRENT_PERIOD_MM", DbType.String, 50, poParam.CCURRENT_PERIOD_MM);
-                var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
-                loResult = R_Utility.R_ConvertTo<VAR_CCURRENT_PERIOD_START_DATE_DTO>(loRtnTemp).FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-
-            loException.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public VAR_CSOFT_PERIOD_START_DATE_DTO GetCSOFT_PERIOD_START_DATE(INIT_VAR_DB_PARAM poParam)
-        {
-            R_Exception loException = new R_Exception();
-            VAR_CSOFT_PERIOD_START_DATE_DTO loResult = null;
-            try
-            {
-                R_Db loDb = new R_Db();
-                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
-                string lcQuery = "SELECT CSTART_DATE FROM GSM_PERIOD_DT (NOLOCK) WHERE CCOMPANY_ID=@CCOMPANY_ID AND CCYEAR=@CSOFT_PERIOD_YY AND CPERIOD_NO= @CSOFT_PERIOD_MM";
-                DbCommand loCmd = loDb.GetCommand();
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CSOFT_PERIOD_YY", DbType.String, 50, poParam.CSOFT_PERIOD_YY);
-                loDb.R_AddCommandParameter(loCmd, "@CSOFT_PERIOD_MM", DbType.String, 50, poParam.CSOFT_PERIOD_MM);
-                var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
-                loResult = R_Utility.R_ConvertTo<VAR_CSOFT_PERIOD_START_DATE_DTO>(loRtnTemp).FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-
-            loException.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public VAR_IUNDO_COMMIT_JRN_DTO GetIUNDO_COMMIT_JRN(INIT_VAR_DB_PARAM poParam)
-        {
-            R_Exception loException = new R_Exception();
-            VAR_IUNDO_COMMIT_JRN_DTO loResult = null;
-            try
-            {
-                R_Db loDb = new R_Db();
-                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
-                string lcQuery = "SELECT IOPTION FROM GLM_SYSTEM_ENABLE_OPTION (NOLOCK) WHERE CCOMPANY_ID=@CCOMPANY_ID AND COPTION_CODE='GL014001'";
-                DbCommand loCmd = loDb.GetCommand();
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
-                var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
-                loResult = R_Utility.R_ConvertTo<VAR_IUNDO_COMMIT_JRN_DTO>(loRtnTemp).FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-
-            loException.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public VAR_GSM_TRANSACTION_CODE_DTO GetGSM_TRANSACTION_CODE(INIT_VAR_DB_PARAM poParam)
-        {
-            R_Exception loException = new R_Exception();
-            VAR_GSM_TRANSACTION_CODE_DTO loResult = null;
-            try
-            {
-                R_Db loDb = new R_Db();
-                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
-                string lcQuery = "SELECT LINCREMENT_FLAG LAPPROVAL_FLAG FROM GSM_TRANSACTION_CODE (NOLOCK) WHERE CCOMPANY_ID = @CCOMPANY_ID AND CTRANSACTION_CODE='000000'";
-                DbCommand loCmd = loDb.GetCommand();
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
-                var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
-                loResult = R_Utility.R_ConvertTo<VAR_GSM_TRANSACTION_CODE_DTO>(loRtnTemp).FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-
-            loException.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public VAR_GSM_PERIOD_DTO GetGSM_PERIOD(INIT_VAR_DB_PARAM poParam)
-        {
-            R_Exception loException = new R_Exception();
-            VAR_GSM_PERIOD_DTO loResult = null;
-            try
-            {
-                R_Db loDb = new R_Db();
-                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
-                string lcQuery = "SELECT IMIN_YEAR=CAST(MIN(CYEAR) AS INT),IMAX_YEAR=CAST(MAX(CYEAR) AS INT) FROM GSM_PERIOD (NOLOCK) WHERE CCOMPANY_ID = @CCOMPANY_ID";
-                DbCommand loCmd = loDb.GetCommand();
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
-                var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
-                loResult = R_Utility.R_ConvertTo<VAR_GSM_PERIOD_DTO>(loRtnTemp).FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-            }
-
-            loException.ThrowExceptionIfErrors();
-
-            return loResult;
-        }
-        public List<VAR_STATUS_DTO> GetSTATUS_DTO(INIT_VAR_DB_PARAM poParam)
-        {
-            R_Exception loException = new R_Exception();
-            List<VAR_STATUS_DTO> loResult = null;
+            List<StatusDTO> loResult = null;
             try
             {
                 R_Db loDb = new R_Db();
@@ -550,7 +455,7 @@ namespace GLM00200Back
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CLANGUAGE_ID", DbType.String, 50, poParam.CLANGUAGE_ID);
                 var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
-                loResult = R_Utility.R_ConvertTo<VAR_STATUS_DTO>(loRtnTemp).ToList();
+                loResult = R_Utility.R_ConvertTo<StatusDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
@@ -561,10 +466,10 @@ namespace GLM00200Back
 
             return loResult;
         }
-        public List<VAR_CURRENCY> GetCurrency(INIT_VAR_DB_PARAM poParam)
+        public List<CurrencyDTO> GetCurrency(InitParamDTO poParam)
         {
             R_Exception loEx = new R_Exception();
-            List<VAR_CURRENCY> loRtn = null;
+            List<CurrencyDTO> loRtn = null;
             R_Db loDB;
             DbConnection loConn;
             DbCommand loCmd;
@@ -582,7 +487,7 @@ namespace GLM00200Back
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poParam.CUSER_ID);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<VAR_CURRENCY>(loRtnTemp).ToList();
+                loRtn = R_Utility.R_ConvertTo<CurrencyDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {

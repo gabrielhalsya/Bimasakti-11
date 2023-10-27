@@ -39,7 +39,7 @@ namespace GLT00100Front
             try
             {
                 List<GLT00100JournalGridDTO> itemList = R_FrontUtility.ConvertObjectToObject<List<GLT00100JournalGridDTO>>(poParameter);
-                _JournalListViewModel.JournalList = new ObservableCollection<GLT00100JournalGridDTO>(itemList);
+                _JournalListViewModel._JournalList = new ObservableCollection<GLT00100JournalGridDTO>(itemList);
 
                 await _JournalListViewModel.GetDepartmentList();
                 await InititalProcess();
@@ -59,7 +59,7 @@ namespace GLT00100Front
         private async Task InititalProcess()
         {
             _JournalListViewModel.lcDeptCode =
-                _JournalListViewModel.JournalList.Select(m => m.CDEPT_CODE).FirstOrDefault();
+                _JournalListViewModel._JournalList.Select(m => m.CDEPT_CODE).FirstOrDefault();
             _JournalListViewModel.Data.CDEPT_CODE = _JournalListViewModel.lcDeptCode;
 
 
@@ -67,13 +67,13 @@ namespace GLT00100Front
                 .FirstOrDefault(m => m.CDEPT_CODE == _JournalListViewModel.lcDeptCode)?.CDEPT_NAME;
 
 
-            string crefPrdYY = _JournalListViewModel.JournalList.Select(m => m.CREF_PRD).FirstOrDefault();
+            string crefPrdYY = _JournalListViewModel._JournalList.Select(m => m.CREF_PRD).FirstOrDefault();
             string firstFourDigits = crefPrdYY.Substring(0, Math.Min(4, crefPrdYY.Length));
             if (int.TryParse(firstFourDigits, out int isoPeriodYy))
             {
                 _JournalListViewModel.Data.ISOFT_PERIOD_YY = isoPeriodYy;
             }
-            string crefPrdMM = _JournalListViewModel.JournalList.Select(m => m.CREF_PRD).FirstOrDefault();
+            string crefPrdMM = _JournalListViewModel._JournalList.Select(m => m.CREF_PRD).FirstOrDefault();
             if (crefPrdMM.Length == 6)
             {
                 _JournalListViewModel.Data.CSOFT_PERIOD_MM = crefPrdMM.Substring(4, 2);
@@ -81,9 +81,9 @@ namespace GLT00100Front
 
 
             bool allStatusMatch = true;
-            string referenceStatus = _JournalListViewModel.JournalList.FirstOrDefault()?.CSTATUS; // Mengambil CSTATUS pertama sebagai referensi
+            string referenceStatus = _JournalListViewModel._JournalList.FirstOrDefault()?.CSTATUS; // Mengambil CSTATUS pertama sebagai referensi
 
-            foreach (var journalData in _JournalListViewModel.JournalList)
+            foreach (var journalData in _JournalListViewModel._JournalList)
             {
                 if (journalData.CSTATUS != referenceStatus)
                 {
@@ -106,7 +106,7 @@ namespace GLT00100Front
             try
             {
                 await _JournalListViewModel.ShowAllJournals();
-                eventArgs.ListEntityResult = _JournalListViewModel.JournalList;
+                eventArgs.ListEntityResult = _JournalListViewModel._JournalList;
 
             }
             catch (Exception ex)
@@ -168,7 +168,7 @@ namespace GLT00100Front
                 _JournalListViewModel.loProcessRapidApproveOrCommitList = dataList;
                 await _JournalListViewModel.RapidApproveOrCommitJournal();
                 await Task.Delay(20 * dataList.Count);
-                _JournalListViewModel.JournaDetailList.Clear();
+                _JournalListViewModel._JournaDetailList.Clear();
                 await _gridRef.R_RefreshGrid(null);
 
             }

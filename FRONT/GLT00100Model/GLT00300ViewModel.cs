@@ -20,12 +20,11 @@ namespace GLT00100Model
 {
     public class GLT00100ViewModel : R_ViewModel<GLT00100DTO>, R_IProcessProgressStatus
     {
-        private GLT00100Model _JournalListModel = new GLT00100Model();
-
-        public ObservableCollection<GLT00100JournalGridDTO> JournalList = new ObservableCollection<GLT00100JournalGridDTO>();
-        public GLT00100JournalGridDTO JournalEntity = new GLT00100JournalGridDTO();
-        public ObservableCollection<GLT00100JournalGridDetailDTO> JournaDetailList { get; set; } = new ObservableCollection<GLT00100JournalGridDetailDTO>();
-        public ObservableCollection<GLT00100JournalGridDetailDTO> JournaDetailListTemp { get; set; } = new ObservableCollection<GLT00100JournalGridDetailDTO>();
+        private GLT00100Model _JournalModel = new GLT00100Model();
+        public ObservableCollection<GLT00100JournalGridDTO> _JournalList = new ObservableCollection<GLT00100JournalGridDTO>();
+        public GLT00100JournalGridDTO _Journal = new GLT00100JournalGridDTO();
+        public ObservableCollection<GLT00100JournalGridDetailDTO> _JournaDetailList { get; set; } = new ObservableCollection<GLT00100JournalGridDetailDTO>();
+        public ObservableCollection<GLT00100JournalGridDetailDTO> _JournaDetailListTemp { get; set; } = new ObservableCollection<GLT00100JournalGridDetailDTO>();
         public GLT00100DTO Journal = new GLT00100DTO();
 
         #region Collection
@@ -53,6 +52,7 @@ namespace GLT00100Model
             ["99"] = "Deleted"
         };
         #endregion
+
         #region property
         public string LcCrecID = "";
         public string lcSearch = "";
@@ -97,7 +97,7 @@ namespace GLT00100Model
             {
                 poData.CCURRENT_PERIOD_MM = CCURRENT_PERIOD_MM;
                 poData.CCURRENT_PERIOD_YY = CCURRENT_PERIOD_YY;
-                var loReturn = await _JournalListModel.GetCurrentPeriodStartDateAsync(poData);
+                var loReturn = await _JournalModel.GetCurrentPeriodStartDateAsync(poData);
                 CurrentPeriodStartCollection = loReturn;
             }
             catch (Exception ex)
@@ -116,7 +116,7 @@ namespace GLT00100Model
             {
                 poData.CSOFT_PERIOD_MM = CSOFT_PERIOD_MM;
                 poData.CSOFT_PERIOD_YY = CSOFT_PERIOD_YY;
-                var loReturn = await _JournalListModel.GetSoftPeriodStartDateAsync(poData);
+                var loReturn = await _JournalModel.GetSoftPeriodStartDateAsync(poData);
                 SoftPeriodStartCollection = loReturn;
             }
             catch (Exception ex)
@@ -133,7 +133,7 @@ namespace GLT00100Model
 
             try
             {
-                var loreturn = await _JournalListModel.GetSystemParamAsync();
+                var loreturn = await _JournalModel.GetSystemParamAsync();
                 SystemParamCollection = loreturn;
                 SystemParamCollection.ISOFT_PERIOD_YY = Convert.ToInt32(SystemParamCollection.CSOFT_PERIOD_YY);
                 CCURRENT_PERIOD_MM = SystemParamCollection.CCURRENT_PERIOD_MM;
@@ -157,7 +157,7 @@ namespace GLT00100Model
 
             try
             {
-                var loReturn = await _JournalListModel.GetCompanyDTOAsync();
+                var loReturn = await _JournalModel.GetCompanyDTOAsync();
                 CompanyCollection = loReturn;
                 Journal.CCURRENCY_CODE = CompanyCollection.CLOCAL_CURRENCY_CODE;
 
@@ -176,7 +176,7 @@ namespace GLT00100Model
 
             try
             {
-                var loReturn = await _JournalListModel.GetPeriodAsync();
+                var loReturn = await _JournalModel.GetPeriodAsync();
                 GSMPeriodCollection = loReturn;
             }
             catch (Exception ex)
@@ -193,7 +193,7 @@ namespace GLT00100Model
 
             try
             {
-                var loReturn = await _JournalListModel.GetLincementLapprovalAsync();
+                var loReturn = await _JournalModel.GetLincementLapprovalAsync();
                 TransactionCodeCollection = loReturn;
 
             }
@@ -211,7 +211,7 @@ namespace GLT00100Model
 
             try
             {
-                var loReturn = await _JournalListModel.GetIOptionAsync();
+                var loReturn = await _JournalModel.GetIOptionAsync();
                 IundoCollection = loReturn;
 
             }
@@ -228,7 +228,7 @@ namespace GLT00100Model
             R_Exception loException = new R_Exception();
             try
             {
-                var loReturn = await _JournalListModel.GetStatusListAsync();
+                var loReturn = await _JournalModel.GetStatusListAsync();
                 allStatusData = loReturn.Data;
                 if (allStatusData.Count > 0)
                 {
@@ -245,7 +245,7 @@ namespace GLT00100Model
             R_Exception loException = new R_Exception();
             try
             {
-                var loReturn = await _JournalListModel.GetDeptListAsync();
+                var loReturn = await _JournalModel.GetDeptListAsync();
                 AllDeptData = loReturn.Data;
                 Data.CDEPT_CODE = AllDeptData.Select(m => m.CDEPT_CODE).FirstOrDefault();
                 Data.CDEPT_NAME = AllDeptData.Select(m => m.CDEPT_NAME).FirstOrDefault();
@@ -260,7 +260,7 @@ namespace GLT00100Model
             R_Exception loException = new R_Exception();
             try
             {
-                var loReturn = await _JournalListModel.GetCurrencyCodeListAsync();
+                var loReturn = await _JournalModel.GetCurrencyCodeListAsync();
                 currencyData = loReturn.Data;
 
             }
@@ -274,7 +274,7 @@ namespace GLT00100Model
             R_Exception loException = new R_Exception();
             try
             {
-                var loReturn = await _JournalListModel.GetCenterListAsync();
+                var loReturn = await _JournalModel.GetCenterListAsync();
                 CenterListData = loReturn.Data;
 
             }
@@ -289,7 +289,7 @@ namespace GLT00100Model
 
             try
             {
-                var loReturn = await _JournalListModel.GetTransactionApprovalAsync();
+                var loReturn = await _JournalModel.GetTransactionApprovalAsync();
                 TransactionApprovalCollection = loReturn;
 
             }
@@ -307,7 +307,7 @@ namespace GLT00100Model
             R_Exception loEx = new R_Exception();
             try
             {
-                var loResult = await _JournalListModel.R_ServiceGetRecordAsync(loParam);
+                var loResult = await _JournalModel.R_ServiceGetRecordAsync(loParam);
                 Journal = loResult;
 
                 Journal.DREF_DATE = DateTime.ParseExact(Journal.CREF_DATE, "yyyyMMdd", CultureInfo.InvariantCulture);
@@ -332,7 +332,7 @@ namespace GLT00100Model
             {
                 poNewEntity.CTRANS_CODE = "000020";
                 poNewEntity.LREVERSE = false;
-                var loResult = await _JournalListModel.R_ServiceSaveAsync(poNewEntity, peCRUDMode);
+                var loResult = await _JournalModel.R_ServiceSaveAsync(poNewEntity, peCRUDMode);
                 Journal = loResult;
             }
             catch (Exception ex)
@@ -352,9 +352,9 @@ namespace GLT00100Model
                 lcDeptCode = Data.CDEPT_CODE;
                 lcStatus = Data.CSTATUS ?? "";
 
-                var loResult = await _JournalListModel.GetJournalListAsync(lcPeriod, lcSearch, lcDeptCode, lcStatus);
-                JournalList = new ObservableCollection<GLT00100JournalGridDTO>(loResult.Data);
-                foreach (var item in JournalList)
+                var loResult = await _JournalModel.GetJournalListAsync(lcPeriod, lcSearch, lcDeptCode, lcStatus);
+                _JournalList = new ObservableCollection<GLT00100JournalGridDTO>(loResult.Data);
+                foreach (var item in _JournalList)
                 {
                     DateTime parsedCrefDate;
                     if (DateTime.TryParseExact(item.CREF_DATE, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out parsedCrefDate))
@@ -380,7 +380,7 @@ namespace GLT00100Model
             R_Exception loEx = new R_Exception();
             try
             {
-                var loResult = await _JournalListModel.GetAllJournalDetailListAsync(LcCrecID);
+                var loResult = await _JournalModel.GetAllJournalDetailListAsync(LcCrecID);
 
                 if (loResult != null)
                 {
@@ -401,7 +401,7 @@ namespace GLT00100Model
                         return m;
                     }).ToList();
                     
-                    JournaDetailList = new ObservableCollection<GLT00100JournalGridDetailDTO>(modifiedList);
+                    _JournaDetailList = new ObservableCollection<GLT00100JournalGridDetailDTO>(modifiedList);
                 }
 
             }
@@ -421,7 +421,7 @@ namespace GLT00100Model
                 //LcCrecID = JournalEntity.CREC_ID;
                 //lcDeptCode = JournalEntity.CDEPT_CODE;
                 //LcCrefNo = JournalEntity.CREF_NO;
-                await _JournalListModel.ProcessReversingJournalAsync(poData);
+                await _JournalModel.ProcessReversingJournalAsync(poData);
             }
             catch (Exception ex)
             {
@@ -434,11 +434,11 @@ namespace GLT00100Model
             R_Exception loEx = new R_Exception();
             try
             {
-                CSTATUS_TEMP = JournalEntity.CSTATUS;
+                CSTATUS_TEMP = _Journal.CSTATUS;
                 poData.CSTATUS = "20";
                 poData.LCOMMIT_APRJRN = SystemParamCollection.LCOMMIT_APRJRN;
-                poData.CREC_ID = JournalEntity.CREC_ID;
-                await _JournalListModel.JournalProcessAsync(poData);
+                poData.CREC_ID = _Journal.CREC_ID;
+                await _JournalModel.JournalProcessAsync(poData);
             }
             catch (Exception ex)
             {
@@ -452,7 +452,7 @@ namespace GLT00100Model
             try
             {
                 CSTATUS_TEMP = Journal.CSTATUS;
-                poData.CREC_ID = JournalEntity.CREC_ID;
+                poData.CREC_ID = _Journal.CREC_ID;
                 if (Journal.CSTATUS == "80")
                 {
                     poData.CSTATUS = "20";
@@ -463,7 +463,7 @@ namespace GLT00100Model
                     poData.CSTATUS = "80";
                     poData.LUNDO_COMMIT = false;
                 }
-                await _JournalListModel.JournalProcessAsync(poData);
+                await _JournalModel.JournalProcessAsync(poData);
             }
             catch (Exception ex)
             {
@@ -486,7 +486,7 @@ namespace GLT00100Model
                     poData.CSTATUS = "00";
                 }
 
-                await _JournalListModel.JournalProcessAsync(poData);
+                await _JournalModel.JournalProcessAsync(poData);
             }
             catch (Exception ex)
             {
@@ -503,7 +503,7 @@ namespace GLT00100Model
                 poData.CSTATUS = "99";
                 poData.LCOMMIT_APRJRN = false;
                 poData.LUNDO_COMMIT = false;
-                await _JournalListModel.JournalProcessAsync(poData);
+                await _JournalModel.JournalProcessAsync(poData);
             }
             catch (Exception ex)
             {
@@ -516,7 +516,7 @@ namespace GLT00100Model
             R_Exception loEx = new R_Exception();
             try
             {
-                await _JournalListModel.UndoReversingJournalProcessAsync(poData);
+                await _JournalModel.UndoReversingJournalProcessAsync(poData);
             }
             catch (Exception ex)
             {
@@ -533,13 +533,7 @@ namespace GLT00100Model
             List<GLT00100JournalGridDTO> tempDataSelected = new List<GLT00100JournalGridDTO>();
             try
             {
-                foreach (var item in loProcessRapidApproveOrCommitList)
-                {
-                    if (item.LSELECTED == true)
-                    {
-                        tempDataSelected.Add(item);
-                    }
-                }
+                tempDataSelected = loProcessRapidApproveOrCommitList.Where(loData => loData.LSELECTED).ToList();
 
                 if (loProcessRapidApproveOrCommitList.Count == 0)
                 {

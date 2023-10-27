@@ -30,17 +30,17 @@ namespace GLM00200Model
         public List<GSL00900DTO> _ListCenter { get; set; } = new List<GSL00900DTO>();
         public JournalParamDTO _Journal { get; set; } = new JournalParamDTO();
         public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
-        public VAR_CCURRENT_PERIOD_START_DATE_DTO _CCURRENT_PERIOD_START_DATE { get; set; } = new VAR_CCURRENT_PERIOD_START_DATE_DTO();
+        public PeriodDetailInfoDTO _CCURRENT_PERIOD_START_DATE { get; set; } = new PeriodDetailInfoDTO();
         public VAR_CSOFT_PERIOD_START_DATE_DTO _CSOFT_PERIOD_START_DATE { get; set; } = new VAR_CSOFT_PERIOD_START_DATE_DTO();
-        public VAR_GL_SYSTEM_PARAM_DTO _GL_SYSTEM_PARAM { get; set; } = new VAR_GL_SYSTEM_PARAM_DTO();
-        public VAR_GSM_COMPANY_DTO _GSM_COMPANY { get; set; } = new VAR_GSM_COMPANY_DTO();
-        public VAR_GSM_PERIOD_DTO _GSM_PERIOD { get; set; } = new VAR_GSM_PERIOD_DTO();
-        public VAR_GSM_TRANSACTION_CODE_DTO _GSM_TRANSACTION_CODE { get; set; } = new VAR_GSM_TRANSACTION_CODE_DTO();
-        public VAR_IUNDO_COMMIT_JRN_DTO _IUNDO_COMMIT_JRN { get; set; } = new VAR_IUNDO_COMMIT_JRN_DTO();
-        public List<VAR_STATUS_DTO> _STATUS_LIST { get; set; } = new List<VAR_STATUS_DTO>();
-        public List<VAR_CURRENCY> _CURRENCY_LIST { get; set; } = new List<VAR_CURRENCY>();
+        public SystemParamDTO _GL_SYSTEM_PARAM { get; set; } = new SystemParamDTO();
+        public CompanyDTO _GSM_COMPANY { get; set; } = new CompanyDTO();
+        public GSM_PeriodDTO _GSM_PERIOD { get; set; } = new GSM_PeriodDTO();
+        public TransCodeDTO _GSM_TRANSACTION_CODE { get; set; } = new TransCodeDTO();
+        public UndoCommitJrnDTO _IUNDO_COMMIT_JRN { get; set; } = new UndoCommitJrnDTO();
+        public List<StatusDTO> _STATUS_LIST { get; set; } = new List<StatusDTO>();
+        public List<CurrencyDTO> _CURRENCY_LIST { get; set; } = new List<CurrencyDTO>();
         public List<PeriodDTO> Periods = Enumerable.Range(1, 12).Select(month => new PeriodDTO { CPERIOD_MM_CODE = month.ToString("D2"), CPERIOD_MM_TEXT = month.ToString("D2") }).ToList();
-        public REFRESH_CURRENCY_RATE_RESULT _CURRENCY_RATE_RESULT = new REFRESH_CURRENCY_RATE_RESULT();
+        public CurrencyRateResult _CURRENCY_RATE_RESULT = new CurrencyRateResult();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public DateTime _DDOC_DATE { get; set; } = DateTime.Now;
         public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
@@ -291,7 +291,7 @@ namespace GLM00200Model
             R_Exception loEx = new R_Exception();
             try
             {
-                var rtnTemp = await _model.GetSTATUS_DTOAsync();
+                var rtnTemp = await _model.GetStatusListAsync();
                 _STATUS_LIST = rtnTemp;
                 _SearchParam.CSTATUS = _STATUS_LIST.FirstOrDefault().CCODE;
             }
@@ -306,7 +306,7 @@ namespace GLM00200Model
             R_Exception loEx = new R_Exception();
             try
             {
-                var rtnTemp = await _model.GetVAR_CURRENCIESAsync();
+                var rtnTemp = await _model.GetCurrencyListAsync();
                 _CURRENCY_LIST = rtnTemp;
             }
             catch (Exception ex)

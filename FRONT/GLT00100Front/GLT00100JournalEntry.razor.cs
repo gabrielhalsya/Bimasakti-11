@@ -63,7 +63,7 @@ namespace GLT00100Front
                     _JournalListViewModel.EnablePrint = true;
                     _JournalListViewModel.EnableCopy = true;
                     _JournalListViewModel.Journal = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(poParameter);
-                    _JournalListViewModel.JournalEntity.CREC_ID = _JournalListViewModel.Journal.CREC_ID;
+                    _JournalListViewModel._Journal.CREC_ID = _JournalListViewModel.Journal.CREC_ID;
                     _JournalListViewModel.LcCrecID = _JournalListViewModel.Journal.CREC_ID;
                     _JournalListViewModel.GetJournalDetailList();
                     _conductorRef.R_GetEntity(_JournalListViewModel.Journal.CREC_ID);
@@ -100,7 +100,7 @@ namespace GLT00100Front
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(eventArgs.Data);
-                loParam.DetailList = new List<GLT00100JournalGridDetailDTO>(_JournalListViewModel.JournaDetailList);
+                loParam.DetailList = new List<GLT00100JournalGridDetailDTO>(_JournalListViewModel._JournaDetailList);
 
                 await _JournalListViewModel.SaveJournal(loParam, (eCRUDMode)eventArgs.ConductorMode);
                 eventArgs.Result = _JournalListViewModel.Journal;
@@ -129,8 +129,8 @@ namespace GLT00100Front
             data.CCREATE_DATE = DateTime.Now.ToLongDateString();
             _enableCrudJournalDetail = true;
             _JournalListViewModel.EnablePrint = false;
-            _JournalListViewModel.JournaDetailListTemp = _JournalListViewModel.JournaDetailList;
-            _JournalListViewModel.JournaDetailList = new();
+            _JournalListViewModel._JournaDetailListTemp = _JournalListViewModel._JournaDetailList;
+            _JournalListViewModel._JournaDetailList = new();
         }
         public async Task JournalForm_RSaving(R_SavingEventArgs eventArgs)
         {
@@ -310,7 +310,7 @@ namespace GLT00100Front
                 Close(false, false);
                 if (eventArgs.ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Add)
                 {
-                    _JournalListViewModel.JournaDetailList = _JournalListViewModel.JournaDetailListTemp;
+                    _JournalListViewModel._JournaDetailList = _JournalListViewModel._JournaDetailListTemp;
                 }
             }
         }
@@ -330,7 +330,7 @@ namespace GLT00100Front
                 eventArgs.Data = _JournalListViewModel.Journal;
 
                 var loParam = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(eventArgs.Data);
-                loParam.DetailList = new List<GLT00100JournalGridDetailDTO>(_JournalListViewModel.JournaDetailList);
+                loParam.DetailList = new List<GLT00100JournalGridDetailDTO>(_JournalListViewModel._JournaDetailList);
 
                 await _JournalListViewModel.SaveJournal(loParam, eCRUDMode.EditMode);
                 eventArgs.Result = _JournalListViewModel.Journal;
@@ -353,7 +353,7 @@ namespace GLT00100Front
             {
 
                 await _JournalListViewModel.GetJournalDetailList();
-                eventArgs.ListEntityResult = _JournalListViewModel.JournaDetailList;
+                eventArgs.ListEntityResult = _JournalListViewModel._JournaDetailList;
             }
             catch (Exception ex)
             {
@@ -439,14 +439,14 @@ namespace GLT00100Front
                 }
                 if (eventArgs.ConductorMode == R_eConductorMode.Add)
                 {
-                    if (_JournalListViewModel.JournaDetailList.Any(item => item.CGLACCOUNT_NO == data.CGLACCOUNT_NO))
+                    if (_JournalListViewModel._JournaDetailList.Any(item => item.CGLACCOUNT_NO == data.CGLACCOUNT_NO))
                     {
                         loEx.Add("", $"Account No. {data.CGLACCOUNT_NO} already exists!");
                     }
                 }
 
 
-                if ((_JournalListViewModel.JournaDetailList.Count(item => item.CGLACCOUNT_NO == data.CGLACCOUNT_NO) > 0) && eventArgs.ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Edit)
+                if ((_JournalListViewModel._JournaDetailList.Count(item => item.CGLACCOUNT_NO == data.CGLACCOUNT_NO) > 0) && eventArgs.ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Edit)
                 {
                     loEx.Add("", $"Account No. {data.CGLACCOUNT_NO} already exists!");
                 }
@@ -463,10 +463,10 @@ namespace GLT00100Front
         {
             var data = (GLT00100JournalGridDetailDTO)eventArgs.Data;
 
-            if (_JournalListViewModel.JournaDetailList.Any())
+            if (_JournalListViewModel._JournaDetailList.Any())
             {
                 // Find the maximum INO value in the list and increment it by 1
-                int maxINO = _JournalListViewModel.JournaDetailList.Max(item => item.INO);
+                int maxINO = _JournalListViewModel._JournaDetailList.Max(item => item.INO);
                 data.INO = maxINO + 1;
             }
             else
@@ -521,13 +521,13 @@ namespace GLT00100Front
                     goto EndBlock;
                 }
 
-                await _JournalListViewModel.ApproveJournal(_JournalListViewModel.JournalEntity);
-                await _JournalListViewModel.GetJournal(new GLT00100DTO() { CREC_ID = _JournalListViewModel.JournalEntity.CREC_ID });
+                await _JournalListViewModel.ApproveJournal(_JournalListViewModel._Journal);
+                await _JournalListViewModel.GetJournal(new GLT00100DTO() { CREC_ID = _JournalListViewModel._Journal.CREC_ID });
                 if (_JournalListViewModel.Journal.CSTATUS == "20")
                 {
                     R_MessageBox.Show("", "Selected Journal Approved Successfully!", R_eMessageBoxButtonType.OK);
                 }
-                var param = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(_JournalListViewModel.JournalEntity);
+                var param = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(_JournalListViewModel._Journal);
                 await _JournalListViewModel.GetJournal(param);
                 _JournalListViewModel.EnableDelete = true;
                 _JournalListViewModel.SubmitLabel = "Submit";
@@ -596,7 +596,7 @@ namespace GLT00100Front
                     R_MessageBox.Show("", "Selected Journal Committed Successfully!", R_eMessageBoxButtonType.OK);
                     _JournalListViewModel.CommitLabel = "Undo Commit";
                 }
-                var param = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(_JournalListViewModel.JournalEntity);
+                var param = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(_JournalListViewModel._Journal);
                 await _JournalListViewModel.GetJournal(param);
             EndBlock:;
                 _JournalListViewModel.EnableDelete = true;
@@ -637,8 +637,8 @@ namespace GLT00100Front
 
                 goto End;
             Submit:;
-                await _JournalListViewModel.SubmitJournal(_JournalListViewModel.JournalEntity);
-                var param = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(_JournalListViewModel.JournalEntity);
+                await _JournalListViewModel.SubmitJournal(_JournalListViewModel._Journal);
+                var param = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(_JournalListViewModel._Journal);
                 await _JournalListViewModel.GetJournal(param);
             End:;
                 _JournalListViewModel.EnableDelete = true;
@@ -665,8 +665,8 @@ namespace GLT00100Front
 
                 goto EndBlock;
             Delete:;
-                await _JournalListViewModel.DeleteJournal(_JournalListViewModel.JournalEntity);
-                var param = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(_JournalListViewModel.JournalEntity);
+                await _JournalListViewModel.DeleteJournal(_JournalListViewModel._Journal);
+                var param = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(_JournalListViewModel._Journal);
                 await _JournalListViewModel.GetJournal(param);
             EndBlock:;
                 _JournalListViewModel.EnableDelete = false;
