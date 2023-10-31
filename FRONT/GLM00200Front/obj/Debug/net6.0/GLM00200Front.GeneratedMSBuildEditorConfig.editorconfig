@@ -1,0 +1,33 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows,browser
+build_property.RootNamespace = GLM00200Front
+build_property.RootNamespace = GLM00200Front
+build_property.ProjectDir = D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\repos\BS Program\SOURCE\FRONT\GLM00200Front
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/repos/BS Program/SOURCE/FRONT/GLM00200Front/ActualJournalList.razor]
+build_metadata.AdditionalFiles.TargetPath = QWN0dWFsSm91cm5hbExpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/GLM00200Front/GLM00200.razor]
+build_metadata.AdditionalFiles.TargetPath = R0xNMDAyMDAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/GLM00200Front/RecurringEntry.razor]
+build_metadata.AdditionalFiles.TargetPath = UmVjdXJyaW5nRW50cnkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/GLM00200Front/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

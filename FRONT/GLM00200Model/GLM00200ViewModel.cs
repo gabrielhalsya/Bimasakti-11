@@ -1,5 +1,5 @@
 ﻿using GLM00200Common;
-using GLM00200Common.DTO_s;
+using GLM00200Common.Init_DTO_s;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSModel;
 using R_BlazorFrontEnd;
@@ -17,29 +17,21 @@ namespace GLM00200Model
 {
     public class GLM00200ViewModel : R_ViewModel<JournalParamDTO>
     {
-        private const string CTRANS_CODE = "000030";
-
         public GLM00200Model _model = new GLM00200Model();
         public PublicLookupModel _lookupModel = new PublicLookupModel();
 
+        public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
         public ObservableCollection<JournalGridDTO> _JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
         public ObservableCollection<JournalDetailActualGridDTO> _ActualJournalList { get; set; } = new ObservableCollection<JournalDetailActualGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> _JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public ObservableCollection<JournalDetailGridDTO> _JournaDetailListTemp { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
         public GSL00700DTO _Dept { get; set; } = new GSL00700DTO();
-        public List<GSL00900DTO> _ListCenter { get; set; } = new List<GSL00900DTO>();
         public JournalParamDTO _Journal { get; set; } = new JournalParamDTO();
-        public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
-        public PeriodDetailInfoDTO _CCURRENT_PERIOD_START_DATE { get; set; } = new PeriodDetailInfoDTO();
-        public VAR_CSOFT_PERIOD_START_DATE_DTO _CSOFT_PERIOD_START_DATE { get; set; } = new VAR_CSOFT_PERIOD_START_DATE_DTO();
-        public SystemParamDTO _GL_SYSTEM_PARAM { get; set; } = new SystemParamDTO();
-        public CompanyDTO _GSM_COMPANY { get; set; } = new CompanyDTO();
-        public GSM_PeriodDTO _GSM_PERIOD { get; set; } = new GSM_PeriodDTO();
-        public TransCodeDTO _GSM_TRANSACTION_CODE { get; set; } = new TransCodeDTO();
-        public UndoCommitJrnDTO _IUNDO_COMMIT_JRN { get; set; } = new UndoCommitJrnDTO();
-        public List<StatusDTO> _STATUS_LIST { get; set; } = new List<StatusDTO>();
-        public List<CurrencyDTO> _CURRENCY_LIST { get; set; } = new List<CurrencyDTO>();
-        public List<PeriodDTO> Periods = Enumerable.Range(1, 12).Select(month => new PeriodDTO { CPERIOD_MM_CODE = month.ToString("D2"), CPERIOD_MM_TEXT = month.ToString("D2") }).ToList();
+        public List<GSL00900DTO> _ListCenter { get; set; } = new List<GSL00900DTO>();
+        public List<StatusDTO> _StatusList { get; set; } = new List<StatusDTO>();
+        public List<CurrencyDTO> _CurrencyList { get; set; } = new List<CurrencyDTO>();
+        public List<PeriodDTO> _Periods = Enumerable.Range(1, 12).Select(month => new PeriodDTO { CPERIOD_MM_CODE = month.ToString("D2"), CPERIOD_MM_TEXT = month.ToString("D2") }).ToList();
+        public InitResultData _InitData { get; set; } = new InitResultData();
         public CurrencyRateResult _CURRENCY_RATE_RESULT = new CurrencyRateResult();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public DateTime _DDOC_DATE { get; set; } = DateTime.Now;
@@ -51,6 +43,7 @@ namespace GLM00200Model
         public DateTime _defaultValue_DSTART_DATE = DateTime.Now;
         public DateTime _defaultValue_DNEXT_DATE = DateTime.Now;
 
+        private const string CTRANS_CODE = "000030";
 
         #region CRUD Journal
         public async Task ShowAllJournals()
@@ -116,6 +109,7 @@ namespace GLM00200Model
         }
         #endregion
 
+        #region JournalDetails
         public async Task GetJournalDetailList()
         {
             R_Exception loEx = new R_Exception();
@@ -150,6 +144,7 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
+        #endregion
 
         #region Init
         public async Task GetFirstDepartData()
@@ -161,6 +156,39 @@ namespace GLM00200Model
                 _Dept = loResult.FirstOrDefault();
                 _SearchParam.CDEPT_CODE = _Dept.CDEPT_CODE;
                 _SearchParam.CDEPT_NAME = _Dept.CDEPT_NAME;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        public async Task GetInitData()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                var loData = await _model.GetInitDataAsync();
+                _InitData = loData.data;
+
+                _DREF_DATE = DateTime.ParseExact(_InitData.OTODAY.CTODAY, "yyyyMMdd", CultureInfo.InvariantCulture);
+                _DSTART_DATE = DateTime.ParseExact(_InitData.OTODAY.CTODAY, "yyyyMMdd", CultureInfo.InvariantCulture);
+                _DDOC_DATE = DateTime.ParseExact(_InitData.OTODAY.CTODAY, "yyyyMMdd", CultureInfo.InvariantCulture);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        public async Task GetStatusList()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                var rtnTemp = await _model.GetStatusListAsync();
+                _StatusList = rtnTemp;
+                _SearchParam.CSTATUS = _StatusList.FirstOrDefault().CCODE;
             }
             catch (Exception ex)
             {
@@ -182,132 +210,13 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task GetVAR_GSM_COMPANY_DTOAsync()
+        public async Task GetCurrencies()
         {
             R_Exception loEx = new R_Exception();
             try
             {
-                var rtnTemp = await _model.GetVAR_GSM_COMPANY_DTOAsync();
-                _GSM_COMPANY = rtnTemp;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetVAR_GL_SYSTEM_PARAMAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var rtnTemp = await _model.GetVAR_GL_SYSTEM_PARAMAsync();
-                _GL_SYSTEM_PARAM = rtnTemp;
-                _SearchParam.CPERIOD_MM = _GL_SYSTEM_PARAM.CSOFT_PERIOD_MM;
-                _SearchParam.CPERIOD_YYYY = int.Parse(_GL_SYSTEM_PARAM.CSOFT_PERIOD_YY);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetCCURRENT_PERIOD_START_DATEAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                R_FrontContext.R_SetContext(RecurringJournalContext.CCURRENT_PERIOD_YY, _GL_SYSTEM_PARAM.CCURRENT_PERIOD_YY);
-                R_FrontContext.R_SetContext(RecurringJournalContext.CCURRENT_PERIOD_MM, _GL_SYSTEM_PARAM.CCURRENT_PERIOD_MM);
-                var rtnTemp = await _model.GetCCURRENT_PERIOD_START_DATEAsync();
-                _CCURRENT_PERIOD_START_DATE = rtnTemp;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetCSOFT_PERIOD_START_DATEAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                R_FrontContext.R_SetContext(RecurringJournalContext.CSOFT_PERIOD_MM, _GL_SYSTEM_PARAM.CSOFT_PERIOD_MM);
-                R_FrontContext.R_SetContext(RecurringJournalContext.CSOFT_PERIOD_YY, _GL_SYSTEM_PARAM.CSOFT_PERIOD_YY);
-                var rtnTemp = await _model.GetCSOFT_PERIOD_START_DATEAsync();
-                _CSOFT_PERIOD_START_DATE = rtnTemp;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetGSM_PERIODAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var rtnTemp = await _model.GetGSM_PERIODAsync();
-                _GSM_PERIOD = rtnTemp;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetGSM_TRANSACTION_CODEAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var rtnTemp = await _model.GetGSM_TRANSACTION_CODEAsync();
-                _GSM_TRANSACTION_CODE = rtnTemp;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetIUNDO_COMMIT_JRNAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var rtnTemp = await _model.GetIUNDO_COMMIT_JRNAsync();
-                _IUNDO_COMMIT_JRN = rtnTemp;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetSTATUS_DTOAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var rtnTemp = await _model.GetStatusListAsync();
-                _STATUS_LIST = rtnTemp;
-                _SearchParam.CSTATUS = _STATUS_LIST.FirstOrDefault().CCODE;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetCurrenciesAsync()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var rtnTemp = await _model.GetCurrencyListAsync();
-                _CURRENCY_LIST = rtnTemp;
+                var loRtn = await _model.GetCurrencyListAsync();
+                _CurrencyList = loRtn;
             }
             catch (Exception ex)
             {
@@ -325,7 +234,7 @@ namespace GLM00200Model
             {
                 var lcSTART_DATE = _DSTART_DATE.ToString("yyyyMMdd");
                 R_FrontContext.R_SetContext(RecurringJournalContext.CCURRENCY_CODE, _Journal.CCURRENCY_CODE);
-                R_FrontContext.R_SetContext(RecurringJournalContext.CRATETYPE_CODE, _GL_SYSTEM_PARAM.CRATETYPE_CODE);
+                R_FrontContext.R_SetContext(RecurringJournalContext.CRATETYPE_CODE, _InitData.OGL_SYSTEM_PARAM.CRATETYPE_CODE);
                 R_FrontContext.R_SetContext(RecurringJournalContext.CSTART_DATE, lcSTART_DATE);
                 _CURRENCY_RATE_RESULT = await _model.RefreshCurrencyRateAsync();
 
@@ -393,7 +302,7 @@ namespace GLM00200Model
             try
             {
                 string lcNewStatus = "20";
-                bool llAutoCommit = _GL_SYSTEM_PARAM.LCOMMIT_APVJRN;
+                bool llAutoCommit = _InitData.OGL_SYSTEM_PARAM.LCOMMIT_APVJRN;
                 bool llUndoCommit = false;
                 EModeCmmtAprvJRN loMode = EModeCmmtAprvJRN.Approval;
 

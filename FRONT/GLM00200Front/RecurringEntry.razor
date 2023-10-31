@@ -1,5 +1,4 @@
-﻿@using GLM00200Common.DTO_s;
-@using GLM00200Common;
+﻿@using GLM00200Common;
 @using Lookup_GSCOMMON.DTOs;
 @inherits R_Page
 
@@ -33,7 +32,7 @@
          </R_ItemLayout>
          <R_ItemLayout xs="2">
              <R_ComboBox @bind-Value="@_journalVM.Data.CCURRENCY_CODE"
-                         Data="_journalVM._CURRENCY_LIST"
+                         Data="_journalVM._CurrencyList"
                          R_ConductorSource="_conJournalNavigator"
                          R_EnableAdd="true"
                          R_EnableEdit="true"
@@ -135,7 +134,7 @@
                               Min="0" />
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-value="@_journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE"
+            <R_TextBox @bind-value="@_journalVM._InitData.OGSM_COMPANY.CLOCAL_CURRENCY_CODE"
                        R_ConductorSource="_conJournalNavigator"
                        Enabled="false"></R_TextBox>
         </R_ItemLayout>
@@ -192,7 +191,7 @@
                               Min="0" />
         </R_ItemLayout>
         <R_ItemLayout xs="1">
-            <R_TextBox @bind-Value="@_journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE"
+            <R_TextBox @bind-Value="@_journalVM._InitData.OGSM_COMPANY.CBASE_CURRENCY_CODE"
                        R_ConductorSource="_conJournalNavigator"
                        Enabled="false" />
         </R_ItemLayout>

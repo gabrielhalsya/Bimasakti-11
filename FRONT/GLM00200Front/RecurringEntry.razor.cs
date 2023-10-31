@@ -1,6 +1,5 @@
 ﻿using BlazorClientHelper;
 using GLM00200Common;
-using GLM00200Common.DTO_s;
 using GLM00200Model;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
@@ -37,8 +36,7 @@ namespace GLM00200Front
                 if (!string.IsNullOrWhiteSpace(pcParam))
                 {
                     _journalVM._CREC_ID = pcParam;
-                    await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
-                    await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
+                    await _journalVM.GetInitData();
                     await _conJournalNavigator.R_GetEntity(_journalVM._CREC_ID);
                     await _gridJournalDet.R_RefreshGrid(null);
                 }
@@ -69,7 +67,7 @@ namespace GLM00200Front
                     {
                         loEx.Add("", "Reference Date is required!");
                     }
-                    if (_journalVM._defaultValue_DREF_DATE < DateTime.ParseExact(_journalVM._CCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    if (_journalVM._defaultValue_DREF_DATE < DateTime.ParseExact(_journalVM._InitData.OCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
                     {
                         loEx.Add("", "Reference Date cannot be before Current Period!");
                     }
@@ -77,7 +75,7 @@ namespace GLM00200Front
                     {
                         loEx.Add("", "Reference Date cannot be after Start Date!");
                     }
-                    if (_journalVM._defaultValue_DSTART_DATE < DateTime.ParseExact(_journalVM._CCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    if (_journalVM._defaultValue_DSTART_DATE < DateTime.ParseExact(_journalVM._InitData.OCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
                     {
                         loEx.Add("", "Start Date cannot be before Current Period!");
                     }
@@ -89,7 +87,7 @@ namespace GLM00200Front
                     {
                         loEx.Add("", "Document Date cannot be after today");
                     }
-                    if (_journalVM._defaultValue_DDOC_DATE == DateTime.MinValue && _journalVM._defaultValue_DDOC_DATE < DateTime.ParseExact(_journalVM._CCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    if (_journalVM._defaultValue_DDOC_DATE == DateTime.MinValue && _journalVM._defaultValue_DDOC_DATE < DateTime.ParseExact(_journalVM._InitData.OCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
                     {
                         loEx.Add("", "Document Date cannot be before Current Period!");
                     }
@@ -189,15 +187,15 @@ namespace GLM00200Front
             try
             {
                 var loData = (JournalDTO)eventArgs.Data;
-                await _journalVM.GetCurrenciesAsync();//get list currencies
-                await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();//get company data
+                await _journalVM.GetCurrencies();//get list currencies
+                await _journalVM.GetInitData();//get company data
                 await _journalVM.GetListCenter(); // get center list for add/edit detail(grid) data
 
                 _enableCrudJournalDetail = true; //enable grid to add/edit/delete
                 _journalVM._JournaDetailListTemp = _journalVM._JournaDetailList; //add recent 
                 _journalVM._JournaDetailList = new();
 
-                loData.CCURRENCY_CODE = _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE;//set default ccurrency data when addmode
+                loData.CCURRENCY_CODE = _journalVM._InitData.OGSM_COMPANY.CLOCAL_CURRENCY_CODE;//set default ccurrency data when addmode
                 eventArgs.Data = loData;    //return
             }
             catch (Exception ex)
@@ -315,7 +313,7 @@ namespace GLM00200Front
                         loEx.Add("", "Account No. is required!");
                     }
 
-                    if (string.IsNullOrWhiteSpace(loData.CCENTER_CODE) && (loData.CBSIS == "B" && _journalVM._GSM_COMPANY.LENABLE_CENTER_BS == true) || (loData.CBSIS == "I" && _journalVM._GSM_COMPANY.LENABLE_CENTER_IS == true))
+                    if (string.IsNullOrWhiteSpace(loData.CCENTER_CODE) && (loData.CBSIS == "B" && _journalVM._InitData.OGSM_COMPANY.LENABLE_CENTER_BS == true) || (loData.CBSIS == "I" && _journalVM._InitData.OGSM_COMPANY.LENABLE_CENTER_IS == true))
                     {
                         loEx.Add("", $"Center Code is required for Account No. {loData.CGLACCOUNT_NO}!");
                     }
@@ -453,7 +451,7 @@ namespace GLM00200Front
             try
             {
                 await _journalVM.RefreshCurrencyRate();
-                if (_journalVM.Data.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
+                if (_journalVM.Data.CCURRENCY_CODE != _journalVM._InitData.OGSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
                 {
                     _enable_NLBASE_RATE = true;
                     _enable_NLCURRENCY_RATE = true;
@@ -463,7 +461,7 @@ namespace GLM00200Front
                     _enable_NLBASE_RATE = false;
                     _enable_NLCURRENCY_RATE = false;
                 }
-                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._GSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
+                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._InitData.OGSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
                 {
                     _enable_NBBASE_RATE = true;
                     _enable_NBCURRENCY_RATE = true;

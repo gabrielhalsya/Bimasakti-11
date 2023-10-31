@@ -1,6 +1,7 @@
 ﻿@page "/GLM00200"
 @using GLM00200Common;
 @using GLM00200Common.DTO_s;
+@using GLM00200Common.Init_DTO_s;
 @attribute [R_Page(Title = "RecurringList")]
 @inherits R_Page
 
@@ -28,13 +29,13 @@
         <R_Label>Next Journal Period</R_Label>
     </R_ItemLayout>
     <R_ItemLayout xs="1">
-        <R_ComboBox @bind-Value="@_journalVM._SearchParam.CPERIOD_MM" Data="_journalVM.Periods" ValueField="@nameof(PeriodDTO.CPERIOD_MM_CODE)" TextField="@nameof(PeriodDTO.CPERIOD_MM_TEXT)"
+        <R_ComboBox @bind-Value="@_journalVM._SearchParam.CPERIOD_MM" Data="_journalVM._Periods" ValueField="@nameof(PeriodDTO.CPERIOD_MM_CODE)" TextField="@nameof(PeriodDTO.CPERIOD_MM_TEXT)"
         ></R_ComboBox>
     </R_ItemLayout>
     <R_ItemLayout xs="1">
         <R_NumericTextBox @bind-Value="@_journalVM._SearchParam.CPERIOD_YYYY"
-                          Min="_journalVM._GSM_PERIOD.IMIN_YEAR"
-                          Max="_journalVM._GSM_PERIOD.IMAX_YEAR"
+                          Min="_journalVM._InitData.OGSM_PERIOD.IMIN_YEAR"
+                          Max="_journalVM._InitData.OGSM_PERIOD.IMAX_YEAR"
                           Arrows=false
                           ThousandSeparator=false/>
     </R_ItemLayout>
@@ -43,7 +44,7 @@
     </R_ItemLayout>
     <R_ItemLayout>
         <R_ComboBox @bind-Value="@_journalVM._SearchParam.CSTATUS"
-                    Data="_journalVM._STATUS_LIST"
+                    Data="_journalVM._StatusList"
                     ValueField="@nameof(StatusDTO.CCODE)"
                     TextField="@nameof(StatusDTO.CNAME)"></R_ComboBox>
     </R_ItemLayout>

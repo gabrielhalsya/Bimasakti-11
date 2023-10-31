@@ -44,3 +44,8 @@ D:\Realta NetCore Library\Test Project\GLM00200\GLM00200Front\bin\Debug\net6.0\L
 D:\Realta NetCore Library\Test Project\GLM00200\GLM00200Front\bin\Debug\net6.0\Lookup_GSModel.pdb
 D:\Realta NetCore Library\Test Project\GLM00200\GLM00200Front\bin\Debug\net6.0\Lookup_GSFRONT.dll
 D:\Realta NetCore Library\Test Project\GLM00200\GLM00200Front\bin\Debug\net6.0\Lookup_GSFRONT.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Front\obj\Debug\net6.0\GLM00200Front.csproj.CoreCompileInputs.cache

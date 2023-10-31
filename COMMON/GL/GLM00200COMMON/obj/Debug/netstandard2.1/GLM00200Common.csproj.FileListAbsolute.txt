@@ -1,0 +1,17 @@
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\GLM00200Common.deps.json
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\GLM00200Common.dll
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\GLM00200Common.pdb
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\R_APICommon.dll
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\R_APICommonDTO.dll
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\R_CommonFrontBackAPI.dll
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\R_Security.dll
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\R_ContextBackEnd.dll
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.dll
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\obj\Debug\netstandard2.1\GLM00200Common.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\obj\Debug\netstandard2.1\GLM00200Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\obj\Debug\netstandard2.1\GLM00200Common.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\obj\Debug\netstandard2.1\GLM00200Common.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\obj\Debug\netstandard2.1\GLM00200Common.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\obj\Debug\netstandard2.1\GLM00200Common.csproj.CopyComplete
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\obj\Debug\netstandard2.1\GLM00200Common.dll
+D:\repos\BS Program\SOURCE\COMMON\GL\GLM00200COMMON\obj\Debug\netstandard2.1\GLM00200Common.pdb

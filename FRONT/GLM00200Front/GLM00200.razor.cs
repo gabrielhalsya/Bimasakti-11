@@ -34,7 +34,7 @@ namespace GLM00200Front
                 await _journalVM.GetGSM_PERIODAsync();
                 await _journalVM.GetGSM_TRANSACTION_CODEAsync();
                 await _journalVM.GetIUNDO_COMMIT_JRNAsync();
-                await _journalVM.GetSTATUS_DTOAsync();
+                await _journalVM.GetStatusList();
             }
             catch (Exception ex)
             {
