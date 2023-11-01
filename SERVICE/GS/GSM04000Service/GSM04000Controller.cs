@@ -1,6 +1,7 @@
 ﻿using GSM04000Back;
 using GSM04000Common;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
@@ -12,9 +13,19 @@ namespace GSM04000Service
     [ApiController]
     public class GSM04000Controller : ControllerBase, IGSM04000
     {
+        private LoggerGSM04000 _logger;
+
+        public GSM04000Controller(ILogger<GSM04000Controller> logger)
+        {
+            //initiate
+            LoggerGSM04000.R_InitializeLogger(logger);
+            _logger = LoggerGSM04000.R_GetInstanceLogger();
+        }
+
         [HttpPost]
         public IAsyncEnumerable<GSM04000DTO> GetGSM04000List()
         {
+            _logger.LogInfo("Start - Get Department List");
             R_Exception loException = new R_Exception();
             List<GSM04000DTO> loRtnTemp = null;
             GSM04000ListDBParameterDTO loDbParam;
@@ -22,7 +33,8 @@ namespace GSM04000Service
             try
             {
                 loCls = new GSM04000Cls();
-                loRtnTemp = loCls.GetList(new GSM04000ListDBParameterDTO()
+                _logger.LogInfo("Execute back method - Get Department List");
+                loRtnTemp = loCls.GetDeptList(new GSM04000ListDBParameterDTO()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
                     CUSER_LOGIN_ID = R_BackGlobalVar.USER_ID
@@ -31,9 +43,11 @@ namespace GSM04000Service
             catch (Exception ex)
             {
                 loException.Add(ex);
+                _logger.LogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
+            _logger.LogInfo("End - Get Department List");
             return GSM0400StreamListHelper(loRtnTemp);
         }
 

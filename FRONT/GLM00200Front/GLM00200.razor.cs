@@ -1,5 +1,4 @@
 ﻿using GLM00200Common;
-using GLM00200Common.DTO_s;
 using GLM00200Model;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
@@ -27,13 +26,7 @@ namespace GLM00200Front
             try
             {
                 await _journalVM.GetFirstDepartData();
-                await _journalVM.GetVAR_GSM_COMPANY_DTOAsync();
-                await _journalVM.GetVAR_GL_SYSTEM_PARAMAsync();
-                await _journalVM.GetCCURRENT_PERIOD_START_DATEAsync();
-                await _journalVM.GetCSOFT_PERIOD_START_DATEAsync();
-                await _journalVM.GetGSM_PERIODAsync();
-                await _journalVM.GetGSM_TRANSACTION_CODEAsync();
-                await _journalVM.GetIUNDO_COMMIT_JRNAsync();
+                await _journalVM.GetInitData();
                 await _journalVM.GetStatusList();
             }
             catch (Exception ex)

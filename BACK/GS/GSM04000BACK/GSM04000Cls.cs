@@ -15,6 +15,13 @@ namespace GSM04000Back
 {
     public class GSM04000Cls : R_BusinessObject<GSM04000DTO>
     {
+        private LoggerGSM04000 _logger;
+
+        public GSM04000Cls()
+        {
+            _logger = LoggerGSM04000.R_GetInstanceLogger();
+        }
+
         protected override void R_Deleting(GSM04000DTO poEntity)
         {
             R_Exception loEx = new R_Exception();
@@ -181,7 +188,7 @@ namespace GSM04000Back
             loEx.ThrowExceptionIfErrors();
         }
 
-        public List<GSM04000DTO> GetList(GSM04000ListDBParameterDTO poEntity)
+        public List<GSM04000DTO> GetDeptList(GSM04000ListDBParameterDTO poEntity)
         {
             R_Exception loEx = new R_Exception();
             List<GSM04000DTO> loRtn = null;
@@ -202,12 +209,22 @@ namespace GSM04000Back
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poEntity.CCOMPANY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_LOGIN_ID);
 
+                var loDbParam = loCmd.Parameters.Cast<DbParameter>()
+                .Where(x =>
+                    x.ParameterName is
+                        "@CCOMPANY_ID" or
+                        "@CUSER_ID"
+                )
+                .Select(x => x.Value);
+
+                _logger.LogDebug("EXEC {lcQuery} {@poParam}", lcQuery, loDbParam);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<GSM04000DTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                _logger.LogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
