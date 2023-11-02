@@ -470,7 +470,7 @@ namespace GSM04000Front
                 {
                     var loByteFile = await _deptViewModel.DownloadTemplate();
 
-                    var saveFileName = $"{_clientHelper.CompanyId}.xlsx";
+                    var saveFileName = $"Department - {_clientHelper.CompanyId}.xlsx";
 
                     await JS.downloadFileFromStreamHandler(saveFileName, loByteFile.FileBytes);
                 }
@@ -483,6 +483,5 @@ namespace GSM04000Front
             R_DisplayException(loEx);
         }
         #endregion//Template
-
     }
 }

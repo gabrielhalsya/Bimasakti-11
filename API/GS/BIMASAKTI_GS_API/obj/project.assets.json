@@ -595,10 +595,12 @@
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
         "build": {
-          "build/_._": {}
+          "build/Microsoft.Extensions.ApiDescription.Server.props": {},
+          "build/Microsoft.Extensions.ApiDescription.Server.targets": {}
         },
         "buildMultiTargeting": {
-          "buildMultiTargeting/_._": {}
+          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.props": {},
+          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets": {}
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
@@ -1184,7 +1186,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Mindbox.Data.Linq": "5.0.0",
           "Realta.CommonCollectionNuGet": "1.0.0",
-          "SendGrid": "9.28.1",
+          "Realta.EmailCollectionNuGet": "1.0.0",
           "Serilog.AspNetCore": "6.1.0",
           "Serilog.Enrichers.CorrelationId": "3.0.1",
           "Serilog.Extensions.Logging": "3.1.0",
@@ -1192,7 +1194,7 @@
           "SkiaSharp.NativeAssets.Linux": "2.88.5",
           "Swashbuckle.AspNetCore": "6.2.3",
           "Swashbuckle.AspNetCore.Filters": "7.0.5",
-          "System.Configuration.ConfigurationManager": "6.0.0",
+          "System.Configuration.ConfigurationManager": "6.0.1",
           "System.Data.SqlClient": "4.8.5",
           "System.IdentityModel.Tokens.Jwt": "6.23.1"
         },
@@ -1217,6 +1219,18 @@
         },
         "runtime": {
           "lib/netstandard2.1/CommonCollectionNuGet.dll": {}
+        }
+      },
+      "Realta.EmailCollectionNuGet/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "SendGrid": "9.28.1"
+        },
+        "compile": {
+          "lib/net6.0/EmailCollectionNuGet.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/EmailCollectionNuGet.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -1803,7 +1817,7 @@
           "Swashbuckle.AspNetCore.SwaggerUI": "6.2.3"
         },
         "build": {
-          "build/_._": {}
+          "build/Swashbuckle.AspNetCore.props": {}
         }
       },
       "Swashbuckle.AspNetCore.Filters/7.0.5": {
@@ -2066,7 +2080,7 @@
           "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Configuration.ConfigurationManager/6.0.0": {
+      "System.Configuration.ConfigurationManager/6.0.1": {
         "type": "package",
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
@@ -3483,6 +3497,49 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "GSM04000Back/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GSM04000Common": "1.0.0",
+          "RSP_GS_MAINTAIN_DEPARTMENTResources": "1.0.0",
+          "RSP_GS_UPLOAD_DEPARTMENTResources": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "compile": {
+          "bin/placeholder/GSM04000Back.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GSM04000Back.dll": {}
+        }
+      },
+      "GSM04000Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/GSM04000Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GSM04000Common.dll": {}
+        }
+      },
+      "GSM04000Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GSM04000Back": "1.0.0",
+          "GSM04000Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GSM04000Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GSM04000Service.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Lookup_GSBACK/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3521,6 +3578,26 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/RSP_GS_MAINTAIN_DEPARTMENTResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RSP_GS_MAINTAIN_DEPARTMENTResources.dll": {}
+        }
+      },
+      "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/RSP_GS_UPLOAD_DEPARTMENTResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RSP_GS_UPLOAD_DEPARTMENTResources.dll": {}
+        }
       }
     }
   },
@@ -5144,7 +5221,7 @@
       ]
     },
     "Realta.BackCollectionNuGet/1.0.0": {
-      "sha512": "MzVxKRQByYBze7owJMT+QWsZiUuaHELS4qXFj8E/zzIy9Tl6B/r5n8Dc3m6OKZXctvoqgKCXaraSrAqnR+SAOg==",
+      "sha512": "F2m5j7vUTRViBM51SbNfeCSsYzEiUMx27eG8/FhZUu+rJq+ziL0Id8nAJl2GIIVFXu2NtqNgwKJqltZBjzfUSQ==",
       "type": "package",
       "path": "realta.backcollectionnuget/1.0.0",
       "files": [
@@ -5163,6 +5240,17 @@
         "lib/netstandard2.1/CommonCollectionNuGet.dll",
         "realta.commoncollectionnuget.1.0.0.nupkg.sha512",
         "realta.commoncollectionnuget.nuspec"
+      ]
+    },
+    "Realta.EmailCollectionNuGet/1.0.0": {
+      "sha512": "EgdenTUrFR+aOasGiaG1DBjUM1cIjq/WBt4PwEcfb15uLxtd9urEgN03kAA0Bn816Vdbxls4JOpJA9Re49AzEQ==",
+      "type": "package",
+      "path": "realta.emailcollectionnuget/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net6.0/EmailCollectionNuGet.dll",
+        "realta.emailcollectionnuget.1.0.0.nupkg.sha512",
+        "realta.emailcollectionnuget.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -6625,10 +6713,10 @@
         "system.componentmodel.typeconverter.nuspec"
       ]
     },
-    "System.Configuration.ConfigurationManager/6.0.0": {
-      "sha512": "7T+m0kDSlIPTHIkPMIu6m6tV6qsMqJpvQWW2jIc2qi7sn40qxFo0q+7mEQAhMPXZHMKnWrnv47ntGlM/ejvw3g==",
+    "System.Configuration.ConfigurationManager/6.0.1": {
+      "sha512": "jXw9MlUu/kRfEU0WyTptAVueupqIeE3/rl0EZDMlf8pcvJnitQ8HeVEp69rZdaStXwTV72boi/Bhw8lOeO+U2w==",
       "type": "package",
-      "path": "system.configuration.configurationmanager/6.0.0",
+      "path": "system.configuration.configurationmanager/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6645,7 +6733,7 @@
         "lib/netstandard2.0/System.Configuration.ConfigurationManager.xml",
         "runtimes/win/lib/net461/System.Configuration.ConfigurationManager.dll",
         "runtimes/win/lib/net461/System.Configuration.ConfigurationManager.xml",
-        "system.configuration.configurationmanager.6.0.0.nupkg.sha512",
+        "system.configuration.configurationmanager.6.0.1.nupkg.sha512",
         "system.configuration.configurationmanager.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -10228,6 +10316,21 @@
       "path": "../../../../../BS Shared Form/SOURCE/SERVICES/GFF00900SERVICES/GFF00900SERVICES.csproj",
       "msbuildProject": "../../../../../BS Shared Form/SOURCE/SERVICES/GFF00900SERVICES/GFF00900SERVICES.csproj"
     },
+    "GSM04000Back/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GS/GSM04000Back/GSM04000Back.csproj",
+      "msbuildProject": "../../../BACK/GS/GSM04000Back/GSM04000Back.csproj"
+    },
+    "GSM04000Common/1.0.0": {
+      "type": "project",
+      "path": "../../../COMMON/GS/GSM04000Common/GSM04000Common.csproj",
+      "msbuildProject": "../../../COMMON/GS/GSM04000Common/GSM04000Common.csproj"
+    },
+    "GSM04000Service/1.0.0": {
+      "type": "project",
+      "path": "../../../SERVICE/GS/GSM04000Service/GSM04000Service.csproj",
+      "msbuildProject": "../../../SERVICE/GS/GSM04000Service/GSM04000Service.csproj"
+    },
     "Lookup_GSBACK/1.0.0": {
       "type": "project",
       "path": "../../../../../BS Shared Form/SOURCE/BACK/Lookup_GSBACK/Lookup_GSBACK.csproj",
@@ -10242,13 +10345,26 @@
       "type": "project",
       "path": "../../../../../BS Shared Form/SOURCE/SERVICES/Lookup_GSSERVICES/Lookup_GSSERVICES.csproj",
       "msbuildProject": "../../../../../BS Shared Form/SOURCE/SERVICES/Lookup_GSSERVICES/Lookup_GSSERVICES.csproj"
+    },
+    "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_DEPARTMENTResources/RSP_GS_MAINTAIN_DEPARTMENTResources.csproj",
+      "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_DEPARTMENTResources/RSP_GS_MAINTAIN_DEPARTMENTResources.csproj"
+    },
+    "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GS/GS_SPR/RSP_GS_UPLOAD_DEPARTMENTResources/RSP_GS_UPLOAD_DEPARTMENTResources.csproj",
+      "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_UPLOAD_DEPARTMENTResources/RSP_GS_UPLOAD_DEPARTMENTResources.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "GFF00900SERVICES >= 1.0.0",
+      "GSM04000Service >= 1.0.0",
       "Lookup_GSSERVICES >= 1.0.0",
-      "Realta.BackCollectionNuGet >= 1.0.0"
+      "Realta.BackCollectionNuGet >= 1.0.0",
+      "Realta.CommonCollectionNuGet >= 1.0.0",
+      "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
@@ -10286,6 +10402,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04000Service\\GSM04000Service.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04000Service\\GSM04000Service.csproj"
+            },
             "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\GFF00900SERVICES\\GFF00900SERVICES.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\GFF00900SERVICES\\GFF00900SERVICES.csproj"
             },
@@ -10308,6 +10427,14 @@
           "Realta.BackCollectionNuGet": {
             "target": "Package",
             "version": "[1.0.0, )"
+          },
+          "Realta.CommonCollectionNuGet": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[6.2.3, )"
           }
         },
         "imports": [

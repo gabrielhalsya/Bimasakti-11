@@ -11,6 +11,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Realta.BackCollectionNuGet" Version="1.0.0" />
+		<PackageReference Include="Realta.CommonCollectionNuGet" Version="1.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Template\Department.xlsx" />
 	</ItemGroup>
 
@@ -21,12 +27,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Realta.BackCollectionNuGet" Version="1.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\..\..\..\..\BS Shared Form\SOURCE\SERVICES\GFF00900SERVICES\GFF00900SERVICES.csproj" />
 		<ProjectReference Include="..\..\..\..\..\BS Shared Form\SOURCE\SERVICES\Lookup_GSSERVICES\Lookup_GSSERVICES.csproj" />
+		<ProjectReference Include="..\..\..\SERVICE\GS\GSM04000Service\GSM04000Service.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

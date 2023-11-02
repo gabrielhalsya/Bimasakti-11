@@ -113,7 +113,7 @@ namespace GSM04000Model
             return loRtn;
         }
 
-        public GSM04000DeleteAssignedUserWhenEveryoneTrueDTO DeleteDeptUserWhenChaningEveryone()
+        public GSM04000DeleteAssignedUserWhenEveryoneTrueDTO DeleteDeptUserWhenChangingEveryone()
         {
             throw new NotImplementedException();
         }
@@ -128,7 +128,7 @@ namespace GSM04000Model
 
                 loRtn = await R_HTTPClientWrapper.R_APIRequestObject<GSM04000DeleteAssignedUserWhenEveryoneTrueDTO>(
                     _RequestServiceEndPoint,
-                    nameof(IGSM04000.DeleteDeptUserWhenChaningEveryone),
+                    nameof(IGSM04000.DeleteDeptUserWhenChangingEveryone),
                     DEFAULT_MODULE, _SendWithContext,
                     _SendWithToken);
             }

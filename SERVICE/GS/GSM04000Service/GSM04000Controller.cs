@@ -14,7 +14,6 @@ namespace GSM04000Service
     public class GSM04000Controller : ControllerBase, IGSM04000
     {
         private LoggerGSM04000 _logger;
-
         public GSM04000Controller(ILogger<GSM04000Controller> logger)
         {
             //initiate
@@ -62,6 +61,7 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<GSM04000DTO> poParameter)
         {
+            _logger.LogInfo("Start - Delete Department");
             R_ServiceDeleteResultDTO loRtn = null;
             R_Exception loException = new R_Exception();
             GSM04000Cls loCls;
@@ -71,21 +71,24 @@ namespace GSM04000Service
                 loCls = new GSM04000Cls(); //create cls class instance
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
-
+                _logger.LogInfo("Execute back method - Delete Department");
                 loCls.R_Delete(poParameter.Entity);
             }
             catch (Exception ex)
             {
                 loException.Add(ex);
+                _logger.LogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
+            _logger.LogInfo("End - Delete Department");
             return loRtn;
         }
 
         [HttpPost]
         public R_ServiceGetRecordResultDTO<GSM04000DTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<GSM04000DTO> poParameter)
         {
+            _logger.LogInfo("Start - Get Department");
             R_ServiceGetRecordResultDTO<GSM04000DTO> loRtn = null;
             R_Exception loException = new R_Exception();
             GSM04000Cls loCls;
@@ -95,20 +98,24 @@ namespace GSM04000Service
                 loRtn = new R_ServiceGetRecordResultDTO<GSM04000DTO>();
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
+                _logger.LogInfo("Execute back method - Get Department");
                 loRtn.data = loCls.R_GetRecord(poParameter.Entity);
             }
             catch (Exception ex)
             {
                 loException.Add(ex);
+                _logger.LogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
+            _logger.LogInfo("End - Get Department");
             return loRtn;
         }
 
         [HttpPost]
         public R_ServiceSaveResultDTO<GSM04000DTO> R_ServiceSave(R_ServiceSaveParameterDTO<GSM04000DTO> poParameter)
         {
+            _logger.LogInfo("Start - Save Department");
             R_ServiceSaveResultDTO<GSM04000DTO> loRtn = null;
             R_Exception loException = new R_Exception();
             GSM04000Cls loCls;
@@ -118,21 +125,25 @@ namespace GSM04000Service
                 loRtn = new R_ServiceSaveResultDTO<GSM04000DTO>();
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
+                _logger.LogInfo("Execute back method - Save Department");
                 loRtn.data = loCls.R_Save(poParameter.Entity, poParameter.CRUDMode);//call clsMethod to save
             }
             catch (Exception ex)
             {
                 loException.Add(ex);
+                _logger.LogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
+            _logger.LogInfo("End - Save Department");
             return loRtn;
         }
 
         [HttpPost]
         public GSM04000ActiveInactiveDTO RSP_GS_ACTIVE_INACTIVE_DEPTMethod()
         {
-            R_Exception loEx = new R_Exception();
+            _logger.LogInfo("Start - ActiveInactive Department");
+            R_Exception loException = new R_Exception();
             GSM04000ActiveInactiveDTO loRtn = new GSM04000ActiveInactiveDTO();
             GSM04000ActiveInactiveParam loParam = new GSM04000ActiveInactiveParam();
             GSM04000Cls loCls = new GSM04000Cls();
@@ -142,21 +153,24 @@ namespace GSM04000Service
                 loParam.CDEPT_CODE = R_Utility.R_GetContext<string>(ContextConstant.CDEPT_CODE);
                 loParam.LACTIVE = R_Utility.R_GetContext<bool>(ContextConstant.LACTIVE);
                 loParam.CUSER_ID = R_BackGlobalVar.USER_ID;
-
+                _logger.LogInfo("ExecuteMethod - ActiveInactive Department");
                 loCls.RSP_GS_ACTIVE_INACTIVE_DEPTMethodCls(loParam);
 
             }
             catch (Exception ex)
             {
-                loEx.Add(ex);
+                loException.Add(ex);
+                _logger.LogError(loException);
             }
-            loEx.ThrowExceptionIfErrors();
+            loException.ThrowExceptionIfErrors();
+            _logger.LogInfo("End - ActiveInactive Department");
             return loRtn;
         }
 
         [HttpPost]
         public GSM04000CheckUserExistResultDTO CheckIsUserDeptExist()
         {
+            _logger.LogInfo("Start - CheckIsUserDeptExist Department");
             R_Exception loException = new R_Exception();
             GSM04000CheckUserExistResultDTO loRtn = null;
             GSM04000Cls loCls;
@@ -168,26 +182,30 @@ namespace GSM04000Service
                 loParameter = new GSM04000DTO();
                 loParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loParameter.CDEPT_CODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CDEPT_CODE);
+                _logger.LogInfo("Execute method - CheckIsUserDeptExist Department");
                 loRtn.UserDeptExist = loCls.CheckIsUserDeptExist(loParameter);
             }
             catch (Exception ex)
             {
                 loException.Add(ex);
+                _logger.LogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
+            _logger.LogInfo("End - CheckIsUserDeptExist Department");
             return loRtn;
         }
 
         [HttpPost]
-        public GSM04000DeleteAssignedUserWhenEveryoneTrueDTO DeleteDeptUserWhenChaningEveryone()
+        public GSM04000DeleteAssignedUserWhenEveryoneTrueDTO DeleteDeptUserWhenChangingEveryone()
         {
+            _logger.LogInfo("Start - Delete Assigned DeptUser When Changing Everyone");
             R_Exception loException = new R_Exception();
             GSM04000Cls loCls;
-            GSM04000DTO loParameter = null;
             try
             {
                 loCls = new GSM04000Cls(); //create cls class instance
+                _logger.LogInfo("Execute method - Delete Assigned DeptUser When Changing Everyone");
                 loCls.DeleteAssignedUserDept(new GSM04000DTO()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
@@ -197,42 +215,41 @@ namespace GSM04000Service
             catch (Exception ex)
             {
                 loException.Add(ex);
+                _logger.LogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
+            _logger.LogInfo("End - Delete DeptUser When Changing Everyone");
             return new GSM04000DeleteAssignedUserWhenEveryoneTrueDTO() { LSUCCESS = true };
         }
 
         [HttpPost]
         public UploadFileDTO DownloadTemplateDeptartment()
         {
-            var loEx = new R_Exception();
-            var loRtn = new UploadFileDTO();
-
+            _logger.LogInfo("Start - Download template for upload department");
+            R_Exception loException = new();
+            UploadFileDTO loRtn = new();
             try
             {
                 Assembly loAsm = Assembly.Load("BIMASAKTI_GS_API");
                 var lcResourceFile = "BIMASAKTI_GS_API.Template.Department.xlsx";
-
+                _logger.LogInfo("Execute file stream - Download template for upload department");
                 using (Stream resFilestream = loAsm.GetManifestResourceStream(lcResourceFile))
                 {
                     var ms = new MemoryStream();
                     resFilestream.CopyTo(ms);
                     var bytes = ms.ToArray();
-
                     loRtn.FileBytes = bytes;
                 }
             }
             catch (Exception ex)
             {
-                loEx.Add(ex);
+                loException.Add(ex);
+                _logger.LogError(loException);
             }
-
-            loEx.ThrowExceptionIfErrors();
-
+            loException.ThrowExceptionIfErrors();
+            _logger.LogInfo("End - Download template for upload department");
             return loRtn;
         }
-
-
     }
 }

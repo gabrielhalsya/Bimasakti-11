@@ -30,7 +30,7 @@ namespace GSM04000Model
         }
 
         #region GetDepartmentUserList
-        public GSM04100ListDTO GetGSM04100ListByDeptCode()
+        public GSM04100ListDTO GetUserDeptListByDeptCode()
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace GSM04000Model
                     R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
                     loResult = await R_HTTPClientWrapper.R_APIRequestObject<GSM04100ListDTO>(
                         _RequestServiceEndPoint,
-                        nameof(IGSM04100.GetGSM04100ListByDeptCode),
+                        nameof(IGSM04100.GetUserDeptListByDeptCode),
                         DEFAULT_MODULE, _SendWithContext,
                         _SendWithToken);
                 }

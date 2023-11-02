@@ -785,7 +785,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Mindbox.Data.Linq": "5.0.0",
           "Realta.CommonCollectionNuGet": "1.0.0",
-          "SendGrid": "9.28.1",
+          "Realta.EmailCollectionNuGet": "1.0.0",
           "Serilog.AspNetCore": "6.1.0",
           "Serilog.Enrichers.CorrelationId": "3.0.1",
           "Serilog.Extensions.Logging": "3.1.0",
@@ -793,7 +793,7 @@
           "SkiaSharp.NativeAssets.Linux": "2.88.5",
           "Swashbuckle.AspNetCore": "6.2.3",
           "Swashbuckle.AspNetCore.Filters": "7.0.5",
-          "System.Configuration.ConfigurationManager": "6.0.0",
+          "System.Configuration.ConfigurationManager": "6.0.1",
           "System.Data.SqlClient": "4.8.5",
           "System.IdentityModel.Tokens.Jwt": "6.23.1"
         },
@@ -814,6 +814,17 @@
         },
         "runtime": {
           "lib/netstandard2.1/CommonCollectionNuGet.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Realta.EmailCollectionNuGet/1.0.0": {
+        "dependencies": {
+          "SendGrid": "9.28.1"
+        },
+        "runtime": {
+          "lib/net6.0/EmailCollectionNuGet.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1318,7 +1329,7 @@
           "System.Threading": "4.3.0"
         }
       },
-      "System.Configuration.ConfigurationManager/6.0.0": {
+      "System.Configuration.ConfigurationManager/6.0.1": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
           "System.Security.Permissions": "6.0.0"
@@ -1326,7 +1337,7 @@
         "runtime": {
           "lib/net6.0/System.Configuration.ConfigurationManager.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
+            "fileVersion": "6.0.922.41905"
           }
         }
       },
@@ -1378,7 +1389,7 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
           "Microsoft.Win32.Registry": "5.0.0",
-          "System.Configuration.ConfigurationManager": "6.0.0",
+          "System.Configuration.ConfigurationManager": "6.0.1",
           "System.Security.Principal.Windows": "5.0.0"
         },
         "runtime": {
@@ -2602,7 +2613,7 @@
     "Realta.BackCollectionNuGet/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MzVxKRQByYBze7owJMT+QWsZiUuaHELS4qXFj8E/zzIy9Tl6B/r5n8Dc3m6OKZXctvoqgKCXaraSrAqnR+SAOg==",
+      "sha512": "sha512-F2m5j7vUTRViBM51SbNfeCSsYzEiUMx27eG8/FhZUu+rJq+ziL0Id8nAJl2GIIVFXu2NtqNgwKJqltZBjzfUSQ==",
       "path": "realta.backcollectionnuget/1.0.0",
       "hashPath": "realta.backcollectionnuget.1.0.0.nupkg.sha512"
     },
@@ -2612,6 +2623,13 @@
       "sha512": "sha512-wDjnV+uxdI6sHcCcU1CsKNOlUVNI52JQcjLqOhWnwb2WV4vFL9TrJplHB0i5Lygc+N02s7VIen9U+MffqQrCVg==",
       "path": "realta.commoncollectionnuget/1.0.0",
       "hashPath": "realta.commoncollectionnuget.1.0.0.nupkg.sha512"
+    },
+    "Realta.EmailCollectionNuGet/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EgdenTUrFR+aOasGiaG1DBjUM1cIjq/WBt4PwEcfb15uLxtd9urEgN03kAA0Bn816Vdbxls4JOpJA9Re49AzEQ==",
+      "path": "realta.emailcollectionnuget/1.0.0",
+      "hashPath": "realta.emailcollectionnuget.1.0.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -3019,12 +3037,12 @@
       "path": "system.componentmodel.typeconverter/4.3.0",
       "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
     },
-    "System.Configuration.ConfigurationManager/6.0.0": {
+    "System.Configuration.ConfigurationManager/6.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7T+m0kDSlIPTHIkPMIu6m6tV6qsMqJpvQWW2jIc2qi7sn40qxFo0q+7mEQAhMPXZHMKnWrnv47ntGlM/ejvw3g==",
-      "path": "system.configuration.configurationmanager/6.0.0",
-      "hashPath": "system.configuration.configurationmanager.6.0.0.nupkg.sha512"
+      "sha512": "sha512-jXw9MlUu/kRfEU0WyTptAVueupqIeE3/rl0EZDMlf8pcvJnitQ8HeVEp69rZdaStXwTV72boi/Bhw8lOeO+U2w==",
+      "path": "system.configuration.configurationmanager/6.0.1",
+      "hashPath": "system.configuration.configurationmanager.6.0.1.nupkg.sha512"
     },
     "System.Console/4.3.0": {
       "type": "package",

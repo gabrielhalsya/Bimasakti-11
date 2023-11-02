@@ -233,17 +233,6 @@ namespace GSM04000Model
                             _sumValidDataDeptExcel++;
                         }
                     });
-
-                    //Set DataSetTable and get error
-                    //var loDataTable = R_FrontUtility.R_ConvertTo<GSM04000ExcelGridDTO>(_DepartmentExcelGridData);
-                    //loDataTable.TableName = "Department";
-
-                    //var loDataSet = new DataSet();
-                    //loDataSet.Tables.Add(loDataTable);
-
-                    //// Asign Dataset
-                    //_excelDataset = loDataSet;
-
                 }
             }
             catch (Exception ex)

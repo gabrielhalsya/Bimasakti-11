@@ -1,5 +1,4 @@
-﻿
-@using Microsoft.JSInterop;
+﻿@using Microsoft.JSInterop;
 @inherits R_Page
 @inject IJSRuntime _JSRuntime
 @attribute [R_Page(Title = "Upload Department")]
@@ -34,7 +33,6 @@
                 <R_ProgressBar Label="@_deptUploadViewModel._progressBarMessage" MaxValue="100" Value="@_deptUploadViewModel._progressBarPercentage"></R_ProgressBar>
             </R_ItemLayout>
         </R_StackLayout>
-
         <R_StackLayout Row>
             <R_ItemLayout col="8">
                 <R_StackLayout Row>
