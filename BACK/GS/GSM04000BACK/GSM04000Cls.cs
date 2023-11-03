@@ -51,18 +51,22 @@ namespace GSM04000Back
 
                 try
                 {
+                    var loDbParam = loCmd.Parameters.Cast<DbParameter>().Where(x => x.ParameterName is "@CCOMPANY_ID" or "@CDEPT_CODE" or "@CDEPT_NAME" or "@CCENTER_CODE" or "@CMANAGER_NAME" or "@LEVERYONE" or "@LACTIVE" or "@CACTION" or "@CUSER_ID")
+                    .Select(x => x.Value); //gettin param into var to show in log debug
+                    _logger.LogDebug("EXEC {lcQuery} {@poParam}", lcQuery, loDbParam);
                     loDb.SqlExecNonQuery(loConn, loCmd, false);
                 }
                 catch (Exception ex)
                 {
                     loEx.Add(ex);
+                    _logger.LogError(loEx);
                 }
-
                 loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                _logger.LogError(loEx);
             }
 
             finally
@@ -104,13 +108,16 @@ namespace GSM04000Back
                 loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poEntity.CDEPT_CODE);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
 
-
+                var loDbParam = loCmd.Parameters.Cast<DbParameter>().Where(x => x.ParameterName is "@CCOMPANY_ID" or "@CDEPT_CODE" or "@CUSER_ID")
+                    .Select(x => x.Value); //gettin param into var to show in log debug
+                _logger.LogDebug("EXEC {lcQuery} {@poParam}", lcQuery, loDbParam);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<GSM04000DTO>(loRtnTemp).FirstOrDefault();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                _logger.LogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -157,8 +164,10 @@ namespace GSM04000Back
                 loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 8, poNewEntity.CUSER_ID);
                 try
                 {
+                    var loDbParam = loCmd.Parameters.Cast<DbParameter>().Where(x => x.ParameterName is "@CCOMPANY_ID" or "@CDEPT_CODE" or "@CDEPT_NAME" or "@CCENTER_CODE" or "@CMANAGER_NAME" or "@LEVERYONE" or "@LACTIVE" or "@CACTION" or "@CUSER_ID")
+                    .Select(x => x.Value); //gettin param into var to show in log debug
+                    _logger.LogDebug("EXEC {lcQuery} {@poParam}", lcQuery, loDbParam);
                     loDb.SqlExecNonQuery(loConn, loCmd, false);
-                    
                 }
                 catch (Exception ex)
                 {
@@ -169,8 +178,8 @@ namespace GSM04000Back
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                _logger.LogError(loEx);
             }
-
             finally
             {
                 if (loConn != null)
@@ -249,11 +258,16 @@ namespace GSM04000Back
                 loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 20, poEntity.CDEPT_CODE);
                 loDb.R_AddCommandParameter(loCmd, "@LACTIVE", DbType.Boolean, 2, poEntity.LACTIVE);
                 loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 8, poEntity.CUSER_ID);
+
+                var loDbParam = loCmd.Parameters.Cast<DbParameter>().Where(x => x.ParameterName is "@CCOMPANY_ID" or "@CDEPT_CODE" or "@LACTIVE" or "@CUSER_ID")
+                    .Select(x => x.Value); //gettin param into var to show in log debug
+                _logger.LogDebug("EXEC {lcQuery} {@poParam}", lcQuery, loDbParam);
                 loDb.SqlExecNonQuery(loConn, loCmd, true);
             }
             catch (Exception ex)
             {
                 loex.Add(ex);
+                _logger.LogError(loex);
             }
         EndBlock:
             loex.ThrowExceptionIfErrors();
@@ -270,9 +284,15 @@ namespace GSM04000Back
                 string lcQuery = $"SELECT TOP 1 1 FROM GSM_DEPT_USER (NOLOCK) WHERE CCOMPANY_ID = @CCOMPANY_ID AND CDEPT_CODE = @CDEPT_CODE";
                 DbCommand loCmd = loDb.GetCommand();
                 loCmd.CommandText = lcQuery;
+
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poEntity.CCOMPANY_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poEntity.CDEPT_CODE);
+                
+                var loDbParam = loCmd.Parameters.Cast<DbParameter>().Where(x => x.ParameterName is "@CCOMPANY_ID" or "@CDEPT_CODE").Select(x => x.Value); //gettin param into var to show in log debug
+                _logger.LogDebug("EXEC {lcQuery} {@poParam}", lcQuery, loDbParam);
+                
                 var loResult = loDb.SqlExecQuery(loConn, loCmd, true);
+                
                 loRtn = loResult == null ? false : true;
             }
             catch (Exception ex)
@@ -301,16 +321,16 @@ namespace GSM04000Back
                 loCmd.CommandText = lcCmd;
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, poEntity.CCOMPANY_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 8, poEntity.CDEPT_CODE);
-                loDb = new R_Db();
-                loDb.SqlExecNonQuery(loConn,loCmd,true);
+                var loDbParam = loCmd.Parameters.Cast<DbParameter>().Where(x => x.ParameterName is "@CCOMPANY_ID" or "@CDEPT_CODE").Select(x => x.Value); //gettin param into var to show in log debug
+                loDb.SqlExecNonQuery(loConn, loCmd, true);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                _logger.LogError(loEx);
             }
         EndBlock:
             loEx.ThrowExceptionIfErrors();
-
         }
     }
 }

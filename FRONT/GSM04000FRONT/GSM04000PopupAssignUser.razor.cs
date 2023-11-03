@@ -10,7 +10,6 @@ namespace GSM04000Front
     {
         private GSM04100ViewModel _deptUserViewModel = new GSM04100ViewModel();
         private R_Grid<GSM04100DTO> _gridDeptUserToAssignRef;
-
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
@@ -28,7 +27,6 @@ namespace GSM04000Front
 
             R_DisplayException(loEx);
         }
-
         private async Task R_ServiceGetListRecordAsync(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -53,7 +51,6 @@ namespace GSM04000Front
         {
             await this.Close(true, null);
         }
-
     }
 }
 
