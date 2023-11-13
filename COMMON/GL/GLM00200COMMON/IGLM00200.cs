@@ -7,7 +7,7 @@ namespace GLM00200Common
 {
     public interface IGLM00200 : R_IServiceCRUDBase<JournalParamDTO>
     {
-        InitResult GetInitData();
+        InitResultDTO GetInitData();
         IAsyncEnumerable<StatusDTO> GetStatusList();
         IAsyncEnumerable<CurrencyDTO> GetCurrencyList();
         IAsyncEnumerable<JournalGridDTO> GetAllRecurringList();

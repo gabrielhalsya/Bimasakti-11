@@ -22,7 +22,7 @@
         </R_Lookup>
     </R_ItemLayout>
     <R_ItemLayout>
-        <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_NAME "></R_TextBox>
+            <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_NAME " MaxLength"></R_TextBox>
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Label>Next Journal Period</R_Label>
@@ -33,8 +33,8 @@
     </R_ItemLayout>
     <R_ItemLayout xs="1">
         <R_NumericTextBox @bind-Value="@_journalVM._SearchParam.CPERIOD_YYYY"
-                          Min="_journalVM._InitData.OGSM_PERIOD.IMIN_YEAR"
-                          Max="_journalVM._InitData.OGSM_PERIOD.IMAX_YEAR"
+                          Min="_journalVM._InitData.PERIOD_YEAR.IMIN_YEAR"
+                          Max="_journalVM._InitData.PERIOD_YEAR.IMAX_YEAR"
                           Arrows=false
                           ThousandSeparator=false/>
     </R_ItemLayout>

@@ -6,6 +6,6 @@ namespace GLM00200Common
 {
     public class TodayDTO
     {
-        public String CTODAY { get; set; }
+        public DateTime DTODAY { get; set; }
     }
 }

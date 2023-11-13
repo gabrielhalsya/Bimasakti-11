@@ -18,9 +18,9 @@ namespace LMM03700Front
         private R_Conductor _conTenantClassGrpRef; //conductor grid TenantClassGrp tab 2
         private R_ConductorGrid _conTenantClassRef; //conductor grid TenantClass tab 2
         private R_ConductorGrid _conTenantRef; //conductor grid Tenant tab 2
-        private R_Grid<TenantClassificationGroupDTO> _gridTenantClassGrpRef; //gridref TenantClassGrp tab 2
-        private R_Grid<TenantClassificationDTO> _gridTenantClassRef; //gridref TenantClass tab 2
-        private R_Grid<TenantDTO> _gridTenantRef; //gridref Tenant tab 2
+        private R_Grid<TenantClassificationGroupDTO> _gridTenantClassGrpRef; //gridref TenantClassGrp
+        private R_Grid<TenantClassificationDTO> _gridTenantClassRef; //gridref TenantClass 
+        private R_Grid<TenantDTO> _gridTenantRef; //gridref Tenant 
         private R_Popup R_PopupCheck;
 
         protected override async Task R_Init_From_Master(object poParameter)

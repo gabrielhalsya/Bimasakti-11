@@ -35,6 +35,7 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\Newtonsoft.J
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\BackCollectionNuGet.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\CommonCollectionNuGet.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\EmailCollectionNuGet.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\Scrutor.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\SendGrid.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\Serilog.dll
@@ -191,4 +192,3 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\refint\BIMAS
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.pdb
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.genruntimeconfig.cache
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\ref\BIMASAKTI_GL_API.dll
-D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\EmailCollectionNuGet.dll

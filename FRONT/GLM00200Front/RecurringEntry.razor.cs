@@ -67,7 +67,7 @@ namespace GLM00200Front
                     {
                         loEx.Add("", "Reference Date is required!");
                     }
-                    if (_journalVM._defaultValue_DREF_DATE < DateTime.ParseExact(_journalVM._InitData.OCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    if (_journalVM._defaultValue_DREF_DATE < DateTime.ParseExact(_journalVM._InitData.CURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
                     {
                         loEx.Add("", "Reference Date cannot be before Current Period!");
                     }
@@ -75,7 +75,7 @@ namespace GLM00200Front
                     {
                         loEx.Add("", "Reference Date cannot be after Start Date!");
                     }
-                    if (_journalVM._defaultValue_DSTART_DATE < DateTime.ParseExact(_journalVM._InitData.OCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    if (_journalVM._defaultValue_DSTART_DATE < DateTime.ParseExact(_journalVM._InitData.CURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
                     {
                         loEx.Add("", "Start Date cannot be before Current Period!");
                     }
@@ -87,7 +87,7 @@ namespace GLM00200Front
                     {
                         loEx.Add("", "Document Date cannot be after today");
                     }
-                    if (_journalVM._defaultValue_DDOC_DATE == DateTime.MinValue && _journalVM._defaultValue_DDOC_DATE < DateTime.ParseExact(_journalVM._InitData.OCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    if (_journalVM._defaultValue_DDOC_DATE == DateTime.MinValue && _journalVM._defaultValue_DDOC_DATE < DateTime.ParseExact(_journalVM._InitData.CURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
                     {
                         loEx.Add("", "Document Date cannot be before Current Period!");
                     }
@@ -195,7 +195,7 @@ namespace GLM00200Front
                 _journalVM._JournaDetailListTemp = _journalVM._JournaDetailList; //add recent 
                 _journalVM._JournaDetailList = new();
 
-                loData.CCURRENCY_CODE = _journalVM._InitData.OGSM_COMPANY.CLOCAL_CURRENCY_CODE;//set default ccurrency data when addmode
+                loData.CCURRENCY_CODE = _journalVM._InitData.COMPANY_INFO.CLOCAL_CURRENCY_CODE;//set default ccurrency data when addmode
                 eventArgs.Data = loData;    //return
             }
             catch (Exception ex)
@@ -313,7 +313,7 @@ namespace GLM00200Front
                         loEx.Add("", "Account No. is required!");
                     }
 
-                    if (string.IsNullOrWhiteSpace(loData.CCENTER_CODE) && (loData.CBSIS == "B" && _journalVM._InitData.OGSM_COMPANY.LENABLE_CENTER_BS == true) || (loData.CBSIS == "I" && _journalVM._InitData.OGSM_COMPANY.LENABLE_CENTER_IS == true))
+                    if (string.IsNullOrWhiteSpace(loData.CCENTER_CODE) && (loData.CBSIS == "B" && _journalVM._InitData.COMPANY_INFO.LENABLE_CENTER_BS == true) || (loData.CBSIS == "I" && _journalVM._InitData.COMPANY_INFO.LENABLE_CENTER_IS == true))
                     {
                         loEx.Add("", $"Center Code is required for Account No. {loData.CGLACCOUNT_NO}!");
                     }
@@ -451,7 +451,7 @@ namespace GLM00200Front
             try
             {
                 await _journalVM.RefreshCurrencyRate();
-                if (_journalVM.Data.CCURRENCY_CODE != _journalVM._InitData.OGSM_COMPANY.CLOCAL_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
+                if (_journalVM.Data.CCURRENCY_CODE != _journalVM._InitData.COMPANY_INFO.CLOCAL_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
                 {
                     _enable_NLBASE_RATE = true;
                     _enable_NLCURRENCY_RATE = true;
@@ -461,7 +461,7 @@ namespace GLM00200Front
                     _enable_NLBASE_RATE = false;
                     _enable_NLCURRENCY_RATE = false;
                 }
-                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._InitData.OGSM_COMPANY.CBASE_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
+                if (_journalVM._Journal.CCURRENCY_CODE != _journalVM._InitData.COMPANY_INFO.CBASE_CURRENCY_CODE && _journalVM.Data.LFIX_RATE == true)
                 {
                     _enable_NBBASE_RATE = true;
                     _enable_NBCURRENCY_RATE = true;

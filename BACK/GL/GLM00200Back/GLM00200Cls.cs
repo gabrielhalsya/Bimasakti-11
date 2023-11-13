@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using System.Dynamic;
 using Castle.Core.Internal;
 using System.Drawing.Text;
+using GLM00200Common.Init_DTO_s;
 
 namespace GLM00200Back
 {
@@ -338,75 +339,31 @@ namespace GLM00200Back
         }
 
         #region Init var
-        public InitResultData GetInitData(InitParamDTO poParam)
+        public DateTime GetToday(InitParamDTO poParam)
         {
             R_Exception loEx = new R_Exception();
-            string lcQuery;
-            DbConnection loConn = null;
-            DbCommand loCmd = null;
-            DataTable loDataTable = null;
-            InitResultData loReturn = new();
+            TodayDTO loReturn = null;
             try
             {
-
-                var loDb = new R_Db();
-                loConn = loDb.GetConnection("R_DefaultConnectionString");
-                loCmd = loDb.GetCommand();
-                loCmd.CommandType = CommandType.StoredProcedure;
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 10, poParam.CCOMPANY_ID);
-
-
-                //get trans code
-                const string CTRANS_CODE = "000000";
-                lcQuery = "RSP_GS_GET_TRANS_CODE_INFO";
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String, 50, CTRANS_CODE);
-                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
-                //loReturn.OGSM_TRANSACTION_CODE = R_Utility.R_ConvertTo<TransCodeDTO>(loRtnTemp).FirstOrDefault();
-
-                //get gsm period
-                lcQuery = "RSP_GS_GET_PERIOD_YEAR_RANGE";
-                loCmd.CommandText = lcQuery;
-                loDb.R_AddCommandParameter(loCmd, "@CYEAR", DbType.String, 50, "");
-                loDb.R_AddCommandParameter(loCmd, "@CMODE", DbType.String, 50, "");
-                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
-                //loReturn.OGSM_PERIOD = R_Utility.R_ConvertTo<GSM_PeriodDTO>(loRtnTemp).FirstOrDefault();
+                R_Db loDb = new R_Db();
+                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
+                DbCommand loCmd = loDb.GetCommand();
 
                 //get today
-                lcQuery = "SELECT dbo.RFN_GET_DB_TODAY(@CCOMPANY_ID) AS DTODAY";
+                string lcQuery = "SELECT dbo.RFN_GET_DB_TODAY(@CCOMPANY_ID) AS DTODAY";
                 loCmd.CommandText = lcQuery;
                 loCmd.CommandType = CommandType.Text;
-                loDataTable = loDb.SqlExecQuery(loConn, loCmd, false);
-                //loReturn.OTODAY = R_Utility.R_ConvertTo<TodayDTO>(loRtnTemp).FirstOrDefault();
-
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 21, poParam.CCOMPANY_ID);
+                var loResult = loDb.SqlExecQuery(loConn, loCmd, true);
+                loReturn = R_Utility.R_ConvertTo<TodayDTO>(loResult).FirstOrDefault();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
-            finally
-            {
-                if (loConn != null)
-                {
-                    if (loConn.State != System.Data.ConnectionState.Closed)
-                        loConn.Close();
-
-                    loConn.Dispose();
-                    loConn = null;
-                }
-
-                if (loCmd != null)
-                {
-                    loCmd.Dispose();
-                    loCmd = null;
-                }
-            }
             loEx.ThrowExceptionIfErrors();
-
-            return loReturn;
+            return loReturn.DTODAY;
         }
-
-
         public SystemParamDTO GetSystemParam(InitParamDTO poParam)
         {
             R_Exception loEx = new R_Exception();
@@ -444,7 +401,7 @@ namespace GLM00200Back
                 DbCommand loCmd = loDb.GetCommand();
 
                 //get system param
-                string lcQuery = "RSP_GL_GET_SYSTEM_PARAM";
+                string lcQuery = "RSP_GS_GET_COMPANY_INFO";
                 loCmd.CommandText = lcQuery;
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 11, poParam.CCOMPANY_ID);
@@ -512,7 +469,7 @@ namespace GLM00200Back
             loEx.ThrowExceptionIfErrors();
             return loReturn;
         }
-        public UndoCommitJrnDTO GetUndoCommitJrn(InitParamDTO poParam)
+        public int GetUndoCommitJrn(InitParamDTO poParam)
         {
             R_Exception loEx = new R_Exception();
             UndoCommitJrnDTO loReturn = null;
@@ -523,7 +480,7 @@ namespace GLM00200Back
                 DbCommand loCmd = loDb.GetCommand();
 
                 //get undo commit jrn
-                const string COPTION_CODE = "GL014001";
+                const string COPTION_CODE = "GLM14001";
                 string lcQuery = "RSP_GL_GET_SYSTEM_ENABLE_OPTION_INFO";
                 loCmd.CommandText = lcQuery;
                 loCmd.CommandType = CommandType.StoredProcedure;
@@ -537,7 +494,7 @@ namespace GLM00200Back
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
-            return loReturn;
+            return loReturn.IOPTON;
         }
         public TransCodeDTO GetTransCode(InitParamDTO poParam)
         {
@@ -551,9 +508,11 @@ namespace GLM00200Back
 
                 //get transcode
                 string lcQuery = "RSP_GS_GET_TRANS_CODE_INFO";
+                string lcTransCode = "000000";
                 loCmd.CommandText = lcQuery;
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 11, poParam.CCOMPANY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String, 11, lcTransCode);
                 var loResult = loDb.SqlExecQuery(loConn, loCmd, true);
                 loReturn = R_Utility.R_ConvertTo<TransCodeDTO>(loResult).FirstOrDefault();
             }
@@ -564,7 +523,33 @@ namespace GLM00200Back
             loEx.ThrowExceptionIfErrors();
             return loReturn;
         }
+        public PeriodDTO GetPeriodYearRange(InitParamDTO poParam)
+        {
+            R_Exception loEx = new R_Exception();
+            PeriodDTO loReturn = null;
+            try
+            {
+                R_Db loDb = new R_Db();
+                DbConnection loConn = loDb.GetConnection("R_DefaultConnectionString");
+                DbCommand loCmd = loDb.GetCommand();
 
+                string lcQuery = "RSP_GS_GET_PERIOD_YEAR_RANGE";
+                loCmd.CommandText = lcQuery;
+                loCmd.CommandType = CommandType.StoredProcedure;
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 11, poParam.CCOMPANY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CYEAR", DbType.String, 50, "");
+                loDb.R_AddCommandParameter(loCmd, "@CMODE", DbType.String, 50, "");
+                var loResult = loDb.SqlExecQuery(loConn, loCmd, true);
+                loReturn = R_Utility.R_ConvertTo<PeriodDTO>(loResult).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+            return loReturn;//get gsm period
+
+        }
         public List<StatusDTO> GetSTATUS_DTO(InitParamDTO poParam)
         {
             R_Exception loException = new R_Exception();

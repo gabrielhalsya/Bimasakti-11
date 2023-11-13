@@ -31,7 +31,7 @@ namespace GLM00200Model
         public List<StatusDTO> _StatusList { get; set; } = new List<StatusDTO>();
         public List<CurrencyDTO> _CurrencyList { get; set; } = new List<CurrencyDTO>();
         public List<PeriodDTO> _Periods = Enumerable.Range(1, 12).Select(month => new PeriodDTO { CPERIOD_MM_CODE = month.ToString("D2"), CPERIOD_MM_TEXT = month.ToString("D2") }).ToList();
-        public InitResultData _InitData { get; set; } = new InitResultData();
+        public InitDTO _InitData { get; set; } = new InitDTO();
         public CurrencyRateResult _CURRENCY_RATE_RESULT = new CurrencyRateResult();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public DateTime _DDOC_DATE { get; set; } = DateTime.Now;
@@ -170,10 +170,9 @@ namespace GLM00200Model
             {
                 var loData = await _model.GetInitDataAsync();
                 _InitData = loData.data;
-
-                _DREF_DATE = DateTime.ParseExact(_InitData.OTODAY.CTODAY, "yyyyMMdd", CultureInfo.InvariantCulture);
-                _DSTART_DATE = DateTime.ParseExact(_InitData.OTODAY.CTODAY, "yyyyMMdd", CultureInfo.InvariantCulture);
-                _DDOC_DATE = DateTime.ParseExact(_InitData.OTODAY.CTODAY, "yyyyMMdd", CultureInfo.InvariantCulture);
+                _DREF_DATE = _InitData.DTODAY;
+                _DSTART_DATE = _DREF_DATE = _InitData.DTODAY;
+                _DDOC_DATE = _InitData.DTODAY;
             }
             catch (Exception ex)
             {
@@ -234,7 +233,7 @@ namespace GLM00200Model
             {
                 var lcSTART_DATE = _DSTART_DATE.ToString("yyyyMMdd");
                 R_FrontContext.R_SetContext(RecurringJournalContext.CCURRENCY_CODE, _Journal.CCURRENCY_CODE);
-                R_FrontContext.R_SetContext(RecurringJournalContext.CRATETYPE_CODE, _InitData.OGL_SYSTEM_PARAM.CRATETYPE_CODE);
+                R_FrontContext.R_SetContext(RecurringJournalContext.CRATETYPE_CODE, _InitData.SYSTEM_PARAM.CRATETYPE_CODE);
                 R_FrontContext.R_SetContext(RecurringJournalContext.CSTART_DATE, lcSTART_DATE);
                 _CURRENCY_RATE_RESULT = await _model.RefreshCurrencyRateAsync();
 
@@ -302,7 +301,7 @@ namespace GLM00200Model
             try
             {
                 string lcNewStatus = "20";
-                bool llAutoCommit = _InitData.OGL_SYSTEM_PARAM.LCOMMIT_APVJRN;
+                bool llAutoCommit = _InitData.SYSTEM_PARAM.LCOMMIT_APVJRN;
                 bool llUndoCommit = false;
                 EModeCmmtAprvJRN loMode = EModeCmmtAprvJRN.Approval;
 

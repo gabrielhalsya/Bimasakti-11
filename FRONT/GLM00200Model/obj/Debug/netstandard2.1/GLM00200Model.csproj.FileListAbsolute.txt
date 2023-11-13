@@ -1,8 +1,3 @@
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.AssemblyReference.cache
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.GeneratedMSBuildEditorConfig.editorconfig
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.AssemblyInfoInputs.cache
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.AssemblyInfo.cs
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\GLM00200Model.deps.json
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\GLM00200Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\GLM00200Model.pdb
@@ -20,6 +15,11 @@ D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\R_Authen
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\Lookup_GSCOMMON.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\Lookup_GSModel.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\GLM00200Common.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.pdb

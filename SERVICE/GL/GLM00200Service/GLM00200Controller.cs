@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
-using System.Collections.Generic;
 using System.Globalization;
 
 namespace GLM00200Service
@@ -239,22 +238,43 @@ namespace GLM00200Service
 
         #region init
         [HttpPost]
-        public InitResult GetInitData()
+        public InitResultDTO GetInitData()
         {
             R_Exception loException = new R_Exception();
-            InitResult loRtn = null;
-            RecurringJournalListParamDTO loDbParam;
-            GLM00200Cls loCls;
+            InitResultDTO loRtn = null;
+            InitDTO loResult = null;
+            GLM00200Cls loCls=null;
             try
-            {
-                var SearchParam = R_Utility.R_GetContext<RecurringJournalListParamDTO>(RecurringJournalContext.OSEARCH_PARAM);
-                loCls = new GLM00200Cls();
-                loRtn.data = loCls.GetInitData(new InitParamDTO()
+            { 
+                //instance param
+                var loParam = new InitParamDTO()
                 {
                     CLANGUAGE_ID = R_BackGlobalVar.CULTURE,
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
                     CUSER_ID = R_BackGlobalVar.USER_ID
-                });
+                };
+                loResult = new();
+
+                //calling each init
+                loCls = new();
+
+                loResult.SYSTEM_PARAM=loCls.GetSystemParam(loParam); //get systemparam
+                //assgin systemparam to loparam
+                loParam.CCURRENT_PERIOD_YY = loResult.SYSTEM_PARAM.CCURRENT_PERIOD_YY;
+                loParam.CCURRENT_PERIOD_MM = loResult.SYSTEM_PARAM.CCURRENT_PERIOD_MM;
+                loParam.CSOFT_PERIOD_YY= loResult.SYSTEM_PARAM.CSOFT_PERIOD_YY;
+                loParam.CSOFT_PERIOD_MM = loResult.SYSTEM_PARAM.CSOFT_PERIOD_MM;
+
+                loResult.DTODAY = loCls.GetToday(loParam); //get today
+                loResult.COMPANY_INFO = loCls.GetCompanyInfo(loParam); //get companyinfo
+                loResult.CURRENT_PERIOD_START_DATE=loCls.GetPeriodInfoCurrent(loParam);//get 
+                loResult.SOFT_PERIOD_START_DATE=loCls.GetPeriodInfoSoft(loParam);
+                loResult.IOPTON=loCls.GetUndoCommitJrn(loParam);
+                loResult.TRANSACTION_CODE = loCls.GetTransCode(loParam);
+                loResult.PERIOD_YEAR=loCls.GetPeriodYearRange(loParam);
+
+                //assign to resultDTO as new object
+                loRtn = new() { data = loResult };
             }
             catch (Exception ex)
             {

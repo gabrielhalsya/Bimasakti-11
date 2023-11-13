@@ -29,14 +29,14 @@ namespace GLM00200Model
 
         //FUNCTION
         #region real function
-        public async Task<InitResult> GetInitDataAsync()
+        public async Task<InitResultDTO> GetInitDataAsync()
         {
             var loEx = new R_Exception();
-            InitResult loResult = null;
+            InitResultDTO loResult = null;
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<InitResult>(
+                loResult = await R_HTTPClientWrapper.R_APIRequestObject<InitResultDTO>(
                     _RequestServiceEndPoint,
                     nameof(IGLM00200.GetInitData),
                     DEFAULT_MODULE,
@@ -212,7 +212,7 @@ namespace GLM00200Model
         #endregion real function
 
         #region for implement only
-        public InitResult GetInitData()
+        public InitResultDTO GetInitData()
         {
             throw new NotImplementedException();
         }
