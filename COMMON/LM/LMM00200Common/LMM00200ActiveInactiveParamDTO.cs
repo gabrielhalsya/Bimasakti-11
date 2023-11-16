@@ -7,6 +7,7 @@ namespace LMM00200Common
 {
     public class LMM00200ActiveInactiveParamDTO : R_APIResultBaseDTO
     {
+        
     }
 
     public class LMM00200ActiveInactiveParam

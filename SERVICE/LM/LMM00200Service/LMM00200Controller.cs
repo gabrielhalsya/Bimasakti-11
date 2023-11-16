@@ -99,7 +99,7 @@ namespace LMM00200Service
         }
 
         [HttpPost]
-        public LMM00200ActiveInactiveParamDTO GetActiveParam()
+        public LMM00200ActiveInactiveParamDTO GetActiveParam(LMM00200DTO poParam)
         {
             LMM00200ActiveInactiveParamDTO loRtn = null;
             R_Exception loException = new R_Exception();
@@ -108,20 +108,10 @@ namespace LMM00200Service
             {
                 loCls = new LMM00200Cls();
                 loRtn = new LMM00200ActiveInactiveParamDTO();
-                var loParam = new LMM00200DTO()
-                {
-                    CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
-                    CUSER_ID = R_BackGlobalVar.USER_ID,
-                    CCODE = R_Utility.R_GetContext<string>(ContextConstant.CCODE),
-                    LACTIVE = R_Utility.R_GetContext<bool>(ContextConstant.LACTIVE),
-                    CACTION = R_Utility.R_GetContext<string>(ContextConstant.CACTION),
-                    CDESCRIPTION = "",
-                    CUSER_LEVEL_OPERATOR_SIGN = "",
-                    CVALUE = "",
-                    IUSER_LEVEL = 0
-                };
+                poParam.CUSER_ID=R_BackGlobalVar.USER_ID;
+                poParam.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 //call clsMethod to save
-                loCls.ActiveInactiveUserParam(loParam);
+                loCls.ActiveInactiveUserParam(poParam);
             }
             catch (Exception ex)
             {

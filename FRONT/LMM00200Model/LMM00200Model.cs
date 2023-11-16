@@ -32,12 +32,15 @@ namespace LMM00200Model
         {
         }
 
-        public LMM00200ActiveInactiveParamDTO GetActiveParam()
+        public LMM00200ActiveInactiveParamDTO GetActiveParam(LMM00200DTO poParam)
         {
             throw new NotImplementedException();
         }
-
-        public async Task GetActiveParamAsync()
+        public IAsyncEnumerable<LMM00200StreamDTO> GetUserParamList()
+        {
+            throw new NotImplementedException();
+        }
+        public async Task GetActiveParamAsync(LMM00200DTO poParam)
         {
             R_Exception loEx = new R_Exception();
             LMM00200ActiveInactiveParamDTO loRtn = new LMM00200ActiveInactiveParamDTO();
@@ -45,10 +48,12 @@ namespace LMM00200Model
             {
                 R_HTTPClientWrapper.httpClientName = _HttpClientName;
 
-                loRtn = await R_HTTPClientWrapper.R_APIRequestObject<LMM00200ActiveInactiveParamDTO>(
+                await R_HTTPClientWrapper.R_APIRequestObject<LMM00200ActiveInactiveParamDTO,LMM00200DTO>(
                     _RequestServiceEndPoint,
                     nameof(ILMM00200.GetActiveParam),
-                    DEFAULT_MODULE, _SendWithContext,
+                    poParam,
+                    DEFAULT_MODULE,
+                    _SendWithContext,
                     _SendWithToken);
             }
             catch (Exception ex)
@@ -58,14 +63,7 @@ namespace LMM00200Model
 
         EndBlock:
             loEx.ThrowExceptionIfErrors();
-
         }
-
-        public IAsyncEnumerable<LMM00200StreamDTO> GetUserParamList()
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<List<LMM00200StreamDTO>> GetUserParamListAsync()
 
         {

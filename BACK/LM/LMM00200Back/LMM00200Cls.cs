@@ -181,10 +181,10 @@ namespace LMM00200Back
                 loCmd.CommandText = lcQuery;
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, poEntity.CCOMPANY_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CCODE", DbType.String, 8, poEntity.CCODE);
-                loDb.R_AddCommandParameter(loCmd, "@CDESCRIPTION", DbType.String, 255, poEntity.CDESCRIPTION);
-                loDb.R_AddCommandParameter(loCmd, "@CUSER_LEVEL_OPERATOR_SIGN", DbType.String, 2, poEntity.CUSER_LEVEL_OPERATOR_SIGN);
-                loDb.R_AddCommandParameter(loCmd, "@IUSER_LEVEL", DbType.Int32, 8, poEntity.IUSER_LEVEL);
-                loDb.R_AddCommandParameter(loCmd, "@CVALUE", DbType.String, 100, poEntity.CVALUE);
+                loDb.R_AddCommandParameter(loCmd, "@CDESCRIPTION", DbType.String, 255, "");
+                loDb.R_AddCommandParameter(loCmd, "@CUSER_LEVEL_OPERATOR_SIGN", DbType.String, 2, "");
+                loDb.R_AddCommandParameter(loCmd, "@IUSER_LEVEL", DbType.Int32, 8, 0);
+                loDb.R_AddCommandParameter(loCmd, "@CVALUE", DbType.String, 100, "");
                 loDb.R_AddCommandParameter(loCmd, "@LACTIVE", DbType.Boolean, 2, poEntity.LACTIVE);
                 loDb.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 10, poEntity.CACTION);
                 loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 8, poEntity.CUSER_ID);

@@ -15,20 +15,18 @@ namespace LMM00200Model
     {
         private LMM00200Model _model = new LMM00200Model();
 
-        public ObservableCollection<LMM00200StreamDTO> UserParamList { get; set; } = new ObservableCollection<LMM00200StreamDTO>();
-        public LMM00200DTO loUserParam { get; set; } = new LMM00200DTO();
+        public ObservableCollection<LMM00200StreamDTO> _UserParamList { get; set; } = new ObservableCollection<LMM00200StreamDTO>();
+        public LMM00200DTO _UserParam { get; set; } = new LMM00200DTO();
 
-        public string CUSER_LEVEL_OPERATOR_SIGN { get; set; } ="";
-        public List<RadioModel> Options { get; set; } = new List<RadioModel>
+        public string _CUserOperatorSign { get; set; } = "";
+        public List<RadioModel> _Options { get; set; } = new List<RadioModel>
         {
             new RadioModel { Value = "=", Text = "(=)" },
             new RadioModel { Value= ">=", Text = "(>=)" },
         };
-        public string liUserParamCode{ get; set; }
-        public bool ActiveDept { get; set; }
-
-        public string _action { get; set; }
-
+        public string _UserParamCode { get; set; }
+        public bool _Active { get; set; }
+        public string _Action { get; set; }
 
         public async Task GetUserParamList()
         {
@@ -36,7 +34,7 @@ namespace LMM00200Model
             try
             {
                 var loResult = await _model.GetUserParamListAsync();
-                UserParamList = new ObservableCollection<LMM00200StreamDTO>(loResult);
+                _UserParamList = new ObservableCollection<LMM00200StreamDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -45,17 +43,15 @@ namespace LMM00200Model
             loEx.ThrowExceptionIfErrors();
         }
 
-        public async Task GetUserParamRecord(LMM00200DTO poDept)
+        public async Task GetUserParamRecord(LMM00200DTO poParam)
         {
             R_Exception loEx = new R_Exception();
             try
             {
-                R_FrontContext.R_SetStreamingContext(ContextConstant.CCODE, liUserParamCode);
-                LMM00200DTO loParam = new LMM00200DTO();
-                loParam = poDept;
-                var loResult = await _model.R_ServiceGetRecordAsync(loParam);
-                loUserParam = R_FrontUtility.ConvertObjectToObject<LMM00200DTO>(loResult);
-                CUSER_LEVEL_OPERATOR_SIGN = loUserParam.CUSER_LEVEL_OPERATOR_SIGN;
+                R_FrontContext.R_SetStreamingContext(ContextConstant.CCODE, _UserParamCode);
+                var loResult = await _model.R_ServiceGetRecordAsync(poParam);
+                _UserParam = R_FrontUtility.ConvertObjectToObject<LMM00200DTO>(loResult);
+                _CUserOperatorSign = _UserParam.CUSER_LEVEL_OPERATOR_SIGN;
             }
             catch (Exception ex)
             {
@@ -71,7 +67,7 @@ namespace LMM00200Model
             try
             {
                 var loResult = await _model.R_ServiceSaveAsync(poNewEntity, peCRUDMode);
-                loUserParam = loResult;
+                _UserParam = loResult;
             }
             catch (Exception ex)
             {
@@ -81,16 +77,14 @@ namespace LMM00200Model
             loEx.ThrowExceptionIfErrors();
         }
 
-        public async Task ActiveInactiveProcessAsync()
+        public async Task ActiveInactiveProcessAsync(LMM00200DTO poParam)
         {
             R_Exception loEx = new R_Exception();
             try
             {
-                R_FrontContext.R_SetContext(ContextConstant.CCODE, liUserParamCode);
-                R_FrontContext.R_SetContext(ContextConstant.LACTIVE, ActiveDept);
-                R_FrontContext.R_SetContext(ContextConstant.CACTION, _action);
-                await _model.GetActiveParamAsync();
-
+                poParam.LACTIVE = _UserParam.LACTIVE;
+                poParam.CACTION = _UserParam.CACTION;
+                await _model.GetActiveParamAsync(poParam);
             }
             catch (Exception ex)
             {
@@ -98,7 +92,6 @@ namespace LMM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-
     }
 
     public class RadioModel
