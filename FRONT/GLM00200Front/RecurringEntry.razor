@@ -332,7 +332,7 @@
              <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.INO)"
                                   HeaderText="No"
                                   Enabled=false
-                                  Width="100px"></R_GridNumericColumn>
+                                  Width="100px" Max="0"></R_GridNumericColumn>
              <R_GridLookupColumn Width="300px" FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NO)" R_EnableAdd="true" R_EnableEdit="true" HeaderText="Account No." />
              <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NAME)" HeaderText="Account Name" R_EnableAdd R_EnableEdit Width="400px" />
              <R_GridComboBoxColumn Data=@_journalVM._ListCenter

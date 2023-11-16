@@ -24,6 +24,7 @@ D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Debug\net6.0\LMM03700S
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Debug\net6.0\LMM03700Service.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Debug\net6.0\LMM03700Service.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Debug\net6.0\LMM03700Service.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Debug\net6.0\LMM03700Service.sourcelink.json
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Debug\net6.0\LMM03700Service.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Debug\net6.0\LMM03700Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Debug\net6.0\refint\LMM03700Service.dll

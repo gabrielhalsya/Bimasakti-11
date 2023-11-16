@@ -7,5 +7,6 @@ D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_GRPResources\ob
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_GRPResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_GRPResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_GRPResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_GRPResources.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_GRPResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_GRPResources.pdb

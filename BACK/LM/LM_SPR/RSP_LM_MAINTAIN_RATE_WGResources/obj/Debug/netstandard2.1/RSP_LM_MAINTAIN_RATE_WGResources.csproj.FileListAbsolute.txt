@@ -7,5 +7,6 @@ D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_WGResources\obj\D
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_WGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_WGResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_WGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_WGResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_WGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_WGResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_WGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_WGResources.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_WGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_WGResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_RATE_WGResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_RATE_WGResources.pdb

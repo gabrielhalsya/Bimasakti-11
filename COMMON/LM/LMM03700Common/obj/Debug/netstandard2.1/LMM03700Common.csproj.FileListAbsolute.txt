@@ -12,6 +12,7 @@ D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Debug\netstandard2.1\LMM
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Debug\netstandard2.1\LMM03700Common.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Debug\netstandard2.1\LMM03700Common.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Debug\netstandard2.1\LMM03700Common.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Debug\netstandard2.1\LMM03700Common.sourcelink.json
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Debug\netstandard2.1\LMM03700Common.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Debug\netstandard2.1\LMM03700Common.dll
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Debug\netstandard2.1\LMM03700Common.pdb

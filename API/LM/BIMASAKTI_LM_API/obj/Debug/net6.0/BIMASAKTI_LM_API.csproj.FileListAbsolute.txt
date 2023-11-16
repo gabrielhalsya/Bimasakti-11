@@ -147,6 +147,7 @@ D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Newtonsoft.J
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\BackCollectionNuGet.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\CommonCollectionNuGet.dll
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\EmailCollectionNuGet.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Scrutor.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\SendGrid.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Serilog.dll
@@ -294,13 +295,14 @@ D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\BIMASAKTI_LM
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\BIMASAKTI_LM_API.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\BIMASAKTI_LM_API.MvcApplicationPartsAssemblyInfo.cs
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\BIMASAKTI_LM_API.MvcApplicationPartsAssemblyInfo.cache
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\BIMASAKTI_LM_API.sourcelink.json
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets.build.json
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets.development.json
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets\msbuild.BIMASAKTI_LM_API.Microsoft.AspNetCore.StaticWebAssets.props
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets\msbuild.build.BIMASAKTI_LM_API.props
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BIMASAKTI_LM_API.props
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BIMASAKTI_LM_API.props
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets.pack.json
-D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets.build.json
-D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\staticwebassets.development.json
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\scopedcss\bundle\BIMASAKTI_LM_API.styles.css
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\BIMASAKTI_LM_API.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\obj\Debug\net6.0\BIMASAKTI_LM_API.dll

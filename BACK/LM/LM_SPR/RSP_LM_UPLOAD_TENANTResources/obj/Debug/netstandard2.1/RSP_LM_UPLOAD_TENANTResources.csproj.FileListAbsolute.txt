@@ -7,5 +7,6 @@ D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debu
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_UPLOAD_TENANTResources\obj\Debug\netstandard2.1\RSP_LM_UPLOAD_TENANTResources.pdb

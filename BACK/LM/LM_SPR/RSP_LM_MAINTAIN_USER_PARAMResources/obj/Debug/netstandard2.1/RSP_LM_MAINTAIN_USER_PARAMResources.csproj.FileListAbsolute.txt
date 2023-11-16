@@ -7,5 +7,6 @@ D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\ob
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_USER_PARAMResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_USER_PARAMResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_USER_PARAMResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_USER_PARAMResources.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_USER_PARAMResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_USER_PARAMResources.pdb

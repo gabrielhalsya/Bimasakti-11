@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RSP_LM_MAINTAIN_DISCOUNTResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8685c1fb118d8f63c7296052cfadf483ce8c6f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("RSP_LM_MAINTAIN_DISCOUNTResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RSP_LM_MAINTAIN_DISCOUNTResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

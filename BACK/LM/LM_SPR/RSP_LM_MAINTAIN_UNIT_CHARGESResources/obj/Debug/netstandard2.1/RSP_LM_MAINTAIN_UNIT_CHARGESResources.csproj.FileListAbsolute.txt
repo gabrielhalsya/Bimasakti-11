@@ -7,5 +7,6 @@ D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_CHARGESResources\
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_CHARGESResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_CHARGESResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_CHARGESResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_CHARGESResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_CHARGESResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_CHARGESResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_CHARGESResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_CHARGESResources.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_CHARGESResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_CHARGESResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_CHARGESResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_CHARGESResources.pdb

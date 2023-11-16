@@ -7,5 +7,6 @@ D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.pdb

@@ -5,5 +5,6 @@ D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1
 D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.sourcelink.json
 D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700FrontResources\obj\Debug\netstandard2.1\LMM03700FrontResources.pdb

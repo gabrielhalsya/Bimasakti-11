@@ -66,13 +66,14 @@ D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\LMM00200Front.Ge
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\LMM00200Front.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\LMM00200Front.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\LMM00200Front.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\LMM00200Front.sourcelink.json
+D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets.build.json
+D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets.development.json
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets\msbuild.LMM00200Front.Microsoft.AspNetCore.StaticWebAssets.props
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets\msbuild.build.LMM00200Front.props
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.LMM00200Front.props
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.LMM00200Front.props
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets.pack.json
-D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets.build.json
-D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\staticwebassets.development.json
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\scopedcss\bundle\LMM00200Front.styles.css
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\LMM00200Front.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\LMM00200Front.dll

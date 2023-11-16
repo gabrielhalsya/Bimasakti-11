@@ -7,5 +7,6 @@ D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_DISCOUNTResources\obj\
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_DISCOUNTResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_DISCOUNTResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_DISCOUNTResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_DISCOUNTResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_DISCOUNTResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_DISCOUNTResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_DISCOUNTResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_DISCOUNTResources.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_DISCOUNTResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_DISCOUNTResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_DISCOUNTResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_DISCOUNTResources.pdb

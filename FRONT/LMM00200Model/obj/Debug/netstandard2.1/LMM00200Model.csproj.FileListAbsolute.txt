@@ -37,6 +37,7 @@ D:\repos\BS Program\SOURCE\FRONT\LMM00200Model\obj\Debug\netstandard2.1\LMM00200
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Model\obj\Debug\netstandard2.1\LMM00200Model.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Model\obj\Debug\netstandard2.1\LMM00200Model.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Model\obj\Debug\netstandard2.1\LMM00200Model.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM00200Model\obj\Debug\netstandard2.1\LMM00200Model.sourcelink.json
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Model\obj\Debug\netstandard2.1\LMM00200Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Model\obj\Debug\netstandard2.1\LMM00200Model.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Model\obj\Debug\netstandard2.1\LMM00200Model.pdb
