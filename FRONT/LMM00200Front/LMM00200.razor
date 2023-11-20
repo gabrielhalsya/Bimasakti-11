@@ -1,104 +1,113 @@
 ﻿@page "/LMM00200"
-@using LMM00200Model;
+@using LMM00200Common
+@using LMM00200Model
 @inherits R_Page
 
-<R_Grid @ref="@_gridRef"
-        DataSource="@_viewModel._UserParamList"
-        Pageable="true"
-        R_ConductorSource="@_conductorRef"
-        R_GridType="@R_eGridType.Navigator"
-        R_ServiceGetListRecord="@Grid_R_ServiceGetListRecord"
-        Height="300px"
-        Enabled=@_enableGridUserParam>
-     <R_GridColumns>
-         <R_GridTextColumn FieldName="CCODE" HeaderText="Code" Width="100px"></R_GridTextColumn>
-         <R_GridTextColumn FieldName="CDESCRIPTION" HeaderText="Description" Width="600px"></R_GridTextColumn>
-         <R_GridNumericColumn FieldName="IUSER_LEVEL" HeaderText="User Level" Width="100px"></R_GridNumericColumn>
-         <R_GridCheckBoxColumn FieldName="LACTIVE" HeaderText="Active" Width="100px"></R_GridCheckBoxColumn>
-     </R_GridColumns>
- </R_Grid>
-
- <R_StackLayout Row Class="mt-2 ms-1">
-     <R_ItemLayout col="1">
-         <R_Label>Code</R_Label>
-     </R_ItemLayout>
-     <R_ItemLayout col="5">
-         <R_TextBox @bind-Value="@_viewModel.Data.CCODE"
-                    R_ConductorSource="@_conductorRef"
-                   R_EnableAdd>
-        </R_TextBox>
-    </R_ItemLayout>
-    <R_ItemLayout col="2" Class="ms-5">
-        <R_CheckBox @bind-Value="@_viewModel.Data.LACTIVE"
-                    R_ConductorSource="@_conductorRef"
-                    Enabled="false"
-                    Class="me-0" />
-        <R_Label Class="ms-0">Active</R_Label>
-    </R_ItemLayout>
+<R_StackLayout Spacing="3" Class="mb-4">
+    <R_StackLayout>
+        <R_Grid @ref="@_gridRef"
+                DataSource="@_viewModel._UserParamList"
+                Pageable="true"
+                R_ConductorSource="@_conductorRef"
+                R_GridType="@R_eGridType.Navigator"
+                R_ServiceGetListRecord="@Grid_R_ServiceGetListRecordAsync"
+                Enabled="@_gridEnabled"
+                Height="300px">
+            <R_GridColumns>
+                <R_GridTextColumn FieldName="@nameof(LMM00200DTO.CCODE)" HeaderText="Code" Width="100px"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(LMM00200DTO.CDESCRIPTION)" HeaderText="Description" Width="600px"></R_GridTextColumn>
+                <R_GridNumericColumn FieldName="@nameof(LMM00200DTO.IUSER_LEVEL)" HeaderText="User Level" Width="100px"></R_GridNumericColumn>
+                <R_GridCheckBoxColumn FieldName="@nameof(LMM00200DTO.LACTIVE)" HeaderText="Active" Width="100px"></R_GridCheckBoxColumn>
+            </R_GridColumns>
+        </R_Grid>
+    </R_StackLayout>
 </R_StackLayout>
 
-<R_StackLayout Row Class="mt-2 ms-1">
-     <R_ItemLayout col="1">
-         <R_Label>Description</R_Label>
-     </R_ItemLayout>
-     <R_ItemLayout col="6">
-         <R_TextBox @bind-Value="@_viewModel.Data.CDESCRIPTION"
-                    R_ConductorSource="@_conductorRef"
-                    Enabled="false">
-         </R_TextBox>
-     </R_ItemLayout>
- </R_StackLayout>
+<R_StackLayout>
+    <R_StackLayout Row="true">
+        <R_ItemLayout col="1">
+            <R_Label>Code</R_Label>
+        </R_ItemLayout>
 
- <R_StackLayout Row Class="mt-2 ms-1">
-     <R_ItemLayout col="1">
-         <R_Label>User Level</R_Label>
-     </R_ItemLayout>
-     <R_ItemLayout col="2">
-         <R_RadioGroup Data="@_viewModel._Options"
-                       @bind-Value="@_viewModel._CUserOperatorSign"
-                       ValueField="@nameof(RadioModel.Value)"
-                       TextField="@nameof(RadioModel.Text)"
+        <R_ItemLayout col="5">
+            <R_TextBox @bind-Value="@_viewModel.Data.CCODE"
                        R_ConductorSource="@_conductorRef"
-                       R_EnableEdit="true">
-         </R_RadioGroup>
-     </R_ItemLayout>
-     <R_ItemLayout col="1">
-         <R_NumericTextBox @bind-Value="@_viewModel.Data.IUSER_LEVEL"
-                           R_ConductorSource="@_conductorRef"
-                           R_EnableEdit="true"
-                           Arrows="false">
-         </R_NumericTextBox>
-     </R_ItemLayout>
- </R_StackLayout>
-
- <R_StackLayout Row Class="mt-2 ms-1">
-     <R_ItemLayout col="1">
-         <R_Label>Value</R_Label>
-     </R_ItemLayout>
-     <R_ItemLayout col="6">
-         <R_TextArea @bind-Value="@_viewModel.Data.CVALUE"
-                     R_ConductorSource="@_conductorRef"
-                    R_EnableEdit></R_TextArea>
-     </R_ItemLayout>
- </R_StackLayout>
-
- <R_StackLayout Row Class="mt-3 ms-1 class d-flex justify-content-between">
-     <R_ItemLayout>
-         <R_EditButton R_Conductor="@_conductorRef"><span>Modify</span></R_EditButton>
-         <R_Popup R_ConductorSource="@_conductorRef" R_EnableOther="true" R_Before_Open_Popup="R_Before_Open_Popup_ActivateInactive">@_labelActiveInactive</R_Popup>
+                       Enabled="false"></R_TextBox>
         </R_ItemLayout>
+        <R_ItemLayout col="2" Class="ms-5">
+            <R_CheckBox @bind-Value="@_viewModel.Data.LACTIVE"
+                        R_ConductorSource="@_conductorRef"
+                        Enabled="false"
+                        Class="me-0" />
+            <R_Label Class="ms-0">Active</R_Label>
+        </R_ItemLayout>
+    </R_StackLayout>
+
+    <R_StackLayout Row="true">
+        <R_ItemLayout col="1">
+            <R_Label>Description</R_Label>
+        </R_ItemLayout>
+
+        <R_ItemLayout col="6">
+            <R_TextBox @bind-Value="@_viewModel.Data.CDESCRIPTION"
+                       R_ConductorSource="@_conductorRef"
+                       Enabled="false"></R_TextBox>
+        </R_ItemLayout>
+    </R_StackLayout>
+
+    <R_StackLayout Row="true">
+        <R_ItemLayout col="1">
+            <R_Label>Value</R_Label>
+        </R_ItemLayout>
+        <R_ItemLayout col="2">
+            <R_RadioGroup Data="@_viewModel._Options"
+                          @bind-Value="@_viewModel._CUserOperatorSign"
+                          ValueField="@nameof(RadioModel.Value)"
+                          TextField="@nameof(RadioModel.Text)"
+                          R_ConductorSource="@_conductorRef"
+                          R_EnableEdit="true">
+            </R_RadioGroup>
+        </R_ItemLayout>
+        <R_ItemLayout col="1">
+            <R_NumericTextBox @bind-Value="@_viewModel.Data.IUSER_LEVEL"
+                              R_ConductorSource="@_conductorRef"
+                              R_EnableEdit="true"
+                              Arrows="false">
+            </R_NumericTextBox>
+        </R_ItemLayout>
+    </R_StackLayout>
+
+    <R_StackLayout Row="true">
+        <R_ItemLayout col="1">
+            <R_Label>Value</R_Label>
+        </R_ItemLayout>
+        <R_ItemLayout col="6">
+            <R_TextArea @ref="@_textAreaValue"
+                        @bind-Value="@_viewModel.Data.CVALUE"
+                        R_ConductorSource="@_conductorRef"
+                        R_EnableEdit="true"></R_TextArea>
+        </R_ItemLayout>
+    </R_StackLayout>
+
+    <R_StackLayout Row="true" Spacing="3" Class="mt-3 justify-content-between">
         <R_ItemLayout>
-
-            <R_CancelButton R_Conductor="@_conductorRef"></R_CancelButton>
-            <R_SaveButton R_Conductor="@_conductorRef"></R_SaveButton>
-        </R_ItemLayout>
+            <R_EditButton R_Conductor="@_conductorRef"></R_EditButton>
+            <R_Button R_ConductorSource="@_conductorRef" OnClick="@BtnActiveInactive" R_EnableOther>@_labelActiveInactive</R_Button>
+            </R_ItemLayout>
+            <R_ItemLayout>
+                <R_CancelButton R_Conductor="@_conductorRef"></R_CancelButton>
+                <R_SaveButton R_Conductor="@_conductorRef"></R_SaveButton>
+            </R_ItemLayout>
+        </R_StackLayout>
     </R_StackLayout>
 
     <R_Conductor @ref="@_conductorRef"
                  R_ViewModel="@_viewModel"
                  R_IsHeader="true"
-                 R_ServiceGetRecord="@Conductor_ServiceGetRecord"
-                 R_ServiceSave="@Conductor_ServiceSave"
-                 R_ConvertToGridEntity="@R_ConvertToGridEntity"
+                 R_ServiceGetRecord="@Conductor_ServiceGetRecordAsync"
                  R_Validation="@Conductor_Validation"
-                 R_SetOther="@R_SetOther"></R_Conductor>
+                 R_ServiceSave="@Conductor_ServiceSaveAsync"
+                 R_ConvertToGridEntity="@R_ConvertToGridEntity"
+                 R_BeforeEdit="@R_BeforeEdit"
+                 R_SetOther="@R_SetOther"
+                 R_AfterAdd="@R_AfterAdd"></R_Conductor>

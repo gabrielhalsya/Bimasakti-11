@@ -97,6 +97,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj"
+              },
               "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM00200Model\\LMM00200Model.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM00200Model\\LMM00200Model.csproj"
               }

@@ -15,7 +15,7 @@ namespace LMM00200Model
     {
         private LMM00200Model _model = new LMM00200Model();
 
-        public ObservableCollection<LMM00200StreamDTO> _UserParamList { get; set; } = new ObservableCollection<LMM00200StreamDTO>();
+        public ObservableCollection<LMM00200GridDTO> _UserParamList { get; set; } = new ObservableCollection<LMM00200GridDTO>();
         public LMM00200DTO _UserParam { get; set; } = new LMM00200DTO();
 
         public string _CUserOperatorSign { get; set; } = "";
@@ -34,7 +34,7 @@ namespace LMM00200Model
             try
             {
                 var loResult = await _model.GetUserParamListAsync();
-                _UserParamList = new ObservableCollection<LMM00200StreamDTO>(loResult);
+                _UserParamList = new ObservableCollection<LMM00200GridDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -48,7 +48,6 @@ namespace LMM00200Model
             R_Exception loEx = new R_Exception();
             try
             {
-                R_FrontContext.R_SetStreamingContext(ContextConstant.CCODE, _UserParamCode);
                 var loResult = await _model.R_ServiceGetRecordAsync(poParam);
                 _UserParam = R_FrontUtility.ConvertObjectToObject<LMM00200DTO>(loResult);
                 _CUserOperatorSign = _UserParam.CUSER_LEVEL_OPERATOR_SIGN;
@@ -77,13 +76,13 @@ namespace LMM00200Model
             loEx.ThrowExceptionIfErrors();
         }
 
-        public async Task ActiveInactiveProcessAsync(LMM00200DTO poParam)
+        public async Task ActiveInactiveProcessAsync(ActiveInactiveParam poParam)
         {
             R_Exception loEx = new R_Exception();
             try
             {
-                poParam.LACTIVE = _UserParam.LACTIVE;
-                poParam.CACTION = _UserParam.CACTION;
+                poParam.LACTIVE = _Active;
+                poParam.CACTION = _Action;
                 await _model.GetActiveParamAsync(poParam);
             }
             catch (Exception ex)

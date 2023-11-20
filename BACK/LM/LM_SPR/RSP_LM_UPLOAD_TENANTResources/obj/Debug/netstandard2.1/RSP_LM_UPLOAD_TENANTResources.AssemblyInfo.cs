@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RSP_LM_UPLOAD_TENANTResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d90322bb752864e3d97ba488a2f26d0358f9c874")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16383ca0d862fe42eba7c52bdd254dc624cbf13e")]
 [assembly: System.Reflection.AssemblyProductAttribute("RSP_LM_UPLOAD_TENANTResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RSP_LM_UPLOAD_TENANTResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

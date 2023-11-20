@@ -16,6 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\COMMON\LM\LMM00200Common\LMM00200Common.csproj" />
 		<ProjectReference Include="..\LMM00200Model\LMM00200Model.csproj" />
 	</ItemGroup>
 
@@ -25,9 +26,6 @@
 		</Reference>
 		<Reference Include="R_BlazorFrontEnd.Controls">
 			<HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_BlazorFrontEnd.Controls.dll</HintPath>
-		</Reference>
-		<Reference Include="R_BlazorFrontEnd.Excel">
-			<HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_BlazorFrontEnd.Excel.dll</HintPath>
 		</Reference>
 		<Reference Include="R_CommonFrontBackAPI">
 			<HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_CommonFrontBackAPI.dll</HintPath>

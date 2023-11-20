@@ -13,16 +13,16 @@ namespace LMM00200Service
     public class LMM00200Controller : ControllerBase, ILMM00200
     {
         [HttpPost]
-        public IAsyncEnumerable<LMM00200StreamDTO> GetUserParamList()
+        public IAsyncEnumerable<LMM00200GridDTO> GetUserParamList()
         {
             R_Exception loException = new R_Exception();
-            List<LMM00200StreamDTO> loRtnTemp = null;
-            LMM00200DBListParam loDbParam;
+            List<LMM00200GridDTO> loRtnTemp = null;
+            LMM00200DBParam loDbParam;
             LMM00200Cls loCls;
             try
             {
                 loCls = new LMM00200Cls();
-                loRtnTemp = loCls.GetUserParamList(new LMM00200DBListParam()
+                loRtnTemp = loCls.GetUserParamList(new LMM00200DBParam()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
                     CUSER_ID = R_BackGlobalVar.USER_ID
@@ -37,9 +37,9 @@ namespace LMM00200Service
             return LMM00200StreamListHelper(loRtnTemp);
         }
 
-        private async IAsyncEnumerable<LMM00200StreamDTO> LMM00200StreamListHelper(List<LMM00200StreamDTO> loRtnTemp)
+        private async IAsyncEnumerable<LMM00200GridDTO> LMM00200StreamListHelper(List<LMM00200GridDTO> loRtnTemp)
         {
-            foreach (LMM00200StreamDTO loEntity in loRtnTemp)
+            foreach (LMM00200GridDTO loEntity in loRtnTemp)
             {
                 yield return loEntity;
             }
@@ -63,7 +63,6 @@ namespace LMM00200Service
                 loRtn = new R_ServiceGetRecordResultDTO<LMM00200DTO>();
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
-                poParameter.Entity.CCODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CCODE);
                 loRtn.data = loCls.R_GetRecord(poParameter.Entity);
             }
             catch (Exception ex)
@@ -99,7 +98,7 @@ namespace LMM00200Service
         }
 
         [HttpPost]
-        public LMM00200ActiveInactiveParamDTO GetActiveParam(LMM00200DTO poParam)
+        public LMM00200ActiveInactiveParamDTO GetActiveParam(ActiveInactiveParam poParam)
         {
             LMM00200ActiveInactiveParamDTO loRtn = null;
             R_Exception loException = new R_Exception();

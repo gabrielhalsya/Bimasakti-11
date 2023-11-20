@@ -32,15 +32,15 @@ namespace LMM00200Model
         {
         }
 
-        public LMM00200ActiveInactiveParamDTO GetActiveParam(LMM00200DTO poParam)
+        public LMM00200ActiveInactiveParamDTO GetActiveParam(ActiveInactiveParam poParam)
         {
             throw new NotImplementedException();
         }
-        public IAsyncEnumerable<LMM00200StreamDTO> GetUserParamList()
+        public IAsyncEnumerable<LMM00200GridDTO> GetUserParamList()
         {
             throw new NotImplementedException();
         }
-        public async Task GetActiveParamAsync(LMM00200DTO poParam)
+        public async Task GetActiveParamAsync(ActiveInactiveParam poParam)
         {
             R_Exception loEx = new R_Exception();
             LMM00200ActiveInactiveParamDTO loRtn = new LMM00200ActiveInactiveParamDTO();
@@ -48,7 +48,7 @@ namespace LMM00200Model
             {
                 R_HTTPClientWrapper.httpClientName = _HttpClientName;
 
-                await R_HTTPClientWrapper.R_APIRequestObject<LMM00200ActiveInactiveParamDTO,LMM00200DTO>(
+                await R_HTTPClientWrapper.R_APIRequestObject<LMM00200ActiveInactiveParamDTO, ActiveInactiveParam>(
                     _RequestServiceEndPoint,
                     nameof(ILMM00200.GetActiveParam),
                     poParam,
@@ -64,16 +64,16 @@ namespace LMM00200Model
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task<List<LMM00200StreamDTO>> GetUserParamListAsync()
+        public async Task<List<LMM00200GridDTO>> GetUserParamListAsync()
 
         {
             var loEx = new R_Exception();
-            List<LMM00200StreamDTO> loResult = null;
+            List<LMM00200GridDTO> loResult = null;
 
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<LMM00200StreamDTO>(
+                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<LMM00200GridDTO>(
                     _RequestServiceEndPoint,
                     nameof(ILMM00200.GetUserParamList),
                     DEFAULT_MODULE, _SendWithContext,

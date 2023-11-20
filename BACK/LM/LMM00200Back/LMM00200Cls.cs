@@ -132,10 +132,10 @@ namespace LMM00200Back
             loEx.ThrowExceptionIfErrors();
         }
 
-        public List<LMM00200StreamDTO> GetUserParamList(LMM00200DBListParam poEntity)
+        public List<LMM00200GridDTO> GetUserParamList(LMM00200DBParam poEntity)
         {
             R_Exception loEx = new R_Exception();
-            List<LMM00200StreamDTO> loRtn = null;
+            List<LMM00200GridDTO> loRtn = null;
             R_Db loDB;
             DbConnection loConn;
             DbCommand loCmd;
@@ -154,7 +154,7 @@ namespace LMM00200Back
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<LMM00200StreamDTO>(loRtnTemp).ToList();
+                loRtn = R_Utility.R_ConvertTo<LMM00200GridDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
@@ -164,7 +164,7 @@ namespace LMM00200Back
             return loRtn;
         }
 
-        public void ActiveInactiveUserParam(LMM00200DTO poEntity)
+        public void ActiveInactiveUserParam(ActiveInactiveParam poEntity)
         {
             R_Exception loex = new R_Exception();
             string lcQuery = "";
