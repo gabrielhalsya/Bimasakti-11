@@ -34,7 +34,7 @@
                        R_ConductorSource="@_conductorRef"
                        Enabled="false"></R_TextBox>
         </R_ItemLayout>
-        <R_ItemLayout col="2" Class="ms-5">
+        <R_ItemLayout col="2" Class="ms-4">
             <R_CheckBox @bind-Value="@_viewModel.Data.LACTIVE"
                         R_ConductorSource="@_conductorRef"
                         Enabled="false"
@@ -57,21 +57,19 @@
 
     <R_StackLayout Row="true">
         <R_ItemLayout col="1">
-            <R_Label>Value</R_Label>
+            <R_Label>User Level</R_Label>
         </R_ItemLayout>
-        <R_ItemLayout col="2">
-            <R_RadioGroup Data="@_viewModel._Options"
+        <R_ItemLayout Class="row ms-2">
+            <R_RadioGroup Class="col" Data="@_viewModel._Options"
                           @bind-Value="@_viewModel._CUserOperatorSign"
                           ValueField="@nameof(RadioModel.Value)"
                           TextField="@nameof(RadioModel.Text)"
                           R_ConductorSource="@_conductorRef"
                           R_EnableEdit="true">
             </R_RadioGroup>
-        </R_ItemLayout>
-        <R_ItemLayout col="1">
-            <R_NumericTextBox @bind-Value="@_viewModel.Data.IUSER_LEVEL"
+            <R_NumericTextBox Class="ms-3" Width="50px" @bind-Value="@_viewModel.Data.IUSER_LEVEL"
                               R_ConductorSource="@_conductorRef"
-                              R_EnableEdit="true"
+                              R_EnableEdit="true" Max="20"
                               Arrows="false">
             </R_NumericTextBox>
         </R_ItemLayout>
