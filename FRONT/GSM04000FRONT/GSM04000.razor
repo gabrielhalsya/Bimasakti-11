@@ -1,104 +1,107 @@
 ﻿@page "/GSM04000"
-@using GSM04000Common;
-@using Microsoft.JSInterop;
 @inherits R_Page
+@using R_BlazorFrontEnd.Controls.Events
+@using GSM04000Common;
 @inject IJSRuntime JS
 
-<R_Grid @ref="@_gridDeptRef"
-        DataSource="_deptViewModel._DepartmentList"
-        R_ConductorGridSource="@_conGridDeptRef"
-        R_GridType="@R_eGridType.Original"
-        R_ServiceGetListRecord="@DeptGrid_ServiceGetListRecord"
-        Pageable="true"
-        AllowAddNewRow="true"
-        AllowDeleteRow="true"
-        AllowEditRow="true"
-        R_Before_Open_Grid_Lookup="Dept_Before_Open_Lookup"
-        R_After_Open_Grid_Lookup="Dept_After_Open_Lookup"
-        Height="210px">
-    <R_GridColumns>
-        <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CDEPT_CODE)" HeaderText="Department Code" R_EnableAdd Width="200px"></R_GridTextColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CDEPT_NAME)" HeaderText="Department Name" R_EnableAdd R_EnableEdit Width="450px"></R_GridTextColumn>
-         <R_GridLookupColumn FieldName="@nameof(GSM04000DTO.CCENTER_CODE)" Name="CCENTER" HeaderText="Center Code" R_EnableAdd R_EnableEdit Width="200px"></R_GridLookupColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CCENTER_NAME)" HeaderText="Center Name" R_EnableAdd R_EnableEdit Width="250px"></R_GridTextColumn>
-         <R_GridLookupColumn FieldName="@nameof(GSM04000DTO.CMANAGER_NAME)" Name="CMANAGER_NAME" HeaderText="Manager" R_EnableAdd R_EnableEdit Width="450px"></R_GridLookupColumn>
-         <R_GridCheckBoxColumn FieldName="@nameof(GSM04000DTO.LEVERYONE)" HeaderText="Everyone" R_EnableAdd R_EnableEdit Width="100px"></R_GridCheckBoxColumn>
-         <R_GridCheckBoxColumn FieldName="@nameof(GSM04000DTO.LACTIVE)" HeaderText="Active" Width="100px"></R_GridCheckBoxColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CUPDATE_BY)" HeaderText="Updated By" Width="200px"></R_GridTextColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DUPDATE_DATE)" HeaderText="Updated Date" Width="200px"></R_GridTextColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CCREATE_BY)" HeaderText="Created By" Width="200px"></R_GridTextColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DCREATE_DATE)" HeaderText="Created Date" Width="200px"></R_GridTextColumn>
-     </R_GridColumns>
- </R_Grid>
- <R_ConductorGrid @ref="@_conGridDeptRef"
-                  R_ViewModel="@_deptViewModel"
-                  R_IsHeader="true"
-                  R_ServiceGetRecord="@DeptGrid_ServiceGetRecord"
-                  R_Display="@DeptGrid_Display"
-                  R_ServiceDelete="@DeptGrid_ServiceDelete"
+
+<R_StackLayout>
+    <R_Grid DataSource="@_deptViewModel._DepartmentList"
+            @ref="@_gridDeptRef"
+            Pageable="true"
+            R_ConductorGridSource="@_conGridDeptRef"
+            R_GridType="@R_eGridType.Original"
+            AllowEditRow="true"
+            AllowDeleteRow="true"
+            R_ServiceGetListRecord="@DeptGrid_ServiceGetListRecordAsync"
+            Height="250px"
+            R_Before_Open_Grid_Lookup="Dept_Before_Open_Lookup"
+            R_After_Open_Grid_Lookup="Dept_After_Open_Lookup">
+        <R_GridColumns>
+            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CDEPT_CODE)" HeaderText="Department Code" R_EnableAdd Width="200px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CDEPT_NAME)" HeaderText="Department Name" R_EnableAdd R_EnableEdit Width="450px"></R_GridTextColumn>
+             <R_GridLookupColumn FieldName="@nameof(GSM04000DTO.CCENTER_CODE)" Name="CCENTER" HeaderText="Center Code" R_EnableAdd R_EnableEdit Width="200px"></R_GridLookupColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CCENTER_NAME)" HeaderText="Center Name" R_EnableAdd R_EnableEdit Width="250px"></R_GridTextColumn>
+             <R_GridLookupColumn FieldName="@nameof(GSM04000DTO.CMANAGER_NAME)" Name="CMANAGER_NAME" HeaderText="Manager" R_EnableAdd R_EnableEdit Width="450px"></R_GridLookupColumn>
+             <R_GridCheckBoxColumn FieldName="@nameof(GSM04000DTO.LEVERYONE)" HeaderText="Everyone" R_EnableAdd R_EnableEdit Width="100px"></R_GridCheckBoxColumn>
+             <R_GridCheckBoxColumn FieldName="@nameof(GSM04000DTO.LACTIVE)" HeaderText="Active" Width="100px" R_EnableAdd="false" R_EnableEdit="false"></R_GridCheckBoxColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CUPDATE_BY)" HeaderText="Updated By" Width="200px" R_EnableAdd="false" R_EnableEdit="false"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DUPDATE_DATE)" HeaderText="Updated Date" Width="200px" R_EnableAdd="false" R_EnableEdit="false"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CCREATE_BY)" HeaderText="Created By" Width="200px" R_EnableAdd="false" R_EnableEdit="false"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DCREATE_DATE)" HeaderText="Created Date" Width="200px" R_EnableAdd="false" R_EnableEdit="false"></R_GridTextColumn>
+         </R_GridColumns>
+     </R_Grid>
+     <R_StackLayout Row="true">
+         <R_ItemLayout>
+             <R_Button OnClick="@DownloadTemplateAsync" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
+                <R_Label>Template</R_Label>
+            </R_Button>
+        </R_ItemLayout>
+        <R_ItemLayout>
+            <R_Popup R_Before_Open_Popup="R_Before_Open_PopupUpload" R_After_Open_Popup="R_After_Open_PopupUpload" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
+                <R_Label>Upload</R_Label>
+            </R_Popup>
+        </R_ItemLayout>
+        <R_ItemLayout>
+            <R_Popup @ref="R_PopupAssignUser" R_Before_Open_Popup="@R_Before_Open_PopupAssignUser" R_After_Open_Popup="@R_After_Open_PopupAssignUser" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
+                <R_Label>Assign User</R_Label>
+            </R_Popup>
+        </R_ItemLayout>
+        <R_ItemLayout>
+            <R_Popup @ref="R_PopupActiveInactive" R_ConductorGridSource="@_conGridDeptRef"
+                     R_Before_Open_Popup="R_Before_Open_Popup_ActivateInactiveAsync"
+                     R_After_Open_Popup="R_After_Open_Popup_ActivateInactive"
+                     R_EnableOther>
+                <R_Label>@loLabelActiveInactive</R_Label>
+                </R_Popup>
+            </R_ItemLayout>
+        </R_StackLayout>
+    </R_StackLayout>
+
+    <R_ConductorGrid @ref="@_conGridDeptRef"
+                     R_ViewModel="@_deptViewModel"
+                      R_IsHeader
+                  R_ServiceGetRecord="@DeptGrid_ServiceGetRecordAsync"
                   R_AfterAdd="@DeptGrid_AfterAdd"
-                  R_ServiceSave="@DeptGrid_ServiceSave"
-                  R_Validation="@DeptGrid_Validation">
- </R_ConductorGrid>
- <R_StackLayout Row="true">
-     <R_ItemLayout>
-         <R_Button OnClick="@DownloadTemplateAsync" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
-            <R_Label>Template</R_Label>
-        </R_Button>
-    </R_ItemLayout>
-    <R_ItemLayout>
-        <R_Popup R_Before_Open_Popup="R_Before_Open_PopupUpload" R_After_Open_Popup="R_After_Open_PopupUpload" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
-            <R_Label>Upload</R_Label>
-        </R_Popup>
-    </R_ItemLayout>
-    <R_ItemLayout>
-        <R_Popup @ref="R_PopupAssignUser" R_Before_Open_Popup="@R_Before_Open_PopupAssignUser" R_After_Open_Popup="@R_After_Open_PopupAssignUser" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
-            <R_Label>Assign User</R_Label>
-        </R_Popup>
-    </R_ItemLayout>
-    <R_ItemLayout>
-        <R_Popup @ref="R_PopupActiveInactive" R_ConductorGridSource="@_conGridDeptRef"
-                 R_Before_Open_Popup="R_Before_Open_Popup_ActivateInactiveAsync"
-                 R_After_Open_Popup="R_After_Open_Popup_ActivateInactive"
-                 R_EnableOther>
-            <R_Label>@loLabelActiveInactive</R_Label>
-        </R_Popup>
-    </R_ItemLayout>
-</R_StackLayout>
-<h5 FontStyle="R_eFontStyle.Bold" Class="mt-3">Assigned Users</h5>
-<R_StackLayout Row Class="mt-0 mb-1">
-     <R_ItemLayout col="1">
-         <R_Label>Department</R_Label>
-     </R_ItemLayout>
-     <R_ItemLayout col="2">
-         <R_TextBox @bind-Value="@_deptUserViewModel.Data.CDEPT_CODE"
-                    R_ConductorGridSource="@_conGridDeptUserRef" Enabled="false"></R_TextBox>
-     </R_ItemLayout>
-     <R_ItemLayout col="4">
-         <R_TextBox @bind-Value="@_deptUserViewModel.Data.CDEPT_NAME"
-                    R_ConductorGridSource="@_conGridDeptUserRef" Enabled="false"></R_TextBox>
-     </R_ItemLayout>
+                  R_Validation="@DeptGrid_ValidationAsync"
+                  R_ServiceSave="@DeptGrid_ServiceSaveAsync"
+                  R_ServiceDelete="@DeptGrid_ServiceDeleteAsync"
+                  R_Display="DeptGrid_DisplayAsync"></R_ConductorGrid>
+ <R_StackLayout>
+     <h5 FontStyle="R_eFontStyle.Bold" Class="mt-3">Assigned Users</h5>
+     <R_StackLayout Row>
+         <R_ItemLayout col="1">
+             <R_Label>Department</R_Label>
+         </R_ItemLayout>
+         <R_ItemLayout col="2">
+             <R_TextBox @bind-Value="@_deptUserViewModel.Data.CDEPT_CODE"
+                        R_ConductorGridSource="@_conGridDeptUserRef" Enabled="false"></R_TextBox>
+         </R_ItemLayout>
+         <R_ItemLayout col="4">
+             <R_TextBox @bind-Value="@_deptUserViewModel.Data.CDEPT_NAME"
+                        R_ConductorGridSource="@_conGridDeptUserRef" Enabled="false"></R_TextBox>
+         </R_ItemLayout>
+     </R_StackLayout>
+     <R_Grid DataSource="@_deptUserViewModel._DepartmentUserList"
+             @ref="@_gridDeptUserRef"
+             Pageable="true"
+             R_ConductorGridSource="@_conGridDeptUserRef"
+             R_GridType="@R_eGridType.Original"
+             AddButtonText="false"
+             AllowAddNewRow="false"
+             AllowEditRow="false"
+             AllowDeleteRow="true"
+             R_ServiceGetListRecord="@DeptUserGrid_ServiceGetListRecord"
+             Height="150px">
+         <R_GridColumns>
+             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_ID)" HeaderText="User ID" Width="150px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_NAME)" HeaderText="User Name" Width="400px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUPDATE_BY)" HeaderText="Last Update By" Width="150px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.DUPDATE_DATE)" HeaderText="Last Update Date" Width="150px"></R_GridTextColumn>
+         </R_GridColumns>
+     </R_Grid>
  </R_StackLayout>
- <R_Grid @ref="_gridDeptUserRef"
-         DataSource="@_deptUserViewModel._DepartmentUserList"
-         R_ConductorGridSource="@_conGridDeptUserRef"
-         Pageable="true"
-         R_GridType="R_eGridType.Original"
-         AllowAddNewRow="false"
-         AllowDeleteRow="true"
-         AllowEditRow="false"
-         R_ServiceGetListRecord="@DeptUserGrid_ServiceGetListRecord" Height="150px">
-     <R_GridColumns>
-         <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_ID)" HeaderText="User ID" Width="150px"></R_GridTextColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_NAME)" HeaderText="User Name" Width="400px"></R_GridTextColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUPDATE_BY)" HeaderText="Last Update By" Width="150px"></R_GridTextColumn>
-         <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.DUPDATE_DATE)" HeaderText="Last Update Date" Width="150px"></R_GridTextColumn>
-     </R_GridColumns>
- </R_Grid>
  <R_ConductorGrid @ref="@_conGridDeptUserRef"
                   R_ViewModel="@_deptUserViewModel"
                   R_ServiceGetRecord="@DeptUserGrid_ServiceGetRecord"
                   R_ServiceDelete="@DeptUserGrid_ServiceDelete"></R_ConductorGrid>
-
-
-

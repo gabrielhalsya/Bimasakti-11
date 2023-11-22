@@ -89,7 +89,7 @@ namespace LMM03700Front
         }
         #endregion
 
-        #region Tab1-TenantClassificationGroup
+        #region TenantClassGrp
         private async Task TenantClassGrp_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();

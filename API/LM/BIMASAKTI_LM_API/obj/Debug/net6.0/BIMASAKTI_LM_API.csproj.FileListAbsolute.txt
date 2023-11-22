@@ -270,7 +270,6 @@ D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_Cache.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_ContextAPIMiddleware.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_ExceptionAPIMiddleware.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_Security.dll
-D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_StorageCommon.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_PluginsCommon.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_ContextEnumAndInterface.dll

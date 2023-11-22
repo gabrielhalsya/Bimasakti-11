@@ -25,3 +25,4 @@ D:\repos\BS Program\SOURCE\BACK\LM\LMM00200Back\obj\Release\net6.0\refint\LMM002
 D:\repos\BS Program\SOURCE\BACK\LM\LMM00200Back\obj\Release\net6.0\LMM00200Back.pdb
 D:\repos\BS Program\SOURCE\BACK\LM\LMM00200Back\obj\Release\net6.0\ref\LMM00200Back.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM00200Back\bin\Release\net6.0\R_StorageCommon.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LMM00200Back\obj\Release\net6.0\LMM00200Back.sourcelink.json

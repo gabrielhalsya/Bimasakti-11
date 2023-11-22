@@ -61,7 +61,6 @@ D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\R_APICommon.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\R_ContextBackEnd.dll
-D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\R_StorageCommon.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\bin\Debug\net6.0\GSM04000Common.pdb
@@ -74,6 +73,7 @@ D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.Ge
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\refint\GSM04000Back.dll

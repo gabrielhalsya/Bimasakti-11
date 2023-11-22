@@ -67,7 +67,10 @@
                           R_ConductorSource="@_conductorRef"
                           R_EnableEdit="true">
             </R_RadioGroup>
-            <R_NumericTextBox Class="ms-3" Width="50px" @bind-Value="@_viewModel.Data.IUSER_LEVEL"
+            <R_NumericTextBox @ref="@_numTextBoxUserLevel"
+                              Class="ms-3"
+                              Width="50px" @bind-Value="@_viewModel.Data.IUSER_LEVEL"
+                              Min="0"
                               R_ConductorSource="@_conductorRef"
                               R_EnableEdit="true" Max="20"
                               Arrows="false">
@@ -80,8 +83,7 @@
             <R_Label>Value</R_Label>
         </R_ItemLayout>
         <R_ItemLayout col="6">
-            <R_TextArea @ref="@_textAreaValue"
-                        @bind-Value="@_viewModel.Data.CVALUE"
+            <R_TextArea @bind-Value="@_viewModel.Data.CVALUE"
                         R_ConductorSource="@_conductorRef"
                         R_EnableEdit="true"></R_TextArea>
         </R_ItemLayout>

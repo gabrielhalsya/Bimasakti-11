@@ -1,26 +1,20 @@
 ﻿using BlazorClientHelper;
 using GFF00900COMMON.DTOs;
-using GFF00900Model.ViewModel;
 using GSM04000Common;
 using GSM04000Model;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
 using Microsoft.AspNetCore.Components;
-using R_BlazorFrontEnd;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
 using R_BlazorFrontEnd.Controls.Grid;
-using R_BlazorFrontEnd.Controls.Grid.Columns;
 using R_BlazorFrontEnd.Controls.MessageBox;
 using R_BlazorFrontEnd.Controls.Popup;
 using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using System.Xml.Linq;
 
 namespace GSM04000Front
 {
@@ -36,16 +30,13 @@ namespace GSM04000Front
 
         [Inject] R_PopupService PopupService { get; set; }
         [Inject] IClientHelper _clientHelper { get; set; }
-
         private R_Popup R_PopupAssignUser;
-
         private R_Popup R_PopupActiveInactive;
-
         private string loLabelActiveInactive = "Active/Inactive";
+
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
-
             try
             {
                 await _gridDeptRef.R_RefreshGrid(null);
@@ -55,18 +46,19 @@ namespace GSM04000Front
                 loEx.Add(ex);
             }
 
-            R_DisplayException(loEx);
+            loEx.ThrowExceptionIfErrors();
         }
 
-        #region Department(PARENT)
-        private async Task DeptGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
+        #region GridDept
+        private async Task DeptGrid_ServiceGetListRecordAsync(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
+
             try
             {
                 await _deptViewModel.GetDepartmentList();
                 eventArgs.ListEntityResult = _deptViewModel._DepartmentList;
-                if (_deptViewModel._DepartmentList.Count==0)
+                if (_deptViewModel._DepartmentList.Count == 0)
                 {
                     R_PopupActiveInactive.Enabled = false;
                     R_PopupAssignUser.Enabled = false;
@@ -76,14 +68,17 @@ namespace GSM04000Front
             {
                 loEx.Add(ex);
             }
-            R_DisplayException(loEx);
+
+            loEx.ThrowExceptionIfErrors();
         }
-        private async Task DeptGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
+
+        private async Task DeptGrid_ServiceGetRecordAsync(R_ServiceGetRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
+
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<GSM04000DTO>(eventArgs.Data);
+                var loParam = (GSM04000DTO)eventArgs.Data;
                 await _deptViewModel.GetDepartment(loParam);
 
                 eventArgs.Result = _deptViewModel._Department;
@@ -92,105 +87,11 @@ namespace GSM04000Front
             {
                 loEx.Add(ex);
             }
+
             loEx.ThrowExceptionIfErrors();
         }
-        private async Task DeptGrid_ServiceDelete(R_ServiceDeleteEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                var loData = (GSM04000DTO)eventArgs.Data;
-                await _deptViewModel.DeleteDepartment(loData);
-                await _gridDeptRef.R_RefreshGrid(null);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        private async Task DeptGrid_ServiceSave(R_ServiceSaveEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                await _deptViewModel.SaveDepartment((GSM04000DTO)eventArgs.Data, (eCRUDMode)eventArgs.ConductorMode);
-                eventArgs.Result = _deptViewModel._Department;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        private async Task DeptGrid_Display(R_DisplayEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                var loParam = (GSM04000DTO)eventArgs.Data;
-                switch (eventArgs.ConductorMode)
-                {
-                    case R_eConductorMode.Normal:
-                        var loDeptode = (GSM04100DTO)_conGridDeptUserRef.R_GetCurrentData();
-                        loDeptode.CDEPT_CODE = loParam.CDEPT_CODE;
-                        loDeptode.CDEPT_NAME = loParam.CDEPT_NAME;
 
-                        //set to viewmodel parent
-                        _deptViewModel._departmentCode = loParam.CDEPT_CODE;
-                        _deptViewModel._activeDept = loParam.LACTIVE;
-
-                        if (loParam.LACTIVE)
-                        {
-                            loLabelActiveInactive = "Inactive";
-                            _deptViewModel._activeDept = false;
-                        }
-                        else
-                        {
-                            loLabelActiveInactive = "Activate";
-                            _deptViewModel._activeDept = true;
-                        }
-
-                        //set button assign user base on data
-                        R_PopupAssignUser.Enabled = (loParam.LEVERYONE == true) ? false : true;
-
-                        //set deptcode to view model child
-                        _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
-                        //refresh grid child
-                        if (!string.IsNullOrWhiteSpace(_deptUserViewModel._DepartmentCode))
-                        {
-                            await _gridDeptUserRef.R_RefreshGrid(loParam);
-                        }
-                        break;
-
-                    case R_eConductorMode.Edit:
-                        if (loParam.LEVERYONE != true)
-                        {
-                            await R_MessageBox.Show("Confirmation", "changing this will delete all assinged user on this dept", R_eMessageBoxButtonType.OKCancel);
-                        }
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-        }
-        private void DeptGrid_AfterAdd(R_AfterAddEventArgs eventArgs)
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var loData = (GSM04000DTO)eventArgs.Data;
-                loData.LACTIVE = true;//set active=true as default
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        private async Task DeptGrid_Validation(R_ValidationEventArgs eventArgs)
+        private async Task DeptGrid_ValidationAsync(R_ValidationEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
             GFF00900ParameterDTO loParam = null;
@@ -260,7 +161,110 @@ namespace GSM04000Front
                 eventArgs.Cancel = true;
             loEx.ThrowExceptionIfErrors();
         }
-        #endregion//Department(PARENT)
+
+        private async Task DeptGrid_ServiceSaveAsync(R_ServiceSaveEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+
+            try
+            {
+                await _deptViewModel.SaveDepartment((GSM04000DTO)eventArgs.Data, (eCRUDMode)eventArgs.ConductorMode);
+                eventArgs.Result = _deptViewModel._Department;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        private async Task DeptGrid_ServiceDeleteAsync(R_ServiceDeleteEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+
+            try
+            {
+                var loData = (GSM04000DTO)eventArgs.Data;
+                await _deptViewModel.DeleteDepartment(loData);
+                await _gridDeptRef.R_RefreshGrid(null);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        private async Task DeptGrid_DisplayAsync(R_DisplayEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loParam = (GSM04000DTO)eventArgs.Data;
+                switch (eventArgs.ConductorMode)
+                {
+                    case R_eConductorMode.Normal:
+                        var loDeptode = (GSM04100DTO)_conGridDeptUserRef.R_GetCurrentData();
+                        loDeptode.CDEPT_CODE = loParam.CDEPT_CODE;
+                        loDeptode.CDEPT_NAME = loParam.CDEPT_NAME;
+
+                        //set to viewmodel parent
+                        _deptViewModel._departmentCode = loParam.CDEPT_CODE;
+                        _deptViewModel._activeDept = loParam.LACTIVE;
+
+                        if (loParam.LACTIVE)
+                        {
+                            loLabelActiveInactive = "Inactive";
+                            _deptViewModel._activeDept = false;
+                        }
+                        else
+                        {
+                            loLabelActiveInactive = "Activate";
+                            _deptViewModel._activeDept = true;
+                        }
+
+                        //set button assign user base on data
+                        R_PopupAssignUser.Enabled = (loParam.LEVERYONE == true || loParam.LACTIVE==false) ? false : true;
+
+                        //set deptcode to view model child
+                        _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
+                        //refresh grid child
+                        if (!string.IsNullOrWhiteSpace(_deptUserViewModel._DepartmentCode))
+                        {
+                            await _gridDeptUserRef.R_RefreshGrid(loParam);
+                        }
+                        break;
+
+                    case R_eConductorMode.Edit:
+                        if (loParam.LEVERYONE != true)
+                        {
+                            await R_MessageBox.Show("Confirmation", "changing this will delete all assinged user on this dept", R_eMessageBoxButtonType.OKCancel);
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+        }
+
+        private void DeptGrid_AfterAdd(R_AfterAddEventArgs eventArgs)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                var loData = (GSM04000DTO)eventArgs.Data;
+                loData.LACTIVE = true;//set active=true as default
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
 
         #region GridLookup
         private void Dept_Before_Open_Lookup(R_BeforeOpenGridLookupColumnEventArgs eventArgs)
@@ -302,56 +306,55 @@ namespace GSM04000Front
         }
         #endregion//GridLookup
 
-        #region DepartmentUser(CHILD)
-        private async Task DeptUserGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var loParam = R_FrontUtility.ConvertObjectToObject<GSM04000DTO>(eventArgs.Parameter);
-                _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
-                await _deptUserViewModel.GetDeptUserListByDeptCode();
-                eventArgs.ListEntityResult = _deptUserViewModel._DepartmentUserList;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
+        #endregion//GridDept
 
-        }
-        private async Task DeptUserGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        #region Template
+        private async Task DownloadTemplateAsync()
         {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                var loParam = R_FrontUtility.ConvertObjectToObject<GSM04100DTO>(eventArgs.Data);
-                loParam.CDEPT_CODE = _deptUserViewModel._DepartmentCode;
-                await _deptUserViewModel.GetDepartmentUser(loParam);
-                eventArgs.Result = _deptUserViewModel._DepartmentUser;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
 
-        }
-        private async Task DeptUserGrid_ServiceDelete(R_ServiceDeleteEventArgs eventArgs)
-        {
             var loEx = new R_Exception();
             try
             {
-                var loData = (GSM04100StreamDTO)eventArgs.Data;
-                await _deptUserViewModel.DeleteUserDepartment(loData);
+                var loValidate = await R_MessageBox.Show("", "Are you sure download this template?", R_eMessageBoxButtonType.YesNo);
+
+                if (loValidate == R_eMessageBoxResult.Yes)
+                {
+                    var loByteFile = await _deptViewModel.DownloadTemplate();
+
+                    var saveFileName = $"Department - {_clientHelper.CompanyId}.xlsx";
+
+                    await JS.downloadFileFromStreamHandler(saveFileName, loByteFile.FileBytes);
+                }
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
+            R_DisplayException(loEx);
         }
-        #endregion//DepartmentUser(CHILD)
+        #endregion//Template
+
+        #region Upload
+        private void R_Before_Open_PopupUpload(R_BeforeOpenPopupEventArgs eventArgs)
+        {
+            eventArgs.TargetPageType = typeof(GSM04000PopupUpload);
+        }
+        public async Task R_After_Open_PopupUpload(R_AfterOpenPopupEventArgs eventArgs)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                await _gridDeptRef.R_RefreshGrid(null);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+
+        }
+        #endregion//Upload
 
         #region Assign User
         private void R_Before_Open_PopupAssignUser(R_BeforeOpenPopupEventArgs eventArgs)
@@ -376,7 +379,7 @@ namespace GSM04000Front
             await _gridDeptUserRef.R_RefreshGrid(loDeptode);
         }
         #endregion//Assign User
-
+        
         #region Active/Inactive
         private async Task R_Before_Open_Popup_ActivateInactiveAsync(R_BeforeOpenPopupEventArgs eventArgs)
         {
@@ -435,18 +438,17 @@ namespace GSM04000Front
             loException.ThrowExceptionIfErrors();
         }
         #endregion//Active/Inactive
-
-        #region Upload
-        private void R_Before_Open_PopupUpload(R_BeforeOpenPopupEventArgs eventArgs)
-        {
-            eventArgs.TargetPageType = typeof(GSM04000PopupUpload);
-        }
-        public async Task R_After_Open_PopupUpload(R_AfterOpenPopupEventArgs eventArgs)
+    
+        #region DepartmentUser(CHILD)
+        private async Task DeptUserGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
             try
             {
-                await _gridDeptRef.R_RefreshGrid(null);
+                var loParam = R_FrontUtility.ConvertObjectToObject<GSM04000DTO>(eventArgs.Parameter);
+                _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
+                await _deptUserViewModel.GetDeptUserListByDeptCode();
+                eventArgs.ListEntityResult = _deptUserViewModel._DepartmentUserList;
             }
             catch (Exception ex)
             {
@@ -455,33 +457,37 @@ namespace GSM04000Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        #endregion//Upload
-
-        #region Template
-        private async Task DownloadTemplateAsync()
+        private async Task DeptUserGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                var loParam = R_FrontUtility.ConvertObjectToObject<GSM04100DTO>(eventArgs.Data);
+                loParam.CDEPT_CODE = _deptUserViewModel._DepartmentCode;
+                await _deptUserViewModel.GetDepartmentUser(loParam);
+                eventArgs.Result = _deptUserViewModel._DepartmentUser;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
 
+        }
+        private async Task DeptUserGrid_ServiceDelete(R_ServiceDeleteEventArgs eventArgs)
+        {
             var loEx = new R_Exception();
             try
             {
-                var loValidate = await R_MessageBox.Show("", "Are you sure download this template?", R_eMessageBoxButtonType.YesNo);
-
-                if (loValidate == R_eMessageBoxResult.Yes)
-                {
-                    var loByteFile = await _deptViewModel.DownloadTemplate();
-
-                    var saveFileName = $"Department - {_clientHelper.CompanyId}.xlsx";
-
-                    await JS.downloadFileFromStreamHandler(saveFileName, loByteFile.FileBytes);
-                }
+                var loData = (GSM04100StreamDTO)eventArgs.Data;
+                await _deptUserViewModel.DeleteUserDepartment(loData);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
-            R_DisplayException(loEx);
         }
-        #endregion//Template
+        #endregion//DepartmentUser(CHILD)
     }
 }

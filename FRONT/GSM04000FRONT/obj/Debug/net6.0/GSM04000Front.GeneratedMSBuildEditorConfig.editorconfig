@@ -10,6 +10,8 @@ build_property._SupportedPlatformList = Linux,macOS,Windows,browser
 build_property.RootNamespace = GSM04000Front
 build_property.RootNamespace = GSM04000Front
 build_property.ProjectDir = D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
@@ -18,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 
 [D:/repos/BS Program/SOURCE/FRONT/GSM04000FRONT/GSM04000.razor]
 build_metadata.AdditionalFiles.TargetPath = R1NNMDQwMDAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/GSM04000FRONT/GSM040002.razor]
+build_metadata.AdditionalFiles.TargetPath = R1NNMDQwMDAyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/repos/BS Program/SOURCE/FRONT/GSM04000FRONT/GSM04000PopupAssignUser.razor]

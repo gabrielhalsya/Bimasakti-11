@@ -5,7 +5,6 @@ D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Release\net6.0\LMM00200Common
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Release\net6.0\LMM00200Model.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Release\net6.0\R_BlazorFrontEnd.Controls.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Release\net6.0\R_BlazorFrontEnd.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Release\net6.0\R_BlazorFrontEnd.Excel.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Release\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Release\net6.0\R_BusinessObjectFront.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Release\net6.0\R_APIClient.dll
@@ -34,3 +33,4 @@ D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Release\net6.0\LMM00200Front.
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Release\net6.0\refint\LMM00200Front.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Release\net6.0\LMM00200Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Release\net6.0\ref\LMM00200Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Release\net6.0\LMM00200Front.sourcelink.json

@@ -31,5 +31,6 @@ D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\ob
 D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Debug\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Debug\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Debug\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Debug\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Debug\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Debug\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.pdb

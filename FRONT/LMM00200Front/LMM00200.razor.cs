@@ -77,10 +77,6 @@ namespace LMM00200Front
             try
             {
                 var loData = (LMM00200DTO)eventArgs.Data;
-
-                if (string.IsNullOrWhiteSpace(loData.CVALUE))
-                    loEx.Add("", "Please fill Value.");
-
                 if (loData.IUSER_LEVEL < 0)
                     loEx.Add("", "User level start from 0.");
             }
@@ -159,10 +155,11 @@ namespace LMM00200Front
             _gridEnabled = eventArgs.Enable;
         }
 
-        private R_TextArea _textAreaValue; //ref for Value textbox
+        private R_NumericTextBox<int> _numTextBoxUserLevel; //ref for Value textbox
         private async Task R_AfterAdd()
         {
-            await _textAreaValue.FocusAsync(); //make focus to textboxvalue
+            //make focus when edit
+            await _numTextBoxUserLevel.FocusAsync(); //make focus to textboxvalue
         }
     }
 }

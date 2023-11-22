@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GSM04000Front")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fdfd5cfb7a6904a15fe89c7e68e84b5d68bb708")]
 [assembly: System.Reflection.AssemblyProductAttribute("GSM04000Front")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GSM04000Front")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
