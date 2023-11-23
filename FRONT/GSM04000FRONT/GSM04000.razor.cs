@@ -30,9 +30,9 @@ namespace GSM04000Front
 
         [Inject] R_PopupService PopupService { get; set; }
         [Inject] IClientHelper _clientHelper { get; set; }
-        private R_Popup R_PopupAssignUser;
-        private R_Popup R_PopupActiveInactive;
-        private string loLabelActiveInactive = "Active/Inactive";
+        private string _labelActiveInactive = "Active/Inactive";
+        private bool _enableBtnAssignUser;
+        private bool _enableBtnActiveInactive = true;
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -60,8 +60,8 @@ namespace GSM04000Front
                 eventArgs.ListEntityResult = _deptViewModel._DepartmentList;
                 if (_deptViewModel._DepartmentList.Count == 0)
                 {
-                    R_PopupActiveInactive.Enabled = false;
-                    R_PopupAssignUser.Enabled = false;
+                    _enableBtnActiveInactive= false;
+                    _enableBtnAssignUser = false;
                 }
             }
             catch (Exception ex)
@@ -216,18 +216,21 @@ namespace GSM04000Front
 
                         if (loParam.LACTIVE)
                         {
-                            loLabelActiveInactive = "Inactive";
+                            _labelActiveInactive = "Inactive";
                             _deptViewModel._activeDept = false;
                         }
                         else
                         {
-                            loLabelActiveInactive = "Activate";
+                            _labelActiveInactive = "Activate";
                             _deptViewModel._activeDept = true;
                         }
 
-                        //set button assign user base on data
-                        R_PopupAssignUser.Enabled = (loParam.LEVERYONE == true || loParam.LACTIVE==false) ? false : true;
-
+                        if (loParam.LEVERYONE == false && loParam.LACTIVE == true)
+                        {
+                            _enableBtnAssignUser = true;
+                        }
+                        else { _enableBtnAssignUser = false; }
+                        
                         //set deptcode to view model child
                         _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
                         //refresh grid child
@@ -379,7 +382,7 @@ namespace GSM04000Front
             await _gridDeptUserRef.R_RefreshGrid(loDeptode);
         }
         #endregion//Assign User
-        
+
         #region Active/Inactive
         private async Task R_Before_Open_Popup_ActivateInactiveAsync(R_BeforeOpenPopupEventArgs eventArgs)
         {
@@ -438,7 +441,7 @@ namespace GSM04000Front
             loException.ThrowExceptionIfErrors();
         }
         #endregion//Active/Inactive
-    
+
         #region DepartmentUser(CHILD)
         private async Task DeptUserGrid_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {

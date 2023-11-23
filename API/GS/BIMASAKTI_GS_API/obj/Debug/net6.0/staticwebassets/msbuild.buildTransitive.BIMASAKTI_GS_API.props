@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\BIMASAKTI_GS_API.props" />
-</Project>

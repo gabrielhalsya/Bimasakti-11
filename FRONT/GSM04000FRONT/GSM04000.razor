@@ -43,16 +43,18 @@
             </R_Popup>
         </R_ItemLayout>
         <R_ItemLayout>
-            <R_Popup @ref="R_PopupAssignUser" R_Before_Open_Popup="@R_Before_Open_PopupAssignUser" R_After_Open_Popup="@R_After_Open_PopupAssignUser" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
+            <R_Popup Enabled="@_enableBtnAssignUser" R_Before_Open_Popup="@R_Before_Open_PopupAssignUser" R_After_Open_Popup="@R_After_Open_PopupAssignUser" R_ConductorGridSource="_conGridDeptRef"
+                     R_EnableOther>
                 <R_Label>Assign User</R_Label>
             </R_Popup>
         </R_ItemLayout>
         <R_ItemLayout>
-            <R_Popup @ref="R_PopupActiveInactive" R_ConductorGridSource="@_conGridDeptRef"
+            <R_Popup Enabled="@_enableBtnActiveInactive"
+                     R_ConductorGridSource="@_conGridDeptRef"
                      R_Before_Open_Popup="R_Before_Open_Popup_ActivateInactiveAsync"
                      R_After_Open_Popup="R_After_Open_Popup_ActivateInactive"
                      R_EnableOther>
-                <R_Label>@loLabelActiveInactive</R_Label>
+                <R_Label>@_labelActiveInactive</R_Label>
                 </R_Popup>
             </R_ItemLayout>
         </R_StackLayout>
@@ -70,38 +72,38 @@
  <R_StackLayout>
      <h5 FontStyle="R_eFontStyle.Bold" Class="mt-3">Assigned Users</h5>
      <R_StackLayout Row>
-         <R_ItemLayout col="1">
-             <R_Label>Department</R_Label>
-         </R_ItemLayout>
-         <R_ItemLayout col="2">
-             <R_TextBox @bind-Value="@_deptUserViewModel.Data.CDEPT_CODE"
-                        R_ConductorGridSource="@_conGridDeptUserRef" Enabled="false"></R_TextBox>
-         </R_ItemLayout>
-         <R_ItemLayout col="4">
-             <R_TextBox @bind-Value="@_deptUserViewModel.Data.CDEPT_NAME"
-                        R_ConductorGridSource="@_conGridDeptUserRef" Enabled="false"></R_TextBox>
-         </R_ItemLayout>
-     </R_StackLayout>
-     <R_Grid DataSource="@_deptUserViewModel._DepartmentUserList"
-             @ref="@_gridDeptUserRef"
-             Pageable="true"
-             R_ConductorGridSource="@_conGridDeptUserRef"
-             R_GridType="@R_eGridType.Original"
-             AddButtonText="false"
-             AllowAddNewRow="false"
-             AllowEditRow="false"
-             AllowDeleteRow="true"
-             R_ServiceGetListRecord="@DeptUserGrid_ServiceGetListRecord"
-             Height="150px">
-         <R_GridColumns>
-             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_ID)" HeaderText="User ID" Width="150px"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_NAME)" HeaderText="User Name" Width="400px"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUPDATE_BY)" HeaderText="Last Update By" Width="150px"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.DUPDATE_DATE)" HeaderText="Last Update Date" Width="150px"></R_GridTextColumn>
-         </R_GridColumns>
-     </R_Grid>
- </R_StackLayout>
- <R_ConductorGrid @ref="@_conGridDeptUserRef"
-                  R_ViewModel="@_deptUserViewModel"
-                  R_ServiceGetRecord="@DeptUserGrid_ServiceGetRecord"
-                  R_ServiceDelete="@DeptUserGrid_ServiceDelete"></R_ConductorGrid>
+        <R_ItemLayout col="1">
+            <R_Label>Department</R_Label>
+        </R_ItemLayout>
+        <R_ItemLayout col="2">
+            <R_TextBox @bind-Value="@_deptUserViewModel.Data.CDEPT_CODE"
+                       R_ConductorGridSource="@_conGridDeptUserRef" Enabled="false"></R_TextBox>
+        </R_ItemLayout>
+        <R_ItemLayout col="4">
+            <R_TextBox @bind-Value="@_deptUserViewModel.Data.CDEPT_NAME"
+                       R_ConductorGridSource="@_conGridDeptUserRef" Enabled="false"></R_TextBox>
+        </R_ItemLayout>
+    </R_StackLayout>
+    <R_Grid DataSource="@_deptUserViewModel._DepartmentUserList"
+            @ref="@_gridDeptUserRef"
+            Pageable="true"
+            R_ConductorGridSource="@_conGridDeptUserRef"
+            R_GridType="@R_eGridType.Original"
+            AddButtonText="false"
+            AllowAddNewRow="false"
+            AllowEditRow="false"
+            AllowDeleteRow="true"
+            R_ServiceGetListRecord="@DeptUserGrid_ServiceGetListRecord"
+            Height="150px">
+        <R_GridColumns>
+            <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_ID)" HeaderText="User ID" Width="150px"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_NAME)" HeaderText="User Name" Width="400px"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUPDATE_BY)" HeaderText="Last Update By" Width="150px"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.DUPDATE_DATE)" HeaderText="Last Update Date" Width="150px"></R_GridTextColumn>
+        </R_GridColumns>
+    </R_Grid>
+</R_StackLayout>
+<R_ConductorGrid @ref="@_conGridDeptUserRef"
+                 R_ViewModel="@_deptUserViewModel"
+                 R_ServiceGetRecord="@DeptUserGrid_ServiceGetRecord"
+                 R_ServiceDelete="@DeptUserGrid_ServiceDelete"></R_ConductorGrid>
