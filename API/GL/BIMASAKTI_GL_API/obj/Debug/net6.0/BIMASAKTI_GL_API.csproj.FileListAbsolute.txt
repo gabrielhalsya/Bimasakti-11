@@ -156,7 +156,6 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_Cache.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_ContextAPIMiddleware.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_ExceptionAPIMiddleware.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_Security.dll
-D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_StorageCommon.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_PluginsCommon.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
@@ -192,3 +191,4 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\refint\BIMAS
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.pdb
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.genruntimeconfig.cache
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\ref\BIMASAKTI_GL_API.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.sourcelink.json

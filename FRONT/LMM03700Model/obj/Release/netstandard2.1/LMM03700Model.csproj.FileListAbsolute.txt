@@ -19,3 +19,4 @@ D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Release\netstandard2.1\LMM037
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Release\netstandard2.1\LMM03700Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Release\netstandard2.1\LMM03700Model.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Release\netstandard2.1\LMM03700Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Release\netstandard2.1\LMM03700Model.sourcelink.json

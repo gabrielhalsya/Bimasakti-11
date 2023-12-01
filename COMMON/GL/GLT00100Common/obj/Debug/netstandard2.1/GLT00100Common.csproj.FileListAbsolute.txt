@@ -15,3 +15,4 @@ D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100Common\obj\Debug\netstandard2.1\GLT
 D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100Common\obj\Debug\netstandard2.1\GLT00100Common.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100Common\obj\Debug\netstandard2.1\GLT00100Common.dll
 D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100Common\obj\Debug\netstandard2.1\GLT00100Common.pdb
+D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100Common\obj\Debug\netstandard2.1\GLT00100Common.sourcelink.json

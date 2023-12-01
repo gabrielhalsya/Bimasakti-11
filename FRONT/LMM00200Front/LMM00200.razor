@@ -10,7 +10,7 @@
                 Pageable="true"
                 R_ConductorSource="@_conductorRef"
                 R_GridType="@R_eGridType.Navigator"
-                R_ServiceGetListRecord="@Grid_R_ServiceGetListRecordAsync"
+                R_ServiceGetListRecord="@UserParam_ServiceGetListRecordAsync"
                 Enabled="@_gridEnabled"
                 Height="300px">
             <R_GridColumns>
@@ -60,7 +60,8 @@
             <R_Label>User Level</R_Label>
         </R_ItemLayout>
         <R_ItemLayout Class="row ms-2">
-            <R_RadioGroup Class="col" Data="@_viewModel._Options"
+            <R_RadioGroup Class="col"
+                          Data="@_viewModel._Options"
                           @bind-Value="@_viewModel._CUserOperatorSign"
                           ValueField="@nameof(RadioModel.Value)"
                           TextField="@nameof(RadioModel.Text)"
@@ -92,22 +93,26 @@
     <R_StackLayout Row="true" Spacing="3" Class="mt-3 justify-content-between">
         <R_ItemLayout>
             <R_EditButton R_Conductor="@_conductorRef"></R_EditButton>
-            <R_Button R_ConductorSource="@_conductorRef" OnClick="@BtnActiveInactive" R_EnableOther>@_labelActiveInactive</R_Button>
+            <R_Button R_ConductorSource="@_conductorRef"
+                      OnClick="@BtnActiveInactive"
+                      R_EnableOther>@_labelActiveInactive</R_Button>
             </R_ItemLayout>
             <R_ItemLayout>
                 <R_CancelButton R_Conductor="@_conductorRef"></R_CancelButton>
                 <R_SaveButton R_Conductor="@_conductorRef"></R_SaveButton>
             </R_ItemLayout>
         </R_StackLayout>
+
     </R_StackLayout>
 
     <R_Conductor @ref="@_conductorRef"
                  R_ViewModel="@_viewModel"
                  R_IsHeader="true"
-                 R_ServiceGetRecord="@Conductor_ServiceGetRecordAsync"
-                 R_Validation="@Conductor_Validation"
-                 R_ServiceSave="@Conductor_ServiceSaveAsync"
-                 R_ConvertToGridEntity="@R_ConvertToGridEntity"
-                 R_BeforeEdit="@R_BeforeEdit"
-                 R_SetOther="@R_SetOther"
-                 R_AfterAdd="@R_AfterAdd"></R_Conductor>
+                 R_ServiceGetRecord="@UserParam_ServiceGetRecordAsync"
+                 R_Validation="@UserParam_Validation"
+                 R_ServiceSave="@UserParam_ServiceSaveAsync"
+                 R_ConvertToGridEntity="@UserParam_ConvertToGridEntity"
+                 R_SetEdit="@UserParam_SetEditAsync"
+                 R_SetOther="@UserParam_SetOther"
+                 R_Saving="@UserParam_Saving"
+                 R_Display="@UserParam_DisplayAsync"></R_Conductor>

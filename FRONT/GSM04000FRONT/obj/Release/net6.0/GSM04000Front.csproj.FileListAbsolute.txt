@@ -53,3 +53,4 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Release\net6.0\GSM04000Front.
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Release\net6.0\ref\GSM04000Front.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Release\net6.0\Properties\launchSettings.json
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Release\net6.0\R_ProcessAndUploadFront.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Release\net6.0\GSM04000Front.sourcelink.json

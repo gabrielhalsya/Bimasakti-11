@@ -20,3 +20,4 @@ D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100
 D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLT00100Model\obj\Debug\netstandard2.1\GLT00100Model.sourcelink.json

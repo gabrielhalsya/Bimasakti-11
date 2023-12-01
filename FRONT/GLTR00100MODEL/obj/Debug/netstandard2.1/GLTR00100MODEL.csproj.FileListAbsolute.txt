@@ -56,3 +56,4 @@ D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Debug\netstandard2.1\GLTR001
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Debug\netstandard2.1\GLTR00100MODEL.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Debug\netstandard2.1\GLTR00100MODEL.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Debug\netstandard2.1\GLTR00100MODEL.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Debug\netstandard2.1\GLTR00100MODEL.sourcelink.json

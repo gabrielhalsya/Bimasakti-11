@@ -15,3 +15,4 @@ D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Release\netstandard2.1\L
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Release\netstandard2.1\LMM03700Common.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Release\netstandard2.1\LMM03700Common.dll
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Release\netstandard2.1\LMM03700Common.pdb
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM03700Common\obj\Release\netstandard2.1\LMM03700Common.sourcelink.json

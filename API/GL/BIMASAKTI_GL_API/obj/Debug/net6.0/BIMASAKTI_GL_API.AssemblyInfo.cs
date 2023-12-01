@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BIMASAKTI_GL_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a38132c1c18bb439380cf90dc34a4e13a7706483")]
 [assembly: System.Reflection.AssemblyProductAttribute("BIMASAKTI_GL_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BIMASAKTI_GL_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

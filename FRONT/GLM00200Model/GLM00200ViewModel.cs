@@ -30,7 +30,7 @@ namespace GLM00200Model
         public List<GSL00900DTO> _ListCenter { get; set; } = new List<GSL00900DTO>();
         public List<StatusDTO> _StatusList { get; set; } = new List<StatusDTO>();
         public List<CurrencyDTO> _CurrencyList { get; set; } = new List<CurrencyDTO>();
-        public List<PeriodDTO> _Periods = Enumerable.Range(1, 12).Select(month => new PeriodDTO { CPERIOD_MM_CODE = month.ToString("D2"), CPERIOD_MM_TEXT = month.ToString("D2") }).ToList();
+        public List<PeriodFrontDTO> _Periods = new List<PeriodFrontDTO>();
         public InitDTO _InitData { get; set; } = new InitDTO();
         public CurrencyRateResult _CURRENCY_RATE_RESULT = new CurrencyRateResult();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
@@ -173,6 +173,12 @@ namespace GLM00200Model
                 _DREF_DATE = _InitData.DTODAY;
                 _DSTART_DATE = _DREF_DATE = _InitData.DTODAY;
                 _DDOC_DATE = _InitData.DTODAY;
+                _SearchParam.CPERIOD_MM = _Periods.FirstOrDefault().CPERIOD_MM_CODE;
+                _Periods = Enumerable.Range(1, 12).Select(month => new PeriodFrontDTO
+                {
+                    CPERIOD_MM_CODE = month.ToString("D2"),
+                    CPERIOD_MM_TEXT = month.ToString("D2")
+                }).ToList();
             }
             catch (Exception ex)
             {

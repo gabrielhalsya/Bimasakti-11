@@ -20,3 +20,4 @@ D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj
 D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_RECURRING_JRNResources.sourcelink.json

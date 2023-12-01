@@ -9,3 +9,4 @@ D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_DEPARTMENTResources\obj\
 D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_UPLOAD_DEPARTMENTResources.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_UPLOAD_DEPARTMENTResources.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_UPLOAD_DEPARTMENTResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_UPLOAD_DEPARTMENTResources.sourcelink.json

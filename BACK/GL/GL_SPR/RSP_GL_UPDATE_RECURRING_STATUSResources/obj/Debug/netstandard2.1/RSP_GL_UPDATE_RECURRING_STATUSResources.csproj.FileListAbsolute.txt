@@ -20,3 +20,4 @@ D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResource
 D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_RECURRING_STATUSResources.sourcelink.json

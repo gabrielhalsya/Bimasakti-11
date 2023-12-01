@@ -26,4 +26,4 @@ D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Release\net6.0\LMM03700Back.
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Release\net6.0\refint\LMM03700Back.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Release\net6.0\LMM03700Back.pdb
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Release\net6.0\ref\LMM03700Back.dll
-D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Release\net6.0\R_StorageCommon.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Release\net6.0\LMM03700Back.sourcelink.json

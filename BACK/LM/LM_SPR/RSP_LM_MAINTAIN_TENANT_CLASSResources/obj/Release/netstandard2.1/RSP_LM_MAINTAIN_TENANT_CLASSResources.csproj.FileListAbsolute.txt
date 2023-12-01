@@ -9,3 +9,4 @@ D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Release\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Release\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Release\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\obj\Release\netstandard2.1\RSP_LM_MAINTAIN_TENANT_CLASSResources.sourcelink.json

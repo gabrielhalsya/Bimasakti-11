@@ -178,6 +178,24 @@ namespace RSP_LM_UPLOAD_STAFFResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid City.
+        /// </summary>
+        internal static string INVALID_CITY {
+            get {
+                return ResourceManager.GetString("INVALID_CITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Country.
+        /// </summary>
+        internal static string INVALID_COUNTRY {
+            get {
+                return ResourceManager.GetString("INVALID_COUNTRY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Department Code.
         /// </summary>
         internal static string INVALID_DEPT_CODE {
@@ -201,6 +219,15 @@ namespace RSP_LM_UPLOAD_STAFFResources {
         internal static string INVALID_POSITION {
             get {
                 return ResourceManager.GetString("INVALID_POSITION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid State.
+        /// </summary>
+        internal static string INVALID_STATE {
+            get {
+                return ResourceManager.GetString("INVALID_STATE", resourceCulture);
             }
         }
     }

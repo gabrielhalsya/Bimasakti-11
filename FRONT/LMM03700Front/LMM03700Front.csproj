@@ -10,10 +10,6 @@
 	  <Compile Remove="LMM00200.razor.cs" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Include="LMM03700.razor.cs" />
-	</ItemGroup>
-
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />

@@ -33,6 +33,8 @@ namespace GSM04000Front
         private string _labelActiveInactive = "Active/Inactive";
         private bool _enableBtnAssignUser;
         private bool _enableBtnActiveInactive = true;
+        private bool _enableGridUserDept=true;
+        private bool _enableGridDept=true;
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -431,7 +433,6 @@ namespace GSM04000Front
                 {
                     await _deptViewModel.ActiveInactiveProcessAsync();
                     await _gridDeptRef.R_RefreshGrid(null);
-                    //await _gridDeptRef.SelectItem(loData);
                 }
             }
             catch (Exception ex)

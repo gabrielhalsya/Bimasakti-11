@@ -55,3 +55,4 @@ D:\repos\BS Program\SOURCE\FRONT\GLT00100Front\obj\Debug\net6.0\GLT00100Front.dl
 D:\repos\BS Program\SOURCE\FRONT\GLT00100Front\obj\Debug\net6.0\refint\GLT00100Front.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100Front\obj\Debug\net6.0\GLT00100Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100Front\obj\Debug\net6.0\ref\GLT00100Front.dll
+D:\repos\BS Program\SOURCE\FRONT\GLT00100Front\obj\Debug\net6.0\GLT00100Front.sourcelink.json

@@ -12,7 +12,7 @@
         <R_Label>Department</R_Label>
     </R_ItemLayout>
     <R_ItemLayout xs="1">
-        <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_CODE"
+        <R_TextBox @bind-Value="_journalVM._SearchParam.CDEPT_CODE"
                    CharacterCasing="R_eCharacterCasing.Upper"></R_TextBox>
     </R_ItemLayout>
     <R_ItemLayout>
@@ -22,22 +22,23 @@
         </R_Lookup>
     </R_ItemLayout>
     <R_ItemLayout>
-            <R_TextBox @bind-value="_journalVM._SearchParam.CDEPT_NAME " MaxLength"></R_TextBox>
+        <R_TextBox @bind-Value="_journalVM._SearchParam.CDEPT_NAME " MaxLength"></R_TextBox>
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Label>Next Journal Period</R_Label>
     </R_ItemLayout>
     <R_ItemLayout xs="1">
-        <R_ComboBox @bind-Value="@_journalVM._SearchParam.CPERIOD_MM" Data="_journalVM._Periods" ValueField="@nameof(PeriodDTO.CPERIOD_MM_CODE)" TextField="@nameof(PeriodDTO.CPERIOD_MM_TEXT)"
-        ></R_ComboBox>
+        <R_ComboBox @bind-Value="@_journalVM._SearchParam.CPERIOD_MM"
+                    Data="_journalVM._Periods"
+                    ValueField="@nameof(PeriodFrontDTO.CPERIOD_MM_CODE)"
+                    TextField="@nameof(PeriodFrontDTO.CPERIOD_MM_TEXT)"></R_ComboBox>
     </R_ItemLayout>
     <R_ItemLayout xs="1">
         <R_NumericTextBox @bind-Value="@_journalVM._SearchParam.CPERIOD_YYYY"
-                          Min="_journalVM._InitData.PERIOD_YEAR.IMIN_YEAR"
-                          Max="_journalVM._InitData.PERIOD_YEAR.IMAX_YEAR"
                           Arrows=false
-                          ThousandSeparator=false/>
+                          ThousandSeparator=false />
     </R_ItemLayout>
+
     <R_ItemLayout>
         <R_Label>Status</R_Label>
     </R_ItemLayout>

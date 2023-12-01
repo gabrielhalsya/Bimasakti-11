@@ -1,6 +1,7 @@
 ﻿using LMM03700Common;
 using LMM03700Common.DTO_s;
 using LMM03700Model;
+using Microsoft.Extensions.Logging;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
@@ -28,6 +29,7 @@ namespace LMM03700Front
             try
             {
                 await _viewTenantClassGrpModel.GetPropertyList();
+                await Task.Delay(300);
                 if (_viewTenantClassGrpModel._PropertyList.Count >= 1)
                 {
                     await _gridTenantClassGroupRef.R_RefreshGrid(null);
@@ -153,6 +155,22 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
+        private async Task TenantGrp_AfterAdd(R_AfterAddEventArgs eventArgs)
+        {
+            R_Exception loEx = new();
+            try
+            {
+                var loData = (TenantClassificationGroupDTO)eventArgs.Data;
+                loData.DUPDATE_DATE = DateTime.Now;
+                loData.DCREATE_DATE = DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
         #endregion
     }
 }

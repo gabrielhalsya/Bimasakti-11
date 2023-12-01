@@ -259,6 +259,7 @@ namespace GLM00200Service
                 loCls = new();
 
                 loResult.SYSTEM_PARAM=loCls.GetSystemParam(loParam); //get systemparam
+                
                 //assgin systemparam to loparam
                 loParam.CCURRENT_PERIOD_YY = loResult.SYSTEM_PARAM.CCURRENT_PERIOD_YY;
                 loParam.CCURRENT_PERIOD_MM = loResult.SYSTEM_PARAM.CCURRENT_PERIOD_MM;

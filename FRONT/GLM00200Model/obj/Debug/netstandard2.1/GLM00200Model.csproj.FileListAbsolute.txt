@@ -23,3 +23,4 @@ D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.sourcelink.json

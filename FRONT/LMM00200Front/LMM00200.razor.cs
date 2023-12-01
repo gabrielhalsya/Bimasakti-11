@@ -4,6 +4,7 @@ using LMM00200Model;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
+using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
@@ -16,6 +17,7 @@ namespace LMM00200Front
         private R_Conductor _conductorRef;
         private R_Grid<LMM00200GridDTO> _gridRef;
         private string _labelActiveInactive = "";
+        private R_NumericTextBox<int> _numTextBoxUserLevel; //ref for Value textbox
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -32,8 +34,7 @@ namespace LMM00200Front
 
             loEx.ThrowExceptionIfErrors();
         }
-
-        private async Task Grid_R_ServiceGetListRecordAsync(R_ServiceGetListRecordEventArgs eventArgs)
+        private async Task UserParam_ServiceGetListRecordAsync(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -47,11 +48,9 @@ namespace LMM00200Front
             }
             R_DisplayException(loEx);
         }
-
-        private async Task Conductor_ServiceGetRecordAsync(R_ServiceGetRecordEventArgs eventArgs)
+        private async Task UserParam_ServiceGetRecordAsync(R_ServiceGetRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
-
             try
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<LMM00200DTO>(eventArgs.Data);
@@ -69,11 +68,9 @@ namespace LMM00200Front
 
             loEx.ThrowExceptionIfErrors();
         }
-
-        private void Conductor_Validation(R_ValidationEventArgs eventArgs)
+        private void UserParam_Validation(R_ValidationEventArgs eventArgs)
         {
             var loEx = new R_Exception();
-
             try
             {
                 var loData = (LMM00200DTO)eventArgs.Data;
@@ -88,8 +85,24 @@ namespace LMM00200Front
                 eventArgs.Cancel = true;
             loEx.ThrowExceptionIfErrors();
         }
-
-        private async Task Conductor_ServiceSaveAsync(R_ServiceSaveEventArgs eventArgs)
+        private void UserParam_Saving(R_SavingEventArgs eventArgs)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                var loData = (LMM00200DTO)eventArgs.Data;
+                if (string.IsNullOrEmpty(loData.CVALUE)) //make sure cvalue not null while sending to back
+                {
+                    loData.CVALUE = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        private async Task UserParam_ServiceSaveAsync(R_ServiceSaveEventArgs eventArgs)
         {
             var loEx = new R_Exception();
 
@@ -107,8 +120,7 @@ namespace LMM00200Front
 
             loEx.ThrowExceptionIfErrors();
         }
-
-        private void R_ConvertToGridEntity(R_ConvertToGridEntityEventArgs eventArgs)
+        private void UserParam_ConvertToGridEntity(R_ConvertToGridEntityEventArgs eventArgs)
         {
             var loEx = new R_Exception();
 
@@ -123,12 +135,11 @@ namespace LMM00200Front
 
             loEx.ThrowExceptionIfErrors();
         }
-
-        private void R_BeforeEdit(R_BeforeEditEventArgs eventArgs)
+        private async Task UserParam_SetEditAsync(R_SetEventArgs eventArgs)
         {
+            //await _numTextBoxUserLevel.FocusAsync(); //make focus to textboxvalue
             //eventArgs.Cancel = true;
         }
-
         private async Task BtnActiveInactive()
         {
             R_Exception loEx = new R_Exception();
@@ -136,7 +147,7 @@ namespace LMM00200Front
             try
             {
                 var loData = _conductorRef.R_GetCurrentData() as LMM00200DTO; //get current data
-                var loParam = R_FrontUtility.ConvertObjectToObject< ActiveInactiveParam>(loData);
+                var loParam = R_FrontUtility.ConvertObjectToObject<ActiveInactiveParam>(loData);
                 await _viewModel.ActiveInactiveProcessAsync(loParam);//do activeinactive
                 await _viewModel.GetUserParamRecord(loParam);
                 await _conductorRef.R_SetCurrentData(_viewModel._UserParam);
@@ -148,18 +159,26 @@ namespace LMM00200Front
 
             loEx.ThrowExceptionIfErrors();
         }
-
         private bool _gridEnabled = true;
-        private void R_SetOther(R_SetEventArgs eventArgs)
+        private void UserParam_SetOther(R_SetEventArgs eventArgs)
         {
             _gridEnabled = eventArgs.Enable;
         }
-
-        private R_NumericTextBox<int> _numTextBoxUserLevel; //ref for Value textbox
-        private async Task R_AfterAdd()
+        private async Task UserParam_DisplayAsync(R_DisplayEventArgs eventArgs)
         {
-            //make focus when edit
-            await _numTextBoxUserLevel.FocusAsync(); //make focus to textboxvalue
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                if (eventArgs.ConductorMode== R_eConductorMode.Edit)
+                {
+                    await _numTextBoxUserLevel.FocusAsync(); //make focus to textboxvalue
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
         }
     }
 }

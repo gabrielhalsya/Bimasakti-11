@@ -33,3 +33,4 @@ D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Release\net6.0\LMM03700Front.
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Release\net6.0\refint\LMM03700Front.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Release\net6.0\LMM03700Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Release\net6.0\ref\LMM03700Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Release\net6.0\LMM03700Front.sourcelink.json

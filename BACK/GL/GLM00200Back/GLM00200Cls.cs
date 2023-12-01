@@ -430,8 +430,8 @@ namespace GLM00200Back
                 loCmd.CommandText = lcQuery;
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 11, poParam.CCOMPANY_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CCURRENT_PERIOD_YY", DbType.String, 50, poParam.CCURRENT_PERIOD_YY);
-                loDb.R_AddCommandParameter(loCmd, "@CCURRENT_PERIOD_MM", DbType.String, 50, poParam.CCURRENT_PERIOD_MM);
+                loDb.R_AddCommandParameter(loCmd, "@CYEAR", DbType.String, 50, poParam.CCURRENT_PERIOD_YY);
+                loDb.R_AddCommandParameter(loCmd, "@CPERIOD_NO", DbType.String, 50, poParam.CCURRENT_PERIOD_MM);
                 var loResult = loDb.SqlExecQuery(loConn, loCmd, true);
                 loReturn = R_Utility.R_ConvertTo<PeriodDetailInfoDTO>(loResult).FirstOrDefault();
             }
@@ -457,8 +457,8 @@ namespace GLM00200Back
                 loCmd.CommandText = lcQuery;
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 11, poParam.CCOMPANY_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CSOFT_PERIOD_YY", DbType.String, 50, poParam.CSOFT_PERIOD_YY);
-                loDb.R_AddCommandParameter(loCmd, "@CSOFT_PERIOD_MM", DbType.String, 50, poParam.CSOFT_PERIOD_MM);
+                loDb.R_AddCommandParameter(loCmd, "@CYEAR", DbType.String, 50, poParam.CSOFT_PERIOD_YY);
+                loDb.R_AddCommandParameter(loCmd, "@CPERIOD_NO", DbType.String, 50, poParam.CSOFT_PERIOD_MM);
                 var loResult = loDb.SqlExecQuery(loConn, loCmd, true);
                 loReturn = R_Utility.R_ConvertTo<PeriodDetailInfoDTO>(loResult).FirstOrDefault();
             }
@@ -480,7 +480,7 @@ namespace GLM00200Back
                 DbCommand loCmd = loDb.GetCommand();
 
                 //get undo commit jrn
-                const string COPTION_CODE = "GLM14001";
+                const string COPTION_CODE = "GL014001";
                 string lcQuery = "RSP_GL_GET_SYSTEM_ENABLE_OPTION_INFO";
                 loCmd.CommandText = lcQuery;
                 loCmd.CommandType = CommandType.StoredProcedure;

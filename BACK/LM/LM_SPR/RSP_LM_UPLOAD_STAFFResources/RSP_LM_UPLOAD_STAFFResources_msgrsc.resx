@@ -156,6 +156,12 @@
   <data name="INVALID_ACTIVE_FLAG" xml:space="preserve">
     <value>Invalid Active Flag, value is not 1 / 0</value>
   </data>
+  <data name="INVALID_CITY" xml:space="preserve">
+    <value>Invalid City</value>
+  </data>
+  <data name="INVALID_COUNTRY" xml:space="preserve">
+    <value>Invalid Country</value>
+  </data>
   <data name="INVALID_DEPT_CODE" xml:space="preserve">
     <value>Invalid Department Code</value>
   </data>
@@ -164,5 +170,8 @@
   </data>
   <data name="INVALID_POSITION" xml:space="preserve">
     <value>Invalid Position</value>
+  </data>
+  <data name="INVALID_STATE" xml:space="preserve">
+    <value>Invalid State</value>
   </data>
 </root>

@@ -15,3 +15,4 @@ D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Release\netstandard2.1\G
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Release\netstandard2.1\GSM04000Common.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Release\netstandard2.1\GSM04000Common.dll
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Release\netstandard2.1\GSM04000Common.pdb
+D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Release\netstandard2.1\GSM04000Common.sourcelink.json

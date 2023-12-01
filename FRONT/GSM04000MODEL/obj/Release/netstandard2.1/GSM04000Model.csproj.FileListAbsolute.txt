@@ -20,3 +20,4 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Release\netstandard2.1\GSM040
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Release\netstandard2.1\GSM04000Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Release\netstandard2.1\GSM04000Model.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Release\netstandard2.1\R_ProcessAndUploadFront.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Release\netstandard2.1\GSM04000Model.sourcelink.json
