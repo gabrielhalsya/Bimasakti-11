@@ -8,10 +8,10 @@
 <R_PredefinedDock R_InstantiateDock="@Predef_ActualJournalList" R_AfterOpenPredefinedDock="@AfterPredef_ActualJournalList" Title="Actual Journal List"></R_PredefinedDock>
 
 <R_StackLayout Row="true">
-    <R_ItemLayout xs="1">
+    <R_ItemLayout col="1">
         <R_Label>Department</R_Label>
     </R_ItemLayout>
-    <R_ItemLayout xs="1">
+    <R_ItemLayout col="1">
         <R_TextBox @bind-Value="_journalVM._SearchParam.CDEPT_CODE"
                    CharacterCasing="R_eCharacterCasing.Upper"></R_TextBox>
     </R_ItemLayout>
@@ -27,16 +27,18 @@
     <R_ItemLayout>
         <R_Label>Next Journal Period</R_Label>
     </R_ItemLayout>
-    <R_ItemLayout xs="1">
+    <R_ItemLayout col="1">
         <R_ComboBox @bind-Value="@_journalVM._SearchParam.CPERIOD_MM"
                     Data="_journalVM._Periods"
                     ValueField="@nameof(PeriodFrontDTO.CPERIOD_MM_CODE)"
                     TextField="@nameof(PeriodFrontDTO.CPERIOD_MM_TEXT)"></R_ComboBox>
     </R_ItemLayout>
-    <R_ItemLayout xs="1">
+    <R_ItemLayout col="1">
         <R_NumericTextBox @bind-Value="@_journalVM._SearchParam.CPERIOD_YYYY"
                           Arrows=false
-                          ThousandSeparator=false />
+                          ThousandSeparator=false 
+                          Max="@_journalVM._InitData.PERIOD_YEAR.IMAX_YEAR"
+                          Min="@_journalVM._InitData.PERIOD_YEAR.IMIN_YEAR" />
     </R_ItemLayout>
 
     <R_ItemLayout>
@@ -124,22 +126,22 @@
  </R_ConductorGrid>
 
  <R_StackLayout Row>
-    <R_ItemLayout xs="1">
+    <R_ItemLayout col="1">
         <R_Button>Approve</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout xs="1">
+    <R_ItemLayout col="1">
         <R_Button>Commit</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout xs="2">
+    <R_ItemLayout col="2">
         <R_Button>Rapid Approval</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout xs="2">
+    <R_ItemLayout col="2">
         <R_Button>Rapid Commit</R_Button>
     </R_ItemLayout>
-    <R_ItemLayout xs="1" Class="ms-2">
+    <R_ItemLayout col="1" Class="ms-2">
         <R_Popup>Upload</R_Popup>
     </R_ItemLayout>
-    <R_ItemLayout xs="1">
+    <R_ItemLayout col="1">
         <R_Button>Template</R_Button>
     </R_ItemLayout>
 </R_StackLayout>

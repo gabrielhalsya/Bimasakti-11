@@ -13,7 +13,7 @@
             AllowEditRow="true"
             AllowDeleteRow="true"
             R_ServiceGetListRecord="@DeptGrid_ServiceGetListRecordAsync"
-            Height="250px"
+            Height="330px"
             R_Before_Open_Grid_Lookup="Dept_Before_Open_Lookup"
             R_After_Open_Grid_Lookup="Dept_After_Open_Lookup">
         <R_GridColumns>
@@ -65,6 +65,7 @@
                   R_ServiceGetRecord="@DeptGrid_ServiceGetRecordAsync"
                   R_AfterAdd="@DeptGrid_AfterAdd"
                   R_Validation="@DeptGrid_ValidationAsync"
+                  R_Saving="@DeptGrid_Saving"
                   R_ServiceSave="@DeptGrid_ServiceSaveAsync"
                   R_ServiceDelete="@DeptGrid_ServiceDeleteAsync"
                   R_Display="DeptGrid_DisplayAsync"></R_ConductorGrid>
@@ -93,7 +94,7 @@
             AllowEditRow="false"
             AllowDeleteRow="true"
             R_ServiceGetListRecord="@DeptUserGrid_ServiceGetListRecord"
-            Height="150px">
+            Height="170px">
         <R_GridColumns>
             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_ID)" HeaderText="User ID" Width="150px"></R_GridTextColumn>
             <R_GridTextColumn FieldName="@nameof(GSM04100StreamDTO.CUSER_NAME)" HeaderText="User Name" Width="400px"></R_GridTextColumn>

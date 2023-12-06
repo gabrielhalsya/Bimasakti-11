@@ -18,6 +18,7 @@ C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GFF00900COMMON.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GFF00900FRONT.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GFF00900Model.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GSM04000Common.dll
+C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GSM04000FrontResources.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GSM04000Model.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\Lookup_GSCOMMON.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\Lookup_GSFRONT.dll
@@ -39,6 +40,7 @@ C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GFF00900FRONT.pdb
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GFF00900Model.pdb
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\Lookup_GSFRONT.pdb
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GSM04000Common.pdb
+C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GSM04000FrontResources.pdb
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\GSM04000Model.pdb
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\Lookup_GSCOMMON.pdb
 C:\Users\gabriel.codeid\Desktop\GSM04000FRONT\Lookup_GSModel.pdb

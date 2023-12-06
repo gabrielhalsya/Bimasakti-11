@@ -61,7 +61,6 @@ namespace GSM04000Model
 
             try
             {
-                poNewEntity.CMANAGER_NAME = poNewEntity.CMANAGER_CODE;
                 var loResult = await _model.R_ServiceSaveAsync(poNewEntity, peCRUDMode);
                 _Department = loResult;
             }

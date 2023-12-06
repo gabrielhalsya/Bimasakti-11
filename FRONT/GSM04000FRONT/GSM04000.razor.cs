@@ -33,8 +33,8 @@ namespace GSM04000Front
         private string _labelActiveInactive = "Active/Inactive";
         private bool _enableBtnAssignUser;
         private bool _enableBtnActiveInactive = true;
-        private bool _enableGridUserDept=true;
-        private bool _enableGridDept=true;
+        private bool _enableGridUserDept = true;
+        private bool _enableGridDept = true;
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -62,7 +62,7 @@ namespace GSM04000Front
                 eventArgs.ListEntityResult = _deptViewModel._DepartmentList;
                 if (_deptViewModel._DepartmentList.Count == 0)
                 {
-                    _enableBtnActiveInactive= false;
+                    _enableBtnActiveInactive = false;
                     _enableBtnAssignUser = false;
                 }
             }
@@ -131,7 +131,21 @@ namespace GSM04000Front
                                     eventArgs.Cancel = true;
                                 }
                             }
-                        }//~End approval
+                        }
+                        //~End approval
+
+                        if (string.IsNullOrEmpty(loData.CDEPT_CODE) || string.IsNullOrWhiteSpace(loData.CDEPT_CODE))
+                        {
+                            loEx.Add("001", "Department Code can not be empty");
+                        }
+                        if (string.IsNullOrEmpty(loData.CDEPT_NAME) || string.IsNullOrWhiteSpace(loData.CDEPT_NAME))
+                        {
+                            loEx.Add("002", "Department Name can not be empty");
+                        }
+                        if (string.IsNullOrEmpty(loData.CCENTER_CODE) || string.IsNullOrWhiteSpace(loData.CCENTER_CODE))
+                        {
+                            loEx.Add("003", "Center can not be empty");
+                        }
                         break;
 
                     //case validation when editmode
@@ -150,7 +164,21 @@ namespace GSM04000Front
                                 }
                                 await _deptViewModel.DeleteAssignedUserWhenChangeEveryone();
                             }
-                        }//
+                        }
+                        //
+
+                        if (string.IsNullOrEmpty(loData.CDEPT_CODE) || string.IsNullOrWhiteSpace(loData.CDEPT_CODE))
+                        {
+                            loEx.Add("001", "Department Code can not be empty");
+                        }
+                        if (string.IsNullOrEmpty(loData.CDEPT_NAME) || string.IsNullOrWhiteSpace(loData.CDEPT_NAME))
+                        {
+                            loEx.Add("002", "Department Name can not be empty");
+                        }
+                        if (string.IsNullOrEmpty(loData.CCENTER_CODE) || string.IsNullOrWhiteSpace(loData.CCENTER_CODE))
+                        {
+                            loEx.Add("003", "Center can not be empty");
+                        }
                         break;
                 }
             }
@@ -161,6 +189,26 @@ namespace GSM04000Front
 
             if (loEx.HasError)
                 eventArgs.Cancel = true;
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        private void DeptGrid_Saving(R_SavingEventArgs eventArgs)
+        {
+            R_Exception loEx = new();
+            try
+            {
+                var loData = (GSM04000DTO)eventArgs.Data;
+                loData.CMANAGER_NAME = loData.CMANAGER_CODE;
+
+                if (string.IsNullOrEmpty(loData.CMANAGER_NAME)||string.IsNullOrWhiteSpace(loData.CMANAGER_NAME))
+                {
+                    loData.CMANAGER_NAME = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
             loEx.ThrowExceptionIfErrors();
         }
 
@@ -232,7 +280,7 @@ namespace GSM04000Front
                             _enableBtnAssignUser = true;
                         }
                         else { _enableBtnAssignUser = false; }
-                        
+
                         //set deptcode to view model child
                         _deptUserViewModel._DepartmentCode = loParam.CDEPT_CODE;
                         //refresh grid child

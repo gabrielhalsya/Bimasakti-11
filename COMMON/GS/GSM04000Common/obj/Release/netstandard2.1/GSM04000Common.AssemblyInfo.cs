@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GSM04000Common")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fed7e4d83af364fe8f1ff870c065597615f70d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("GSM04000Common")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GSM04000Common")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

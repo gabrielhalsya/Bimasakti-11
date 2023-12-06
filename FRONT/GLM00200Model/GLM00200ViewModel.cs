@@ -173,12 +173,12 @@ namespace GLM00200Model
                 _DREF_DATE = _InitData.DTODAY;
                 _DSTART_DATE = _DREF_DATE = _InitData.DTODAY;
                 _DDOC_DATE = _InitData.DTODAY;
-                _SearchParam.CPERIOD_MM = _Periods.FirstOrDefault().CPERIOD_MM_CODE;
                 _Periods = Enumerable.Range(1, 12).Select(month => new PeriodFrontDTO
                 {
                     CPERIOD_MM_CODE = month.ToString("D2"),
                     CPERIOD_MM_TEXT = month.ToString("D2")
                 }).ToList();
+                _SearchParam.CPERIOD_MM = _Periods.FirstOrDefault().CPERIOD_MM_CODE;
             }
             catch (Exception ex)
             {

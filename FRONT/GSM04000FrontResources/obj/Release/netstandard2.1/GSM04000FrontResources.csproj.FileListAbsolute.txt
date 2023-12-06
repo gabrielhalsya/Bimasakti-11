@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\bin\Release\netstandard2.1\GSM04000FrontResources.deps.json
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\bin\Release\netstandard2.1\GSM04000FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\bin\Release\netstandard2.1\GSM04000FrontResources.pdb
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.GSM04000FrontResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.sourcelink.json
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FrontResources\obj\Release\netstandard2.1\GSM04000FrontResources.pdb

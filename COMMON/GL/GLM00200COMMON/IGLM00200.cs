@@ -1,4 +1,5 @@
 ﻿using GLM00200Common;
+using GLM00200Common.Init_DTO_s;
 using R_CommonFrontBackAPI;
 using System;
 using System.Collections.Generic;

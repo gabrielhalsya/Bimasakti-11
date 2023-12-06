@@ -273,6 +273,16 @@
           "bin/placeholder/GSM04000Common.dll": {}
         }
       },
+      "GSM04000FrontResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/GSM04000FrontResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GSM04000FrontResources.dll": {}
+        }
+      },
       "GSM04000Model/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -659,6 +669,11 @@
       "path": "../../COMMON/GS/GSM04000Common/GSM04000Common.csproj",
       "msbuildProject": "../../COMMON/GS/GSM04000Common/GSM04000Common.csproj"
     },
+    "GSM04000FrontResources/1.0.0": {
+      "type": "project",
+      "path": "../GSM04000FrontResources/GSM04000FrontResources.csproj",
+      "msbuildProject": "../GSM04000FrontResources/GSM04000FrontResources.csproj"
+    },
     "GSM04000Model/1.0.0": {
       "type": "project",
       "path": "../GSM04000MODEL/GSM04000Model.csproj",
@@ -686,6 +701,7 @@
       "GFF00900FRONT >= 1.0.0",
       "GFF00900Model >= 1.0.0",
       "GSM04000Common >= 1.0.0",
+      "GSM04000FrontResources >= 1.0.0",
       "GSM04000Model >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.15"
@@ -728,6 +744,9 @@
           "projectReferences": {
             "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\GSM04000Common\\GSM04000Common.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GS\\GSM04000Common\\GSM04000Common.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GSM04000FrontResources\\GSM04000FrontResources.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GSM04000FrontResources\\GSM04000FrontResources.csproj"
             },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GSM04000MODEL\\GSM04000Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GSM04000MODEL\\GSM04000Model.csproj"

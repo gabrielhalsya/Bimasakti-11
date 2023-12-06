@@ -1,10 +1,11 @@
-﻿using System;
+﻿using R_APICommonDTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace GLM00200Common.Init_DTO_s
 {
-    public class PeriodDTO
+    public class PeriodDTO : R_APIResultBaseDTO
     {
 
         public int IMIN_YEAR { get; set; }

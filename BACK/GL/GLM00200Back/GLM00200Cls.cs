@@ -547,7 +547,7 @@ namespace GLM00200Back
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
-            return loReturn;//get gsm period
+            return loReturn;
 
         }
         public List<StatusDTO> GetSTATUS_DTO(InitParamDTO poParam)
