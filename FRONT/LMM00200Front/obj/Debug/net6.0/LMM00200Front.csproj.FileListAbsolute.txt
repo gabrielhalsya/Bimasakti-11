@@ -47,6 +47,7 @@ D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200Front.de
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200Front.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200Common.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200FrontResources.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200Model.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\R_BlazorFrontEnd.Controls.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\R_BlazorFrontEnd.dll
@@ -58,6 +59,7 @@ D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\R_ContextFrontEn
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200Common.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200FrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\LMM00200Model.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\bin\Debug\net6.0\id\R_BlazorFrontEnd.Controls.resources.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM00200Front\obj\Debug\net6.0\LMM00200Front.csproj.AssemblyReference.cache

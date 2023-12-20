@@ -9,6 +9,7 @@
       "LMM03700Front/1.0.0": {
         "dependencies": {
           "LMM03700Common": "1.0.0",
+          "LMM03700FrontResources": "1.0.0",
           "LMM03700Model": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.15",
           "R_BlazorFrontEnd.Controls": "1.0.0.0",
@@ -150,6 +151,11 @@
       "LMM03700Common/1.0.0": {
         "runtime": {
           "LMM03700Common.dll": {}
+        }
+      },
+      "LMM03700FrontResources/1.0.0": {
+        "runtime": {
+          "LMM03700FrontResources.dll": {}
         }
       },
       "LMM03700Model/1.0.0": {
@@ -344,6 +350,11 @@
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
     "LMM03700Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LMM03700FrontResources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

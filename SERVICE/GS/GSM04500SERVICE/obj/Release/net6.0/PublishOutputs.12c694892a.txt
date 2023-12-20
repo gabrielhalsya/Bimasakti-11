@@ -1,0 +1,16 @@
+D:\Work\New folder\GSM04500Service.dll
+D:\Work\New folder\GSM04500Service.deps.json
+D:\Work\New folder\GSM04500Service.pdb
+D:\Work\New folder\GSM04500Back.dll
+D:\Work\New folder\GSM04500Common.dll
+D:\Work\New folder\R_APIBackEnd.dll
+D:\Work\New folder\R_APICommon.dll
+D:\Work\New folder\R_CommonFrontBackAPI.dll
+D:\Work\New folder\R_APICommonDTO.dll
+D:\Work\New folder\R_ContextBackEnd.dll
+D:\Work\New folder\R_Security.dll
+D:\Work\New folder\R_ContextEnumAndInterface.dll
+D:\Work\New folder\GSM04500Back.pdb
+D:\Work\New folder\GSM04500Common.pdb
+D:\Work\New folder\id\R_APIBackEnd.resources.dll
+D:\Work\New folder\ja\R_APIBackEnd.resources.dll

@@ -1,0 +1,29 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.1/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.1": {},
+    ".NETStandard,Version=v2.1/": {
+      "GSM04500FrontResources/1.0.0": {
+        "runtime": {
+          "GSM04500FrontResources.dll": {}
+        },
+        "resources": {
+          "id/GSM04500FrontResources.resources.dll": {
+            "locale": "id"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GSM04500FrontResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

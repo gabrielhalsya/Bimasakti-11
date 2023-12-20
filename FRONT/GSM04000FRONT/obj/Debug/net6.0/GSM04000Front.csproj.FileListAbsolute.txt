@@ -111,6 +111,7 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\GSM04000FrontRes
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\GSM04000Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSCOMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSFRONT.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSFrontResources.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSModel.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_BlazorFrontEnd.Controls.dll
@@ -132,6 +133,7 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\GSM04000Common.p
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\GSM04000FrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\GSM04000Model.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSCOMMON.pdb
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSFrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSModel.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\id\R_BlazorFrontEnd.Controls.resources.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000Front.csproj.AssemblyReference.cache

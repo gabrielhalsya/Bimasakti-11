@@ -21,6 +21,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\COMMON\LM\LMM03700Common\LMM03700Common.csproj" />
+		<ProjectReference Include="..\LMM03700FrontResources\LMM03700FrontResources.csproj" />
 		<ProjectReference Include="..\LMM03700Model\LMM03700Model.csproj" />
 	</ItemGroup>
 

@@ -139,6 +139,22 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
+        private async Task TenantClassGrp_Saving(R_SavingEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loData= (TenantClassificationGroupDTO)eventArgs.Data;
+                loData.CTENANT_CLASSIFICATION_GROUP_ID = string.IsNullOrWhiteSpace(loData.CTENANT_CLASSIFICATION_GROUP_ID) ? "" : loData.CTENANT_CLASSIFICATION_GROUP_ID;
+                loData.CTENANT_CLASSIFICATION_GROUP_NAME = string.IsNullOrWhiteSpace(loData.CTENANT_CLASSIFICATION_GROUP_NAME) ? "" : loData.CTENANT_CLASSIFICATION_GROUP_NAME;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+
+        }
         private async Task TenantClassGrp_ServiceSave(R_ServiceSaveEventArgs eventArgs)
         {
             var loEx = new R_Exception();

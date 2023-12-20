@@ -95,8 +95,6 @@ namespace LMM03700Front
                 var loParam = R_FrontUtility.ConvertObjectToObject<TenantClassificationDTO>(eventArgs.Data);
                 _viewModelTenantClass._tenantClassificationGroupId = loParam.CTENANT_CLASSIFICATION_GROUP_ID;
                 await _gridTenantClassRef.R_RefreshGrid(null);
-                //await _gridTCRef.AutoFitAllColumnsAsync();
-                //_viewTCModel.AssignedTenantList = null;
             }
             catch (Exception ex)
             {
@@ -153,6 +151,22 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
+        private async Task TenantClass_Saving(R_SavingEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loData = (TenantClassificationDTO)eventArgs.Data;
+                loData.CTENANT_CLASSIFICATION_ID = string.IsNullOrWhiteSpace(loData.CTENANT_CLASSIFICATION_ID) ? "" : loData.CTENANT_CLASSIFICATION_ID;
+                loData.CTENANT_CLASSIFICATION_NAME = string.IsNullOrWhiteSpace(loData.CTENANT_CLASSIFICATION_NAME) ? "" : loData.CTENANT_CLASSIFICATION_NAME;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+
+        }
         private async Task TenantClass_ServiceSave(R_ServiceSaveEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -193,7 +207,6 @@ namespace LMM03700Front
 
             try
             {
-                //_viewTCModel._tenantClassificationId = (string)eventArgs.Parameter;
                 await _viewModelTenantClass.GetAssignedTenantList();
                 eventArgs.ListEntityResult = _viewModelTenantClass.AssignedTenantList;
             }
@@ -286,8 +299,7 @@ namespace LMM03700Front
                     return;
                 }
                 _viewModelTenantClass._tenantClassificationId = (string)eventArgs.Result;
-                await _gridTenantClassRef.R_RefreshGrid(null);
-                //await _gridTCRef.AutoFitAllColumnsAsync();
+                await _gridTenantRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {

@@ -10,6 +10,7 @@
         "dependencies": {
           "GFF00900SERVICES": "1.0.0",
           "GSM04000Service": "1.0.0",
+          "GSM04500Service": "1.0.0",
           "Lookup_GSSERVICES": "1.0.0",
           "Realta.BackCollectionNuGet": "1.0.0",
           "Realta.CommonCollectionNuGet": "1.0.0",
@@ -2058,6 +2059,31 @@
           "GSM04000Service.dll": {}
         }
       },
+      "GSM04500Back/1.0.0": {
+        "dependencies": {
+          "GSM04500Common": "1.0.0",
+          "RSP_GS_MAINTAIN_JOURNAL_GROUPResources": "1.0.0",
+          "RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources": "1.0.0",
+          "RSP_GS_UPLOAD_JOURNAL_GROUPResources": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "runtime": {
+          "GSM04500Back.dll": {}
+        }
+      },
+      "GSM04500Common/1.0.0": {
+        "runtime": {
+          "GSM04500Common.dll": {}
+        }
+      },
+      "GSM04500Service/1.0.0": {
+        "dependencies": {
+          "GSM04500Back": "1.0.0"
+        },
+        "runtime": {
+          "GSM04500Service.dll": {}
+        }
+      },
       "Lookup_GSBACK/1.0.0": {
         "dependencies": {
           "Lookup_GSCOMMON": "1.0.0"
@@ -2084,9 +2110,24 @@
           "RSP_GS_MAINTAIN_DEPARTMENTResources.dll": {}
         }
       },
+      "RSP_GS_MAINTAIN_JOURNAL_GROUPResources/1.0.0": {
+        "runtime": {
+          "RSP_GS_MAINTAIN_JOURNAL_GROUPResources.dll": {}
+        }
+      },
+      "RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources/1.0.0": {
+        "runtime": {
+          "RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources.dll": {}
+        }
+      },
       "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
         "runtime": {
           "RSP_GS_UPLOAD_DEPARTMENTResources.dll": {}
+        }
+      },
+      "RSP_GS_UPLOAD_JOURNAL_GROUPResources/1.0.0": {
+        "runtime": {
+          "RSP_GS_UPLOAD_JOURNAL_GROUPResources.dll": {}
         }
       },
       "BackExtension/1.0.0.0": {
@@ -3680,6 +3721,21 @@
       "serviceable": false,
       "sha512": ""
     },
+    "GSM04500Back/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GSM04500Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GSM04500Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Lookup_GSBACK/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -3700,7 +3756,22 @@
       "serviceable": false,
       "sha512": ""
     },
+    "RSP_GS_MAINTAIN_JOURNAL_GROUPResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GS_UPLOAD_JOURNAL_GROUPResources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

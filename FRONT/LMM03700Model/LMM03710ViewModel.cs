@@ -40,6 +40,39 @@ namespace LMM03700Model
         public string _toTenantClassificationId = "";
         public string _fromTenantClassificationId = "";
         //end
+        #region TenantClassGroup
+        public async Task GetTenantClassGroupList()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CPROPERTY_ID, _propertyId);
+                var loResult = await _modelTenantClassGrp.GetTenantClassRecord();
+                TenantClassGrpList = new ObservableCollection<TenantClassificationGroupDTO>(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        public async Task GetTenantClassGroupRecord(TenantClassificationGroupDTO loParam)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                loParam.CPROPERTY_ID = _propertyId;
+                var loResult = await _modelTenantClassGrp.R_ServiceGetRecordAsync(loParam);
+                TenantClassiGrp = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        #endregion
+
 
         #region TenantClassificaiton
         public async Task GetTenantClassList()
@@ -102,39 +135,6 @@ namespace LMM03700Model
                 loEx.Add(ex);
             }
 
-            loEx.ThrowExceptionIfErrors();
-        }
-        #endregion
-
-        #region TenantClassGroup
-        public async Task GetTenantClassGroupList()
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CPROPERTY_ID, _propertyId);
-                var loResult = await _modelTenantClassGrp.GetTenantClassRecord();
-                TenantClassGrpList = new ObservableCollection<TenantClassificationGroupDTO>(loResult);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task GetTenantClassGroupRecord(TenantClassificationGroupDTO loParam)
-        {
-            R_Exception loEx = new R_Exception();
-            try
-            {
-                loParam.CPROPERTY_ID = _propertyId;
-                var loResult = await _modelTenantClassGrp.R_ServiceGetRecordAsync(loParam);
-                TenantClassiGrp = R_FrontUtility.ConvertObjectToObject<TenantClassificationGroupDTO>(loResult);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
             loEx.ThrowExceptionIfErrors();
         }
         #endregion

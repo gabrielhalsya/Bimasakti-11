@@ -2,7 +2,7 @@
 
 namespace RSP_GS_UPLOAD_DEPARTMENTResources
 {
-    public class Class1
+    public class Resources_Dummy_Class
     {
 
     }

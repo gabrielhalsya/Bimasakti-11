@@ -1,0 +1,10 @@
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\bin\Release\netstandard2.1\LMM00200FrontResources.deps.json
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\bin\Release\netstandard2.1\LMM00200FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\bin\Release\netstandard2.1\LMM00200FrontResources.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\obj\Release\netstandard2.1\LMM00200FrontResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\obj\Release\netstandard2.1\LMM00200FrontResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\obj\Release\netstandard2.1\LMM00200FrontResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\obj\Release\netstandard2.1\LMM00200FrontResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\obj\Release\netstandard2.1\LMM00200FrontResources.sourcelink.json
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\obj\Release\netstandard2.1\LMM00200FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM00200FrontResources\obj\Release\netstandard2.1\LMM00200FrontResources.pdb

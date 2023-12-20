@@ -14,6 +14,7 @@ C:\Users\gabriel.codeid\Desktop\LMM03700Front\Microsoft.Extensions.Primitives.dl
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\Microsoft.JSInterop.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\System.IO.Pipelines.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\LMM03700Common.dll
+C:\Users\gabriel.codeid\Desktop\LMM03700Front\LMM03700FrontResources.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\LMM03700Model.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\R_BlazorFrontEnd.Controls.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\R_BlazorFrontEnd.dll
@@ -25,5 +26,6 @@ C:\Users\gabriel.codeid\Desktop\LMM03700Front\R_ContextFrontEnd.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\R_ContextEnumAndInterface.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\R_AuthenticationEnumAndInterface.dll
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\LMM03700Common.pdb
+C:\Users\gabriel.codeid\Desktop\LMM03700Front\LMM03700FrontResources.pdb
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\LMM03700Model.pdb
 C:\Users\gabriel.codeid\Desktop\LMM03700Front\id\R_BlazorFrontEnd.Controls.resources.dll

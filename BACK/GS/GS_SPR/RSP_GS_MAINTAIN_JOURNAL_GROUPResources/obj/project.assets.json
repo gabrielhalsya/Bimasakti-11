@@ -8,23 +8,23 @@
     ".NETStandard,Version=v2.1": []
   },
   "packageFolders": {
-    "C:\\Users\\ericson.codeid\\.nuget\\packages\\": {},
+    "C:\\Users\\gabriel.codeid\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources.csproj",
+      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources.csproj",
       "projectName": "RSP_GS_MAINTAIN_JOURNAL_GROUPResources",
-      "projectPath": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources.csproj",
-      "packagesPath": "C:\\Users\\ericson.codeid\\.nuget\\packages\\",
-      "outputPath": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources\\obj\\",
+      "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources.csproj",
+      "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+      "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GS\\GS_SPR\\RSP_GS_MAINTAIN_JOURNAL_GROUPResources\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ericson.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -35,6 +35,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.telerik.com/v3/index.json": {},
+        "https://packagesource": {},
         "https://www1.realta.net/realtanuget/nuget": {}
       },
       "frameworks": {
@@ -68,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

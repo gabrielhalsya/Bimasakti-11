@@ -235,6 +235,16 @@
           "bin/placeholder/LMM00200Common.dll": {}
         }
       },
+      "LMM00200FrontResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/LMM00200FrontResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LMM00200FrontResources.dll": {}
+        }
+      },
       "LMM00200Model/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -568,6 +578,11 @@
       "path": "../../COMMON/LM/LMM00200Common/LMM00200Common.csproj",
       "msbuildProject": "../../COMMON/LM/LMM00200Common/LMM00200Common.csproj"
     },
+    "LMM00200FrontResources/1.0.0": {
+      "type": "project",
+      "path": "../LMM00200FrontResources/LMM00200FrontResources.csproj",
+      "msbuildProject": "../LMM00200FrontResources/LMM00200FrontResources.csproj"
+    },
     "LMM00200Model/1.0.0": {
       "type": "project",
       "path": "../LMM00200Model/LMM00200Model.csproj",
@@ -577,6 +592,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "LMM00200Common >= 1.0.0",
+      "LMM00200FrontResources >= 1.0.0",
       "LMM00200Model >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.15"
     ]
@@ -618,6 +634,9 @@
           "projectReferences": {
             "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM00200FrontResources\\LMM00200FrontResources.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM00200FrontResources\\LMM00200FrontResources.csproj"
             },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM00200Model\\LMM00200Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM00200Model\\LMM00200Model.csproj"

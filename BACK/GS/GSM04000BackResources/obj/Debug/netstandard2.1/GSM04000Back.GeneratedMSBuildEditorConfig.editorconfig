@@ -1,3 +1,5 @@
 is_global = true
 build_property.RootNamespace = GSM04000Back
-build_property.ProjectDir = D:\RealCode\RSF\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GS\GSM04000BACK\
+build_property.ProjectDir = D:\repos\BS Program\SOURCE\BACK\GS\GSM04000BackResources\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

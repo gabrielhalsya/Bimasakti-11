@@ -17,6 +17,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\COMMON\LM\LMM00200Common\LMM00200Common.csproj" />
+		<ProjectReference Include="..\LMM00200FrontResources\LMM00200FrontResources.csproj" />
 		<ProjectReference Include="..\LMM00200Model\LMM00200Model.csproj" />
 	</ItemGroup>
 

@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "MWrjyEpPL0M0XDY5bL4MncmMIbTgZprErknqiG88I3M=",
+  "Source": "GLT00200FRONT",
+  "BasePath": "_content/GLT00200FRONT",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "GLT00200FRONT\\wwwroot",
+      "Source": "GLT00200FRONT",
+      "ContentRoot": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\wwwroot\\",
+      "BasePath": "_content/GLT00200FRONT",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\obj\\Debug\\net6.0\\scopedcss\\bundle\\GLT00200FRONT.styles.css",
+      "SourceId": "GLT00200FRONT",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/GLT00200FRONT",
+      "RelativePath": "GLT00200FRONT.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\obj\\Debug\\net6.0\\scopedcss\\bundle\\GLT00200FRONT.styles.css"
+    },
+    {
+      "Identity": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\GLT00200FRONT.bundle.scp.css",
+      "SourceId": "GLT00200FRONT",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/GLT00200FRONT",
+      "RelativePath": "GLT00200FRONT.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\GLT00200FRONT.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\wwwroot\\background.png",
+      "SourceId": "GLT00200FRONT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\wwwroot\\",
+      "BasePath": "_content/GLT00200FRONT",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\background.png"
+    },
+    {
+      "Identity": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "GLT00200FRONT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Fake\\Future1\\BIMASAKTI_11\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\FRONT\\GLT00200FRONT\\wwwroot\\",
+      "BasePath": "_content/GLT00200FRONT",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
+    }
+  ]
+}

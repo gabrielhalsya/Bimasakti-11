@@ -13,8 +13,8 @@ namespace LMM03700Front
     {
         private R_ConductorGrid _conTenantToMoveRef;
         private R_Grid<SelectedTenantGridPopupDTO> _Grid;
-
         private LMM03710ViewModel _viewModelTC = new LMM03710ViewModel();
+        
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
@@ -25,6 +25,8 @@ namespace LMM03700Front
                 await TenantClassForMoveTenant_GetList(poParameter);
                 await _Grid.R_RefreshGrid(poParameter);//refresh grid param
                 //get list tc for drowdown
+                //var loparam = (TenantGridPopupDTO)poParameter;
+                //_viewModelTC._fromTenantClassificationId = loparam.CTENANT_CLASSIFICATION_ID;
             }
             catch (Exception ex)
             {
@@ -41,6 +43,7 @@ namespace LMM03700Front
                 var loParam = (TenantGridPopupDTO)poParam;
                 _viewModelTC._propertyId = loParam.CPROPERTY_ID;
                 _viewModelTC._tenantClassificationGroupId = loParam.CTENANT_CLASSIFICATION_GROUP_ID;
+                _viewModelTC._tenantClassificationId = loParam.CTENANT_CLASSIFICATION_ID;
                 await _viewModelTC.GetTenantClassListForMove();
             }
             catch (Exception ex)
@@ -81,7 +84,7 @@ namespace LMM03700Front
 
             R_DisplayException(loEx);
         }
-        
+
         #region ProcesButton
         public async Task Button_OnClickOkAsync()
         {
@@ -125,6 +128,6 @@ namespace LMM03700Front
         }
         #endregion
 
-        
+
     }
 }

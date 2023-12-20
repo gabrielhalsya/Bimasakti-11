@@ -22,19 +22,20 @@ namespace GSM04000Front
     {
         private GSM04000ViewModel _deptViewModel = new GSM04000ViewModel();
         private R_Grid<GSM04000DTO> _gridDeptRef;
-        private R_ConductorGrid _conGridDeptRef;
 
         private GSM04100ViewModel _deptUserViewModel = new GSM04100ViewModel();
+        private R_ConductorGrid _conGridDeptRef;
+        
         private R_Grid<GSM04100StreamDTO> _gridDeptUserRef;
         private R_ConductorGrid _conGridDeptUserRef;
-
+        
         [Inject] R_PopupService PopupService { get; set; }
         [Inject] IClientHelper _clientHelper { get; set; }
         private string _labelActiveInactive = "Active/Inactive";
+        public R_Popup btnAssignUser { get; set; }
+        public R_Popup btnActiveInactive { get; set; }
         private bool _enableBtnAssignUser;
         private bool _enableBtnActiveInactive = true;
-        private bool _enableGridUserDept = true;
-        private bool _enableGridDept = true;
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -133,19 +134,6 @@ namespace GSM04000Front
                             }
                         }
                         //~End approval
-
-                        if (string.IsNullOrEmpty(loData.CDEPT_CODE) || string.IsNullOrWhiteSpace(loData.CDEPT_CODE))
-                        {
-                            loEx.Add("001", "Department Code can not be empty");
-                        }
-                        if (string.IsNullOrEmpty(loData.CDEPT_NAME) || string.IsNullOrWhiteSpace(loData.CDEPT_NAME))
-                        {
-                            loEx.Add("002", "Department Name can not be empty");
-                        }
-                        if (string.IsNullOrEmpty(loData.CCENTER_CODE) || string.IsNullOrWhiteSpace(loData.CCENTER_CODE))
-                        {
-                            loEx.Add("003", "Center can not be empty");
-                        }
                         break;
 
                     //case validation when editmode
@@ -199,11 +187,26 @@ namespace GSM04000Front
             {
                 var loData = (GSM04000DTO)eventArgs.Data;
                 loData.CMANAGER_NAME = loData.CMANAGER_CODE;
-
-                if (string.IsNullOrEmpty(loData.CMANAGER_NAME)||string.IsNullOrWhiteSpace(loData.CMANAGER_NAME))
-                {
-                    loData.CMANAGER_NAME = "";
-                }
+                loData.CDEPT_CODE = string.IsNullOrWhiteSpace(loData.CDEPT_CODE) ? "" : loData.CDEPT_CODE;
+                loData.CDEPT_NAME = string.IsNullOrWhiteSpace(loData.CDEPT_NAME) ? "" : loData.CDEPT_NAME;
+                loData.CCENTER_CODE = string.IsNullOrWhiteSpace(loData.CCENTER_CODE) ? "" : loData.CCENTER_CODE;
+                loData.CMANAGER_NAME = string.IsNullOrWhiteSpace(loData.CMANAGER_NAME) ? "" : loData.CMANAGER_NAME;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+ 
+        private void DeptGrid_BeforeDelete(R_BeforeDeleteEventArgs eventArgs)
+        {
+            R_Exception loEx = new();
+            try
+            {
+                var loData = (GSM04000DTO)eventArgs.Data;
+                loData.CMANAGER_NAME = loData.CMANAGER_CODE;
+                loData.CMANAGER_NAME = string.IsNullOrWhiteSpace(loData.CMANAGER_NAME) ? "" : loData.CMANAGER_NAME;
             }
             catch (Exception ex)
             {
@@ -237,7 +240,6 @@ namespace GSM04000Front
             {
                 var loData = (GSM04000DTO)eventArgs.Data;
                 await _deptViewModel.DeleteDepartment(loData);
-                await _gridDeptRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -311,6 +313,9 @@ namespace GSM04000Front
             {
                 var loData = (GSM04000DTO)eventArgs.Data;
                 loData.LACTIVE = true;//set active=true as default
+                loData.DCREATE_DATE = DateTime.Now;//set now date when adding data
+                loData.DUPDATE_DATE = DateTime.Now;//set now date when adding data
+                _enableBtnActiveInactive = false;
             }
             catch (Exception ex)
             {
@@ -338,24 +343,34 @@ namespace GSM04000Front
         }
         private void Dept_After_Open_Lookup(R_AfterOpenGridLookupColumnEventArgs eventArgs)
         {
-            //mengambil result dari popup dan set ke data row
-            if (eventArgs.Result == null)
+            R_Exception loEx = new();
+            try
             {
-                return;
+                if (eventArgs.Result == null)
+                {
+                    return;
+                }
+                //mengambil result dari popup dan set ke data row
+                switch (eventArgs.ColumnName)
+                {
+                    case "CCENTER":
+                        var loCenterLookupresult = R_FrontUtility.ConvertObjectToObject<GSL00900DTO>(eventArgs.Result);
+                        ((GSM04000DTO)eventArgs.ColumnData).CCENTER_CODE = loCenterLookupresult.CCENTER_CODE;
+                        ((GSM04000DTO)eventArgs.ColumnData).CCENTER_NAME = loCenterLookupresult.CCENTER_NAME;
+                        break;
+                    case "CMANAGER_NAME":
+                        var loManagerLookupresult = R_FrontUtility.ConvertObjectToObject<GSL01000DTO>(eventArgs.Result);
+                        ((GSM04000DTO)eventArgs.ColumnData).CMANAGER_CODE = loManagerLookupresult.CUSER_ID;
+                        ((GSM04000DTO)eventArgs.ColumnData).CMANAGER_NAME = loManagerLookupresult.CUSER_NAME;
+                        break;
+                }
             }
-            switch (eventArgs.ColumnName)
+            catch (Exception ex)
             {
-                case "CCENTER":
-                    var loTempResult = R_FrontUtility.ConvertObjectToObject<GSL00900DTO>(eventArgs.Result);
-                    ((GSM04000DTO)eventArgs.ColumnData).CCENTER_CODE = loTempResult.CCENTER_CODE;
-                    ((GSM04000DTO)eventArgs.ColumnData).CCENTER_NAME = loTempResult.CCENTER_NAME;
-                    break;
-                case "CMANAGER_NAME":
-                    var loTempResult2 = R_FrontUtility.ConvertObjectToObject<GSL01000DTO>(eventArgs.Result);
-                    ((GSM04000DTO)eventArgs.ColumnData).CMANAGER_CODE = loTempResult2.CUSER_ID;
-                    ((GSM04000DTO)eventArgs.ColumnData).CMANAGER_NAME = loTempResult2.CUSER_NAME;
-                    break;
+                loEx.Add(ex);
             }
+            loEx.ThrowExceptionIfErrors();
+
         }
         #endregion//GridLookup
 

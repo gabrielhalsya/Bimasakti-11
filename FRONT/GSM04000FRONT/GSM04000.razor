@@ -17,22 +17,66 @@
             R_Before_Open_Grid_Lookup="Dept_Before_Open_Lookup"
             R_After_Open_Grid_Lookup="Dept_After_Open_Lookup">
         <R_GridColumns>
-            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CDEPT_CODE)" HeaderText="Department Code" R_EnableAdd Width="200px"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CDEPT_NAME)" HeaderText="Department Name" R_EnableAdd R_EnableEdit Width="450px"></R_GridTextColumn>
-             <R_GridLookupColumn FieldName="@nameof(GSM04000DTO.CCENTER_CODE)" Name="CCENTER" HeaderText="Center Code" R_EnableAdd R_EnableEdit Width="200px"></R_GridLookupColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CCENTER_NAME)" HeaderText="Center Name" R_EnableAdd R_EnableEdit Width="250px"></R_GridTextColumn>
-             <R_GridLookupColumn FieldName="@nameof(GSM04000DTO.CMANAGER_NAME)" Name="CMANAGER_NAME" HeaderText="Manager" R_EnableAdd R_EnableEdit Width="450px"></R_GridLookupColumn>
-             <R_GridCheckBoxColumn FieldName="@nameof(GSM04000DTO.LEVERYONE)" HeaderText="Everyone" R_EnableAdd R_EnableEdit Width="100px"></R_GridCheckBoxColumn>
-             <R_GridCheckBoxColumn FieldName="@nameof(GSM04000DTO.LACTIVE)" HeaderText="Active" Width="100px" R_EnableAdd="false" R_EnableEdit="false"></R_GridCheckBoxColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CUPDATE_BY)" HeaderText="Updated By" Width="200px" R_EnableAdd="false" R_EnableEdit="false"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DUPDATE_DATE)" HeaderText="Updated Date" Width="200px" R_EnableAdd="false" R_EnableEdit="false"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CCREATE_BY)" HeaderText="Created By" Width="200px" R_EnableAdd="false" R_EnableEdit="false"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DCREATE_DATE)" HeaderText="Created Date" Width="200px" R_EnableAdd="false" R_EnableEdit="false"></R_GridTextColumn>
-         </R_GridColumns>
-     </R_Grid>
-     <R_StackLayout Row="true">
-         <R_ItemLayout>
-             <R_Button OnClick="@DownloadTemplateAsync" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
+            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CDEPT_CODE)"
+                              HeaderText="Department Code"
+                              R_EnableAdd="true"
+                              Width="200px"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CDEPT_NAME)"
+                              HeaderText="Department Name"
+                              R_EnableAdd="true"
+                              R_EnableEdit="true"
+                              Width="450px"></R_GridTextColumn>
+            <R_GridLookupColumn FieldName="@nameof(GSM04000DTO.CCENTER_CODE)"
+                                Name="CCENTER" 
+                                HeaderText="Center Code"
+                                R_EnableAdd="true"
+                                R_EnableEdit="true"
+                                Width="200px"></R_GridLookupColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CCENTER_NAME)"
+                              HeaderText="Center Name"
+                              Enabled="false"
+                              Width="250px"></R_GridTextColumn>
+            <R_GridLookupColumn FieldName="@nameof(GSM04000DTO.CMANAGER_NAME)"
+                                Name="CMANAGER_NAME"
+                                HeaderText="Manager"
+                                R_EnableAdd="true"
+                                R_EnableEdit="true"
+                                Width="450px"></R_GridLookupColumn>
+            <R_GridCheckBoxColumn FieldName="@nameof(GSM04000DTO.LEVERYONE)"
+                                  HeaderText="Everyone"
+                                  R_EnableAdd="true"
+                                  R_EnableEdit="true"
+                                  Width="100px"></R_GridCheckBoxColumn>
+            <R_GridCheckBoxColumn FieldName="@nameof(GSM04000DTO.LACTIVE)"
+                                  HeaderText="Active"
+                                  Width="100px"
+                                  R_EnableAdd="false"
+                                  R_EnableEdit="false"></R_GridCheckBoxColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CUPDATE_BY)"
+                              HeaderText="Updated By"
+                              Width="200px"
+                              R_EnableAdd="false"
+                              R_EnableEdit="false"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DUPDATE_DATE)"
+                              HeaderText="Updated Date"
+                              Width="200px"
+                              R_EnableAdd="false"
+                              R_EnableEdit="false"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.CCREATE_BY)"
+                              HeaderText="Created By"
+                              Width="200px"
+                              R_EnableAdd="false"
+                              R_EnableEdit="false"></R_GridTextColumn>
+            <R_GridTextColumn FieldName="@nameof(GSM04000DTO.DCREATE_DATE)"
+                              HeaderText="Created Date"
+                              Width="200px"
+                              R_EnableAdd="false"
+                              R_EnableEdit="false"></R_GridTextColumn>
+        </R_GridColumns>
+    </R_Grid>
+    <R_StackLayout Row="true">
+        <R_ItemLayout>
+            <R_Button OnClick="@DownloadTemplateAsync" R_ConductorGridSource="_conGridDeptRef" R_EnableOther>
                 <R_Label>Template</R_Label>
             </R_Button>
         </R_ItemLayout>
@@ -66,6 +110,7 @@
                   R_AfterAdd="@DeptGrid_AfterAdd"
                   R_Validation="@DeptGrid_ValidationAsync"
                   R_Saving="@DeptGrid_Saving"
+                  R_BeforeDelete="@DeptGrid_BeforeDelete"
                   R_ServiceSave="@DeptGrid_ServiceSaveAsync"
                   R_ServiceDelete="@DeptGrid_ServiceDeleteAsync"
                   R_Display="DeptGrid_DisplayAsync"></R_ConductorGrid>

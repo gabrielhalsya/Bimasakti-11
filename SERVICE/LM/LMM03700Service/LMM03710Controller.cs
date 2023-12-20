@@ -162,7 +162,7 @@ namespace LMM03700Service
             try
             {
                 loCls = new LMM03710Cls();
-                loRtnTemp = loCls.GetTenanToAssigntList(new TenantClassificationDBListMaintainParamDTO()
+                loRtnTemp = loCls.GetTenantToAssigntList(new TenantClassificationDBListMaintainParamDTO()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
                     CTENANT_CLASSIFICATION_GROUP_ID = R_Utility.R_GetStreamingContext<string>(LMM03700ContextConstant.CTENANT_CLASSIFICATION_GROUP_ID),

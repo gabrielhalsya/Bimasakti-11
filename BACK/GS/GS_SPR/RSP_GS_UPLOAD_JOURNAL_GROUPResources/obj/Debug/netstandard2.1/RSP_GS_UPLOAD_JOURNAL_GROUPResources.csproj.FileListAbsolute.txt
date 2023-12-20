@@ -10,3 +10,15 @@ D:\Fake\Future1\BIMASAKTI_11\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GS
 D:\Fake\Future1\BIMASAKTI_11\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.csproj.CoreCompileInputs.cache
 D:\Fake\Future1\BIMASAKTI_11\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.dll
 D:\Fake\Future1\BIMASAKTI_11\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\bin\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\bin\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\bin\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.RSP_GS_UPLOAD_JOURNAL_GROUPResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.sourcelink.json
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_UPLOAD_JOURNAL_GROUPResources\obj\Debug\netstandard2.1\RSP_GS_UPLOAD_JOURNAL_GROUPResources.pdb

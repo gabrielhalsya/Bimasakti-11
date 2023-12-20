@@ -18,6 +18,7 @@
             </R_GridColumns>
         </R_Grid>
     </R_ItemLayout>
+
     <R_ItemLayout col="9" Class="ms-4 mt-0">
         <R_Grid @ref="_gridTenantClassRef"
                 DataSource="@_viewModelTenantClass.TenantClassList"
@@ -97,6 +98,7 @@
                  R_ServiceGetRecord="@TenantClass_ServiceGetRecord"
                  R_Display="TenantClass_ServiceDisplay"
                  R_ServiceDelete="@TenantClass_ServiceDelete"
+                 R_Saving="@TenantClass_Saving"
                  R_ServiceSave="@TenantClass_ServiceSave">
 </R_ConductorGrid>
 
