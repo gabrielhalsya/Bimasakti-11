@@ -1,5 +1,4 @@
 ﻿using LMM01500Common;
-using LMM01500Common.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using R_CommonFrontBackAPI;
@@ -13,20 +12,20 @@ namespace LMM01500Services
     public class LMM01500Controller : ControllerBase, ILMM01500
     {
         private LMM01500Logger _loggerLMM01500;
+
         public LMM01500Controller(ILogger<LMM01500Controller> logger)
         {
             LMM01500Logger.R_InitializeLogger(logger);
             _loggerLMM01500 = LMM01500Logger.R_GetInstanceLogger();
         }
 
-        private void ShowLogInfo([CallerMemberName] string pcMethodName = "")
-        {
-            _loggerLMM01500.LogInfo($"Start method {pcMethodName} in {GetType().Name}");
-        }
+        private enum LogInfoType { Starting, Execute, End }
 
+        private void ShowLogInfo(LogInfoType logInfoType, [CallerMemberName] string methodName = "") => _loggerLMM01500.LogInfo($"{logInfoType} {methodName} in {GetType().Name}");
+        
         public IAsyncEnumerable<InvoiceGroupDTO> GetInvoiceGroupList()
         {
-            ShowLogInfo();
+            ShowLogInfo(LogInfoType.Starting);
             throw new NotImplementedException();
         }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Principal;
 using System.Text;
 
-namespace LMM01500Common.DTO
+namespace LMM01500Common
 {
     public class InvoiceGroupDTO
     {
