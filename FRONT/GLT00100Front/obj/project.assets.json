@@ -323,11 +323,22 @@
           "bin/placeholder/Lookup_GSFRONT.dll": {}
         }
       },
+      "Lookup_GSFrontResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Lookup_GSFrontResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Lookup_GSFrontResources.dll": {}
+        }
+      },
       "Lookup_GSModel/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Lookup_GSCOMMON": "1.0.0"
+          "Lookup_GSCOMMON": "1.0.0",
+          "Lookup_GSFrontResources": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Lookup_GSModel.dll": {}
@@ -690,6 +701,11 @@
       "type": "project",
       "path": "../../../../BS Shared Form/SOURCE/FRONT/Lookup_GSFRONT/Lookup_GSFRONT.csproj",
       "msbuildProject": "../../../../BS Shared Form/SOURCE/FRONT/Lookup_GSFRONT/Lookup_GSFRONT.csproj"
+    },
+    "Lookup_GSFrontResources/1.0.0": {
+      "type": "project",
+      "path": "../../../../BS Shared Form/SOURCE/FRONT/Lookup_GSFrontResources/Lookup_GSFrontResources.csproj",
+      "msbuildProject": "../../../../BS Shared Form/SOURCE/FRONT/Lookup_GSFrontResources/Lookup_GSFrontResources.csproj"
     },
     "Lookup_GSModel/1.0.0": {
       "type": "project",

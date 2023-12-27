@@ -85,21 +85,21 @@ namespace LMM03700Model
         }
 
         #region AssignTenant
-        public IAsyncEnumerable<TenantGridPopupDTO> GetTenanToAssigntList()
+        public IAsyncEnumerable<TenantDTO> GetAvailableTenantList()
         {
             throw new NotImplementedException();
         }
-        public async Task<List<TenantGridPopupDTO>> GetTenanToAssigntListAsync()
+        public async Task<List<TenantDTO>> GetTenanToAssigntListAsync()
         {
             var loEx = new R_Exception();
-            List<TenantGridPopupDTO> loResult = null;
+            List<TenantDTO> loResult = null;
 
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<TenantGridPopupDTO>(
+                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<TenantDTO>(
                     _RequestServiceEndPoint,
-                    nameof(ILMM03710.GetTenanToAssigntList),
+                    nameof(ILMM03710.GetAvailableTenantList),
                     DEFAULT_MODULE, _SendWithContext,
                     _SendWithToken);
             }
@@ -107,29 +107,25 @@ namespace LMM03700Model
             {
                 loEx.Add(ex);
             }
-
             loEx.ThrowExceptionIfErrors();
-
             return loResult;
-
         }
-        public AssignTenantResult AssignTenant(List<TenantGridPopupDTO> poParam)
+        public TenantResultDumpDTO AssignTenant(TenantParamDTO poParam)
         {
             throw new NotImplementedException();
         }
-        public async Task<AssignTenantResult> AssignTenantAsync(List<TenantGridPopupDTO> poParam)
+        public async Task AssignTenantAsync(TenantParamDTO poParam)
         {
             var loEx = new R_Exception();
-            AssignTenantResult loResult = null;
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<AssignTenantResult, List<TenantGridPopupDTO>>(
+                await R_HTTPClientWrapper.R_APIRequestObject<TenantResultDumpDTO, TenantParamDTO>(
                     _RequestServiceEndPoint,
                     nameof(ILMM03710.AssignTenant),
                     poParam,
                     DEFAULT_MODULE
-                    ,_SendWithContext,
+                    , _SendWithContext,
                     _SendWithToken);
             }
             catch (Exception ex)
@@ -137,27 +133,26 @@ namespace LMM03700Model
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
-
-            return loResult;
         }
         #endregion
 
         #region MoveTenant
-        public MoveTenantResult MoveTenant()
+        public TenantResultDumpDTO MoveTenant(TenantMoveParamDTO poParam)
         {
             throw new NotImplementedException();
         }
-        public async Task<MoveTenantResult> MoveTenantAsync()
+        public async Task MoveTenantAsync(TenantMoveParamDTO poParam)
         {
             var loEx = new R_Exception();
-            MoveTenantResult loResult = null;
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestObject<MoveTenantResult>(
+                await R_HTTPClientWrapper.R_APIRequestObject<TenantResultDumpDTO,TenantMoveParamDTO>(
                     _RequestServiceEndPoint,
                     nameof(ILMM03710.MoveTenant),
-                    DEFAULT_MODULE, _SendWithContext,
+                    poParam,
+                    DEFAULT_MODULE,
+                    _SendWithContext,
                     _SendWithToken);
             }
             catch (Exception ex)
@@ -165,24 +160,22 @@ namespace LMM03700Model
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
-
-            return loResult;
         }
-        public IAsyncEnumerable<TenantGridPopupDTO> GetTenanToMoveList()
+        public IAsyncEnumerable<TenantDTO> GetTenantToMoveList()
         {
             throw new NotImplementedException();
         }
-        public async Task<List<TenantGridPopupDTO>> GetTenanToMoveListAsync()
+        public async Task<List<TenantDTO>> GetTenanToMoveListAsync()
         {
             var loEx = new R_Exception();
-            List<TenantGridPopupDTO> loResult = null;
+            List<TenantDTO> loResult = null;
 
             try
             {
                 R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
-                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<TenantGridPopupDTO>(
+                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<TenantDTO>(
                     _RequestServiceEndPoint,
-                    nameof(ILMM03710.GetTenanToMoveList),
+                    nameof(ILMM03710.GetTenantToMoveList),
                     DEFAULT_MODULE, _SendWithContext,
                     _SendWithToken);
             }

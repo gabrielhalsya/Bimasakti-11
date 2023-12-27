@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LMM03700Common.DTO_s
 {
-    public class MoveTenantResult :R_APIResultBaseDTO
+    public class TenantResultDumpDTO : R_APIResultBaseDTO
     {
     }
 }

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace LMM03700Common.DTO_s
 {
-    public class SelectedTenantGridPopupDTO : TenantGridPopupDTO
+    public class TenantParamDTO : TenantGridDTO
     {
-        public bool LSELECTED { get; set; } = false;
+        public string CTENANT_ID_LIST_COMMA_SEPARATOR { get; set; }
     }
 }

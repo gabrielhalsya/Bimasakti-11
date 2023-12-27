@@ -37,4 +37,10 @@
 	  </Reference>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Content Update="PopupAssignTenantMover.razor">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	  </Content>
+	</ItemGroup>
+
 </Project>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LMM03700FrontResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a05810ef2937276919fbbe347d77cb751d97bcf")]
 [assembly: System.Reflection.AssemblyProductAttribute("LMM03700FrontResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LMM03700FrontResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

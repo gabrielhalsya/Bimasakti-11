@@ -12,7 +12,7 @@ namespace LMM03700Front
     public partial class PopupMoveTenant : R_Page
     {
         private R_ConductorGrid _conTenantToMoveRef;
-        private R_Grid<SelectedTenantGridPopupDTO> _Grid;
+        private R_Grid<TenantGridDTO> _Grid;
         private LMM03710ViewModel _viewModelTC = new LMM03710ViewModel();
         
         protected override async Task R_Init_From_Master(object poParameter)
@@ -40,7 +40,7 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                var loParam = (TenantGridPopupDTO)poParam;
+                var loParam = (TenantGridDTO)poParam;
                 _viewModelTC._propertyId = loParam.CPROPERTY_ID;
                 _viewModelTC._tenantClassificationGroupId = loParam.CTENANT_CLASSIFICATION_GROUP_ID;
                 _viewModelTC._tenantClassificationId = loParam.CTENANT_CLASSIFICATION_ID;
@@ -73,7 +73,7 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<TenantGridPopupDTO>(eventArgs.Parameter);
+                var loParam = R_FrontUtility.ConvertObjectToObject<TenantGridDTO>(eventArgs.Parameter);
                 await _viewModelTC.GetTenantListToMove(loParam);
                 eventArgs.ListEntityResult = _viewModelTC.TenantToMoveList;
             }
@@ -110,8 +110,8 @@ namespace LMM03700Front
 
             try
             {
-                var loData = (List<SelectedTenantGridPopupDTO>)eventArgs.Data;
-                var loListIdTenantString = loData.Where(dto => dto.LSELECTED).Select(dto => dto.CTENANT_ID).ToList();
+                var loData = (List<TenantGridDTO>)eventArgs.Data;
+                var loListIdTenantString = loData.Where(dto => dto.LCHECKED).Select(dto => dto.CTENANT_ID).ToList();
                 _viewModelTC._fromTenantClassificationId = _viewModelTC.TenantClassForMoveTenant.CTENANT_CLASSIFICATION_ID;
                 await _viewModelTC.MoveTenant(loListIdTenantString);
             }

@@ -167,7 +167,6 @@ namespace GLT00100Front
                 await Task.Delay(20*dataList.Count);
                 _JournalListViewModel._JournaDetailList.Clear();
                 await _gridRef.R_RefreshGrid(null);
-                
             }
             catch (Exception ex)
             {

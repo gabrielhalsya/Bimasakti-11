@@ -15,6 +15,6 @@ namespace LMM03700Back
         public string CTENANT_CLASSIFICATION_ID { get; set; }
         public string CUSER_ID { get; set; }
         public string CTENANTID_LIST { get; set; }
-        public List<TenantGridPopupDTO> LTENANTS { get; set; }
+        public List<TenantDTO> LTENANTS { get; set; }
     }
 }

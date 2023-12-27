@@ -9,10 +9,10 @@ namespace LMM03700Common
     {
         IAsyncEnumerable<TenantClassificationDTO> GetTenantClassificationList();
         IAsyncEnumerable<TenantDTO> GetAssignedTenantList();
-        IAsyncEnumerable<TenantGridPopupDTO> GetTenanToAssigntList();
-        IAsyncEnumerable<TenantGridPopupDTO> GetTenanToMoveList();
-        AssignTenantResult AssignTenant(List<TenantGridPopupDTO> poParam);
-        MoveTenantResult MoveTenant();
+        IAsyncEnumerable<TenantDTO> GetAvailableTenantList();
+        IAsyncEnumerable<TenantDTO> GetTenantToMoveList();
+        TenantResultDumpDTO AssignTenant(TenantParamDTO poParam);
+        TenantResultDumpDTO MoveTenant(TenantMoveParamDTO poParam);
     }
 
 }

@@ -21,14 +21,14 @@ namespace LMM01500Back
             _Logger = LMM01500Logger.R_GetInstanceLogger();
         }
 
-        private void LogDebug(DbCommand pcCommand, [CallerMemberName] string callerMemberName = "")
+        private void LogDebug(DbCommand pcCommand, [CallerMemberName] string pcMethodCallerName = "")
         {
-            _Logger.LogDebug($"Start method {callerMemberName} in {GetType().Name}. Command: {pcCommand.CommandText}. Parameters: {string.Join(", ", pcCommand.Parameters.Cast<DbParameter>().Select(p => $"{p.ParameterName}={p.Value}"))}");
+            _Logger.LogDebug($"Start method {pcMethodCallerName} in {GetType().Name}. Command: {pcCommand.CommandText}. Parameters: {string.Join(", ", pcCommand.Parameters.Cast<DbParameter>().Select(p => $"{p.ParameterName}={p.Value}"))}");
         }
 
-        private void LogError(Exception ex, [CallerMemberName] string callerMemberName = "")
+        private void LogError(Exception ex, [CallerMemberName] string pcMethodCallerName = "")
         {
-            _Logger.LogError($"Error in {callerMemberName}: {ex.Message}", ex);
+            _Logger.LogError($"Error in {pcMethodCallerName}: {ex.Message}", ex);
         }
 
         public List<PropertyDTO> GetAllPropertyList(InvoiceGroupParamDTO pcParam)
