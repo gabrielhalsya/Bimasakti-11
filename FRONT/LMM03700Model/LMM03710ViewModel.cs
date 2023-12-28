@@ -17,7 +17,7 @@ namespace LMM03700Model
     {
         private LMM03700Model _modelTenantClassGrp = new LMM03700Model();
         private LMM03710Model _modelTenantClass = new LMM03710Model();
-        public ObservableCollection<TenantClassificationGroupDTO> TenantClassGrpList { get; set; } = new ObservableCollection<TenantClassificationGroupDTO>();
+        public ObservableCollection<TenantClassificationGroupDTO> _TenantClassGrpList { get; set; } = new ObservableCollection<TenantClassificationGroupDTO>();
         public TenantClassificationGroupDTO TenantClassiGrp { get; set; } = new TenantClassificationGroupDTO();
         public ObservableCollection<TenantClassificationDTO> TenantClassList { get; set; } = new ObservableCollection<TenantClassificationDTO>();
         public TenantClassificationDTO TenantClass { get; set; } = new TenantClassificationDTO();
@@ -51,7 +51,7 @@ namespace LMM03700Model
             {
                 R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CPROPERTY_ID, _propertyId);
                 var loResult = await _modelTenantClassGrp.GetTenantClassRecord();
-                TenantClassGrpList = new ObservableCollection<TenantClassificationGroupDTO>(loResult);
+                _TenantClassGrpList = new ObservableCollection<TenantClassificationGroupDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -247,7 +247,7 @@ namespace LMM03700Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task GetTenantListToMove(TenantGridDTO poParam)
+        public async Task GetTenantListToMove(TenantClassificationDTO poParam)
         {
             R_Exception loEx = new R_Exception();
             try
@@ -264,17 +264,19 @@ namespace LMM03700Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task MoveTenant(List<string> plParam)
+        public async Task MoveTenant()
         {
             R_Exception loException = new R_Exception();
             try
             {
-                R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CPROPERTY_ID, _propertyId);
-                R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTENANT_CLASSIFICATION_GROUP_ID, _tenantClassificationGroupId);
-                R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CFROM_TENANT_CLASSIFICATION_ID, _fromTenantClassificationId);
-                R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.CTO_TENANT_CLASSIFICATION_ID, _toTenantClassificationId);
-                R_FrontContext.R_SetStreamingContext(LMM03700ContextConstant.LIST_CTENANT_ID, plParam);
-                await _modelTenantClass.MoveTenantAsync(new TenantMoveParamDTO());
+                await _modelTenantClass.MoveTenantAsync(new TenantMoveParamDTO()
+                {
+                    CPROPERTY_ID=_propertyId,
+                    CTENANT_CLASSIFICATION_GROUP_ID=_tenantClassificationGroupId,
+                    CTO_TENANT_CLASSIFICATION_ID=_toTenantClassificationId,
+                    CFROM_TENANT_CLASSIFICATION_ID=_fromTenantClassificationId,
+                    CTENANT_ID_LIST_COMMA_SEPARATOR = string.Join(",", TenantToMoveList.Where(tenant=>tenant.LCHECKED).Select(tenant => tenant.CTENANT_ID)),
+                });
             }
             catch (Exception ex)
             {

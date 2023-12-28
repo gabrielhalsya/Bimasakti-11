@@ -12,21 +12,19 @@ namespace LMM03700Front
     public partial class PopupMoveTenant : R_Page
     {
         private R_ConductorGrid _conTenantToMoveRef;
-        private R_Grid<TenantGridDTO> _Grid;
+        private R_Grid<TenantGridDTO> _gridTenantToMove;
         private LMM03710ViewModel _viewModelTC = new LMM03710ViewModel();
-        
+
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
 
             try
             {
+                _viewModelTC.TenantClass = (TenantClassificationDTO)poParameter;
                 await TenantClassDetail(poParameter);//get detail
                 await TenantClassForMoveTenant_GetList(poParameter);
-                await _Grid.R_RefreshGrid(poParameter);//refresh grid param
-                //get list tc for drowdown
-                //var loparam = (TenantGridPopupDTO)poParameter;
-                //_viewModelTC._fromTenantClassificationId = loparam.CTENANT_CLASSIFICATION_ID;
+                await _gridTenantToMove.R_RefreshGrid(poParameter);//refresh grid param
             }
             catch (Exception ex)
             {
@@ -40,7 +38,7 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                var loParam = (TenantGridDTO)poParam;
+                var loParam = (TenantClassificationDTO)poParam;
                 _viewModelTC._propertyId = loParam.CPROPERTY_ID;
                 _viewModelTC._tenantClassificationGroupId = loParam.CTENANT_CLASSIFICATION_GROUP_ID;
                 _viewModelTC._tenantClassificationId = loParam.CTENANT_CLASSIFICATION_ID;
@@ -73,7 +71,7 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<TenantGridDTO>(eventArgs.Parameter);
+                var loParam = R_FrontUtility.ConvertObjectToObject<TenantClassificationDTO>(eventArgs.Parameter);
                 await _viewModelTC.GetTenantListToMove(loParam);
                 eventArgs.ListEntityResult = _viewModelTC.TenantToMoveList;
             }
@@ -92,7 +90,7 @@ namespace LMM03700Front
         }
         public async Task Button_OnClickCloseAsync()
         {
-            await this.Close(true, null);
+            await this.Close(true, _viewModelTC.TenantClass);
         }
         #endregion
         #region Save Batch
@@ -110,10 +108,9 @@ namespace LMM03700Front
 
             try
             {
-                var loData = (List<TenantGridDTO>)eventArgs.Data;
-                var loListIdTenantString = loData.Where(dto => dto.LCHECKED).Select(dto => dto.CTENANT_ID).ToList();
+                //set origin tenantclass
                 _viewModelTC._fromTenantClassificationId = _viewModelTC.TenantClassForMoveTenant.CTENANT_CLASSIFICATION_ID;
-                await _viewModelTC.MoveTenant(loListIdTenantString);
+                await _viewModelTC.MoveTenant();
             }
             catch (Exception ex)
             {
@@ -124,7 +121,7 @@ namespace LMM03700Front
         }
         private async Task R_AfterSaveBatchAsync(R_AfterSaveBatchEventArgs eventArgs)
         {
-            await this.Close(true, _viewModelTC._toTenantClassificationId);
+            await this.Close(true, _viewModelTC.TenantClass);
         }
         #endregion
 

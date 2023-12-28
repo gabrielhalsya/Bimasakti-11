@@ -30,10 +30,10 @@ namespace LMM03700Front
             var loEx = new R_Exception();
             try
             {
-                var loParam = (TenantGridDTO)poParameter;
-                _viewModelTC._propertyId = loParam.CPROPERTY_ID;
-                _viewModelTC._tenantClassificationGroupId= loParam.CTENANT_CLASSIFICATION_GROUP_ID;
-                _viewModelTC._tenantClassificationId= loParam.CTENANT_CLASSIFICATION_ID;
+                _viewModelTC.TenantClass = (TenantClassificationDTO)poParameter;
+                _viewModelTC._propertyId = _viewModelTC.TenantClass.CPROPERTY_ID;
+                _viewModelTC._tenantClassificationGroupId= _viewModelTC.TenantClass.CTENANT_CLASSIFICATION_GROUP_ID;
+                _viewModelTC._tenantClassificationId= _viewModelTC.TenantClass.CTENANT_CLASSIFICATION_ID;
                 await _gridAvailableTenant.R_RefreshGrid(poParameter);
                 await _gridSelectedTenant.R_RefreshGrid(poParameter);
             }
@@ -97,7 +97,7 @@ namespace LMM03700Front
             try
             {
                 await _viewModelTC.AssignTenantProcess();
-                await this.Close(true, true);
+                await this.Close(true, _viewModelTC.TenantClass);
             }
             catch (Exception ex)
             {
@@ -107,15 +107,15 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
         }
 
-        private void SelectedTenant_AfterSaveBatch(R_AfterSaveBatchEventArgs eventArgs)
+        private async Task SelectedTenant_AfterSaveBatchAsync(R_AfterSaveBatchEventArgs eventArgs)
         {
-
+            await this.Close(true, _viewModelTC.TenantClass);
         }
 
         #endregion
 
         #region drop
-        
+
         private bool _isMove = false;
 
         private void R_GridRowBeforeDrop(R_GridRowBeforeDropEventArgs eventArgs)

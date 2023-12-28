@@ -139,7 +139,7 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private async Task TenantClassGrp_Saving(R_SavingEventArgs eventArgs)
+        private void TenantClassGrp_Saving(R_SavingEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -171,7 +171,7 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private async Task TenantGrp_AfterAdd(R_AfterAddEventArgs eventArgs)
+        private void TenantGrp_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
             R_Exception loEx = new();
             try

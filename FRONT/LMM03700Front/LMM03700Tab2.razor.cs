@@ -64,7 +64,7 @@ namespace LMM03700Front
             try
             {
                 await _viewModelTenantClass.GetTenantClassGroupList();
-                eventArgs.ListEntityResult = _viewModelTenantClass.TenantClassGrpList;
+                eventArgs.ListEntityResult = _viewModelTenantClass._TenantClassGrpList;
             }
             catch (Exception ex)
             {
@@ -151,7 +151,7 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private async Task TenantClass_Saving(R_SavingEventArgs eventArgs)
+        private void TenantClass_Saving(R_SavingEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -241,51 +241,45 @@ namespace LMM03700Front
         #region Tab2-Assign Tenant
         private void R_Before_Open_Popup_AssignTenant(R_BeforeOpenPopupEventArgs eventArgs)
         {
-            var loParam = new TenantGridDTO()
-            {
-                CPROPERTY_ID = _viewModelTenantClass._propertyId,
-                CTENANT_CLASSIFICATION_GROUP_ID = _viewModelTenantClass._tenantClassificationGroupId,
-                CTENANT_CLASSIFICATION_ID = _viewModelTenantClass._tenantClassificationId
-            };
-            eventArgs.Parameter = loParam;
+            //var loParam = new TenantGridDTO()
+            //{
+            //    CPROPERTY_ID = _viewModelTenantClass._propertyId,
+            //    CTENANT_CLASSIFICATION_GROUP_ID = _viewModelTenantClass._tenantClassificationGroupId,
+            //    CTENANT_CLASSIFICATION_ID = _viewModelTenantClass._tenantClassificationId
+            //};
+            eventArgs.Parameter = (TenantClassificationDTO)_gridTenantClassRef.GetCurrentData();
             eventArgs.TargetPageType = typeof(PopupAssignTenantMover);
         }
-        private async Task R_After_Open_Popup_AssignTenant(R_AfterOpenPopupEventArgs eventArgs)
+        private async Task R_After_Open_Popup_AssignTenantAsync(R_AfterOpenPopupEventArgs eventArgs)
         {
-            //R_Exception loEx = new R_Exception();
-            //try
-            //{
-            //    if (eventArgs.Result == null)
-            //    {
-            //        return;
-            //    }
-            //    var loResult = (List<SelectedTenantGridPopupDTO>)eventArgs.Result;
-            //    var loSelectedResult = loResult.Where(obj => (bool)obj.GetType().GetProperty("LSELECTED").GetValue(obj)).ToList();
-
-            //    var loAssignTenantParam = R_FrontUtility.ConvertCollectionToCollection<TenantGridPopupDTO>(loSelectedResult);
-            //    if (loAssignTenantParam.Count > 0)
-            //    {
-            //        await _viewModelTenantClass.AssignTenantCategory(loAssignTenantParam.ToList());
-            //        await _gridTenantRef.R_RefreshGrid(null);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    loEx.Add(ex);
-            //}
-            //loEx.ThrowExceptionIfErrors();
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                if (eventArgs.Result == null)
+                {
+                    return;
+                }
+                var loCurrentData = (TenantClassificationDTO)eventArgs.Result;
+                await _gridTenantClassRef.SelectItem(loCurrentData);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
         }
         #endregion
 
         #region Tab2-Move Tenant
         private void R_Before_Open_Popup_MoveTenant(R_BeforeOpenPopupEventArgs eventArgs)
         {
-            var loParam = new TenantGridDTO()
-            {
-                CPROPERTY_ID = _viewModelTenantClass._propertyId,
-                CTENANT_CLASSIFICATION_GROUP_ID = _viewModelTenantClass._tenantClassificationGroupId,
-                CTENANT_CLASSIFICATION_ID = _viewModelTenantClass._tenantClassificationId,
-            };
+            //var loParam = new TenantGridDTO()
+            //{
+            //    CPROPERTY_ID = _viewModelTenantClass._propertyId,
+            //    CTENANT_CLASSIFICATION_GROUP_ID = _viewModelTenantClass._tenantClassificationGroupId,
+            //    CTENANT_CLASSIFICATION_ID = _viewModelTenantClass._tenantClassificationId,
+            //};
+            var loParam = (TenantClassificationDTO) _gridTenantClassRef.GetCurrentData();
             eventArgs.Parameter = loParam;
             eventArgs.TargetPageType = typeof(PopupMoveTenant);
         }
@@ -298,8 +292,8 @@ namespace LMM03700Front
                 {
                     return;
                 }
-                _viewModelTenantClass._tenantClassificationId = (string)eventArgs.Result;
-                await _gridTenantRef.R_RefreshGrid(null);
+                var loCurrentData = (TenantClassificationDTO)eventArgs.Result;
+                await _gridTenantClassRef.SelectItem(loCurrentData);
             }
             catch (Exception ex)
             {

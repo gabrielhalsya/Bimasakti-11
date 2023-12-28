@@ -55,7 +55,7 @@ namespace LMM03700Service
             {
                 loRtn = new R_ServiceDeleteResultDTO();
                 loCls = new LMM03700Cls(); //create cls class instance
-                poParameter.Entity.CPROPERTY_ID = R_Utility.R_GetStreamingContext<string>(LMM03700ContextConstant.CPROPERTY_ID);
+                poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
                 loCls.R_Delete(poParameter.Entity);
             }
             catch (Exception ex)

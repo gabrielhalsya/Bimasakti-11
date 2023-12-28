@@ -15,27 +15,38 @@ namespace LMM03700Back
         {
             R_Exception loEx = new ();
             TenantClassificationGroupDTO loRtn = null;
-            R_Db loDB;
+            R_Db loDb;
             DbConnection loConn;
             DbCommand loCmd;
             string lcQuery;
             try
             {
-                loDB = new R_Db();
-                loConn = loDB.GetConnection("R_DefaultConnectionString");
-                loCmd = loDB.GetCommand();
+                loDb = new R_Db();
+                loConn = loDb.GetConnection("R_DefaultConnectionString");
+                loCmd = loDb.GetCommand();
+                R_ExternalException.R_SP_Init_Exception(loConn);
+
 
                 lcQuery = "RSP_LM_MAINTAIN_TENANT_CLASS_GRP";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
-                loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poEntity.CCOMPANY_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CPROPERTY_ID", DbType.String, 50, poEntity.CPROPERTY_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_GROUP_ID", DbType.String, 50, poEntity.CTENANT_CLASSIFICATION_GROUP_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_GROUP_NAME", DbType.String, 50, poEntity.CTENANT_CLASSIFICATION_GROUP_NAME);
-                loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50,"DELETE");
-                loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CCREATE_BY);
-                loDB.SqlExecNonQuery(loConn, loCmd, true);
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poEntity.CCOMPANY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CPROPERTY_ID", DbType.String, 50, poEntity.CPROPERTY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_GROUP_ID", DbType.String, 50, poEntity.CTENANT_CLASSIFICATION_GROUP_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_GROUP_NAME", DbType.String, 50, poEntity.CTENANT_CLASSIFICATION_GROUP_NAME);
+                loDb.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50,"DELETE");
+                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
+                try
+                {
+                    loDb.SqlExecNonQuery(loConn, loCmd, false);
+                }
+                catch (Exception ex)
+                {
+                    loEx.Add(ex);
+                }
+
+                loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
             }
             catch (Exception ex)
             {
