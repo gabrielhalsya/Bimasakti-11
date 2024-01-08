@@ -14,6 +14,6 @@ D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Debug\netstandard2.
 D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Debug\netstandard2.1\BaseHeaderReportCOMMON.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Debug\netstandard2.1\BaseHeaderReportCOMMON.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Debug\netstandard2.1\BaseHeaderReportCOMMON.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Debug\netstandard2.1\BaseHeaderReportCOMMON.sourcelink.json
 D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Debug\netstandard2.1\BaseHeaderReportCOMMON.dll
 D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Debug\netstandard2.1\BaseHeaderReportCOMMON.pdb
-D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\obj\Debug\netstandard2.1\BaseHeaderReportCOMMON.sourcelink.json

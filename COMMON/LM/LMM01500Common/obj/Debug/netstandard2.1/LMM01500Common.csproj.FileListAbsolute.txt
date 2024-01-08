@@ -1,9 +1,3 @@
-D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.csproj.AssemblyReference.cache
-D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.GeneratedMSBuildEditorConfig.editorconfig
-D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.AssemblyInfoInputs.cache
-D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.AssemblyInfo.cs
-D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.csproj.CoreCompileInputs.cache
-D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.sourcelink.json
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\bin\Debug\netstandard2.1\LMM01500Common.deps.json
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\bin\Debug\netstandard2.1\LMM01500Common.dll
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\bin\Debug\netstandard2.1\LMM01500Common.pdb
@@ -13,6 +7,12 @@ D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\bin\Debug\netstandard2.1\R_C
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\bin\Debug\netstandard2.1\R_Security.dll
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\bin\Debug\netstandard2.1\R_ContextBackEnd.dll
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.dll
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.sourcelink.json
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.dll
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM01500Common\obj\Debug\netstandard2.1\LMM01500Common.pdb

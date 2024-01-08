@@ -10,11 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LMM00200Common.DTO_s;
+using RSP_LM_MAINTAIN_USER_PARAMResources;
 
 namespace LMM00200Back
 {
     public class LMM00200Cls : R_BusinessObject<LMM00200DTO>
     {
+
+        Resources_Dummy_Class rspUserParam = new();
+
         protected override void R_Deleting(LMM00200DTO poEntity)
         {
             throw new NotImplementedException();

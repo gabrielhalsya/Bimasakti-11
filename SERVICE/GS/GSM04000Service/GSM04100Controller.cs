@@ -5,6 +5,7 @@ using R_Common;
 using R_CommonFrontBackAPI;
 using GSM04000Back;
 using Microsoft.Extensions.Logging;
+using System.Runtime.CompilerServices;
 
 namespace GSM04000Service
 {
@@ -13,16 +14,18 @@ namespace GSM04000Service
     public class GSM04100Controller : ControllerBase, IGSM04100
     {
         private LoggerGSM04000 _logger;
+        
         public GSM04100Controller(ILogger<GSM04100Controller> logger)
         {
             //initiate
             LoggerGSM04000.R_InitializeLogger(logger);
             _logger = LoggerGSM04000.R_GetInstanceLogger();
         }
+        
         [HttpPost]
         public GSM04100ListDTO GetUserDeptListByDeptCode()
         {
-            _logger.LogInfo("Start - Get Department User List");
+            ShowLogStart();
             GSM04100ListDTO loRtn = null; //declare IAsyncEnumerable<> for return
             R_Exception loException = new R_Exception(); //declare exeption instance for trycatch
             GSM04100ListDBParameterDTO loDbParam; //dec
@@ -34,31 +37,31 @@ namespace GSM04000Service
                 loDbParam.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loDbParam.CDEPT_CODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CDEPT_CODE);
                 loCls = new GSM04100Cls();
-                _logger.LogInfo("Execute Method - Get Department User List");
+                ShowLogExecute();
                 loRtn.Data = loCls.GetUserDeptList(loDbParam); ;
             }
             catch (Exception ex)
             {
                 loException.Add(ex);
-                _logger.LogError(loException);
+                ShowLogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
-            _logger.LogInfo("End - Get Department User List");
+            ShowLogEnd();
             return loRtn;
         }
 
         [HttpPost]
         public IAsyncEnumerable<GSM04100DTO> GetUserToAssignList()
         {
-            _logger.LogInfo("Start - Get user to assign list");
+            ShowLogStart();
             List<GSM04100DTO> loRtnTemp = null;
             R_Exception loException = new R_Exception();
             GSM04100Cls loCls;
             try
             {
                 loCls = new GSM04100Cls();
-                _logger.LogInfo("Execute method - Get user to assign list");
+                ShowLogExecute();
                 loRtnTemp = loCls.GetUserToAssignList(new GSM04100ListDBParameterDTO()
                 {
                     CPROGRAM_CODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CPROGRAM_CODE),
@@ -73,13 +76,13 @@ namespace GSM04000Service
                 _logger.LogError(loException);
             }
             loException.ThrowExceptionIfErrors();
-            _logger.LogInfo("End - Get user to assign list");
+            ShowLogEnd();
             return GetUserListHelper(loRtnTemp);
 
         }
-        private async IAsyncEnumerable<GSM04100DTO> GetUserListHelper(List<GSM04100DTO> loRtnTemp)
+        private async IAsyncEnumerable<T> GetUserListHelper<T>(List<T> loRtnTemp)
         {
-            foreach (GSM04100DTO loEntity in loRtnTemp)
+            foreach (T loEntity in loRtnTemp)
             {
                 yield return loEntity;
             }
@@ -88,7 +91,7 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<GSM04100DTO> poParameter)
         {
-            _logger.LogInfo("Start - Delete assigned user");
+            ShowLogStart();    
             R_ServiceDeleteResultDTO loRtn = null;
             R_Exception loException = new R_Exception();
             GSM04100Cls loCls;
@@ -98,24 +101,24 @@ namespace GSM04000Service
                 loCls = new GSM04100Cls(); //create cls class instance
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_LOGIN_ID = R_BackGlobalVar.USER_ID;
-                _logger.LogInfo("Execute method - Delete assigned user");
+                ShowLogExecute();
                 loCls.R_Delete(poParameter.Entity);
             }
             catch (Exception ex)
             {
                 loException.Add(ex);
-                _logger.LogError(loException);
+                ShowLogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
-            _logger.LogInfo("End - Delete assigned user");
+            ShowLogEnd();
             return loRtn;
         }
 
         [HttpPost]
         public R_ServiceGetRecordResultDTO<GSM04100DTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<GSM04100DTO> poParameter)
         {
-            _logger.LogInfo("Start - Get assigned user");
+            ShowLogStart();
             R_ServiceGetRecordResultDTO<GSM04100DTO> loRtn = null;
             R_Exception loException = new R_Exception();
             GSM04100Cls loCls;
@@ -126,24 +129,24 @@ namespace GSM04000Service
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CDEPT_CODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CDEPT_CODE);
                 poParameter.Entity.CUSER_LOGIN_ID = R_BackGlobalVar.USER_ID;
-                _logger.LogInfo("Execute method - Get assigned user");
+                ShowLogExecute();
                 loRtn.data = loCls.R_GetRecord(poParameter.Entity);
             }
             catch (Exception ex)
             {
                 loException.Add(ex);
-                _logger.LogError(loException);
+                ShowLogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
-            _logger.LogInfo("End - Get assigned user");
+            ShowLogEnd();
             return loRtn;
         }
 
         [HttpPost]
         public R_ServiceSaveResultDTO<GSM04100DTO> R_ServiceSave(R_ServiceSaveParameterDTO<GSM04100DTO> poParameter)
         {
-            _logger.LogInfo("Start - Save dept user");
+            ShowLogStart();
             R_ServiceSaveResultDTO<GSM04100DTO> loRtn = null;
             R_Exception loException = new R_Exception();
             GSM04100Cls loCls;
@@ -153,18 +156,26 @@ namespace GSM04000Service
                 loCls = new GSM04100Cls(); //create instance
                 poParameter.Entity.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParameter.Entity.CUSER_LOGIN_ID = R_BackGlobalVar.USER_ID;
-                _logger.LogInfo("Execute method - Save dept user");
+                ShowLogExecute();
                 loCls.R_Save(poParameter.Entity, poParameter.CRUDMode);
             }
             catch (Exception ex)
             {
                 loException.Add(ex);
-                _logger.LogError(loException);
+                ShowLogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
-            _logger.LogInfo("End - Save dept user");
+            ShowLogEnd();
             return loRtn;
         }
+
+        private void ShowLogStart([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Starting {pcMethodCallerName} in {GetType().Name}");
+
+        private void ShowLogExecute([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Executing cls method in {GetType().Name}.{pcMethodCallerName}");
+
+        private void ShowLogEnd([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"End {pcMethodCallerName} in {GetType().Name}");
+
+        private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
     }
 }

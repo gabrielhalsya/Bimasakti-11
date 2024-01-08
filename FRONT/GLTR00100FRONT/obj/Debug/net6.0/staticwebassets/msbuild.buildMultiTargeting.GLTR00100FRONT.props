@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GLTR00100FRONT.props" />
+</Project>

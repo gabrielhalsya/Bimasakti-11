@@ -13,6 +13,7 @@
           "GLT00100Model": "1.0.0",
           "GLTR00100COMMON": "1.0.0",
           "GLTR00100FRONT": "1.0.0",
+          "GLTR00100FrontResources": "1.0.0",
           "Lookup_GSCOMMON": "1.0.0",
           "Lookup_GSFRONT": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.20",
@@ -193,9 +194,15 @@
           "GLTR00100FRONT.dll": {}
         }
       },
+      "GLTR00100FrontResources/1.0.0": {
+        "runtime": {
+          "GLTR00100FrontResources.dll": {}
+        }
+      },
       "GLTR00100MODEL/1.0.0": {
         "dependencies": {
-          "GLTR00100COMMON": "1.0.0"
+          "GLTR00100COMMON": "1.0.0",
+          "GLTR00100FrontResources": "1.0.0"
         },
         "runtime": {
           "GLTR00100MODEL.dll": {}
@@ -216,9 +223,15 @@
           "Lookup_GSFRONT.dll": {}
         }
       },
+      "Lookup_GSFrontResources/1.0.0": {
+        "runtime": {
+          "Lookup_GSFrontResources.dll": {}
+        }
+      },
       "Lookup_GSModel/1.0.0": {
         "dependencies": {
-          "Lookup_GSCOMMON": "1.0.0"
+          "Lookup_GSCOMMON": "1.0.0",
+          "Lookup_GSFrontResources": "1.0.0"
         },
         "runtime": {
           "Lookup_GSModel.dll": {}
@@ -472,6 +485,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "GLTR00100FrontResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "GLTR00100MODEL/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -483,6 +501,11 @@
       "sha512": ""
     },
     "Lookup_GSFRONT/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Lookup_GSFrontResources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

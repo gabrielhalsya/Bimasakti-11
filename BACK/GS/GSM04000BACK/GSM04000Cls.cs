@@ -10,13 +10,19 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Windows.Input;
+using RSP_GS_MAINTAIN_DEPARTMENTResources;
+using RSP_GS_UPLOAD_DEPARTMENTResources;
 
 namespace GSM04000Back
 {
     public class GSM04000Cls : R_BusinessObject<GSM04000DTO>
     {
-        private LoggerGSM04000 _logger;
+        private RSP_GS_MAINTAIN_DEPARTMENTResources.Resources_Dummy_Class _rspDept = new();
+        
+        private RSP_GS_UPLOAD_DEPARTMENTResources.Resources_Dummy_Class _rspUploadDept = new();
 
+        private LoggerGSM04000 _logger;
+        
         public GSM04000Cls()
         {
             _logger = LoggerGSM04000.R_GetInstanceLogger();

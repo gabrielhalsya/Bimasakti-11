@@ -6,11 +6,16 @@ using System.Data.Common;
 using System.Data;
 using LMM03700Common.DTO_s;
 using System.Windows.Input;
+using RSP_LM_MAINTAIN_TENANT_CLASSResources;
+using RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources;
 
 namespace LMM03700Back
 {
     public class LMM03700Cls : R_BusinessObject<TenantClassificationGroupDTO>
     {
+        //declare tenant class in order to bring rsp project dll while deployment
+        RSP_LM_MAINTAIN_TENANT_CLASSResources.Resources_Dummy_Class _rspTenantClass = new();
+        RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.Resources_Dummy_Class _rspTenantClassGRP = new(); 
         protected override void R_Deleting(TenantClassificationGroupDTO poEntity)
         {
             R_Exception loEx = new ();

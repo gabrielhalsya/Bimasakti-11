@@ -79,7 +79,7 @@ namespace GLT00100Service
                 loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
                 loDbPar.CREC_ID = R_Utility.R_GetContext<string>(ContextConstant.CREC_ID);
                 loRtnTemp = loCls.GetJournalDetailList(loDbPar);
-                loRtn = GetJournalGridDetailStream(loRtnTemp);
+                loRtn = ListStremHelper(loRtnTemp);
             }
             catch (Exception ex)
             {
@@ -109,7 +109,7 @@ namespace GLT00100Service
                 loDbPar.CSTATUS = R_Utility.R_GetContext<string>(ContextConstant.CSTATUS);
                 loCls = new GLT00100Cls();
                 loRtnTemp = loCls.GetJournalList(loDbPar);
-                loRtn = GetJournalGridStream(loRtnTemp);
+                loRtn = ListStremHelper(loRtnTemp);
             }
             catch (Exception ex)
             {
@@ -200,7 +200,7 @@ namespace GLT00100Service
             VAR_GSM_COMPANYDTO loReturn = null;
             try
             {
-                var loCls = new GLT00100Cls();
+                var loCls = new InitCLS();
                 loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loReturn = loCls.GetJournalCompany(loDbParameter);
 
@@ -221,10 +221,10 @@ namespace GLT00100Service
             R_Exception loException = new R_Exception();
             GLT00100ParameterDTO loDbPar = new();
             VAR_GL_SYSTEM_PARAMDTO loReturn = null;
-            GLT00100Cls loCls;
+            InitCLS loCls;
             try
             {
-                loCls = new GLT00100Cls();
+                loCls = new InitCLS();
                 loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
                 loReturn = loCls.GetSystemParam(loDbPar);
@@ -246,13 +246,13 @@ namespace GLT00100Service
             var loEx = new R_Exception();
             VAR_USER_DEPARTMENT_LISTDTO loRtn = null;
             GLT00100ParameterDTO loDbPar;
-            GLT00100Cls loCls;
+            InitCLS loCls;
             try
             {
                 loDbPar = new GLT00100ParameterDTO();
                 loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loDbPar.CUSER_ID = R_BackGlobalVar.USER_ID;
-                loCls = new GLT00100Cls();
+                loCls = new InitCLS();
 
                 loRtn = new VAR_USER_DEPARTMENT_LISTDTO();
                 loRtn.Data = loCls.GetDeptList(loDbPar);
@@ -275,7 +275,7 @@ namespace GLT00100Service
             VAR_CCURRENT_PERIOD_START_DATEDTO loReturn = null;
             try
             {
-                var loCls = new GLT00100Cls();
+                var loCls = new InitCLS();
                 loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loReturn = loCls.GetCurrentPeriodStartDate(loDbParameter, poData);
 
@@ -298,7 +298,7 @@ namespace GLT00100Service
             VAR_CSOFT_PERIOD_START_DATEDTO loReturn = null;
             try
             {
-                var loCls = new GLT00100Cls();
+                var loCls = new InitCLS();
                 loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loReturn = loCls.GetSoftPeriodStartDate(loDbParameter, poData);
 
@@ -321,7 +321,7 @@ namespace GLT00100Service
             VAR_IUNDO_COMMIT_JRNDTO loReturn = null;
             try
             {
-                var loCls = new GLT00100Cls();
+                var loCls = new InitCLS();
                 loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loReturn = loCls.GetIOption(loDbParameter);
 
@@ -344,9 +344,9 @@ namespace GLT00100Service
             VAR_GSM_TRANSACTION_CODEDTO loReturn = null;
             try
             {
-                var loCls = new GLT00100Cls();
+                var loCls = new InitCLS();
                 loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
-                loReturn = loCls.GetLincementLapproval(loDbParameter);
+                loReturn = loCls.GetTranscode(loDbParameter);
 
             }
             catch (Exception ex)
@@ -367,7 +367,7 @@ namespace GLT00100Service
             VAR_GSM_PERIODDTO loReturn = null;
             try
             {
-                var loCls = new GLT00100Cls();
+                var loCls = new InitCLS();
                 loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loReturn = loCls.GetPeriod(loDbParameter);
 
@@ -389,14 +389,14 @@ namespace GLT00100Service
             StatusListDTO loRtn = null;
             List<StatusDTO> loResult;
             GLT00100ParameterDTO loDbPar;
-            GLT00100Cls loCls;
+            InitCLS loCls;
 
             try
             {
                 loDbPar = new GLT00100ParameterDTO();
                 loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loDbPar.CLANGUAGE_ID = R_BackGlobalVar.CULTURE;
-                loCls = new GLT00100Cls();
+                loCls = new InitCLS();
                 loResult = loCls.GetStatus(loDbPar);
                 loRtn = new StatusListDTO { Data = loResult };
             }
@@ -418,14 +418,14 @@ namespace GLT00100Service
             CurrencyCodeListDTO loRtn = null;
             List<CurrencyCodeDTO> loResult;
             GLT00100ParameterDTO loDbPar;
-            GLT00100Cls loCls;
+            InitCLS loCls;
 
             try
             {
                 loDbPar = new GLT00100ParameterDTO();
                 loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loDbPar.CUSER_ID = R_BackGlobalVar.USER_ID;
-                loCls = new GLT00100Cls();
+                loCls = new InitCLS();
                 loResult = loCls.GetCurrency(loDbPar);
                 loRtn = new CurrencyCodeListDTO { Data = loResult };
             }
@@ -446,14 +446,14 @@ namespace GLT00100Service
             GetCenterListDTO loRtn = null;
             List<GetCenterDTO> loResult;
             GLT00100ParameterDTO loDbPar;
-            GLT00100Cls loCls;
+            InitCLS loCls;
 
             try
             {
                 loDbPar = new GLT00100ParameterDTO();
                 loDbPar.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loDbPar.CUSER_ID = R_BackGlobalVar.USER_ID;
-                loCls = new GLT00100Cls();
+                loCls = new InitCLS();
                 loResult = loCls.GetCenterList(loDbPar);
                 loRtn = new GetCenterListDTO() { Data = loResult };
             }
@@ -475,7 +475,7 @@ namespace GLT00100Service
             GSM_TRANSACTION_APPROVALDTO loReturn = null;
             try
             {
-                var loCls = new GLT00100Cls();
+                var loCls = new InitCLS();
                 loDbParameter.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 loReturn = loCls.GetTransactionApproval(loDbParameter);
 
@@ -492,21 +492,13 @@ namespace GLT00100Service
         #endregion
 
         #region Helper
-        private async IAsyncEnumerable<GLT00100JournalGridDetailDTO> GetJournalGridDetailStream(List<GLT00100JournalGridDetailDTO> poParameter)
+        private async IAsyncEnumerable<T> ListStremHelper<T>(List<T> poParameter)
         {
-            foreach (GLT00100JournalGridDetailDTO item in poParameter)
+            foreach (T item in poParameter)
             {
                 yield return item;
             }
         }
-        private async IAsyncEnumerable<GLT00100JournalGridDTO> GetJournalGridStream(List<GLT00100JournalGridDTO> poParameter)
-        {
-            foreach (GLT00100JournalGridDTO item in poParameter)
-            {
-                yield return item;
-            }
-        }
-
         #endregion
     }
 }

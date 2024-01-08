@@ -23,9 +23,9 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.Ge
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.sourcelink.json
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\refint\GLM00200Back.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.pdb
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\ref\GLM00200Back.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.sourcelink.json

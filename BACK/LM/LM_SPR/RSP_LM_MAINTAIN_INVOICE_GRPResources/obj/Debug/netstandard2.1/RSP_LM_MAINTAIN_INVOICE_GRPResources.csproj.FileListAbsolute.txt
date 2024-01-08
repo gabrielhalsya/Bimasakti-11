@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.RSP_LM_MAINTAIN_INVOICE_GRPResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.sourcelink.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_INVOICE_GRPResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_INVOICE_GRPResources.pdb

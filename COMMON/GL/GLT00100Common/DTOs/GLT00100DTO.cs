@@ -60,7 +60,7 @@ namespace GLT00100Common.DTOs
         public string CMONTH { get; set; }
         public string CPERIOD { get; set; }
         public string CSEARCH_TEXT { get; set; }
-        public string CSTATUS { get; set; }
+        public string CSTATUS { get; set; } = "";
         public string CREC_ID { get; set; } = "";
         public bool LCOMMIT_APRJRN { get; set; }
         public List<GLT00100JournalGridDetailDTO> DetailList { get; set; }

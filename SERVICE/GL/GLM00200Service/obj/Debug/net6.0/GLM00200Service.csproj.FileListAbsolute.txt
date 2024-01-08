@@ -25,9 +25,9 @@ D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200S
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.sourcelink.json
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\refint\GLM00200Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.pdb
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\ref\GLM00200Service.dll
-D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.sourcelink.json

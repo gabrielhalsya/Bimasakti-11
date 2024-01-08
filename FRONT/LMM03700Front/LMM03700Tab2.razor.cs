@@ -241,12 +241,6 @@ namespace LMM03700Front
         #region Tab2-Assign Tenant
         private void R_Before_Open_Popup_AssignTenant(R_BeforeOpenPopupEventArgs eventArgs)
         {
-            //var loParam = new TenantGridDTO()
-            //{
-            //    CPROPERTY_ID = _viewModelTenantClass._propertyId,
-            //    CTENANT_CLASSIFICATION_GROUP_ID = _viewModelTenantClass._tenantClassificationGroupId,
-            //    CTENANT_CLASSIFICATION_ID = _viewModelTenantClass._tenantClassificationId
-            //};
             eventArgs.Parameter = (TenantClassificationDTO)_gridTenantClassRef.GetCurrentData();
             eventArgs.TargetPageType = typeof(PopupAssignTenantMover);
         }
@@ -259,8 +253,7 @@ namespace LMM03700Front
                 {
                     return;
                 }
-                var loCurrentData = (TenantClassificationDTO)eventArgs.Result;
-                await _gridTenantClassRef.SelectItem(loCurrentData);
+                await _gridTenantRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -273,12 +266,7 @@ namespace LMM03700Front
         #region Tab2-Move Tenant
         private void R_Before_Open_Popup_MoveTenant(R_BeforeOpenPopupEventArgs eventArgs)
         {
-            //var loParam = new TenantGridDTO()
-            //{
-            //    CPROPERTY_ID = _viewModelTenantClass._propertyId,
-            //    CTENANT_CLASSIFICATION_GROUP_ID = _viewModelTenantClass._tenantClassificationGroupId,
-            //    CTENANT_CLASSIFICATION_ID = _viewModelTenantClass._tenantClassificationId,
-            //};
+
             var loParam = (TenantClassificationDTO) _gridTenantClassRef.GetCurrentData();
             eventArgs.Parameter = loParam;
             eventArgs.TargetPageType = typeof(PopupMoveTenant);
@@ -292,8 +280,7 @@ namespace LMM03700Front
                 {
                     return;
                 }
-                var loCurrentData = (TenantClassificationDTO)eventArgs.Result;
-                await _gridTenantClassRef.SelectItem(loCurrentData);
+                await _gridTenantRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {

@@ -229,6 +229,7 @@ namespace LMM03700Service
                 loCls = new LMM03710Cls();
                 poParam.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
                 poParam.CUSER_ID = R_BackGlobalVar.USER_ID;
+                //loCls.MoveTenantUsingRDT(poParam);
                 loCls.MoveTenant(poParam);
             }
             catch (Exception ex)

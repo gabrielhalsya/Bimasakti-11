@@ -10,6 +10,8 @@
         "dependencies": {
           "BlazorMenuService": "1.0.0",
           "GLM00200Service": "1.0.0",
+          "GLT00100Service": "1.0.0",
+          "GLTR00100SERVICE": "1.0.0",
           "Realta.BackCollectionNuGet": "1.0.0",
           "Realta.CommonCollectionNuGet": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
@@ -2035,6 +2037,11 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "BaseHeaderReportCOMMON/1.0.0": {
+        "runtime": {
+          "BaseHeaderReportCOMMON.dll": {}
+        }
+      },
       "BlazorMenuService/1.0.0": {
         "dependencies": {
           "BlazorMenuBack": "1.0.0",
@@ -2080,6 +2087,55 @@
           "ja/R_APIBackEnd.resources.dll": {
             "locale": "ja"
           }
+        }
+      },
+      "GLT00100Back/1.0.0": {
+        "dependencies": {
+          "GLT00100Common": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "runtime": {
+          "GLT00100Back.dll": {}
+        }
+      },
+      "GLT00100Common/1.0.0": {
+        "runtime": {
+          "GLT00100Common.dll": {}
+        }
+      },
+      "GLT00100Service/1.0.0": {
+        "dependencies": {
+          "GLT00100Back": "1.0.0",
+          "GLT00100Common": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Realta.BackCollectionNuGet": "1.0.0"
+        },
+        "runtime": {
+          "GLT00100Service.dll": {}
+        }
+      },
+      "GLTR00100BACK/1.0.0": {
+        "dependencies": {
+          "GLTR00100COMMON": "1.0.0"
+        },
+        "runtime": {
+          "GLTR00100BACK.dll": {}
+        }
+      },
+      "GLTR00100COMMON/1.0.0": {
+        "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
+        "runtime": {
+          "GLTR00100COMMON.dll": {}
+        }
+      },
+      "GLTR00100SERVICE/1.0.0": {
+        "dependencies": {
+          "GLTR00100BACK": "1.0.0"
+        },
+        "runtime": {
+          "GLTR00100SERVICE.dll": {}
         }
       },
       "RSP_GL_PROCESS_RECURRINGResources/1.0.0": {
@@ -2153,6 +2209,22 @@
           }
         }
       },
+      "R_ReportFastReportBack/1.0.0.0": {
+        "runtime": {
+          "R_ReportFastReportBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_Cache/1.0.0.0": {
+        "runtime": {
+          "R_Cache.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "R_APICommonDTO/1.0.0.0": {
         "runtime": {
           "R_APICommonDTO.dll": {
@@ -2196,14 +2268,6 @@
       "R_ContextBackEnd/1.0.0.0": {
         "runtime": {
           "R_ContextBackEnd.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "R_Cache/1.0.0.0": {
-        "runtime": {
-          "R_Cache.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -3644,6 +3708,11 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "BlazorMenuService/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -3660,6 +3729,36 @@
       "sha512": ""
     },
     "GLM00200Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLT00100Back/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLT00100Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLT00100Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLTR00100BACK/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLTR00100COMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLTR00100SERVICE/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -3709,6 +3808,16 @@
       "serviceable": false,
       "sha512": ""
     },
+    "R_ReportFastReportBack/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_Cache/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "R_APICommonDTO/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -3735,11 +3844,6 @@
       "sha512": ""
     },
     "R_ContextBackEnd/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "R_Cache/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

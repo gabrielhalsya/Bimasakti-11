@@ -12,12 +12,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Xml.Linq;
+using RSP_GS_MAINTAIN_DEPARTMENTResources;
+using RSP_GS_UPLOAD_DEPARTMENTResources;
 
 namespace GSM04000Back
 {
     public class GSM04000UploadCls : R_IBatchProcess
     {
-
+        private RSP_GS_UPLOAD_DEPARTMENTResources.Resources_Dummy_Class _rspUploadDept = new();
+        
         public void R_BatchProcess(R_BatchProcessPar poBatchProcessPar)
         {
             R_Exception loException = new R_Exception();

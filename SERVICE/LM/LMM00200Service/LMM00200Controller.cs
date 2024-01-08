@@ -2,9 +2,11 @@
 using LMM00200Common;
 using LMM00200Common.DTO_s;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
+using System.Runtime.CompilerServices;
 
 namespace LMM00200Service
 {
@@ -12,9 +14,19 @@ namespace LMM00200Service
     [ApiController]
     public class LMM00200Controller : ControllerBase, ILMM00200
     {
+        private LMM00200Logger _logger;
+
+        public LMM00200Controller(ILogger<LMM00200Controller> logger)
+        {
+            //initiate
+            LMM00200Logger.R_InitializeLogger(logger);
+            _logger = LMM00200Logger.R_GetInstanceLogger();
+        }
+
         [HttpPost]
         public IAsyncEnumerable<LMM00200GridDTO> GetUserParamList()
         {
+            ShowLogStart();
             R_Exception loException = new R_Exception();
             List<LMM00200GridDTO> loRtnTemp = null;
             LMM00200DBParam loDbParam;
@@ -22,6 +34,7 @@ namespace LMM00200Service
             try
             {
                 loCls = new LMM00200Cls();
+                ShowLogExecute();
                 loRtnTemp = loCls.GetUserParamList(new LMM00200DBParam()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
@@ -31,15 +44,16 @@ namespace LMM00200Service
             catch (Exception ex)
             {
                 loException.Add(ex);
+                ShowLogError(loException);
             }
         EndBlock:
             loException.ThrowExceptionIfErrors();
             return LMM00200StreamListHelper(loRtnTemp);
         }
 
-        private async IAsyncEnumerable<LMM00200GridDTO> LMM00200StreamListHelper(List<LMM00200GridDTO> loRtnTemp)
+        private async IAsyncEnumerable<T> LMM00200StreamListHelper<T>(List<T> loRtnTemp)
         {
-            foreach (LMM00200GridDTO loEntity in loRtnTemp)
+            foreach (T loEntity in loRtnTemp)
             {
                 yield return loEntity;
             }
@@ -120,5 +134,13 @@ namespace LMM00200Service
             loException.ThrowExceptionIfErrors();
             return loRtn;
         }
+
+        private void ShowLogStart([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Starting {pcMethodCallerName} in {GetType().Name}");
+
+        private void ShowLogExecute([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Executing cls method in {GetType().Name}.{pcMethodCallerName}");
+
+        private void ShowLogEnd([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"End {pcMethodCallerName} in {GetType().Name}");
+
+        private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
     }
 }

@@ -12,6 +12,7 @@ namespace LMM03700Service
     [ApiController]
     public class LMM03700Controller : ControllerBase, ILMM03700
     {
+
         [HttpPost]
         public IAsyncEnumerable<TenantClassificationGroupDTO> GetTenantClassGroupList()
         {

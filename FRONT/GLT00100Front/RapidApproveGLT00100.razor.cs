@@ -29,7 +29,7 @@ namespace GLT00100Front
 
         private R_Grid<GLT00100JournalGridDetailDTO> _gridDetailRef;
         private R_ConductorGrid _conductorGridDetailRef;
-        [Inject] IClientHelper clientHelper { get; set; }
+        [Inject] IClientHelper _clientHelper { get; set; }
 
 
         protected override async Task R_Init_From_Master(object poParameter)
@@ -44,8 +44,8 @@ namespace GLT00100Front
                 await _JournalListViewModel.GetDepartmentList();
                 await InititalProcess();
 
-                _JournalListViewModel.COMPANYID = clientHelper.CompanyId;
-                _JournalListViewModel.USERID = clientHelper.UserId;
+                _JournalListViewModel.COMPANYID = _clientHelper.CompanyId;
+                _JournalListViewModel.USERID = _clientHelper.UserId;
                 await _gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)

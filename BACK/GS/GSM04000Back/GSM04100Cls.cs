@@ -9,16 +9,24 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RSP_GS_MAINTAIN_DEPARTMENTResources;
+using RSP_GS_UPLOAD_DEPARTMENTResources;
 
 namespace GSM04000Back
 {
     public class GSM04100Cls : R_BusinessObject<GSM04100DTO>
     {
+        private RSP_GS_MAINTAIN_DEPARTMENTResources.Resources_Dummy_Class _rspDept = new();
+
+        private RSP_GS_UPLOAD_DEPARTMENTResources.Resources_Dummy_Class _rspUploadDept = new();
+
         private LoggerGSM04000 _logger;
+
         public GSM04100Cls()
         {
             _logger = LoggerGSM04000.R_GetInstanceLogger();
         }
+
         protected override void R_Deleting(GSM04100DTO poEntity)
         {
             R_Exception loEx = new R_Exception();
@@ -53,6 +61,7 @@ namespace GSM04000Back
             }
             loEx.ThrowExceptionIfErrors();
         }
+
         protected override GSM04100DTO R_Display(GSM04100DTO poEntity)
         {
             R_Exception loEx = new R_Exception();
@@ -86,6 +95,7 @@ namespace GSM04000Back
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }
+
         protected override void R_Saving(GSM04100DTO poNewEntity, eCRUDMode poCRUDMode)
         {
             R_Exception loEx = new R_Exception();
@@ -118,6 +128,7 @@ namespace GSM04000Back
             }
             loEx.ThrowExceptionIfErrors();
         }
+
         public List<GSM04100StreamDTO> GetUserDeptList(GSM04100ListDBParameterDTO poEntity)
         {
             R_Exception loEx = new R_Exception();
@@ -150,6 +161,7 @@ namespace GSM04000Back
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }
+
         public List<GSM04100DTO> GetUserToAssignList(GSM04100ListDBParameterDTO poParam)
         {
             List<GSM04100DTO> loRtn = null;

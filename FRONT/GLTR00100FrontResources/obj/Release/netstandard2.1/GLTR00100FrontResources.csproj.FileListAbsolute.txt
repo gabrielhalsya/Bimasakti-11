@@ -1,0 +1,12 @@
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\bin\Release\netstandard2.1\GLTR00100FrontResources.deps.json
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\bin\Release\netstandard2.1\GLTR00100FrontResources.dll
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\bin\Release\netstandard2.1\GLTR00100FrontResources.pdb
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.csproj.AssemblyReference.cache
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.GLTR00100FrontResources_msgrsc.resources
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.csproj.GenerateResource.cache
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.AssemblyInfoInputs.cache
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.AssemblyInfo.cs
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.csproj.CoreCompileInputs.cache
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.dll
+D:\BIMASAKTI\Bimasakti-version\Bimasakti-version\1.00\PROGRAM\BS Program\SOURCE\FRONT\GLTR00100FrontResources\obj\Release\netstandard2.1\GLTR00100FrontResources.pdb

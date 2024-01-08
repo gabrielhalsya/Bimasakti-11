@@ -3,6 +3,7 @@ D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\GLM00200
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\GLM00200Model.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\GLM00200Common.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\Lookup_GSCOMMON.dll
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\Lookup_GSFrontResources.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\Lookup_GSModel.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\R_APIClient.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\R_APICommonDTO.dll
@@ -15,12 +16,13 @@ D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\R_Authen
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\Lookup_GSCOMMON.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\Lookup_GSModel.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\GLM00200Common.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\bin\Debug\netstandard2.1\Lookup_GSFrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.AssemblyReference.cache
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.GeneratedMSBuildEditorConfig.editorconfig
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.AssemblyInfoInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.sourcelink.json
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.pdb
-D:\repos\BS Program\SOURCE\FRONT\GLM00200Model\obj\Debug\netstandard2.1\GLM00200Model.sourcelink.json

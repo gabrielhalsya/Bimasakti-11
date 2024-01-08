@@ -285,11 +285,22 @@
           "bin/placeholder/GLTR00100FRONT.dll": {}
         }
       },
+      "GLTR00100FrontResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/GLTR00100FrontResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLTR00100FrontResources.dll": {}
+        }
+      },
       "GLTR00100MODEL/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "GLTR00100COMMON": "1.0.0"
+          "GLTR00100COMMON": "1.0.0",
+          "GLTR00100FrontResources": "1.0.0"
         },
         "compile": {
           "bin/placeholder/GLTR00100MODEL.dll": {}
@@ -687,6 +698,11 @@
       "path": "../GLTR00100FRONT/GLTR00100FRONT.csproj",
       "msbuildProject": "../GLTR00100FRONT/GLTR00100FRONT.csproj"
     },
+    "GLTR00100FrontResources/1.0.0": {
+      "type": "project",
+      "path": "../GLTR00100FrontResources/GLTR00100FrontResources.csproj",
+      "msbuildProject": "../GLTR00100FrontResources/GLTR00100FrontResources.csproj"
+    },
     "GLTR00100MODEL/1.0.0": {
       "type": "project",
       "path": "../GLTR00100MODEL/GLTR00100MODEL.csproj",
@@ -720,6 +736,7 @@
       "GLT00100Model >= 1.0.0",
       "GLTR00100COMMON >= 1.0.0",
       "GLTR00100FRONT >= 1.0.0",
+      "GLTR00100FrontResources >= 1.0.0",
       "Lookup_GSCOMMON >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.20"
@@ -771,6 +788,9 @@
             },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FrontResources\\GLTR00100FrontResources.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FrontResources\\GLTR00100FrontResources.csproj"
             },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FRONT\\GLTR00100FRONT.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FRONT\\GLTR00100FRONT.csproj"

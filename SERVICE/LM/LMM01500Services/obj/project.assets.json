@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
-      "LMM01500Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/LMM01500Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LMM01500Common.dll": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "LMM01500Common/1.0.0": {
-      "type": "project",
-      "path": "../../../COMMON/LM/LMM01500Common/LMM01500Common.csproj",
-      "msbuildProject": "../../../COMMON/LM/LMM01500Common/LMM01500Common.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "LMM01500Common >= 1.0.0"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
     "C:\\Users\\gabriel.codeid\\.nuget\\packages\\": {},
@@ -60,11 +41,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM01500Common\\LMM01500Common.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM01500Common\\LMM01500Common.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

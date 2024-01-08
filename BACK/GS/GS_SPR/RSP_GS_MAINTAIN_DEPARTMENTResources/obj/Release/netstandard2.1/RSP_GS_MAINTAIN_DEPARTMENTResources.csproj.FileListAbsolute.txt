@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\bin\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\bin\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\bin\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.RSP_GS_MAINTAIN_DEPARTMENTResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.sourcelink.json
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GS_SPR\RSP_GS_MAINTAIN_DEPARTMENTResources\obj\Release\netstandard2.1\RSP_GS_MAINTAIN_DEPARTMENTResources.pdb

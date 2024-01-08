@@ -3566,6 +3566,16 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
+      "BaseHeaderReportCOMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        }
+      },
       "BlazorMenuBack/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3647,6 +3657,88 @@
         "runtime": {
           "bin/placeholder/GLM00200Service.dll": {}
         }
+      },
+      "GLT00100Back/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GLT00100Common": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "compile": {
+          "bin/placeholder/GLT00100Back.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLT00100Back.dll": {}
+        }
+      },
+      "GLT00100Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/GLT00100Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLT00100Common.dll": {}
+        }
+      },
+      "GLT00100Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GLT00100Back": "1.0.0",
+          "GLT00100Common": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Realta.BackCollectionNuGet": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLT00100Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLT00100Service.dll": {}
+        }
+      },
+      "GLTR00100BACK/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GLTR00100COMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLTR00100BACK.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLTR00100BACK.dll": {}
+        }
+      },
+      "GLTR00100COMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLTR00100COMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLTR00100COMMON.dll": {}
+        }
+      },
+      "GLTR00100SERVICE/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GLTR00100BACK": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLTR00100SERVICE.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLTR00100SERVICE.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "RSP_GL_PROCESS_RECURRINGResources/1.0.0": {
         "type": "project",
@@ -10462,6 +10554,11 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "path": "../../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
+      "msbuildProject": "../../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
+    },
     "BlazorMenuBack/1.0.0": {
       "type": "project",
       "path": "../../../BACK/GS/BlazorMenuBack/BlazorMenuBack.vbproj",
@@ -10492,6 +10589,36 @@
       "path": "../../../SERVICE/GL/GLM00200Service/GLM00200Service.csproj",
       "msbuildProject": "../../../SERVICE/GL/GLM00200Service/GLM00200Service.csproj"
     },
+    "GLT00100Back/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GL/GLT00100Back/GLT00100Back.csproj",
+      "msbuildProject": "../../../BACK/GL/GLT00100Back/GLT00100Back.csproj"
+    },
+    "GLT00100Common/1.0.0": {
+      "type": "project",
+      "path": "../../../COMMON/GL/GLT00100Common/GLT00100Common.csproj",
+      "msbuildProject": "../../../COMMON/GL/GLT00100Common/GLT00100Common.csproj"
+    },
+    "GLT00100Service/1.0.0": {
+      "type": "project",
+      "path": "../../../SERVICE/GL/GLT00100Service/GLT00100Service.csproj",
+      "msbuildProject": "../../../SERVICE/GL/GLT00100Service/GLT00100Service.csproj"
+    },
+    "GLTR00100BACK/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/GL/GLTR00100BACK/GLTR00100BACK.csproj",
+      "msbuildProject": "../../../BACK/GL/GLTR00100BACK/GLTR00100BACK.csproj"
+    },
+    "GLTR00100COMMON/1.0.0": {
+      "type": "project",
+      "path": "../../../COMMON/GL/GLTR00100COMMON/GLTR00100COMMON.csproj",
+      "msbuildProject": "../../../COMMON/GL/GLTR00100COMMON/GLTR00100COMMON.csproj"
+    },
+    "GLTR00100SERVICE/1.0.0": {
+      "type": "project",
+      "path": "../../../SERVICE/GL/GLTR00100SERVICE/GLTR00100SERVICE.csproj",
+      "msbuildProject": "../../../SERVICE/GL/GLTR00100SERVICE/GLTR00100SERVICE.csproj"
+    },
     "RSP_GL_PROCESS_RECURRINGResources/1.0.0": {
       "type": "project",
       "path": "../../../BACK/GL/GL_SPR/RSP_GL_PROCESS_RECURRINGResources/RSP_GL_PROCESS_RECURRINGResources.csproj",
@@ -10512,6 +10639,8 @@
     "net6.0": [
       "BlazorMenuService >= 1.0.0",
       "GLM00200Service >= 1.0.0",
+      "GLT00100Service >= 1.0.0",
+      "GLTR00100SERVICE >= 1.0.0",
       "Realta.BackCollectionNuGet >= 1.0.0",
       "Realta.CommonCollectionNuGet >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
@@ -10554,6 +10683,12 @@
           "projectReferences": {
             "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100Service\\GLT00100Service.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100Service\\GLT00100Service.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLTR00100SERVICE\\GLTR00100SERVICE.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLTR00100SERVICE\\GLTR00100SERVICE.csproj"
             },
             "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\BlazorMenuService\\BlazorMenuService.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\BlazorMenuService\\BlazorMenuService.csproj"

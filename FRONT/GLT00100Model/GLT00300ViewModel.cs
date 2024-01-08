@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.Design;
 using System.Globalization;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -83,7 +84,7 @@ namespace GLT00100Model
         public bool EnableApprove = false;
         public bool EnableCommit = false;
         public bool EnablePrint = false;
-        public bool EnableCopy =false;
+        public bool EnableCopy = false;
         public string CSTATUS_TEMP { get; set; }
         public string CommitLabel = "Commit";
         public string SubmitLabel = "Submit";
@@ -230,10 +231,8 @@ namespace GLT00100Model
             {
                 var loReturn = await _JournalModel.GetStatusListAsync();
                 allStatusData = loReturn.Data;
-                if (allStatusData.Count > 0)
-                {
-                    Data.CSTATUS = allStatusData[0].CCODE;
-                }
+                allStatusData.Insert(0, new StatusDTO() { CCODE = "", CNAME = "All" });
+                Data.CSTATUS = allStatusData.FirstOrDefault(x => x.CCODE == "").CCODE;
             }
             catch (Exception ex)
             {
@@ -400,7 +399,7 @@ namespace GLT00100Model
                         }
                         return m;
                     }).ToList();
-                    
+
                     _JournaDetailList = new ObservableCollection<GLT00100JournalGridDetailDTO>(modifiedList);
                 }
 

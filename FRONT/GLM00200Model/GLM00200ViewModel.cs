@@ -152,7 +152,7 @@ namespace GLM00200Model
             R_Exception loEx = new R_Exception();
             try
             {
-                var loResult = await _lookupModel.GSL00700GetDepartmentListAsync();
+                var loResult = await _lookupModel.GSL00700GetDepartmentListAsync(new GSL00700ParameterDTO());
                 _Dept = loResult.FirstOrDefault();
                 _SearchParam.CDEPT_CODE = _Dept.CDEPT_CODE;
                 _SearchParam.CDEPT_NAME = _Dept.CDEPT_NAME;
