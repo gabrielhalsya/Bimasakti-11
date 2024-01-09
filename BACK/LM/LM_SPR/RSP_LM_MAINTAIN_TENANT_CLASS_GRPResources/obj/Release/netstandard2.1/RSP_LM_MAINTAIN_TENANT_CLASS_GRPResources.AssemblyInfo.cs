@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67df347fd3acf5212d89acf3f61d3d36259eb6f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ad39ea1045f7c810583dc0eac8f02c6dc72c314")]
 [assembly: System.Reflection.AssemblyProductAttribute("RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

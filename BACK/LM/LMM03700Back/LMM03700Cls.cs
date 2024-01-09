@@ -166,7 +166,7 @@ namespace LMM03700Back
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
-        public List<TenantClassificationGroupDTO> GetTCGList(TenantClassificationGroupDTO poEntity)
+        public List<TenantClassificationGroupDTO> GetTenantClassGrpList(TenantClassificationGroupDTO poEntity)
         {
             R_Exception loEx = new();
             List<TenantClassificationGroupDTO> loRtn = null;

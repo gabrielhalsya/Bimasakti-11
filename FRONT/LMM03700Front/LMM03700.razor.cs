@@ -139,6 +139,21 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
+        private void TenantGrp_AfterAdd(R_AfterAddEventArgs eventArgs)
+        {
+            R_Exception loEx = new();
+            try
+            {
+                var loData = (TenantClassificationGroupDTO)eventArgs.Data;
+                loData.DUPDATE_DATE = DateTime.Now;
+                loData.DCREATE_DATE = DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
         private void TenantClassGrp_Saving(R_SavingEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -171,22 +186,6 @@ namespace LMM03700Front
             loEx.ThrowExceptionIfErrors();
 
         }
-        private void TenantGrp_AfterAdd(R_AfterAddEventArgs eventArgs)
-        {
-            R_Exception loEx = new();
-            try
-            {
-                var loData = (TenantClassificationGroupDTO)eventArgs.Data;
-                loData.DUPDATE_DATE = DateTime.Now;
-                loData.DCREATE_DATE = DateTime.Now;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
-        }
-
         #endregion
     }
 }

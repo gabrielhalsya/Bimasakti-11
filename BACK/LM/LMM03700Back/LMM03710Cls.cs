@@ -181,7 +181,7 @@ namespace LMM03700Back
             loEx.ThrowExceptionIfErrors();
         }
 
-        public List<TenantClassificationDTO> GetTCList(TenantClassificationDBListMaintainParamDTO loParam)
+        public List<TenantClassificationDTO> GetTenantClassList(TenantClassificationDBListMaintainParamDTO loParam)
         {
             List<TenantClassificationDTO> loRtn = new List<TenantClassificationDTO>();
             R_Exception loEx = new R_Exception();
@@ -342,7 +342,7 @@ namespace LMM03700Back
         #endregion
 
         #region MoveTenant
-        public List<TenantDTO> GetTenanToMoveList(TenantParamDTO loParam)
+        public List<TenantDTO> GetTenantToMoveList(TenantParamDTO loParam)
         {
             List<TenantDTO> loRtn = new List<TenantDTO>();
             R_Exception loEx = new R_Exception();
@@ -374,60 +374,6 @@ namespace LMM03700Back
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
-        }
-
-        public void MoveTenantUsingRDT(TenantMoveParamDTO poParam)
-        {
-            var loEx = new R_Exception();
-            var loDb = new R_Db();
-            DbConnection loConn = null;
-            DbCommand loCmd;
-            try
-            {
-                loCmd = loDb.GetCommand();
-                loConn = loDb.GetConnection();
-                string lcQuery = "DECLARE @CTENANT_LIST AS RDT_TENANT_LIST ";
-                
-                // convert to list of tenant id in order to insert as RDT_TENANT_LIST
-                List<string> loListTenantID = poParam.CTENANT_ID_LIST_COMMA_SEPARATOR.Split(',').ToList();
-
-                //insert to sqlvariable for exec sp
-                if (loListTenantID != null && loListTenantID.Count > 0)
-                {
-                    lcQuery += "INSERT INTO @CTENANT_LIST (CTENANT_ID) VALUES ";
-                    foreach (string loRate in loListTenantID)
-                    {
-                        lcQuery += $"('{loRate}'),";
-                    }
-                    lcQuery = lcQuery.Substring(0, lcQuery.Length - 1) + " ";
-                }
-                lcQuery += " EXEC RSP_LM_MOVE_TENANT_CLASS " +
-                   $" @CCOMPANY_ID = '{poParam.CCOMPANY_ID}' " +
-                   $",@CPROPERTY_ID = '{poParam.CPROPERTY_ID}' " +
-                   $",@CTENANT_CLASSIFICATION_GROUP_ID = '{poParam.CTENANT_CLASSIFICATION_GROUP_ID}' " +
-                   $",@CFROM_TENANT_CLASSIFICATION_ID = '{poParam.CFROM_TENANT_CLASSIFICATION_ID}' " +
-                   $",@CTO_TENANT_CLASSIFICATION_ID = '{poParam.CTO_TENANT_CLASSIFICATION_ID}' " +
-                   $",@CUSER_LOGIN_ID = '{poParam.CUSER_ID}' " +
-                   $",@CTENANT_LIST = @CTENANT_LIST ";
-
-                var loResult = loDb.SqlExecQuery(lcQuery, loConn, false);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            finally
-            {
-                if (loConn != null)
-                {
-                    if (loConn.State != System.Data.ConnectionState.Closed)
-                        loConn.Close();
-
-                    loConn.Dispose();
-                    loConn = null;
-                }
-            }
-            loEx.ThrowExceptionIfErrors();
         }
 
         public void MoveTenant(TenantMoveParamDTO poParam)
