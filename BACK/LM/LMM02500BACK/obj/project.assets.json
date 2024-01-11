@@ -1,0 +1,118 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "LMM02500Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/LMM02500Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LMM02500Common.dll": {}
+        }
+      },
+      "RSP_LM_MAINTAIN_TENANT_GRPResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/RSP_LM_MAINTAIN_TENANT_GRPResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RSP_LM_MAINTAIN_TENANT_GRPResources.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LMM02500Common/1.0.0": {
+      "type": "project",
+      "path": "../../../COMMON/LM/LMM02500COMMON/LMM02500Common.csproj",
+      "msbuildProject": "../../../COMMON/LM/LMM02500COMMON/LMM02500Common.csproj"
+    },
+    "RSP_LM_MAINTAIN_TENANT_GRPResources/1.0.0": {
+      "type": "project",
+      "path": "../LM_SPR/RSP_LM_MAINTAIN_TENANT_GRPResources/RSP_LM_MAINTAIN_TENANT_GRPResources.csproj",
+      "msbuildProject": "../LM_SPR/RSP_LM_MAINTAIN_TENANT_GRPResources/RSP_LM_MAINTAIN_TENANT_GRPResources.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "LMM02500Common >= 1.0.0",
+      "RSP_LM_MAINTAIN_TENANT_GRPResources >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\gabriel.codeid\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500BACK\\LMM02500Back.csproj",
+      "projectName": "LMM02500Back",
+      "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500BACK\\LMM02500Back.csproj",
+      "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+      "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500BACK\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.telerik.com/v3/index.json": {},
+        "https://packagesource": {},
+        "https://www1.realta.net/realtanuget/nuget": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_GRPResources\\RSP_LM_MAINTAIN_TENANT_GRPResources.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_GRPResources\\RSP_LM_MAINTAIN_TENANT_GRPResources.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500Common\\LMM02500Common.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500Common\\LMM02500Common.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

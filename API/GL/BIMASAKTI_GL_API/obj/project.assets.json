@@ -3687,16 +3687,17 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "GLT00100Back": "1.0.0",
-          "GLT00100Common": "1.0.0",
-          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
-          "Realta.BackCollectionNuGet": "1.0.0"
+          "GLT00100Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/GLT00100Service.dll": {}
         },
         "runtime": {
           "bin/placeholder/GLT00100Service.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "GLTR00100BACK/1.0.0": {
         "type": "project",

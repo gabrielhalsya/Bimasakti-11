@@ -63,14 +63,12 @@ namespace GLT00100Back
                 {
                     lcAction = "EDIT";
                 }
-                using (var TransScope = new TransactionScope(TransactionScopeOption.Required))
-                {
-                    loCmd = loDB.GetCommand();
-                    loConn = loDB.GetConnection();
+                loCmd = loDB.GetCommand();
+                loConn = loDB.GetConnection();
 
-                    var tempParam = R_Utility.R_ConvertCollectionToCollection<GLT00100JournalGridDetailDTO, SaveJournalDetailDTO>(poNewEntity
-                        .DetailList);
-                    lcQuery = @"CREATE TABLE #GLT0100_JOURNAL_DETAIL 
+                var tempParam = R_Utility.R_ConvertCollectionToCollection<GLT00100JournalGridDetailDTO, SaveJournalDetailDTO>(poNewEntity
+                    .DetailList);
+                lcQuery = @"CREATE TABLE #GLT0100_JOURNAL_DETAIL 
                               ( CGLACCOUNT_NO VARCHAR(20)
                                 ,CCENTER_CODE    VARCHAR(10)
                                 ,CDBCR           CHAR(1)
@@ -79,56 +77,49 @@ namespace GLT00100Back
                                 ,CDOCUMENT_NO    VARCHAR(20)
                                 ,CDOCUMENT_DATE  VARCHAR(8)
                               ) ";
-                    try
+                try
+                {
+                    R_ExternalException.R_SP_Init_Exception(loConn);
+                    loDB.SqlExecNonQuery(lcQuery, loConn, false);
+                    loDB.R_BulkInsert((SqlConnection)loConn, "#GLT0100_JOURNAL_DETAIL", tempParam);
+
+                    lcQuery = "RSP_GL_SAVE_JOURNAL";
+                    loCmd.CommandText = lcQuery;
+                    loCmd.CommandType = CommandType.StoredProcedure;
+
+                    loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poNewEntity.CUSER_ID);
+                    loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 50, poNewEntity.CREC_ID ?? "");
+                    loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50, lcAction);
+                    loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poNewEntity.CCOMPANY_ID);
+                    loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poNewEntity.CDEPT_CODE);
+                    loDB.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String, 50, poNewEntity.CTRANS_CODE);
+                    loDB.R_AddCommandParameter(loCmd, "@CREF_NO", DbType.String, 50, poNewEntity.CREF_NO);
+                    loDB.R_AddCommandParameter(loCmd, "@CDOC_NO", DbType.String, 50, poNewEntity.CDOC_NO);
+                    loDB.R_AddCommandParameter(loCmd, "@CDOC_DATE", DbType.String, 50, poNewEntity.CDOC_DATE);
+                    loDB.R_AddCommandParameter(loCmd, "@CREF_DATE", DbType.String, 50, poNewEntity.CREF_DATE);
+                    loDB.R_AddCommandParameter(loCmd, "@CREVERSE_DATE", DbType.String, 50, poNewEntity.CREVERSE_DATE);
+                    loDB.R_AddCommandParameter(loCmd, "@LREVERSE", DbType.Boolean, 50, poNewEntity.LREVERSE);
+                    loDB.R_AddCommandParameter(loCmd, "@CTRANS_DESC", DbType.String, 50, poNewEntity.CTRANS_DESC);
+                    loDB.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.String, 50, poNewEntity.CCURRENCY_CODE);
+                    loDB.R_AddCommandParameter(loCmd, "@NLBASE_RATE", DbType.Decimal, 50, poNewEntity.NLBASE_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NLCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NLCURRENCY_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NBBASE_RATE", DbType.Decimal, 50, poNewEntity.NBBASE_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NBCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NBCURRENCY_RATE);
+                    loDB.R_AddCommandParameter(loCmd, "@NPRELIST_AMOUNT", DbType.Decimal, 50, poNewEntity.NPRELIST_AMOUNT);
+
+                    var loDataTable = loDB.SqlExecQuery(loConn, loCmd, false);
+                    loResult = R_Utility.R_ConvertTo<GLT00100DTO>(loDataTable).ToList();
+
+                    if (string.IsNullOrWhiteSpace(poNewEntity.CREC_ID))
                     {
-                        R_ExternalException.R_SP_Init_Exception(loConn);
-                        loDB.SqlExecNonQuery(lcQuery, loConn, false);
-                        loDB.R_BulkInsert((SqlConnection)loConn, "#GLT0100_JOURNAL_DETAIL", tempParam);
-
-                        lcQuery = @"EXEC RSP_GL_SAVE_JOURNAL 
-                              @CUSER_ID, @CJRN_ID, @CACTION, @CCOMPANY_ID, 
-                              @CDEPT_CODE, @CTRANS_CODE, @CREF_NO, @CDOC_NO, @CDOC_DATE,@CREF_DATE,
-                              @CREVERSE_DATE, @LREVERSE, @CTRANS_DESC, @CCURRENCY_CODE, 
-                              @NLBASE_RATE, @NLCURRENCY_RATE, @NBBASE_RATE, @NBCURRENCY_RATE, @NPRELIST_AMOUNT 
-                              ";
-                        loCmd.CommandText = lcQuery;
-                        loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poNewEntity.CUSER_ID);
-                        loDB.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 50, poNewEntity.CREC_ID ?? "");
-                        loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50, lcAction);
-                        loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poNewEntity.CCOMPANY_ID);
-                        loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poNewEntity.CDEPT_CODE);
-                        loDB.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String, 50, poNewEntity.CTRANS_CODE);
-                        loDB.R_AddCommandParameter(loCmd, "@CREF_NO", DbType.String, 50, poNewEntity.CREF_NO);
-                        loDB.R_AddCommandParameter(loCmd, "@CDOC_NO", DbType.String, 50, poNewEntity.CDOC_NO);
-                        loDB.R_AddCommandParameter(loCmd, "@CDOC_DATE", DbType.String, 50, poNewEntity.CDOC_DATE);
-                        loDB.R_AddCommandParameter(loCmd, "@CREF_DATE", DbType.String, 50, poNewEntity.CREF_DATE);
-                        loDB.R_AddCommandParameter(loCmd, "@CREVERSE_DATE", DbType.String, 50, poNewEntity.CREVERSE_DATE);
-                        loDB.R_AddCommandParameter(loCmd, "@LREVERSE", DbType.Boolean, 50, poNewEntity.LREVERSE);
-                        loDB.R_AddCommandParameter(loCmd, "@CTRANS_DESC", DbType.String, 50, poNewEntity.CTRANS_DESC);
-                        loDB.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.String, 50, poNewEntity.CCURRENCY_CODE);
-                        loDB.R_AddCommandParameter(loCmd, "@NLBASE_RATE", DbType.Decimal, 50, poNewEntity.NLBASE_RATE);
-                        loDB.R_AddCommandParameter(loCmd, "@NLCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NLCURRENCY_RATE);
-                        loDB.R_AddCommandParameter(loCmd, "@NBBASE_RATE", DbType.Decimal, 50, poNewEntity.NBBASE_RATE);
-                        loDB.R_AddCommandParameter(loCmd, "@NBCURRENCY_RATE", DbType.Decimal, 50, poNewEntity.NBCURRENCY_RATE);
-                        loDB.R_AddCommandParameter(loCmd, "@NPRELIST_AMOUNT", DbType.Decimal, 50, poNewEntity.NPRELIST_AMOUNT);
-
-                        var loDataTable = loDB.SqlExecQuery(loConn, loCmd, false);
-                        loResult = R_Utility.R_ConvertTo<GLT00100DTO>(loDataTable).ToList();
-
-                        if (string.IsNullOrWhiteSpace(poNewEntity.CREC_ID))
-                        {
-                            poNewEntity.CREC_ID = loResult.FirstOrDefault().CJRN_ID;
-
-                        }
-
+                        poNewEntity.CREC_ID = loResult.FirstOrDefault().CJRN_ID;
                     }
-                    catch (Exception ex)
-                    {
-                        loEx.Add(ex);
-                    }
-                    loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
-                    TransScope.Complete();
                 }
+                catch (Exception ex)
+                {
+                    loEx.Add(ex);
+                }
+                loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
             }
             catch (Exception ex)
             {
@@ -152,7 +143,6 @@ namespace GLT00100Back
         {
             throw new NotImplementedException();
         }
-
         public List<GLT00100JournalGridDTO> GetJournalList(GLT00100ParameterDTO poParameter)
         {
             var loEx = new R_Exception();
@@ -310,6 +300,11 @@ namespace GLT00100Back
             }
 
             loEx.ThrowExceptionIfErrors();
+        }
+
+        public void ProcessApproveJournal(GLT00100ParameterDTO poParameter , GLT00100JournalGridDTO poData)
+        {
+
         }
     }
 }

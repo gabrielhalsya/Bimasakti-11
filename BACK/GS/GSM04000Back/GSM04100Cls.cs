@@ -50,14 +50,13 @@ namespace GSM04000Back
                 loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50, "DELETE");
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_LOGIN_ID", DbType.String, 50, poEntity.CUSER_LOGIN_ID);
 
-                var loDbParam = loCmd.Parameters.Cast<DbParameter>().Where(x => x.ParameterName is "@CCOMPANY_ID" or "@CDEPT_CODE" or "@CUSER_ID" or "@CACTION" or "@CUSER_LOGIN_ID").Select(x => x.Value); //gettin param into var to show in log debug
-                _logger.LogDebug("EXEC {lcQuery} {@poParam}", lcQuery, loDbParam);//shown exec
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 loDB.SqlExecNonQuery(loConn, loCmd, true);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
-                _logger.LogError(loEx);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
         }
@@ -83,14 +82,14 @@ namespace GSM04000Back
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poEntity.CCOMPANY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poEntity.CDEPT_CODE);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
-
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<GSM04100DTO>(loRtnTemp).FirstOrDefault();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
-                _logger.LogError(loEx);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -100,18 +99,19 @@ namespace GSM04000Back
         {
             R_Exception loEx = new R_Exception();
             R_Db loDB;
-            DbConnection loConn;
+            DbConnection loConn=null;
             DbCommand loCmd;
-            string lcQuery = "";
             try
             {
                 loDB = new R_Db();
                 loConn = loDB.GetConnection("R_DefaultConnectionString");
                 loCmd = loDB.GetCommand();
 
-                lcQuery = "RSP_GS_MAINTAIN_DEPT_USER";
+                string lcQuery = "RSP_GS_MAINTAIN_DEPT_USER";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
+                R_ExternalException.R_SP_Init_Exception(loConn);
+
 
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poNewEntity.CCOMPANY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poNewEntity.CDEPT_CODE);
@@ -119,12 +119,32 @@ namespace GSM04000Back
                 loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 50, "ADD");
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_LOGIN_ID", DbType.String, 50, poNewEntity.CUSER_LOGIN_ID);
 
-                loDB.SqlExecNonQuery(loConn, loCmd, true);
+                try
+                {
+                    ShowLogDebug(lcQuery, loCmd.Parameters);
+                    loDB.SqlExecNonQuery(loConn, loCmd, true);
+                }
+                catch (Exception ex)
+                {
+                    loEx.Add(ex);
+                }
+                loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
-                _logger.LogError(loEx);
+                ShowLogError(loEx);
+            }
+            finally
+            {
+                if (loConn != null)
+                {
+                    if (loConn.State != ConnectionState.Closed)
+                    {
+                        loConn.Close();
+                    }
+                    loConn.Dispose();
+                }
             }
             loEx.ThrowExceptionIfErrors();
         }
@@ -149,6 +169,7 @@ namespace GSM04000Back
 
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poEntity.CCOMPANY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 50, poEntity.CDEPT_CODE);
+                ShowLogDebug(lcQuery, loCmd.Parameters);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<GSM04100StreamDTO>(loRtnTemp).ToList();
@@ -156,7 +177,7 @@ namespace GSM04000Back
             catch (Exception ex)
             {
                 loEx.Add(ex);
-                _logger.LogError(loEx);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -183,17 +204,28 @@ namespace GSM04000Back
                 loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 50, poParam.CCOMPANY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CPROGRAM_ID", DbType.String, 50, poParam.CPROGRAM_CODE);
                 loDB.R_AddCommandParameter(loCmd, "@CPARAMETER_ID", DbType.String, 50, poParam.CDEPT_CODE);
-
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<GSM04100DTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
-                _logger.LogError(loEx);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
+        }
+
+        private void ShowLogDebug(string query, DbParameterCollection parameters)
+        {
+            var paramValues = string.Join(", ", parameters.Cast<DbParameter>().Select(p => $"{p.ParameterName} '{p.Value}'"));
+            _logger.LogDebug($"EXEC {query} {paramValues}");
+        }
+
+        private void ShowLogError(Exception ex)
+        {
+            _logger.LogError(ex);
         }
     }
 }

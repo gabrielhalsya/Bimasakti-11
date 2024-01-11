@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RSP_LM_MAINTAIN_UNIT_PROMOTION_PRICEResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ce08cb0f6f4e1f405d08d78a1dbffa257f23e18")]
 [assembly: System.Reflection.AssemblyProductAttribute("RSP_LM_MAINTAIN_UNIT_PROMOTION_PRICEResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RSP_LM_MAINTAIN_UNIT_PROMOTION_PRICEResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

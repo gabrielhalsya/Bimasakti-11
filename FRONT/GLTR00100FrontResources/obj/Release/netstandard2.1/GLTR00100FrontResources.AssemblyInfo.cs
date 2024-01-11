@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLTR00100FrontResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ce08cb0f6f4e1f405d08d78a1dbffa257f23e18")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLTR00100FrontResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLTR00100FrontResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

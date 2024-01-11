@@ -245,6 +245,16 @@
           "bin/placeholder/GLT00100Common.dll": {}
         }
       },
+      "GLT00100FrontResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/GLT00100FrontResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLT00100FrontResources.dll": {}
+        }
+      },
       "GLT00100Model/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -683,6 +693,11 @@
       "path": "../../COMMON/GL/GLT00100Common/GLT00100Common.csproj",
       "msbuildProject": "../../COMMON/GL/GLT00100Common/GLT00100Common.csproj"
     },
+    "GLT00100FrontResources/1.0.0": {
+      "type": "project",
+      "path": "../GLT00100FrontResources/GLT00100FrontResources.csproj",
+      "msbuildProject": "../GLT00100FrontResources/GLT00100FrontResources.csproj"
+    },
     "GLT00100Model/1.0.0": {
       "type": "project",
       "path": "../GLT00100Model/GLT00100Model.csproj",
@@ -733,6 +748,7 @@
     "net6.0": [
       "BaseHeaderReportCOMMON >= 1.0.0",
       "GLT00100Common >= 1.0.0",
+      "GLT00100FrontResources >= 1.0.0",
       "GLT00100Model >= 1.0.0",
       "GLTR00100COMMON >= 1.0.0",
       "GLTR00100FRONT >= 1.0.0",
@@ -785,6 +801,9 @@
             },
             "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLTR00100COMMON\\GLTR00100COMMON.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLTR00100COMMON\\GLTR00100COMMON.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FrontResources\\GLT00100FrontResources.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FrontResources\\GLT00100FrontResources.csproj"
             },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj"

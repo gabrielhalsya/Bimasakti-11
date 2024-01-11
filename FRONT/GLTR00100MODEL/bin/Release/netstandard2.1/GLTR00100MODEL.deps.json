@@ -24,7 +24,15 @@
           "GLTR00100MODEL.dll": {}
         }
       },
+      "BaseHeaderReportCOMMON/1.0.0": {
+        "runtime": {
+          "BaseHeaderReportCOMMON.dll": {}
+        }
+      },
       "GLTR00100COMMON/1.0.0": {
+        "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
         "runtime": {
           "GLTR00100COMMON.dll": {}
         }
@@ -98,14 +106,6 @@
           }
         }
       },
-      "BaseHeaderReportCOMMON/1.0.0.0": {
-        "runtime": {
-          "BaseHeaderReportCOMMON.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "R_APICommon/1.0.0.0": {
         "runtime": {
           "R_APICommon.dll": {
@@ -162,6 +162,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "GLTR00100COMMON/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -208,11 +213,6 @@
       "sha512": ""
     },
     "R_ProcessAndUploadFront/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "BaseHeaderReportCOMMON/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

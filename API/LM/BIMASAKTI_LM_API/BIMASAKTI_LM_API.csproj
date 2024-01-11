@@ -20,6 +20,7 @@
 		<ProjectReference Include="..\..\..\..\..\BS Shared Form\SOURCE\FRONT\Lookup_GSModel\Lookup_GSModel.csproj" />
 		<ProjectReference Include="..\..\..\..\..\BS Shared Form\SOURCE\SERVICES\Lookup_LMSERVICES\Lookup_LMSERVICES.csproj" />
 		<ProjectReference Include="..\..\..\SERVICE\LM\LMM00200Service\LMM00200Service.csproj" />
+		<ProjectReference Include="..\..\..\SERVICE\LM\LMM02500SERVICE\LMM02500Service.csproj" />
 		<ProjectReference Include="..\..\..\SERVICE\LM\LMM03700Service\LMM03700Service.csproj" />
 	</ItemGroup>
 

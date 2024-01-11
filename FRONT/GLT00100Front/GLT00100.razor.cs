@@ -269,10 +269,9 @@ namespace GLT00100Front
                     CREF_NO = _JournalListViewModel._Journal.CREF_NO,
                     CREC_ID = _JournalListViewModel._Journal.CREC_ID
                 };
-                if (_JournalListViewModel._Journal.CSTATUS == "80" && _JournalListViewModel.IundoCollection.IOPTION == 2)
+                if (_JournalListViewModel._Journal.CSTATUS == "80" && _JournalListViewModel.IundoCollection.IOPTION == 3)
                 {
                     var result = await R_MessageBox.Show("", "Are you sure want to undo commit this journal? [Yes/No]", R_eMessageBoxButtonType.YesNo);
-                    await _JournalListViewModel.UndoReversingJournal(lcdata);
                     if (result == R_eMessageBoxResult.Yes)
                     {
                         goto commit;
@@ -284,11 +283,7 @@ namespace GLT00100Front
                     var result = await R_MessageBox.Show("", "Are you sure want to commit this journal? [Yes/No]", R_eMessageBoxButtonType.YesNo);
                     if (result == R_eMessageBoxResult.Yes)
                     {
-                        if (_JournalListViewModel.SystemParamCollection.IREVERSE_JRN_POST == 1)
-                        {
-
-                            await _JournalListViewModel.ProcessCommitJournal(lcdata);
-                        }
+                        await _JournalListViewModel.CommitJournal(lcdata);
                     }
                     else
                     {

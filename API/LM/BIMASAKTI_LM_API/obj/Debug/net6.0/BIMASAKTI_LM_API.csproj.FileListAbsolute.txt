@@ -258,6 +258,9 @@ D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\runtimes\win
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM00200Back.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM00200Common.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM00200Service.dll
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM02500Back.dll
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM02500Common.dll
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM02500Service.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM03700Back.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM03700Common.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM03700Service.dll
@@ -272,6 +275,7 @@ D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_LMCOM
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_LMSERVICES.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_CLASSResources.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.dll
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_GRPResources.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\RSP_LM_MAINTAIN_USER_PARAMResources.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_APIStartUp.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_CrossPlatformSecurity.dll
@@ -296,15 +300,19 @@ D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_Authentica
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_PluginsCommon.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_LMSERVICES.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM00200Service.pdb
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM02500Service.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM03700Service.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM00200Back.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM00200Common.pdb
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM02500Back.pdb
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM02500Common.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM03700Back.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\LMM03700Common.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_LMBACK.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_LMCOMMON.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_CLASSResources.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.pdb
+D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_GRPResources.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\RSP_LM_MAINTAIN_USER_PARAMResources.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_GSBackResources.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_GSBACK.pdb

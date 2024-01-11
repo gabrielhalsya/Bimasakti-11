@@ -8,11 +8,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-		<PackageReference Include="Realta.BackCollectionNuGet" Version="1.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 		<ProjectReference Include="..\..\..\BACK\GL\GLT00100Back\GLT00100Back.csproj" />
 		<ProjectReference Include="..\..\..\COMMON\GL\GLT00100Common\GLT00100Common.csproj" />
 	</ItemGroup>

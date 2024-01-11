@@ -9,7 +9,7 @@
     ".NETStandard,Version=v2.1/": {
       "GLTR00100COMMON/1.0.0": {
         "dependencies": {
-          "BaseHeaderReportCOMMON": "1.0.0.0",
+          "BaseHeaderReportCOMMON": "1.0.0",
           "R_APICommon": "1.0.0.0",
           "R_APICommonDTO": "1.0.0.0",
           "R_CommonFrontBackAPI": "1.0.0.0"
@@ -18,12 +18,9 @@
           "GLTR00100COMMON.dll": {}
         }
       },
-      "BaseHeaderReportCOMMON/1.0.0.0": {
+      "BaseHeaderReportCOMMON/1.0.0": {
         "runtime": {
-          "BaseHeaderReportCOMMON.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BaseHeaderReportCOMMON.dll": {}
         }
       },
       "R_APICommon/1.0.0.0": {
@@ -82,8 +79,8 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BaseHeaderReportCOMMON/1.0.0.0": {
-      "type": "reference",
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     },

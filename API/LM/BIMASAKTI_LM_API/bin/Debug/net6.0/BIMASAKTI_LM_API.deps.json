@@ -9,6 +9,7 @@
       "BIMASAKTI_LM_API/1.0.0": {
         "dependencies": {
           "LMM00200Service": "1.0.0",
+          "LMM02500Service": "1.0.0",
           "LMM03700Service": "1.0.0",
           "Lookup_GSBACK": "1.0.0",
           "Lookup_GSBackResources": "1.0.0",
@@ -2139,6 +2140,29 @@
           "LMM00200Service.dll": {}
         }
       },
+      "LMM02500Back/1.0.0": {
+        "dependencies": {
+          "LMM02500Common": "1.0.0",
+          "RSP_LM_MAINTAIN_TENANT_GRPResources": "1.0.0"
+        },
+        "runtime": {
+          "LMM02500Back.dll": {}
+        }
+      },
+      "LMM02500Common/1.0.0": {
+        "runtime": {
+          "LMM02500Common.dll": {}
+        }
+      },
+      "LMM02500Service/1.0.0": {
+        "dependencies": {
+          "LMM02500Back": "1.0.0",
+          "LMM02500Common": "1.0.0"
+        },
+        "runtime": {
+          "LMM02500Service.dll": {}
+        }
+      },
       "LMM03700Back/1.0.0": {
         "dependencies": {
           "LMM03700Common": "1.0.0",
@@ -2249,6 +2273,11 @@
       "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources/1.0.0": {
         "runtime": {
           "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.dll": {}
+        }
+      },
+      "RSP_LM_MAINTAIN_TENANT_GRPResources/1.0.0": {
+        "runtime": {
+          "RSP_LM_MAINTAIN_TENANT_GRPResources.dll": {}
         }
       },
       "RSP_LM_MAINTAIN_USER_PARAMResources/1.0.0": {
@@ -3881,6 +3910,21 @@
       "serviceable": false,
       "sha512": ""
     },
+    "LMM02500Back/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LMM02500Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LMM02500Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "LMM03700Back/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -3947,6 +3991,11 @@
       "sha512": ""
     },
     "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_LM_MAINTAIN_TENANT_GRPResources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

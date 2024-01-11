@@ -38,6 +38,9 @@
               "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM00200Service\\LMM00200Service.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM00200Service\\LMM00200Service.csproj"
               },
+              "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM02500SERVICE\\LMM02500Service.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM02500SERVICE\\LMM02500Service.csproj"
+              },
               "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM03700Service\\LMM03700Service.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM03700Service\\LMM03700Service.csproj"
               },
@@ -143,6 +146,75 @@
               },
               "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500BACK\\LMM02500Back.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500BACK\\LMM02500Back.csproj",
+        "projectName": "LMM02500Back",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500BACK\\LMM02500Back.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500BACK\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_GRPResources\\RSP_LM_MAINTAIN_TENANT_GRPResources.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_GRPResources\\RSP_LM_MAINTAIN_TENANT_GRPResources.csproj"
+              },
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500Common\\LMM02500Common.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500Common\\LMM02500Common.csproj"
               }
             }
           }
@@ -372,6 +444,68 @@
         }
       }
     },
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_GRPResources\\RSP_LM_MAINTAIN_TENANT_GRPResources.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_GRPResources\\RSP_LM_MAINTAIN_TENANT_GRPResources.csproj",
+        "projectName": "RSP_LM_MAINTAIN_TENANT_GRPResources",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_GRPResources\\RSP_LM_MAINTAIN_TENANT_GRPResources.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_GRPResources\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_LM_MAINTAIN_USER_PARAMResources.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -442,6 +576,68 @@
         "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
         "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500COMMON\\LMM02500Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500COMMON\\LMM02500Common.csproj",
+        "projectName": "LMM02500Common",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500COMMON\\LMM02500Common.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500COMMON\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -594,6 +790,78 @@
               },
               "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM02500SERVICE\\LMM02500Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM02500SERVICE\\LMM02500Service.csproj",
+        "projectName": "LMM02500Service",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM02500SERVICE\\LMM02500Service.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM02500SERVICE\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500Back\\LMM02500Back.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LMM02500Back\\LMM02500Back.csproj"
+              },
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500Common\\LMM02500Common.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM02500Common\\LMM02500Common.csproj"
               }
             }
           }

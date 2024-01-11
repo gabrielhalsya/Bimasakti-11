@@ -1,0 +1,39 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows,browser
+build_property.RootNamespace = LMM02500Front
+build_property.RootNamespace = LMM02500Front
+build_property.ProjectDir = D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM02500FRONT/LMM02500.razor]
+build_metadata.AdditionalFiles.TargetPath = TE1NMDI1MDAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM02500FRONT/LMM02500MoveTenantGroup.razor]
+build_metadata.AdditionalFiles.TargetPath = TE1NMDI1MDBNb3ZlVGVuYW50R3JvdXAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM02500FRONT/LMM02500Profile.razor]
+build_metadata.AdditionalFiles.TargetPath = TE1NMDI1MDBQcm9maWxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM02500FRONT/LMM02500TenantList.razor]
+build_metadata.AdditionalFiles.TargetPath = TE1NMDI1MDBUZW5hbnRMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repos/BS Program/SOURCE/FRONT/LMM02500FRONT/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
