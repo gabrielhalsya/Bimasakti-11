@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LMM03700Front")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+309073e7a7045dea0f7d0fd6ebe02683ed6b964f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LMM03700Front")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LMM03700Front")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

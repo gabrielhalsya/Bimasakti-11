@@ -9,3 +9,15 @@ D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_REC
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.csproj.CoreCompileInputs.cache
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.dll
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\bin\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\bin\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\bin\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.RSP_GL_PROCESS_RECURRINGResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.sourcelink.json
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\obj\Debug\netstandard2.1\RSP_GL_PROCESS_RECURRINGResources.pdb
