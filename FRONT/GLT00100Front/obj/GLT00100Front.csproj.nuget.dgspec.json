@@ -776,9 +776,6 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj": {
-                "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj"
-              },
               "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSModel\\Lookup_GSModel.csproj": {
                 "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSModel\\Lookup_GSModel.csproj"
               }

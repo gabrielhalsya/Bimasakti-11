@@ -319,7 +319,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Lookup_GSCOMMON": "1.0.0",
           "Lookup_GSModel": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.15"
         },
@@ -790,7 +789,6 @@
     "net6.0": [
       "GSM04500FrontResources >= 1.0.0",
       "GSM04500Model >= 1.0.0",
-      "Lookup_GSCOMMON >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
       "Lookup_GSFrontResources >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.15"
@@ -836,9 +834,6 @@
             },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GSM04500Model\\GSM04500Model.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GSM04500Model\\GSM04500Model.csproj"
-            },
-            "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj": {
-              "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj"
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFrontResources\\Lookup_GSFrontResources.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFrontResources\\Lookup_GSFrontResources.csproj"
