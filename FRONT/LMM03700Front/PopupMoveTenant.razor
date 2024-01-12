@@ -39,15 +39,16 @@
              AllowAddNewRow="false"
              AllowEditRow="false"
              AllowDeleteRow="false"
+             Height="350px"
              R_ServiceGetListRecord="R_ServiceGetListRecordAsync">
          <R_GridColumns>
              <R_GridCheckBoxSelectColumn FieldName="@nameof(TenantGridDTO.LCHECKED)" ShowSelectAllHeader />
-             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CTENANT_ID)" HeaderText="Tenant Id"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CTENANT_NAME)" HeaderText="Tenant Name"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CTENANT_CATEGORY_NAME)" HeaderText="Tenant Category"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CTENANT_TYPE_NAME)" HeaderText="Tenant Type"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CPHONE)" HeaderText="Phone 1"></R_GridTextColumn>
-             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CEMAIL)" HeaderText="Email"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CTENANT_ID)" HeaderText="Tenant Id" Width="350px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CTENANT_NAME)" HeaderText="Tenant Name" Width="450px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CTENANT_CATEGORY_NAME)" HeaderText="Tenant Category" Width="400px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CTENANT_TYPE_NAME)" HeaderText="Tenant Type" Width="400px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CPHONE)" HeaderText="Phone 1" Width="250px"></R_GridTextColumn>
+             <R_GridTextColumn FieldName="@nameof(TenantGridDTO.CEMAIL)" HeaderText="Email" Width="350px"></R_GridTextColumn>
          </R_GridColumns>
      </R_Grid>
 
