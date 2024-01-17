@@ -5,8 +5,10 @@ using Microsoft.Extensions.Logging;
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using R_OpenTelemetry;
 
 namespace GSM04000Service
 {
@@ -16,16 +18,20 @@ namespace GSM04000Service
     {
         private LoggerGSM04000 _logger;
 
+        private readonly ActivitySource _activitySource;
+
         public GSM04000Controller(ILogger<GSM04000Controller> logger)
         {
             //initiate
             LoggerGSM04000.R_InitializeLogger(logger);
             _logger = LoggerGSM04000.R_GetInstanceLogger();
+            _activitySource = GSM04000Activity.R_InitializeAndGetActivitySource(nameof(GSM04000Controller));
         }
 
         [HttpPost]
         public IAsyncEnumerable<GSM04000DTO> GetGSM04000List()
         {
+            using Activity activity = _activitySource.StartActivity(nameof(GetGSM04000List));
             ShowLogStart();
             R_Exception loException = new R_Exception();
             List<GSM04000DTO> loRtnTemp = null;

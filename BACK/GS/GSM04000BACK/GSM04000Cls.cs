@@ -12,6 +12,8 @@ using System.Text;
 using System.Windows.Input;
 using RSP_GS_MAINTAIN_DEPARTMENTResources;
 using RSP_GS_UPLOAD_DEPARTMENTResources;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace GSM04000Back
 {
@@ -21,11 +23,14 @@ namespace GSM04000Back
 
         private RSP_GS_UPLOAD_DEPARTMENTResources.Resources_Dummy_Class _rspUploadDept = new();
 
+        private readonly ActivitySource _activitySource;
+
         private LoggerGSM04000 _logger;
 
         public GSM04000Cls()
         {
             _logger = LoggerGSM04000.R_GetInstanceLogger();
+            _activitySource=GSM04000Activity.R_GetInstanceActivitySource();
         }
 
         protected override void R_Deleting(GSM04000DTO poEntity)
@@ -92,6 +97,7 @@ namespace GSM04000Back
 
         protected override GSM04000DTO R_Display(GSM04000DTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(nameof(R_Display));
             R_Exception loEx = new R_Exception();
             GSM04000DTO loRtn = null;
             R_Db loDB;
@@ -199,6 +205,7 @@ namespace GSM04000Back
 
         public List<GSM04000DTO> GetDeptList(GSM04000ListDBParameterDTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(nameof(GetDeptList));
             R_Exception loEx = new R_Exception();
             List<GSM04000DTO> loRtn = null;
             R_Db loDB;

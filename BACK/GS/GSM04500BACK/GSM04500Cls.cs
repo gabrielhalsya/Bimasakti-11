@@ -5,12 +5,11 @@ using R_CommonFrontBackAPI;
 using System.Data.Common;
 using System.Data;
 using GSM04500Common;
-using System.Reflection.Metadata;
 using GSM04500Common.Logs;
 
 namespace GSM04500Back
 {
-    public  class GSM04500Cls : R_BusinessObject<JournalDTO>
+    public class GSM04500Cls : R_BusinessObject<JournalDTO> 
     {
         private LoggerGSM04500 _loggerGSM04500;
         public GSM04500Cls()

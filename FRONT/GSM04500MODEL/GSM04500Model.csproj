@@ -6,10 +6,6 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Text.Json" Version="6.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\..\COMMON\GS\GSM04500COMMON\GSM04500Common.csproj" />
 	  <ProjectReference Include="..\GSM04500FrontResources\GSM04500FrontResources.csproj" />
 	</ItemGroup>
