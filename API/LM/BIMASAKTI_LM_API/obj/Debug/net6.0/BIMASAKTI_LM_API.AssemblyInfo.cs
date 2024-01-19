@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BIMASAKTI_LM_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0902a6f99a80bbf23e2b49acdd41e5815927544")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+513b497407cf08669220fd538febc286060729c5")]
 [assembly: System.Reflection.AssemblyProductAttribute("BIMASAKTI_LM_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BIMASAKTI_LM_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

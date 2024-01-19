@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LMM00200Common.DTO_s;
 using RSP_LM_MAINTAIN_USER_PARAMResources;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace LMM00200Back
 {
@@ -19,6 +21,16 @@ namespace LMM00200Back
 
         Resources_Dummy_Class rspUserParam = new();
 
+        private LMM00200Logger _logger;
+
+        private readonly ActivitySource _activitySource;
+
+        public LMM00200Cls()
+        {
+            _logger = LMM00200Logger.R_GetInstanceLogger();
+            _activitySource = LMM00200Activity.R_GetInstanceActivitySource();
+        }
+
         protected override void R_Deleting(LMM00200DTO poEntity)
         {
             throw new NotImplementedException();
@@ -26,6 +38,7 @@ namespace LMM00200Back
 
         protected override LMM00200DTO R_Display(LMM00200DTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             LMM00200DTO loRtn = null;
             R_Db loDB;
@@ -46,13 +59,14 @@ namespace LMM00200Back
                 loDB.R_AddCommandParameter(loCmd, "@CCODE", DbType.String, 50, poEntity.CCODE);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
 
-
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<LMM00200DTO>(loRtnTemp).FirstOrDefault();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -60,6 +74,7 @@ namespace LMM00200Back
 
         protected override void R_Saving(LMM00200DTO poNewEntity, eCRUDMode poCRUDMode)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             string lcQuery = null;
             R_Db loDb;
@@ -86,7 +101,7 @@ namespace LMM00200Back
                         lcAction = "EDIT";
                         break;
                 }
-            
+
                 lcQuery = "RSP_LM_MAINTAIN_USER_PARAM";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
@@ -105,11 +120,13 @@ namespace LMM00200Back
 
                 try
                 {
+                    ShowLogDebug(lcQuery, loCmd.Parameters);
                     loDb.SqlExecNonQuery(loConn, loCmd, false);
                 }
                 catch (Exception ex)
                 {
                     loEx.Add(ex);
+                    ShowLogError(loEx);
                 }
 
                 loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
@@ -117,6 +134,7 @@ namespace LMM00200Back
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
 
             finally
@@ -138,6 +156,7 @@ namespace LMM00200Back
 
         public List<LMM00200GridDTO> GetUserParamList(LMM00200DBParam poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             List<LMM00200GridDTO> loRtn = null;
             R_Db loDB;
@@ -158,11 +177,13 @@ namespace LMM00200Back
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
 
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 loRtn = R_Utility.R_ConvertTo<LMM00200GridDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -170,7 +191,8 @@ namespace LMM00200Back
 
         public void ActiveInactiveUserParam(ActiveInactiveParam poEntity)
         {
-            R_Exception loex = new R_Exception();
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
+            R_Exception loEx = new R_Exception();
             string lcQuery = "";
             R_Db loDb;
             DbCommand loCmd;
@@ -183,6 +205,7 @@ namespace LMM00200Back
                 lcQuery = "RSP_LM_MAINTAIN_USER_PARAM";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
+
                 loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, poEntity.CCOMPANY_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CCODE", DbType.String, 8, poEntity.CCODE);
                 loDb.R_AddCommandParameter(loCmd, "@CDESCRIPTION", DbType.String, 255, "");
@@ -192,15 +215,32 @@ namespace LMM00200Back
                 loDb.R_AddCommandParameter(loCmd, "@LACTIVE", DbType.Boolean, 2, poEntity.LACTIVE);
                 loDb.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 10, poEntity.CACTION);
                 loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 8, poEntity.CUSER_ID);
+
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 loDb.SqlExecNonQuery(loConn, loCmd, true);
             }
             catch (Exception ex)
             {
-                loex.Add(ex);
+                loEx.Add(ex);
+                ShowLogError(loEx);
             }
         EndBlock:
-            loex.ThrowExceptionIfErrors();
+            loEx.ThrowExceptionIfErrors();
         }
 
+        #region logmethodhelper
+
+        private void ShowLogDebug(string query, DbParameterCollection parameters)
+        {
+            var paramValues = string.Join(", ", parameters.Cast<DbParameter>().Select(p => $"{p.ParameterName} '{p.Value}'"));
+            _logger.LogDebug($"EXEC {query} {paramValues}");
+        }
+
+        private void ShowLogError(Exception ex)
+        {
+            _logger.LogError(ex);
+        }
+
+        #endregion
     }
 }

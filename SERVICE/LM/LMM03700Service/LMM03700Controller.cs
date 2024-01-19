@@ -7,6 +7,9 @@ using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
 using System.Runtime.CompilerServices;
+using R_OpenTelemetry;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace LMM03700Service
 {
@@ -16,16 +19,20 @@ namespace LMM03700Service
     {
         private LoggerLMM03700 _logger;
 
+        private readonly ActivitySource _activitySource;
+
         public LMM03700Controller(ILogger<LMM03700Controller> logger)
         {
             //initiate
             LoggerLMM03700.R_InitializeLogger(logger);
             _logger = LoggerLMM03700.R_GetInstanceLogger();
+            _activitySource = LMM03700Activity.R_InitializeAndGetActivitySource(GetType().Name);
         }
 
         [HttpPost]
         public IAsyncEnumerable<TenantClassificationGroupDTO> GetTenantClassGroupList()
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_Exception loException = new R_Exception();
             List<TenantClassificationGroupDTO> loRtnTemp = null;
@@ -63,6 +70,7 @@ namespace LMM03700Service
         [HttpPost]
         public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<TenantClassificationGroupDTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_ServiceDeleteResultDTO loRtn = null;
             R_Exception loException = new R_Exception();
@@ -89,11 +97,12 @@ namespace LMM03700Service
         [HttpPost]
         public R_ServiceGetRecordResultDTO<TenantClassificationGroupDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<TenantClassificationGroupDTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
+            ShowLogStart();
             R_ServiceGetRecordResultDTO<TenantClassificationGroupDTO> loRtn = null;
             R_Exception loException = new R_Exception();
             try
             {
-                ShowLogStart();
                 var loCls = new LMM03700Cls(); //create cls class instance
                 poParameter.Entity.CUSER_ID = R_BackGlobalVar.USER_ID;
                 loRtn = new R_ServiceGetRecordResultDTO<TenantClassificationGroupDTO>();
@@ -114,6 +123,7 @@ namespace LMM03700Service
         [HttpPost]
         public R_ServiceSaveResultDTO<TenantClassificationGroupDTO> R_ServiceSave(R_ServiceSaveParameterDTO<TenantClassificationGroupDTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_ServiceSaveResultDTO<TenantClassificationGroupDTO> loRtn = null;
             R_Exception loException = new R_Exception();
@@ -141,6 +151,7 @@ namespace LMM03700Service
         [HttpPost]
         public IAsyncEnumerable<PropertyDTO> LMM03700GetPropertyData()
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_Exception loException = new R_Exception();
             List<PropertyDTO> loRtnTemp = null;

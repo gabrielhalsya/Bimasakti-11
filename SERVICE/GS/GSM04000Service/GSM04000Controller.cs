@@ -31,7 +31,7 @@ namespace GSM04000Service
         [HttpPost]
         public IAsyncEnumerable<GSM04000DTO> GetGSM04000List()
         {
-            using Activity activity = _activitySource.StartActivity(nameof(GetGSM04000List));
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_Exception loException = new R_Exception();
             List<GSM04000DTO> loRtnTemp = null;
@@ -69,6 +69,7 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<GSM04000DTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_ServiceDeleteResultDTO loRtn = null;
             R_Exception loException = new R_Exception();
@@ -97,6 +98,7 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceGetRecordResultDTO<GSM04000DTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<GSM04000DTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_ServiceGetRecordResultDTO<GSM04000DTO> loRtn = null;
             R_Exception loException = new R_Exception();
@@ -124,6 +126,7 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceSaveResultDTO<GSM04000DTO> R_ServiceSave(R_ServiceSaveParameterDTO<GSM04000DTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_ServiceSaveResultDTO<GSM04000DTO> loRtn = null;
             R_Exception loException = new R_Exception();
@@ -151,6 +154,7 @@ namespace GSM04000Service
         [HttpPost]
         public GSM04000ActiveInactiveDTO RSP_GS_ACTIVE_INACTIVE_DEPTMethod()
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_Exception loException = new R_Exception();
             GSM04000ActiveInactiveDTO loRtn = new GSM04000ActiveInactiveDTO();
@@ -178,6 +182,7 @@ namespace GSM04000Service
         [HttpPost]
         public GSM04000CheckUserExistResultDTO CheckIsUserDeptExist()
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_Exception loException = new R_Exception();
             GSM04000CheckUserExistResultDTO loRtn = null;
@@ -207,6 +212,7 @@ namespace GSM04000Service
         [HttpPost]
         public GSM04000DeleteAssignedUserWhenEveryoneTrueDTO DeleteDeptUserWhenChangingEveryone()
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_Exception loException = new R_Exception();
             GSM04000Cls loCls;
@@ -234,6 +240,7 @@ namespace GSM04000Service
         [HttpPost]
         public UploadFileDTO DownloadTemplateDeptartment()
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_Exception loException = new();
             UploadFileDTO loRtn = new();

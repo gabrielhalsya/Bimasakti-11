@@ -9,6 +9,9 @@ using System.Windows.Input;
 using System.Transactions;
 using RSP_LM_MAINTAIN_TENANT_CLASSResources;
 using RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources;
+using LMM03700Common;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace LMM03700Back
 {
@@ -16,10 +19,22 @@ namespace LMM03700Back
     {
 
         RSP_LM_MAINTAIN_TENANT_CLASSResources.Resources_Dummy_Class _rspTenantClass = new();
+
         RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.Resources_Dummy_Class _rspTenantClassGRP = new();
+
+        private LoggerLMM03700 _logger;
+
+        private readonly ActivitySource _activitySource;
+
+        public LMM03710Cls()
+        {
+            _logger = LoggerLMM03700.R_GetInstanceLogger();
+            _activitySource = LMM03700Activity.R_GetInstanceActivitySource();
+        }
 
         protected override void R_Deleting(TenantClassificationDTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             TenantClassificationDTO loRtn = null;
             R_Db loDB;
@@ -45,11 +60,13 @@ namespace LMM03700Back
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
                 try
                 {
+                    ShowLogDebug(lcQuery, loCmd.Parameters);
                     loDB.SqlExecNonQuery(loConn, loCmd, false);
                 }
                 catch (Exception ex)
                 {
                     loEx.Add(ex);
+                    ShowLogError(loEx);
                 }
 
                 loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
@@ -57,6 +74,7 @@ namespace LMM03700Back
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             finally
             {
@@ -76,6 +94,7 @@ namespace LMM03700Back
 
         protected override TenantClassificationDTO R_Display(TenantClassificationDTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             TenantClassificationDTO loRtn = null;
             R_Db loDB;
@@ -97,12 +116,14 @@ namespace LMM03700Back
                 loDB.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_GROUP_ID", DbType.String, 20, poEntity.CTENANT_CLASSIFICATION_GROUP_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_ID", DbType.String, 20, poEntity.CTENANT_CLASSIFICATION_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 80, poEntity.CUSER_ID);
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<TenantClassificationDTO>(loRtnTemp).FirstOrDefault();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
         EndBlock:
             loEx.ThrowExceptionIfErrors();
@@ -111,6 +132,7 @@ namespace LMM03700Back
 
         protected override void R_Saving(TenantClassificationDTO poNewEntity, eCRUDMode poCRUDMode)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             R_Db loDb;
             DbCommand loCmd;
@@ -150,11 +172,13 @@ namespace LMM03700Back
 
                 try
                 {
+                    ShowLogDebug(lcQuery, loCmd.Parameters);
                     loDb.SqlExecNonQuery(loConn, loCmd, false);
                 }
                 catch (Exception ex)
                 {
                     loEx.Add(ex);
+                    ShowLogError(loEx);
                 }
 
                 loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
@@ -162,8 +186,8 @@ namespace LMM03700Back
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
-
             finally
             {
                 if (loConn != null)
@@ -183,6 +207,7 @@ namespace LMM03700Back
 
         public List<TenantClassificationDTO> GetTenantClassList(TenantClassificationDBListMaintainParamDTO loParam)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             List<TenantClassificationDTO> loRtn = new List<TenantClassificationDTO>();
             R_Exception loEx = new R_Exception();
             R_Db loDB;
@@ -204,12 +229,14 @@ namespace LMM03700Back
                 loDB.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_GROUP_ID", DbType.String, 20, loParam.CTENANT_CLASSIFICATION_GROUP_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 8, loParam.CUSER_ID);
 
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<TenantClassificationDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -217,6 +244,7 @@ namespace LMM03700Back
 
         public List<TenantDTO> GetAssignedTenantList(TenantClassificationDBListMaintainParamDTO loParam)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             List<TenantDTO> loRtn = new List<TenantDTO>();
             R_Exception loEx = new R_Exception();
             R_Db loDb;
@@ -237,12 +265,15 @@ namespace LMM03700Back
                 loDb.R_AddCommandParameter(loCmd, "@CPROPERTY_ID", DbType.String, 20, loParam.CPROPERTY_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_ID", DbType.String, 20, loParam.CTENANT_CLASSIFICATION_ID);
                 loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 8, loParam.CUSER_ID);
+
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDb.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<TenantDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -251,6 +282,7 @@ namespace LMM03700Back
         #region AssignTenant
         public List<TenantDTO> GetTenantToAssigntList(TenantClassificationDBListMaintainParamDTO loParam)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             List<TenantDTO> loRtn = new List<TenantDTO>();
             R_Exception loEx = new R_Exception();
             R_Db loDB;
@@ -273,12 +305,14 @@ namespace LMM03700Back
                 loDB.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_GROUP_ID", DbType.String, 20, loParam.CTENANT_CLASSIFICATION_GROUP_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 8, loParam.CUSER_ID);
 
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<TenantDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -286,6 +320,7 @@ namespace LMM03700Back
 
         public void AssignTenant(TenantParamDTO poParam)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             R_Db loDb;
             DbCommand loCmd;
@@ -313,17 +348,20 @@ namespace LMM03700Back
 
                 try
                 {
+                    ShowLogDebug(lcQuery, loCmd.Parameters);
                     var loResult = loDb.SqlExecQuery(loConn, loCmd, false);
                 }
                 catch (Exception ex)
                 {
                     loEx.Add(ex);
+                    ShowLogError(loEx);
                 }
                 loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             finally
             {
@@ -344,6 +382,7 @@ namespace LMM03700Back
         #region MoveTenant
         public List<TenantDTO> GetTenantToMoveList(TenantParamDTO loParam)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             List<TenantDTO> loRtn = new List<TenantDTO>();
             R_Exception loEx = new R_Exception();
             R_Db loDB;
@@ -365,12 +404,14 @@ namespace LMM03700Back
                 loDB.R_AddCommandParameter(loCmd, "@CTENANT_CLASSIFICATION_ID", DbType.String, 50, loParam.CTENANT_CLASSIFICATION_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, loParam.CUSER_ID);
 
+                ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
                 loRtn = R_Utility.R_ConvertTo<TenantDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             loEx.ThrowExceptionIfErrors();
             return loRtn;
@@ -378,6 +419,7 @@ namespace LMM03700Back
 
         public void MoveTenant(TenantMoveParamDTO poParam)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             R_Db loDb;
             DbCommand loCmd;
@@ -404,17 +446,20 @@ namespace LMM03700Back
 
                 try
                 {
+                    ShowLogDebug(lcQuery, loCmd.Parameters);
                     var loResult = loDb.SqlExecQuery(loConn, loCmd, false);
                 }
                 catch (Exception ex)
                 {
                     loEx.Add(ex);
+                    ShowLogError(loEx);
                 }
                 loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
+                ShowLogError(loEx);
             }
             finally
             {
@@ -428,6 +473,21 @@ namespace LMM03700Back
                 }
             }
             loEx.ThrowExceptionIfErrors();
+        }
+
+        #endregion
+
+        #region logmethodhelper
+
+        private void ShowLogDebug(string query, DbParameterCollection parameters)
+        {
+            var paramValues = string.Join(", ", parameters.Cast<DbParameter>().Select(p => $"{p.ParameterName} '{p.Value}'"));
+            _logger.LogDebug($"EXEC {query} {paramValues}");
+        }
+
+        private void ShowLogError(Exception ex)
+        {
+            _logger.LogError(ex);
         }
 
         #endregion

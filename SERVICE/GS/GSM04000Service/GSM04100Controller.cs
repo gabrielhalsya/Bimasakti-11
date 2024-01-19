@@ -6,6 +6,8 @@ using R_CommonFrontBackAPI;
 using GSM04000Back;
 using Microsoft.Extensions.Logging;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace GSM04000Service
 {
@@ -15,16 +17,20 @@ namespace GSM04000Service
     {
         private LoggerGSM04000 _logger;
         
+        private readonly ActivitySource _activitySource;
+
         public GSM04100Controller(ILogger<GSM04100Controller> logger)
         {
             //initiate
             LoggerGSM04000.R_InitializeLogger(logger);
             _logger = LoggerGSM04000.R_GetInstanceLogger();
+            _activitySource = GSM04000Activity.R_InitializeAndGetActivitySource(nameof(GSM04000Controller));
         }
-        
+
         [HttpPost]
         public GSM04100ListDTO GetUserDeptListByDeptCode()
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             GSM04100ListDTO loRtn = null; //declare IAsyncEnumerable<> for return
             R_Exception loException = new R_Exception(); //declare exeption instance for trycatch
@@ -54,6 +60,7 @@ namespace GSM04000Service
         [HttpPost]
         public IAsyncEnumerable<GSM04100DTO> GetUserToAssignList()
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             List<GSM04100DTO> loRtnTemp = null;
             R_Exception loException = new R_Exception();
@@ -91,6 +98,7 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<GSM04100DTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();    
             R_ServiceDeleteResultDTO loRtn = null;
             R_Exception loException = new R_Exception();
@@ -118,6 +126,7 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceGetRecordResultDTO<GSM04100DTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<GSM04100DTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_ServiceGetRecordResultDTO<GSM04100DTO> loRtn = null;
             R_Exception loException = new R_Exception();
@@ -146,6 +155,7 @@ namespace GSM04000Service
         [HttpPost]
         public R_ServiceSaveResultDTO<GSM04100DTO> R_ServiceSave(R_ServiceSaveParameterDTO<GSM04100DTO> poParameter)
         {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
             R_ServiceSaveResultDTO<GSM04100DTO> loRtn = null;
             R_Exception loException = new R_Exception();

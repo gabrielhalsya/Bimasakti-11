@@ -2,18 +2,10 @@
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Windows.Input;
-using RSP_GS_MAINTAIN_DEPARTMENTResources;
-using RSP_GS_UPLOAD_DEPARTMENTResources;
-using System.Diagnostics;
 using System.Reflection;
+using System.Data.Common;
+using System.Diagnostics;
 
 namespace GSM04000Back
 {
@@ -30,11 +22,12 @@ namespace GSM04000Back
         public GSM04000Cls()
         {
             _logger = LoggerGSM04000.R_GetInstanceLogger();
-            _activitySource=GSM04000Activity.R_GetInstanceActivitySource();
+            _activitySource = GSM04000Activity.R_GetInstanceActivitySource();
         }
 
         protected override void R_Deleting(GSM04000DTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             string lcQuery = "";
             R_Db loDb;
@@ -97,7 +90,7 @@ namespace GSM04000Back
 
         protected override GSM04000DTO R_Display(GSM04000DTO poEntity)
         {
-            using Activity activity = _activitySource.StartActivity(nameof(R_Display));
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             GSM04000DTO loRtn = null;
             R_Db loDB;
@@ -133,6 +126,7 @@ namespace GSM04000Back
 
         protected override void R_Saving(GSM04000DTO poNewEntity, eCRUDMode poCRUDMode)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             string lcQuery;
             R_Db loDb;
@@ -205,7 +199,7 @@ namespace GSM04000Back
 
         public List<GSM04000DTO> GetDeptList(GSM04000ListDBParameterDTO poEntity)
         {
-            using Activity activity = _activitySource.StartActivity(nameof(GetDeptList));
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             List<GSM04000DTO> loRtn = null;
             R_Db loDB;
@@ -240,6 +234,7 @@ namespace GSM04000Back
 
         public void RSP_GS_ACTIVE_INACTIVE_DEPTMethodCls(GSM04000ActiveInactiveParam poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             string lcQuery = "";
             R_Db loDb;
@@ -281,6 +276,7 @@ namespace GSM04000Back
 
         public bool CheckIsUserDeptExist(GSM04000DTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loException = new R_Exception();
             bool loRtn = true;
             try
@@ -310,6 +306,7 @@ namespace GSM04000Back
 
         public void DeleteAssignedUserDept(GSM04000DTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new R_Exception();
             string lcQuery = "";
             R_Db loDb;

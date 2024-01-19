@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RSP_GS_MAINTAIN_DEPARTMENTResources;
 using RSP_GS_UPLOAD_DEPARTMENTResources;
+using System.Diagnostics;
 
 namespace GSM04000Back
 {
@@ -22,13 +23,18 @@ namespace GSM04000Back
 
         private LoggerGSM04000 _logger;
 
+        private readonly ActivitySource _activitySource;
+
         public GSM04100Cls()
         {
             _logger = LoggerGSM04000.R_GetInstanceLogger();
+            _activitySource = GSM04000Activity.R_GetInstanceActivitySource();
+
         }
 
         protected override void R_Deleting(GSM04100DTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(nameof(R_Display));
             R_Exception loEx = new R_Exception();
             R_Db loDB;
             DbConnection loConn;
@@ -63,6 +69,7 @@ namespace GSM04000Back
 
         protected override GSM04100DTO R_Display(GSM04100DTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(nameof(R_Display));
             R_Exception loEx = new R_Exception();
             GSM04100DTO loRtn = null;
             R_Db loDB;
@@ -97,6 +104,7 @@ namespace GSM04000Back
 
         protected override void R_Saving(GSM04100DTO poNewEntity, eCRUDMode poCRUDMode)
         {
+            using Activity activity = _activitySource.StartActivity(nameof(R_Display));
             R_Exception loEx = new R_Exception();
             R_Db loDB;
             DbConnection loConn=null;
@@ -151,6 +159,7 @@ namespace GSM04000Back
 
         public List<GSM04100StreamDTO> GetUserDeptList(GSM04100ListDBParameterDTO poEntity)
         {
+            using Activity activity = _activitySource.StartActivity(nameof(R_Display));
             R_Exception loEx = new R_Exception();
             List<GSM04100StreamDTO> loRtn = null;
             R_Db loDB;
@@ -185,6 +194,7 @@ namespace GSM04000Back
 
         public List<GSM04100DTO> GetUserToAssignList(GSM04100ListDBParameterDTO poParam)
         {
+            using Activity activity = _activitySource.StartActivity(nameof(R_Display));
             List<GSM04100DTO> loRtn = null;
             R_Exception loEx = new R_Exception();
             R_Db loDB;

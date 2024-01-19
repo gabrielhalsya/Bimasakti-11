@@ -2,10 +2,21 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "LMM00200Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/LMM00200Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LMM00200Common.dll": {}
+        }
+      },
       "LMM03700Back/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "LMM00200Common": "1.0.0",
           "LMM03700Common": "1.0.0",
           "RSP_LM_MAINTAIN_TENANT_CLASSResources": "1.0.0",
           "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources": "1.0.0"
@@ -50,6 +61,11 @@
     }
   },
   "libraries": {
+    "LMM00200Common/1.0.0": {
+      "type": "project",
+      "path": "../../../COMMON/LM/LMM00200Common/LMM00200Common.csproj",
+      "msbuildProject": "../../../COMMON/LM/LMM00200Common/LMM00200Common.csproj"
+    },
     "LMM03700Back/1.0.0": {
       "type": "project",
       "path": "../../../BACK/LM/LMM03700Back/LMM03700Back.csproj",
@@ -149,7 +165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

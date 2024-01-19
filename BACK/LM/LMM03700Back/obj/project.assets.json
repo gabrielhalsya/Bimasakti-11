@@ -2,6 +2,16 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "LMM00200Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/LMM00200Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LMM00200Common.dll": {}
+        }
+      },
       "LMM03700Common/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -35,6 +45,11 @@
     }
   },
   "libraries": {
+    "LMM00200Common/1.0.0": {
+      "type": "project",
+      "path": "../../../COMMON/LM/LMM00200Common/LMM00200Common.csproj",
+      "msbuildProject": "../../../COMMON/LM/LMM00200Common/LMM00200Common.csproj"
+    },
     "LMM03700Common/1.0.0": {
       "type": "project",
       "path": "../../../COMMON/LM/LMM03700Common/LMM03700Common.csproj",
@@ -53,6 +68,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "LMM00200Common >= 1.0.0",
       "LMM03700Common >= 1.0.0",
       "RSP_LM_MAINTAIN_TENANT_CLASSResources >= 1.0.0",
       "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources >= 1.0.0"
@@ -99,6 +115,9 @@
             "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources\\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources\\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.csproj"
             },
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj"
+            },
             "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM03700Common\\LMM03700Common.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM03700Common\\LMM03700Common.csproj"
             }
@@ -130,7 +149,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
