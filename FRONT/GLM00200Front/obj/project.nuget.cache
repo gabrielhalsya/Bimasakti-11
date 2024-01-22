@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6/l/g3o5d74PiA4C3g4K4Nf+hjYQtALJLcXqaeG3sMrOqcu+kU90pi+9kA8IW3kRJaDxPcHYjceBj6TyJ8IDRA==",
+  "dgSpecHash": "7PucTGec19aMEbt3NeJKWMf6u2Ef/E6cFNEH7fWdCAO1lud30ucIftO0hH2Dn3r/1iOzyT3DfVXXPLSX9hSdQw==",
   "success": true,
   "projectFilePath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLM00200Front\\GLM00200Front.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\gabriel.codeid\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\gabriel.codeid\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\gabriel.codeid\\.nuget\\packages\\microsoft.jsinterop\\6.0.15\\microsoft.jsinterop.6.0.15.nupkg.sha512",
+    "C:\\Users\\gabriel.codeid\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23211.1\\microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
     "C:\\Users\\gabriel.codeid\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
     "C:\\Users\\gabriel.codeid\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],

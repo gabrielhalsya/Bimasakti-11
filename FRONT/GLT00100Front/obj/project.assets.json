@@ -2,96 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Microsoft.AspNetCore.Authorization/6.0.20": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "6.0.20",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.4",
-          "Microsoft.Extensions.Options": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Components/6.0.20": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "6.0.20",
-          "Microsoft.AspNetCore.Components.Analyzers": "6.0.20"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.AspNetCore.Components.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.Components.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Components.Analyzers/6.0.20": {
-        "type": "package",
-        "build": {
-          "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
-        }
-      },
-      "Microsoft.AspNetCore.Components.Forms/6.0.20": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.20"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Components.Web/6.0.20": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.20",
-          "Microsoft.AspNetCore.Components.Forms": "6.0.20",
-          "Microsoft.Extensions.DependencyInjection": "6.0.1",
-          "Microsoft.JSInterop": "6.0.20",
-          "System.IO.Pipelines": "6.0.3"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Metadata/6.0.20": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Extensions.DependencyInjection/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -180,17 +90,10 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.JSInterop/6.0.20": {
+      "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {
         "type": "package",
-        "compile": {
-          "lib/net6.0/Microsoft.JSInterop.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.JSInterop.dll": {
-            "related": ".xml"
-          }
+        "build": {
+          "build/_._": {}
         }
       },
       "System.IO.Pipelines/6.0.3": {
@@ -322,6 +225,9 @@
       "Lookup_GSCOMMON/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
+        },
         "compile": {
           "bin/placeholder/Lookup_GSCOMMON.dll": {}
         },
@@ -358,7 +264,8 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Lookup_GSCOMMON": "1.0.0",
-          "Lookup_GSFrontResources": "1.0.0"
+          "Lookup_GSFrontResources": "1.0.0",
+          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
         },
         "compile": {
           "bin/placeholder/Lookup_GSModel.dll": {}
@@ -370,105 +277,6 @@
     }
   },
   "libraries": {
-    "Microsoft.AspNetCore.Authorization/6.0.20": {
-      "sha512": "6zKE0FO2K5XQHzvfirA2DZxRSKDWYpUayIBjw/E720/eDZgFeSacxxv+GS/UmeqOS/yKnXDqQt9GJ9dPuzrgRA==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.authorization/6.0.20",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.AspNetCore.Authorization.dll",
-        "lib/net461/Microsoft.AspNetCore.Authorization.xml",
-        "lib/net6.0/Microsoft.AspNetCore.Authorization.dll",
-        "lib/net6.0/Microsoft.AspNetCore.Authorization.xml",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.6.0.20.nupkg.sha512",
-        "microsoft.aspnetcore.authorization.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Components/6.0.20": {
-      "sha512": "jspQ790G967an/Ur7da0f1S9vrjZCxI88HKuVEfgx35kq1J027Wjavde0pO5ZyVHrHDH+mCCAaXpxYnnFmPERg==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.components/6.0.20",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.txt",
-        "lib/net6.0/Microsoft.AspNetCore.Components.dll",
-        "lib/net6.0/Microsoft.AspNetCore.Components.xml",
-        "microsoft.aspnetcore.components.6.0.20.nupkg.sha512",
-        "microsoft.aspnetcore.components.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Components.Analyzers/6.0.20": {
-      "sha512": "RHA2EQQAlvxWPfzPWJI4HijwtSJItexaETTQWsFm4keNgtlS4J+B0t1B1x/84M/wjpTG4cncaKcXnE1HpaS7Ig==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/6.0.20",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.txt",
-        "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
-        "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.6.0.20.nupkg.sha512",
-        "microsoft.aspnetcore.components.analyzers.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Components.Forms/6.0.20": {
-      "sha512": "sDebyBBImJU72bkt6EqUCutT1ZWcrm16w/MthkL3eIs8euNKLn7Xt8Bz3dAUE2MJCcxqd9AZDotlbdyu7XQV9w==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/6.0.20",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.txt",
-        "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll",
-        "lib/net6.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.6.0.20.nupkg.sha512",
-        "microsoft.aspnetcore.components.forms.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Components.Web/6.0.20": {
-      "sha512": "oLiI+0YPMb7miSMh8Su4l0nwGJ/HKXyQPDbAFgdBlDQSrYC5OuVfe0PhlxMPkiJaGiYolDATPWYyGKOwA31K7w==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.components.web/6.0.20",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.txt",
-        "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll",
-        "lib/net6.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.6.0.20.nupkg.sha512",
-        "microsoft.aspnetcore.components.web.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Metadata/6.0.20": {
-      "sha512": "RAOQyXJk3JuA+hW1yRRnkdxPsyZ+vLlufwpD0uLHcLIEyIzK/FtKQ/CegrN09pmAZzWvgteISz9IXN+xJGOQnQ==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.metadata/6.0.20",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.AspNetCore.Metadata.dll",
-        "lib/net461/Microsoft.AspNetCore.Metadata.xml",
-        "lib/net6.0/Microsoft.AspNetCore.Metadata.dll",
-        "lib/net6.0/Microsoft.AspNetCore.Metadata.xml",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
-        "microsoft.aspnetcore.metadata.6.0.20.nupkg.sha512",
-        "microsoft.aspnetcore.metadata.nuspec"
-      ]
-    },
     "Microsoft.Extensions.DependencyInjection/6.0.1": {
       "sha512": "vWXPg3HJQIpZkENn1KWq8SfbqVujVD7S7vIAyFXXqK5xkf1Vho+vG0bLBCHxU36lD1cLLtmGpfYf0B3MYFi9tQ==",
       "type": "package",
@@ -617,19 +425,36 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.JSInterop/6.0.20": {
-      "sha512": "QGyHbd8syEFh7vd7ROTb8Q36FO1Kz4xQIDzH/+N7m15x3hAtvXcboySfjEcLbP3uemgIh0hsZy4khcAfXuFsfg==",
+    "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {
+      "sha512": "tvG8XZYLjT0o3WicCyKBZysVWo1jC9HdCFmNRmddx3WbAz0UCsd0qKZqpiEo99VLA8Re+FzWK51OcRldQPbt2Q==",
       "type": "package",
-      "path": "microsoft.jsinterop/6.0.20",
+      "path": "microsoft.net.illink.tasks/7.0.100-1.23211.1",
+      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net6.0/Microsoft.JSInterop.dll",
-        "lib/net6.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.6.0.20.nupkg.sha512",
-        "microsoft.jsinterop.nuspec"
+        "Sdk/Sdk.props",
+        "build/6.0_suppressions.xml",
+        "build/Microsoft.NET.ILLink.Tasks.props",
+        "build/Microsoft.NET.ILLink.targets",
+        "microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
+        "microsoft.net.illink.tasks.nuspec",
+        "tools/net472/ILLink.Tasks.dll",
+        "tools/net472/Mono.Cecil.dll",
+        "tools/net472/System.Buffers.dll",
+        "tools/net472/System.Collections.Immutable.dll",
+        "tools/net472/System.Memory.dll",
+        "tools/net472/System.Numerics.Vectors.dll",
+        "tools/net472/System.Reflection.Metadata.dll",
+        "tools/net472/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/net7.0/ILLink.Tasks.deps.json",
+        "tools/net7.0/ILLink.Tasks.dll",
+        "tools/net7.0/Mono.Cecil.Pdb.dll",
+        "tools/net7.0/Mono.Cecil.dll",
+        "tools/net7.0/illink.deps.json",
+        "tools/net7.0/illink.dll",
+        "tools/net7.0/illink.runtimeconfig.json"
       ]
     },
     "System.IO.Pipelines/6.0.3": {
@@ -853,8 +678,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.AspNetCore.Components.Web' from remote source 'https://packagesource/FindPackagesById()?id='Microsoft.AspNetCore.Components.Web'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.AspNetCore.Components.Web"
+    }
+  ]
 }

@@ -27,32 +27,3 @@ D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\SERVICE\LM\LMM02500
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\SERVICE\LM\LMM02500Service\obj\Debug\net6.0\refint\LMM02500Service.dll
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\SERVICE\LM\LMM02500Service\obj\Debug\net6.0\LMM02500Service.pdb
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\SERVICE\LM\LMM02500Service\obj\Debug\net6.0\ref\LMM02500Service.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\LMM02500Service.deps.json
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\LMM02500Service.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\LMM02500Service.pdb
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\LMM02500Back.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\LMM02500Common.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_GRPResources.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\R_APIBackEnd.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\R_APICommon.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\R_APICommonDTO.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\R_ContextBackEnd.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\R_Security.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\LMM02500Back.pdb
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\LMM02500Common.pdb
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_GRPResources.pdb
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\id\R_APIBackEnd.resources.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\bin\Debug\net6.0\ja\R_APIBackEnd.resources.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.csproj.AssemblyReference.cache
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.GeneratedMSBuildEditorConfig.editorconfig
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.AssemblyInfoInputs.cache
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.AssemblyInfo.cs
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.csproj.CoreCompileInputs.cache
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.sourcelink.json
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.csproj.CopyComplete
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\refint\LMM02500Service.dll
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\LMM02500Service.pdb
-D:\repos\BS Program\SOURCE\SERVICE\LM\LMM02500SERVICE\obj\Debug\net6.0\ref\LMM02500Service.dll

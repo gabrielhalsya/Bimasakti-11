@@ -19,25 +19,3 @@ D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\FRONT\LMM02500Model
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\FRONT\LMM02500Model\obj\Debug\netstandard2.1\LMM02500Model.csproj.CopyComplete
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\FRONT\LMM02500Model\obj\Debug\netstandard2.1\LMM02500Model.dll
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\FRONT\LMM02500Model\obj\Debug\netstandard2.1\LMM02500Model.pdb
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\LMM02500Model.deps.json
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\LMM02500Model.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\LMM02500Model.pdb
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\LMM02500Common.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\R_APIClient.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\R_APICommonDTO.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\R_BlazorFrontEnd.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\R_BusinessObjectFront.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\R_CommonFrontBackAPI.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\R_AuthenticationEnumAndInterface.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\R_ContextFrontEnd.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\bin\Debug\netstandard2.1\LMM02500Common.pdb
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.csproj.AssemblyReference.cache
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.GeneratedMSBuildEditorConfig.editorconfig
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.AssemblyInfoInputs.cache
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.AssemblyInfo.cs
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.csproj.CoreCompileInputs.cache
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.sourcelink.json
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.csproj.CopyComplete
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM02500MODEL\obj\Debug\netstandard2.1\LMM02500Model.pdb
