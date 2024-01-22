@@ -6,12 +6,12 @@ using System.Text;
 
 namespace LMM04500COMMON
 {
-    public interface ILMM04500 : R_IServiceCRUDBase<PricingDTO>
+    public interface ILMM04500 : R_IServiceCRUDBase<PricingParamDTO>
     {
         IAsyncEnumerable<PropertyDTO> GetPropertyList();
         IAsyncEnumerable<UnitTypeCategoryDTO> GetUnitTypeCategoryList();
-        IAsyncEnumerable<PricingDTO> GetPricingList();
-        IAsyncEnumerable<PricingDTO> GetPricingDateList();
+        IAsyncEnumerable<PricingParamDTO> GetPricingList();
+        IAsyncEnumerable<PricingParamDTO> GetPricingDateList();
 
     }
 }

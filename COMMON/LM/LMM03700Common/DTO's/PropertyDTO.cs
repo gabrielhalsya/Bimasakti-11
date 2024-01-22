@@ -10,5 +10,7 @@ namespace LMM03700Common.DTO_s
         public string CPROPERTY_ID { get; set; }
         public string CPROPERTY_NAME { get; set; }
         public string CUSER_ID { get; set; } = "";
+        public string CCURENCY { get; set; } = "";
+        public string CCURENCY_NAME { get; set; } = "";
     }
 }
