@@ -10,9 +10,9 @@ namespace LMM04500COMMON
     {
         IAsyncEnumerable<PropertyDTO> GetPropertyList();
         IAsyncEnumerable<UnitTypeCategoryDTO> GetUnitTypeCategoryList();
-        IAsyncEnumerable<PricingParamDTO> GetPricingList();
-        IAsyncEnumerable<PricingParamDTO> GetPricingDateList();
-        PricingDumpResultDTO SavePricing(PricingParamDTO poParam);
+        IAsyncEnumerable<PricingDTO> GetPricingList();
+        IAsyncEnumerable<PricingDTO> GetPricingDateList();
+        PricingDumpResultDTO SavePricing(PricingSaveParamDTO poParam);
 
     }
 }

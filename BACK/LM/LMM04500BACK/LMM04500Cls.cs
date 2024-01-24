@@ -23,6 +23,7 @@ namespace LMM04500BACK
             _logger = LoggerLMM04500.R_GetInstanceLogger();
             _activitySource = LMM04500Activity.R_GetInstanceActivitySource();
         }
+
         public List<PropertyDTO> GetPropertyList(PropertyDTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
@@ -57,7 +58,7 @@ namespace LMM04500BACK
             loEx.ThrowExceptionIfErrors();
             return loRtn;
         }
-        
+
         public List<UnitTypeCategoryDTO> GetUnitTypeCategoryList(UnitTypeCategoryParamDTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);

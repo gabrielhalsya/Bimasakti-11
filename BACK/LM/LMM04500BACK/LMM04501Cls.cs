@@ -134,8 +134,6 @@ namespace LMM04500BACK
                     loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, int.MaxValue, poParam.CCOMPANY_ID);
                     loDB.R_AddCommandParameter(loCmd, "@CPROPERTY_ID", DbType.String, int.MaxValue, poParam.CPROPERTY_ID);
                     loDB.R_AddCommandParameter(loCmd, "@CPRICE_TYPE", DbType.String, int.MaxValue, poParam.CPRICE_TYPE);
-                    loDB.R_AddCommandParameter(loCmd, "@CUNIT_TYPE_CTG_ID", DbType.String, int.MaxValue, poParam.CUNIT_TYPE_CATEGORY_ID);
-                    loDB.R_AddCommandParameter(loCmd, "@CVALID_FROM_DATE", DbType.String, int.MaxValue, poParam.CVALID_FROM_DATE);
                     loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, int.MaxValue, "ADD");
                     loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, int.MaxValue, poParam.CUSER_ID);
                     var loDataTable = loDB.SqlExecQuery(loConn, loCmd, false);
@@ -164,8 +162,6 @@ namespace LMM04500BACK
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
-
-
 
         protected override void R_Deleting(PricingRateDTO poEntity)
         {

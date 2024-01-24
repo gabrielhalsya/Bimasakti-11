@@ -1,5 +1,6 @@
 ﻿using LMM04500BACK;
 using LMM04500COMMON;
+using LMM04500COMMON.DTO_s;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using R_Common;
@@ -30,6 +31,34 @@ namespace LMM04500SERVICE
             _activitySource = LMM04500Activity.R_InitializeAndGetActivitySource(GetType().Name);
         }
 
+        public IAsyncEnumerable<PricingRateDTO> GetPricingRateDateList()
+        {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
+            ShowLogStart();
+            R_Exception loException = new R_Exception();
+            List<PricingRateDTO> loRtnTemp = null;
+            LMM04501Cls loCls;
+            try
+            {
+                loCls = new LMM04501Cls();
+                ShowLogExecute();
+                loRtnTemp = loCls.GetPricingRateDateList(new PricingParamDTO()
+                {
+                    
+
+                });
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+                ShowLogError(loException);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            ShowLogEnd();
+            return StreamListHelper(loRtnTemp);
+        }
+
         public IAsyncEnumerable<PricingRateDTO> GetPricingRateList()
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
@@ -51,6 +80,11 @@ namespace LMM04500SERVICE
             loException.ThrowExceptionIfErrors();
             ShowLogEnd();
             return StreamListHelper(loRtnTemp);
+        }
+
+        public PricingDumpResultDTO SavePricing(PricingParamDTO poParam)
+        {
+            throw new NotImplementedException();
         }
 
         private async IAsyncEnumerable<T> StreamListHelper<T>(List<T> poList)
@@ -115,9 +149,7 @@ namespace LMM04500SERVICE
             ShowLogEnd();
             return loRtn;
         }
-
         
-
         #region logger
         private void ShowLogStart([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Starting {pcMethodCallerName} in {GetType().Name}");
 
@@ -127,10 +159,8 @@ namespace LMM04500SERVICE
 
         private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
 
-        public void SavePricing(PricingParamDTO poParam)
-        {
-            throw new NotImplementedException();
-        }
+        
+
         #endregion
     }
 }
