@@ -28,76 +28,9 @@ namespace LMM04500BACK
             _activitySource = LMM04500Activity.R_GetInstanceActivitySource();
         }
 
-        public List<PropertyDTO> GetPropertyList(PropertyDTO poEntity)
-        {
-            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
-            R_Exception loEx = new R_Exception();
-            List<PropertyDTO> loRtn = null;
-            R_Db loDB;
-            DbConnection loConn;
-            DbCommand loCmd;
-            string lcQuery;
-            try
-            {
-                loDB = new R_Db();
-                loConn = loDB.GetConnection();
-                loCmd = loDB.GetCommand();
+        
 
-                lcQuery = "RSP_GS_GET_PROPERTY_LIST";
-                loCmd.CommandType = CommandType.StoredProcedure;
-                loCmd.CommandText = lcQuery;
-
-                loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 20, poEntity.CCOMPANY_ID);
-                loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, poEntity.CUSER_ID);
-
-                ShowLogDebug(lcQuery, loCmd.Parameters);
-                var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<PropertyDTO>(loRtnTemp).ToList();
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-            }
-            loEx.ThrowExceptionIfErrors();
-            return loRtn;
-        }
-
-        public List<UnitTypeCategoryDTO> GetUnitTypeCategoryList(UnitTypeCategoryParamDTO poEntity)
-        {
-            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
-            R_Exception loEx = new();
-            List<UnitTypeCategoryDTO> loRtn = null;
-            R_Db loDB;
-            DbConnection loConn;
-            DbCommand loCmd;
-            string lcQuery;
-            try
-            {
-                loDB = new R_Db();
-                loConn = loDB.GetConnection();
-                loCmd = loDB.GetCommand();
-
-                lcQuery = "RSP_LM_GET_TENANT_CLASS_GRP_LIST";
-                loCmd.CommandType = CommandType.StoredProcedure;
-                loCmd.CommandText = lcQuery;
-
-                loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 50, poEntity.CUSER_ID);
-                ShowLogDebug(lcQuery, loCmd.Parameters);
-
-                var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<UnitTypeCategoryDTO>(loRtnTemp).ToList();
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-            }
-            loEx.ThrowExceptionIfErrors();
-            return loRtn;
-        }
-
-        public List<PricingParamDTO> GetPricingList(PricingParamDTO poEntity)
+        public List<PricingParamDTO> GetPricingRateList(PricingParamDTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new();
@@ -131,7 +64,7 @@ namespace LMM04500BACK
             return loRtn;
         }
 
-        public List<PricingParamDTO> GetPricingDateList(PricingParamDTO poEntity)
+        public List<PricingParamDTO> GetPricingRateDateList(PricingParamDTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new();

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Realta.BackCollectionNuGet" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\COMMON\LM\LMM04500COMMON\LMM04500COMMON.csproj" />
   </ItemGroup>
 	<ItemGroup>

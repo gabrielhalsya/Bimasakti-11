@@ -357,11 +357,6 @@ D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_GSCOM
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_GSFrontResources.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_GSFRONT.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\Lookup_GSModel.pdb
-D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_BusinessObjectFront.pdb
-D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_APIClient.pdb
-D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_ContextFrontEnd.pdb
-D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_ContextEnumAndInterface.pdb
-D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.pdb
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\id\R_APIBackEnd.resources.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\ja\R_APIBackEnd.resources.dll
 D:\repos\BS Program\SOURCE\API\LM\BIMASAKTI_LM_API\bin\Debug\net6.0\id\R_BlazorFrontEnd.Controls.resources.dll

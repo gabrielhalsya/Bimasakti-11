@@ -52,6 +52,7 @@ namespace LMM04500SERVICE
             ShowLogEnd();
             return StreamListHelper(loRtnTemp);
         }
+
         private async IAsyncEnumerable<T> StreamListHelper<T>(List<T> poList)
         {
             foreach (T loEntity in poList)
@@ -115,6 +116,8 @@ namespace LMM04500SERVICE
             return loRtn;
         }
 
+        
+
         #region logger
         private void ShowLogStart([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Starting {pcMethodCallerName} in {GetType().Name}");
 
@@ -123,6 +126,11 @@ namespace LMM04500SERVICE
         private void ShowLogEnd([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"End {pcMethodCallerName} in {GetType().Name}");
 
         private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
+
+        public void SavePricing(PricingParamDTO poParam)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

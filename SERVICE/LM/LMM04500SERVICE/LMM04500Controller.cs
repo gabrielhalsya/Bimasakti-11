@@ -191,6 +191,11 @@ namespace LMM04500SERVICE
         private void ShowLogEnd([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"End {pcMethodCallerName} in {GetType().Name}");
 
         private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
+
+        public void SavePricing(PricingParamDTO poParam)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

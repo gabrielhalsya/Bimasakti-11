@@ -8,6 +8,7 @@ namespace LMM04500COMMON
 {
     public interface ILMM04501 : R_IServiceCRUDBase<PricingRateDTO>
     {
+        void SavePricing(PricingParamDTO poParam);
         IAsyncEnumerable<PricingRateDTO> GetPricingRateList();
 
     }
