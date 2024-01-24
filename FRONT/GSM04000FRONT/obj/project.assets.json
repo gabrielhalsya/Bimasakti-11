@@ -319,7 +319,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Lookup_GSCOMMON": "1.0.0",
           "Lookup_GSModel": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.15"
         },
@@ -345,7 +344,8 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Lookup_GSCOMMON": "1.0.0",
-          "Lookup_GSFrontResources": "1.0.0"
+          "Lookup_GSFrontResources": "1.0.0",
+          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
         },
         "compile": {
           "bin/placeholder/Lookup_GSModel.dll": {}

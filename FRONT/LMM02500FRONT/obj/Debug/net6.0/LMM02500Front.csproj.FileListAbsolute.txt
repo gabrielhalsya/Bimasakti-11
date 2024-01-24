@@ -35,3 +35,41 @@ D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\FRONT\LMM02500Front
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\FRONT\LMM02500Front\obj\Debug\net6.0\refint\LMM02500Front.dll
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\FRONT\LMM02500Front\obj\Debug\net6.0\LMM02500Front.pdb
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\FRONT\LMM02500Front\obj\Debug\net6.0\ref\LMM02500Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\LMM02500Front.staticwebassets.runtime.json
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\LMM02500Front.deps.json
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\LMM02500Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\LMM02500Front.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\BlazorClientHelper.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\LMM02500Common.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\LMM02500Model.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_APIClient.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_APICommonDTO.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_BlazorFrontEnd.Controls.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_BlazorFrontEnd.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_BusinessObjectFront.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_ContextFrontEnd.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\LMM02500Common.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\LMM02500Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\bin\Debug\net6.0\id\R_BlazorFrontEnd.Controls.resources.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.sourcelink.json
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\staticwebassets.build.json
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\staticwebassets.development.json
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\staticwebassets\msbuild.LMM02500Front.Microsoft.AspNetCore.StaticWebAssets.props
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\staticwebassets\msbuild.build.LMM02500Front.props
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.LMM02500Front.props
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.LMM02500Front.props
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\staticwebassets.pack.json
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\scopedcss\bundle\LMM02500Front.styles.css
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.csproj.CopyComplete
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\refint\LMM02500Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\LMM02500Front.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM02500FRONT\obj\Debug\net6.0\ref\LMM02500Front.dll

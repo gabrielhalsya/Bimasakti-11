@@ -77,3 +77,4 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\obj\Debug\net6.0\GLTR00100BACK.
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\obj\Debug\net6.0\refint\GLTR00100BACK.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\obj\Debug\net6.0\GLTR00100BACK.pdb
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\obj\Debug\net6.0\ref\GLTR00100BACK.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_AuthorizationBack.Abstract.dll

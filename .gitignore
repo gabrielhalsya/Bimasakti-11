@@ -363,5 +363,8 @@ MigrationBackup/
 FodyWeavers.xsd
 
 #folder obj and Binary
-bin/
-obj/
+**\.idea
+**\.vs
+**\.vscode
+**\bin
+**\obj

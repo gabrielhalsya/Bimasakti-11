@@ -29,3 +29,4 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.dl
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\refint\GLM00200Back.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\GLM00200Back.pdb
 D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\obj\Debug\net6.0\ref\GLM00200Back.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLM00200Back\bin\Debug\net6.0\R_AuthorizationBack.Abstract.dll

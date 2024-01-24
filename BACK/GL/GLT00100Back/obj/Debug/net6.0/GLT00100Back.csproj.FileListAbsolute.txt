@@ -23,3 +23,4 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\obj\Debug\net6.0\GLT00100Back.dl
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\obj\Debug\net6.0\refint\GLT00100Back.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\obj\Debug\net6.0\GLT00100Back.pdb
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\obj\Debug\net6.0\ref\GLT00100Back.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLT00100Back\bin\Debug\net6.0\R_AuthorizationBack.Abstract.dll
