@@ -9,6 +9,14 @@ namespace LMM04500COMMON
         public string CACTION { get; set; }
         public string CTYPE { get; set; }
         public string CVALID_FROM_DATE { get; set; }
-        public List<PricingBulkDTO> PRICING_LIST { get; set; }
+    }
+
+    public class PricingSaveParamDTO : PricingParamDTO
+    {
+        public List<PricingBulkSaveDTO> PRICING_LIST { get; set; }
+    }
+    public class PricingRateSaveParamDTO : PricingParamDTO
+    {
+        public List<PricingRateBulkSaveDTO> PRICING_RATE_LIST { get; set; }
     }
 }

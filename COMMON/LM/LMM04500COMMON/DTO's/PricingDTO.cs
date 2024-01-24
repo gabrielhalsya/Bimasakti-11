@@ -6,7 +6,6 @@ namespace LMM04500COMMON.DTO_s
 {
     public class PricingDTO
     {
-
         public string CCOMPANY_ID {get;set;}
         public string CPROPERTY_ID {get;set;}
         public string CPRICE_TYPE {get;set;}
@@ -14,6 +13,7 @@ namespace LMM04500COMMON.DTO_s
         public string CUNIT_TYPE_CATEGORY_NAME {get;set;}
         public string CVALID_INTERNAL_ID {get;set;}
         public string CVALID_DATE {get;set;}
+        public DateTime DVALID_DATE {get;set; }
         public string CCHARGES_TYPE {get;set;}
         public string CCHARGES_TYPE_DESCR {get;set;}
         public string CCHARGES_ID {get;set;}
@@ -32,17 +32,5 @@ namespace LMM04500COMMON.DTO_s
         public DateTime DCREATE_DATE {get;set;}
         public string CUPDATE_BY {get;set;}
         public DateTime DUPDATE_DATE { get; set; }
-    }
-
-    public class PricingBulkDTO
-    {
-        public int ISEQ { get; set; }
-        public string CVALID_INTERNAL_ID { get; set; }
-        public string CCHARGES_TYPE { get; set; }
-        public string CCHARGES_ID { get; set; }
-        public string CPRICE_MODE { get; set; }
-        public decimal NNORMAL_PRICE { get; set; }
-        public decimal NBOTTOM_PRICE { get; set; }
-        public bool LOVERWRITE { get; set; }
     }
 }

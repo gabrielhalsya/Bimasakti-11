@@ -175,7 +175,7 @@ namespace LMM04500BACK
             return loRtn;
         }
 
-        public void SavePricing(PricingParamDTO poParam)
+        public void SavePricing(PricingSaveParamDTO poParam)
         {
             R_Exception loEx = new R_Exception();
             R_Db loDB = new R_Db();
@@ -203,7 +203,7 @@ namespace LMM04500BACK
                               ) ";
                     loDB.SqlExecNonQuery(lcQuery, loConn, false);
 
-                    loDB.R_BulkInsert<PricingBulkDTO>((SqlConnection)loConn, "#LEASE_PRICING", poParam.PRICING_LIST);
+                    loDB.R_BulkInsert<PricingBulkSaveDTO>((SqlConnection)loConn, "#LEASE_PRICING", poParam.PRICING_LIST);
 
                     lcQuery = "RSP_LM_MAINTAIN_PRICING";
                     loCmd.CommandText = lcQuery;
