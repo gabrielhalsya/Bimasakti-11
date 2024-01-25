@@ -2,17 +2,22 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<Nullable>enable</Nullable>
+		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\LMM04500MODEL\LMM04500MODEL.csproj" />
+		<ProjectReference Include="..\..\COMMON\LM\LMM04500COMMON\LMM04500COMMON.csproj" />
+
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\LMM04500MODEL\LMM04500MODEL.csproj" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.15" />
 	</ItemGroup>
 
 	<ItemGroup>

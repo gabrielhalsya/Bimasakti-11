@@ -1,7 +1,6 @@
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\LMM03700Back.deps.json
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\LMM03700Back.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\LMM03700Back.pdb
-D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\LMM00200Common.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\LMM03700Common.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_CLASSResources.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.dll
@@ -14,7 +13,6 @@ D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\R_ContextBackEn
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\R_AuthorizationBack.Abstract.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
-D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\LMM00200Common.pdb
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\LMM03700Common.pdb
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_CLASSResources.pdb
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\bin\Debug\net6.0\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.pdb

@@ -4239,6 +4239,47 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "LMM04500BACK/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LMM04500COMMON": "1.0.0",
+          "Realta.BackCollectionNuGet": "1.0.1"
+        },
+        "compile": {
+          "bin/placeholder/LMM04500BACK.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LMM04500BACK.dll": {}
+        }
+      },
+      "LMM04500COMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/LMM04500COMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LMM04500COMMON.dll": {}
+        }
+      },
+      "LMM04500SERVICE/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LMM04500BACK": "1.0.0",
+          "LMM04500COMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LMM04500SERVICE.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LMM04500SERVICE.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Lookup_GSBACK/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -12111,6 +12152,21 @@
       "path": "../../../SERVICE/LM/LMM03700Service/LMM03700Service.csproj",
       "msbuildProject": "../../../SERVICE/LM/LMM03700Service/LMM03700Service.csproj"
     },
+    "LMM04500BACK/1.0.0": {
+      "type": "project",
+      "path": "../../../BACK/LM/LMM04500BACK/LMM04500BACK.csproj",
+      "msbuildProject": "../../../BACK/LM/LMM04500BACK/LMM04500BACK.csproj"
+    },
+    "LMM04500COMMON/1.0.0": {
+      "type": "project",
+      "path": "../../../COMMON/LM/LMM04500COMMON/LMM04500COMMON.csproj",
+      "msbuildProject": "../../../COMMON/LM/LMM04500COMMON/LMM04500COMMON.csproj"
+    },
+    "LMM04500SERVICE/1.0.0": {
+      "type": "project",
+      "path": "../../../SERVICE/LM/LMM04500SERVICE/LMM04500SERVICE.csproj",
+      "msbuildProject": "../../../SERVICE/LM/LMM04500SERVICE/LMM04500SERVICE.csproj"
+    },
     "Lookup_GSBACK/1.0.0": {
       "type": "project",
       "path": "../../../../../BS Shared Form/SOURCE/BACK/Lookup_GSBACK/Lookup_GSBACK.csproj",
@@ -12182,6 +12238,7 @@
       "LMM00200Service >= 1.0.0",
       "LMM02500Service >= 1.0.0",
       "LMM03700Service >= 1.0.0",
+      "LMM04500SERVICE >= 1.0.0",
       "Lookup_GSBACK >= 1.0.0",
       "Lookup_GSBackResources >= 1.0.0",
       "Lookup_GSCOMMON >= 1.0.0",
@@ -12236,6 +12293,9 @@
             },
             "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM03700Service\\LMM03700Service.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM03700Service\\LMM03700Service.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM04500SERVICE\\LMM04500SERVICE.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM04500SERVICE\\LMM04500SERVICE.csproj"
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSBackResources\\Lookup_GSBackResources.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSBackResources\\Lookup_GSBackResources.csproj"
