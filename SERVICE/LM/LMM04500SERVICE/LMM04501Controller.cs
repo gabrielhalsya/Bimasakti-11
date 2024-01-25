@@ -3,6 +3,7 @@ using LMM04500COMMON;
 using LMM04500COMMON.DTO_s;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
 using System;
@@ -44,8 +45,12 @@ namespace LMM04500SERVICE
                 ShowLogExecute();
                 loRtnTemp = loCls.GetPricingRateDateList(new PricingParamDTO()
                 {
-                    
-
+                    CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
+                    CPROPERTY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPROPERTY_ID),
+                    CUNIT_TYPE_CATEGORY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID),
+                    CPRICE_TYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPRICE_TYPE),
+                    CTYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CTYPE),
+                    CUSER_ID = R_BackGlobalVar.USER_ID,
                 });
             }
             catch (Exception ex)
@@ -70,6 +75,18 @@ namespace LMM04500SERVICE
             {
                 loCls = new LMM04501Cls();
                 ShowLogExecute();
+                loRtnTemp = loCls.GetPricingRateList(new PricingParamDTO()
+                {
+                    CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
+                    CUSER_ID = R_BackGlobalVar.USER_ID,
+                    CPROPERTY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPROPERTY_ID),
+                    CUNIT_TYPE_CATEGORY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID),
+                    CPRICE_TYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPRICE_TYPE),
+                    LACTIVE = R_Utility.R_GetStreamingContext<bool>(ContextConstantLMM04500.LACTIVE),
+                    CTYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CTYPE),
+                    CVALID_DATE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CVALID_DATE),
+                    CVALID_INTERNAL_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CVALID_ID),
+                });
             }
             catch (Exception ex)
             {
@@ -82,9 +99,30 @@ namespace LMM04500SERVICE
             return StreamListHelper(loRtnTemp);
         }
 
-        public PricingDumpResultDTO SavePricing(PricingParamDTO poParam)
+        public PricingDumpResultDTO SavePricingRate(PricingRateSaveParamDTO poParam)
         {
-            throw new NotImplementedException();
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
+            ShowLogStart();
+            PricingDumpResultDTO loRtn = new();
+            R_Exception loException = new R_Exception();
+            LMM04501Cls loCls;
+            try
+            {
+                loCls = new LMM04501Cls();
+                poParam.CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID;
+                poParam.CUSER_ID = R_BackGlobalVar.USER_ID;
+                ShowLogExecute();
+                loCls.SavePricingRate(poParam);
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+                ShowLogError(loException);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            ShowLogEnd();
+            return loRtn;
         }
 
         private async IAsyncEnumerable<T> StreamListHelper<T>(List<T> poList)
@@ -95,61 +133,21 @@ namespace LMM04500SERVICE
             }
         }
 
-        public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<PricingRateDTO> poParameter)
+        public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<PricingRateSaveParamDTO> poParameter)
         {
             throw new NotImplementedException();
         }
 
-        public R_ServiceGetRecordResultDTO<PricingRateDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<PricingRateDTO> poParameter)
+        public R_ServiceGetRecordResultDTO<PricingRateSaveParamDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<PricingRateSaveParamDTO> poParameter)
         {
-            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
-            ShowLogStart();
-            R_ServiceGetRecordResultDTO<PricingRateDTO> loRtn = null;
-            R_Exception loException = new R_Exception();
-            LMM04501Cls loCls;
-            try
-            {
-                loCls = new LMM04501Cls(); //create cls class instance
-                loRtn = new R_ServiceGetRecordResultDTO<PricingRateDTO>();
-                ShowLogExecute();
-                loRtn.data = loCls.R_GetRecord(poParameter.Entity);
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-                ShowLogError(loException);
-            }
-        EndBlock:
-            loException.ThrowExceptionIfErrors();
-            ShowLogEnd();
-            return loRtn;
+            throw new NotImplementedException();
         }
 
-        public R_ServiceSaveResultDTO<PricingRateDTO> R_ServiceSave(R_ServiceSaveParameterDTO<PricingRateDTO> poParameter)
+        public R_ServiceSaveResultDTO<PricingRateSaveParamDTO> R_ServiceSave(R_ServiceSaveParameterDTO<PricingRateSaveParamDTO> poParameter)
         {
-            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
-            ShowLogStart();
-            R_ServiceSaveResultDTO<PricingRateDTO> loRtn = null;
-            R_Exception loException = new R_Exception();
-            LMM04501Cls loCls;
-            try
-            {
-                loCls = new LMM04501Cls();
-                loRtn = new R_ServiceSaveResultDTO<PricingRateDTO>();
-                ShowLogExecute();
-                loRtn.data = loCls.R_Save(poParameter.Entity, poParameter.CRUDMode);
-            }
-            catch (Exception ex)
-            {
-                loException.Add(ex);
-                ShowLogError(loException);
-            }
-        EndBlock:
-            loException.ThrowExceptionIfErrors();
-            ShowLogEnd();
-            return loRtn;
+            throw new NotImplementedException();
         }
-        
+
         #region logger
         private void ShowLogStart([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Starting {pcMethodCallerName} in {GetType().Name}");
 

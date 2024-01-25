@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace LMM04500BACK
 {
-    public class LMM04501Cls : R_BusinessObject<PricingRateDTO>
+    public class LMM04501Cls : R_BusinessObject<PricingRateSaveParamDTO>
     {
 
         private LoggerLMM04500 _logger;
@@ -33,7 +33,7 @@ namespace LMM04500BACK
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new();
-            List<PricingDTO> loRtn = null;
+            List<PricingRateDTO> loRtn = null;
             R_Db loDB;
             DbConnection loConn;
             DbCommand loCmd;
@@ -60,7 +60,7 @@ namespace LMM04500BACK
 
                 ShowLogDebug(lcQuery, loCmd.Parameters);
                 var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
-                loRtn = R_Utility.R_ConvertTo<PricingDTO>(loRtnTemp).ToList();
+                loRtn = R_Utility.R_ConvertTo<PricingRateDTO>(loRtnTemp).ToList();
             }
             catch (Exception ex)
             {
@@ -163,17 +163,17 @@ namespace LMM04500BACK
             loEx.ThrowExceptionIfErrors();
         }
 
-        protected override void R_Deleting(PricingRateDTO poEntity)
+        protected override void R_Deleting(PricingRateSaveParamDTO poEntity)
         {
             throw new NotImplementedException();
         }
 
-        protected override PricingRateDTO R_Display(PricingRateDTO poEntity)
+        protected override PricingRateSaveParamDTO R_Display(PricingRateSaveParamDTO poEntity)
         {
             throw new NotImplementedException();
         }
 
-        protected override void R_Saving(PricingRateDTO poNewEntity, eCRUDMode poCRUDMode)
+        protected override void R_Saving(PricingRateSaveParamDTO poNewEntity, eCRUDMode poCRUDMode)
         {
             throw new NotImplementedException();
         }

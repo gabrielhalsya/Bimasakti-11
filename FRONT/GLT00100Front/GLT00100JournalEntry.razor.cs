@@ -362,7 +362,6 @@ namespace GLT00100Front
 
             loEx.ThrowExceptionIfErrors();
         }
-
         private async Task JournalDet_RDisplay(R_DisplayEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -411,7 +410,6 @@ namespace GLT00100Front
         {
             eventArgs.Result = eventArgs.Data;
         }
-
         private void JournalDet_Validation(R_ValidationEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -458,7 +456,6 @@ namespace GLT00100Front
 
             loEx.ThrowExceptionIfErrors();
         }
-
         private void JournalDet_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
             var data = (GLT00100JournalGridDetailDTO)eventArgs.Data;
@@ -495,7 +492,6 @@ namespace GLT00100Front
             eventArgs.Parameter = param;
             eventArgs.TargetPageType = typeof(GSL00500);
         }
-
         private void After_Open_Lookup(R_AfterOpenGridLookupColumnEventArgs eventArgs)
         {
             var loTempResult = (GSL00500DTO)eventArgs.Result;

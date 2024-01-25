@@ -6,9 +6,9 @@ using System.Text;
 
 namespace LMM04500COMMON
 {
-    public interface ILMM04501 : R_IServiceCRUDBase<PricingRateDTO>
+    public interface ILMM04501 : R_IServiceCRUDBase<PricingRateSaveParamDTO>
     {
-        PricingDumpResultDTO SavePricing(PricingParamDTO poParam);
+        PricingDumpResultDTO SavePricingRate(PricingRateSaveParamDTO poParam);
         IAsyncEnumerable<PricingRateDTO> GetPricingRateList();
         IAsyncEnumerable<PricingRateDTO> GetPricingRateDateList();
 

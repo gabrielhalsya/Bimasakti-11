@@ -593,7 +593,6 @@ namespace GLT00100Model
                 loEx.Add(ex);
             }
         }
-
         public async Task ProcessComplete(string pcKeyGuid, eProcessResultMode poProcessResultMode)
         {
             if (poProcessResultMode == eProcessResultMode.Success)

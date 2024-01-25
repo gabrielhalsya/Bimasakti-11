@@ -29,3 +29,5 @@ D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Release\net6.0\refint\
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Release\net6.0\LMM03700Service.pdb
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Release\net6.0\ref\LMM03700Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\obj\Release\net6.0\LMM03700Service.sourcelink.json
+D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\bin\Release\net6.0\R_OpenTelemetry.dll
+D:\repos\BS Program\SOURCE\SERVICE\LM\LMM03700Service\bin\Release\net6.0\R_AuthorizationBack.Abstract.dll

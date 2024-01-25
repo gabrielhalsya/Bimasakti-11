@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\COMMON\LM\LMM00200Common\LMM00200Common.csproj" />
     <ProjectReference Include="..\..\..\COMMON\LM\LMM03700Common\LMM03700Common.csproj" />
     <ProjectReference Include="..\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASSResources\RSP_LM_MAINTAIN_TENANT_CLASSResources.csproj" />
     <ProjectReference Include="..\LM_SPR\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources\RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.csproj" />

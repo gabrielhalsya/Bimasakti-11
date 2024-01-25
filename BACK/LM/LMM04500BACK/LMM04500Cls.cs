@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace LMM04500BACK
 {
-    public class LMM04500Cls : R_BusinessObject<PricingParamDTO>
+    public class LMM04500Cls : R_BusinessObject<PricingSaveParamDTO>
     {
 
         private LoggerLMM04500 _logger;
@@ -243,17 +243,17 @@ namespace LMM04500BACK
             loEx.ThrowExceptionIfErrors();
         }
 
-        protected override void R_Deleting(PricingParamDTO poEntity)
+        protected override void R_Deleting(PricingSaveParamDTO poEntity)
         {
             throw new NotImplementedException();
         }
 
-        protected override PricingParamDTO R_Display(PricingParamDTO poEntity)
+        protected override PricingSaveParamDTO R_Display(PricingSaveParamDTO poEntity)
         {
             throw new NotImplementedException();
         }
 
-        protected override void R_Saving(PricingParamDTO poNewEntity, eCRUDMode poCRUDMode)
+        protected override void R_Saving(PricingSaveParamDTO poNewEntity, eCRUDMode poCRUDMode)
         {
             throw new NotImplementedException();
         }

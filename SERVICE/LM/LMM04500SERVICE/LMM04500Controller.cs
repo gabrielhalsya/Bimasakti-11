@@ -99,11 +99,11 @@ namespace LMM04500SERVICE
                 loRtnTemp = loCls.GetPricingDateList(new PricingParamDTO()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
-                    CUSER_ID = R_BackGlobalVar.USER_ID,
                     CPROPERTY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPROPERTY_ID),
                     CUNIT_TYPE_CATEGORY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID),
                     CPRICE_TYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPRICE_TYPE),
                     CTYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CTYPE),
+                    CUSER_ID = R_BackGlobalVar.USER_ID,
 
                 });
             }
@@ -189,18 +189,18 @@ namespace LMM04500SERVICE
 
         #region (CRUD)NotImplementedException
 
-        public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<PricingParamDTO> poParameter)
+        public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<PricingSaveParamDTO> poParameter)
         {
             throw new NotImplementedException();
         }
 
-        public R_ServiceGetRecordResultDTO<PricingParamDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<PricingParamDTO> poParameter)
+        public R_ServiceGetRecordResultDTO<PricingSaveParamDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<PricingSaveParamDTO> poParameter)
         {
             throw new NotImplementedException();
 
         }
 
-        public R_ServiceSaveResultDTO<PricingParamDTO> R_ServiceSave(R_ServiceSaveParameterDTO<PricingParamDTO> poParameter)
+        public R_ServiceSaveResultDTO<PricingSaveParamDTO> R_ServiceSave(R_ServiceSaveParameterDTO<PricingSaveParamDTO> poParameter)
         {
             throw new NotImplementedException();
 

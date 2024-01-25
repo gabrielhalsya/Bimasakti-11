@@ -4201,7 +4201,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "LMM00200Common": "1.0.0",
           "LMM03700Common": "1.0.0",
           "RSP_LM_MAINTAIN_TENANT_CLASSResources": "1.0.0",
           "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources": "1.0.0"
