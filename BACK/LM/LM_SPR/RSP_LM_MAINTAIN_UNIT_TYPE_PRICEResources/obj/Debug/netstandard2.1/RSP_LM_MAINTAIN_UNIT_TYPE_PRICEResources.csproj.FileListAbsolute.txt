@@ -1,0 +1,12 @@
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\bin\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.pdb
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.sourcelink.json
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LM_SPR\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources\obj\Debug\netstandard2.1\RSP_LM_MAINTAIN_UNIT_TYPE_PRICEResources.pdb

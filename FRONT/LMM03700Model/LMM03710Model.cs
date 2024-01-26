@@ -84,6 +84,7 @@ namespace LMM03700Model
         }
 
         #region AssignTenant
+
         public IAsyncEnumerable<TenantDTO> GetAvailableTenantList()
         {
             throw new NotImplementedException();
@@ -133,13 +134,16 @@ namespace LMM03700Model
             }
             loEx.ThrowExceptionIfErrors();
         }
+
         #endregion
 
         #region MoveTenant
+
         public TenantResultDumpDTO MoveTenant(TenantMoveParamDTO poParam)
         {
             throw new NotImplementedException();
         }
+
         public async Task MoveTenantAsync(TenantMoveParamDTO poParam)
         {
             var loEx = new R_Exception();
@@ -160,10 +164,12 @@ namespace LMM03700Model
             }
             loEx.ThrowExceptionIfErrors();
         }
+
         public IAsyncEnumerable<TenantDTO> GetTenantToMoveList()
         {
             throw new NotImplementedException();
         }
+
         public async Task<List<TenantDTO>> GetTenanToMoveListAsync()
         {
             var loEx = new R_Exception();
@@ -188,6 +194,7 @@ namespace LMM03700Model
             return loResult;
 
         }
+
         #endregion
     }
 }

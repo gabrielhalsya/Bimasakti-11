@@ -32,6 +32,7 @@ namespace LMM04500SERVICE
             _activitySource = LMM04500Activity.R_InitializeAndGetActivitySource(GetType().Name);
         }
 
+        [HttpPost]
         public IAsyncEnumerable<PricingRateDTO> GetPricingRateDateList()
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
@@ -64,6 +65,7 @@ namespace LMM04500SERVICE
             return StreamListHelper(loRtnTemp);
         }
 
+        [HttpPost]
         public IAsyncEnumerable<PricingRateDTO> GetPricingRateList()
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
@@ -99,6 +101,7 @@ namespace LMM04500SERVICE
             return StreamListHelper(loRtnTemp);
         }
 
+        [HttpPost]
         public PricingDumpResultDTO SavePricingRate(PricingRateSaveParamDTO poParam)
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
@@ -133,16 +136,19 @@ namespace LMM04500SERVICE
             }
         }
 
+        [HttpPost]
         public R_ServiceDeleteResultDTO R_ServiceDelete(R_ServiceDeleteParameterDTO<PricingRateSaveParamDTO> poParameter)
         {
             throw new NotImplementedException();
         }
 
+        [HttpPost]
         public R_ServiceGetRecordResultDTO<PricingRateSaveParamDTO> R_ServiceGetRecord(R_ServiceGetRecordParameterDTO<PricingRateSaveParamDTO> poParameter)
         {
             throw new NotImplementedException();
         }
 
+        [HttpPost]
         public R_ServiceSaveResultDTO<PricingRateSaveParamDTO> R_ServiceSave(R_ServiceSaveParameterDTO<PricingRateSaveParamDTO> poParameter)
         {
             throw new NotImplementedException();
