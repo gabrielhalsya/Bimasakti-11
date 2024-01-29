@@ -135,14 +135,6 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\GSM04000Model.pd
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSCOMMON.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSFrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\Lookup_GSModel.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_APICommonDTO.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_CommonFrontBackAPI.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_BusinessObjectFront.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_APIClient.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ProcessAndUploadFront.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ContextFrontEnd.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_ContextEnumAndInterface.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\bin\Debug\net6.0\id\R_BlazorFrontEnd.Controls.resources.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000Front.csproj.AssemblyReference.cache
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000Front.GeneratedMSBuildEditorConfig.editorconfig

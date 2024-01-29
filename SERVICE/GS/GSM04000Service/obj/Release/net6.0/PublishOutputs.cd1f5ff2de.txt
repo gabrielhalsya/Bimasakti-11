@@ -15,7 +15,9 @@ C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_APIBackEnd.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_APICommon.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_APICommonDTO.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_CommonFrontBackAPI.dll
+C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_OpenTelemetry.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_ContextBackEnd.dll
+C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_AuthorizationBack.Abstract.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_Security.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000Service\R_ContextEnumAndInterface.dll
 C:\Users\gabriel.codeid\Desktop\GSM04000Service\GSM04000Back.pdb

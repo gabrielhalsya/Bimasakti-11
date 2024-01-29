@@ -29,3 +29,5 @@ D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\obj\Release\net6.0\ref\GSM
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Release\net6.0\RSP_GS_UPLOAD_DEPARTMENTResources.dll
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Release\net6.0\RSP_GS_UPLOAD_DEPARTMENTResources.pdb
 D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\obj\Release\net6.0\GSM04000Service.sourcelink.json
+D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Release\net6.0\R_OpenTelemetry.dll
+D:\repos\BS Program\SOURCE\SERVICE\GS\GSM04000Service\bin\Release\net6.0\R_AuthorizationBack.Abstract.dll

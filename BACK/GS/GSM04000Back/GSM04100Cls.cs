@@ -112,7 +112,7 @@ namespace GSM04000Back
             try
             {
                 loDB = new R_Db();
-                loConn = loDB.GetConnection("R_DefaultConnectionString");
+                loConn = loDB.GetConnection();
                 loCmd = loDB.GetCommand();
 
                 string lcQuery = "RSP_GS_MAINTAIN_DEPT_USER";
@@ -130,7 +130,7 @@ namespace GSM04000Back
                 try
                 {
                     ShowLogDebug(lcQuery, loCmd.Parameters);
-                    loDB.SqlExecNonQuery(loConn, loCmd, true);
+                    loDB.SqlExecNonQuery(loConn, loCmd, false);
                 }
                 catch (Exception ex)
                 {

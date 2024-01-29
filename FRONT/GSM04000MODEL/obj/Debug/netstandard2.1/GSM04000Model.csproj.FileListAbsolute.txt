@@ -54,14 +54,6 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_Proces
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_AuthenticationEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\GSM04000Common.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_APIClient.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_APICommonDTO.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_BusinessObjectFront.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_CommonFrontBackAPI.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ContextFrontEnd.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ProcessAndUploadFront.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\bin\Debug\netstandard2.1\R_AuthenticationEnumAndInterface.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.csproj.AssemblyReference.cache
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.GeneratedMSBuildEditorConfig.editorconfig
 D:\repos\BS Program\SOURCE\FRONT\GSM04000MODEL\obj\Debug\netstandard2.1\GSM04000Model.AssemblyInfoInputs.cache

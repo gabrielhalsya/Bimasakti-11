@@ -58,12 +58,6 @@ D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_C
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_Security.dll
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_ContextBackEnd.dll
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.dll
-D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_APICommon.pdb
-D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_APICommonDTO.pdb
-D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_CommonFrontBackAPI.pdb
-D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_Security.pdb
-D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_ContextBackEnd.pdb
-D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.pdb
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\obj\Debug\netstandard2.1\GSM04500Common.csproj.AssemblyReference.cache
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\obj\Debug\netstandard2.1\GSM04500Common.GeneratedMSBuildEditorConfig.editorconfig
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04500COMMON\obj\Debug\netstandard2.1\GSM04500Common.AssemblyInfoInputs.cache

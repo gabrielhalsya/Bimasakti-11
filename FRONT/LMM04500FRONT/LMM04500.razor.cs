@@ -13,6 +13,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LMM04500FRONT
 {
@@ -23,7 +24,7 @@ namespace LMM04500FRONT
         private R_Conductor _conUnitTypeCTG;
         private R_Grid<UnitTypeCategoryDTO> _gridUnitTypeCTG;
 
-        private R_ConductorGrid _conPricing;
+        private R_Conductor _conPricing;
         private R_Grid<PricingDTO> _gridPricing;
 
         private R_TabStrip _tabStripPricing; //ref Tabstrip
@@ -64,13 +65,13 @@ namespace LMM04500FRONT
                     switch (_tabStripPricing.ActiveTab.Id)
                     {
                         case "NP":
-                            await _tabNextPricing.InvokeRefreshTabPageAsync(_viewModelPricing._pricingParam.CPROPERTY_ID);
+                            await _tabNextPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
                             break;
                         case "HP":
-                            await _tabHistoryPricing.InvokeRefreshTabPageAsync(_viewModelPricing._pricingParam.CPROPERTY_ID);
+                            await _tabHistoryPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
                             break;
                         case "PR":
-                            await _tabPricingRate.InvokeRefreshTabPageAsync(_viewModelPricing._pricingParam.CPROPERTY_ID);
+                            await _tabPricingRate.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
                             break;
                     }
                 }
@@ -146,7 +147,7 @@ namespace LMM04500FRONT
             var loEx = new R_Exception();
 
             try
-            {
+            { 
                 await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetAll, false);
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
@@ -164,13 +165,20 @@ namespace LMM04500FRONT
             var loEx = new R_Exception();
             try
             {
-                R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
+                eventArgs.Result = R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
             loEx.ThrowExceptionIfErrors();
+        }
+
+        private void CurrentPricing_Display(R_DisplayEventArgs eventArgs)
+        {
+            var loData = R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
+            _viewModelPricing._validDate = loData.CVALID_DATE;
+            _viewModelPricing._validId = loData.CVALID_INTERNAL_ID;
         }
 
         #endregion

@@ -33,15 +33,6 @@ namespace LMM04500MODEL
 
         public PricingDTO _pricing { get; set; } = new PricingDTO();
 
-        public PricingParamDTO _pricingParam { get; set; } = new PricingParamDTO()
-        {
-            CPROPERTY_ID = "",
-            CUNIT_TYPE_CATEGORY_ID = "",
-            CVALID_INTERNAL_ID = "",
-            CVALID_DATE = "",
-            CVALID_FROM_DATE = ""
-        };
-
         public string _propertyId { get; set; } = "";
 
         public string _unitTypeCategoryId { get; set; } = "";
@@ -127,6 +118,16 @@ namespace LMM04500MODEL
 
                 var loResult = llIsPricingDate ? await _modelPricing.GetPricingDateListAsync() : await _modelPricing.GetPricingListAsync();
                 _pricingList = new ObservableCollection<PricingDTO>(loResult);
+                if (_pricingList.Count<1)
+                {
+                    _validId = "";
+                    _validDate = "";
+                }
+                else
+                {
+                    _validId = _pricingList.FirstOrDefault().CVALID_INTERNAL_ID;
+                    _validDate = _pricingList.FirstOrDefault().CVALID_DATE;
+                }
             }
             catch (Exception ex)
             {

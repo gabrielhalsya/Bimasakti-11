@@ -243,9 +243,9 @@ namespace GSM04000Back
             try
             {
                 loDb = new R_Db();
-                loConn = loDb.GetConnection("R_DefaultConnectionString");
+                loConn = loDb.GetConnection();
                 loCmd = loDb.GetCommand();
-                R_ExternalException.R_SP_Init_Exception(loConn);
+
                 lcQuery = "RSP_GS_ACTIVE_INACTIVE_DEPT";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
@@ -253,17 +253,9 @@ namespace GSM04000Back
                 loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, int.MaxValue, poEntity.CDEPT_CODE);
                 loDb.R_AddCommandParameter(loCmd, "@LACTIVE", DbType.Boolean, int.MaxValue, poEntity.LACTIVE);
                 loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, int.MaxValue, poEntity.CUSER_ID);
-                try
-                {
-                    ShowLogDebug(lcQuery, loCmd.Parameters);
-                    loDb.SqlExecNonQuery(loConn, loCmd, true);
-                }
-                catch (Exception ex)
-                {
-                    loEx.Add(ex);
-                    ShowLogError(loEx);
-                }
-                loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
+                ShowLogDebug(lcQuery, loCmd.Parameters);
+                loDb.SqlExecNonQuery(loConn, loCmd, true);
+
             }
             catch (Exception ex)
             {
