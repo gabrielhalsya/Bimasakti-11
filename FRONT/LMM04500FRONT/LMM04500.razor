@@ -1,6 +1,4 @@
 ﻿@page "/LMM04500"
-@using LMM04500COMMON
-@using LMM04500COMMON.DTO_s
 @inherits R_Page
 
 <R_StackLayout Class="my-2" Row>
@@ -9,17 +7,17 @@
     </R_ItemLayout>
     <R_ItemLayout col="3">
         <R_DropDownList Data="@_viewModelPricing._propertyList"
-                    Value="@_viewModelPricing._propertyId"
-                    ValueField="@nameof(PropertyDTO.CPROPERTY_ID)"
-                    TextField="@nameof(PropertyDTO.CPROPERTY_NAME)"
-                    ValueChanged="@((string value) => ComboboxPropertyValueChanged(value))"
-                    Enabled="@_comboboxPropertyEnabled">
+                        Value="@_viewModelPricing._propertyId"
+                        ValueField="@nameof(PropertyDTO.CPROPERTY_ID)"
+                        TextField="@nameof(PropertyDTO.CPROPERTY_NAME)"
+                        ValueChanged="@((string value) => ComboboxPropertyValueChanged(value))"
+                        Enabled="@_comboboxPropertyEnabled">
         </R_DropDownList>
     </R_ItemLayout>
 </R_StackLayout>
 
 <R_TabStrip @ref="_tabStripPricing" OnActiveTabIndexChanging="@OnActiveTabIndexChanging">
-    <R_TabStripTab Title="Current Pricing" id="TGC">
+    <R_TabStripTab Title="Current Pricing" id="CP">
         <R_StackLayout Row Spacing="2" Class="mt-0">
              <R_ItemLayout col="3">
                  <R_Grid @ref="@_gridUnitTypeCTG"
@@ -105,15 +103,30 @@
                      </R_GridColumns>
                  </R_Grid>
              </R_ItemLayout>
+
+             <R_Conductor @ref="@_conUnitTypeCTG"
+                          R_IsHeader="true"
+                          R_ViewModel="@_viewModelPricing"
+                          R_ServiceGetRecord="@UnitTypeCTG_ServiceGetRecord"
+                          R_Display="@UnitTypeCTG_ServiceDisplay">
+             </R_Conductor>
+
+             <R_Conductor @ref="@_conPricing"
+                          R_ConductorParent="@_conUnitTypeCTG"
+                          R_ViewModel="@_viewModelPricing"
+                          R_ServiceGetRecord="@CurrentPricing_ServiceGetRecord"
+                          R_Display="@CurrentPricing_Display">
+             </R_Conductor>
          </R_StackLayout>
      </R_TabStripTab>
 
-     @* <R_TabStripTab Title="Next Pricing" Id="NP">
-    <R_TabPage @ref="@_tabNextPricing"
-    R_Before_Open_TabPage="@BeforeOpenTabPage_NextPricing"
-    R_TabEventCallback="@TabEventCallback_NextPricing">
-    </R_TabPage>
-    </R_TabStripTab>
+     <R_TabStripTab Title="Next Pricing" Id="NP">
+         <R_TabPage @ref="@_tabNextPricing"
+                    R_Before_Open_TabPage="@BeforeOpenTabPage_NextPricing"
+                    R_TabEventCallback="@TabEventCallback_NextPricing">
+         </R_TabPage>
+     </R_TabStripTab>
+     @*
     <R_TabStripTab Title="History Pricing" Id="HP">
     <R_TabPage @ref="@_tabHistoryPricing"
     R_Before_Open_TabPage="@BeforeOpenTabPage_HistoryPricing"
@@ -128,17 +141,5 @@
     </R_TabStripTab> *@
  </R_TabStrip>
 
- <R_Conductor @ref="@_conUnitTypeCTG"
-              R_IsHeader="true"
-              R_ViewModel="@_viewModelPricing"
-              R_ServiceGetRecord="@UnitTypeCTG_ServiceGetRecord"
-              R_Display="@UnitTypeCTG_ServiceDisplay">
- </R_Conductor>
 
- <R_Conductor @ref="@_conPricing"
-                  R_ConductorParent="@_conUnitTypeCTG"
-                  R_ViewModel="@_viewModelPricing"
-                  R_ServiceGetRecord="@CurrentPricing_ServiceGetRecord"
-                  R_Display="@CurrentPricing_Display">
- </R_Conductor>
 

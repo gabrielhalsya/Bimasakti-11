@@ -117,17 +117,17 @@ namespace LMM04500MODEL
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CVALID_DATE, _validDate);
 
                 var loResult = llIsPricingDate ? await _modelPricing.GetPricingDateListAsync() : await _modelPricing.GetPricingListAsync();
-                _pricingList = new ObservableCollection<PricingDTO>(loResult);
-                if (_pricingList.Count<1)
-                {
-                    _validId = "";
-                    _validDate = "";
-                }
-                else
-                {
-                    _validId = _pricingList.FirstOrDefault().CVALID_INTERNAL_ID;
-                    _validDate = _pricingList.FirstOrDefault().CVALID_DATE;
-                }
+                //_pricingList = new ObservableCollection<PricingDTO>(loResult);
+                //if (_pricingList.Count<1)
+                //{
+                //    _validId = "";
+                //    _validDate = "";
+                //}
+                //else
+                //{
+                //    _validId = _pricingList.FirstOrDefault().CVALID_INTERNAL_ID;
+                //    _validDate = _pricingList.FirstOrDefault().CVALID_DATE;
+                //}
             }
             catch (Exception ex)
             {

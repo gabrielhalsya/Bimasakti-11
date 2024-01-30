@@ -7,13 +7,6 @@ using R_BlazorFrontEnd.Controls.Tab;
 using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace LMM04500FRONT
 {
@@ -187,8 +180,8 @@ namespace LMM04500FRONT
 
         private void BeforeOpenTabPage_NextPricing(R_BeforeOpenTabPageEventArgs eventArgs)
         {
-            //eventArgs.TargetPageType = typeof(LMM03700Tab2);
-            //eventArgs.Parameter = _viewTenantClassGrpModel._propertyId;
+            eventArgs.TargetPageType = typeof(LMM04501);
+            eventArgs.Parameter = _viewModelPricing._propertyId;
         }
 
         private void TabEventCallback_NextPricing(object poValue)
@@ -199,12 +192,12 @@ namespace LMM04500FRONT
 
         #endregion
 
-        #region Next pricing TabPage
+        #region History pricing TabPage
 
         private void BeforeOpenTabPage_HistoryPricing(R_BeforeOpenTabPageEventArgs eventArgs)
         {
-            //eventArgs.TargetPageType = typeof(LMM03700Tab2);
-            //eventArgs.Parameter = _viewTenantClassGrpModel._propertyId;
+            //eventArgs.TargetPageType = typeof(LMM04501);
+            //eventArgs.Parameter = _viewModelPricing._propertyId;
         }
 
         private void TabEventCallback_HistoryPricing(object poValue)
