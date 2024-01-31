@@ -29,7 +29,7 @@ namespace LMM04500BACK
             _activitySource = LMM04500Activity.R_GetInstanceActivitySource();
         }
 
-        public List<PricingRateDTO> GetPricingRateList(PricingParamDTO poEntity)
+        public List<PricingRateDTO> GetPricingRateList(PricingRateSaveParamDTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new();
@@ -52,10 +52,7 @@ namespace LMM04500BACK
                 loDB.R_AddCommandParameter(loCmd, "@CPROPERTY_ID", DbType.String, int.MaxValue, poEntity.CPROPERTY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CUNIT_CATEGORY_ID", DbType.String, int.MaxValue, poEntity.CUNIT_TYPE_CATEGORY_ID);
                 loDB.R_AddCommandParameter(loCmd, "@CPRICE_TYPE", DbType.String, int.MaxValue, poEntity.CPRICE_TYPE);
-                loDB.R_AddCommandParameter(loCmd, "@LACTIVE_ONLY", DbType.Boolean, int.MaxValue, poEntity.CTYPE);
-                loDB.R_AddCommandParameter(loCmd, "@CTYPE", DbType.String, int.MaxValue, poEntity.CTYPE);
-                loDB.R_AddCommandParameter(loCmd, "@CVALID_DATE", DbType.String, int.MaxValue, poEntity.CVALID_DATE);
-                loDB.R_AddCommandParameter(loCmd, "@CVALID_ID", DbType.String, int.MaxValue, poEntity.CVALID_INTERNAL_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CRATE_DATE", DbType.String, int.MaxValue, poEntity.CRATE_DATE);
                 loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, int.MaxValue, poEntity.CUSER_ID);
 
                 ShowLogDebug(lcQuery, loCmd.Parameters);

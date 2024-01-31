@@ -30,8 +30,8 @@ namespace LMM04500MODEL
         public ObservableCollection<PricingBulkSaveDTO> _pricingSaveList { get; set; } = new ObservableCollection<PricingBulkSaveDTO>();
 
         public enum ListPricingParamType { GetAll = 1, GetNext = 2, GetHistory = 3 }
-        
-        public string _currency { get;set; } = "";
+
+        public string _currency { get; set; } = "";
 
         public string _propertyId { get; set; } = "";
 
@@ -55,7 +55,7 @@ namespace LMM04500MODEL
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPROPERTY_ID, _propertyId);
                 var loResult = await _modelPricing.GetPropertyListAsync();
                 _propertyList = new ObservableCollection<PropertyDTO>(loResult);
-                if (_propertyList.Count>0)
+                if (_propertyList.Count > 0)
                 {
                     _propertyId = _propertyList.FirstOrDefault().CPROPERTY_ID;
                     _currency = $"{_propertyList.FirstOrDefault().CCURRENCY_NAME}({_propertyList.FirstOrDefault().CCURRENCY})";
@@ -93,7 +93,7 @@ namespace LMM04500MODEL
             R_Exception loEx = new R_Exception();
             try
             {
-                 //lease pricing
+                //lease pricing
                 bool llActiveOnly = false;
                 string lcType = "";
                 switch (poParam)
@@ -113,12 +113,23 @@ namespace LMM04500MODEL
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID, _unitTypeCategoryId);
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPRICE_TYPE, _priceType);
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.LACTIVE, llActiveOnly);
-                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CTYPE,lcType );
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CTYPE, lcType);
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CVALID_ID, _validId);
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CVALID_DATE, _validDate);
 
                 var loResult = llIsPricingDate ? await _modelPricing.GetPricingDateListAsync() : await _modelPricing.GetPricingListAsync();
-                _pricingList = new ObservableCollection<PricingDTO>(loResult);
+
+
+                if (llIsPricingDate)
+                {
+                    _pricingDateList = new ObservableCollection<PricingDTO>(loResult);
+
+                }
+                else
+                {
+                    _pricingList = new ObservableCollection<PricingDTO>(loResult);
+                }
+
                 //if (_pricingList.Count<1)
                 //{
                 //    _validId = "";
@@ -143,16 +154,17 @@ namespace LMM04500MODEL
             try
             {
                 string lcAction = "ADD";
-                var loParam = new PricingSaveParamDTO() {
+                var loParam = new PricingSaveParamDTO()
+                {
 
                     CPROPERTY_ID = _propertyId,
                     CUNIT_TYPE_CATEGORY_ID = _unitTypeCategoryId,
                     CVALID_FROM_DATE = _validDate,
                     CVALID_INTERNAL_ID = _validId,
                     CACTION = lcAction,
-                    CPRICE_TYPE =_priceType
+                    CPRICE_TYPE = _priceType
                 };
-                
+
                 loParam.PRICING_LIST = new List<PricingBulkSaveDTO>(_pricingSaveList);
                 await _modelPricing.SavePricingAsync(loParam);
             }

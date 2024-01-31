@@ -198,8 +198,8 @@ namespace LMM04500FRONT
 
         private void BeforeOpenTabPage_HistoryPricing(R_BeforeOpenTabPageEventArgs eventArgs)
         {
-            //eventArgs.TargetPageType = typeof(LMM04501);
-            //eventArgs.Parameter = _viewModelPricing._propertyId;
+            eventArgs.TargetPageType = typeof(LMM04502);
+            eventArgs.Parameter = _viewModelPricing._propertyId;
         }
 
         private void TabEventCallback_HistoryPricing(object poValue)
@@ -214,8 +214,8 @@ namespace LMM04500FRONT
 
         private void BeforeOpenTabPage_PricingRate(R_BeforeOpenTabPageEventArgs eventArgs)
         {
-            //eventArgs.TargetPageType = typeof(LMM03700Tab2);
-            //eventArgs.Parameter = _viewTenantClassGrpModel._propertyId;
+            eventArgs.TargetPageType = typeof(LMM04503);
+            eventArgs.Parameter = _viewModelPricing._propertyId;
         }
 
         private void TabEventCallback_PricingRate(object poValue)

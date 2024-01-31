@@ -36,7 +36,7 @@
                          AllowEditRow="false"
                          Height="600px">
                      <R_GridColumns>
-                         <R_GridTextColumn Filterable="false" FieldName="@nameof(UnitTypeCategoryDTO.CUNIT_TYPE_CATEGORY_NAME)" HeaderText="Tenant Classification Group" Width="300px"></R_GridTextColumn>
+                         <R_GridTextColumn Filterable="false" FieldName="@nameof(UnitTypeCategoryDTO.CUNIT_TYPE_CATEGORY_NAME)" HeaderText=" Unit Type Category" Width="300px"></R_GridTextColumn>
                      </R_GridColumns>
                  </R_Grid>
              </R_ItemLayout>
@@ -132,19 +132,20 @@
                     R_TabEventCallback="@TabEventCallback_NextPricing">
          </R_TabPage>
      </R_TabStripTab>
-     @*
-    <R_TabStripTab Title="History Pricing" Id="HP">
-    <R_TabPage @ref="@_tabHistoryPricing"
-    R_Before_Open_TabPage="@BeforeOpenTabPage_HistoryPricing"
-    R_TabEventCallback="@TabEventCallback_HistoryPricing">
-    </R_TabPage>
-    </R_TabStripTab>
-    <R_TabStripTab Title="Pricing Rate" Id="PR">
-    <R_TabPage @ref="@_tabPricingRate"
-    R_Before_Open_TabPage="@BeforeOpenTabPage_PricingRate"
-    R_TabEventCallback="@TabEventCallback_PricingRate">
-    </R_TabPage>
-    </R_TabStripTab> *@
+
+     <R_TabStripTab Title="History Pricing" Id="HP">
+         <R_TabPage @ref="@_tabHistoryPricing"
+                    R_Before_Open_TabPage="@BeforeOpenTabPage_HistoryPricing"
+                    R_TabEventCallback="@TabEventCallback_HistoryPricing">
+         </R_TabPage>
+     </R_TabStripTab>
+
+     <R_TabStripTab Title="Pricing Rate" Id="PR">
+         <R_TabPage @ref="@_tabPricingRate"
+                    R_Before_Open_TabPage="@BeforeOpenTabPage_PricingRate"
+                    R_TabEventCallback="@TabEventCallback_PricingRate">
+         </R_TabPage>
+     </R_TabStripTab>
  </R_TabStrip>
 
 

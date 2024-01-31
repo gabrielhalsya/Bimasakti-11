@@ -13,5 +13,6 @@ namespace LMM04500COMMON
         public const string LACTIVE = "LACTIVE";
         public const string CVALID_DATE = "CVALID_DATE";
         public const string CVALID_ID = "CVALID_ID";
+
     }
 }

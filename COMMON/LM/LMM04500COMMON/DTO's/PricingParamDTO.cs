@@ -17,6 +17,7 @@ namespace LMM04500COMMON
     }
     public class PricingRateSaveParamDTO : PricingParamDTO
     {
+        public string CRATE_DATE { get; set; }
         public List<PricingRateBulkSaveDTO> PRICING_RATE_LIST { get; set; }
     }
 }

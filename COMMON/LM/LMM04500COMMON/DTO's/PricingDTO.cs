@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace LMM04500COMMON.DTO_s
@@ -13,7 +14,7 @@ namespace LMM04500COMMON.DTO_s
         public string CUNIT_TYPE_CATEGORY_NAME {get;set;}
         public string CVALID_INTERNAL_ID {get;set;}
         public string CVALID_DATE {get;set;}
-        public DateTime DVALID_DATE {get;set; }
+        public DateTime DVALID_DATE => DateTime.ParseExact(CVALID_DATE, "yyyyMMdd", CultureInfo.InvariantCulture);
         public string CCHARGES_TYPE {get;set;}
         public string CCHARGES_TYPE_DESCR {get;set;}
         public string CCHARGES_ID {get;set;}

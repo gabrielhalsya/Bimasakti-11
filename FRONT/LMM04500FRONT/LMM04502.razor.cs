@@ -1,11 +1,6 @@
 ﻿using LMM04500COMMON.DTO_s;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
 using LMM04500MODEL;
@@ -13,18 +8,17 @@ using R_BlazorFrontEnd.Controls.Events;
 
 namespace LMM04500FRONT
 {
-    public partial class LMM04501
+    public partial class LMM04502
     {
         private LMM04500ViewModel _viewModelPricing = new();
 
         private R_Conductor _conUnitTypeCTG;
         private R_Grid<UnitTypeCategoryDTO> _gridUnitTypeCTG;
 
-        private R_Conductor _conPricing;
-        private R_Grid<PricingDTO> _gridPricing;
+        private R_Conductor _conHistoryPricing;
+        private R_Grid<PricingDTO> _gridHistoryPricing;
 
         private R_Conductor _conPricingDate;
-
         private R_Grid<PricingDTO> _gridPricingDate;
 
         private R_Popup R_PopupCheck;
@@ -46,7 +40,7 @@ namespace LMM04500FRONT
         }
 
         #region UnitTypeCategory
-        
+
         private async Task UnitTypeCTG_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -105,7 +99,7 @@ namespace LMM04500FRONT
 
             try
             {
-                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetNext, true);
+                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetHistory, true);
 
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
@@ -137,20 +131,20 @@ namespace LMM04500FRONT
             var loData = R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
             _viewModelPricing._validDate = loData.CVALID_DATE;
             _viewModelPricing._validId = loData.CVALID_INTERNAL_ID;
-            await _gridPricing.R_RefreshGrid(null);
+            await _gridHistoryPricing.R_RefreshGrid(null);
         }
 
         #endregion
 
         #region Pricing
 
-        private async Task Pricing_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
+        private async Task HistoryPricing_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
 
             try
             {
-                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetAll, false);
+                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetHistory, false);
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
             catch (Exception ex)
@@ -162,26 +156,12 @@ namespace LMM04500FRONT
 
         }
 
-        #endregion
-
-        #region Add
-        
-        private void BeforeOpenPopup_AddNextPricing(R_BeforeOpenPopupEventArgs eventArgs)
+        private void PricingHistory_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
-            //eventArgs.Parameter = (TenantClassificationDTO)_gridTenantClassRef.GetCurrentData();
-            //eventArgs.TargetPageType = typeof(PopupAssignTenantMover);
-        }
-
-        private async Task AfterOpenPopup_AddNextPricing(R_AfterOpenPopupEventArgs eventArgs)
-        {
-            R_Exception loEx = new R_Exception();
+            var loEx = new R_Exception();
             try
             {
-                if (eventArgs.Result == null)
-                {
-                    return;
-                }
-                await _gridPricingDate.R_RefreshGrid(null);
+                eventArgs.Result = R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
             }
             catch (Exception ex)
             {
@@ -189,7 +169,12 @@ namespace LMM04500FRONT
             }
             loEx.ThrowExceptionIfErrors();
         }
-        
+
+        //private void PricingHistory_Display(R_DisplayEventArgs eventArgs)
+        //{
+        //    var loData = R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
+        //}
+
         #endregion
 
     }
