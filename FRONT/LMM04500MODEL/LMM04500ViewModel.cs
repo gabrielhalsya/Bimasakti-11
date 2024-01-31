@@ -30,8 +30,8 @@ namespace LMM04500MODEL
         public ObservableCollection<PricingBulkSaveDTO> _pricingSaveList { get; set; } = new ObservableCollection<PricingBulkSaveDTO>();
 
         public enum ListPricingParamType { GetAll = 1, GetNext = 2, GetHistory = 3 }
-
-        public PricingDTO _pricing { get; set; } = new PricingDTO();
+        
+        public string _currency { get;set; } = "";
 
         public string _propertyId { get; set; } = "";
 
@@ -58,6 +58,7 @@ namespace LMM04500MODEL
                 if (_propertyList.Count>0)
                 {
                     _propertyId = _propertyList.FirstOrDefault().CPROPERTY_ID;
+                    _currency = $"{_propertyList.FirstOrDefault().CCURRENCY_NAME}({_propertyList.FirstOrDefault().CCURRENCY})";
                 }
                 else
                 {
@@ -117,7 +118,7 @@ namespace LMM04500MODEL
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CVALID_DATE, _validDate);
 
                 var loResult = llIsPricingDate ? await _modelPricing.GetPricingDateListAsync() : await _modelPricing.GetPricingListAsync();
-                //_pricingList = new ObservableCollection<PricingDTO>(loResult);
+                _pricingList = new ObservableCollection<PricingDTO>(loResult);
                 //if (_pricingList.Count<1)
                 //{
                 //    _validId = "";

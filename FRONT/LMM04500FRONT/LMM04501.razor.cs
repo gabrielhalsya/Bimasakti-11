@@ -32,7 +32,8 @@ namespace LMM04500FRONT
             var loEx = new R_Exception();
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<PricingDTO>(poParameter);
+                var loParam = R_FrontUtility.ConvertObjectToObject<string>(poParameter);
+                _viewModelPricing._propertyId = loParam;
                 await (_viewModelPricing._propertyId != "" ? _gridUnitTypeCTG.R_RefreshGrid(null) : Task.CompletedTask);
             }
             catch (Exception ex)
@@ -128,11 +129,12 @@ namespace LMM04500FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        private void PricingDate_Display(R_DisplayEventArgs eventArgs)
+        private async void PricingDate_Display(R_DisplayEventArgs eventArgs)
         {
             var loData = R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
             _viewModelPricing._validDate = loData.CVALID_DATE;
             _viewModelPricing._validId = loData.CVALID_INTERNAL_ID;
+            await _gridPricing.R_RefreshGrid(null);
         }
 
         #endregion
@@ -174,8 +176,6 @@ namespace LMM04500FRONT
         private void Pricing_Display(R_DisplayEventArgs eventArgs)
         {
             var loData = R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
-            _viewModelPricing._validDate = loData.CVALID_DATE;
-            _viewModelPricing._validId = loData.CVALID_INTERNAL_ID;
         }
 
         #endregion

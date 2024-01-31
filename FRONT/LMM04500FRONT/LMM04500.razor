@@ -1,11 +1,11 @@
 ﻿@page "/LMM04500"
 @inherits R_Page
 
-<R_StackLayout Class="my-2" Row>
-    <R_ItemLayout col="1">
+<R_StackLayout Class="m-2" Spacing="2" Row>
+    <R_ItemLayout>
         <R_Label FontStyle="R_eFontStyle.Bold" FontColor="R_eFontColor.Danger">PROPERTY</R_Label>
     </R_ItemLayout>
-    <R_ItemLayout col="3">
+    <R_ItemLayout col="3" Class="ms-1">
         <R_DropDownList Data="@_viewModelPricing._propertyList"
                         Value="@_viewModelPricing._propertyId"
                         ValueField="@nameof(PropertyDTO.CPROPERTY_ID)"
@@ -13,6 +13,12 @@
                         ValueChanged="@((string value) => ComboboxPropertyValueChanged(value))"
                         Enabled="@_comboboxPropertyEnabled">
         </R_DropDownList>
+    </R_ItemLayout>
+    <R_ItemLayout Class="ms-5">
+        <R_Label FontStyle="R_eFontStyle.Bold">Currency</R_Label>
+    </R_ItemLayout>
+    <R_ItemLayout Class="ms-1" col="3">
+        <R_TextBox @bind-Value="_viewModelPricing._currency" Enabled="false"></R_TextBox>
     </R_ItemLayout>
 </R_StackLayout>
 

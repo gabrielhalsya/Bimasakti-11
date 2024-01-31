@@ -93,17 +93,6 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_Proces
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_Security.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\GSM04500Common.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\GSM04500FrontResources.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_APIClient.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_APICommonDTO.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_AuthenticationEnumAndInterface.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_AuthenticationFront.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_BusinessObjectFront.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_CommonFrontBackAPI.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_ContextEnumAndInterface.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_ContextFrontEnd.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_EmailEngineFront.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_LockingFront.pdb
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\R_ProcessAndUploadFront.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\id\GSM04500FrontResources.resources.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\bin\Debug\netstandard2.1\id\R_BlazorFrontEnd.Controls.resources.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500Model.csproj.AssemblyReference.cache

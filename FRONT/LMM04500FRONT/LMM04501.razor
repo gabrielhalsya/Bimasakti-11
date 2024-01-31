@@ -1,7 +1,7 @@
 ﻿@inherits R_Page
 
-<R_StackLayout Row Spacing="2" Class="mt-0">
-     <R_ItemLayout col="3">
+<R_StackLayout Row Spacing="3" Class="mt-0">
+     <R_ItemLayout col="2">
          <R_Grid @ref="@_gridUnitTypeCTG"
                  DataSource="@_viewModelPricing._unitTypeCategoryList"
                  R_ConductorSource="@_conUnitTypeCTG"
@@ -12,29 +12,34 @@
                  AllowEditRow="false"
                  Height="600px">
              <R_GridColumns>
-                 <R_GridTextColumn Filterable="false" FieldName="@nameof(UnitTypeCategoryDTO.CUNIT_TYPE_CATEGORY_NAME)" HeaderText="Tenant Classification Group" Width="300px"></R_GridTextColumn>
+                 <R_GridTextColumn Filterable="false" FieldName="@nameof(UnitTypeCategoryDTO.CUNIT_TYPE_CATEGORY_NAME)" HeaderText="Tenant Classification Group" Width="250px"></R_GridTextColumn>
              </R_GridColumns>
          </R_Grid>
      </R_ItemLayout>
 
-     <R_ItemLayout col="9">
-         <R_StackLayout Row Spacing="2" Class="my-3">
-             <R_ItemLayout>
-                 <R_Label>Valid From Date</R_Label>
-             </R_ItemLayout>
-             <R_ItemLayout col="3">
-                 <R_TextBox @bind-Value="@_viewModelPricing._validDate"
-                            Enabled="false"></R_TextBox>
-             </R_ItemLayout>
-             <R_ItemLayout Class="ms-4">
-                 <R_Label>Valid ID</R_Label>
-             </R_ItemLayout>
-             <R_ItemLayout col="3">
-                 <R_TextBox @bind-Value="@_viewModelPricing._validId"
-                            Enabled="false"></R_TextBox>
-             </R_ItemLayout>
-         </R_StackLayout>
+     <R_ItemLayout col="4">
+         <R_Grid @ref="_gridPricingDate"
+                 DataSource="@_viewModelPricing._pricingDateList"
+                 R_ConductorSource="_conPricingDate"
+                 Pageable="true"
+                 R_GridType="R_eGridType.Navigator"
+                 AllowAddNewRow="false"
+                 AllowDeleteRow="false"
+                 AllowEditRow="false"
+                 R_ServiceGetListRecord="@PricingDate_ServiceGetListRecord"
+                 Height="600px">
+             <R_GridColumns>
+                 <R_GridTextColumn FieldName="@nameof(PricingDTO.CVALID_INTERNAL_ID)"
+                                   HeaderText="Valid ID"
+                                   Width="150px"></R_GridTextColumn>
+                 <R_GridTextColumn FieldName="@nameof(PricingDTO.CVALID_DATE)"
+                                   HeaderText="Valid From Date"
+                                   Width="150px"></R_GridTextColumn>
+             </R_GridColumns>
+         </R_Grid>
+     </R_ItemLayout>
 
+     <R_ItemLayout col="6">
          <R_Grid @ref="_gridPricing"
                  DataSource="@_viewModelPricing._pricingList"
                  R_ConductorSource="_conPricing"
@@ -44,24 +49,24 @@
                  AllowDeleteRow="false"
                  AllowEditRow="false"
                  R_ServiceGetListRecord="Pricing_ServiceGetListRecord"
-                 Height="550px">
+                 Height="600px">
              <R_GridColumns>
                  <R_GridTextColumn FieldName="@nameof(PricingDTO.CCHARGES_TYPE)"
                                    HeaderText="Charge Type"
-                                   Width="350px"></R_GridTextColumn>
+                                   Width="250px"></R_GridTextColumn>
                  <R_GridTextColumn FieldName="@nameof(PricingDTO.CCHARGES_ID)"
-                                   HeaderText="Charge Id" Width="450px"></R_GridTextColumn>
+                                   HeaderText="Charge Id" Width="250px"></R_GridTextColumn>
                  <R_GridTextColumn FieldName="@nameof(PricingDTO.CPRICE_MODE_DESCR)"
                                    HeaderText="Price Mode"
-                                   Width="450px"></R_GridTextColumn>
+                                   Width="250px"></R_GridTextColumn>
                  <R_GridNumericColumn FieldName="@nameof(PricingDTO.NNORMAL_PRICE)"
-                                      HeaderText="Normal Price" Width="450px"></R_GridNumericColumn>
+                                      HeaderText="Normal Price" Width="300px"></R_GridNumericColumn>
                  <R_GridNumericColumn FieldName="@nameof(PricingDTO.NBOTTOM_PRICE)"
                                       HeaderText="Bottom Price"
-                                      Width="450px"></R_GridNumericColumn>
+                                      Width="300px"></R_GridNumericColumn>
                  <R_GridCheckBoxColumn FieldName="@nameof(PricingDTO.LOVERWRITE)"
                                        HeaderText="Overwrite"
-                                       Width="450px"></R_GridCheckBoxColumn>
+                                       Width="100px"></R_GridCheckBoxColumn>
                  <R_GridTextColumn FieldName="@nameof(PricingDTO.CUPDATE_BY)"
                                    HeaderText="Updated By"
                                    Width="200px"

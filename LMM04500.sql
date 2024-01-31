@@ -8,7 +8,7 @@ EXEC RSP_GS_GET_UNIT_TYPE_CTG_LIST  'rcd','ASHMD','ghc'
 EXEC RSP_LM_GET_PRICING_LIST 'rcd', 'ASHMD', '1ROOM', '02', 0, '01', '', '', 'ghc'
 
 --get pricing date list
-EXEC RSP_LM_GET_PRICING_DATE_LIST 'RCD','ASHMD','1ROOM','02','03','ghc'
+EXEC RSP_LM_GET_PRICING_DATE_LIST 'RCD','ASHMD','1ROOM','02','02','ghc'
 
 --get next pricing list
 EXEC RSP_LM_GET_PRICING_LIST 'rcd', 'ASHMD', '1ROOM', '02', 0, '02', '20240122', '20240122001', 'ghc'

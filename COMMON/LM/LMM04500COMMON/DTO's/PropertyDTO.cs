@@ -10,6 +10,7 @@ namespace LMM04500COMMON
         public string CPROPERTY_ID { get; set; }
         public string CPROPERTY_NAME { get; set; }
         public string CUSER_ID { get; set; }
-        public string CCURENCY_NAME { get; set; }
+        public string CCURRENCY_NAME { get; set; }
+        public string CCURRENCY { get; set; }
     }
 }
