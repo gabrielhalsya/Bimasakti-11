@@ -179,6 +179,10 @@ namespace LMM04500FRONT
         #endregion
 
         #region Next pricing TabPage
+        private void TabEventCallback(object poValue)
+        {
+            _pageNextPricingOnCRUDmode = !(bool)poValue;
+        }
 
         private void BeforeOpenTabPage_NextPricing(R_BeforeOpenTabPageEventArgs eventArgs)
         {
@@ -186,42 +190,16 @@ namespace LMM04500FRONT
             eventArgs.Parameter = _viewModelPricing._propertyId;
         }
 
-        private void TabEventCallback_NextPricing(object poValue)
-        {
-            _comboboxPropertyEnabled = (bool)poValue;
-            _pageNextPricingOnCRUDmode = !(bool)poValue;
-        }
-
-        #endregion
-
-        #region History pricing TabPage
-
         private void BeforeOpenTabPage_HistoryPricing(R_BeforeOpenTabPageEventArgs eventArgs)
         {
             eventArgs.TargetPageType = typeof(LMM04502);
             eventArgs.Parameter = _viewModelPricing._propertyId;
         }
 
-        private void TabEventCallback_HistoryPricing(object poValue)
-        {
-            _comboboxPropertyEnabled = (bool)poValue;
-            _pageNextPricingOnCRUDmode = !(bool)poValue;
-        }
-
-        #endregion
-
-        #region pricing Rate TabPage
-
         private void BeforeOpenTabPage_PricingRate(R_BeforeOpenTabPageEventArgs eventArgs)
         {
             eventArgs.TargetPageType = typeof(LMM04503);
             eventArgs.Parameter = _viewModelPricing._propertyId;
-        }
-
-        private void TabEventCallback_PricingRate(object poValue)
-        {
-            _comboboxPropertyEnabled = (bool)poValue;
-            _pageNextPricingOnCRUDmode = !(bool)poValue;
         }
 
         #endregion

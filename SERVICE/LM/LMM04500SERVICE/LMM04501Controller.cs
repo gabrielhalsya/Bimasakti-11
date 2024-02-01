@@ -44,13 +44,11 @@ namespace LMM04500SERVICE
             {
                 loCls = new LMM04501Cls();
                 ShowLogExecute();
-                loRtnTemp = loCls.GetPricingRateDateList(new PricingParamDTO()
+                loRtnTemp = loCls.GetPricingRateDateList(new PricingRateSaveParamDTO()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
                     CPROPERTY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPROPERTY_ID),
-                    CUNIT_TYPE_CATEGORY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID),
                     CPRICE_TYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPRICE_TYPE),
-                    CTYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CTYPE),
                     CUSER_ID = R_BackGlobalVar.USER_ID,
                 });
             }
@@ -77,17 +75,14 @@ namespace LMM04500SERVICE
             {
                 loCls = new LMM04501Cls();
                 ShowLogExecute();
-                loRtnTemp = loCls.GetPricingRateList(new PricingParamDTO()
+                loRtnTemp = loCls.GetPricingRateList(new PricingRateSaveParamDTO()
                 {
                     CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
-                    CUSER_ID = R_BackGlobalVar.USER_ID,
                     CPROPERTY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPROPERTY_ID),
                     CUNIT_TYPE_CATEGORY_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID),
                     CPRICE_TYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CPRICE_TYPE),
-                    LACTIVE = R_Utility.R_GetStreamingContext<bool>(ContextConstantLMM04500.LACTIVE),
-                    CTYPE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CTYPE),
-                    CVALID_DATE = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CVALID_DATE),
-                    CVALID_INTERNAL_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CVALID_ID),
+                    CRATE_DATE= R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CRATE_DATE),
+                    CUSER_ID = R_BackGlobalVar.USER_ID,
                 });
             }
             catch (Exception ex)
@@ -155,6 +150,7 @@ namespace LMM04500SERVICE
         }
 
         #region logger
+
         private void ShowLogStart([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Starting {pcMethodCallerName} in {GetType().Name}");
 
         private void ShowLogExecute([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Executing cls method in {GetType().Name}.{pcMethodCallerName}");
@@ -162,8 +158,6 @@ namespace LMM04500SERVICE
         private void ShowLogEnd([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"End {pcMethodCallerName} in {GetType().Name}");
 
         private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
-
-        
 
         #endregion
     }

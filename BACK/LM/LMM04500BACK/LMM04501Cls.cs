@@ -68,7 +68,7 @@ namespace LMM04500BACK
             return loRtn;
         }
 
-        public List<PricingRateDTO> GetPricingRateDateList(PricingParamDTO poEntity)
+        public List<PricingRateDTO> GetPricingRateDateList(PricingRateSaveParamDTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             R_Exception loEx = new();
@@ -113,6 +113,7 @@ namespace LMM04500BACK
             string lcQuery = "";
             try
             {
+                //define command & connection
                 loCmd = loDB.GetCommand();
                 loConn = loDB.GetConnection();
                 R_ExternalException.R_SP_Init_Exception(loConn);
@@ -123,16 +124,21 @@ namespace LMM04500BACK
                     lcQuery = @"CREATE TABLE #LEASE_PRICING_RATE (CCURRENCY_CODE CHAR(3),NBASE_RATE_AMOUNT NUMERIC(18,2), NCURRENCY_RATE_AMOUNT NUMERIC(18,2))";
                     loDB.SqlExecNonQuery(lcQuery, loConn, false);
 
+                    //insert list to temptable
                     loDB.R_BulkInsert<PricingRateBulkSaveDTO>((SqlConnection)loConn, "#LEASE_PRICING_RATE", poParam.PRICING_RATE_LIST);
 
+                    //exec sp
                     lcQuery = "RSP_LM_MAINTAIN_PRICING";
                     loCmd.CommandText = lcQuery;
                     loCmd.CommandType = CommandType.StoredProcedure;
+
+                    //param
                     loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, int.MaxValue, poParam.CCOMPANY_ID);
                     loDB.R_AddCommandParameter(loCmd, "@CPROPERTY_ID", DbType.String, int.MaxValue, poParam.CPROPERTY_ID);
                     loDB.R_AddCommandParameter(loCmd, "@CPRICE_TYPE", DbType.String, int.MaxValue, poParam.CPRICE_TYPE);
                     loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, int.MaxValue, "ADD");
                     loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, int.MaxValue, poParam.CUSER_ID);
+
                     var loDataTable = loDB.SqlExecQuery(loConn, loCmd, false);
                 }
                 catch (Exception ex)

@@ -1,38 +1,32 @@
-﻿using LMM04500COMMON.DTO_s;
-using LMM04500MODEL;
+﻿using LMM04500MODEL;
+using LMM04500COMMON;
+using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
 using R_BlazorFrontEnd.Controls.Tab;
-using R_BlazorFrontEnd.Controls;
-using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using R_CommonFrontBackAPI;
 
 namespace LMM04500FRONT
 {
     public partial class LMM04503
     {
-        private LMM04500ViewModel _viewModelPricing = new();
+        private LMM04501ViewModel _viewModelPricingRate = new();
 
         private R_Conductor _conPricingRateDate;
-        private R_Grid<UnitTypeCategoryDTO> _gridPricingRateDate;
+        private R_Grid<PricingRateDTO> _gridPricingRateDate;
 
         private R_Conductor _conPricingRate;
-        private R_Grid<PricingDTO> _gridPricingRate;
+        private R_Grid<PricingRateDTO> _gridPricingRate;
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<string>(poParameter);
-                _viewModelPricing._propertyId = loParam;
-                await (_viewModelPricing._propertyId != "" ? _gridPricingRateDate.R_RefreshGrid(null) : Task.CompletedTask);
+                _viewModelPricingRate._propertyId = (string)poParameter;
+                await (_viewModelPricingRate._propertyId != "" ? _gridPricingRateDate.R_RefreshGrid(null) : Task.CompletedTask);
             }
             catch (Exception ex)
             {
@@ -40,7 +34,20 @@ namespace LMM04500FRONT
             }
             R_DisplayException(loEx);
         }
-
+        public async Task RefreshTabPageAsync(object poParam)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                _viewModelPricingRate._propertyId = (string)poParam;
+                await (_viewModelPricingRate._propertyId != "" ? _gridPricingRateDate.R_RefreshGrid(null) : Task.CompletedTask);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
 
         #region PricingRateDate
 
@@ -50,8 +57,8 @@ namespace LMM04500FRONT
 
             try
             {
-                await _viewModelPricing.GetUnitCategoryList();
-                eventArgs.ListEntityResult = _viewModelPricing._unitTypeCategoryList;
+                await _viewModelPricingRate.GetPricingRateDateList();
+                eventArgs.ListEntityResult = _viewModelPricingRate._pricingRateDateList;
             }
             catch (Exception ex)
             {
@@ -67,7 +74,7 @@ namespace LMM04500FRONT
             var loEx = new R_Exception();
             try
             {
-                eventArgs.Result = R_FrontUtility.ConvertObjectToObject<UnitTypeCategoryDTO>(eventArgs.Data);
+                eventArgs.Result = R_FrontUtility.ConvertObjectToObject<PricingRateDTO>(eventArgs.Data);
             }
             catch (Exception ex)
             {
@@ -81,8 +88,8 @@ namespace LMM04500FRONT
             var loEx = new R_Exception();
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<UnitTypeCategoryDTO>(eventArgs.Data);
-                _viewModelPricing._unitTypeCategoryId = loParam.CUNIT_TYPE_CATEGORY_ID;
+                var loParam = R_FrontUtility.ConvertObjectToObject<PricingRateDTO>(eventArgs.Data);
+                _viewModelPricingRate._pricingRateDate =loParam.CRATE_DATE;
                 await _gridPricingRate.R_RefreshGrid(null);
             }
             catch (Exception ex)
@@ -102,8 +109,8 @@ namespace LMM04500FRONT
 
             try
             {
-                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetAll, false);
-                eventArgs.ListEntityResult = _viewModelPricing._pricingList;
+                await _viewModelPricingRate.GetPricingRateList();
+                eventArgs.ListEntityResult = _viewModelPricingRate._pricingRateList;
             }
             catch (Exception ex)
             {
@@ -119,7 +126,7 @@ namespace LMM04500FRONT
             var loEx = new R_Exception();
             try
             {
-                eventArgs.Result = R_FrontUtility.ConvertObjectToObject<PricingDTO>(eventArgs.Data);
+                eventArgs.Result = R_FrontUtility.ConvertObjectToObject<PricingRateDTO>(eventArgs.Data);
             }
             catch (Exception ex)
             {
@@ -127,7 +134,6 @@ namespace LMM04500FRONT
             }
             loEx.ThrowExceptionIfErrors();
         }
-
 
         #endregion
     }

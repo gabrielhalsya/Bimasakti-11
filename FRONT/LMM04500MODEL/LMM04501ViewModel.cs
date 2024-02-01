@@ -5,43 +5,57 @@ using R_BlazorFrontEnd.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LMM04500MODEL
 {
-    public class LMM04501ViewModel : R_ViewModel<PricingRateSaveParamDTO>
+    public class LMM04501ViewModel : R_ViewModel<PricingRateDTO>
     {
         private LMM04501Model _modelPricing = new LMM04501Model();
         private string _unitTypeCategoryId { get; set; } = "";
-        private const string _priceType = "02"; //lease pricing code
 
-        public ObservableCollection<PricingRateDTO> _pricingList { get; set; } = new ObservableCollection<PricingRateDTO>();
+        private const string PRICE_TYPE = "02"; //lease pricing code
 
-        public ObservableCollection<PricingRateDTO> _pricingDateList { get; set; } = new ObservableCollection<PricingRateDTO>();
+        private const string UNITCTGID = "02"; //unit category id 
+
+        public ObservableCollection<PricingRateDTO> _pricingRateList { get; set; } = new ObservableCollection<PricingRateDTO>();
+
+        public ObservableCollection<PricingRateDTO> _pricingRateDateList { get; set; } = new ObservableCollection<PricingRateDTO>();
 
         public ObservableCollection<PricingRateBulkSaveDTO> _pricingSaveList { get; set; } = new ObservableCollection<PricingRateBulkSaveDTO>();
 
         public string _propertyId { get; set; } = "";
+        
         public string _pricingRateDate { get; set; } = "";
 
-
-        public async Task GetPricingRateList(bool llIsPricingDate)
+        public async Task GetPricingRateDateList()
         {
             R_Exception loEx = new R_Exception();
             try
             {
-                //lease pricing
-                string lcType = "";
-
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPROPERTY_ID, _propertyId);
-                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPRICE_TYPE, _priceType);                
-                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPRICE_TYPE, _priceType);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPRICE_TYPE, PRICE_TYPE);
+                var loResult = await _modelPricing.GetPricingRateDateListAsync();
+                _pricingRateDateList = new ObservableCollection<PricingRateDTO>(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        public async Task GetPricingRateList()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPROPERTY_ID, _propertyId);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID, UNITCTGID);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPRICE_TYPE, PRICE_TYPE);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CRATE_DATE, _pricingRateDate);
                 var loResult = await _modelPricing.GetPricingRateListAsync();
-
-                _pricingList = new ObservableCollection<PricingRateDTO>(loResult);
-
+                _pricingRateList = new ObservableCollection<PricingRateDTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -61,14 +75,13 @@ namespace LMM04500MODEL
 
                     CPROPERTY_ID = _propertyId,
                     CUNIT_TYPE_CATEGORY_ID = _unitTypeCategoryId,
-                    CVALID_FROM_DATE = _validDate,
-                    CVALID_INTERNAL_ID = _validId,
+                    CPRICE_TYPE = PRICE_TYPE,
                     CACTION = lcAction,
-                    CPRICE_TYPE = _priceType
+                    CRATE_DATE = _pricingRateDate,
                 };
 
-                loParam.PRICING_LIST = new List<PricingBulkSaveDTO>(_pricingSaveList);
-                await _modelPricing.SavePricingAsync(loParam);
+                loParam.PRICING_RATE_LIST = new List<PricingRateBulkSaveDTO>(_pricingSaveList);
+                await _modelPricing.SavePricingRateAsync(loParam);
             }
             catch (Exception ex)
             {
@@ -76,5 +89,6 @@ namespace LMM04500MODEL
             }
             loEx.ThrowExceptionIfErrors();
         }
+
     }
 }

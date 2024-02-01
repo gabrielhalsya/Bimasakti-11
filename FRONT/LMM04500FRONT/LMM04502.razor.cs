@@ -1,10 +1,12 @@
 ﻿using LMM04500COMMON.DTO_s;
-using R_BlazorFrontEnd.Controls.DataControls;
+using LMM04500MODEL;
 using R_BlazorFrontEnd.Controls;
+using R_BlazorFrontEnd.Controls.DataControls;
+using R_BlazorFrontEnd.Controls.Events;
+using R_BlazorFrontEnd.Controls.Tab;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
-using LMM04500MODEL;
-using R_BlazorFrontEnd.Controls.Events;
+using R_CommonFrontBackAPI;
 
 namespace LMM04500FRONT
 {
@@ -37,6 +39,20 @@ namespace LMM04500FRONT
                 loEx.Add(ex);
             }
             R_DisplayException(loEx);
+        }
+        public async Task RefreshTabPageAsync(object poParam)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                _viewModelPricing._propertyId = (string)poParam;
+                await _gridUnitTypeCTG.R_RefreshGrid(null);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
         }
 
         #region UnitTypeCategory
