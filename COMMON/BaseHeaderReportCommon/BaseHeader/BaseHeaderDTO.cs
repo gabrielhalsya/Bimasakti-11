@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BaseHeaderReportCommon.BaseHeader
+namespace BaseHeaderReportCOMMON
 {
     public class BaseHeaderDTO
     {
@@ -11,10 +11,5 @@ namespace BaseHeaderReportCommon.BaseHeader
         public string CCOMPANY_NAME { get; set; }
         public string CPRINT_NAME { get; set; }
         public string CUSER_ID { get; set; }
-    }
-
-    public class BaseHeaderResult
-    {
-        public BaseHeaderDTO BaseHeaderData { get; set; }
     }
 }

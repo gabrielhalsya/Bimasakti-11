@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {}
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCommon.csproj": {}
   },
   "projects": {
-    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj",
-        "projectName": "BaseHeaderReportCOMMON",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCommon.csproj",
+        "projectName": "BaseHeaderReportCommon",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCommon.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
         "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

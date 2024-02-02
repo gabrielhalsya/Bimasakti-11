@@ -1,0 +1,64 @@
+@page "/GSM00700"
+@using GSM00700Common.DTO
+@using GSM00700FrontResources
+@using GSM00700Model
+@using R_BlazorFrontEnd.Interfaces
+@inherits R_Page
+@attribute [R_Page(Title = "Cash Flow Group")]
+@inject R_ILocalizer<Resources_Dummy_Class> _localizer
+
+<R_StackLayout>
+    @*//this is the stacklayout that contains the grid*@
+
+    <R_Grid @ref="@_gridRef00700"
+            DataSource="GSM00700ViewModel.loGridList"
+            Pageable="true"
+            Width="100%"
+            Height="570px"
+            R_ConductorGridSource="@_conGridGSM00700Ref"
+            R_GridType="@R_eGridType.Original"
+            AllowAddNewRow="true"
+            AllowEditRow="true"
+            AllowDeleteRow="true"
+            PageSize="24"
+            R_ServiceGetListRecord="@Grid_R_ServiceGetListCashFlowGroup">
+        <R_GridColumns>
+
+            <R_GridTextColumn Width="201px" FieldName="CCASH_FLOW_GROUP_CODE" HeaderText="@_localizer["COL_GRP_CODE"]" MaxLength="20" R_EnableAdd></R_GridTextColumn>
+            <R_GridTextColumn Width="400px" FieldName="CCASH_FLOW_GROUP_NAME" HeaderText="@_localizer["COL_GRP_NAME"]" MaxLength="100" R_EnableAdd R_EnableEdit></R_GridTextColumn>
+
+
+            <R_GridDropDownListColumn Width="210px" Data="@GSM00700ViewModel.loCashFlowGroupType"
+                                      FieldName="@nameof(GSM00700DTO.CCASH_FLOW_GROUP_TYPE)"
+                                      ValueField="@nameof(GSM00700CashFlowGroupTypeDTO.CCODE)"
+                                      TextField="@nameof(GSM00700CashFlowGroupTypeDTO.CDESCRIPTION)"
+                                      HeaderText="@_localizer["COL_GRP_TYPE"]" R_EnableAdd R_EnableEdit/>
+
+
+            <R_GridTextColumn Width="135px" FieldName="CUPDATE_BY" HeaderText="@_localizer["UPDT_BY"]"/>
+            <R_GridTextColumn Width="176px" FieldName="DUPDATE_DATE" HeaderText="@_localizer["UPDT_DATE"]"/>
+            <R_GridTextColumn Width="135px" FieldName="CCREATE_BY" HeaderText="@_localizer["CRT_BY"]"/>
+            <R_GridTextColumn Width="176px" FieldName="DCREATE_DATE" HeaderText="@_localizer["CRT_DATE"]"/>
+
+
+        </R_GridColumns>
+    </R_Grid>
+
+    <R_ItemLayout xs="1">
+        <R_Popup R_Before_Open_Popup="R_BeforeOpenPrint" R_After_Open_Popup="R_AfterOpenPrint">@_localizer["PRINT"]</R_Popup>
+    </R_ItemLayout>
+
+</R_StackLayout>
+<R_ConductorGrid @ref="@_conGridGSM00700Ref"
+                 R_ViewModel="@GSM00700ViewModel"
+                 R_ServiceGetRecord="@Grid_ServiceGetRecordCashFlowGroup"
+                 R_ServiceSave="@Grid_ServiceSaveRecordCashFlowGroup"
+                 R_ServiceDelete="@Grid_DeleteRecordCashFlowGroup"
+                 R_Validation="@Grid_ValidationCashFlowGroup"
+                 R_Display="@Grid_R_DisplaytListCashFlow"
+                 @* R_AfterDelete="@Grid_AfterDelete" *@
+                 R_AfterAdd="@AfterAdd"
+                 R_IsHeader="true"/>
+
+
+<R_PredefinedDock R_InstantiateDock="BeforeOpenTabCashFlow" Title="Cash Flow"></R_PredefinedDock>
