@@ -50,21 +50,21 @@ namespace LMM04500FRONT
             {
                 _viewModelPricing._propertyId = poParam;//re assign when property klicked on combobox
                 var loCurrencyData = _viewModelPricing._propertyList.Where(properties => properties.CPROPERTY_ID == poParam).FirstOrDefault();
-                _viewModelPricing._currency = $"{loCurrencyData.CCURRENCY_NAME}({loCurrencyData.CCURRENCY})" ;
+                _viewModelPricing._currency = $"{loCurrencyData.CCURRENCY_NAME}({loCurrencyData.CCURRENCY})";
 
-                if (_conUnitTypeCTG.R_ConductorMode == R_eConductorMode.Normal)
+                if (_conUnitTypeCTG.R_ConductorMode == R_eConductorMode.Normal && _viewModelPricing._propertyId != "")
                 {
-                    await (_viewModelPricing._propertyId != "" ? _gridUnitTypeCTG.R_RefreshGrid(null) : Task.CompletedTask);
+                    await _gridUnitTypeCTG.R_RefreshGrid(null);
 
                     //sending property another tab (will be catch at init master)
                     switch (_tabStripPricing.ActiveTab.Id)
                     {
-                        case "NP":
-                            await _tabNextPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
-                            break;
-                        case "HP":
-                            await _tabHistoryPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
-                            break;
+                        //case "NP":
+                        //    await _tabNextPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
+                        //    break;
+                        //case "HP":
+                        //    await _tabHistoryPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
+                        //    break;
                         case "PR":
                             await _tabPricingRate.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
                             break;
@@ -142,7 +142,7 @@ namespace LMM04500FRONT
             var loEx = new R_Exception();
 
             try
-            { 
+            {
                 await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetAll, false);
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
@@ -181,25 +181,35 @@ namespace LMM04500FRONT
         #region Next pricing TabPage
         private void TabEventCallback(object poValue)
         {
-            _pageNextPricingOnCRUDmode = !(bool)poValue;
+            var loEx = new R_Exception();
+
+            try
+            {
+                _pageNextPricingOnCRUDmode = !(bool)poValue;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
         }
 
         private void BeforeOpenTabPage_NextPricing(R_BeforeOpenTabPageEventArgs eventArgs)
         {
-            eventArgs.TargetPageType = typeof(LMM04501);
             eventArgs.Parameter = _viewModelPricing._propertyId;
+            eventArgs.TargetPageType = typeof(LMM04501);
         }
 
         private void BeforeOpenTabPage_HistoryPricing(R_BeforeOpenTabPageEventArgs eventArgs)
         {
-            eventArgs.TargetPageType = typeof(LMM04502);
             eventArgs.Parameter = _viewModelPricing._propertyId;
+            eventArgs.TargetPageType = typeof(LMM04502);
         }
 
         private void BeforeOpenTabPage_PricingRate(R_BeforeOpenTabPageEventArgs eventArgs)
         {
-            eventArgs.TargetPageType = typeof(LMM04503);
             eventArgs.Parameter = _viewModelPricing._propertyId;
+            eventArgs.TargetPageType = typeof(LMM04503);
         }
 
         #endregion

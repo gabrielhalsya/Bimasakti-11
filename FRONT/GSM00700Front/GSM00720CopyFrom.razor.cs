@@ -96,7 +96,6 @@ namespace GSM00700Front
             //return Task.CompletedTask;
         }
 
-
         public async Task OnChanged()
         {
             var loEx = new R_Exception();
@@ -151,7 +150,6 @@ namespace GSM00700Front
 
             await this.Close(true, loData);
         }
-
 
         public async Task Button_OnClickCloseAsync()
         {

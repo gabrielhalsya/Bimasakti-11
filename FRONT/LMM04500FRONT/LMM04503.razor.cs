@@ -10,7 +10,7 @@ using R_CommonFrontBackAPI;
 
 namespace LMM04500FRONT
 {
-    public partial class LMM04503
+    public partial class LMM04503 : R_ITabPage
     {
         private LMM04501ViewModel _viewModelPricingRate = new();
 
@@ -34,6 +34,7 @@ namespace LMM04500FRONT
             }
             R_DisplayException(loEx);
         }
+
         public async Task RefreshTabPageAsync(object poParam)
         {
             R_Exception loEx = new R_Exception();
