@@ -17,6 +17,15 @@
                  <R_GridDatePickerColumn TextAlignment="R_eTextAlignment.Right" FieldName="@nameof(PricingRateDTO.DRATE_DATE)" HeaderText="Rate Date" Width="200px"></R_GridDatePickerColumn>
              </R_GridColumns>
          </R_Grid>
+
+         @* add button *@
+         <R_Popup @ref="Popup_PricingRate"
+                  R_Before_Open_Popup="@BeforeOpenPopup_PricingRate"
+                  R_After_Open_Popup="@AfterOpenPopup_PricingRate"
+                 Enabled
+                  Class="mt-4">
+             <R_Label>Add</R_Label>
+         </R_Popup>
      </R_ItemLayout>
 
      <R_ItemLayout col="9">

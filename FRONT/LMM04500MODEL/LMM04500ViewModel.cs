@@ -17,7 +17,9 @@ namespace LMM04500MODEL
     {
         private LMM04500Model _modelPricing = new LMM04500Model();
 
-        private const string _priceType = "02"; //lease pricing code
+        private const string PRICE_TYPE = "02"; //lease pricing code
+
+        private const string CLASS_APPLICATION = "BIMASAKTI";
 
         public ObservableCollection<PropertyDTO> _propertyList { get; set; } = new ObservableCollection<PropertyDTO>();
 
@@ -29,6 +31,9 @@ namespace LMM04500MODEL
 
         public ObservableCollection<PricingBulkSaveDTO> _pricingSaveList { get; set; } = new ObservableCollection<PricingBulkSaveDTO>();
 
+        public ObservableCollection<TypeDTO> _chargesTypeList { get; set; } = new ObservableCollection<TypeDTO>();
+        public ObservableCollection<TypeDTO> _priceTypeList { get; set; } = new ObservableCollection<TypeDTO>();
+
         public enum ListPricingParamType { GetAll = 1, GetNext = 2, GetHistory = 3 }
 
         public string _currency { get; set; } = "";
@@ -36,10 +41,14 @@ namespace LMM04500MODEL
         public string _propertyId { get; set; } = "";
 
         public string _unitTypeCategoryId { get; set; } = "";
+        public string _unitTypeCategoryName { get; set; } = "";
 
         public string _validId { get; set; } = "";
 
         public string _validDate { get; set; } = "";
+
+        public string _classId { get; set; } = "";
+        public string _recIdCharList { get; set; } = "";
 
         public bool _tabNextPricingIsActive { get; set; } = false;
 
@@ -111,7 +120,7 @@ namespace LMM04500MODEL
 
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPROPERTY_ID, _propertyId);
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID, _unitTypeCategoryId);
-                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPRICE_TYPE, _priceType);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPRICE_TYPE, PRICE_TYPE);
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.LACTIVE, llActiveOnly);
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CTYPE, lcType);
                 R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CVALID_ID, _validId);
@@ -148,6 +157,86 @@ namespace LMM04500MODEL
             loEx.ThrowExceptionIfErrors();
         }
 
+        public async Task GetPricingForSaveList()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                bool llActiveOnly = false;
+                string lcType = "01";
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPROPERTY_ID, _propertyId);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CUNIT_TYPE_CATEGORY_ID, _unitTypeCategoryId);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CPRICE_TYPE, PRICE_TYPE);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.LACTIVE, llActiveOnly);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CTYPE, lcType);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CVALID_ID, _validId);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CVALID_DATE, _validDate);
+                var loResultTemp = await _modelPricing.GetPricingListAsync();
+                var loResult = R_FrontUtility.ConvertCollectionToCollection<PricingBulkSaveDTO>(loResultTemp);
+                _pricingSaveList = new ObservableCollection<PricingBulkSaveDTO>(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
+
+        public async Task GetPriceType()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                //prepare param
+                _classId = "_BS_PRICE_MODE";
+                _recIdCharList = "";
+
+                //send context
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CLASS_APPLICATION, CLASS_APPLICATION);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CLASS_ID, CLASS_APPLICATION);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.REC_ID_LIST, CLASS_APPLICATION);
+                
+                //get result
+                var loResult = await _modelPricing.GetPriceChargesTypeAsync();
+                
+                //assign to list for grid
+                _priceTypeList = new ObservableCollection<TypeDTO>(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        public async Task GetChargesType()
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                //prepare param
+                _classId = "_BS_UNIT_CHARGES_TYPE";
+                _recIdCharList = "02, 05";
+
+                //send context
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CLASS_APPLICATION, CLASS_APPLICATION);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.CLASS_ID, CLASS_APPLICATION);
+                R_FrontContext.R_SetStreamingContext(ContextConstantLMM04500.REC_ID_LIST, CLASS_APPLICATION);
+                
+                //get result
+                var loResult = await _modelPricing.GetPriceChargesTypeAsync();
+                
+                //assign to list for grid
+                _chargesTypeList = new ObservableCollection<TypeDTO>(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
         public async Task SavePricing()
         {
             R_Exception loEx = new R_Exception();
@@ -162,7 +251,7 @@ namespace LMM04500MODEL
                     CVALID_FROM_DATE = _validDate,
                     CVALID_INTERNAL_ID = _validId,
                     CACTION = lcAction,
-                    CPRICE_TYPE = _priceType
+                    CPRICE_TYPE = PRICE_TYPE
                 };
 
                 loParam.PRICING_LIST = new List<PricingBulkSaveDTO>(_pricingSaveList);

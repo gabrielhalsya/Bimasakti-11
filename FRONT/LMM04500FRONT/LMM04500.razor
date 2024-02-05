@@ -23,6 +23,7 @@
 </R_StackLayout>
 
 <R_TabStrip @ref="_tabStripPricing" OnActiveTabIndexChanging="@OnActiveTabIndexChanging">
+    
     <R_TabStripTab Title="Current Pricing" id="CP">
         <R_StackLayout Row Spacing="2" Class="mt-0">
              <R_ItemLayout col="3">
@@ -126,7 +127,7 @@
          </R_StackLayout>
      </R_TabStripTab>
 
-     @* <R_TabStripTab Title="Next Pricing" Id="NP">
+     <R_TabStripTab Title="Next Pricing" Id="NP">
          <R_TabPage @ref="@_tabNextPricing"
                     R_Before_Open_TabPage="@BeforeOpenTabPage_NextPricing"
                     R_TabEventCallback="@TabEventCallback">
@@ -138,7 +139,7 @@
                     R_Before_Open_TabPage="@BeforeOpenTabPage_HistoryPricing"
                     R_TabEventCallback="@TabEventCallback">
          </R_TabPage>
-     </R_TabStripTab> *@
+     </R_TabStripTab>
 
      <R_TabStripTab Title="Pricing Rate" Id="PR">
          <R_TabPage @ref="_tabPricingRate"

@@ -98,6 +98,7 @@ namespace LMM04500FRONT
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<UnitTypeCategoryDTO>(eventArgs.Data);
                 _viewModelPricing._unitTypeCategoryId = loParam.CUNIT_TYPE_CATEGORY_ID;
+                _viewModelPricing._unitTypeCategoryName = loParam.CUNIT_TYPE_CATEGORY_NAME;
                 await _gridPricingDate.R_RefreshGrid(null);
             }
             catch (Exception ex)
@@ -180,8 +181,13 @@ namespace LMM04500FRONT
         
         private void BeforeOpenPopup_AddNextPricing(R_BeforeOpenPopupEventArgs eventArgs)
         {
-            //eventArgs.Parameter = (TenantClassificationDTO)_gridTenantClassRef.GetCurrentData();
-            //eventArgs.TargetPageType = typeof(PopupAssignTenantMover);
+            eventArgs.Parameter = new PricingDTO()
+            {
+                CPROPERTY_ID = _viewModelPricing._propertyId,
+                CUNIT_TYPE_CATEGORY_ID = _viewModelPricing._unitTypeCategoryId,
+                CUNIT_TYPE_CATEGORY_NAME = _viewModelPricing._unitTypeCategoryName
+            };
+            eventArgs.TargetPageType = typeof(LMM04501PopupAdd);
         }
 
         private async Task AfterOpenPopup_AddNextPricing(R_AfterOpenPopupEventArgs eventArgs)

@@ -115,6 +115,27 @@ namespace LMM04500MODEL
             return loResult;
         }
 
+        public async Task<List<TypeDTO>> GetPriceChargesTypeAsync()
+        {
+            var loEx = new R_Exception();
+            List<TypeDTO> loResult = null;
+            try
+            {
+                R_HTTPClientWrapper.httpClientName = DEFAULT_HTTP_NAME;
+                loResult = await R_HTTPClientWrapper.R_APIRequestStreamingObject<TypeDTO>(
+                    _RequestServiceEndPoint,
+                    nameof(ILMM04500.GetPriceChargesType),
+                    DEFAULT_MODULE, _SendWithContext,
+                    _SendWithToken);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+            return loResult;
+        }
+
         public async Task SavePricingAsync(PricingSaveParamDTO poParam)
         {
             var loEx = new R_Exception();
@@ -158,6 +179,11 @@ namespace LMM04500MODEL
         }
 
         public PricingDumpResultDTO SavePricing(PricingSaveParamDTO poParam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IAsyncEnumerable<TypeDTO> GetPriceChargesType()
         {
             throw new NotImplementedException();
         }

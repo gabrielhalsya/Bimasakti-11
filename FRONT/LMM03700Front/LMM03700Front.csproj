@@ -20,6 +20,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\BS Shared Form\SOURCE\FRONT\GFF00900FrontResources\GFF00900FrontResources.csproj" />
+		<ProjectReference Include="..\..\..\..\BS Shared Form\SOURCE\FRONT\GFF00900FRONT\GFF00900FRONT.csproj" />
+		<ProjectReference Include="..\..\..\..\BS Shared Form\SOURCE\FRONT\GFF00900Model\GFF00900Model.csproj" />
 		<ProjectReference Include="..\..\COMMON\LM\LMM03700Common\LMM03700Common.csproj" />
 		<ProjectReference Include="..\LMM03700FrontResources\LMM03700FrontResources.csproj" />
 		<ProjectReference Include="..\LMM03700Model\LMM03700Model.csproj" />

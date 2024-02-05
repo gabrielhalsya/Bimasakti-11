@@ -155,6 +155,15 @@
               },
               "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM03700Model\\LMM03700Model.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\LMM03700Model\\LMM03700Model.csproj"
+              },
+              "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FrontResources\\GFF00900FrontResources.csproj": {
+                "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FrontResources\\GFF00900FrontResources.csproj"
+              },
+              "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\GFF00900FRONT.csproj": {
+                "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\GFF00900FRONT.csproj"
+              },
+              "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900Model\\GFF00900Model.csproj": {
+                "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900Model\\GFF00900Model.csproj"
               }
             }
           }
@@ -223,6 +232,255 @@
             "projectReferences": {
               "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM03700Common\\LMM03700Common.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM03700Common\\LMM03700Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj",
+        "projectName": "GFF00900COMMON",
+        "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FrontResources\\GFF00900FrontResources.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FrontResources\\GFF00900FrontResources.csproj",
+        "projectName": "GFF00900FrontResources",
+        "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FrontResources\\GFF00900FrontResources.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FrontResources\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\GFF00900FRONT.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\GFF00900FRONT.csproj",
+        "projectName": "GFF00900FRONT",
+        "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\GFF00900FRONT.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900FRONT\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj": {
+                "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj"
+              },
+              "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900Model\\GFF00900Model.csproj": {
+                "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900Model\\GFF00900Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[6.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900Model\\GFF00900Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900Model\\GFF00900Model.csproj",
+        "projectName": "GFF00900Model",
+        "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900Model\\GFF00900Model.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\GFF00900Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj": {
+                "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\GFF00900COMMON\\GFF00900COMMON.csproj"
               }
             }
           }

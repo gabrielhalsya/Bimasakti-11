@@ -175,6 +175,44 @@ namespace LMM04500BACK
             return loRtn;
         }
 
+        public List<TypeDTO> GetChargesPriceTypeList(TypeParam poParam)
+        {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
+            R_Exception loEx = new();
+            List<TypeDTO> loRtn = null;
+            R_Db loDB;
+            DbConnection loConn;
+            DbCommand loCmd;
+            string lcQuery;
+            try
+            {
+                loDB = new R_Db();
+                loConn = loDB.GetConnection();
+                loCmd = loDB.GetCommand();
+
+                lcQuery = "SELECT CCODE, CDESCRIPTION FROM RFT_GET_GSB_CODE_INFO(@CLASS_APPLICATION, @CCOMPANY_ID, @CLASS_ID, @REC_ID_LIST, @LANG_ID)";
+                loCmd.CommandType = CommandType.Text;
+                loCmd.CommandText = lcQuery;
+
+                loDB.R_AddCommandParameter(loCmd, "@CLASS_APPLICATION", DbType.String, int.MaxValue, poParam.CLASS_APPLICATION);
+                loDB.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, int.MaxValue, poParam.CCOMPANY_ID);
+                loDB.R_AddCommandParameter(loCmd, "@CLASS_ID", DbType.String, int.MaxValue, poParam.CLASS_ID);
+                loDB.R_AddCommandParameter(loCmd, "@REC_ID_LIST", DbType.String, int.MaxValue, poParam.REC_ID_LIST);
+                loDB.R_AddCommandParameter(loCmd, "@LANG_ID", DbType.Boolean, int.MaxValue, poParam.LANG_ID);
+
+                ShowLogDebug(lcQuery, loCmd.Parameters);
+                var loRtnTemp = loDB.SqlExecQuery(loConn, loCmd, true);
+                loRtn = R_Utility.R_ConvertTo<TypeDTO>(loRtnTemp).ToList();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                ShowLogError(loEx);
+            }
+            loEx.ThrowExceptionIfErrors();
+            return loRtn;
+        }
+
         public void SavePricing(PricingSaveParamDTO poParam)
         {
             R_Exception loEx = new R_Exception();

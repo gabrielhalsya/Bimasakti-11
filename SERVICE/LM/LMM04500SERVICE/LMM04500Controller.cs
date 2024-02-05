@@ -192,6 +192,38 @@ namespace LMM04500SERVICE
             return loRtn;
         }
 
+        [HttpPost]
+        public IAsyncEnumerable<TypeDTO> GetPriceChargesType()
+        {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
+            ShowLogStart();
+            R_Exception loException = new R_Exception();
+            List<TypeDTO> loRtnTemp = null;
+            LMM04500Cls loCls;
+            try
+            {
+                loCls = new LMM04500Cls();
+                ShowLogExecute();
+                loRtnTemp = loCls.GetChargesPriceTypeList(new TypeParam()
+                {
+                    CCOMPANY_ID = R_BackGlobalVar.COMPANY_ID,
+                    CLASS_APPLICATION = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CLASS_APPLICATION),
+                    CLASS_ID = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.CLASS_ID),
+                    REC_ID_LIST = R_Utility.R_GetStreamingContext<string>(ContextConstantLMM04500.REC_ID_LIST),
+                    LANG_ID = R_BackGlobalVar.CULTURE,
+                });
+            }
+            catch (Exception ex)
+            {
+                loException.Add(ex);
+                ShowLogError(loException);
+            }
+        EndBlock:
+            loException.ThrowExceptionIfErrors();
+            ShowLogEnd();
+            return StreamListHelper(loRtnTemp);
+        }
+
         #region (CRUD)NotImplementedException
 
         [HttpPost]
@@ -214,6 +246,7 @@ namespace LMM04500SERVICE
 
         }
 
+
         #endregion
 
         #region logger
@@ -225,6 +258,7 @@ namespace LMM04500SERVICE
         private void ShowLogEnd([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"End {pcMethodCallerName} in {GetType().Name}");
 
         private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
+
 
         #endregion
     }

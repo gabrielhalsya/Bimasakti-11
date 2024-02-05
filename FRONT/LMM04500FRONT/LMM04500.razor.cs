@@ -59,12 +59,12 @@ namespace LMM04500FRONT
                     //sending property another tab (will be catch at init master)
                     switch (_tabStripPricing.ActiveTab.Id)
                     {
-                        //case "NP":
-                        //    await _tabNextPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
-                        //    break;
-                        //case "HP":
-                        //    await _tabHistoryPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
-                        //    break;
+                        case "NP":
+                            await _tabNextPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
+                            break;
+                        case "HP":
+                            await _tabHistoryPricing.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
+                            break;
                         case "PR":
                             await _tabPricingRate.InvokeRefreshTabPageAsync(_viewModelPricing._propertyId);
                             break;

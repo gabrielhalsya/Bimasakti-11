@@ -20,6 +20,9 @@ namespace LMM04500FRONT
         private R_Conductor _conPricingRate;
         private R_Grid<PricingRateDTO> _gridPricingRate;
 
+        private R_Popup Popup_PricingRate;
+
+
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
@@ -41,6 +44,7 @@ namespace LMM04500FRONT
             try
             {
                 _viewModelPricingRate._propertyId = (string)poParam;
+                _viewModelPricingRate._pricingRateList = new();
                 await (_viewModelPricingRate._propertyId != "" ? _gridPricingRateDate.R_RefreshGrid(null) : Task.CompletedTask);
             }
             catch (Exception ex)
@@ -128,6 +132,34 @@ namespace LMM04500FRONT
             try
             {
                 eventArgs.Result = R_FrontUtility.ConvertObjectToObject<PricingRateDTO>(eventArgs.Data);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+
+        #endregion
+
+        #region Add
+
+        private void BeforeOpenPopup_PricingRate(R_BeforeOpenPopupEventArgs eventArgs)
+        {
+            eventArgs.Parameter = (string)_viewModelPricingRate._pricingRateDate;
+            //eventArgs.TargetPageType = typeof(PopupAssignTenantMover);
+        }
+
+        private async Task AfterOpenPopup_PricingRate(R_AfterOpenPopupEventArgs eventArgs)
+        {
+            R_Exception loEx = new R_Exception();
+            try
+            {
+                if (eventArgs.Result == null)
+                {
+                    return;
+                }
+                await _gridPricingRate.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {

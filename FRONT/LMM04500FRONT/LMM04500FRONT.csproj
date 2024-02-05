@@ -11,6 +11,10 @@
 	</ItemGroup>
 	
 	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\BS Shared Form\SOURCE\BACK\GFF00900COMMON\GFF00900COMMON.csproj" />
+	  <ProjectReference Include="..\..\..\..\BS Shared Form\SOURCE\FRONT\GFF00900FrontResources\GFF00900FrontResources.csproj" />
+	  <ProjectReference Include="..\..\..\..\BS Shared Form\SOURCE\FRONT\GFF00900FRONT\GFF00900FRONT.csproj" />
+	  <ProjectReference Include="..\..\..\..\BS Shared Form\SOURCE\FRONT\GFF00900Model\GFF00900Model.csproj" />
 	  <ProjectReference Include="..\LMM04500MODEL\LMM04500MODEL.csproj" />
 		<ProjectReference Include="..\..\COMMON\LM\LMM04500COMMON\LMM04500COMMON.csproj" />
 
