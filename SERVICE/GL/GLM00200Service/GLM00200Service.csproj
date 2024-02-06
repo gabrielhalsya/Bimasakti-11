@@ -13,7 +13,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\BACK\GL\GLM00200Back\GLM00200Back.csproj" />
-		<ProjectReference Include="..\..\..\COMMON\GL\GLM00200Common\GLM00200Common.csproj" />
+		<ProjectReference Include="..\..\..\COMMON\GL\GLM00200COMMON\GLM00200COMMON.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -28,6 +28,9 @@
 		</Reference>
 		<Reference Include="R_CommonFrontBackAPI">
 			<HintPath>..\..\..\..\..\SYSTEM\SOURCE\LIBRARY\Back\R_CommonFrontBackAPI.dll</HintPath>
+		</Reference>
+		<Reference Include="R_OpenTelemetry">
+		  <HintPath>..\..\..\..\..\SYSTEM\SOURCE\LIBRARY\Back\R_OpenTelemetry.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 

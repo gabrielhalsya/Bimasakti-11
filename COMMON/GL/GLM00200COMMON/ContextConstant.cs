@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace GLM00200COMMON
 
-namespace GLM00200Common
 {
-    public class RecurringJournalContext
+    public class ContextConstant
     {
+        public const string VAR_TRANS_CODE = "000000";
+        public const string CREC_ID = "CREC_ID";
         public const string CDEPT_CODE = "CDEPT_CODE";
+        public const string CPERIOD = "CPERIOD";
+        public const string CSTATUS = "CSTATUS";
+        public const string CSEARCH_TEXT = "CSEARCH_TEXT";
+
         public const string CCURRENT_PERIOD_YY = "CCURRENT_PERIOD_YY";
         public const string CCURRENT_PERIOD_MM = "CCURRENT_PERIOD_MM";
         public const string CSOFT_PERIOD_YY = "CSOFT_PERIOD_YY";
         public const string CSOFT_PERIOD_MM = "CSOFT_PERIOD_MM";
         public const string OSEARCH_PARAM = "OSEARCH_PARAM";
-        public const string CREC_ID = "CREC_ID";
         public const string REFRESH_CURRENCY_RATE_PARAM = "REFRESH_CURRENCY_RATE_PARAM";
         public const string CCURRENCY_CODE = "CCURRENCY_CODE";
         public const string CSTART_DATE = "CSTART_DATE";

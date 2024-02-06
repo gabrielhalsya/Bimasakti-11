@@ -1,13 +1,12 @@
-﻿using R_APICommonDTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
-namespace GLM00200Common
+namespace GLM00200COMMON
 {
-    public class CurrencyRateResult : R_APIResultBaseDTO
+    public class GLM00210LastCurrencyRateDTO
     {
-
         public string CCURRENCY_CODE { get; set; }
         public string CRATETYPE_CODE { get; set; }
         public string CRATE_DATE { get; set; }

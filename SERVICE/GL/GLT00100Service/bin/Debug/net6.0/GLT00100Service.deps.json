@@ -102,6 +102,22 @@
           }
         }
       },
+      "RSP_GL_SAVE_JOURNALResources/1.0.0.0": {
+        "runtime": {
+          "RSP_GL_SAVE_JOURNALResources.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "RSP_GL_UPDATE_JOURNAL_STATUSResources/1.0.0.0": {
+        "runtime": {
+          "RSP_GL_UPDATE_JOURNAL_STATUSResources.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "R_APICommonDTO/1.0.0.0": {
         "runtime": {
           "R_APICommonDTO.dll": {
@@ -191,6 +207,16 @@
       "sha512": ""
     },
     "R_ReportFastReportBack/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_SAVE_JOURNALResources/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_UPDATE_JOURNAL_STATUSResources/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

@@ -187,7 +187,7 @@ namespace LMM04500FRONT
                 CUNIT_TYPE_CATEGORY_ID = _viewModelPricing._unitTypeCategoryId,
                 CUNIT_TYPE_CATEGORY_NAME = _viewModelPricing._unitTypeCategoryName
             };
-            eventArgs.TargetPageType = typeof(LMM04501PopupAdd);
+            //eventArgs.TargetPageType = typeof(LMM04501PopupAdd);
         }
 
         private async Task AfterOpenPopup_AddNextPricing(R_AfterOpenPopupEventArgs eventArgs)

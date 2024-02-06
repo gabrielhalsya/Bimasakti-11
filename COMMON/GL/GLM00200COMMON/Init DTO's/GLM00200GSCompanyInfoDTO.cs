@@ -1,13 +1,11 @@
-﻿using R_APICommonDTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GLM00200Common
+namespace GLM00200COMMON
 {
-    public class CompanyDTO
+    public class GLM00200GSCompanyInfoDTO
     {
-   
         public string CCOGS_METHOD { get; set; }
         public bool LENABLE_CENTER_IS { get; set; }
         public bool LENABLE_CENTER_BS { get; set; }

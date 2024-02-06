@@ -4149,7 +4149,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "LMM04500COMMON": "1.0.0",
-          "Realta.BackCollectionNuGet": "1.0.1"
+          "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
           "bin/placeholder/LMM04500BACK.dll": {}

@@ -2444,25 +2444,6 @@
           "GLM00200Common.dll": {}
         }
       },
-      "GLM00200Service/1.0.0": {
-        "dependencies": {
-          "GLM00200Back": "1.0.0",
-          "GLM00200Common": "1.0.0",
-          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
-          "Realta.BackCollectionNuGet": "1.0.1"
-        },
-        "runtime": {
-          "GLM00200Service.dll": {}
-        },
-        "resources": {
-          "id/R_APIBackEnd.resources.dll": {
-            "locale": "id"
-          },
-          "ja/R_APIBackEnd.resources.dll": {
-            "locale": "ja"
-          }
-        }
-      },
       "GLTR00100BACK/1.0.0": {
         "dependencies": {
           "GLTR00100COMMON": "1.0.0"
@@ -2485,6 +2466,14 @@
         },
         "runtime": {
           "GLTR00100SERVICE.dll": {}
+        },
+        "resources": {
+          "id/R_APIBackEnd.resources.dll": {
+            "locale": "id"
+          },
+          "ja/R_APIBackEnd.resources.dll": {
+            "locale": "ja"
+          }
         }
       },
       "RSP_GL_PROCESS_RECURRINGResources/1.0.0": {
@@ -2534,9 +2523,9 @@
           }
         }
       },
-      "R_CommonFrontBackAPI/1.0.0.0": {
+      "GLT00100COMMON/1.0.0.0": {
         "runtime": {
-          "R_CommonFrontBackAPI.dll": {
+          "GLT00100COMMON.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -2550,33 +2539,17 @@
           }
         }
       },
-      "R_APIBackEnd/1.0.0.0": {
-        "runtime": {
-          "R_APIBackEnd.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "resources": {
-          "id/R_APIBackEnd.resources.dll": {
-            "locale": "id"
-          },
-          "ja/R_APIBackEnd.resources.dll": {
-            "locale": "ja"
-          }
-        }
-      },
-      "GLT00100COMMON/1.0.0.0": {
-        "runtime": {
-          "GLT00100COMMON.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "GLT00100BACK/1.0.0.0": {
         "runtime": {
           "GLT00100BACK.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_CommonFrontBackAPI/1.0.0.0": {
+        "runtime": {
+          "R_CommonFrontBackAPI.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -2595,6 +2568,22 @@
           "R_ReportFastReportBack.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_APIBackEnd/1.0.0.0": {
+        "runtime": {
+          "R_APIBackEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "resources": {
+          "id/R_APIBackEnd.resources.dll": {
+            "locale": "id"
+          },
+          "ja/R_APIBackEnd.resources.dll": {
+            "locale": "ja"
           }
         }
       },
@@ -2689,6 +2678,22 @@
       "R_Security/1.0.0.0": {
         "runtime": {
           "R_Security.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "RSP_GL_SAVE_JOURNALResources/1.0.0.0": {
+        "runtime": {
+          "RSP_GL_SAVE_JOURNALResources.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "RSP_GL_UPDATE_JOURNAL_STATUSResources/1.0.0.0": {
+        "runtime": {
+          "RSP_GL_UPDATE_JOURNAL_STATUSResources.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -4278,11 +4283,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "GLM00200Service/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "GLTR00100BACK/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -4333,7 +4333,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_CommonFrontBackAPI/1.0.0.0": {
+    "GLT00100COMMON/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -4343,17 +4343,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_APIBackEnd/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "GLT00100COMMON/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "GLT00100BACK/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_CommonFrontBackAPI/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -4364,6 +4359,11 @@
       "sha512": ""
     },
     "R_ReportFastReportBack/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_APIBackEnd/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -4424,6 +4424,16 @@
       "sha512": ""
     },
     "R_Security/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_SAVE_JOURNALResources/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_UPDATE_JOURNAL_STATUSResources/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

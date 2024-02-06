@@ -7,14 +7,23 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "GLM00200Common/1.0.0": {
+      "GLM00200COMMON/1.0.0": {
         "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0.0",
           "R_APICommon": "1.0.0.0",
           "R_APICommonDTO": "1.0.0.0",
           "R_CommonFrontBackAPI": "1.0.0.0"
         },
         "runtime": {
-          "GLM00200Common.dll": {}
+          "GLM00200COMMON.dll": {}
+        }
+      },
+      "BaseHeaderReportCOMMON/1.0.0.0": {
+        "runtime": {
+          "BaseHeaderReportCOMMON.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APICommon/1.0.0.0": {
@@ -68,8 +77,13 @@
     }
   },
   "libraries": {
-    "GLM00200Common/1.0.0": {
+    "GLM00200COMMON/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BaseHeaderReportCOMMON/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

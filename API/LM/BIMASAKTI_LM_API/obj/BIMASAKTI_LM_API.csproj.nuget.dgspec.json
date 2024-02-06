@@ -332,9 +332,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Realta.BackCollectionNuGet": {
+            "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[4.8.5, )"
             }
           },
           "imports": [

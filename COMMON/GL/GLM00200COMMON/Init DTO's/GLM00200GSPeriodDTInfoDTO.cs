@@ -1,11 +1,10 @@
-﻿using R_APICommonDTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GLM00200Common
+namespace GLM00200COMMON
 {
-    public class PeriodDetailInfoDTO
+    public class GLM00200GSPeriodDTInfoDTO
     {
         public string CCYEAR { get; set; }
         public string CPERIOD_NO { get; set; }
@@ -13,4 +12,9 @@ namespace GLM00200Common
         public string CEND_DATE { get; set; }
     }
 
+    public class GLM00200ParamGSPeriodDTInfoDTO
+    {
+        public string CCYEAR { get; set; }
+        public string CPERIOD_NO { get; set; }
+    }
 }

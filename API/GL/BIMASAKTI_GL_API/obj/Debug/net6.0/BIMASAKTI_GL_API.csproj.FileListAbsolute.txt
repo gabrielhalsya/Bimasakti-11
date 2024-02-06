@@ -173,7 +173,6 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\BaseHeaderRe
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\BlazorMenuService.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Back.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Common.dll
-D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Service.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLT00100SERVICE.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLTR00100BACK.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLTR00100COMMON.dll
@@ -205,7 +204,6 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_ExceptionA
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
-D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Service.pdb
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLT00100SERVICE.pdb
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLTR00100SERVICE.pdb
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\BaseHeaderReportCOMMON.pdb
@@ -245,3 +243,7 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\refint\BIMAS
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.pdb
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.genruntimeconfig.cache
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\ref\BIMASAKTI_GL_API.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_SAVE_JOURNALResources.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_UPDATE_JOURNAL_STATUSResources.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_SAVE_JOURNALResources.pdb
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\RSP_GL_UPDATE_JOURNAL_STATUSResources.pdb
