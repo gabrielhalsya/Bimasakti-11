@@ -6,16 +6,19 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "GLT00100Back/1.0.0": {
+      "GLT00100BACK/1.0.0": {
         "dependencies": {
-          "GLT00100Common": "1.0.0",
+          "GLT00100COMMON": "1.0.0",
+          "RSP_GL_SAVE_JOURNALResources": "1.0.0",
+          "RSP_GL_UPDATE_JOURNAL_STATUSResources": "1.0.0",
           "System.Data.SqlClient": "4.8.5",
           "R_APIBackEnd": "1.0.0.0",
           "R_APICommon": "1.0.0.0",
-          "R_CommonFrontBackAPI": "1.0.0.0"
+          "R_CommonFrontBackAPI": "1.0.0.0",
+          "R_OpenTelemetry": "1.0.0.0"
         },
         "runtime": {
-          "GLT00100Back.dll": {}
+          "GLT00100BACK.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {},
@@ -93,9 +96,27 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
-      "GLT00100Common/1.0.0": {
+      "BaseHeaderReportCOMMON/1.0.0": {
         "runtime": {
-          "GLT00100Common.dll": {}
+          "BaseHeaderReportCOMMON.dll": {}
+        }
+      },
+      "GLT00100COMMON/1.0.0": {
+        "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
+        "runtime": {
+          "GLT00100COMMON.dll": {}
+        }
+      },
+      "RSP_GL_SAVE_JOURNALResources/1.0.0": {
+        "runtime": {
+          "RSP_GL_SAVE_JOURNALResources.dll": {}
+        }
+      },
+      "RSP_GL_UPDATE_JOURNAL_STATUSResources/1.0.0": {
+        "runtime": {
+          "RSP_GL_UPDATE_JOURNAL_STATUSResources.dll": {}
         }
       },
       "R_APIBackEnd/1.0.0.0": {
@@ -125,6 +146,14 @@
       "R_CommonFrontBackAPI/1.0.0.0": {
         "runtime": {
           "R_CommonFrontBackAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_OpenTelemetry/1.0.0.0": {
+        "runtime": {
+          "R_OpenTelemetry.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -173,7 +202,7 @@
     }
   },
   "libraries": {
-    "GLT00100Back/1.0.0": {
+    "GLT00100BACK/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -241,7 +270,22 @@
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
-    "GLT00100Common/1.0.0": {
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLT00100COMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_SAVE_JOURNALResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RSP_GL_UPDATE_JOURNAL_STATUSResources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -257,6 +301,11 @@
       "sha512": ""
     },
     "R_CommonFrontBackAPI/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_OpenTelemetry/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

@@ -1,4 +1,5 @@
-﻿using BaseHeaderReportCommon.BaseHeader;
+﻿using BaseHeaderReportCommon.Model;
+using BaseHeaderReportCOMMON;
 using System;
 using System.Collections.Generic;
 using System.Text;

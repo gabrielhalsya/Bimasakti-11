@@ -2,15 +2,9 @@
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
-using System;
-using System.Collections.Generic;
 using System.Data.Common;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LMM00200Common.DTO_s;
-using RSP_LM_MAINTAIN_USER_PARAMResources;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -19,7 +13,7 @@ namespace LMM00200Back
     public class LMM00200Cls : R_BusinessObject<LMM00200DTO>
     {
 
-        Resources_Dummy_Class rspUserParam = new();
+        RSP_LM_MAINTAIN_USER_PARAMResources.Resources_Dummy_Class rspUserParam = new();
 
         private LMM00200Logger _logger;
 

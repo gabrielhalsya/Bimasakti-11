@@ -1,4 +1,6 @@
-﻿--get property 
+﻿delete from sat_locking where cuser_id = 'GHC' 
+
+--get property 
 EXEC RSP_GS_GET_PROPERTY_LIST 'rcd','ghc'
 
 --get unit type ctg

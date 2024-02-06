@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCommon.csproj": {}
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {}
   },
   "projects": {
-    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCommon.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCommon.csproj",
-        "projectName": "BaseHeaderReportCommon",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCommon.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj",
+        "projectName": "BaseHeaderReportCOMMON",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
         "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\obj\\",
         "projectStyle": "PackageReference",

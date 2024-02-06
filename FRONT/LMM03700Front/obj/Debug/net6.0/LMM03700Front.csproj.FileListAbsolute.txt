@@ -74,3 +74,14 @@ D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.dl
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\refint\LMM03700Front.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\ref\LMM03700Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.staticwebassets.runtime.json
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Front.staticwebassets.runtime.json
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900COMMON.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900Model.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_CrossPlatformSecurity.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FrontResources.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900COMMON.pdb

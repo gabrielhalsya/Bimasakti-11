@@ -1,6 +1,7 @@
 ﻿using GFF00900COMMON.DTOs;
 using LMM04500COMMON.DTO_s;
 using LMM04500MODEL;
+using Microsoft.AspNetCore.Components;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
@@ -23,6 +24,8 @@ namespace LMM04500FRONT
         private R_ConductorGrid _conGridPricing;
         private R_Grid<PricingBulkSaveDTO> _gridPricing;
         private LMM04500ViewModel _viewModel = new();
+        
+        [Inject] R_PopupService PopupService { get; set; }
 
         protected override async Task R_Init_From_Master(object poParameter)
         {
@@ -70,6 +73,7 @@ namespace LMM04500FRONT
 
         }
 
+
         #region Save Batch
 
         private async Task R_BeforeSaveBatchAsync(R_BeforeSaveBatchEventArgs eventArgs)
@@ -104,7 +108,7 @@ namespace LMM04500FRONT
                                     Data = loValidateViewModel.loRspActivityValidityList,
                                     IAPPROVAL_CODE = "GSM04001"
                                 };
-                                loResult = await R_PopupService.Show(typeof(GFF00900FRONT.GFF00900), loParam);
+                                loResult = await PopupService.Show(typeof(GFF00900FRONT.GFF00900), loParam);
                                 if (loResult.Success == false || (bool)loResult.Result == false)
                                 {
                                     eventArgs.Cancel = true;
@@ -112,39 +116,6 @@ namespace LMM04500FRONT
                             }
                         }
                         //~End approval
-                        break;
-
-                    //case validation when editmode
-                    case R_eConductorMode.Edit:
-
-                        //check when changing everyone then delete user
-                        if (_deptViewModel._Department.LEVERYONE == false && loData.LEVERYONE == true)
-                        {
-                            await _deptViewModel.CheckIsUserDeptExistAsync();
-                            if (_deptViewModel._isUserDeptExist)
-                            {
-                                var loConfirm = await R_MessageBox.Show("Delete Confirmation", "Changing Value Everyone will delete User for this Department", R_eMessageBoxButtonType.OKCancel);
-                                if (loConfirm == R_eMessageBoxResult.Cancel)
-                                {
-                                    eventArgs.Cancel = true;
-                                }
-                                await _deptViewModel.DeleteAssignedUserWhenChangeEveryone();
-                            }
-                        }
-                        //
-
-                        if (string.IsNullOrEmpty(loData.CDEPT_CODE) || string.IsNullOrWhiteSpace(loData.CDEPT_CODE))
-                        {
-                            loEx.Add("001", "Department Code can not be empty");
-                        }
-                        if (string.IsNullOrEmpty(loData.CDEPT_NAME) || string.IsNullOrWhiteSpace(loData.CDEPT_NAME))
-                        {
-                            loEx.Add("002", "Department Name can not be empty");
-                        }
-                        if (string.IsNullOrEmpty(loData.CCENTER_CODE) || string.IsNullOrWhiteSpace(loData.CCENTER_CODE))
-                        {
-                            loEx.Add("003", "Center can not be empty");
-                        }
                         break;
                 }
             }

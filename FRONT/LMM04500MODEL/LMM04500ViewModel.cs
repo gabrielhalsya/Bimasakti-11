@@ -41,6 +41,7 @@ namespace LMM04500MODEL
         public string _propertyId { get; set; } = "";
 
         public string _unitTypeCategoryId { get; set; } = "";
+
         public string _unitTypeCategoryName { get; set; } = "";
 
         public string _validId { get; set; } = "";
@@ -48,8 +49,9 @@ namespace LMM04500MODEL
         public string _validDate { get; set; } = "";
 
         public string _classId { get; set; } = "";
-        public string _recIdCharList { get; set; } = "";
 
+        public string _recIdCharList { get; set; } = "";
+        
         public bool _tabNextPricingIsActive { get; set; } = false;
 
         public bool _tabHistoryPricingIsActive { get; set; } = false;
@@ -181,7 +183,6 @@ namespace LMM04500MODEL
             }
             loEx.ThrowExceptionIfErrors();
         }
-
 
         public async Task GetPriceType()
         {

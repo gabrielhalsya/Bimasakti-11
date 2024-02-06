@@ -2,9 +2,9 @@
   <ItemGroup>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\background.png))">
       <SourceType>Package</SourceType>
-      <SourceId>GLT00100Front</SourceId>
+      <SourceId>GLT00100FRONT</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/GLT00100Front</BasePath>
+      <BasePath>_content/GLT00100FRONT</BasePath>
       <RelativePath>background.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
@@ -18,9 +18,9 @@
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\exampleJsInterop.js))">
       <SourceType>Package</SourceType>
-      <SourceId>GLT00100Front</SourceId>
+      <SourceId>GLT00100FRONT</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/GLT00100Front</BasePath>
+      <BasePath>_content/GLT00100FRONT</BasePath>
       <RelativePath>exampleJsInterop.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>

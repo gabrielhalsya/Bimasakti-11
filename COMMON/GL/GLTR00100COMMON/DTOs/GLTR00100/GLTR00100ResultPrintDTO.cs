@@ -1,4 +1,4 @@
-﻿using BaseHeaderReportCommon.BaseHeader;
+﻿using BaseHeaderReportCOMMON;
 using System.Collections.Generic;
 
 namespace GLTR00100COMMON

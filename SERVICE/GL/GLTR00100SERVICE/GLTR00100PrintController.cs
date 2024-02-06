@@ -1,4 +1,4 @@
-﻿using BaseHeaderReportCommon.BaseHeader;
+﻿using BaseHeaderReportCOMMON;
 using GLTR00100BACK;
 using GLTR00100COMMON;
 using Microsoft.AspNetCore.Authorization;

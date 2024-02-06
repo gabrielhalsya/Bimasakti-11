@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "QNZ7wKZHoEnBQZiYXohfN0WxPClZoL/OkLUrPiGY51Q=",
-  "Source": "GLT00100Front",
-  "BasePath": "_content/GLT00100Front",
+  "Hash": "ZfMV8B3iJ9YXrjHDqbMmSajA7En3zFSzWO5NbWtIsFk=",
+  "Source": "GLT00100FRONT",
+  "BasePath": "_content/GLT00100FRONT",
   "Mode": "Default",
   "ManifestType": "Publish",
   "ReferencedProjectsConfiguration": [
@@ -31,10 +31,10 @@
   ],
   "DiscoveryPatterns": [
     {
-      "Name": "GLT00100Front\\wwwroot",
-      "Source": "GLT00100Front",
-      "ContentRoot": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\wwwroot\\",
-      "BasePath": "_content/GLT00100Front",
+      "Name": "GLT00100FRONT\\wwwroot",
+      "Source": "GLT00100FRONT",
+      "ContentRoot": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FRONT\\wwwroot\\",
+      "BasePath": "_content/GLT00100FRONT",
       "Pattern": "**"
     },
     {
@@ -47,11 +47,11 @@
   ],
   "Assets": [
     {
-      "Identity": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\wwwroot\\background.png",
-      "SourceId": "GLT00100Front",
+      "Identity": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FRONT\\wwwroot\\background.png",
+      "SourceId": "GLT00100FRONT",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\wwwroot\\",
-      "BasePath": "_content/GLT00100Front",
+      "ContentRoot": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FRONT\\wwwroot\\",
+      "BasePath": "_content/GLT00100FRONT",
       "RelativePath": "background.png",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -66,11 +66,11 @@
       "OriginalItemSpec": "wwwroot\\background.png"
     },
     {
-      "Identity": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\wwwroot\\exampleJsInterop.js",
-      "SourceId": "GLT00100Front",
+      "Identity": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FRONT\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "GLT00100FRONT",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\wwwroot\\",
-      "BasePath": "_content/GLT00100Front",
+      "ContentRoot": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FRONT\\wwwroot\\",
+      "BasePath": "_content/GLT00100FRONT",
       "RelativePath": "exampleJsInterop.js",
       "AssetKind": "All",
       "AssetMode": "All",

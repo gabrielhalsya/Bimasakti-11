@@ -60,6 +60,7 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_APICommon.dl
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_ContextBackEnd.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_AuthorizationBack.Abstract.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\GLTR00100COMMON.pdb
@@ -77,4 +78,3 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\obj\Debug\net6.0\GLTR00100BACK.
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\obj\Debug\net6.0\refint\GLTR00100BACK.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\obj\Debug\net6.0\GLTR00100BACK.pdb
 D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\obj\Debug\net6.0\ref\GLTR00100BACK.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GLTR00100BACK\bin\Debug\net6.0\R_AuthorizationBack.Abstract.dll

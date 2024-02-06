@@ -1,5 +1,5 @@
 is_global = true
-build_property.RootNamespace = BaseHeaderReportCommon
+build_property.RootNamespace = BaseHeaderReportCOMMON
 build_property.ProjectDir = D:\repos\BS Program\SOURCE\COMMON\BaseHeaderReportCommon\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

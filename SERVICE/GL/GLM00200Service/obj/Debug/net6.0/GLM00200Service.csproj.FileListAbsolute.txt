@@ -11,6 +11,7 @@ D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\R_APIComm
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\R_ContextBackEnd.dll
+D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\R_AuthorizationBack.Abstract.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\GLM00200Back.pdb
@@ -31,4 +32,3 @@ D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200S
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\refint\GLM00200Service.dll
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\GLM00200Service.pdb
 D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\obj\Debug\net6.0\ref\GLM00200Service.dll
-D:\repos\BS Program\SOURCE\SERVICE\GL\GLM00200Service\bin\Debug\net6.0\R_AuthorizationBack.Abstract.dll

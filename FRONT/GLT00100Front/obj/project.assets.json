@@ -2,11 +2,11 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Microsoft.AspNetCore.Authorization/6.0.20": {
+      "Microsoft.AspNetCore.Authorization/6.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "6.0.20",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.4",
+          "Microsoft.AspNetCore.Metadata": "6.0.15",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.3",
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
@@ -20,11 +20,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components/6.0.20": {
+      "Microsoft.AspNetCore.Components/6.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "6.0.20",
-          "Microsoft.AspNetCore.Components.Analyzers": "6.0.20"
+          "Microsoft.AspNetCore.Authorization": "6.0.15",
+          "Microsoft.AspNetCore.Components.Analyzers": "6.0.15"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.dll": {
@@ -37,16 +37,16 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/6.0.20": {
+      "Microsoft.AspNetCore.Components.Analyzers/6.0.15": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/6.0.20": {
+      "Microsoft.AspNetCore.Components.Forms/6.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.20"
+          "Microsoft.AspNetCore.Components": "6.0.15"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -59,13 +59,13 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Web/6.0.20": {
+      "Microsoft.AspNetCore.Components.Web/6.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.20",
-          "Microsoft.AspNetCore.Components.Forms": "6.0.20",
+          "Microsoft.AspNetCore.Components": "6.0.15",
+          "Microsoft.AspNetCore.Components.Forms": "6.0.15",
           "Microsoft.Extensions.DependencyInjection": "6.0.1",
-          "Microsoft.JSInterop": "6.0.20",
+          "Microsoft.JSInterop": "6.0.15",
           "System.IO.Pipelines": "6.0.3"
         },
         "compile": {
@@ -79,7 +79,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Metadata/6.0.20": {
+      "Microsoft.AspNetCore.Metadata/6.0.15": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
@@ -128,7 +128,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/6.0.4": {
+      "Microsoft.Extensions.Logging.Abstractions/6.0.3": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
@@ -180,7 +180,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.JSInterop/6.0.20": {
+      "Microsoft.JSInterop/6.0.15": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.JSInterop.dll": {
@@ -241,31 +241,11 @@
           "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
         }
       },
-      "GLT00100Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/GLT00100Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GLT00100Common.dll": {}
-        }
-      },
-      "GLT00100FrontResources/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/GLT00100FrontResources.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GLT00100FrontResources.dll": {}
-        }
-      },
       "GLT00100Model/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "GLT00100Common": "1.0.0"
+          "Lookup_GSModel": "1.0.0"
         },
         "compile": {
           "bin/placeholder/GLT00100Model.dll": {}
@@ -342,7 +322,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Lookup_GSCOMMON": "1.0.0",
           "Lookup_GSModel": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.15"
         },
@@ -356,6 +335,9 @@
       "Lookup_GSFrontResources/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
+        },
         "compile": {
           "bin/placeholder/Lookup_GSFrontResources.dll": {}
         },
@@ -368,7 +350,8 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Lookup_GSCOMMON": "1.0.0",
-          "Lookup_GSFrontResources": "1.0.0"
+          "Lookup_GSFrontResources": "1.0.0",
+          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
         },
         "compile": {
           "bin/placeholder/Lookup_GSModel.dll": {}
@@ -380,10 +363,10 @@
     }
   },
   "libraries": {
-    "Microsoft.AspNetCore.Authorization/6.0.20": {
-      "sha512": "6zKE0FO2K5XQHzvfirA2DZxRSKDWYpUayIBjw/E720/eDZgFeSacxxv+GS/UmeqOS/yKnXDqQt9GJ9dPuzrgRA==",
+    "Microsoft.AspNetCore.Authorization/6.0.15": {
+      "sha512": "STjQZVKTwbvwKJXR5agYUOgDbi2ZOYtFgRVnVOWZFD+4VxEOgNrP6MWsur3v9jiM0gRCGxczRCB6M65byJ8L+w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authorization/6.0.20",
+      "path": "microsoft.aspnetcore.authorization/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -395,14 +378,14 @@
         "lib/net6.0/Microsoft.AspNetCore.Authorization.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.6.0.20.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.6.0.15.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components/6.0.20": {
-      "sha512": "jspQ790G967an/Ur7da0f1S9vrjZCxI88HKuVEfgx35kq1J027Wjavde0pO5ZyVHrHDH+mCCAaXpxYnnFmPERg==",
+    "Microsoft.AspNetCore.Components/6.0.15": {
+      "sha512": "IEzta5yOeq558iB1e442vfOjGh9F6/yTYCrvgQjSldrOjplSmtunnHE8v0tJwZTk07PlxP4jeGJOo81f+4b5kw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components/6.0.20",
+      "path": "microsoft.aspnetcore.components/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -410,14 +393,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.xml",
-        "microsoft.aspnetcore.components.6.0.20.nupkg.sha512",
+        "microsoft.aspnetcore.components.6.0.15.nupkg.sha512",
         "microsoft.aspnetcore.components.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Analyzers/6.0.20": {
-      "sha512": "RHA2EQQAlvxWPfzPWJI4HijwtSJItexaETTQWsFm4keNgtlS4J+B0t1B1x/84M/wjpTG4cncaKcXnE1HpaS7Ig==",
+    "Microsoft.AspNetCore.Components.Analyzers/6.0.15": {
+      "sha512": "SY3lpvgNeGiCHbBi+B8yIB/LhfvXUtXdHLEasFf+ervZ0qEaGyN+qF92Xk70rVpmXZrK3bxAtr1Fez2ufepU6w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/6.0.20",
+      "path": "microsoft.aspnetcore.components.analyzers/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -426,14 +409,14 @@
         "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
         "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.6.0.20.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.6.0.15.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Forms/6.0.20": {
-      "sha512": "sDebyBBImJU72bkt6EqUCutT1ZWcrm16w/MthkL3eIs8euNKLn7Xt8Bz3dAUE2MJCcxqd9AZDotlbdyu7XQV9w==",
+    "Microsoft.AspNetCore.Components.Forms/6.0.15": {
+      "sha512": "eYn6YId3ImDjkL0Rleno5bNf131IQVfa4p0XajJYfVfXoReQqHqJFQOOLaKboObXFcbLtR+5zTTH9yc7SN1HSA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/6.0.20",
+      "path": "microsoft.aspnetcore.components.forms/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -441,14 +424,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.6.0.20.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.6.0.15.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Web/6.0.20": {
-      "sha512": "oLiI+0YPMb7miSMh8Su4l0nwGJ/HKXyQPDbAFgdBlDQSrYC5OuVfe0PhlxMPkiJaGiYolDATPWYyGKOwA31K7w==",
+    "Microsoft.AspNetCore.Components.Web/6.0.15": {
+      "sha512": "nRqJv7KTc+uSgbfBfGAfQyQB4W2st+DpTFygNDnu1C+7TLSIT7rLI/VACraHimXPmCRkB0gFuTz1mKPbVylKSg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.web/6.0.20",
+      "path": "microsoft.aspnetcore.components.web/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -456,14 +439,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.6.0.20.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.6.0.15.nupkg.sha512",
         "microsoft.aspnetcore.components.web.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Metadata/6.0.20": {
-      "sha512": "RAOQyXJk3JuA+hW1yRRnkdxPsyZ+vLlufwpD0uLHcLIEyIzK/FtKQ/CegrN09pmAZzWvgteISz9IXN+xJGOQnQ==",
+    "Microsoft.AspNetCore.Metadata/6.0.15": {
+      "sha512": "J1+dXw+8nI/FZ5RO7eKWJcBDC2ywCns1sbhk9f+RT1QjLqH7GLGHDHUpYlEy59Lf0DBZT7PHQzTeq9ZKAPk8yQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.metadata/6.0.20",
+      "path": "microsoft.aspnetcore.metadata/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -475,7 +458,7 @@
         "lib/net6.0/Microsoft.AspNetCore.Metadata.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
-        "microsoft.aspnetcore.metadata.6.0.20.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.6.0.15.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
@@ -529,10 +512,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/6.0.4": {
-      "sha512": "K14wYgwOfKVELrUh5eBqlC8Wvo9vvhS3ZhIvcswV2uS/ubkTRPSQsN557EZiYUSSoZNxizG+alN4wjtdyLdcyw==",
+    "Microsoft.Extensions.Logging.Abstractions/6.0.3": {
+      "sha512": "SUpStcdjeBbdKjPKe53hVVLkFjylX0yIXY8K+xWa47+o1d+REDyOMZjHZa+chsQI1K9qZeiHWk9jos0TFU7vGg==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/6.0.4",
+      "path": "microsoft.extensions.logging.abstractions/6.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -576,7 +559,7 @@
         "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.6.0.4.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.6.0.3.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -627,10 +610,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.JSInterop/6.0.20": {
-      "sha512": "QGyHbd8syEFh7vd7ROTb8Q36FO1Kz4xQIDzH/+N7m15x3hAtvXcboySfjEcLbP3uemgIh0hsZy4khcAfXuFsfg==",
+    "Microsoft.JSInterop/6.0.15": {
+      "sha512": "0pGIlgMfwFKOsaxCdGNIlftIUbWW8FdF5EYiewYfENgArmlHfwWHF629M14Hv6+6KsOnnKjulN8/VxdTov27Eg==",
       "type": "package",
-      "path": "microsoft.jsinterop/6.0.20",
+      "path": "microsoft.jsinterop/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -638,7 +621,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net6.0/Microsoft.JSInterop.dll",
         "lib/net6.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.6.0.20.nupkg.sha512",
+        "microsoft.jsinterop.6.0.15.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
       ]
     },
@@ -729,16 +712,6 @@
       "path": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
       "msbuildProject": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
     },
-    "GLT00100Common/1.0.0": {
-      "type": "project",
-      "path": "../../COMMON/GL/GLT00100Common/GLT00100Common.csproj",
-      "msbuildProject": "../../COMMON/GL/GLT00100Common/GLT00100Common.csproj"
-    },
-    "GLT00100FrontResources/1.0.0": {
-      "type": "project",
-      "path": "../GLT00100FrontResources/GLT00100FrontResources.csproj",
-      "msbuildProject": "../GLT00100FrontResources/GLT00100FrontResources.csproj"
-    },
     "GLT00100Model/1.0.0": {
       "type": "project",
       "path": "../GLT00100Model/GLT00100Model.csproj",
@@ -787,21 +760,14 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BaseHeaderReportCOMMON >= 1.0.0",
-      "GLT00100Common >= 1.0.0",
-      "GLT00100FrontResources >= 1.0.0",
       "GLT00100Model >= 1.0.0",
-      "GLTR00100COMMON >= 1.0.0",
       "GLTR00100FRONT >= 1.0.0",
-      "GLTR00100FrontResources >= 1.0.0",
-      "Lookup_GSCOMMON >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
-      "Microsoft.AspNetCore.Components.Web >= 6.0.20"
+      "Microsoft.AspNetCore.Components.Web >= 6.0.15"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gabriel.codeid\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\gabriel.codeid\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -812,12 +778,8 @@
       "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
       "outputPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -834,29 +796,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj"
-            },
-            "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100Common\\GLT00100Common.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100Common\\GLT00100Common.csproj"
-            },
-            "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLTR00100COMMON\\GLTR00100COMMON.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLTR00100COMMON\\GLTR00100COMMON.csproj"
-            },
-            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FrontResources\\GLT00100FrontResources.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FrontResources\\GLT00100FrontResources.csproj"
-            },
-            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj"
-            },
-            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FrontResources\\GLTR00100FrontResources.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FrontResources\\GLTR00100FrontResources.csproj"
+            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100MODEL\\GLT00100MODEL.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100MODEL\\GLT00100MODEL.csproj"
             },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FRONT\\GLTR00100FRONT.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLTR00100FRONT\\GLTR00100FRONT.csproj"
-            },
-            "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj": {
-              "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj"
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFRONT\\Lookup_GSFRONT.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSFRONT\\Lookup_GSFRONT.csproj"
@@ -876,7 +820,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": {
             "target": "Package",
-            "version": "[6.0.20, )"
+            "version": "[6.0.15, )"
           }
         },
         "imports": [
@@ -898,97 +842,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.AspNetCore.Components.Web"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.AspNetCore.Components"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.AspNetCore.Components.Analyzers"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.AspNetCore.Authorization"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.AspNetCore.Metadata"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.Extensions.Logging.Abstractions"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.Extensions.Options"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.Extensions.Primitives"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "System.Runtime.CompilerServices.Unsafe"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.AspNetCore.Components.Forms"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.JSInterop"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.Extensions.DependencyInjection"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "System.IO.Pipelines"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "The local source 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages' doesn't exist.",
-      "libraryId": "Microsoft.NET.ILLink.Tasks"
-    }
-  ]
+  }
 }

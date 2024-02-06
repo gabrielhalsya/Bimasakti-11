@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BlazorClientHelper;
-using GLT00100Common.DTOs;
-using GLT00100Model;
+﻿using BlazorClientHelper;
+using GLT00100COMMON;
+using GLT00100MODEL;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
 using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.Logging;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
 using R_BlazorFrontEnd.Controls.Events;
@@ -18,20 +11,16 @@ using R_BlazorFrontEnd.Controls.MessageBox;
 using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
-using R_CommonFrontBackAPI;
 
-namespace GLT00100Front
+namespace GLT00100FRONT
 {
     public partial class GLT00100 : R_Page
     {
-        private GLT00100ViewModel _JournalListViewModel = new();
+        private GLT00100ViewModel _JournalEntryViewModel = new();
         private R_Conductor _conductorRef;
+        private R_Grid<GLT00100DTO> _gridRef;
+        private R_Grid<GLT00101DTO> _gridDetailRef;
 
-        private R_ConductorGrid _conductorGridRef;
-        private R_Grid<GLT00100JournalGridDTO> _gridRef;
-
-        private R_Grid<GLT00100JournalGridDetailDTO> _gridDetailRef;
-        private R_ConductorGrid _conductorGridDetailRef;
         [Inject] IClientHelper clientHelper { get; set; }
 
         protected override async Task R_Init_From_Master(object poParameter)
@@ -40,117 +29,49 @@ namespace GLT00100Front
 
             try
             {
-                VAR_GL_SYSTEM_PARAMDTO systemparamData = new VAR_GL_SYSTEM_PARAMDTO()
-                {
-                    CSTART_PERIOD = _JournalListViewModel.CurrentPeriodStartCollection.CSTART_DATE,
-                    CCURRENT_PERIOD_MM = _JournalListViewModel.SystemParamCollection.CCURRENT_PERIOD_MM,
-                    CCURRENT_PERIOD_YY = _JournalListViewModel.SystemParamCollection.CSTART_PERIOD_YY,
-                    CSOFT_PERIOD_MM = _JournalListViewModel.SystemParamCollection.CSOFT_PERIOD_MM,
-                    CSOFT_PERIOD_YY = _JournalListViewModel.SystemParamCollection.CSOFT_PERIOD_YY
-                };
-
-                await _JournalListViewModel.GetSystemParam();
-                await _JournalListViewModel.GetCurrentPeriodStart(systemparamData);
-                await _JournalListViewModel.GetSoftPeriodStart(systemparamData);
-                await _JournalListViewModel.GetGsmCompany();
-                await _JournalListViewModel.GetGSMPeriod();
-                await _JournalListViewModel.GetTransactionCode();
-                await _JournalListViewModel.GetIundo();
-                await _JournalListViewModel.GetStatusList();
-                await _JournalListViewModel.GetDepartmentList();
-                await GetMonth();
-                _JournalListViewModel.COMPANYID = clientHelper.CompanyId;
-                _JournalListViewModel.USERID = clientHelper.UserId;
-
-                //await _JournalListViewModel.GetAllData();
-                //await _gridRef.R_RefreshGrid(null);
+                await _JournalEntryViewModel.GetAllUniversalData();
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
 
-            loEx.ThrowExceptionIfErrors();
+            R_DisplayException(loEx);
         }
 
-        public async Task GetMonth()
-        {
-            _JournalListViewModel.GetMonthList = new List<GetMonthDTO>();
-
-            for (int i = 1; i <= 12; i++)
-            {
-                string monthId = i.ToString("D2");
-                GetMonthDTO month = new GetMonthDTO { Id = monthId };
-                _JournalListViewModel.GetMonthList.Add(month);
-            }
-
-        }
-        public async Task OnclickSearch(object poParam)
+        public async Task OnclickSearch()
         {
             var loEx = new R_Exception();
             try
             {
-                loEx.ThrowExceptionIfErrors();
-                if (string.IsNullOrEmpty((_JournalListViewModel).Data.CSEARCH_TEXT))
+                if (string.IsNullOrEmpty(_JournalEntryViewModel.JornalParam.CSEARCH_TEXT))
                 {
                     loEx.Add(new Exception("Please input keyword to search!"));
                     goto EndBlock;
                 }
-                if (!string.IsNullOrEmpty(_JournalListViewModel.Data.CSEARCH_TEXT)
-                    && _JournalListViewModel.Data.CSEARCH_TEXT.Length < 3)
+                if (!string.IsNullOrEmpty(_JournalEntryViewModel.JornalParam.CSEARCH_TEXT)
+                    && _JournalEntryViewModel.JornalParam.CSEARCH_TEXT.Length < 3)
                 {
                     loEx.Add(new Exception("Minimum search keyword is 3 characters!"));
                     goto EndBlock;
                 }
 
-                await _JournalListViewModel.ShowAllJournals();
-                if (_JournalListViewModel._JournalList.Count() < 1)
-                {
-                    _JournalListViewModel._JournaDetailList.Clear();
-                    loEx.Add(new Exception("Data Not Found!"));
-                    _JournalListViewModel.EnableButton = false;
-                }
-            EndBlock:;
-                //GLT00100DTO param;
-                //param.CPERIOD = _JournalListViewModel.Journal.CPERIOD;
-                GLT00100JournalGridDTO param = new GLT00100JournalGridDTO()
-                {
-                    CPERIOD = _JournalListViewModel.Data.CPERIOD,
-                    CSEARCH_TEXT = _JournalListViewModel.Data.CSEARCH_TEXT,
-                    CSTATUS = _JournalListViewModel.Data.CSTATUS,
-                    CDEPT_CODE = _JournalListViewModel.Data.CDEPT_CODE
-                };
-                await _gridRef.R_RefreshGrid(param);
+                await _gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
-            loEx.ThrowExceptionIfErrors();
 
+         EndBlock:
+            loEx.ThrowExceptionIfErrors();
         }
-        public async Task OnClickShowAll(object poParam)
+        public async Task OnClickShowAll()
         {
             var loEx = new R_Exception();
             try
             {
-                _JournalListViewModel.Data.CSEARCH_TEXT = "";
-                await _JournalListViewModel.ShowAllJournals();
-                if (_JournalListViewModel._JournalList.Count() < 1)
-                {
-                    _JournalListViewModel._JournaDetailList.Clear();
-                    loEx.Add(new Exception("Data Not Found!"));
-                    _JournalListViewModel.EnableButton = false;
-                }
-                GLT00100JournalGridDTO param = new GLT00100JournalGridDTO()
-                {
-                    CPERIOD = _JournalListViewModel.Data.CPERIOD,
-                    CSEARCH_TEXT = "",
-                    CSTATUS = _JournalListViewModel.Data.CSTATUS,
-                    CDEPT_CODE = _JournalListViewModel.Data.CDEPT_CODE
-                };
-                await _gridRef.R_RefreshGrid(param);
-
+                await _gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -166,53 +87,34 @@ namespace GLT00100Front
             var loEx = new R_Exception();
             try
             {
-                await _JournalListViewModel.ShowAllJournals();
-                eventArgs.ListEntityResult = _JournalListViewModel._JournalList;
-
+                await _JournalEntryViewModel.GetJournalList();
+                eventArgs.ListEntityResult = _JournalEntryViewModel.JournalGrid;
+                if (_JournalEntryViewModel.JournalGrid.Count <= 0)
+                {
+                    loEx.Add("", "Data Not Found!");
+                }
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
-            loEx.ThrowExceptionIfErrors();
+            R_DisplayException(loEx);
         }
-        private async Task JournalGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        private void JournalGrid_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
-            var loEx = new R_Exception();
-            try
-            {
-                var loParam = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(eventArgs.Data);
-                await _JournalListViewModel.GetJournal(loParam);
-                eventArgs.Result = _JournalListViewModel.Journal;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-            loEx.ThrowExceptionIfErrors();
+            eventArgs.Result = eventArgs.Data;
         }
         private async Task JournalGrid_Display(R_DisplayEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
             try
             {
-
-                _JournalListViewModel._Journal = (GLT00100JournalGridDTO)eventArgs.Data;
-                _JournalListViewModel.LcCrecID = _JournalListViewModel._Journal.CREC_ID;
-
-                await _JournalListViewModel.GetJournalDetailList();
-                _JournalListViewModel.EnableDept = false;
-
+                var loData = (GLT00100DTO)eventArgs.Data;
                 if (eventArgs.ConductorMode == R_eConductorMode.Normal)
                 {
-
-                    if (_JournalListViewModel._JournalList == null)
+                    if (string.IsNullOrWhiteSpace(loData.CREC_ID))
                     {
-                        _JournalListViewModel.EnableButton = false;
-                    }
-                    else
-                    {
-                        _JournalListViewModel.EnableButton = true;
+                        await _gridDetailRef.R_RefreshGrid(eventArgs.Data);
                     }
                 }
             }
@@ -220,103 +122,73 @@ namespace GLT00100Front
             {
                 loEx.Add(ex);
             }
-            loEx.ThrowExceptionIfErrors();
+            R_DisplayException(loEx);
         }
-
         private async Task ApproveJournalProcess()
         {
             var loEx = new R_Exception();
             try
             {
-                if (_JournalListViewModel._Journal.LALLOW_APPROVE == false)
+                var loData = (GLT00100DTO)_conductorRef.R_GetCurrentData();
+                if (!loData.LALLOW_APPROVE)
                 {
-                    R_MessageBox.Show("", "You don’t have right to approve this journal!", R_eMessageBoxButtonType.OK);
+                    loEx.Add("", "You don’t have right to approve this journal!");
                     goto EndBlock;
                 }
 
-                GLT00100JournalGridDTO data = new GLT00100JournalGridDTO()
-                {
-                    CSTATUS = _JournalListViewModel._Journal.CSTATUS,
-                    LCOMMIT_APRJRN = _JournalListViewModel._Journal.LCOMMIT_APRJRN,
-                    LUNDO_COMMIT = _JournalListViewModel._Journal.LUNDO_COMMIT,
-                    CREC_ID = _JournalListViewModel._Journal.CREC_ID
-                };
-                await _JournalListViewModel.ApproveJournal(data);
-                await _JournalListViewModel.GetJournal(new GLT00100DTO() { CREC_ID = _JournalListViewModel._Journal.CREC_ID });
-                if (_JournalListViewModel.Journal.CSTATUS == "20")
-                {
-                    R_MessageBox.Show("", "Selected Journal Approved Successfully!", R_eMessageBoxButtonType.OK);
+                var loParam = R_FrontUtility.ConvertObjectToObject<GLT00100UpdateStatusDTO>(loData);
+                loParam.LAUTO_COMMIT = _JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.LCOMMIT_APVJRN;
+                loParam.LUNDO_COMMIT = false;
+                loParam.CNEW_STATUS = "20";
 
-                }
-                await _JournalListViewModel.ShowAllJournals();
-
-            EndBlock:;
+                await _JournalEntryViewModel.UpdateJournalStatus(loParam);
+                await _gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
+            EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
         private async Task CommitJournalProcess()
         {
             var loEx = new R_Exception();
+            R_eMessageBoxResult loValidate;
+
             try
             {
-                GLT00100JournalGridDTO lcdata = new GLT00100JournalGridDTO()
+                var loData = (GLT00100DTO)_conductorRef.R_GetCurrentData();
+
+                if (loData.CSTATUS == "80")
                 {
-                    CDEPT_CODE = _JournalListViewModel._Journal.CDEPT_CODE,
-                    CREF_NO = _JournalListViewModel._Journal.CREF_NO,
-                    CREC_ID = _JournalListViewModel._Journal.CREC_ID
-                };
-                if (_JournalListViewModel._Journal.CSTATUS == "80" && _JournalListViewModel.IundoCollection.IOPTION == 3)
-                {
-                    var result = await R_MessageBox.Show("", "Are you sure want to undo commit this journal? [Yes/No]", R_eMessageBoxButtonType.YesNo);
-                    if (result == R_eMessageBoxResult.Yes)
+                    if (_JournalEntryViewModel.VAR_IUNDO_COMMIT_JRN.IOPTION == 3)
                     {
-                        goto commit;
+                        loValidate = await R_MessageBox.Show("", "Are you sure want to undo committed this journal? ", R_eMessageBoxButtonType.YesNo);
+                        if (loValidate == R_eMessageBoxResult.No)
+                            goto EndBlock;
                     }
-                    goto EndBlock;
                 }
                 else
                 {
-                    var result = await R_MessageBox.Show("", "Are you sure want to commit this journal? [Yes/No]", R_eMessageBoxButtonType.YesNo);
-                    if (result == R_eMessageBoxResult.Yes)
-                    {
-                        await _JournalListViewModel.CommitJournal(lcdata);
-                    }
-                    else
-                    {
+                    loValidate = await R_MessageBox.Show("", "Are you sure want to commit this journal? ", R_eMessageBoxButtonType.YesNo);
+                    if (loValidate == R_eMessageBoxResult.No)
                         goto EndBlock;
-                    }
                 }
-            commit:;
-                GLT00100JournalGridDTO data = new GLT00100JournalGridDTO()
-                {
-                    CSTATUS = _JournalListViewModel._Journal.CSTATUS,
-                    LCOMMIT_APRJRN = _JournalListViewModel._Journal.LCOMMIT_APRJRN,
-                    LUNDO_COMMIT = _JournalListViewModel._Journal.LUNDO_COMMIT
-                };
-                await _JournalListViewModel.CommitJournal(data);
-                await _JournalListViewModel.GetJournal(new GLT00100DTO()
-                {
-                    CREC_ID = _JournalListViewModel._Journal.CREC_ID,
-                });
-                if (_JournalListViewModel.CSTATUS_TEMP == "80")
-                {
-                    await R_MessageBox.Show("", "Selected Journal Undo Commit Successfully!", R_eMessageBoxButtonType.OK);
-                }
-                else
-                {
-                    await R_MessageBox.Show("", "Selected Journal Committed Successfully!", R_eMessageBoxButtonType.OK);
-                }
-                await _JournalListViewModel.ShowAllJournals();
-            EndBlock:;
+
+                var loParam = R_FrontUtility.ConvertObjectToObject<GLT00100UpdateStatusDTO>(loData);
+                loParam.LAUTO_COMMIT = _JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.LCOMMIT_APVJRN;
+                loParam.LUNDO_COMMIT = loData.CSTATUS == "80" ? true : false;
+                loParam.CNEW_STATUS = loData.CSTATUS == "80" ? "20" : "80";
+
+                await _JournalEntryViewModel.UpdateJournalStatus(loParam);
+                await _gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
+            EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
         #endregion
@@ -327,8 +199,9 @@ namespace GLT00100Front
             var loEx = new R_Exception();
             try
             {
-                await _JournalListViewModel.GetJournalDetailList();
-                eventArgs.ListEntityResult = _JournalListViewModel._JournaDetailList;
+                var loParam = R_FrontUtility.ConvertObjectToObject<GLT00101DTO>(eventArgs.Parameter);
+                await _JournalEntryViewModel.GetJournalDetailList(loParam);
+                eventArgs.ListEntityResult = _JournalEntryViewModel.JournalDetailGrid;
             }
             catch (Exception ex)
             {
@@ -338,19 +211,43 @@ namespace GLT00100Front
         }
         #endregion
 
+        #region lookupDept
+        private void Before_Open_lookupDept(R_BeforeOpenLookupEventArgs eventArgs)
+        {
+            var param = new GSL00700ParameterDTO
+            {
+                CUSER_ID = clientHelper.UserId,
+                CCOMPANY_ID = clientHelper.CompanyId
+            };
+            eventArgs.Parameter = param;
+            eventArgs.TargetPageType = typeof(GSL00700);
+        }
+        private void After_Open_lookupDept(R_AfterOpenLookupEventArgs eventArgs)
+        {
+            var loTempResult = (GSL00700DTO)eventArgs.Result;
+            if (loTempResult == null)
+            {
+                return;
+            }
+
+            _JournalEntryViewModel.JornalParam.CDEPT_CODE = loTempResult.CDEPT_CODE;
+            _JournalEntryViewModel.JornalParam.CDEPT_NAME = loTempResult.CDEPT_NAME;
+        }
+        #endregion
+
         #region Predefine Journal Entry
         private void Predef_JournalEntry(R_InstantiateDockEventArgs eventArgs)
         {
-
-            eventArgs.TargetPageType = typeof(GLT00100JournalEntry);
-            eventArgs.Parameter = _JournalListViewModel._Journal;
+            var loData = _conductorRef.R_GetCurrentData();
+            eventArgs.TargetPageType = typeof(GLT00110);
+            eventArgs.Parameter = loData;
         }
         private async Task AfterPredef_JournalEntry(R_AfterOpenPredefinedDockEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
-
+                //await _gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)
             {
@@ -361,102 +258,43 @@ namespace GLT00100Front
 
         #endregion
 
-        #region lookupDept
-        private R_Lookup R_LookupBtnDept;
-        private async Task Before_Open_lookupDept(R_BeforeOpenLookupEventArgs eventArgs)
-        {
-            var param = new GSL00700ParameterDTO
-            {
-                CUSER_ID = clientHelper.UserId,
-                CCOMPANY_ID = clientHelper.CompanyId
-            };
-            eventArgs.Parameter = param;
-            eventArgs.TargetPageType = typeof(GSL00700);
-
-
-        }
-        private void After_Open_lookupDept(R_AfterOpenLookupEventArgs eventArgs)
-        {
-            var loTempResult = (GSL00700DTO)eventArgs.Result;
-            if (loTempResult == null)
-            {
-                return;
-            }
-
-            _JournalListViewModel.Data.CDEPT_CODE = loTempResult.CDEPT_CODE;
-            _JournalListViewModel.Data.CDEPT_NAME = loTempResult.CDEPT_NAME;
-        }
-        #endregion
-
         #region RapidApprove
         private async Task R_Before_Open_PopupRapidApprove(R_BeforeOpenPopupEventArgs eventArgs)
         {
+            var loEx = new R_Exception();
 
-            if (_JournalListViewModel.TransactionApprovalCollection.CRESULT == null)
+            try
             {
-                await R_MessageBox.Show("", "You don’t have right to approve this journal type!", R_eMessageBoxButtonType.OK);
-                goto EndBlock;
+                var loData = (GLT00100DTO)_conductorRef.R_GetCurrentData();
+                var loParam = R_FrontUtility.ConvertObjectToObject<GLT00100RapidApprovalValidationDTO>(loData);
+                var loValidate = await _JournalEntryViewModel.ValidationRapidApproval(loParam);
+                if (loValidate)
+                {
+                    await R_MessageBox.Show("", "You don’t have right to approve this journal type!", R_eMessageBoxButtonType.OK);
+                    goto EndBlock;
+                }
+                loData.CDEPT_NAME = _JournalEntryViewModel.JornalParam.CDEPT_NAME;
+                eventArgs.Parameter = loData;
+                eventArgs.TargetPageType = typeof(GLT00120);
             }
-            eventArgs.Parameter = _JournalListViewModel._JournalList;
-            eventArgs.TargetPageType = typeof(RapidApproveGLT00100);
-        EndBlock:;
-        }
-        private async Task R_After_Open_PopupRapidApprove(R_AfterOpenPopupEventArgs eventArgs)
-        {
-            GLT00100ParameterDTO param = new GLT00100ParameterDTO()
+            catch (Exception ex)
             {
-                CPERIOD = _JournalListViewModel._Journal.CPERIOD,
-                CSEARCH_TEXT = _JournalListViewModel._Journal.CSEARCH_TEXT,
-                CSTATUS = "20",
-                CDEPT_CODE = _JournalListViewModel._Journal.CDEPT_CODE
-            };
-
-            await _gridRef.R_RefreshGrid(param);
-            var firstJournal = _JournalListViewModel._JournalList.FirstOrDefault();
-            if (firstJournal != null)
-            {
-                await _gridDetailRef.R_RefreshGrid(firstJournal);
+                loEx.Add(ex);
             }
-            else
-            {
-                _JournalListViewModel._JournaDetailList.Clear();
-            }
+        EndBlock:
+            loEx.ThrowExceptionIfErrors();
+            
         }
         #endregion
 
         #region RapidCommit
-        private async Task R_Before_Open_PopupRapidCommit(R_BeforeOpenPopupEventArgs eventArgs)
+        private void R_Before_Open_PopupRapidCommit(R_BeforeOpenPopupEventArgs eventArgs)
         {
-
-            eventArgs.Parameter = _JournalListViewModel._JournalList;
-            eventArgs.TargetPageType = typeof(RapidCommitGLT00100);
-        }
-        private async Task R_After_Open_PopupRapidCommit(R_AfterOpenPopupEventArgs eventArgs)
-        {
-            //GLT00100JournalGridDTO param;
-            //param = _JournalListViewModel.JournalEntity;
-            //param.CSTATUS = "80";
-
-            GLT00100ParameterDTO param = new GLT00100ParameterDTO()
-            {
-                CPERIOD = _JournalListViewModel._Journal.CPERIOD,
-                CSEARCH_TEXT = _JournalListViewModel._Journal.CSEARCH_TEXT,
-                CSTATUS = "80",
-                CDEPT_CODE = _JournalListViewModel._Journal.CDEPT_CODE
-            };
-
-            await _gridRef.R_RefreshGrid(param);
-            var firstJournal = _JournalListViewModel._JournalList.FirstOrDefault();
-            if (firstJournal != null)
-            {
-                await _gridDetailRef.R_RefreshGrid(firstJournal);
-            }
-            else
-            {
-                _JournalListViewModel._JournaDetailList.Clear();
-            }
+            var loData = (GLT00100DTO)_conductorRef.R_GetCurrentData();
+            loData.CDEPT_NAME = _JournalEntryViewModel.JornalParam.CDEPT_NAME;
+            eventArgs.Parameter = loData;
+            eventArgs.TargetPageType = typeof(GLT00130);
         }
         #endregion
-
     }
 }

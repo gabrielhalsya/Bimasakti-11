@@ -259,7 +259,6 @@ namespace LMM04500SERVICE
 
         private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
 
-
         #endregion
     }
 }

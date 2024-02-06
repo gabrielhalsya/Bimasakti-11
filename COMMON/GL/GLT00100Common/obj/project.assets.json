@@ -1,31 +1,45 @@
 {
   "version": 3,
   "targets": {
-    ".NETStandard,Version=v2.1": {}
+    ".NETStandard,Version=v2.1": {
+      "BaseHeaderReportCOMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "path": "../../BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
+      "msbuildProject": "../../BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETStandard,Version=v2.1": []
+    ".NETStandard,Version=v2.1": [
+      "BaseHeaderReportCOMMON >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\gabriel.codeid\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\gabriel.codeid\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100Common\\GLT00100Common.csproj",
-      "projectName": "GLT00100Common",
-      "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100Common\\GLT00100Common.csproj",
+      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj",
+      "projectName": "GLT00100COMMON",
+      "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj",
       "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100Common\\obj\\",
+      "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -41,7 +55,11 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

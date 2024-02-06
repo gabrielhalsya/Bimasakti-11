@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RSP_GL_UPDATE_RECURRING_STATUSResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2672b5a16638f9048b51d5ac5951313447d69865")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db12e2e1f6f2a8595dfd57510771e13408ee4a14")]
 [assembly: System.Reflection.AssemblyProductAttribute("RSP_GL_UPDATE_RECURRING_STATUSResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RSP_GL_UPDATE_RECURRING_STATUSResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

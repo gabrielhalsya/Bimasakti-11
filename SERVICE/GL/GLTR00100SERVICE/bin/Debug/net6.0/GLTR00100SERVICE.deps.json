@@ -9,6 +9,7 @@
       "GLTR00100SERVICE/1.0.0": {
         "dependencies": {
           "GLTR00100BACK": "1.0.0",
+          "BaseHeaderReportCOMMON.Reference": "1.0.0.0",
           "R_APIBackEnd": "1.0.0.0",
           "R_APICommon": "1.0.0.0",
           "R_Cache": "1.0.0.0",
@@ -17,11 +18,6 @@
         },
         "runtime": {
           "GLTR00100SERVICE.dll": {}
-        }
-      },
-      "BaseHeaderReportCOMMON/1.0.0": {
-        "runtime": {
-          "BaseHeaderReportCOMMON.dll": {}
         }
       },
       "GLTR00100BACK/1.0.0": {
@@ -38,6 +34,14 @@
         },
         "runtime": {
           "GLTR00100COMMON.dll": {}
+        }
+      },
+      "BaseHeaderReportCOMMON.Reference/1.0.0.0": {
+        "runtime": {
+          "BaseHeaderReportCOMMON.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIBackEnd/1.0.0.0": {
@@ -136,11 +140,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BaseHeaderReportCOMMON/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "GLTR00100BACK/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -148,6 +147,11 @@
     },
     "GLTR00100COMMON/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BaseHeaderReportCOMMON.Reference/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj": {}
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj": {}
   },
   "projects": {
-    "D:\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj",
         "projectName": "RSP_GL_UPDATE_JOURNAL_STATUSResources",
-        "projectPath": "D:\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj",
-        "packagesPath": "C:\\Users\\alief.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\BIMASAKTI_11\\1.00\\PROGRAM\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\obj\\",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\alief.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,6 +24,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
           "https://www1.realta.net/realtanuget/nuget": {}
         },
         "frameworks": {
@@ -61,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -10,11 +10,11 @@
         "dependencies": {
           "BlazorMenuService": "1.0.0",
           "GLM00200Service": "1.0.0",
-          "GLT00100Service": "1.0.0",
           "GLTR00100SERVICE": "1.0.0",
           "Realta.BackCollectionNuGet": "1.0.1",
           "Realta.CommonCollectionNuGet": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
+          "GLT00100SERVICE": "1.0.0.0",
           "R_APIStartUp": "1.0.0.0",
           "R_CrossPlatformSecurity": "1.0.0.0",
           "R_HelperController": "1.0.0.0"
@@ -2463,29 +2463,6 @@
           }
         }
       },
-      "GLT00100Back/1.0.0": {
-        "dependencies": {
-          "GLT00100Common": "1.0.0",
-          "System.Data.SqlClient": "4.8.5"
-        },
-        "runtime": {
-          "GLT00100Back.dll": {}
-        }
-      },
-      "GLT00100Common/1.0.0": {
-        "runtime": {
-          "GLT00100Common.dll": {}
-        }
-      },
-      "GLT00100Service/1.0.0": {
-        "dependencies": {
-          "GLT00100Back": "1.0.0",
-          "GLT00100Common": "1.0.0"
-        },
-        "runtime": {
-          "GLT00100Service.dll": {}
-        }
-      },
       "GLTR00100BACK/1.0.0": {
         "dependencies": {
           "GLTR00100COMMON": "1.0.0"
@@ -2523,6 +2500,14 @@
       "RSP_GL_UPDATE_RECURRING_STATUSResources/1.0.0": {
         "runtime": {
           "RSP_GL_UPDATE_RECURRING_STATUSResources.dll": {}
+        }
+      },
+      "GLT00100SERVICE/1.0.0.0": {
+        "runtime": {
+          "GLT00100SERVICE.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIStartUp/1.0.0.0": {
@@ -2578,6 +2563,30 @@
           },
           "ja/R_APIBackEnd.resources.dll": {
             "locale": "ja"
+          }
+        }
+      },
+      "GLT00100COMMON/1.0.0.0": {
+        "runtime": {
+          "GLT00100COMMON.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GLT00100BACK/1.0.0.0": {
+        "runtime": {
+          "GLT00100BACK.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_OpenTelemetry/1.0.0.0": {
+        "runtime": {
+          "R_OpenTelemetry.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -2688,14 +2697,6 @@
       "R_AuthenticationEnumAndInterface/1.0.0.0": {
         "runtime": {
           "R_AuthenticationEnumAndInterface.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "R_OpenTelemetry/1.0.0.0": {
-        "runtime": {
-          "R_OpenTelemetry.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -4282,21 +4283,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "GLT00100Back/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "GLT00100Common/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "GLT00100Service/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "GLTR00100BACK/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -4327,6 +4313,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "GLT00100SERVICE/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "R_APIStartUp/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -4353,6 +4344,21 @@
       "sha512": ""
     },
     "R_APIBackEnd/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLT00100COMMON/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLT00100BACK/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_OpenTelemetry/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -4423,11 +4429,6 @@
       "sha512": ""
     },
     "R_AuthenticationEnumAndInterface/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "R_OpenTelemetry/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

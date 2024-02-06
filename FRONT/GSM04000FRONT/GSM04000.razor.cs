@@ -31,6 +31,7 @@ namespace GSM04000Front
         
         [Inject] R_PopupService PopupService { get; set; }
         [Inject] IClientHelper _clientHelper { get; set; }
+
         private string _labelActiveInactive = "Active/Inactive";
         public R_Popup btnAssignUser { get; set; }
         public R_Popup btnActiveInactive { get; set; }
