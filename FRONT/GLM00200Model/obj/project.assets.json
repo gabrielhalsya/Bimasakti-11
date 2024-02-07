@@ -8,14 +8,27 @@
           "build/_._": {}
         }
       },
-      "GLM00200Common/1.0.0": {
+      "BaseHeaderReportCOMMON/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "compile": {
-          "bin/placeholder/GLM00200Common.dll": {}
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GLM00200Common.dll": {}
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        }
+      },
+      "GLM00200COMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLM00200COMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLM00200COMMON.dll": {}
         }
       },
       "Lookup_GSCOMMON/1.0.0": {
@@ -94,10 +107,15 @@
         "tools/net7.0/illink.runtimeconfig.json"
       ]
     },
-    "GLM00200Common/1.0.0": {
+    "BaseHeaderReportCOMMON/1.0.0": {
       "type": "project",
-      "path": "../../COMMON/GL/GLM00200COMMON/GLM00200Common.csproj",
-      "msbuildProject": "../../COMMON/GL/GLM00200COMMON/GLM00200Common.csproj"
+      "path": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
+      "msbuildProject": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
+    },
+    "GLM00200COMMON/1.0.0": {
+      "type": "project",
+      "path": "../../COMMON/GL/GLM00200COMMON/GLM00200COMMON.csproj",
+      "msbuildProject": "../../COMMON/GL/GLM00200COMMON/GLM00200COMMON.csproj"
     },
     "Lookup_GSCOMMON/1.0.0": {
       "type": "project",
@@ -117,7 +135,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
-      "GLM00200Common >= 1.0.0",
+      "GLM00200COMMON >= 1.0.0",
       "Lookup_GSCOMMON >= 1.0.0",
       "Lookup_GSModel >= 1.0.0"
     ]
@@ -152,8 +170,8 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj"
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj"
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\BACK\\Lookup_GSCOMMON\\Lookup_GSCOMMON.csproj"

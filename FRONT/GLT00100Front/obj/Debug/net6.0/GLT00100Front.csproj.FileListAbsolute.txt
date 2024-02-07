@@ -7,6 +7,7 @@ D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLT00100FRONT.pd
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\BaseHeaderReportCOMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\BlazorClientHelper.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLT00100COMMON.dll
+D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLT00100FrontResources.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLT00100MODEL.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLTR00100COMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLTR00100FRONT.dll
@@ -31,6 +32,7 @@ D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\R_ContextBackEnd.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\Lookup_GSFRONT.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLT00100COMMON.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLT00100FrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLT00100MODEL.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLTR00100FRONT.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\BaseHeaderReportCOMMON.pdb

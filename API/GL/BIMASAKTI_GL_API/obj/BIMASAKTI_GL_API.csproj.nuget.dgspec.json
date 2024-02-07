@@ -31,8 +31,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj"
+              "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100SERVICE\\GLT00100SERVICE.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100SERVICE\\GLT00100SERVICE.csproj"
               },
               "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLTR00100SERVICE\\GLTR00100SERVICE.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLTR00100SERVICE\\GLTR00100SERVICE.csproj"
@@ -89,14 +89,14 @@
         }
       }
     },
-    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLT00100BACK\\GLT00100BACK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj",
-        "projectName": "GLM00200Back",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLT00100BACK\\GLT00100BACK.csproj",
+        "projectName": "GLT00100BACK",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLT00100BACK\\GLT00100BACK.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\obj\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLT00100BACK\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -116,17 +116,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_PROCESS_RECURRINGResources\\RSP_GL_PROCESS_RECURRINGResources.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_PROCESS_RECURRINGResources\\RSP_GL_PROCESS_RECURRINGResources.csproj"
+              "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_JOURNALResources\\RSP_GL_SAVE_JOURNALResources.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_JOURNALResources\\RSP_GL_SAVE_JOURNALResources.csproj"
               },
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_RECURRING_JRNResources\\RSP_GL_SAVE_RECURRING_JRNResources.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_RECURRING_JRNResources\\RSP_GL_SAVE_RECURRING_JRNResources.csproj"
+              "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj"
               },
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_RECURRING_STATUSResources\\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_RECURRING_STATUSResources\\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj"
-              },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj"
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj"
               }
             }
           }
@@ -141,13 +138,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Realta.BackCollectionNuGet": {
+            "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[1.0.0, )"
-            },
-            "Realta.CommonCollectionNuGet": {
-              "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[4.8.5, )"
             }
           },
           "imports": [
@@ -232,14 +225,14 @@
         }
       }
     },
-    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_PROCESS_RECURRINGResources\\RSP_GL_PROCESS_RECURRINGResources.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_JOURNALResources\\RSP_GL_SAVE_JOURNALResources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_PROCESS_RECURRINGResources\\RSP_GL_PROCESS_RECURRINGResources.csproj",
-        "projectName": "RSP_GL_PROCESS_RECURRINGResources",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_PROCESS_RECURRINGResources\\RSP_GL_PROCESS_RECURRINGResources.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_JOURNALResources\\RSP_GL_SAVE_JOURNALResources.csproj",
+        "projectName": "RSP_GL_SAVE_JOURNALResources",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_JOURNALResources\\RSP_GL_SAVE_JOURNALResources.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_PROCESS_RECURRINGResources\\obj\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_JOURNALResources\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -290,72 +283,14 @@
         }
       }
     },
-    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_RECURRING_JRNResources\\RSP_GL_SAVE_RECURRING_JRNResources.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_RECURRING_JRNResources\\RSP_GL_SAVE_RECURRING_JRNResources.csproj",
-        "projectName": "RSP_GL_SAVE_RECURRING_JRNResources",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_RECURRING_JRNResources\\RSP_GL_SAVE_RECURRING_JRNResources.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj",
+        "projectName": "RSP_GL_UPDATE_JOURNAL_STATUSResources",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_SAVE_RECURRING_JRNResources\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netstandard2.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {},
-          "https://packagesource": {},
-          "https://www1.realta.net/realtanuget/nuget": {}
-        },
-        "frameworks": {
-          "netstandard2.1": {
-            "targetAlias": "netstandard2.1",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netstandard2.1": {
-          "targetAlias": "netstandard2.1",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "NETStandard.Library": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_RECURRING_STATUSResources\\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_RECURRING_STATUSResources\\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj",
-        "projectName": "RSP_GL_UPDATE_RECURRING_STATUSResources",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_RECURRING_STATUSResources\\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj",
-        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_RECURRING_STATUSResources\\obj\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_JOURNAL_STATUSResources\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -530,14 +465,14 @@
         }
       }
     },
-    "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
-        "projectName": "GLM00200Common",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj",
+        "projectName": "GLT00100COMMON",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\obj\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -556,7 +491,11 @@
         "frameworks": {
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -712,14 +651,14 @@
         }
       }
     },
-    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100SERVICE\\GLT00100SERVICE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj",
-        "projectName": "GLM00200Service",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100SERVICE\\GLT00100SERVICE.csproj",
+        "projectName": "GLT00100SERVICE",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100SERVICE\\GLT00100SERVICE.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\obj\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100SERVICE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -739,11 +678,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj"
+              "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLT00100BACK\\GLT00100BACK.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLT00100BACK\\GLT00100BACK.csproj"
               },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200Common\\GLM00200Common.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200Common\\GLM00200Common.csproj"
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj"
               }
             }
           }
@@ -757,16 +696,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Mvc.Core": {
-              "target": "Package",
-              "version": "[2.2.5, )"
-            },
-            "Realta.BackCollectionNuGet": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -779,6 +708,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -89,10 +89,10 @@ namespace GLT00100FRONT
             {
                 await _JournalEntryViewModel.GetJournalList();
                 eventArgs.ListEntityResult = _JournalEntryViewModel.JournalGrid;
-                if (_JournalEntryViewModel.JournalGrid.Count <= 0)
-                {
-                    loEx.Add("", "Data Not Found!");
-                }
+                //if (_JournalEntryViewModel.JournalGrid.Count <= 0)
+                //{
+                //    loEx.Add("", "Data Not Found!");
+                //}
             }
             catch (Exception ex)
             {

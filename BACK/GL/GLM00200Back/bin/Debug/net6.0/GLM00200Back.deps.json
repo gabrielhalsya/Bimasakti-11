@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "GLM00200Back/1.0.0": {
         "dependencies": {
-          "GLM00200Common": "1.0.0",
+          "GLM00200COMMON": "1.0.0",
           "RSP_GL_PROCESS_RECURRINGResources": "1.0.0",
           "RSP_GL_SAVE_RECURRING_JRNResources": "1.0.0",
           "RSP_GL_UPDATE_RECURRING_STATUSResources": "1.0.0",
@@ -2290,7 +2290,15 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "GLM00200Common/1.0.0": {
+      "BaseHeaderReportCOMMON/1.0.0": {
+        "runtime": {
+          "BaseHeaderReportCOMMON.dll": {}
+        }
+      },
+      "GLM00200COMMON/1.0.0": {
+        "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
         "runtime": {
           "GLM00200COMMON.dll": {}
         }
@@ -3889,7 +3897,12 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
-    "GLM00200Common/1.0.0": {
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLM00200COMMON/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

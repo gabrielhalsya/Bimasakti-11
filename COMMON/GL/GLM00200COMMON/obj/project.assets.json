@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETStandard,Version=v2.1": {}
+    ".NETStandard,Version=v2.1": {
+      "BaseHeaderReportCOMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "path": "../../BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
+      "msbuildProject": "../../BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETStandard,Version=v2.1": []
+    ".NETStandard,Version=v2.1": [
+      "BaseHeaderReportCOMMON >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\gabriel.codeid\\.nuget\\packages\\": {}
@@ -13,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
-      "projectName": "GLM00200Common",
-      "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
+      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj",
+      "projectName": "GLM00200COMMON",
+      "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj",
       "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
       "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\obj\\",
       "projectStyle": "PackageReference",
@@ -36,7 +55,11 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

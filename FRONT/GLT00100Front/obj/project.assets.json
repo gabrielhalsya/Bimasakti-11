@@ -241,17 +241,41 @@
           "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
         }
       },
-      "GLT00100Model/1.0.0": {
+      "GLT00100COMMON/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLT00100COMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLT00100COMMON.dll": {}
+        }
+      },
+      "GLT00100FrontResources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/GLT00100FrontResources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLT00100FrontResources.dll": {}
+        }
+      },
+      "GLT00100MODEL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "GLT00100COMMON": "1.0.0",
           "Lookup_GSModel": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/GLT00100Model.dll": {}
+          "bin/placeholder/GLT00100MODEL.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GLT00100Model.dll": {}
+          "bin/placeholder/GLT00100MODEL.dll": {}
         }
       },
       "GLTR00100COMMON/1.0.0": {
@@ -308,9 +332,6 @@
       "Lookup_GSCOMMON/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
-        },
         "compile": {
           "bin/placeholder/Lookup_GSCOMMON.dll": {}
         },
@@ -350,8 +371,7 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Lookup_GSCOMMON": "1.0.0",
-          "Lookup_GSFrontResources": "1.0.0",
-          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
+          "Lookup_GSFrontResources": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Lookup_GSModel.dll": {}
@@ -712,10 +732,20 @@
       "path": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
       "msbuildProject": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
     },
-    "GLT00100Model/1.0.0": {
+    "GLT00100COMMON/1.0.0": {
       "type": "project",
-      "path": "../GLT00100Model/GLT00100Model.csproj",
-      "msbuildProject": "../GLT00100Model/GLT00100Model.csproj"
+      "path": "../../COMMON/GL/GLT00100COMMON/GLT00100COMMON.csproj",
+      "msbuildProject": "../../COMMON/GL/GLT00100COMMON/GLT00100COMMON.csproj"
+    },
+    "GLT00100FrontResources/1.0.0": {
+      "type": "project",
+      "path": "../GLT00100FrontResources/GLT00100FrontResources.csproj",
+      "msbuildProject": "../GLT00100FrontResources/GLT00100FrontResources.csproj"
+    },
+    "GLT00100MODEL/1.0.0": {
+      "type": "project",
+      "path": "../GLT00100MODEL/GLT00100MODEL.csproj",
+      "msbuildProject": "../GLT00100MODEL/GLT00100MODEL.csproj"
     },
     "GLTR00100COMMON/1.0.0": {
       "type": "project",
@@ -760,7 +790,9 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "GLT00100Model >= 1.0.0",
+      "GLT00100COMMON >= 1.0.0",
+      "GLT00100FrontResources >= 1.0.0",
+      "GLT00100MODEL >= 1.0.0",
       "GLTR00100FRONT >= 1.0.0",
       "Lookup_GSFRONT >= 1.0.0",
       "Microsoft.AspNetCore.Components.Web >= 6.0.15"
@@ -772,11 +804,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\GLT00100Front.csproj",
-      "projectName": "GLT00100Front",
-      "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\GLT00100Front.csproj",
+      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FRONT\\GLT00100FRONT.csproj",
+      "projectName": "GLT00100FRONT",
+      "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FRONT\\GLT00100FRONT.csproj",
       "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Front\\obj\\",
+      "outputPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FRONT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -796,6 +828,12 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj"
+            },
+            "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FrontResources\\GLT00100FrontResources.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100FrontResources\\GLT00100FrontResources.csproj"
+            },
             "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100MODEL\\GLT00100MODEL.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100MODEL\\GLT00100MODEL.csproj"
             },

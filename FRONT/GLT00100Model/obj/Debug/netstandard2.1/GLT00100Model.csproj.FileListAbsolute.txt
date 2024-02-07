@@ -1,6 +1,7 @@
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\GLT00100MODEL.deps.json
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\GLT00100MODEL.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\GLT00100MODEL.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\BaseHeaderReportCOMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\BlazorClientHelper.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\GLT00100COMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\Lookup_GSCOMMON.dll
@@ -18,6 +19,7 @@ D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\R_Contex
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\R_AuthenticationEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\Lookup_GSModel.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\GLT00100COMMON.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\BaseHeaderReportCOMMON.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\Lookup_GSCOMMON.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Debug\netstandard2.1\Lookup_GSFrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Debug\netstandard2.1\GLT00100MODEL.csproj.AssemblyReference.cache

@@ -8,12 +8,32 @@
           "build/_._": {}
         }
       },
-      "Lookup_GSCOMMON/1.0.0": {
+      "BaseHeaderReportCOMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        }
+      },
+      "GLT00100COMMON/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
+          "BaseHeaderReportCOMMON": "1.0.0"
         },
+        "compile": {
+          "bin/placeholder/GLT00100COMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLT00100COMMON.dll": {}
+        }
+      },
+      "Lookup_GSCOMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
         "compile": {
           "bin/placeholder/Lookup_GSCOMMON.dll": {}
         },
@@ -39,8 +59,7 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Lookup_GSCOMMON": "1.0.0",
-          "Lookup_GSFrontResources": "1.0.0",
-          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
+          "Lookup_GSFrontResources": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Lookup_GSModel.dll": {}
@@ -84,6 +103,16 @@
         "tools/net7.0/illink.runtimeconfig.json"
       ]
     },
+    "BaseHeaderReportCOMMON/1.0.0": {
+      "type": "project",
+      "path": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
+      "msbuildProject": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
+    },
+    "GLT00100COMMON/1.0.0": {
+      "type": "project",
+      "path": "../../COMMON/GL/GLT00100COMMON/GLT00100COMMON.csproj",
+      "msbuildProject": "../../COMMON/GL/GLT00100COMMON/GLT00100COMMON.csproj"
+    },
     "Lookup_GSCOMMON/1.0.0": {
       "type": "project",
       "path": "../../../../BS Shared Form/SOURCE/BACK/Lookup_GSCOMMON/Lookup_GSCOMMON.csproj",
@@ -102,6 +131,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
+      "GLT00100COMMON >= 1.0.0",
       "Lookup_GSModel >= 1.0.0"
     ]
   },
@@ -111,11 +141,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj",
-      "projectName": "GLT00100Model",
-      "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\GLT00100Model.csproj",
+      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100MODEL\\GLT00100MODEL.csproj",
+      "projectName": "GLT00100MODEL",
+      "projectPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100MODEL\\GLT00100MODEL.csproj",
       "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100Model\\obj\\",
+      "outputPath": "D:\\repos\\BS Program\\SOURCE\\FRONT\\GLT00100MODEL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -135,6 +165,9 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
+            "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj"
+            },
             "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSModel\\Lookup_GSModel.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\FRONT\\Lookup_GSModel\\Lookup_GSModel.csproj"
             }

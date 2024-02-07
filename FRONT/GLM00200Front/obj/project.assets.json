@@ -231,21 +231,34 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "GLM00200Common/1.0.0": {
+      "BaseHeaderReportCOMMON/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "compile": {
-          "bin/placeholder/GLM00200Common.dll": {}
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GLM00200Common.dll": {}
+          "bin/placeholder/BaseHeaderReportCOMMON.dll": {}
+        }
+      },
+      "GLM00200COMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GLM00200COMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GLM00200COMMON.dll": {}
         }
       },
       "GLM00200Model/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "GLM00200Common": "1.0.0",
+          "GLM00200COMMON": "1.0.0",
           "Lookup_GSCOMMON": "1.0.0",
           "Lookup_GSModel": "1.0.0"
         },
@@ -658,10 +671,15 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "GLM00200Common/1.0.0": {
+    "BaseHeaderReportCOMMON/1.0.0": {
       "type": "project",
-      "path": "../../COMMON/GL/GLM00200COMMON/GLM00200Common.csproj",
-      "msbuildProject": "../../COMMON/GL/GLM00200COMMON/GLM00200Common.csproj"
+      "path": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj",
+      "msbuildProject": "../../COMMON/BaseHeaderReportCommon/BaseHeaderReportCOMMON.csproj"
+    },
+    "GLM00200COMMON/1.0.0": {
+      "type": "project",
+      "path": "../../COMMON/GL/GLM00200COMMON/GLM00200COMMON.csproj",
+      "msbuildProject": "../../COMMON/GL/GLM00200COMMON/GLM00200COMMON.csproj"
     },
     "GLM00200Model/1.0.0": {
       "type": "project",

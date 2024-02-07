@@ -8,13 +8,13 @@
     ".NETCoreApp,Version=v6.0": {
       "GLT00100FRONT/1.0.0": {
         "dependencies": {
-          "GLT00100Model": "1.0.0",
+          "GLT00100COMMON": "1.0.0",
+          "GLT00100FrontResources": "1.0.0",
+          "GLT00100MODEL": "1.0.0",
           "GLTR00100FRONT": "1.0.0",
           "Lookup_GSFRONT": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.15",
           "BlazorClientHelper": "1.0.0.0",
-          "GLT00100COMMON": "1.0.0.0",
-          "GLT00100FrontResources": "1.0.0.0",
           "R_BlazorFrontEnd.Controls": "1.0.0.0",
           "R_BlazorFrontEnd": "1.0.0.0",
           "R_CommonFrontBackAPI": "1.0.0.0",
@@ -159,8 +159,22 @@
           "BaseHeaderReportCOMMON.dll": {}
         }
       },
-      "GLT00100Model/1.0.0": {
+      "GLT00100COMMON/1.0.0": {
         "dependencies": {
+          "BaseHeaderReportCOMMON": "1.0.0"
+        },
+        "runtime": {
+          "GLT00100COMMON.dll": {}
+        }
+      },
+      "GLT00100FrontResources/1.0.0": {
+        "runtime": {
+          "GLT00100FrontResources.dll": {}
+        }
+      },
+      "GLT00100MODEL/1.0.0": {
+        "dependencies": {
+          "GLT00100COMMON": "1.0.0",
           "Lookup_GSModel": "1.0.0"
         },
         "runtime": {
@@ -199,9 +213,6 @@
         }
       },
       "Lookup_GSCOMMON/1.0.0": {
-        "dependencies": {
-          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
-        },
         "runtime": {
           "Lookup_GSCOMMON.dll": {}
         }
@@ -226,8 +237,7 @@
       "Lookup_GSModel/1.0.0": {
         "dependencies": {
           "Lookup_GSCOMMON": "1.0.0",
-          "Lookup_GSFrontResources": "1.0.0",
-          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
+          "Lookup_GSFrontResources": "1.0.0"
         },
         "runtime": {
           "Lookup_GSModel.dll": {}
@@ -236,22 +246,6 @@
       "BlazorClientHelper/1.0.0.0": {
         "runtime": {
           "BlazorClientHelper.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "GLT00100COMMON/1.0.0.0": {
-        "runtime": {
-          "GLT00100COMMON.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "GLT00100FrontResources/1.0.0.0": {
-        "runtime": {
-          "GLT00100FrontResources.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -484,7 +478,17 @@
       "serviceable": false,
       "sha512": ""
     },
-    "GLT00100Model/1.0.0": {
+    "GLT00100COMMON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLT00100FrontResources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GLT00100MODEL/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -530,16 +534,6 @@
       "sha512": ""
     },
     "BlazorClientHelper/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "GLT00100COMMON/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "GLT00100FrontResources/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

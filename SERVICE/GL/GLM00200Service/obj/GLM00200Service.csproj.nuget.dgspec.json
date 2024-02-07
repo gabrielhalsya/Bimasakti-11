@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj": {}
+    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200SERVICE.csproj": {}
   },
   "projects": {
     "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj": {
@@ -40,8 +40,8 @@
               "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_RECURRING_STATUSResources\\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GL_SPR\\RSP_GL_UPDATE_RECURRING_STATUSResources\\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj"
               },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj"
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj"
               }
             }
           }
@@ -259,14 +259,14 @@
         }
       }
     },
-    "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
-        "projectName": "GLM00200Common",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj",
+        "projectName": "BaseHeaderReportCOMMON",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\obj\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -317,12 +317,74 @@
         }
       }
     },
-    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj": {
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj",
-        "projectName": "GLM00200Service",
-        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200Service.csproj",
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj",
+        "projectName": "GLM00200COMMON",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\BaseHeaderReportCommon\\BaseHeaderReportCOMMON.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200SERVICE.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200SERVICE.csproj",
+        "projectName": "GLM00200SERVICE",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\GLM00200SERVICE.csproj",
         "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
         "outputPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200Service\\obj\\",
         "projectStyle": "PackageReference",
@@ -347,8 +409,8 @@
               "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj"
               },
-              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200Common\\GLM00200Common.csproj": {
-                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200Common\\GLM00200Common.csproj"
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200COMMON.csproj"
               }
             }
           }
