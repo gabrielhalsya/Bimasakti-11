@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BaseHeaderReportCOMMON")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c766aef223545b7f7ea52440faee186b0febe220")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d2ca0b07dc9630ea388373ef7d9d738b0c26444")]
 [assembly: System.Reflection.AssemblyProductAttribute("BaseHeaderReportCOMMON")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BaseHeaderReportCOMMON")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

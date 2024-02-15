@@ -89,10 +89,10 @@ namespace GLT00100FRONT
             {
                 await _JournalEntryViewModel.GetJournalList();
                 eventArgs.ListEntityResult = _JournalEntryViewModel.JournalGrid;
-                //if (_JournalEntryViewModel.JournalGrid.Count <= 0)
-                //{
-                //    loEx.Add("", "Data Not Found!");
-                //}
+                if (_JournalEntryViewModel.JournalGrid.Count <= 0)
+                {
+                    loEx.Add("", "Data Not Found!");
+                }
             }
             catch (Exception ex)
             {
@@ -112,7 +112,7 @@ namespace GLT00100FRONT
                 var loData = (GLT00100DTO)eventArgs.Data;
                 if (eventArgs.ConductorMode == R_eConductorMode.Normal)
                 {
-                    if (string.IsNullOrWhiteSpace(loData.CREC_ID))
+                    if (!string.IsNullOrWhiteSpace(loData.CREC_ID))
                     {
                         await _gridDetailRef.R_RefreshGrid(eventArgs.Data);
                     }

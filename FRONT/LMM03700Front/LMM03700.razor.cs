@@ -50,8 +50,8 @@ namespace LMM03700Front
             R_Exception loEx = new R_Exception();
             try
             {
-                _viewTenantClassGrpModel._propertyId = poParam;//re assign when property klicked on combobox
-
+                _viewTenantClassGrpModel._propertyId = string.IsNullOrWhiteSpace(poParam) ? "" : poParam;
+                    
                 if (_conTenantClassGroupRef.R_ConductorMode == R_eConductorMode.Normal)
                 {
                     await _gridTenantClassGroupRef.R_RefreshGrid(null);

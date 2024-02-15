@@ -45,7 +45,7 @@ namespace GLT00100FRONT
                 {
                     _JournalEntryViewModel.RefDate = _JournalEntryViewModel.VAR_TODAY.DTODAY;
                     _JournalEntryViewModel.DocDate = _JournalEntryViewModel.VAR_TODAY.DTODAY;
-                    
+
                 }
             }
             catch (Exception ex)
@@ -109,7 +109,7 @@ namespace GLT00100FRONT
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
-        private void JournalForm_AfterAdd(R_AfterAddEventArgs eventArgs)
+        private async Task JournalForm_AfterAddAsync(R_AfterAddEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
@@ -126,6 +126,23 @@ namespace GLT00100FRONT
                 {
                     _gridDetailRef.DataSource.Clear();
                 }
+                var loParam = R_FrontUtility.ConvertObjectToObject<GLT00110LastCurrencyRateDTO>(data);
+                var loResult = await _JournalEntryViewModel.GetLastCurrency(loParam);
+
+                if (loResult is null)
+                {
+                    data.NLBASE_RATE = 1;
+                    data.NLCURRENCY_RATE = 1;
+                    data.NBBASE_RATE = 1;
+                    data.NBCURRENCY_RATE = 1;
+                }
+                else
+                {
+                    data.NLBASE_RATE = loResult.NLBASE_RATE_AMOUNT;
+                    data.NLCURRENCY_RATE = loResult.NLCURRENCY_RATE_AMOUNT;
+                    data.NBBASE_RATE = loResult.NBBASE_RATE_AMOUNT;
+                    data.NBCURRENCY_RATE = loResult.NBCURRENCY_RATE_AMOUNT;
+                }
             }
             catch (Exception ex)
             {
@@ -134,7 +151,7 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
-       
+
         private void ValidationFormGLT00100JournalEntry(R_ValidationEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -225,23 +242,25 @@ namespace GLT00100FRONT
         private async Task JournalForm_RDisplay(R_DisplayEventArgs eventArgs)
         {
             var data = (GLT00110DTO)eventArgs.Data;
+            if (!string.IsNullOrWhiteSpace(data.CSTATUS))
+            {
+                lcLabelCommit = data.CSTATUS == "80" ? "Undo Commit" : "Commit";
+                lcLabelSubmit = data.CSTATUS == "10" ? "Undo Submit" : "Submit";
+
+                EnableEdit = data.CSTATUS == "00";
+                EnableDelete = data.CSTATUS != "99";
+                EnableSubmit = data.CSTATUS == "00" || data.CSTATUS == "10";
+                EnableApprove = data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG;
+                EnableCommit = (data.CSTATUS == "20" || (data.CSTATUS == "10" && !_JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)) ||
+                               (data.CSTATUS == "80" && _JournalEntryViewModel.VAR_IUNDO_COMMIT_JRN.IOPTION != 1) &&
+                               int.Parse(data.CREF_PRD) >= int.Parse(_JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.CSOFT_PERIOD);
+                EnableHaveRecId = !string.IsNullOrWhiteSpace(data.CREC_ID);
+
+            }
+
             if (eventArgs.ConductorMode == R_eConductorMode.Normal)
             {
-                if (!string.IsNullOrWhiteSpace(data.CSTATUS))
-                {
-                    lcLabelCommit = data.CSTATUS == "80" ? "Undo Commit" : "Commit";
-                    lcLabelSubmit = data.CSTATUS == "10" ? "Undo Submit" : "Submit";
-
-                    EnableDelete = data.CSTATUS == "00";
-                    EnableDelete = data.CSTATUS != "99";
-                    EnableSubmit = data.CSTATUS == "00" || data.CSTATUS == "10";
-                    EnableApprove = data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG;
-                    EnableCommit = (data.CSTATUS == "20" || (data.CSTATUS == "10" && !_JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)) ||
-                                   (data.CSTATUS == "80" && _JournalEntryViewModel.VAR_IUNDO_COMMIT_JRN.IOPTION != 1) &&
-                                   int.Parse(data.CREF_PRD) >= int.Parse(_JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.CSOFT_PERIOD);
-                    EnableHaveRecId = !string.IsNullOrWhiteSpace(data.CREC_ID);
-
-                }
+                
                 if (!string.IsNullOrWhiteSpace(data.CREC_ID))
                 {
                     await _gridDetailRef.R_RefreshGrid(data);
@@ -308,7 +327,7 @@ namespace GLT00100FRONT
                     loData.NLBASE_RATE = 1;
                     loData.NLCURRENCY_RATE = 1;
                     loData.NBBASE_RATE = 1;
-                    loData.NBCURRENCY_RATE = 1; 
+                    loData.NBCURRENCY_RATE = 1;
                 }
                 else
                 {
@@ -331,7 +350,7 @@ namespace GLT00100FRONT
             try
             {
                 _JournalEntryViewModel.RefDate = poParam;
-                if (_JournalEntryViewModel.Data.CCURRENCY_CODE != _JournalEntryViewModel.VAR_GSM_COMPANY.CLOCAL_CURRENCY_CODE 
+                if (_JournalEntryViewModel.Data.CCURRENCY_CODE != _JournalEntryViewModel.VAR_GSM_COMPANY.CLOCAL_CURRENCY_CODE
                     || _JournalEntryViewModel.Data.CCURRENCY_CODE != _JournalEntryViewModel.VAR_GSM_COMPANY.CBASE_CURRENCY_CODE)
                 {
                     await RefreshLastCurrency();
@@ -458,7 +477,7 @@ namespace GLT00100FRONT
                         loEx.Add("", $"Account No. {data.CGLACCOUNT_NO} already exists!");
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -476,8 +495,10 @@ namespace GLT00100FRONT
                 var loData = (GLT00101DTO)eventArgs.Data;
 
                 loData.INO = _JournalEntryViewModel.JournalDetailGrid.Count + 1;
-                
+                var loFirstCenter = _JournalEntryViewModel.VAR_CENTER_LIST.FirstOrDefault();
                 loData.CDETAIL_DESC = _JournalEntryViewModel.Data.CTRANS_DESC;
+                loData.CCENTER_CODE = loFirstCenter.CCENTER_CODE;
+                loData.CCENTER_NAME = loFirstCenter.CCENTER_NAME;
                 loData.CDOCUMENT_NO = string.IsNullOrWhiteSpace(_JournalEntryViewModel.Data.CDOC_NO) ? "" : _JournalEntryViewModel.Data.CDOC_NO;
                 loData.CDOCUMENT_DATE = string.IsNullOrWhiteSpace(_JournalEntryViewModel.Data.CDOC_DATE) ? "" : _JournalEntryViewModel.DocDate.ToString("yyyyMMdd");
                 loData.DDOCUMENT_DATE = _JournalEntryViewModel.DocDate;
@@ -518,7 +539,7 @@ namespace GLT00100FRONT
             loGetData.CGLACCOUNT_NO = loTempResult.CGLACCOUNT_NO;
             loGetData.CGLACCOUNT_NAME = loTempResult.CGLACCOUNT_NAME;
             loGetData.CBSIS = loTempResult.CBSIS_DESCR.Trim();
-            if ((loTempResult.CBSIS_DESCR.Trim() == "I" && !_JournalEntryViewModel.VAR_GSM_COMPANY.LENABLE_CENTER_IS) 
+            if ((loTempResult.CBSIS_DESCR.Trim() == "I" && !_JournalEntryViewModel.VAR_GSM_COMPANY.LENABLE_CENTER_IS)
                 || (loTempResult.CBSIS_DESCR.Trim() == "B" && !_JournalEntryViewModel.VAR_GSM_COMPANY.LENABLE_CENTER_BS))
             {
                 loGetData.CCENTER_CODE = "";
@@ -559,7 +580,7 @@ namespace GLT00100FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        private void JournalDet_Saving(R_SavingEventArgs eventArgs) 
+        private void JournalDet_Saving(R_SavingEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try

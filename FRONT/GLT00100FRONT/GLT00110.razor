@@ -294,13 +294,13 @@
                 <R_AddButton R_Conductor="_conductorRef">Add</R_AddButton>
             </R_ItemLayout>
             <R_ItemLayout>
-                <R_Button OnClick="CopyJournalEntryProcess" Enabled="@EnableHaveRecId">Copy</R_Button>
+                <R_Button OnClick="CopyJournalEntryProcess" Enabled="@(EnableHaveRecId && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)">Copy</R_Button>
             </R_ItemLayout>
             <R_ItemLayout>
-                <R_EditButton R_Conductor="_conductorRef" Enabled="@EnableEdit"></R_EditButton>
+                <R_EditButton R_Conductor="_conductorRef" Enabled="@(EnableEdit && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)"></R_EditButton>
             </R_ItemLayout>
             <R_ItemLayout >
-                <R_Button Enabled="@EnableDelete" OnClick="@BtnDelete_OnClick">Delete</R_Button>
+                <R_Button Enabled="@(EnableDelete && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)" OnClick="@BtnDelete_OnClick">Delete</R_Button>
             </R_ItemLayout>
             <R_ItemLayout Class="ms-2">
                 <R_CancelButton R_Conductor="_conductorRef">Cancel</R_CancelButton>
@@ -309,18 +309,18 @@
                 <R_SaveButton R_Conductor="_conductorRef">Save</R_SaveButton>
             </R_ItemLayout>
             <R_ItemLayout Class="ms-2">
-                <R_Lookup R_Before_Open_Lookup="@Before_Open_lookupPrint" Enabled="@EnableHaveRecId">Print</R_Lookup>
+                <R_Lookup R_Before_Open_Lookup="@Before_Open_lookupPrint" Enabled="@(EnableHaveRecId && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)">Print</R_Lookup>
             </R_ItemLayout>
         </R_StackLayout>
         <R_StackLayout Row>
             <R_ItemLayout>
-                <R_Button Enabled="@EnableSubmit" OnClick="SubmitJournalProcess">@lcLabelSubmit</R_Button>
+                <R_Button Enabled="@(EnableSubmit && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)" OnClick="SubmitJournalProcess">@lcLabelSubmit</R_Button>
             </R_ItemLayout>
             <R_ItemLayout>
-                <R_Button Enabled="@EnableApprove" OnClick="ApproveJournalProcess">Approve</R_Button>
+                    <R_Button Enabled="@(EnableApprove && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)" OnClick="ApproveJournalProcess">Approve</R_Button>
             </R_ItemLayout>
             <R_ItemLayout>
-                <R_Button Enabled="@EnableCommit"
+                <R_Button Enabled="@(EnableCommit && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)"
                             OnClick="CommitJournalProcess">@lcLabelCommit</R_Button>
             </R_ItemLayout>
         </R_StackLayout>
@@ -373,7 +373,7 @@
               R_IsHeader
               R_ServiceGetRecord="@JournalForm_GetRecord"
               R_ServiceSave="@JournalForm_ServiceSave"
-              R_AfterAdd="@JournalForm_AfterAdd"
+              R_AfterAdd="@JournalForm_AfterAddAsync"
               R_Display="@JournalForm_RDisplay"
               R_BeforeCancel="@JournalForm_BeforeCancel"
               R_Validation="@ValidationFormGLT00100JournalEntry"
