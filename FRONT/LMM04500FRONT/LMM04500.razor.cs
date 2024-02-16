@@ -48,7 +48,8 @@ namespace LMM04500FRONT
             R_Exception loEx = new R_Exception();
             try
             {
-                _viewModelPricing._propertyId = poParam;//re assign when property klicked on combobox
+                _viewModelPricing._propertyId = string.IsNullOrWhiteSpace(poParam) ? "" : poParam; ;//re assign when property klicked on combobox
+
                 var loCurrencyData = _viewModelPricing._propertyList.Where(properties => properties.CPROPERTY_ID == poParam).FirstOrDefault();
                 _viewModelPricing._currency = $"{loCurrencyData.CCURRENCY_NAME}({loCurrencyData.CCURRENCY})";
 

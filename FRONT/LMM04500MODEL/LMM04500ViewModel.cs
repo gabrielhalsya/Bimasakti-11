@@ -248,11 +248,10 @@ namespace LMM04500MODEL
                 {
 
                     CPROPERTY_ID = _propertyId,
+                    CPRICE_TYPE = PRICE_TYPE,
                     CUNIT_TYPE_CATEGORY_ID = _unitTypeCategoryId,
                     CVALID_FROM_DATE = _validDate,
-                    CVALID_INTERNAL_ID = _validId,
-                    CACTION = lcAction,
-                    CPRICE_TYPE = PRICE_TYPE
+                    CACTION = lcAction
                 };
 
                 loParam.PRICING_LIST = new List<PricingBulkSaveDTO>(_pricingSaveList);

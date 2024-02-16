@@ -13,6 +13,7 @@ using R_BlazorFrontEnd.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace LMM04500FRONT
         private R_ConductorGrid _conGridPricing;
         private R_Grid<PricingBulkSaveDTO> _gridPricing;
         private LMM04500ViewModel _viewModel = new();
-        
+
         [Inject] R_PopupService PopupService { get; set; }
 
         protected override async Task R_Init_From_Master(object poParameter)
@@ -37,6 +38,7 @@ namespace LMM04500FRONT
                 _viewModel._propertyId = loParam.CPROPERTY_ID;
                 _viewModel._unitTypeCategoryId = loParam.CUNIT_TYPE_CATEGORY_ID;
                 _viewModel._unitTypeCategoryName = loParam.CUNIT_TYPE_CATEGORY_NAME;
+                _viewModel._validDate = loParam.CVALID_DATE;
                 await _gridPricing.R_RefreshGrid(poParameter);//refresh grid param
             }
             catch (Exception ex)
@@ -53,7 +55,7 @@ namespace LMM04500FRONT
             try
             {
                 await _viewModel.GetPricingForSaveList();
-                eventArgs.ListEntityResult = _viewModel._pricingList;
+                eventArgs.ListEntityResult = _viewModel._pricingSaveList;
             }
             catch (Exception ex)
             {
@@ -83,41 +85,38 @@ namespace LMM04500FRONT
             R_PopupResult loResult = null;
             try
             {
-                //get data
-                var loData = (PricingBulkSaveDTO)eventArgs.Data;
-
-                switch (_conGridPricing.R_ConductorMode)
+                //data for approval trigger
+                DateTime ldValidDate = DateTime.ParseExact(_viewModel._validDate, "yyyyMMdd", CultureInfo.InvariantCulture);
+                
+                //Approval before saving
+                if (ldValidDate < DateTime.Now)
                 {
-                    case R_eConductorMode.Add:
+                    var loValidateViewModel = new GFF00900Model.ViewModel.GFF00900ViewModel
+                    {
+                        ACTIVATE_INACTIVE_ACTIVITY_CODE = "LMM04501"
+                    };
+                    await loValidateViewModel.RSP_ACTIVITY_VALIDITYMethodAsync();
 
-                        //Approval before saving
-                        if (loData.LACTIVE == true)
+                    if (loValidateViewModel.loRspActivityValidityList.FirstOrDefault().CAPPROVAL_USER == "ALL" && loValidateViewModel.loRspActivityValidityResult.Data.FirstOrDefault().IAPPROVAL_MODE == 1)
+                    {
+                        eventArgs.Cancel = false;
+                    }
+                    else
+                    {
+                        loParam = new GFF00900ParameterDTO()
                         {
-                            var loValidateViewModel = new GFF00900Model.ViewModel.GFF00900ViewModel();
-                            loValidateViewModel.ACTIVATE_INACTIVE_ACTIVITY_CODE = "LMM04501";
-                            await loValidateViewModel.RSP_ACTIVITY_VALIDITYMethodAsync();
-
-                            if (loValidateViewModel.loRspActivityValidityList.FirstOrDefault().CAPPROVAL_USER == "ALL" && loValidateViewModel.loRspActivityValidityResult.Data.FirstOrDefault().IAPPROVAL_MODE == 1)
-                            {
-                                eventArgs.Cancel = false;
-                            }
-                            else
-                            {
-                                loParam = new GFF00900ParameterDTO()
-                                {
-                                    Data = loValidateViewModel.loRspActivityValidityList,
-                                    IAPPROVAL_CODE = "GSM04001"
-                                };
-                                loResult = await PopupService.Show(typeof(GFF00900FRONT.GFF00900), loParam);
-                                if (loResult.Success == false || (bool)loResult.Result == false)
-                                {
-                                    eventArgs.Cancel = true;
-                                }
-                            }
+                            Data = loValidateViewModel.loRspActivityValidityList,
+                            IAPPROVAL_CODE = "LMM04501"
+                        };
+                        loResult = await PopupService.Show(typeof(GFF00900FRONT.GFF00900), loParam);
+                        if (loResult.Success == false || (bool)loResult.Result == false)
+                        {
+                            await R_MessageBox.Show("", "Valid Date must be greater than Today",R_eMessageBoxButtonType.OK);
+                            eventArgs.Cancel = true;
                         }
-                        //~End approval
-                        break;
+                    }
                 }
+                //~End approval
             }
             catch (Exception ex)
             {
@@ -135,7 +134,8 @@ namespace LMM04500FRONT
 
             try
             {
-                //set origin tenantclass
+                _viewModel.SavePricing();
+                //save action
 
             }
             catch (Exception ex)

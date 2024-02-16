@@ -36,3 +36,14 @@ D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Release\net6.0\ref\LMM03700Fr
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Release\net6.0\LMM03700Front.sourcelink.json
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\LMM03700FrontResources.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\LMM03700FrontResources.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900FRONT.staticwebassets.runtime.json
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\LMM03700Front.staticwebassets.runtime.json
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900COMMON.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900FRONT.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900Model.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\R_CrossPlatformSecurity.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900FrontResources.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900FRONT.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Release\net6.0\GFF00900COMMON.pdb

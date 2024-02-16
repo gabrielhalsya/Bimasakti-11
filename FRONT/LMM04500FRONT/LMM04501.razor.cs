@@ -185,7 +185,8 @@ namespace LMM04500FRONT
             {
                 CPROPERTY_ID = _viewModelPricing._propertyId,
                 CUNIT_TYPE_CATEGORY_ID = _viewModelPricing._unitTypeCategoryId,
-                CUNIT_TYPE_CATEGORY_NAME = _viewModelPricing._unitTypeCategoryName
+                CUNIT_TYPE_CATEGORY_NAME = _viewModelPricing._unitTypeCategoryName,
+                CVALID_DATE= _viewModelPricing._validDate,
             };
             //eventArgs.TargetPageType = typeof(LMM04501PopupAdd);
         }

@@ -8,6 +8,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Reflection;
+using System.Transactions;
 
 namespace LMM04500BACK
 {
@@ -222,12 +223,12 @@ namespace LMM04500BACK
             string lcQuery = "";
             try
             {
-                loCmd = loDB.GetCommand();
-                loConn = loDB.GetConnection();
-                R_ExternalException.R_SP_Init_Exception(loConn);
-
-                try
+                using (TransactionScope transactionScope = new TransactionScope(TransactionScopeOption.Required))
                 {
+
+                    loCmd = loDB.GetCommand();
+                    loConn = loDB.GetConnection();
+
                     // creating temptable
                     lcQuery = @"CREATE TABLE #LEASE_PRICING 
                               ( ISEQ INT
@@ -239,10 +240,13 @@ namespace LMM04500BACK
 	                        , NBOTTOM_PRICE			NUMERIC(18,2)
 	                        , LOVERWRITE			BIT
                               ) ";
+                    //exec temptable
                     loDB.SqlExecNonQuery(lcQuery, loConn, false);
 
+                    //savebulk
                     loDB.R_BulkInsert<PricingBulkSaveDTO>((SqlConnection)loConn, "#LEASE_PRICING", poParam.PRICING_LIST);
 
+                    //exec rsp
                     lcQuery = "RSP_LM_MAINTAIN_PRICING";
                     loCmd.CommandText = lcQuery;
                     loCmd.CommandType = CommandType.StoredProcedure;
@@ -253,13 +257,21 @@ namespace LMM04500BACK
                     loDB.R_AddCommandParameter(loCmd, "@CVALID_FROM_DATE", DbType.String, int.MaxValue, poParam.CVALID_FROM_DATE);
                     loDB.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, int.MaxValue, "ADD");
                     loDB.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, int.MaxValue, poParam.CUSER_ID);
-                    var loDataTable = loDB.SqlExecQuery(loConn, loCmd, false);
+                    R_ExternalException.R_SP_Init_Exception(loConn);
+                    try
+                    {
+                        loDB.SqlExecNonQuery(loConn, loCmd, false);
+                    }
+                    catch (Exception ex)
+                    {
+                        loEx.Add(ex);
+                    }
+                    loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
+                    
+                    //transcopecomplete
+                    transactionScope.Complete();
                 }
-                catch (Exception ex)
-                {
-                    loEx.Add(ex);
-                }
-                loEx.Add(R_ExternalException.R_SP_Get_Exception(loConn));
+
             }
             catch (Exception ex)
             {
