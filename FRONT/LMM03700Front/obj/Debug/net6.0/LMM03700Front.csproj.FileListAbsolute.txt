@@ -36,24 +36,35 @@ D:\Realta NetCore Library\Test Project\LMM03700\LMM03700Front\obj\Debug\net6.0\L
 D:\Realta NetCore Library\Test Project\LMM03700\LMM03700Front\obj\Debug\net6.0\refint\LMM03700Front.dll
 D:\Realta NetCore Library\Test Project\LMM03700\LMM03700Front\obj\Debug\net6.0\LMM03700Front.pdb
 D:\Realta NetCore Library\Test Project\LMM03700\LMM03700Front\obj\Debug\net6.0\ref\LMM03700Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.staticwebassets.runtime.json
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Front.staticwebassets.runtime.json
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Front.deps.json
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Front.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Front.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900COMMON.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FrontResources.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900Model.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Common.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700FrontResources.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Model.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_BlazorFrontEnd.Controls.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_BlazorFrontEnd.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_CommonFrontBackAPI.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_APICommonDTO.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_CrossPlatformSecurity.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_BusinessObjectFront.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_APIClient.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_APICommonDTO.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_ContextFrontEnd.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_AuthenticationEnumAndInterface.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FrontResources.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900Model.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Common.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700FrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900COMMON.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\id\R_BlazorFrontEnd.Controls.resources.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.csproj.AssemblyReference.cache
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.GeneratedMSBuildEditorConfig.editorconfig
@@ -74,14 +85,3 @@ D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.dl
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\refint\LMM03700Front.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\ref\LMM03700Front.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.staticwebassets.runtime.json
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\LMM03700Front.staticwebassets.runtime.json
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900COMMON.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FrontResources.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900Model.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\R_CrossPlatformSecurity.dll
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FrontResources.pdb
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900FRONT.pdb
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900Model.pdb
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\bin\Debug\net6.0\GFF00900COMMON.pdb

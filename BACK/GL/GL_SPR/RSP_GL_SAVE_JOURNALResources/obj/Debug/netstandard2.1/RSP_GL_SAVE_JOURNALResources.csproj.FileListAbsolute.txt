@@ -9,15 +9,3 @@ D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNA
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.csproj.CoreCompileInputs.cache
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.dll
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.pdb
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.deps.json
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\bin\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.pdb
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.RSP_GL_SAVE_JOURNALResources_msgrsc.resources
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.csproj.GenerateResource.cache
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.GeneratedMSBuildEditorConfig.editorconfig
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.AssemblyInfoInputs.cache
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.AssemblyInfo.cs
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.csproj.CoreCompileInputs.cache
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.sourcelink.json
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.dll
-D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_SAVE_JOURNALResources\obj\Debug\netstandard2.1\RSP_GL_SAVE_JOURNALResources.pdb
