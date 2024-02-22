@@ -2,13 +2,8 @@
 using R_BackEnd;
 using R_Common;
 using R_CommonFrontBackAPI;
-using System;
-using System.Collections.Generic;
 using System.Data.Common;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RSP_GS_MAINTAIN_DEPARTMENTResources;
 using RSP_GS_UPLOAD_DEPARTMENTResources;
 using System.Diagnostics;
@@ -31,7 +26,7 @@ namespace GSM04000Back
             _activitySource = GSM04000Activity.R_GetInstanceActivitySource();
 
         }
-
+        
         protected override void R_Deleting(GSM04100DTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(nameof(R_Display));

@@ -34,10 +34,10 @@ namespace LMM04500SERVICE
             ShowLogStart();
             R_Exception loException = new R_Exception();
             List<PropertyDTO> loRtnTemp = null;
-            LMM04500Cls loCls;
+            LMM04500InitCls loCls;
             try
             {
-                loCls = new LMM04500Cls();
+                loCls = new LMM04500InitCls();
                 ShowLogExecute();
                 loRtnTemp = loCls.GetPropertyList(new PropertyDTO()
                 {
@@ -199,10 +199,10 @@ namespace LMM04500SERVICE
             ShowLogStart();
             R_Exception loException = new R_Exception();
             List<TypeDTO> loRtnTemp = null;
-            LMM04500Cls loCls;
+            LMM04500InitCls loCls;
             try
             {
-                loCls = new LMM04500Cls();
+                loCls = new LMM04500InitCls();
                 ShowLogExecute();
                 loRtnTemp = loCls.GetChargesPriceTypeList(new TypeParam()
                 {

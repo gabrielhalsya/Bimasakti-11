@@ -24,8 +24,8 @@ D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\LMM03700Back.As
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\LMM03700Back.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\LMM03700Back.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\LMM03700Back.sourcelink.json
-D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\LMM03700Back.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\LMM03700Back.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\refint\LMM03700Back.dll
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\LMM03700Back.pdb
 D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\ref\LMM03700Back.dll
+D:\repos\BS Program\SOURCE\BACK\LM\LMM03700Back\obj\Debug\net6.0\LMM03700.7DC20EA8.Up2Date

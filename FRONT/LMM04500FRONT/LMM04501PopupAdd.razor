@@ -1,87 +1,86 @@
 ﻿@inherits R_Page
 
 <R_StackLayout Row Style="width:820px">
-     <R_ItemLayout col="12">
+    <R_ItemLayout col="12">
 
-         <R_StackLayout Row Spacing="2">
+        <R_StackLayout Row Spacing="2">
 
-         </R_StackLayout>
+        </R_StackLayout>
 
-         <R_Grid DataSource="@_viewModel._pricingSaveList"
-                 @ref="@_gridPricing"
-                 Pageable="false"
-                 R_GridType="@R_eGridType.Original"
-                 R_ConductorGridSource="@_conGridPricing"
-                 AllowAddNewRow="true"
-                 AllowEditRow="true"
-                 AllowDeleteRow="true"
-                 R_ServiceGetListRecord="@PricingAdd_GetListRecord"
-                 Height="300px">
-             <R_GridColumns>
-                 <R_GridComboBoxColumn Data=@_viewModel._chargesTypeList
-                                       ValueField="@nameof(TypeDTO.CCODE)"
-                                       TextField="@nameof(TypeDTO.CDESCRIPTION)"
-                                       FieldName="@nameof(PricingBulkSaveDTO.CCHARGES_TYPE)"
-                                       HeaderText="Charges Type"
-                                       R_EnableAdd="true"
-                                       R_EnableEdit="true"
-                                       Width="250px" />
-                 <R_GridLookupColumn FieldName="@nameof(PricingBulkSaveDTO.CCHARGES_ID)"
-                                     Name="CCHARGES_ID"
-                                     HeaderText="Charges Id"
+        <R_Grid DataSource="@_viewModel._pricingSaveList"
+                @ref="@_gridPricing"
+                Pageable="false"
+                R_GridType="@R_eGridType.Batch"
+                R_ConductorGridSource="@_conGridPricing"
+                AllowAddNewRow="true"
+                AllowEditRow="true"
+                AllowDeleteRow="true"
+                R_ServiceGetListRecord="@PricingAdd_GetListRecord"
+                Height="300px"
+                R_BeforeSaveBatch="@R_BeforeSaveBatchAsync"
+                R_ServiceSaveBatch="@R_ServiceSaveBatchAsync"
+                R_AfterSaveBatch="@R_AfterSaveBatchAsync"
+                R_IsHeader=true>
+            <R_GridColumns>
+                <R_GridComboBoxColumn Data=@_viewModel._chargesTypeList
+                                      ValueField="@nameof(TypeDTO.CCODE)"
+                                      TextField="@nameof(TypeDTO.CDESCRIPTION)"
+                                      FieldName="@nameof(PricingBulkSaveDTO.CCHARGES_TYPE)"
+                                      HeaderText="Charges Type"
+                                      R_EnableAdd="true"
+                                      R_EnableEdit="true"
+                                      Width="250px" />
+                <R_GridLookupColumn FieldName="@nameof(PricingBulkSaveDTO.CCHARGES_ID)"
+                                    Name="CCHARGES_ID"
+                                    HeaderText="Charges Id"
+                                    R_EnableAdd="true"
+                                    R_EnableEdit="true"
+                                    Width="200px"></R_GridLookupColumn>
+                <R_GridComboBoxColumn Data=@_viewModel._priceTypeList
+                                      ValueField="@nameof(TypeDTO.CCODE)"
+                                      TextField="@nameof(TypeDTO.CDESCRIPTION)"
+                                      FieldName="@nameof(PricingBulkSaveDTO.CPRICE_MODE)"
+                                      HeaderText="Price Mode"
+                                      R_EnableAdd
+                                      R_EnableEdit
+                                      Width="250px" />
+                <R_GridNumericColumn FieldName="@nameof(PricingBulkSaveDTO.NNORMAL_PRICE)"
                                      R_EnableAdd="true"
                                      R_EnableEdit="true"
-                                     Width="200px"></R_GridLookupColumn>
-                 <R_GridComboBoxColumn Data=@_viewModel._priceTypeList
-                                       ValueField="@nameof(TypeDTO.CCODE)"
-                                       TextField="@nameof(TypeDTO.CDESCRIPTION)"
-                                       FieldName="@nameof(PricingBulkSaveDTO.CPRICE_MODE)"
-                                       HeaderText="Price Mode"
-                                                    R_EnableAdd
-                                                    R_EnableEdit
-                                       Width="250px" />
-                 <R_GridNumericColumn FieldName="@nameof(PricingBulkSaveDTO.NNORMAL_PRICE)"
+                                     HeaderText="Normal Price" Width="450px"></R_GridNumericColumn>
+                <R_GridNumericColumn FieldName="@nameof(PricingBulkSaveDTO.NBOTTOM_PRICE)"
+                                     R_EnableAdd="true"
+                                     R_EnableEdit="true"
+                                     HeaderText="Bottom Price"
+                                     Width="450px"></R_GridNumericColumn>
+                <R_GridCheckBoxColumn FieldName="@nameof(PricingBulkSaveDTO.LOVERWRITE)"
                                       R_EnableAdd="true"
                                       R_EnableEdit="true"
-                                      HeaderText="Normal Price" Width="450px"></R_GridNumericColumn>
-                 <R_GridNumericColumn FieldName="@nameof(PricingBulkSaveDTO.NBOTTOM_PRICE)"
-                                      R_EnableAdd="true"
-                                      R_EnableEdit="true"
-                                      HeaderText="Bottom Price"
-                                      Width="450px"></R_GridNumericColumn>
-                 <R_GridCheckBoxColumn FieldName="@nameof(PricingBulkSaveDTO.LOVERWRITE)"
-                                       R_EnableAdd="true"
-                                       R_EnableEdit="true"
-                                       HeaderText="Overwrite"
-                                       Width="450px"></R_GridCheckBoxColumn>
-                 <R_GridTextColumn FieldName="@nameof(PricingBulkSaveDTO.CUPDATE_BY)"
-                                   HeaderText="Updated By"
-                                   Width="200px"
-                                   R_EnableAdd="false"
-                                   R_EnableEdit="false"></R_GridTextColumn>
-                 <R_GridTextColumn FieldName="@nameof(PricingBulkSaveDTO.DUPDATE_DATE)"
-                                   HeaderText="Updated Date"
-                                   Width="200px"
-                                   R_EnableAdd="false"
-                                   R_EnableEdit="false"></R_GridTextColumn>
-                 <R_GridTextColumn FieldName="@nameof(PricingBulkSaveDTO.CCREATE_BY)"
-                                   HeaderText="Created By"
-                                   Width="200px"
-                                   R_EnableAdd="false"
-                                   R_EnableEdit="false"></R_GridTextColumn>
-                 <R_GridTextColumn FieldName="@nameof(PricingBulkSaveDTO.DCREATE_DATE)"
-                                   HeaderText="Created Date"
-                                   Width="200px"
-                                   R_EnableAdd="false"
-                                   R_EnableEdit="false"></R_GridTextColumn>
-             </R_GridColumns>
-         </R_Grid>
-         @* conductor *@
-         <R_ConductorGrid @ref="@_conGridPricing"
-                          R_ViewModel="@_viewModel"
-                          R_IsHeader=true
-                          R_BeforeSaveBatch="@R_BeforeSaveBatchAsync"
-                          R_ServiceSaveBatch="@R_ServiceSaveBatchAsync"
-                          R_AfterSaveBatch="@R_AfterSaveBatchAsync" />
-     </R_ItemLayout>
- </R_StackLayout>
+                                      HeaderText="Overwrite"
+                                      Width="450px"></R_GridCheckBoxColumn>
+                <R_GridTextColumn FieldName="@nameof(PricingBulkSaveDTO.CUPDATE_BY)"
+                                  HeaderText="Updated By"
+                                  Width="200px"
+                                  R_EnableAdd="false"
+                                  R_EnableEdit="false"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(PricingBulkSaveDTO.DUPDATE_DATE)"
+                                  HeaderText="Updated Date"
+                                  Width="200px"
+                                  R_EnableAdd="false"
+                                  R_EnableEdit="false"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(PricingBulkSaveDTO.CCREATE_BY)"
+                                  HeaderText="Created By"
+                                  Width="200px"
+                                  R_EnableAdd="false"
+                                  R_EnableEdit="false"></R_GridTextColumn>
+                <R_GridTextColumn FieldName="@nameof(PricingBulkSaveDTO.DCREATE_DATE)"
+                                  HeaderText="Created Date"
+                                  Width="200px"
+                                  R_EnableAdd="false"
+                                  R_EnableEdit="false"></R_GridTextColumn>
+            </R_GridColumns>
+        </R_Grid>
+        @* conductor *@
+        <R_ConductorGrid @ref="@_conGridPricing" />
+    </R_ItemLayout>
+</R_StackLayout>

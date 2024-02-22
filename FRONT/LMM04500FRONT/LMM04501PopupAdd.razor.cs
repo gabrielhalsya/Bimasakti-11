@@ -65,12 +65,12 @@ namespace LMM04500FRONT
             R_DisplayException(loEx);
         }
 
-        private async Task PricingAdd_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
+        private void PricingAdd_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
             eventArgs.Result = R_FrontUtility.ConvertObjectToObject<PricingBulkSaveDTO>(eventArgs.Data);
         }
 
-        private async Task PricingAdd_AfterAdd(R_AfterAddEventArgs eventArgs)
+        private void PricingAdd_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
 
         }
@@ -128,7 +128,7 @@ namespace LMM04500FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        private async Task R_ServiceSaveBatchAsync(R_ServiceSaveBatchEventArgs eventArgs)
+        private void R_ServiceSaveBatchAsync(R_ServiceSaveBatchEventArgs eventArgs)
         {
             var loEx = new R_Exception();
 

@@ -47,6 +47,6 @@ D:\repos\BS Program\SOURCE\COMMON\LM\LMM00200Common\obj\Debug\netstandard2.1\LMM
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM00200Common\obj\Debug\netstandard2.1\LMM00200Common.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM00200Common\obj\Debug\netstandard2.1\LMM00200Common.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM00200Common\obj\Debug\netstandard2.1\LMM00200Common.sourcelink.json
-D:\repos\BS Program\SOURCE\COMMON\LM\LMM00200Common\obj\Debug\netstandard2.1\LMM00200Common.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM00200Common\obj\Debug\netstandard2.1\LMM00200Common.dll
 D:\repos\BS Program\SOURCE\COMMON\LM\LMM00200Common\obj\Debug\netstandard2.1\LMM00200Common.pdb
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM00200Common\obj\Debug\netstandard2.1\LMM00200.37C47131.Up2Date

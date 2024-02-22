@@ -80,8 +80,8 @@ D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\staticwebassets\
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.LMM03700Front.props
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\staticwebassets.pack.json
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\scopedcss\bundle\LMM03700Front.styles.css
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\refint\LMM03700Front.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\ref\LMM03700Front.dll
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Front\obj\Debug\net6.0\LMM03700.7DCB3252.Up2Date

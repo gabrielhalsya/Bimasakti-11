@@ -17,6 +17,6 @@ D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Debug\netstandard2.1\LMM03700
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Debug\netstandard2.1\LMM03700Model.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Debug\netstandard2.1\LMM03700Model.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Debug\netstandard2.1\LMM03700Model.sourcelink.json
-D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Debug\netstandard2.1\LMM03700Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Debug\netstandard2.1\LMM03700Model.dll
 D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Debug\netstandard2.1\LMM03700Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\LMM03700Model\obj\Debug\netstandard2.1\LMM03700.5C95F893.Up2Date

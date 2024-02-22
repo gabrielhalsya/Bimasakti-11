@@ -14,6 +14,5 @@ namespace LMM04500COMMON
         IAsyncEnumerable<PricingDTO> GetPricingDateList();
         PricingDumpResultDTO SavePricing(PricingSaveParamDTO poParam);
         IAsyncEnumerable<TypeDTO> GetPriceChargesType();
-
     }
 }
