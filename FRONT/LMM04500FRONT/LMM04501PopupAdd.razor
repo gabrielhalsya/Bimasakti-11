@@ -4,7 +4,20 @@
     <R_ItemLayout col="12">
 
         <R_StackLayout Row Spacing="2">
-
+            <R_ItemLayout role col="4">
+                <R_Label>Unit Type Cateory</R_Label>
+            </R_ItemLayout>
+            <R_ItemLayout col="4">
+                <R_TextBox @bind-Value="_viewModel._unitTypeCategoryName"></R_TextBox>
+            </R_ItemLayout>
+        </R_StackLayout>
+        <R_StackLayout Row Spacing="2">
+            <R_ItemLayout role col="4">
+                <R_Label>Valid From Date</R_Label>
+            </R_ItemLayout>
+            <R_ItemLayout col="4">
+                <R_DatePicker @bind-Value="_viewModel._validDateForm"></R_DatePicker>
+            </R_ItemLayout>
         </R_StackLayout>
 
         <R_Grid DataSource="@_viewModel._pricingSaveList"
@@ -16,7 +29,12 @@
                 AllowEditRow="true"
                 AllowDeleteRow="true"
                 R_ServiceGetListRecord="@PricingAdd_GetListRecord"
+                R_ServiceGetRecord="@PricingAdd_GetRecord"
+                R_Before_Open_Grid_Lookup="@PricingAdd_BeforeLookup"
+                R_After_Open_Grid_Lookup="@PricingAdd_AfterLookup"
+                lookup="PricingAdd_AfterLookup"
                 Height="300px"
+                R_AfterAdd="@PricingAdd_AfterAdd"
                 R_BeforeSaveBatch="@R_BeforeSaveBatchAsync"
                 R_ServiceSaveBatch="@R_ServiceSaveBatchAsync"
                 R_AfterSaveBatch="@R_AfterSaveBatchAsync"
@@ -30,8 +48,8 @@
                                       R_EnableAdd="true"
                                       R_EnableEdit="true"
                                       Width="250px" />
-                <R_GridLookupColumn FieldName="@nameof(PricingBulkSaveDTO.CCHARGES_ID)"
-                                    Name="CCHARGES_ID"
+                <R_GridLookupColumn FieldName="@nameof(PricingBulkSaveDTO.CCHARGES_NAME)"
+                                    Name="@nameof(PricingBulkSaveDTO.CCHARGES_NAME)"
                                     HeaderText="Charges Id"
                                     R_EnableAdd="true"
                                     R_EnableEdit="true"
@@ -47,12 +65,14 @@
                 <R_GridNumericColumn FieldName="@nameof(PricingBulkSaveDTO.NNORMAL_PRICE)"
                                      R_EnableAdd="true"
                                      R_EnableEdit="true"
-                                     HeaderText="Normal Price" Width="450px"></R_GridNumericColumn>
+                                     HeaderText="Normal Price"
+                                     Width="450px"
+                                     ThousandSeparator></R_GridNumericColumn>
                 <R_GridNumericColumn FieldName="@nameof(PricingBulkSaveDTO.NBOTTOM_PRICE)"
                                      R_EnableAdd="true"
                                      R_EnableEdit="true"
                                      HeaderText="Bottom Price"
-                                     Width="450px"></R_GridNumericColumn>
+                                     Width="450px" ThousandSeparator></R_GridNumericColumn>
                 <R_GridCheckBoxColumn FieldName="@nameof(PricingBulkSaveDTO.LOVERWRITE)"
                                       R_EnableAdd="true"
                                       R_EnableEdit="true"

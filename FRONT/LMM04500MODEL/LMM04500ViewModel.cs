@@ -34,7 +34,7 @@ namespace LMM04500MODEL
         public ObservableCollection<TypeDTO> _chargesTypeList { get; set; } = new ObservableCollection<TypeDTO>();
         public ObservableCollection<TypeDTO> _priceTypeList { get; set; } = new ObservableCollection<TypeDTO>();
 
-        public enum ListPricingParamType { GetAll = 1, GetNext = 2, GetHistory = 3 }
+        public enum eListPricingParamType { GetAll, GetNext, GetHistory }
 
         public string _currency { get; set; } = "";
 
@@ -45,6 +45,8 @@ namespace LMM04500MODEL
         public string _unitTypeCategoryName { get; set; } = "";
 
         public string _validId { get; set; } = "";
+
+        public DateTime _validDateForm { get; set; }= DateTime.Now;
 
         public string _validDate { get; set; } = "";
 
@@ -99,7 +101,7 @@ namespace LMM04500MODEL
             loEx.ThrowExceptionIfErrors();
         }
 
-        public async Task GetPricingList(ListPricingParamType poParam, bool llIsPricingDate)
+        public async Task GetPricingList(eListPricingParamType poParam, bool llIsPricingDate)
         {
             R_Exception loEx = new R_Exception();
             try
@@ -109,13 +111,13 @@ namespace LMM04500MODEL
                 string lcType = "";
                 switch (poParam)
                 {
-                    case ListPricingParamType.GetAll:
+                    case eListPricingParamType.GetAll:
                         lcType = "01";
                         break;
-                    case ListPricingParamType.GetNext:
+                    case eListPricingParamType.GetNext:
                         lcType = "02";
                         break;
-                    case ListPricingParamType.GetHistory:
+                    case eListPricingParamType.GetHistory:
                         lcType = "03";
                         break;
                 }

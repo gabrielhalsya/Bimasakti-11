@@ -1,4 +1,5 @@
 ﻿using GFF00900COMMON.DTOs;
+using GFF00900FRONT;
 using LMM04500COMMON.DTO_s;
 using LMM04500MODEL;
 using Microsoft.AspNetCore.Components;
@@ -10,6 +11,7 @@ using R_BlazorFrontEnd.Controls.Popup;
 using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
+using R_CommonFrontBackAPI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
@@ -72,9 +74,39 @@ namespace LMM04500FRONT
 
         private void PricingAdd_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
-
+            R_Exception loEx = new();
+            try
+            {
+                var loData = (PricingBulkSaveDTO)eventArgs.Data;
+                loData.DUPDATE_DATE = DateTime.Now;
+                loData.DCREATE_DATE = DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
         }
 
+        #region LookupColumn
+        private void PricingAdd_BeforeLookup(R_BeforeOpenGridLookupColumnEventArgs eventArgs)
+        {
+            //membedakan columname dan mengarahkan tampil lookup
+            switch (eventArgs.ColumnName)
+            {
+                case nameof(PricingBulkSaveDTO.CCHARGES_NAME):
+                    //eventArgs.Parameter = new ();
+                    //eventArgs.TargetPageType = typeof(GSL00900);
+                    break;
+            }
+            
+        }
+
+        private void PricingAdd_AfterLookup(R_AfterOpenGridLookupColumnEventArgs eventArgs)
+        {
+
+        }
+        #endregion
 
         #region Save Batch
 
@@ -85,11 +117,8 @@ namespace LMM04500FRONT
             R_PopupResult loResult = null;
             try
             {
-                //data for approval trigger
-                DateTime ldValidDate = DateTime.ParseExact(_viewModel._validDate, "yyyyMMdd", CultureInfo.InvariantCulture);
-                
                 //Approval before saving
-                if (ldValidDate < DateTime.Now)
+                if (_viewModel._validDateForm.Date < DateTime.Now.Date)
                 {
                     var loValidateViewModel = new GFF00900Model.ViewModel.GFF00900ViewModel
                     {
@@ -111,10 +140,15 @@ namespace LMM04500FRONT
                         loResult = await PopupService.Show(typeof(GFF00900FRONT.GFF00900), loParam);
                         if (loResult.Success == false || (bool)loResult.Result == false)
                         {
-                            await R_MessageBox.Show("", "Valid Date must be greater than Today",R_eMessageBoxButtonType.OK);
+                            await R_MessageBox.Show("", "Valid Date must be greater than Today", R_eMessageBoxButtonType.OK);
                             eventArgs.Cancel = true;
                         }
                     }
+                }
+                else
+                {
+                    //if not, assign date to string for saving
+                    _viewModel._validDate = _viewModel._validDateForm.ToString("yyyyMMdd");
                 }
                 //~End approval
             }
@@ -128,13 +162,13 @@ namespace LMM04500FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        private void R_ServiceSaveBatchAsync(R_ServiceSaveBatchEventArgs eventArgs)
+        private async Task R_ServiceSaveBatchAsync(R_ServiceSaveBatchEventArgs eventArgs)
         {
             var loEx = new R_Exception();
 
             try
             {
-                _viewModel.SavePricing();
+                await _viewModel.SavePricing();
                 //save action
 
             }
