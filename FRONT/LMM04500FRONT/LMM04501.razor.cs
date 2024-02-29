@@ -33,6 +33,7 @@ namespace LMM04500FRONT
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<string>(poParameter);
                 _viewModelPricing._propertyId = loParam;
+                await Task.Delay(300);
                 await (_viewModelPricing._propertyId != "" ? _gridUnitTypeCTG.R_RefreshGrid(null) : Task.CompletedTask);
             }
             catch (Exception ex)
@@ -48,6 +49,7 @@ namespace LMM04500FRONT
             try
             {
                 _viewModelPricing._propertyId=(string)poParam;
+                await Task.Delay(300);
                 await _gridUnitTypeCTG.R_RefreshGrid(null);
             }
             catch (Exception ex)
@@ -118,7 +120,7 @@ namespace LMM04500FRONT
 
             try
             {
-                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetNext, true);
+                await _viewModelPricing.GetPricingList(LMM04500ViewModel.eListPricingParamType.GetNext, true);
 
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
@@ -163,7 +165,7 @@ namespace LMM04500FRONT
 
             try
             {
-                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetAll, false);
+                await _viewModelPricing.GetPricingList(LMM04500ViewModel.eListPricingParamType.GetAll, false);
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
             catch (Exception ex)
@@ -188,7 +190,7 @@ namespace LMM04500FRONT
                 CUNIT_TYPE_CATEGORY_NAME = _viewModelPricing._unitTypeCategoryName,
                 CVALID_DATE= _viewModelPricing._validDate,
             };
-            //eventArgs.TargetPageType = typeof(LMM04501PopupAdd);
+            eventArgs.TargetPageType = typeof(LMM04501PopupAdd);
         }
 
         private async Task AfterOpenPopup_AddNextPricing(R_AfterOpenPopupEventArgs eventArgs)

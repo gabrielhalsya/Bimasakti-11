@@ -2,6 +2,8 @@
 using GFF00900FRONT;
 using LMM04500COMMON.DTO_s;
 using LMM04500MODEL;
+using Lookup_LMCOMMON.DTOs;
+using Lookup_LMFRONT;
 using Microsoft.AspNetCore.Components;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
@@ -91,12 +93,12 @@ namespace LMM04500FRONT
         #region LookupColumn
         private void PricingAdd_BeforeLookup(R_BeforeOpenGridLookupColumnEventArgs eventArgs)
         {
-            //membedakan columname dan mengarahkan tampil lookup
+            //switch lookup columname
             switch (eventArgs.ColumnName)
             {
                 case nameof(PricingBulkSaveDTO.CCHARGES_NAME):
-                    //eventArgs.Parameter = new ();
-                    //eventArgs.TargetPageType = typeof(GSL00900);
+                    eventArgs.Parameter = new();
+                    eventArgs.TargetPageType = typeof(LML00200);
                     break;
             }
             
@@ -104,7 +106,14 @@ namespace LMM04500FRONT
 
         private void PricingAdd_AfterLookup(R_AfterOpenGridLookupColumnEventArgs eventArgs)
         {
-
+            switch (eventArgs.ColumnName)
+            {
+                case nameof(PricingBulkSaveDTO.CCHARGES_NAME):
+                    var loResult = R_FrontUtility.ConvertObjectToObject<LML00200DTO>(eventArgs.Result);
+                    ((PricingBulkSaveDTO)eventArgs.ColumnData).CCHARGES_NAME = loResult.CCHARGES_NAME;
+                    ((PricingBulkSaveDTO)eventArgs.ColumnData).CCHARGES_ID = loResult.CCHARGES_ID;
+                    break;
+            }
         }
         #endregion
 

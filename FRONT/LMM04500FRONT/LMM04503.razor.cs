@@ -29,6 +29,7 @@ namespace LMM04500FRONT
             try
             {
                 _viewModelPricingRate._propertyId = (string)poParameter;
+                await Task.Delay(300);
                 await (_viewModelPricingRate._propertyId != "" ? _gridPricingRateDate.R_RefreshGrid(null) : Task.CompletedTask);
             }
             catch (Exception ex)
@@ -45,6 +46,7 @@ namespace LMM04500FRONT
             {
                 _viewModelPricingRate._propertyId = (string)poParam;
                 _viewModelPricingRate._pricingRateList = new();
+                await Task.Delay(300);
                 await (_viewModelPricingRate._propertyId != "" ? _gridPricingRateDate.R_RefreshGrid(null) : Task.CompletedTask);
             }
             catch (Exception ex)

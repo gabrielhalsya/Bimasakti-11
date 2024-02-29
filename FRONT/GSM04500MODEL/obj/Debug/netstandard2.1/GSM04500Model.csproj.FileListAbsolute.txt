@@ -101,6 +101,6 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500Model.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500Model.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500Model.sourcelink.json
-D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500Model.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500Model.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500Model.pdb
+D:\repos\BS Program\SOURCE\FRONT\GSM04500MODEL\obj\Debug\netstandard2.1\GSM04500.1C70C9D1.Up2Date

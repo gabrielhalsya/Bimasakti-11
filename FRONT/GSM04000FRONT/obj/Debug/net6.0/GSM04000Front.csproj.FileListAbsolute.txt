@@ -150,8 +150,8 @@ D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\staticwebassets\
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.GSM04000Front.props
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\staticwebassets.pack.json
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\scopedcss\bundle\GSM04000Front.styles.css
-D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000Front.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000Front.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\refint\GSM04000Front.dll
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000Front.pdb
 D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\ref\GSM04000Front.dll
+D:\repos\BS Program\SOURCE\FRONT\GSM04000FRONT\obj\Debug\net6.0\GSM04000.C4BAFFAC.Up2Date

@@ -30,6 +30,6 @@ D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Debug\netstandard2.1\GSM
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Debug\netstandard2.1\GSM04000Common.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Debug\netstandard2.1\GSM04000Common.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Debug\netstandard2.1\GSM04000Common.sourcelink.json
-D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Debug\netstandard2.1\GSM04000Common.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Debug\netstandard2.1\GSM04000Common.dll
 D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Debug\netstandard2.1\GSM04000Common.pdb
+D:\repos\BS Program\SOURCE\COMMON\GS\GSM04000Common\obj\Debug\netstandard2.1\GSM04000.02C7C38B.Up2Date

@@ -34,6 +34,7 @@ namespace LMM04500FRONT
             try
             {
                 await _viewModelPricing.GetPropertyList();
+                await Task.Delay(300);
                 await (_viewModelPricing._propertyId != "" ? _gridUnitTypeCTG.R_RefreshGrid(null) : Task.CompletedTask);
             }
             catch (Exception ex)
@@ -49,15 +50,14 @@ namespace LMM04500FRONT
             try
             {
                 _viewModelPricing._propertyId = string.IsNullOrWhiteSpace(poParam) ? "" : poParam; ;//re assign when property klicked on combobox
-
-                var loCurrencyData = _viewModelPricing._propertyList.Where(properties => properties.CPROPERTY_ID == poParam).FirstOrDefault();
-                _viewModelPricing._currency = $"{loCurrencyData.CCURRENCY_NAME}({loCurrencyData.CCURRENCY})";
-
+                var loCurrencyData = _viewModelPricing._propertyList.FirstOrDefault(properties => properties.CPROPERTY_ID == poParam);
+                _viewModelPricing._currency = loCurrencyData != null? $"{loCurrencyData.CCURRENCY_NAME}({loCurrencyData.CCURRENCY})": string.Empty;
+                await Task.Delay(300);
                 if (_conUnitTypeCTG.R_ConductorMode == R_eConductorMode.Normal && _viewModelPricing._propertyId != "")
                 {
                     await _gridUnitTypeCTG.R_RefreshGrid(null);
 
-                    //sending property another tab (will be catch at init master)
+                    //sending property and refresh another tab (will be catch at init master)
                     switch (_tabStripPricing.ActiveTab.Id)
                     {
                         case "NP":
@@ -144,7 +144,7 @@ namespace LMM04500FRONT
 
             try
             {
-                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetAll, false);
+                await _viewModelPricing.GetPricingList(LMM04500ViewModel.eListPricingParamType.GetAll, false);
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
             catch (Exception ex)

@@ -32,6 +32,7 @@ namespace LMM04500FRONT
             {
                 var loParam = R_FrontUtility.ConvertObjectToObject<string>(poParameter);
                 _viewModelPricing._propertyId = loParam;
+                await Task.Delay(300);
                 await (_viewModelPricing._propertyId != "" ? _gridUnitTypeCTG.R_RefreshGrid(null) : Task.CompletedTask);
             }
             catch (Exception ex)
@@ -46,6 +47,7 @@ namespace LMM04500FRONT
             try
             {
                 _viewModelPricing._propertyId = (string)poParam;
+                await Task.Delay(300);
                 await _gridUnitTypeCTG.R_RefreshGrid(null);
             }
             catch (Exception ex)
@@ -115,7 +117,7 @@ namespace LMM04500FRONT
 
             try
             {
-                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetHistory, true);
+                await _viewModelPricing.GetPricingList(LMM04500ViewModel.eListPricingParamType.GetHistory, true);
 
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
@@ -160,7 +162,7 @@ namespace LMM04500FRONT
 
             try
             {
-                await _viewModelPricing.GetPricingList(LMM04500ViewModel.ListPricingParamType.GetHistory, false);
+                await _viewModelPricing.GetPricingList(LMM04500ViewModel.eListPricingParamType.GetHistory, false);
                 eventArgs.ListEntityResult = _viewModelPricing._pricingList;
             }
             catch (Exception ex)

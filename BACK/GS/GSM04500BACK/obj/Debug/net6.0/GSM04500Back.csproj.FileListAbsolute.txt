@@ -86,8 +86,8 @@ D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\GSM04500Back.As
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\GSM04500Back.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\GSM04500Back.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\GSM04500Back.sourcelink.json
-D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\GSM04500Back.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\GSM04500Back.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\refint\GSM04500Back.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\GSM04500Back.pdb
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\ref\GSM04500Back.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GSM04500BACK\obj\Debug\net6.0\GSM04500.89B4DB02.Up2Date

@@ -76,8 +76,8 @@ D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.As
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.sourcelink.json
-D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\refint\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000Back.pdb
 D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\ref\GSM04000Back.dll
+D:\repos\BS Program\SOURCE\BACK\GS\GSM04000Back\obj\Debug\net6.0\GSM04000.C377DB1F.Up2Date
