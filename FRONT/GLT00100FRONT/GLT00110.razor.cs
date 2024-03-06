@@ -190,9 +190,19 @@ namespace GLT00100FRONT
                     loEx.Add("", "Description is required!");
                 }
 
+                if (_gridDetailRef.DataSource.Count==0)
+                {
+                    loEx.Add("", "Please input Journal Detail!");
+                }
+
                 if ((loParam.NDEBIT_AMOUNT > 0 || loParam.NCREDIT_AMOUNT > 0) && loParam.NDEBIT_AMOUNT != loParam.NCREDIT_AMOUNT)
                 {
                     loEx.Add("", "Total Debit Amount must be equal to Total Credit Amount");
+                }
+
+                if (loParam.NDEBIT_AMOUNT==0 || loParam.NCREDIT_AMOUNT==0)
+                {
+                    loEx.Add("", "Total Debit Amount or Total Credit Amount cannot be 0!");
                 }
 
                 if (loParam.NPRELIST_AMOUNT > 0 && loParam.NPRELIST_AMOUNT != loParam.NDEBIT_AMOUNT)
