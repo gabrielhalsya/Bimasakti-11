@@ -109,6 +109,7 @@ namespace GLT00100FRONT
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
+        
         private async Task JournalForm_AfterAddAsync(R_AfterAddEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -237,10 +238,12 @@ namespace GLT00100FRONT
         private bool EnableApprove = false;
         private bool EnableCommit = false;
         private bool EnableHaveRecId = false;
+        private bool EnableSetOther = false;
         #endregion
 
         private async Task JournalForm_RDisplay(R_DisplayEventArgs eventArgs)
         {
+            EnableSetOther = eventArgs.ConductorMode != R_eConductorMode.Normal;
             var data = (GLT00110DTO)eventArgs.Data;
             if (!string.IsNullOrWhiteSpace(data.CSTATUS))
             {
@@ -260,7 +263,7 @@ namespace GLT00100FRONT
 
             if (eventArgs.ConductorMode == R_eConductorMode.Normal)
             {
-                
+
                 if (!string.IsNullOrWhiteSpace(data.CREC_ID))
                 {
                     await _gridDetailRef.R_RefreshGrid(data);
@@ -296,6 +299,7 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         private async Task JournalForm_Saving(R_SavingEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -310,9 +314,11 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         #endregion
 
         #region Onchange Value
+
         private async Task RefreshLastCurrency()
         {
             var loEx = new R_Exception();
@@ -344,6 +350,7 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         private async Task RefDate_OnChange(DateTime poParam)
         {
             var loEx = new R_Exception();
@@ -363,6 +370,7 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         private async Task Currency_OnChange(string poParam)
         {
             var loEx = new R_Exception();
@@ -378,9 +386,11 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         #endregion
 
         #region Detail
+
         private async Task JournalDet_ServiceGetListRecord(R_ServiceGetListRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -440,6 +450,7 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         private void JournalDet_ServiceGetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
             eventArgs.Result = eventArgs.Data;
@@ -511,6 +522,7 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         private void Before_Open_Lookup(R_BeforeOpenGridLookupColumnEventArgs eventArgs)
         {
             var param = new GSL00500ParameterDTO
@@ -630,6 +642,7 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         private void JournalDet_BeforeEdit(R_BeforeEditEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -652,9 +665,11 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
+
         #endregion
 
         #region Process
+
         private async Task ApproveJournalProcess()
         {
             var loEx = new R_Exception();
@@ -798,10 +813,13 @@ namespace GLT00100FRONT
         EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
+
         #endregion
 
         #region Print
+
         private R_Lookup R_LookupBtnPrint;
+
         private void Before_Open_lookupPrint(R_BeforeOpenLookupEventArgs eventArgs)
         {
             var loData = (GLT00110DTO)_conductorRef.R_GetCurrentData();
@@ -812,6 +830,7 @@ namespace GLT00100FRONT
             eventArgs.Parameter = param;
             eventArgs.TargetPageType = typeof(GLTR00100);
         }
+
         #endregion
         protected override Task<object> R_Set_Result_PredefinedDock()
         {
@@ -822,6 +841,7 @@ namespace GLT00100FRONT
         #region lookupDept
 
         private R_Lookup R_LookupBtnDept;
+
         private void Before_Open_lookupDept(R_BeforeOpenLookupEventArgs eventArgs)
         {
             var param = new GSL00700ParameterDTO

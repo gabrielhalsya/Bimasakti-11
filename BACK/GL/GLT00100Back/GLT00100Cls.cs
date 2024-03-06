@@ -226,7 +226,7 @@ namespace GLT00100BACK
         private void ShowLogError(Exception ex)
         {
             _logger.LogError(ex);
-        }
+        }                       
         #endregion
     }
 }

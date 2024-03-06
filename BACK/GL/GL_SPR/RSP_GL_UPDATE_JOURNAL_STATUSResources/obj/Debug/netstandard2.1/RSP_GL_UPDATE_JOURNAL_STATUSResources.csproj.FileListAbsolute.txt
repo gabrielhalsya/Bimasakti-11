@@ -9,3 +9,15 @@ D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOUR
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj.CoreCompileInputs.cache
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.dll
 D:\BIMASAKTI_11\1.00\PROGRAM\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\bin\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.deps.json
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\bin\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\bin\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.pdb
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.RSP_GL_UPDATE_JOURNAL_STATUSResources_msgrsc.resources
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj.GenerateResource.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.sourcelink.json
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GL_SPR\RSP_GL_UPDATE_JOURNAL_STATUSResources\obj\Debug\netstandard2.1\RSP_GL_UPDATE_JOURNAL_STATUSResources.pdb
