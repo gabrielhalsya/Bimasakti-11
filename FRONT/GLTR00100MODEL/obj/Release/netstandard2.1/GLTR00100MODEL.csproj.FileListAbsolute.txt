@@ -86,6 +86,6 @@ D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Release\netstandard2.1\GLTR0
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Release\netstandard2.1\GLTR00100MODEL.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Release\netstandard2.1\GLTR00100MODEL.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Release\netstandard2.1\GLTR00100MODEL.sourcelink.json
-D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Release\netstandard2.1\GLTR00100MODEL.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Release\netstandard2.1\GLTR00100MODEL.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Release\netstandard2.1\GLTR00100MODEL.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLTR00100MODEL\obj\Release\netstandard2.1\GLTR0010.D444A28F.Up2Date

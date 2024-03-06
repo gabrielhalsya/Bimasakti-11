@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLTR00100BACK")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d2ca0b07dc9630ea388373ef7d9d738b0c26444")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42db6259957788d8c295f5c6688119b5bb07740c")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLTR00100BACK")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLTR00100BACK")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

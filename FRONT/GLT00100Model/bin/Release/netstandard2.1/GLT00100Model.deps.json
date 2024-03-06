@@ -24,7 +24,6 @@
           "GLT00100MODEL.dll": {}
         }
       },
-      "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {},
       "BaseHeaderReportCOMMON/1.0.0": {
         "runtime": {
           "BaseHeaderReportCOMMON.dll": {}
@@ -44,9 +43,6 @@
         }
       },
       "Lookup_GSFrontResources/1.0.0": {
-        "dependencies": {
-          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1"
-        },
         "runtime": {
           "Lookup_GSFrontResources.dll": {}
         }
@@ -58,6 +54,11 @@
         },
         "runtime": {
           "Lookup_GSModel.dll": {}
+        },
+        "resources": {
+          "id/R_BlazorFrontEnd.Controls.resources.dll": {
+            "locale": "id"
+          }
         }
       },
       "BlazorClientHelper/1.0.0.0": {
@@ -124,6 +125,19 @@
           }
         }
       },
+      "R_BlazorFrontEnd.Controls/1.0.0.0": {
+        "runtime": {
+          "R_BlazorFrontEnd.Controls.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "resources": {
+          "id/R_BlazorFrontEnd.Controls.resources.dll": {
+            "locale": "id"
+          }
+        }
+      },
       "R_ContextFrontEnd/1.0.0.0": {
         "runtime": {
           "R_ContextFrontEnd.dll": {
@@ -155,13 +169,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tvG8XZYLjT0o3WicCyKBZysVWo1jC9HdCFmNRmddx3WbAz0UCsd0qKZqpiEo99VLA8Re+FzWK51OcRldQPbt2Q==",
-      "path": "microsoft.net.illink.tasks/7.0.100-1.23211.1",
-      "hashPath": "microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512"
     },
     "BaseHeaderReportCOMMON/1.0.0": {
       "type": "project",
@@ -224,6 +231,11 @@
       "sha512": ""
     },
     "R_ProcessAndUploadFront/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_BlazorFrontEnd.Controls/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

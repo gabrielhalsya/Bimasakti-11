@@ -11,6 +11,6 @@ D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100COMMON\obj\Release\netstandard2.1\G
 D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100COMMON\obj\Release\netstandard2.1\GLT00100COMMON.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100COMMON\obj\Release\netstandard2.1\GLT00100COMMON.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100COMMON\obj\Release\netstandard2.1\GLT00100COMMON.sourcelink.json
-D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100COMMON\obj\Release\netstandard2.1\GLT00100COMMON.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100COMMON\obj\Release\netstandard2.1\GLT00100COMMON.dll
 D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100COMMON\obj\Release\netstandard2.1\GLT00100COMMON.pdb
+D:\repos\BS Program\SOURCE\COMMON\GL\GLT00100COMMON\obj\Release\netstandard2.1\GLT00100.99A87063.Up2Date

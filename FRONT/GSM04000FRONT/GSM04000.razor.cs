@@ -259,10 +259,6 @@ namespace GSM04000Front
                 switch (eventArgs.ConductorMode)
                 {
                     case R_eConductorMode.Normal:
-                        var loDeptode = (GSM04100DTO)_conGridDeptUserRef.R_GetCurrentData();
-                        loDeptode.CDEPT_CODE = loParam.CDEPT_CODE;
-                        loDeptode.CDEPT_NAME = loParam.CDEPT_NAME;
-
                         //set to viewmodel parent
                         _deptViewModel._departmentCode = loParam.CDEPT_CODE;
                         _deptViewModel._activeDept = loParam.LACTIVE;
@@ -305,6 +301,7 @@ namespace GSM04000Front
             {
                 loEx.Add(ex);
             }
+            loEx.ThrowExceptionIfErrors();
         }
 
         private void DeptGrid_AfterAdd(R_AfterAddEventArgs eventArgs)

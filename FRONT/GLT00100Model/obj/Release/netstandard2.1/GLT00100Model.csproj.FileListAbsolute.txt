@@ -26,8 +26,10 @@ D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Release\netstandard2.1\GLT001
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Release\netstandard2.1\GLT00100MODEL.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Release\netstandard2.1\GLT00100MODEL.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Release\netstandard2.1\GLT00100MODEL.sourcelink.json
-D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Release\netstandard2.1\GLT00100MODEL.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Release\netstandard2.1\GLT00100MODEL.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Release\netstandard2.1\GLT00100MODEL.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Release\netstandard2.1\BaseHeaderReportCOMMON.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Release\netstandard2.1\BaseHeaderReportCOMMON.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Release\netstandard2.1\R_BlazorFrontEnd.Controls.dll
+D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\bin\Release\netstandard2.1\id\R_BlazorFrontEnd.Controls.resources.dll
+D:\repos\BS Program\SOURCE\FRONT\GLT00100MODEL\obj\Release\netstandard2.1\GLT00100.202D54F0.Up2Date

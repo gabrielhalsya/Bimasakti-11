@@ -26,8 +26,8 @@ D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\GLT00100BACK.
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\GLT00100BACK.AssemblyInfo.cs
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\GLT00100BACK.csproj.CoreCompileInputs.cache
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\GLT00100BACK.sourcelink.json
-D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\GLT00100BACK.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\GLT00100BACK.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\refint\GLT00100BACK.dll
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\GLT00100BACK.pdb
 D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\ref\GLT00100BACK.dll
+D:\repos\BS Program\SOURCE\BACK\GL\GLT00100BACK\obj\Release\net6.0\GLT00100.8A93A541.Up2Date

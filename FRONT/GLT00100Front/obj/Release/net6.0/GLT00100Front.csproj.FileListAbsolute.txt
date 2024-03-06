@@ -57,8 +57,8 @@ D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\staticwebasset
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.GLT00100FRONT.props
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\staticwebassets.pack.json
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\scopedcss\bundle\GLT00100FRONT.styles.css
-D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\GLT00100FRONT.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\GLT00100FRONT.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\refint\GLT00100FRONT.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\GLT00100FRONT.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\ref\GLT00100FRONT.dll
+D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Release\net6.0\GLT00100.E07071E5.Up2Date

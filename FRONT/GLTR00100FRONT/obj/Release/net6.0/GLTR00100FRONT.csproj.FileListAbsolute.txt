@@ -123,8 +123,8 @@ D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\staticwebasse
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.GLTR00100FRONT.props
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\staticwebassets.pack.json
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\scopedcss\bundle\GLTR00100FRONT.styles.css
-D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\GLTR00100FRONT.csproj.CopyComplete
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\GLTR00100FRONT.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\refint\GLTR00100FRONT.dll
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\GLTR00100FRONT.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\ref\GLTR00100FRONT.dll
+D:\repos\BS Program\SOURCE\FRONT\GLTR00100FRONT\obj\Release\net6.0\GLTR0010.847F970A.Up2Date
