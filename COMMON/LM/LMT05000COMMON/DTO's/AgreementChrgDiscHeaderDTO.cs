@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LMT05000COMMON.DTO_s
 {
-    public class AgreementChargeDiscoutDTO
+    public class AgreementChrgDiscHeaderDTO
     {
         public string CCOMPANY_ID { get; set; }
         public string CPROPERTY_ID { get; set; }
