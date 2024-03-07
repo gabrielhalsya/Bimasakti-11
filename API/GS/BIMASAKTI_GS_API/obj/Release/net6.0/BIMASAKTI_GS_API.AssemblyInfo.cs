@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BIMASAKTI_GS_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42db6259957788d8c295f5c6688119b5bb07740c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5461a38a0b4d838720b4487d7aff6e78263406e")]
 [assembly: System.Reflection.AssemblyProductAttribute("BIMASAKTI_GS_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BIMASAKTI_GS_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

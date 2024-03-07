@@ -1,4 +1,5 @@
-﻿using GFF00900COMMON.DTOs;
+﻿using BlazorClientHelper;
+using GFF00900COMMON.DTOs;
 using GFF00900FRONT;
 using LMM04500COMMON.DTO_s;
 using LMM04500MODEL;
@@ -29,6 +30,8 @@ namespace LMM04500FRONT
         private R_ConductorGrid _conGridPricing;
         private R_Grid<PricingBulkSaveDTO> _gridPricing;
         private LMM04500ViewModel _viewModel = new();
+
+        [Inject] private IClientHelper? _clientHelper { get; set; }
 
         [Inject] R_PopupService PopupService { get; set; }
 
@@ -101,7 +104,7 @@ namespace LMM04500FRONT
                     eventArgs.TargetPageType = typeof(LML00200);
                     break;
             }
-            
+
         }
 
         private void PricingAdd_AfterLookup(R_AfterOpenGridLookupColumnEventArgs eventArgs)
