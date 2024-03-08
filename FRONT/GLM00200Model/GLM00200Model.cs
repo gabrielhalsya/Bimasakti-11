@@ -1,4 +1,4 @@
-﻿using GLM00200Common;
+﻿using GLM00200COMMON;
 using R_APIClient;
 using R_BlazorFrontEnd.Exceptions;
 using R_BusinessObjectFront;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GLM00200Model
 {
-    public class GLM00200Model : R_BusinessObjectServiceClientBase<JournalParamDTO>, IGLM00200
+    public class GLM00200Model : R_BusinessObjectServiceClientBase<GLM00200ParamDTO>, IGLM00200
     {
         private const string DEFAULT_HTTP_NAME = "R_DefaultServiceUrlGL";
         private const string DEFAULT_CHECKPOINT_NAME = "api/GLM00200";
@@ -209,45 +209,31 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
+
+        public IAsyncEnumerable<GLM00200DTO> GetJournalList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IAsyncEnumerable<GLM00201DTO> GetJournalDetailList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public GLM00200RecordResult<GLM00200UpdateStatusDTO> UpdateJournalStatus(GLM00200UpdateStatusDTO poEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GLM00200RecordResult<GLM00200RapidApprovalValidationDTO> ValidationRapidApproval(GLM00200RapidApprovalValidationDTO poEntity)
+        {
+            throw new NotImplementedException();
+        }
         #endregion real function
 
         #region for implement only
-        public InitResultDTO GetInitData()
-        {
-            throw new NotImplementedException();
-        }
-        public IAsyncEnumerable<StatusDTO> GetStatusList()
-        {
-            throw new NotImplementedException();
-        }
-        public IAsyncEnumerable<CurrencyDTO> GetCurrencyList()
-        {
-            throw new NotImplementedException();
-        }
-        public IAsyncEnumerable<JournalGridDTO> GetAllRecurringList()
-        {
-            throw new NotImplementedException();
-        }
-        public IAsyncEnumerable<JournalGridDTO> GetFilteredRecurringList()
-        {
-            throw new NotImplementedException();
-        }
-        public IAsyncEnumerable<JournalDetailGridDTO> GetAllJournalDetailList()
-        {
-            throw new NotImplementedException();
-        }
-        public IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList()
-        {
-            throw new NotImplementedException();
-        }
-        public CurrencyRateResult RefreshCurrencyRate()
-        {
-            throw new NotImplementedException();
-        }
-        public JournalCommitApprovalRESULT JournalCommitApproval()
-        {
-            throw new NotImplementedException();
-        }
+
+
         #endregion for implement only
 
     }

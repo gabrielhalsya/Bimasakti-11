@@ -26,15 +26,13 @@
     </R_ItemLayout>
     <R_ItemLayout col="1">
         <R_NumericTextBox @bind-Value="_JournalEntryViewModel.JournalPeriodYear"
-                          ThousandSeparator="false"
-                          />
+                          ThousandSeparator="false" />
     </R_ItemLayout>
     <R_ItemLayout col="1">
         <R_ComboBox Data="@_JournalEntryViewModel.PeriodMonthList"
                     @bind-Value="_JournalEntryViewModel.JournalPeriodMonth"
                     ValueField="Key"
-                    TextField="Value"
-                    />
+                    TextField="Value" />
     </R_ItemLayout>
 
     <R_ItemLayout col="1" Class="text-center">
@@ -44,13 +42,11 @@
         <R_ComboBox Data="@_JournalEntryViewModel.VAR_GSB_CODE_LIST"
                     @bind-Value="_JournalEntryViewModel.JornalParam.CSTATUS"
                     ValueField="@nameof(GLT00100GSGSBCodeDTO.CCODE)"
-                    TextField="@nameof(GLT00100GSGSBCodeDTO.CNAME)"
-                    >
+                    TextField="@nameof(GLT00100GSGSBCodeDTO.CNAME)">
         </R_ComboBox>
     </R_ItemLayout>
     <R_ItemLayout col="1">
-        <R_TextBox @bind-Value="_JournalEntryViewModel.JornalParam.CSEARCH_TEXT"
-                    />
+        <R_TextBox @bind-Value="_JournalEntryViewModel.JornalParam.CSEARCH_TEXT" />
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Button OnClick="OnclickSearch">Search</R_Button>
@@ -94,7 +90,8 @@
             DataSource="@_JournalEntryViewModel.JournalDetailGrid"
             Pageable
             R_ServiceGetListRecord="JournalGridDetail_ServiceGetListRecord"
-            Height="240px">
+            Height="240px"
+            R_GridType="R_eGridType.Navigator">
         <R_GridColumns>
             <R_GridNumericColumn Width="67px" FieldName="@nameof(GLT00101DTO.INO)" HeaderText="No."></R_GridNumericColumn>
             <R_GridTextColumn Width="120px" FieldName="@nameof(GLT00101DTO.CGLACCOUNT_NO)" HeaderText="Account No."></R_GridTextColumn>
@@ -114,36 +111,34 @@
     </R_Grid>
 </R_StackLayout>
 
-    <R_StackLayout Row>
+<R_StackLayout Row>
     <R_ItemLayout>
-        <R_Button Enabled="@(_JournalEntryViewModel.JournalGrid.Count > 0 && (_JournalEntryViewModel.Data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG))" 
-            OnClick="ApproveJournalProcess">
+        <R_Button Enabled="@(_JournalEntryViewModel.JournalGrid.Count > 0 && (_JournalEntryViewModel.Data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG))"
+                  OnClick="ApproveJournalProcess">
             Approve
-            </R_Button>
+        </R_Button>
     </R_ItemLayout>
     <R_ItemLayout>
-        <R_Button Enabled="@( 
-                            (_JournalEntryViewModel.Data.CSTATUS == "20" || (_JournalEntryViewModel.Data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)) || 
-                            (_JournalEntryViewModel.Data.CSTATUS == "80" && !_JournalEntryViewModel.VAR_IUNDO_COMMIT_JRN.LWARNING) && 
+        <R_Button Enabled="@(
+                            (_JournalEntryViewModel.Data.CSTATUS == "20" || (_JournalEntryViewModel.Data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)) ||
+                            (_JournalEntryViewModel.Data.CSTATUS == "80" && !_JournalEntryViewModel.VAR_IUNDO_COMMIT_JRN.LWARNING) &&
                             (int.Parse(_JournalEntryViewModel.JournalPeriodYear + _JournalEntryViewModel.JournalPeriodMonth) >= int.Parse(_JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.CSOFT_PERIOD)) )"
                   OnClick="CommitJournalProcess">
             Commit
         </R_Button>
     </R_ItemLayout>
     <R_ItemLayout>
-        <R_Popup Enabled="@(_JournalEntryViewModel.JournalGrid.Count > 0 && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)" R_Before_Open_Popup="R_Before_Open_PopupRapidApprove"
-                 >Rapid Approval</R_Popup>
+        <R_Popup Enabled="@(_JournalEntryViewModel.JournalGrid.Count > 0 && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)" R_Before_Open_Popup="R_Before_Open_PopupRapidApprove">Rapid Approval</R_Popup>
     </R_ItemLayout>
     <R_ItemLayout>
-        <R_Popup Enabled="@(_JournalEntryViewModel.JournalGrid.Count > 0)" R_Before_Open_Popup="R_Before_Open_PopupRapidCommit"
-                 >Rapid Commit</R_Popup>
+        <R_Popup Enabled="@(_JournalEntryViewModel.JournalGrid.Count > 0)" R_Before_Open_Popup="R_Before_Open_PopupRapidCommit">Rapid Commit</R_Popup>
     </R_ItemLayout>
 </R_StackLayout>
 
 <R_PredefinedDock Title="Journal Entry" R_InstantiateDock="@Predef_JournalEntry" R_AfterOpenPredefinedDock="@AfterPredef_JournalEntry"></R_PredefinedDock>
 
 <R_Conductor @ref="_conductorRef"
-    R_ViewModel="_JournalEntryViewModel"
-    R_IsHeader
-    R_ServiceGetRecord="JournalGrid_ServiceGetRecord"
-    R_Display="JournalGrid_Display" />
+             R_ViewModel="_JournalEntryViewModel"
+             R_IsHeader
+             R_ServiceGetRecord="JournalGrid_ServiceGetRecord"
+             R_Display="JournalGrid_Display" />

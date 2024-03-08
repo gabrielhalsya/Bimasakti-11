@@ -1,4 +1,4 @@
-﻿using GLM00200Common;
+﻿using GLM00200COMMON;
 using GLM00200Model;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
@@ -14,10 +14,10 @@ namespace GLM00200Front
     public partial class GLM00200 : R_Page
     {
         private GLM00200ViewModel _journalVM = new GLM00200ViewModel();
-        private R_Grid<JournalGridDTO> _gridJournal;
+        private R_Grid<GLM00200DTO> _gridJournal;
         private R_ConductorGrid _conJournal;
 
-        private R_Grid<JournalDetailGridDTO> _gridJournalDet;
+        private R_Grid<GLM00201DTO> _gridJournalDet;
         private R_ConductorGrid _conJournalDet;
 
         protected override async Task R_Init_From_Master(object poParameter)
@@ -115,7 +115,7 @@ namespace GLM00200Front
             var loEx = new R_Exception();
             try
             {
-                var loParam = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(eventArgs.Data);
+                var loParam = R_FrontUtility.ConvertObjectToObject<GLM00200ParamDTO>(eventArgs.Data);
                 await _journalVM.GetJournal(loParam);
                 eventArgs.Result = _journalVM._Journal;
             }

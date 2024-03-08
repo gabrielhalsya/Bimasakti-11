@@ -1,5 +1,5 @@
-﻿using GLM00200Common;
-using GLM00200Common.Init_DTO_s;
+﻿
+using GLM00200COMMON;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSModel;
 using R_BlazorFrontEnd;
@@ -15,24 +15,24 @@ using System.Threading.Tasks;
 
 namespace GLM00200Model
 {
-    public class GLM00200ViewModel : R_ViewModel<JournalParamDTO>
+    public class GLM00200ViewModel : R_ViewModel<GLM00200DTO>
     {
         public GLM00200Model _model = new GLM00200Model();
         public PublicLookupModel _lookupModel = new PublicLookupModel();
 
-        public RecurringJournalListParamDTO _SearchParam { get; set; } = new RecurringJournalListParamDTO();
-        public ObservableCollection<JournalGridDTO> _JournalList { get; set; } = new ObservableCollection<JournalGridDTO>();
-        public ObservableCollection<JournalDetailActualGridDTO> _ActualJournalList { get; set; } = new ObservableCollection<JournalDetailActualGridDTO>();
-        public ObservableCollection<JournalDetailGridDTO> _JournaDetailList { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
-        public ObservableCollection<JournalDetailGridDTO> _JournaDetailListTemp { get; set; } = new ObservableCollection<JournalDetailGridDTO>();
+        public GLM00200DTO _SearchParam { get; set; } = new GLM00200DTO();
+        public ObservableCollection<GLM00200DTO> _JournalList { get; set; } = new ObservableCollection<GLM00200DTO>();
+        public ObservableCollection<GLM00200DTO> _ActualJournalList { get; set; } = new ObservableCollection<GLM00200DTO>();
+        public ObservableCollection<GLM00201DTO> _JournaDetailList { get; set; } = new ObservableCollection<GLM00201DTO>();
+        public ObservableCollection<GLM00201DTO> _JournaDetailListTemp { get; set; } = new ObservableCollection<GLM00201DTO>();
         public GSL00700DTO _Dept { get; set; } = new GSL00700DTO();
-        public JournalParamDTO _Journal { get; set; } = new JournalParamDTO();
+        public GLM00200DTO _Journal { get; set; } = new GLM00200DTO();
         public List<GSL00900DTO> _ListCenter { get; set; } = new List<GSL00900DTO>();
-        public List<StatusDTO> _StatusList { get; set; } = new List<StatusDTO>();
-        public List<CurrencyDTO> _CurrencyList { get; set; } = new List<CurrencyDTO>();
-        public List<PeriodFrontDTO> _Periods = new List<PeriodFrontDTO>();
-        public InitDTO _InitData { get; set; } = new InitDTO();
-        public CurrencyRateResult _CURRENCY_RATE_RESULT = new CurrencyRateResult();
+        public List<GLM00200UpdateStatusDTO> _StatusList { get; set; } = new List<GLM00200UpdateStatusDTO>();
+        public List<GLM00200GSCurrencyDTO> _CurrencyList { get; set; } = new List<GLM00200GSCurrencyDTO>();
+        public List<GLM00200GSPeriodDTInfoDTO> _Periods = new List<GLM00200GSPeriodDTInfoDTO>();
+        public GLM00200InitDTO _InitData { get; set; } = new GLM00200InitDTO();
+        public GLM00210LastCurrencyRateDTO _CURRENCY_RATE_RESULT = new GLM00210LastCurrencyRateDTO();
         public DateTime _DREF_DATE { get; set; } = DateTime.Now;
         public DateTime _DDOC_DATE { get; set; } = DateTime.Now;
         public DateTime _DSTART_DATE { get; set; } = DateTime.Now;
@@ -51,7 +51,7 @@ namespace GLM00200Model
             R_Exception loEx = new R_Exception();
             try
             {
-                var loResult = new List<JournalGridDTO>();
+                var loResult = new List<GLM00210DTO>();
                 _SearchParam.CSTATUS = "";
                 _SearchParam.CSEARCH_TEXT = "";
                 _SearchParam.CTRANS_CODE = CTRANS_CODE;
@@ -77,13 +77,13 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task GetJournal(JournalParamDTO loParam)
+        public async Task GetJournal(GLM00200DTO loParam)
         {
             R_Exception loEx = new R_Exception();
             try
             {
                 var loResult = await _model.R_ServiceGetRecordAsync(loParam);
-                _Journal = R_FrontUtility.ConvertObjectToObject<JournalParamDTO>(loResult);
+                _Journal = R_FrontUtility.ConvertObjectToObject<GLM00200DTO>(loResult);
             }
             catch (Exception ex)
             {
@@ -91,7 +91,7 @@ namespace GLM00200Model
             }
             loEx.ThrowExceptionIfErrors();
         }
-        public async Task SaveJournal(JournalParamDTO poNewEntity, eCRUDMode peCRUDMode)
+        public async Task SaveJournal(GLM00200DTO poNewEntity, eCRUDMode peCRUDMode)
         {
             var loEx = new R_Exception();
             try

@@ -261,7 +261,7 @@ namespace GLT00100FRONT
                 lcLabelSubmit = data.CSTATUS == "10" ? "Undo Submit" : "Submit";
 
                 EnableEdit = data.CSTATUS == "00";
-                EnableDelete = data.CSTATUS != "99";
+                EnableDelete = data.CSTATUS == "00";
                 EnableSubmit = data.CSTATUS == "00" || data.CSTATUS == "10";
                 EnableApprove = data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG;
                 EnableCommit = (data.CSTATUS == "20" || (data.CSTATUS == "10" && !_JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)) ||
