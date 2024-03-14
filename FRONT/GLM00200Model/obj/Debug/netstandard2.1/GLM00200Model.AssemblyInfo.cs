@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLM00200Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffbd03db880a30f14af0fdecf861f6573ff35a62")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74635a4144f98371a7b11fd8025170292534f988")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLM00200Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLM00200Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
