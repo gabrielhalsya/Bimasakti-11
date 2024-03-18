@@ -18,6 +18,7 @@ namespace GSM04000Model
         public GSM04100DTO _DepartmentUser { get; set; } = new GSM04100DTO();
         public GSM04100DTO _UserToAssign { get; set; } = new GSM04100DTO();
         public string _DepartmentCode { get; set; } = "";
+        public string _DepartmentName { get; set; } = "";
         public const string CPROGRAM_CODE = "GSM04000";
         public async Task GetDeptUserListByDeptCode()
         {
