@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RSP_GS_UPLOAD_JOURNAL_GROUPResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5461a38a0b4d838720b4487d7aff6e78263406e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d0aa1f84fead9aa6c8eda38a593809be8f406d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("RSP_GS_UPLOAD_JOURNAL_GROUPResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RSP_GS_UPLOAD_JOURNAL_GROUPResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
