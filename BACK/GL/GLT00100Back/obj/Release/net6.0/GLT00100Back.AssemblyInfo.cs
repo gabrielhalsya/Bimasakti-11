@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLT00100BACK")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffbd03db880a30f14af0fdecf861f6573ff35a62")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b627b59cbca54c8c9935c6d9be8ddb02fa5331cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLT00100BACK")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLT00100BACK")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

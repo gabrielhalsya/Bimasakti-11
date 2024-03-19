@@ -91,9 +91,9 @@ namespace GLT00100FRONT
             var loEx = new R_Exception();
             try
             {
-                var loHeaderData = (GLT00110DTO)eventArgs.Data;
-                var loMapping = R_FrontUtility.ConvertCollectionToCollection<GLT00111DTO>(_gridDetailRef.DataSource).ToList();
-                await _JournalEntryViewModel.SaveJournal(new GLT00110HeaderDetailDTO { HeaderData = loHeaderData, DetailData = loMapping }, (eCRUDMode)eventArgs.ConductorMode);
+                var loHeaderData = R_FrontUtility.ConvertObjectToObject<GLT00110DTO>(eventArgs.Data);
+                var loParam = new GLT00110HeaderDetailDTO { HeaderData= loHeaderData};
+                await _JournalEntryViewModel.SaveJournal(loParam, (eCRUDMode)eventArgs.ConductorMode);
                 eventArgs.Result = _JournalEntryViewModel.Journal;
             }
             catch (Exception ex)
@@ -270,7 +270,7 @@ namespace GLT00100FRONT
             eventArgs.Cancel = res == R_eMessageBoxResult.No;
         }
 
-        private async Task CopyJournalEntryProcess()
+        private void CopyJournalEntryProcess()
         {
             var loEx = new R_Exception();
             try
@@ -479,7 +479,7 @@ namespace GLT00100FRONT
                 {
                     loEx.Add("", "Journal amount can only be either Debit or Credit!");
                 }
-                if (_JournalEntryViewModel.JournalDetailGrid.Count > 0)
+                if (_JournalEntryViewModel.JournalDetailGrid.Count > 0 && eventArgs.ConductorMode==R_eConductorMode.Add)
                 {
                     if (_JournalEntryViewModel.JournalDetailGrid.Any(item => item.CGLACCOUNT_NO == data.CGLACCOUNT_NO))
                     {

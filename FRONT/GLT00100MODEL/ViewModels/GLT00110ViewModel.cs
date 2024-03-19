@@ -143,13 +143,14 @@ namespace GLT00100MODEL
 
             loEx.ThrowExceptionIfErrors();
         }
-
         public async Task SaveJournal(GLT00110HeaderDetailDTO poEntity, eCRUDMode poCRUDMode)
         {
             var loEx = new R_Exception();
 
             try
             {
+                var loDetailData = R_FrontUtility.ConvertCollectionToCollection<GLT00111DTO>(JournalDetailGrid);
+                poEntity.DetailData = loDetailData.ToList();
                 if (poCRUDMode == eCRUDMode.AddMode)
                 {
                     poEntity.HeaderData.CACTION = "NEW";

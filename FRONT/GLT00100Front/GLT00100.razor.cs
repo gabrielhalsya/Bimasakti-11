@@ -242,7 +242,7 @@ namespace GLT00100FRONT
             eventArgs.TargetPageType = typeof(GLT00110);
             eventArgs.Parameter = loData;
         }
-        private async Task AfterPredef_JournalEntry(R_AfterOpenPredefinedDockEventArgs eventArgs)
+        private void AfterPredef_JournalEntry(R_AfterOpenPredefinedDockEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
