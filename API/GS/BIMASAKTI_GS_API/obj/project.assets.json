@@ -3987,49 +3987,6 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "GSM04500Back/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "GSM04500Common": "1.0.0",
-          "RSP_GS_MAINTAIN_JOURNAL_GROUPResources": "1.0.0",
-          "RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources": "1.0.0",
-          "RSP_GS_UPLOAD_JOURNAL_GROUPResources": "1.0.0",
-          "System.Data.SqlClient": "4.8.5"
-        },
-        "compile": {
-          "bin/placeholder/GSM04500Back.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GSM04500Back.dll": {}
-        }
-      },
-      "GSM04500Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/GSM04500Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GSM04500Common.dll": {}
-        }
-      },
-      "GSM04500Service/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "GSM04500Back": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/GSM04500Service.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GSM04500Service.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
       "Lookup_GSBACK/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4079,26 +4036,6 @@
           "bin/placeholder/RSP_GS_MAINTAIN_DEPARTMENTResources.dll": {}
         }
       },
-      "RSP_GS_MAINTAIN_JOURNAL_GROUPResources/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/RSP_GS_MAINTAIN_JOURNAL_GROUPResources.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RSP_GS_MAINTAIN_JOURNAL_GROUPResources.dll": {}
-        }
-      },
-      "RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources.dll": {}
-        }
-      },
       "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -4107,16 +4044,6 @@
         },
         "runtime": {
           "bin/placeholder/RSP_GS_UPLOAD_DEPARTMENTResources.dll": {}
-        }
-      },
-      "RSP_GS_UPLOAD_JOURNAL_GROUPResources/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/RSP_GS_UPLOAD_JOURNAL_GROUPResources.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RSP_GS_UPLOAD_JOURNAL_GROUPResources.dll": {}
         }
       }
     }
@@ -11613,21 +11540,6 @@
       "path": "../../../SERVICE/GS/GSM04000Service/GSM04000Service.csproj",
       "msbuildProject": "../../../SERVICE/GS/GSM04000Service/GSM04000Service.csproj"
     },
-    "GSM04500Back/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/GS/GSM04500BACK/GSM04500Back.csproj",
-      "msbuildProject": "../../../BACK/GS/GSM04500BACK/GSM04500Back.csproj"
-    },
-    "GSM04500Common/1.0.0": {
-      "type": "project",
-      "path": "../../../COMMON/GS/GSM04500COMMON/GSM04500Common.csproj",
-      "msbuildProject": "../../../COMMON/GS/GSM04500COMMON/GSM04500Common.csproj"
-    },
-    "GSM04500Service/1.0.0": {
-      "type": "project",
-      "path": "../../../SERVICE/GS/GSM04500SERVICE/GSM04500Service.csproj",
-      "msbuildProject": "../../../SERVICE/GS/GSM04500SERVICE/GSM04500Service.csproj"
-    },
     "Lookup_GSBACK/1.0.0": {
       "type": "project",
       "path": "../../../../../BS Shared Form/SOURCE/BACK/Lookup_GSBACK/Lookup_GSBACK.csproj",
@@ -11648,32 +11560,16 @@
       "path": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_DEPARTMENTResources/RSP_GS_MAINTAIN_DEPARTMENTResources.csproj",
       "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_DEPARTMENTResources/RSP_GS_MAINTAIN_DEPARTMENTResources.csproj"
     },
-    "RSP_GS_MAINTAIN_JOURNAL_GROUPResources/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_JOURNAL_GROUPResources/RSP_GS_MAINTAIN_JOURNAL_GROUPResources.csproj",
-      "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_JOURNAL_GROUPResources/RSP_GS_MAINTAIN_JOURNAL_GROUPResources.csproj"
-    },
-    "RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources/RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources.csproj",
-      "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources/RSP_GS_MAINTAIN_JOURNAL_GROUP_ACCOUNT_DEPTResources.csproj"
-    },
     "RSP_GS_UPLOAD_DEPARTMENTResources/1.0.0": {
       "type": "project",
       "path": "../../../BACK/GS/GS_SPR/RSP_GS_UPLOAD_DEPARTMENTResources/RSP_GS_UPLOAD_DEPARTMENTResources.csproj",
       "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_UPLOAD_DEPARTMENTResources/RSP_GS_UPLOAD_DEPARTMENTResources.csproj"
-    },
-    "RSP_GS_UPLOAD_JOURNAL_GROUPResources/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/GS/GS_SPR/RSP_GS_UPLOAD_JOURNAL_GROUPResources/RSP_GS_UPLOAD_JOURNAL_GROUPResources.csproj",
-      "msbuildProject": "../../../BACK/GS/GS_SPR/RSP_GS_UPLOAD_JOURNAL_GROUPResources/RSP_GS_UPLOAD_JOURNAL_GROUPResources.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "GFF00900SERVICES >= 1.0.0",
       "GSM04000Service >= 1.0.0",
-      "GSM04500Service >= 1.0.0",
       "Lookup_GSSERVICES >= 1.0.0",
       "Realta.BackCollectionNuGet >= 1.0.1"
     ]
@@ -11710,9 +11606,6 @@
           "projectReferences": {
             "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04000Service\\GSM04000Service.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04000Service\\GSM04000Service.csproj"
-            },
-            "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04500SERVICE\\GSM04500Service.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GS\\GSM04500SERVICE\\GSM04500Service.csproj"
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\GFF00900SERVICES\\GFF00900SERVICES.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\GFF00900SERVICES\\GFF00900SERVICES.csproj"

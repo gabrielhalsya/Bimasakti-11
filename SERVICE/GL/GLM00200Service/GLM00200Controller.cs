@@ -1,152 +1,30 @@
-﻿using GLM00200BACK;
-using GLM00200COMMON;
+﻿using GLM00200Back;
+using GLM00200Common;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using R_BackEnd;
 using R_Common;
+using R_CommonFrontBackAPI;
 using System.Diagnostics;
-using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Globalization;
 
-namespace GLM00200SERVICE
+namespace GLM00200Service
 {
-    [ApiController]
     [Route("api/[controller]/[action]")]
+    [ApiController]
     public class GLM00200Controller : ControllerBase, IGLM00200
     {
-        private LoggerGLM00200 _logger;
+        //private LoggerGLM00200 _Logger;
+        //private readonly ActivitySource _activitySource;
+        //public GLM00200Controller(ILogger<LoggerGLM00200> logger)
+        //{
+        //    ////Initial and Get Logger
+        //    //LoggerGLM00200.R_InitializeLogger(logger);
+        //    //_Logger = LoggerGLM00200.R_GetInstanceLogger();
+        //    //_activitySource = GLM00200ActivitySourceBase.R_InitializeAndGetActivitySource(nameof(GLM00200Controller));
+        //}
 
-        private readonly ActivitySource _activitySource;
-
-        public GLM00200Controller(ILogger<LoggerGLM00200> logger)
-        {
-            //Initial and Get Logger
-            LoggerGLM00200.R_InitializeLogger(logger);
-            _logger = LoggerGLM00200.R_GetInstanceLogger();
-            _activitySource = GLM00200Activity.R_InitializeAndGetActivitySource(GetType().Name);
-
-        }
-
-        [HttpPost]
-        public IAsyncEnumerable<GLM00201DTO> GetJournalDetailList()
-        {
-            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
-            ShowLogStart();
-            var loEx = new R_Exception();
-            IAsyncEnumerable<GLM00201DTO> loRtn = null;
-
-            try
-            {
-                var loRecId = R_Utility.R_GetStreamingContext<string>(ContextConstant.CREC_ID);
-                var loCls = new GLM00200Cls();
-                var loTempRtn = loCls.GetJournalDetailList(loRecId);
-                ShowLogExecute();
-                loRtn = StreamListHelper<GLM00201DTO>(loTempRtn);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-            ShowLogEnd();
-            return loRtn;
-        }
-
-        [HttpPost]
-        public IAsyncEnumerable<GLM00200DTO> GetJournalList()
-        {
-            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
-            ShowLogStart();
-            var loEx = new R_Exception();
-            IAsyncEnumerable<GLM00200DTO> loRtn = null;
-
-            try
-            {
-                var loParam = new GLM00200ParamDTO();
-                loParam.CDEPT_CODE = R_Utility.R_GetStreamingContext<string>(ContextConstant.CDEPT_CODE);
-                loParam.CPERIOD = R_Utility.R_GetStreamingContext<string>(ContextConstant.CPERIOD);
-                loParam.CSTATUS = R_Utility.R_GetStreamingContext<string>(ContextConstant.CSTATUS);
-                loParam.CSEARCH_TEXT = R_Utility.R_GetStreamingContext<string>(ContextConstant.CSEARCH_TEXT);
-
-                var loCls = new GLM00200Cls();
-
-                ShowLogExecute();
-                var loTempRtn = loCls.GetJournalList(loParam);
-
-                loRtn = StreamListHelper<GLM00200DTO>(loTempRtn);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-
-            }
-
-            loEx.ThrowExceptionIfErrors();
-            ShowLogEnd();
-
-            return loRtn;
-        }
-
-        [HttpPost]
-        public GLM00200RecordResult<GLM00200UpdateStatusDTO> UpdateJournalStatus(GLM00200UpdateStatusDTO poEntity)
-        {
-            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
-            ShowLogStart();
-            var loEx = new R_Exception();
-            GLM00200RecordResult<GLM00200UpdateStatusDTO> loRtn = new GLM00200RecordResult<GLM00200UpdateStatusDTO>();
-
-            try
-            {
-                var loCls = new GLM00200Cls();
-
-                ShowLogExecute();
-                loCls.UpdateJournalStatus(poEntity);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-
-            }
-
-            loEx.ThrowExceptionIfErrors();
-            ShowLogEnd();
-
-            return loRtn;
-        }
-
-        [HttpPost]
-        public GLM00200RecordResult<GLM00200RapidApprovalValidationDTO> ValidationRapidApproval(GLM00200RapidApprovalValidationDTO poEntity)
-        {
-            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
-            ShowLogStart();
-            var loEx = new R_Exception();
-            GLM00200RecordResult<GLM00200RapidApprovalValidationDTO> loRtn = new GLM00200RecordResult<GLM00200RapidApprovalValidationDTO>();
-
-            try
-            {
-                var loCls = new GLM00200Cls();
-
-                ShowLogExecute();
-                loRtn.Data = loCls.ValidationRapidAppro(poEntity);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-
-            }
-
-            loEx.ThrowExceptionIfErrors();
-            ShowLogEnd();
-
-            return loRtn;
-        }
-
-        #region Stream List Data
-        private async IAsyncEnumerable<T> StreamListHelper<T>(List<T> poParameter)
+        #region Stream Data
+        private async IAsyncEnumerable<T> GetStreamData<T>(List<T> poParameter)
         {
             foreach (var item in poParameter)
             {
@@ -155,18 +33,238 @@ namespace GLM00200SERVICE
         }
         #endregion
 
-        #region logger
+        [HttpPost]
+        public RecordResultDTO<InitALLDTO> GetInitData()
+        {
+            //using Activity activity = _activitySource.StartActivity("GetInitData");
+            var loEx = new R_Exception();
+            RecordResultDTO<InitALLDTO> loRtn = new();
+            //_Logger.LogInfo("Start GetInitData");
 
-        private void ShowLogStart([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Starting {pcMethodCallerName} in {GetType().Name}");
+            try
+            {
+                InitALLDTO loTempRtn = new InitALLDTO();
+                var loCls = new GLM00200Cls();
+                //_Logger.LogInfo("Call All Back Method For Init Data");
+                //Company Info
+                loTempRtn.COMPANY_INFO = loCls.GetVAR_GSM_COMPANY();
 
-        private void ShowLogExecute([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Executing cls method in {GetType().Name}.{pcMethodCallerName}");
+                //System Param
+                var loSystemParam = loCls.GetVAR_GL_SYSTEM_PARAM();
+                loTempRtn.GL_SYSTEM_PARAM = loSystemParam;
 
-        private void ShowLogEnd([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"End {pcMethodCallerName} in {GetType().Name}");
+                //Current
+                VAR_PERIOD_DT_INFO_DTO loParam = new VAR_PERIOD_DT_INFO_DTO { CCYEAR = loSystemParam.CCURRENT_PERIOD_YY, CPERIOD_NO = loSystemParam.CCURRENT_PERIOD_MM };
+                loTempRtn.CURRENT_PERIOD_START_DATE = loCls.GetPERIOD_DT_INFO(loParam);
 
-        private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
+                //Soft
+                loParam.CCYEAR = loSystemParam.CSOFT_PERIOD_YY;
+                loParam.CPERIOD_NO = loSystemParam.CSOFT_PERIOD_MM;
+                loTempRtn.SOFT_PERIOD_START_DATE = loCls.GetPERIOD_DT_INFO(loParam);
 
-        #endregion
+                //Option
+                loTempRtn.IUNDO_COMMIT_JRN = loCls.GetIUNDO_COMMIT_JRN();
+
+                //Transaction
+                loTempRtn.GSM_TRANSACTION_CODE = loCls.GetGSM_TRANSACTION_CODE();
+
+                //Period Range
+                loTempRtn.PERIOD_YEAR = loCls.GetGSM_PERIOD();
+
+                //List Currency
+                loTempRtn.CURRENCY_LIST = loCls.GetCurrency();
+
+                //List Status
+                loTempRtn.STATUS_LIST = loCls.GetSTATUS_DTO();
+
+                loRtn.data = loTempRtn;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            //_Logger.LogInfo("End GetPurhcaseAdjustmentStream");
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public IAsyncEnumerable<JournalDTO> GetAllRecurringList()
+        {
+            //using Activity activity = _activitySource.StartActivity("GetAllRecurringList");
+            var loEx = new R_Exception();
+            IAsyncEnumerable<JournalDTO> loRtn = null;
+            //_Logger.LogInfo("Start GetAllRecurringList");
+
+            try
+            {
+                //_Logger.LogInfo("Set Param GetAllRecurringList");
+                var poParam = new RecurringJournalListParamDTO();
+                poParam.CDEPT_CODE = R_Utility.R_GetStreamingContext<string>(RecurringJournalContext.CDEPT_CODE);
+                poParam.CPERIOD_YYYYMM = R_Utility.R_GetStreamingContext<string>(RecurringJournalContext.CPERIOD_YYYYMM);
+                poParam.CSTATUS = R_Utility.R_GetStreamingContext<string>(RecurringJournalContext.CSTATUS);
+                poParam.CSEARCH_TEXT = R_Utility.R_GetStreamingContext<string>(RecurringJournalContext.CSEARCH_TEXT);
+
+                //_Logger.LogInfo("Call Back Method GetJournalList");
+                var loCls = new GLM00200Cls();
+                var loTempRtn = loCls.GetJournalList(poParam);
+
+                //_Logger.LogInfo("Call Stream Method Data GetAllRecurringList");
+                loRtn = GetStreamData<JournalDTO>(loTempRtn);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            //_Logger.LogInfo("End GetAllRecurringList");
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public IAsyncEnumerable<JournalDetailGridDTO> GetAllJournalDetailList()
+        {
+            //using Activity activity = _activitySource.StartActivity("GetAllJournalDetailList");
+            var loEx = new R_Exception();
+            IAsyncEnumerable<JournalDetailGridDTO> loRtn = null;
+            //_Logger.LogInfo("Start GetAllJournalDetailList");
+
+            try
+            {
+                //_Logger.LogInfo("Set Param GetAllJournalDetailList");
+                var poParam = new RecurringJournalListParamDTO();
+                poParam.CREC_ID = R_Utility.R_GetStreamingContext<string>(RecurringJournalContext.CREC_ID);
+
+                //_Logger.LogInfo("Call Back Method GetJournalDetailList");
+                var loCls = new GLM00200Cls();
+                var loTempRtn = loCls.GetJournalDetailList(poParam);
+
+                //_Logger.LogInfo("Call Stream Method Data GetAllJournalDetailList");
+                loRtn = GetStreamData<JournalDetailGridDTO>(loTempRtn);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            //_Logger.LogInfo("End GetAllJournalDetailList");
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public RecordResultDTO<JournalDTO> GetJournalData(JournalDTO poEntity)
+        {
+            //using Activity activity = _activitySource.StartActivity("GetInitData");
+            var loEx = new R_Exception();
+            RecordResultDTO<JournalDTO> loRtn = new();
+            //_Logger.LogInfo("Start GetInitData");
+
+            try
+            {
+                var loCls = new GLM00200Cls();
+                var loTempRtn = loCls.GLM00200Display(poEntity);
+
+                loRtn.data = loTempRtn;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            //_Logger.LogInfo("End GetPurhcaseAdjustmentStream");
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public RecordResultDTO<JournalDTO> SaveJournalData(ParemeterRecordWithCRUDModeResultDTO<JournalParamDTO> poEntity)
+        {
+            //using Activity activity = _activitySource.StartActivity("GetInitData");
+            var loEx = new R_Exception();
+            RecordResultDTO<JournalDTO> loRtn = new();
+            //_Logger.LogInfo("Start GetInitData");
+
+            try
+            {
+                var loCls = new GLM00200Cls();
+
+                var loTempRtn = loCls.GLM00200Saving(poEntity.data, poEntity.eCRUDMode);
+
+                loRtn.data = loTempRtn;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            //_Logger.LogInfo("End GetPurhcaseAdjustmentStream");
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public RecordResultDTO<GLM00200UpdateStatusDTO> UpdateStatusJournalData(GLM00200UpdateStatusDTO poEntity)
+        {
+            //using Activity activity = _activitySource.StartActivity("GetInitData");
+            var loEx = new R_Exception();
+            RecordResultDTO<GLM00200UpdateStatusDTO> loRtn = new();
+            //_Logger.LogInfo("Start GetInitData");
+
+            try
+            {
+                var loCls = new GLM00200Cls();
+
+                loCls.UpdateJournalStatus(poEntity);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            //_Logger.LogInfo("End GetPurhcaseAdjustmentStream");
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public RecordResultDTO<CurrencyRateResult> GetLastCurrency(CurrencyRateResult poEntity)
+        {
+            //using Activity activity = _activitySource.StartActivity("GetLastCurrency");
+            var loEx = new R_Exception();
+            RecordResultDTO<CurrencyRateResult> loRtn = new RecordResultDTO<CurrencyRateResult>();
+            //_Logger.LogInfo("Start GetLastCurrency");
+
+            try
+            {
+                var loCls = new GLM00200Cls();
+
+                loRtn.data = loCls.GetLastCurrency(poEntity);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            //_Logger.LogInfo("End GetLastCurrency");
+            return loRtn;
+        }
     }
-
-
 }

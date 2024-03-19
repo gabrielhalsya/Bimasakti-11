@@ -12,10 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\COMMON\GL\GLM00200COMMON\GLM00200COMMON.csproj" />
-	  <ProjectReference Include="..\GL_SPR\RSP_GL_PROCESS_RECURRINGResources\RSP_GL_PROCESS_RECURRINGResources.csproj" />
-	  <ProjectReference Include="..\GL_SPR\RSP_GL_SAVE_RECURRING_JRNResources\RSP_GL_SAVE_RECURRING_JRNResources.csproj" />
-	  <ProjectReference Include="..\GL_SPR\RSP_GL_UPDATE_RECURRING_STATUSResources\RSP_GL_UPDATE_RECURRING_STATUSResources.csproj" />
+	  <ProjectReference Include="..\..\..\COMMON\GL\GLM00200COMMON\GLM00200Common.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -30,9 +27,6 @@
 		</Reference>
 		<Reference Include="R_CommonFrontBackAPI">
 			<HintPath>..\..\..\..\..\SYSTEM\SOURCE\LIBRARY\Back\R_CommonFrontBackAPI.dll</HintPath>
-		</Reference>
-		<Reference Include="R_OpenTelemetry">
-		  <HintPath>..\..\..\..\..\SYSTEM\SOURCE\LIBRARY\Back\R_OpenTelemetry.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 

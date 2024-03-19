@@ -38,7 +38,6 @@ namespace GLT00100MODEL
         public DateTime DocDate { get; set; }
         public GLT00110DTO Journal { get; set; } = new GLT00110DTO();
         public ObservableCollection<GLT00101DTO> JournalDetailGrid { get; set; } = new ObservableCollection<GLT00101DTO>();
-        public List<GLT00111DTO> ListDataJournalDetail { get; set; } = new List<GLT00111DTO>();
         #endregion
 
         public async Task GetAllUniversalData()
@@ -145,7 +144,7 @@ namespace GLT00100MODEL
             loEx.ThrowExceptionIfErrors();
         }
 
-        public async Task SaveJournal(GLT00110DTO poEntity, eCRUDMode poCRUDMode)
+        public async Task SaveJournal(GLT00110HeaderDetailDTO poEntity, eCRUDMode poCRUDMode)
         {
             var loEx = new R_Exception();
 
@@ -153,22 +152,18 @@ namespace GLT00100MODEL
             {
                 if (poCRUDMode == eCRUDMode.AddMode)
                 {
-                    poEntity.CACTION = "NEW";
-                    poEntity.CREC_ID = "";
+                    poEntity.HeaderData.CACTION = "NEW";
+                    poEntity.HeaderData.CREC_ID = "";
                 }
                 else if (poCRUDMode == eCRUDMode.EditMode)
                 {
-                    poEntity.CACTION = "EDIT";
+                    poEntity.HeaderData.CACTION = "EDIT";
                 }
-                poEntity.CDOC_DATE = DocDate.ToString("yyyyMMdd");
-                poEntity.CREF_DATE = RefDate.ToString("yyyyMMdd");
-                poEntity.CREF_NO = VAR_GSM_TRANSACTION_CODE.LINCREMENT_FLAG ? "" : poEntity.CREF_NO;
+                poEntity.HeaderData.CDOC_DATE = DocDate.ToString("yyyyMMdd");
+                poEntity.HeaderData.CREF_DATE = RefDate.ToString("yyyyMMdd");
+                poEntity.HeaderData.CREF_NO = VAR_GSM_TRANSACTION_CODE.LINCREMENT_FLAG ? "" : poEntity.HeaderData.CREF_NO;
 
-                GLT00110HeaderDetailDTO loData = new GLT00110HeaderDetailDTO();
-                loData.HeaderData = poEntity;
-                loData.DetailData = ListDataJournalDetail;
-
-                var loResult = await _GLT00110Model.SaveJournalAsync(loData);
+                var loResult = await _GLT00110Model.SaveJournalAsync(poEntity);
 
                 Journal = loResult;
             }
@@ -192,44 +187,6 @@ namespace GLT00100MODEL
                 loResult.ForEach(x => x.INO = loResult.Count + 1);
 
                 JournalDetailGrid = new ObservableCollection<GLT00101DTO>(loResult);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task DeleteJournalDetailList(GLT00101DTO poEntity)
-        {
-            var loEx = new R_Exception();
-
-            try
-            {
-                JournalDetailGrid.Remove(poEntity);
-
-                var loResult = JournalDetailGrid.ToList();
-                loResult.ForEach(x=> x.INO = loResult.Count + 1);
-
-                JournalDetailGrid = new ObservableCollection<GLT00101DTO>(loResult);
-                await Task.CompletedTask;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-        }
-        public async Task SaveJournalDetail(List<GLT00101DTO> poEntity)
-        {
-            var loEx = new R_Exception();
-
-            try
-            {
-                ListDataJournalDetail = R_FrontUtility.ConvertCollectionToCollection<GLT00111DTO>(poEntity).ToList();
-
-                await Task.CompletedTask;
             }
             catch (Exception ex)
             {

@@ -27,6 +27,18 @@ namespace GLT00100FRONT
         private R_ConductorGrid _conductorDetailRef;
         private R_Grid<GLT00101DTO> _gridDetailRef;
 
+        #region Private Property
+        private string lcLabelSubmit = "Submit";
+        private string lcLabelCommit = "Commit";
+        private bool EnableEdit = false;
+        private bool EnableDelete = false;
+        private bool EnableSubmit = false;
+        private bool EnableApprove = false;
+        private bool EnableCommit = false;
+        private bool EnableHaveRecId = false;
+        private bool EnableSetOther = false;
+        #endregion
+
         [Inject] IClientHelper clientHelper { get; set; }
 
         protected override async Task R_Init_From_Master(object poParameter)
@@ -57,6 +69,7 @@ namespace GLT00100FRONT
         }
 
         #region Form
+
         private async Task JournalForm_GetRecord(R_ServiceGetRecordEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -78,7 +91,9 @@ namespace GLT00100FRONT
             var loEx = new R_Exception();
             try
             {
-                await _JournalEntryViewModel.SaveJournal((GLT00110DTO)eventArgs.Data, (eCRUDMode)eventArgs.ConductorMode);
+                var loHeaderData = (GLT00110DTO)eventArgs.Data;
+                var loMapping = R_FrontUtility.ConvertCollectionToCollection<GLT00111DTO>(_gridDetailRef.DataSource).ToList();
+                await _JournalEntryViewModel.SaveJournal(new GLT00110HeaderDetailDTO { HeaderData = loHeaderData, DetailData = loMapping }, (eCRUDMode)eventArgs.ConductorMode);
                 eventArgs.Result = _JournalEntryViewModel.Journal;
             }
             catch (Exception ex)
@@ -86,27 +101,6 @@ namespace GLT00100FRONT
                 loEx.Add(ex);
             }
 
-            loEx.ThrowExceptionIfErrors();
-        }
-
-        private async Task BtnDelete_OnClick()
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                var loValidate = await R_MessageBox.Show("", "Are you sure want to delete this journal?", R_eMessageBoxButtonType.YesNo);
-                if (loValidate == R_eMessageBoxResult.No)
-                    goto EndBlock;
-
-                var loData = (GLT00110DTO)_conductorRef.R_GetCurrentData();
-                await _JournalEntryViewModel.DeleteJournal(loData);
-                await _conductorRef.R_GetEntity(loData);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-        EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
         
@@ -153,13 +147,43 @@ namespace GLT00100FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        private void ValidationFormGLT00100JournalEntry(R_ValidationEventArgs eventArgs)
+        private async Task JournalForm_RDisplay(R_DisplayEventArgs eventArgs)
+        {
+            EnableSetOther = eventArgs.ConductorMode != R_eConductorMode.Normal;
+            var data = (GLT00110DTO)eventArgs.Data;
+            if (!string.IsNullOrWhiteSpace(data.CSTATUS))
+            {
+                lcLabelCommit = data.CSTATUS == "80" ? "Undo Commit" : "Commit";
+                lcLabelSubmit = data.CSTATUS == "10" ? "Undo Submit" : "Submit";
+
+                EnableEdit = data.CSTATUS == "00";
+                EnableDelete = data.CSTATUS == "00";
+                EnableSubmit = data.CSTATUS == "00" || data.CSTATUS == "10";
+                EnableApprove = data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG;
+                EnableCommit = (data.CSTATUS == "20" || (data.CSTATUS == "10" && !_JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)) ||
+                               (data.CSTATUS == "80" && _JournalEntryViewModel.VAR_IUNDO_COMMIT_JRN.IOPTION != 1) &&
+                               int.Parse(data.CREF_PRD) >= int.Parse(_JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.CSOFT_PERIOD);
+                EnableHaveRecId = !string.IsNullOrWhiteSpace(data.CREC_ID);
+
+            }
+
+            if (eventArgs.ConductorMode == R_eConductorMode.Normal)
+            {
+
+                if (!string.IsNullOrWhiteSpace(data.CREC_ID))
+                {
+                    await _gridDetailRef.R_RefreshGrid(data);
+                }
+            }
+        }
+
+        private void JournalForm_Validation(R_ValidationEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
                 var loParam = (GLT00110DTO)eventArgs.Data;
-                if (string.IsNullOrWhiteSpace(loParam.CREF_NO))
+                if (string.IsNullOrWhiteSpace(loParam.CREF_NO) && !_JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LINCREMENT_FLAG)
                 {
                     loEx.Add("", "Reference No. is required!");
                 }
@@ -239,48 +263,6 @@ namespace GLT00100FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        #region Private Property
-        private string lcLabelSubmit = "Submit";
-        private string lcLabelCommit = "Commit";
-        private bool EnableEdit = false;
-        private bool EnableDelete = false;
-        private bool EnableSubmit = false;
-        private bool EnableApprove = false;
-        private bool EnableCommit = false;
-        private bool EnableHaveRecId = false;
-        private bool EnableSetOther = false;
-        #endregion
-
-        private async Task JournalForm_RDisplay(R_DisplayEventArgs eventArgs)
-        {
-            EnableSetOther = eventArgs.ConductorMode != R_eConductorMode.Normal;
-            var data = (GLT00110DTO)eventArgs.Data;
-            if (!string.IsNullOrWhiteSpace(data.CSTATUS))
-            {
-                lcLabelCommit = data.CSTATUS == "80" ? "Undo Commit" : "Commit";
-                lcLabelSubmit = data.CSTATUS == "10" ? "Undo Submit" : "Submit";
-
-                EnableEdit = data.CSTATUS == "00";
-                EnableDelete = data.CSTATUS == "00";
-                EnableSubmit = data.CSTATUS == "00" || data.CSTATUS == "10";
-                EnableApprove = data.CSTATUS == "10" && _JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG;
-                EnableCommit = (data.CSTATUS == "20" || (data.CSTATUS == "10" && !_JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LAPPROVAL_FLAG)) ||
-                               (data.CSTATUS == "80" && _JournalEntryViewModel.VAR_IUNDO_COMMIT_JRN.IOPTION != 1) &&
-                               int.Parse(data.CREF_PRD) >= int.Parse(_JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.CSOFT_PERIOD);
-                EnableHaveRecId = !string.IsNullOrWhiteSpace(data.CREC_ID);
-
-            }
-
-            if (eventArgs.ConductorMode == R_eConductorMode.Normal)
-            {
-
-                if (!string.IsNullOrWhiteSpace(data.CREC_ID))
-                {
-                    await _gridDetailRef.R_RefreshGrid(data);
-                }
-            }
-        }
-
         private async Task JournalForm_BeforeCancel(R_BeforeCancelEventArgs eventArgs)
         {
             var res = await R_MessageBox.Show("", "You haven’t saved your changes. Are you sure want to cancel? [Yes/No]",
@@ -310,18 +292,24 @@ namespace GLT00100FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        private async Task JournalForm_Saving(R_SavingEventArgs eventArgs)
+        private async Task BtnDelete_OnClick()
         {
             var loEx = new R_Exception();
             try
             {
-                await _conductorDetailRef.R_SaveBatch();
+                var loValidate = await R_MessageBox.Show("", "Are you sure want to delete this journal?", R_eMessageBoxButtonType.YesNo);
+                if (loValidate == R_eMessageBoxResult.No)
+                    goto EndBlock;
+
+                var loData = (GLT00110DTO)_conductorRef.R_GetCurrentData();
+                await _JournalEntryViewModel.DeleteJournal(loData);
+                await _conductorRef.R_GetEntity(loData);
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
-
+        EndBlock:
             loEx.ThrowExceptionIfErrors();
         }
 
@@ -533,7 +521,7 @@ namespace GLT00100FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        private void Before_Open_Lookup(R_BeforeOpenGridLookupColumnEventArgs eventArgs)
+        private void JournalDet_Before_Open_Lookup(R_BeforeOpenGridLookupColumnEventArgs eventArgs)
         {
             var param = new GSL00500ParameterDTO
             {
@@ -552,7 +540,7 @@ namespace GLT00100FRONT
             eventArgs.TargetPageType = typeof(GSL00500);
         }
 
-        private void After_Open_Lookup(R_AfterOpenGridLookupColumnEventArgs eventArgs)
+        private void JournalDet_After_Open_Lookup(R_AfterOpenGridLookupColumnEventArgs eventArgs)
         {
             var loTempResult = (GSL00500DTO)eventArgs.Result;
             if (loTempResult == null)
@@ -568,23 +556,6 @@ namespace GLT00100FRONT
                 loGetData.CCENTER_NAME = "";
             }
 
-        }
-
-        private async Task JournalDet_ServiceDelete(R_ServiceDeleteEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                var data = (GLT00101DTO)eventArgs.Data;
-
-                await _JournalEntryViewModel.DeleteJournalDetailList(data);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
         }
 
         private async Task JournalDet_AfterDelete()
@@ -611,23 +582,6 @@ namespace GLT00100FRONT
 
                 data.CDBCR = data.NDEBIT > 0 ? 'D' : data.NCREDIT > 0 ? 'C' : '\0';
                 data.NAMOUNT = data.NDEBIT + data.NCREDIT;
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-        }
-
-        private async Task JournalDet_SaveBatch(R_SaveBatchEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                var data = (List<GLT00101DTO>)eventArgs.Data;
-
-                await _JournalEntryViewModel.SaveJournalDetail(data);
             }
             catch (Exception ex)
             {
@@ -848,6 +802,7 @@ namespace GLT00100FRONT
 
             return Task.FromResult<object>(lcResult);
         }
+
         #region lookupDept
 
         private R_Lookup R_LookupBtnDept;

@@ -1,15 +1,24 @@
-﻿using GLM00200COMMON;
+﻿using GLM00200Common;
 using R_CommonFrontBackAPI;
 using System;
 using System.Collections.Generic;
 
-namespace GLM00200COMMON
+namespace GLM00200Common
 {
     public interface IGLM00200 
     {
-        IAsyncEnumerable<GLM00200DTO> GetJournalList();
-        IAsyncEnumerable<GLM00201DTO> GetJournalDetailList();
-        GLM00200RecordResult<GLM00200UpdateStatusDTO> UpdateJournalStatus(GLM00200UpdateStatusDTO poEntity);
-        GLM00200RecordResult<GLM00200RapidApprovalValidationDTO> ValidationRapidApproval(GLM00200RapidApprovalValidationDTO poEntity);
+        RecordResultDTO<InitALLDTO> GetInitData();
+        RecordResultDTO<JournalDTO> GetJournalData(JournalDTO poEntity);
+        RecordResultDTO<JournalDTO> SaveJournalData(ParemeterRecordWithCRUDModeResultDTO<JournalParamDTO> poEntity);
+        RecordResultDTO<GLM00200UpdateStatusDTO> UpdateStatusJournalData(GLM00200UpdateStatusDTO poEntity);
+        RecordResultDTO<CurrencyRateResult> GetLastCurrency(CurrencyRateResult poEntity);
+
+        IAsyncEnumerable<JournalDTO> GetAllRecurringList();
+        IAsyncEnumerable<JournalDetailGridDTO> GetAllJournalDetailList();
+
+        //IAsyncEnumerable<JournalGridDTO> GetFilteredRecurringList();
+        //IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList();
+        //CurrencyRateResult RefreshCurrencyRate();
+        //JournalCommitApprovalRESULT JournalCommitApproval();
     }
 }
