@@ -71,6 +71,8 @@ namespace GLT00100FRONT
             var loEx = new R_Exception();
             try
             {
+                //reset detail
+                _JournalEntryViewModel.JournalDetailGrid.Clear();
                 await _gridRef.R_RefreshGrid(null);
             }
             catch (Exception ex)

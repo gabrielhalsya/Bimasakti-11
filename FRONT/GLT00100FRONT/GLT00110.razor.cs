@@ -267,6 +267,7 @@ namespace GLT00100FRONT
         {
             var res = await R_MessageBox.Show("", "You haven’t saved your changes. Are you sure want to cancel? [Yes/No]",
                 R_eMessageBoxButtonType.YesNo);
+
             eventArgs.Cancel = res == R_eMessageBoxResult.No;
         }
 
@@ -479,7 +480,7 @@ namespace GLT00100FRONT
                 {
                     loEx.Add("", "Journal amount can only be either Debit or Credit!");
                 }
-                if (_JournalEntryViewModel.JournalDetailGrid.Count > 0 && eventArgs.ConductorMode==R_eConductorMode.Add)
+                if (eventArgs.ConductorMode==R_eConductorMode.Add)
                 {
                     if (_JournalEntryViewModel.JournalDetailGrid.Any(item => item.CGLACCOUNT_NO == data.CGLACCOUNT_NO))
                     {

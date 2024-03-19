@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RSP_GL_SAVE_RECURRING_JRNResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b627b59cbca54c8c9935c6d9be8ddb02fa5331cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9160a52fe05e88ad5d32a0619066036da5bd1629")]
 [assembly: System.Reflection.AssemblyProductAttribute("RSP_GL_SAVE_RECURRING_JRNResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RSP_GL_SAVE_RECURRING_JRNResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
