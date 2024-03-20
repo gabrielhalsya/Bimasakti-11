@@ -270,6 +270,7 @@ namespace GLT00100FRONT
 
             R_DisplayException(loEx);
         }
+
         #endregion
 
         #region Predefine Journal Entry

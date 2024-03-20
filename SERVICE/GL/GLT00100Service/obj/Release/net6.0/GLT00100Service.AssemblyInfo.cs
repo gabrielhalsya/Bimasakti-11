@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLT00100SERVICE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b627b59cbca54c8c9935c6d9be8ddb02fa5331cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f65b000d85c7ba7153fc66cf89c0368905818bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLT00100SERVICE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLT00100SERVICE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
