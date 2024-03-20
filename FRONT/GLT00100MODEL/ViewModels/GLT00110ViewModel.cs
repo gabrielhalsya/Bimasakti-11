@@ -35,7 +35,7 @@ namespace GLT00100MODEL
 
         #region Public Property ViewModel
         public DateTime RefDate { get; set; }
-        public DateTime DocDate { get; set; }
+        public DateTime? DocDate { get; set; }
         public GLT00110DTO Journal { get; set; } = new GLT00110DTO();
         public ObservableCollection<GLT00101DTO> JournalDetailGrid { get; set; } = new ObservableCollection<GLT00101DTO>();
         #endregion
@@ -149,20 +149,19 @@ namespace GLT00100MODEL
 
             try
             {
-                var loDetailData = R_FrontUtility.ConvertCollectionToCollection<GLT00111DTO>(JournalDetailGrid);
-                poEntity.DetailData = loDetailData.ToList();
                 if (poCRUDMode == eCRUDMode.AddMode)
                 {
                     poEntity.HeaderData.CACTION = "NEW";
                     poEntity.HeaderData.CREC_ID = "";
+                    poEntity.HeaderData.CREF_NO = VAR_GSM_TRANSACTION_CODE.LINCREMENT_FLAG ? "" : poEntity.HeaderData.CREF_NO;
                 }
                 else if (poCRUDMode == eCRUDMode.EditMode)
                 {
                     poEntity.HeaderData.CACTION = "EDIT";
                 }
-                poEntity.HeaderData.CDOC_DATE = DocDate.ToString("yyyyMMdd");
+                poEntity.HeaderData.CDOC_DATE = DocDate.Value.ToString("yyyyMMdd");
                 poEntity.HeaderData.CREF_DATE = RefDate.ToString("yyyyMMdd");
-                poEntity.HeaderData.CREF_NO = VAR_GSM_TRANSACTION_CODE.LINCREMENT_FLAG ? "" : poEntity.HeaderData.CREF_NO;
+                poEntity.HeaderData.CTRANS_CODE = ContextConstant.VAR_TRANS_CODE;
 
                 var loResult = await _GLT00110Model.SaveJournalAsync(poEntity);
 

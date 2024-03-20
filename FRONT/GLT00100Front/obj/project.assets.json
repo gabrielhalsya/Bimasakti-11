@@ -263,6 +263,7 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "GLT00100COMMON": "1.0.0",
+          "Lookup_GSCOMMON": "1.0.0",
           "Lookup_GSModel": "1.0.0"
         },
         "compile": {

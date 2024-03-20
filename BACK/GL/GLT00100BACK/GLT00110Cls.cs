@@ -241,11 +241,8 @@ namespace GLT00100BACK
             {
                 using (TransactionScope transactionScope = new TransactionScope(TransactionScopeOption.Required))
                 {
-
-
                     loConn = loDb.GetConnection("R_DefaultConnectionString");
                     loCmd = loDb.GetCommand();
-
 
                     //Bulk Insert Data
                     lcQuery = @"CREATE TABLE #GLT0100_JOURNAL_DETAIL 
@@ -258,7 +255,10 @@ namespace GLT00100BACK
                                 CDOCUMENT_NO    VARCHAR(20),
                                 CDOCUMENT_DATE  VARCHAR(8)
                             )";
+                    ShowLogDebug(lcQuery, loCmd.Parameters);//log create
                     loDb.SqlExecNonQuery(lcQuery, loConn, false);
+
+                    _logger.LogDebug($"INSERT INTO #GLT0100_JOURNAL_DETAIL VALUES {poEntity.DetailData}");//log insert
                     loDb.R_BulkInsert<GLT00111DTO>((SqlConnection)loConn, "#GLT0100_JOURNAL_DETAIL", poEntity.DetailData);
 
                     lcQuery = "RSP_GL_SAVE_JOURNAL";

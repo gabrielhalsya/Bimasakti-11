@@ -3,6 +3,7 @@ using GLT00100COMMON;
 using GLT00100MODEL;
 using Lookup_GSCOMMON.DTOs;
 using Lookup_GSFRONT;
+using Lookup_GSModel.ViewModel;
 using Microsoft.AspNetCore.Components;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.DataControls;
@@ -235,6 +236,40 @@ namespace GLT00100FRONT
             _JournalEntryViewModel.JornalParam.CDEPT_CODE = loTempResult.CDEPT_CODE;
             _JournalEntryViewModel.JornalParam.CDEPT_NAME = loTempResult.CDEPT_NAME;
         }
+        private async Task LostFocusDeptCode()
+        {
+            var loEx = new R_Exception();
+
+            try
+            {
+                LookupGSL00700ViewModel loLookupViewModel = new LookupGSL00700ViewModel(); //samain dengan GSLyang dipake
+                var loParam = new GSL00700ParameterDTO//param samain di before
+                {
+                    CSEARCH_TEXT = _JournalEntryViewModel.JornalParam.CDEPT_CODE, //bind textbox
+                };
+
+
+                var loResult = await loLookupViewModel.GetDepartment(loParam); //method single
+
+                //cek name apakah ada/tidak
+                if (loResult == null)
+                {
+                    loEx.Add(R_FrontUtility.R_GetError(
+                            typeof(Lookup_GSFrontResources.Resources_Dummy_Class),
+                            "_ErrLookup01"));
+                    _JournalEntryViewModel.JornalParam.CDEPT_NAME = ""; //kosongin bind textbox name kalo gaada
+                    //await GLAccount_TextBox.FocusAsync();
+                }
+                else
+                    _JournalEntryViewModel.JornalParam.CDEPT_NAME = loResult.CDEPT_NAME; //assign bind textbox name kalo ada
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            R_DisplayException(loEx);
+        }
         #endregion
 
         #region Predefine Journal Entry
@@ -298,5 +333,6 @@ namespace GLT00100FRONT
             eventArgs.TargetPageType = typeof(GLT00130);
         }
         #endregion
+
     }
 }

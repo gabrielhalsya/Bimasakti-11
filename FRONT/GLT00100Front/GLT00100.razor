@@ -9,7 +9,8 @@
     <R_ItemLayout col="1">
         <R_TextBox @bind-Value="_JournalEntryViewModel.JornalParam.CDEPT_CODE"
                    R_ConductorSource="_conductorRef"
-                   Enabled="true" />
+                   Enabled="true" 
+                   OnLostFocus=""/>
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Lookup R_Before_Open_Lookup="@Before_Open_lookupDept" R_After_Open_Lookup="@After_Open_lookupDept">

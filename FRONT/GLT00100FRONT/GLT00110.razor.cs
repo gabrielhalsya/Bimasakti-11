@@ -92,9 +92,23 @@ namespace GLT00100FRONT
             try
             {
                 var loHeaderData = R_FrontUtility.ConvertObjectToObject<GLT00110DTO>(eventArgs.Data);
-                var loParam = new GLT00110HeaderDetailDTO { HeaderData= loHeaderData};
+                var loParam = new GLT00110HeaderDetailDTO { HeaderData = loHeaderData };
+                var loDetailData = _gridDetailRef.DataSource;
+                var loMappingDetail = loDetailData.Select(
+                    item =>new GLT00111DTO
+                    {
+                        CGLACCOUNT_NO = item.CGLACCOUNT_NO,
+                        CCENTER_CODE = item.CCENTER_CODE,
+                        CDBCR = item.CDBCR.FirstOrDefault(), // Assuming CDBCR is a string
+                        NAMOUNT = item.NAMOUNT,
+                        CDETAIL_DESC = item.CDETAIL_DESC,
+                        CDOCUMENT_NO = item.CDOCUMENT_NO,
+                        CDOCUMENT_DATE = item.CDOCUMENT_DATE
+                    }).ToList();
+                loParam.DetailData = loMappingDetail;
                 await _JournalEntryViewModel.SaveJournal(loParam, (eCRUDMode)eventArgs.ConductorMode);
                 eventArgs.Result = _JournalEntryViewModel.Journal;
+                //_gridDetailRef.R_RefreshGrid(_JournalEntryViewModel.Journal)
             }
             catch (Exception ex)
             {
@@ -103,7 +117,7 @@ namespace GLT00100FRONT
 
             loEx.ThrowExceptionIfErrors();
         }
-        
+
         private async Task JournalForm_AfterAddAsync(R_AfterAddEventArgs eventArgs)
         {
             var loEx = new R_Exception();
@@ -214,7 +228,7 @@ namespace GLT00100FRONT
                     loEx.Add("", "Description is required!");
                 }
 
-                if (_gridDetailRef.DataSource.Count==0)
+                if (_gridDetailRef.DataSource.Count == 0)
                 {
                     loEx.Add("", "Please input Journal Detail!");
                 }
@@ -224,7 +238,7 @@ namespace GLT00100FRONT
                     loEx.Add("", "Total Debit Amount must be equal to Total Credit Amount");
                 }
 
-                if (loParam.NDEBIT_AMOUNT==0 || loParam.NCREDIT_AMOUNT==0)
+                if (loParam.NDEBIT_AMOUNT == 0 || loParam.NCREDIT_AMOUNT == 0)
                 {
                     loEx.Add("", "Total Debit Amount or Total Credit Amount cannot be 0!");
                 }
@@ -421,15 +435,15 @@ namespace GLT00100FRONT
                 {
                     if (data.NDEBIT > 0 && data.NCREDIT == 0)
                     {
-                        data.CDBCR = 'D';
+                        data.CDBCR = "D";
                     }
-                    else if (data.NDEBIT == 0 && data.NCREDIT > 0)
+                    else if (data.NCREDIT > 0 && data.NDEBIT == 0)
                     {
-                        data.CDBCR = 'C';
+                        data.CDBCR = "C";
                     }
                     else
                     {
-                        data.CDBCR = '\0';
+                        data.CDBCR = "";
                     }
                 }
 
@@ -480,7 +494,7 @@ namespace GLT00100FRONT
                 {
                     loEx.Add("", "Journal amount can only be either Debit or Credit!");
                 }
-                if (eventArgs.ConductorMode==R_eConductorMode.Add)
+                if (eventArgs.ConductorMode == R_eConductorMode.Add)
                 {
                     if (_JournalEntryViewModel.JournalDetailGrid.Any(item => item.CGLACCOUNT_NO == data.CGLACCOUNT_NO))
                     {
@@ -510,8 +524,8 @@ namespace GLT00100FRONT
                 loData.CCENTER_CODE = loFirstCenter.CCENTER_CODE;
                 loData.CCENTER_NAME = loFirstCenter.CCENTER_NAME;
                 loData.CDOCUMENT_NO = string.IsNullOrWhiteSpace(_JournalEntryViewModel.Data.CDOC_NO) ? "" : _JournalEntryViewModel.Data.CDOC_NO;
-                loData.CDOCUMENT_DATE = string.IsNullOrWhiteSpace(_JournalEntryViewModel.Data.CDOC_DATE) ? "" : _JournalEntryViewModel.DocDate.ToString("yyyyMMdd");
-                loData.DDOCUMENT_DATE = _JournalEntryViewModel.DocDate;
+                loData.CDOCUMENT_DATE = _JournalEntryViewModel.DocDate == null ? "" : _JournalEntryViewModel.DocDate.Value.ToString("yyyyMMdd");
+                loData.DDOCUMENT_DATE = _JournalEntryViewModel.DocDate.Value;
 
             }
             catch (Exception ex)
@@ -580,8 +594,18 @@ namespace GLT00100FRONT
             try
             {
                 var data = (GLT00101DTO)eventArgs.Data;
-
-                data.CDBCR = data.NDEBIT > 0 ? 'D' : data.NCREDIT > 0 ? 'C' : '\0';
+                if (data.NDEBIT > 0 && data.NCREDIT == 0)
+                {
+                    data.CDBCR = "D";
+                }
+                else if (data.NCREDIT > 0 && data.NDEBIT == 0)
+                {
+                    data.CDBCR = "C";
+                }
+                else
+                {
+                    data.CDBCR = "";
+                }
                 data.NAMOUNT = data.NDEBIT + data.NCREDIT;
             }
             catch (Exception ex)
@@ -620,8 +644,8 @@ namespace GLT00100FRONT
 
                 loData.CDETAIL_DESC = _JournalEntryViewModel.Data.CTRANS_DESC;
                 loData.CDOCUMENT_NO = string.IsNullOrWhiteSpace(_JournalEntryViewModel.Data.CDOC_NO) ? "" : _JournalEntryViewModel.Data.CDOC_NO;
-                loData.CDOCUMENT_DATE = string.IsNullOrWhiteSpace(_JournalEntryViewModel.Data.CDOC_DATE) ? "" : _JournalEntryViewModel.DocDate.ToString("yyyyMMdd");
-                loData.DDOCUMENT_DATE = _JournalEntryViewModel.DocDate;
+                loData.CDOCUMENT_DATE = string.IsNullOrWhiteSpace(_JournalEntryViewModel.Data.CDOC_DATE) ? "" : _JournalEntryViewModel.DocDate.Value.ToString("yyyyMMdd");
+                loData.DDOCUMENT_DATE = _JournalEntryViewModel.DocDate.Value;
             }
             catch (Exception ex)
             {
