@@ -57,7 +57,6 @@ namespace GLT00100FRONT
                 {
                     _JournalEntryViewModel.RefDate = _JournalEntryViewModel.VAR_TODAY.DTODAY;
                     _JournalEntryViewModel.DocDate = _JournalEntryViewModel.VAR_TODAY.DTODAY;
-
                 }
             }
             catch (Exception ex)
@@ -95,12 +94,12 @@ namespace GLT00100FRONT
                 var loParam = new GLT00110HeaderDetailDTO { HeaderData = loHeaderData };
                 var loDetailData = _gridDetailRef.DataSource;
                 var loMappingDetail = loDetailData.Select(
-                    item =>new GLT00111DTO
+                    item => new GLT00111DTO
                     {
                         CGLACCOUNT_NO = item.CGLACCOUNT_NO,
                         CCENTER_CODE = item.CCENTER_CODE,
                         CDBCR = item.CDBCR.FirstOrDefault(), // Assuming CDBCR is a string
-                        NAMOUNT = item.NAMOUNT,
+                        NAMOUNT = item.NDEBIT + item.NCREDIT,
                         CDETAIL_DESC = item.CDETAIL_DESC,
                         CDOCUMENT_NO = item.CDOCUMENT_NO,
                         CDOCUMENT_DATE = item.CDOCUMENT_DATE
@@ -123,8 +122,8 @@ namespace GLT00100FRONT
             var loEx = new R_Exception();
             try
             {
+                _JournalEntryViewModel.JournalDetailGridTemp = new(_gridDetailRef.DataSource.ToList());  ;//store detail to temp
                 var data = (GLT00110DTO)eventArgs.Data;
-
                 data.CCREATE_BY = clientHelper.UserId;
                 data.CUPDATE_BY = clientHelper.UserId;
                 data.DUPDATE_DATE = _JournalEntryViewModel.VAR_TODAY.DTODAY;
@@ -197,6 +196,11 @@ namespace GLT00100FRONT
             try
             {
                 var loParam = (GLT00110DTO)eventArgs.Data;
+                if (string.IsNullOrWhiteSpace(loParam.CDEPT_CODE))
+                {
+                    loEx.Add("", "Please select Department");
+                }
+
                 if (string.IsNullOrWhiteSpace(loParam.CREF_NO) && !_JournalEntryViewModel.VAR_GSM_TRANSACTION_CODE.LINCREMENT_FLAG)
                 {
                     loEx.Add("", "Reference No. is required!");
@@ -281,8 +285,15 @@ namespace GLT00100FRONT
         {
             var res = await R_MessageBox.Show("", "You haven’t saved your changes. Are you sure want to cancel? [Yes/No]",
                 R_eMessageBoxButtonType.YesNo);
-
-            eventArgs.Cancel = res == R_eMessageBoxResult.No;
+            if (res == R_eMessageBoxResult.No)
+            {
+                eventArgs.Cancel = true;
+            }
+            else
+            {
+                _JournalEntryViewModel.JournalDetailGrid = _JournalEntryViewModel.JournalDetailGridTemp; //assign detail back from temp
+                await Close(false, false);
+            }
         }
 
         private void CopyJournalEntryProcess()
@@ -445,6 +456,7 @@ namespace GLT00100FRONT
                     {
                         data.CDBCR = "";
                     }
+                    data.NAMOUNT = data.NCREDIT + data.NDEBIT;
                 }
 
                 if (eventArgs.ConductorMode == R_eConductorMode.Normal)
@@ -501,7 +513,6 @@ namespace GLT00100FRONT
                         loEx.Add("", $"Account No. {data.CGLACCOUNT_NO} already exists!");
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -793,6 +804,7 @@ namespace GLT00100FRONT
                 loParam.LAUTO_COMMIT = false;
                 loParam.CNEW_STATUS = lcNewStatus;
                 await _JournalEntryViewModel.UpdateJournalStatus(loParam);
+                await _conductorRef.R_GetEntity(new GLT00110DTO() { CREC_ID=loParam.CREC_ID});
             }
             catch (Exception ex)
             {

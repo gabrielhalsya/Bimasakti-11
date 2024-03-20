@@ -3987,6 +3987,45 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Lookup_GSBACK/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Lookup_GSCOMMON": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Lookup_GSBACK.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Lookup_GSBACK.dll": {}
+        }
+      },
+      "Lookup_GSCOMMON/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Lookup_GSCOMMON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Lookup_GSCOMMON.dll": {}
+        }
+      },
+      "Lookup_GSSERVICES/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Lookup_GSBACK": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Lookup_GSSERVICES.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Lookup_GSSERVICES.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -11501,6 +11540,21 @@
       "path": "../../../SERVICE/GS/GSM04000Service/GSM04000Service.csproj",
       "msbuildProject": "../../../SERVICE/GS/GSM04000Service/GSM04000Service.csproj"
     },
+    "Lookup_GSBACK/1.0.0": {
+      "type": "project",
+      "path": "../../../../../BS Shared Form/SOURCE/BACK/Lookup_GSBACK/Lookup_GSBACK.csproj",
+      "msbuildProject": "../../../../../BS Shared Form/SOURCE/BACK/Lookup_GSBACK/Lookup_GSBACK.csproj"
+    },
+    "Lookup_GSCOMMON/1.0.0": {
+      "type": "project",
+      "path": "../../../../../BS Shared Form/SOURCE/BACK/Lookup_GSCOMMON/Lookup_GSCOMMON.csproj",
+      "msbuildProject": "../../../../../BS Shared Form/SOURCE/BACK/Lookup_GSCOMMON/Lookup_GSCOMMON.csproj"
+    },
+    "Lookup_GSSERVICES/1.0.0": {
+      "type": "project",
+      "path": "../../../../../BS Shared Form/SOURCE/SERVICES/Lookup_GSSERVICES/Lookup_GSSERVICES.csproj",
+      "msbuildProject": "../../../../../BS Shared Form/SOURCE/SERVICES/Lookup_GSSERVICES/Lookup_GSSERVICES.csproj"
+    },
     "RSP_GS_MAINTAIN_DEPARTMENTResources/1.0.0": {
       "type": "project",
       "path": "../../../BACK/GS/GS_SPR/RSP_GS_MAINTAIN_DEPARTMENTResources/RSP_GS_MAINTAIN_DEPARTMENTResources.csproj",
@@ -11516,6 +11570,7 @@
     "net6.0": [
       "GFF00900SERVICES >= 1.0.0",
       "GSM04000Service >= 1.0.0",
+      "Lookup_GSSERVICES >= 1.0.0",
       "Realta.BackCollectionNuGet >= 1.0.1"
     ]
   },
@@ -11554,6 +11609,9 @@
             },
             "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\GFF00900SERVICES\\GFF00900SERVICES.csproj": {
               "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\GFF00900SERVICES\\GFF00900SERVICES.csproj"
+            },
+            "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\Lookup_GSSERVICES\\Lookup_GSSERVICES.csproj": {
+              "projectPath": "D:\\repos\\BS Shared Form\\SOURCE\\SERVICES\\Lookup_GSSERVICES\\Lookup_GSSERVICES.csproj"
             }
           }
         }

@@ -38,6 +38,7 @@ namespace GLT00100MODEL
         public DateTime? DocDate { get; set; }
         public GLT00110DTO Journal { get; set; } = new GLT00110DTO();
         public ObservableCollection<GLT00101DTO> JournalDetailGrid { get; set; } = new ObservableCollection<GLT00101DTO>();
+        public ObservableCollection<GLT00101DTO> JournalDetailGridTemp { get; set; } = new ObservableCollection<GLT00101DTO>();
         #endregion
 
         public async Task GetAllUniversalData()

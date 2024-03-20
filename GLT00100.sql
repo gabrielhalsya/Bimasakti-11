@@ -1,4 +1,7 @@
-EXEC RSP_GS_GET_TRANS_CODE_INFO 'RCD','000000' 
+
+--EXEC RSP_GS_GET_TRANS_CODE_INFO 'RCD','000000';
+--EXEC RSP_GL_GET_SYSTEM_PARAM 'RCD','en'
+--EXEC RSP_GS_GET_COMPANY_INFO 'RCD'
 
 IF (OBJECT_ID('tempdb..#__SP_ERR_Table') is null) BEGIN
 	select SP_Name=cast('' as varchar(50)), Err_Code=cast('' as varchar(20)), Err_Detail=cast('' as nvarchar(max)) into #__SP_ERR_Table where 0=1
@@ -19,24 +22,23 @@ begin try
     CDOCUMENT_DATE VARCHAR(8)
 	);
 	INSERT INTO #GLT0100_JOURNAL_DETAIL VALUES
-	('14.00.0000','12345678','D','100','bug devtest desc2','bug devtest2','20240320'),
-	('14.10.1000','12345678','C','50','bug devtest desc2','bug devtest2','20240320'),
-	('15.00.0000','12345678','C','50','bug devtest desc2','bug devtest2','20240320');
+	('14.00.0000','12345678','D','100','bug devtest desc3','bug devtest3','20240320'),
+	('15.00.0000','12345678','C','100','bug devtest desc3','bug devtest3','20240320');
 
 	EXEC RSP_GL_SAVE_JOURNAL 
 	'ghc', --CUSER_ID
-	'4F1913FE-0CE5-4D4A-A5A5-F565ADD43090',--CJRN_ID
+	'5E413004-59C7-4AE9-B961-7849A49A02E3',--CJRN_ID
 	'EDIT',--CACTION
 	'RCD',--CCOMPANY_ID
 	'FIN',--CDEPT_CODE
 	'000000',--CTRANS_CODE
-	'GJV/FIN240010',--CREF_NO
-	'bug devtest2',--CDOC_NO
+	'GJV/FIN240012',--CREF_NO
+	'bug devtest3',--CDOC_NO
 	'20240320',--CDOC_DATE
-	'20240317',--CREF_DATE
+	'20240316',--CREF_DATE
 	'',--CREVERSE_DATE
 	0,--LREVERSE_DATE
-	'bug devtest desc2', --CTRANS_DESC
+	'bug devtest desc3', --CTRANS_DESC
 	'IDR',--CCURRENCY_CODE
 	1.000000,--NLBASE_RATE
 	1.000000,--NLCURRENCY_RATE
@@ -47,6 +49,7 @@ end try
 begin catch
 	select * from #__SP_ERR_TABLE --untuk tahu error code yg di raise
 end catch
+EXEC RSP_GL_GET_JOURNAL 'RCD','ghc','D4EA6422-2170-463E-AFF3-2D47B5B10BF0','en'
+EXEC RSP_GL_GET_JOURNAL_DETAIL_LIST 'D4EA6422-2170-463E-AFF3-2D47B5B10BF0','en'
 
-EXEC RSP_GL_GET_JOURNAL 'RCD','ghc','4F1913FE-0CE5-4D4A-A5A5-F565ADD43090','en'
-EXEC RSP_GL_GET_JOURNAL_DETAIL_LIST '4F1913FE-0CE5-4D4A-A5A5-F565ADD43090','en'
+select * from #GLT0100_JOURNAL_DETAIL

@@ -32,7 +32,7 @@ namespace GLT00100MODEL
         #region Public Property ViewModel
         public int JournalPeriodYear { get; set; }
         public string JournalPeriodMonth { get; set; }
-        public GLT00100ParamDTO JornalParam { get; set; } = new GLT00100ParamDTO();
+        public GLT00100ParamDTO JournalParam { get; set; } = new GLT00100ParamDTO();
         public ObservableCollection<GLT00100DTO> JournalGrid { get; set; } = new ObservableCollection<GLT00100DTO>();
         public ObservableCollection<GLT00101DTO> JournalDetailGrid { get; set; } = new ObservableCollection<GLT00101DTO>();
         #endregion
@@ -69,17 +69,18 @@ namespace GLT00100MODEL
                 VAR_IUNDO_COMMIT_JRN = loResult.VAR_IUNDO_COMMIT_JRN;
                 VAR_GSM_PERIOD = loResult.VAR_GSM_PERIOD;
                 VAR_GSB_CODE_LIST = loResult.VAR_GSB_CODE_LIST;
-                VAR_GSB_CODE_LIST.Add(new GLT00100GSGSBCodeDTO { CCODE="", CNAME="ALL" });
+                
+                //Add all data 
+                VAR_GSB_CODE_LIST.Add(new GLT00100GSGSBCodeDTO { CCODE = "", CNAME = "ALL" });
 
                 //Get And Set List Dept Code
                 var loDeptResult = await _PublicLookupModel.GSL00700GetDepartmentListAsync(new GSL00700ParameterDTO());
                 VAR_DEPARTEMENT_LIST = loDeptResult;
 
                 //Set Dept Code
-                var loDeptRecord = loDeptResult.FirstOrDefault();
-                JornalParam.CDEPT_CODE = loDeptRecord.CDEPT_CODE;
-                JornalParam.CDEPT_NAME = loDeptRecord.CDEPT_NAME;
-
+                JournalParam.CDEPT_CODE = VAR_DEPARTEMENT_LIST.Any(loDeptList => loDeptList.CDEPT_CODE == VAR_GL_SYSTEM_PARAM.CCLOSE_DEPT_CODE) ? VAR_GL_SYSTEM_PARAM.CCLOSE_DEPT_CODE : "";
+                JournalParam.CDEPT_NAME = VAR_DEPARTEMENT_LIST.Any(loDeptList => loDeptList.CDEPT_NAME == VAR_GL_SYSTEM_PARAM.CCLOSE_DEPT_NAME) ? VAR_GL_SYSTEM_PARAM.CCLOSE_DEPT_NAME : "";
+                
                 //Set Journal Period
                 JournalPeriodYear = int.Parse(loResult.VAR_GL_SYSTEM_PARAM.CSOFT_PERIOD_YY);
                 JournalPeriodMonth = loResult.VAR_GL_SYSTEM_PARAM.CSOFT_PERIOD_MM;
@@ -98,8 +99,8 @@ namespace GLT00100MODEL
 
             try
             {
-                JornalParam.CPERIOD = JournalPeriodYear + JournalPeriodMonth;
-                var loResult = await _GLT00100Model.GetJournalListAsync(JornalParam);
+                JournalParam.CPERIOD = JournalPeriodYear + JournalPeriodMonth;
+                var loResult = await _GLT00100Model.GetJournalListAsync(JournalParam);
 
                 JournalGrid = new ObservableCollection<GLT00100DTO>(loResult);
             }
@@ -135,7 +136,7 @@ namespace GLT00100MODEL
 
             try
             {
-                 await _GLT00100Model.UpdateJournalStatusAsync(poEntity);
+                await _GLT00100Model.UpdateJournalStatusAsync(poEntity);
             }
             catch (Exception ex)
             {

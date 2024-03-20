@@ -7,7 +7,7 @@
         <R_Label>Department</R_Label>
     </R_ItemLayout>
     <R_ItemLayout col="1">
-        <R_TextBox @bind-Value="_JournalEntryViewModel.JornalParam.CDEPT_CODE"
+        <R_TextBox @bind-Value="_JournalEntryViewModel.JournalParam.CDEPT_CODE"
                    R_ConductorSource="_conductorRef"
                    Enabled="true" 
                    OnLostFocus="OnLostFocus_LookupDept"/>
@@ -18,7 +18,7 @@
         </R_Lookup>
     </R_ItemLayout>
     <R_ItemLayout col="2">
-        <R_TextBox @bind-Value="_JournalEntryViewModel.JornalParam.CDEPT_NAME"
+        <R_TextBox @bind-Value="_JournalEntryViewModel.JournalParam.CDEPT_NAME"
                    Enabled="false" />
     </R_ItemLayout>
 
@@ -41,13 +41,13 @@
     </R_ItemLayout>
     <R_ItemLayout col="1">
         <R_ComboBox Data="@_JournalEntryViewModel.VAR_GSB_CODE_LIST"
-                    @bind-Value="_JournalEntryViewModel.JornalParam.CSTATUS"
+                    @bind-Value="_JournalEntryViewModel.JournalParam.CSTATUS"
                     ValueField="@nameof(GLT00100GSGSBCodeDTO.CCODE)"
                     TextField="@nameof(GLT00100GSGSBCodeDTO.CNAME)">
         </R_ComboBox>
     </R_ItemLayout>
     <R_ItemLayout col="1">
-        <R_TextBox @bind-Value="_JournalEntryViewModel.JornalParam.CSEARCH_TEXT" />
+        <R_TextBox @bind-Value="_JournalEntryViewModel.JournalParam.CSEARCH_TEXT" />
     </R_ItemLayout>
     <R_ItemLayout>
         <R_Button OnClick="OnclickSearch">Search</R_Button>

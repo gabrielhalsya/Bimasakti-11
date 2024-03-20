@@ -470,9 +470,6 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GFF00900SERV
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Back.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Common.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Service.dll
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSBACK.dll
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSCOMMON.dll
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSSERVICES.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\RSP_GS_MAINTAIN_DEPARTMENTResources.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\RSP_GS_UPLOAD_DEPARTMENTResources.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_APIStartUp.dll
@@ -500,11 +497,8 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_Authentica
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_Security.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\R_ContextEnumAndInterface.dll
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GFF00900SERVICES.pdb
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSSERVICES.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GFF00900BACK.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GFF00900COMMON.pdb
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSBACK.pdb
-D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSCOMMON.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Service.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Back.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\GSM04000Common.pdb
@@ -534,3 +528,9 @@ D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\refint\BIMAS
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.pdb
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\BIMASAKTI_GS_API.genruntimeconfig.cache
 D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\obj\Debug\net6.0\ref\BIMASAKTI_GS_API.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSBACK.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSCOMMON.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSSERVICES.dll
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSSERVICES.pdb
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSBACK.pdb
+D:\repos\BS Program\SOURCE\API\GS\BIMASAKTI_GS_API\bin\Debug\net6.0\Lookup_GSCOMMON.pdb

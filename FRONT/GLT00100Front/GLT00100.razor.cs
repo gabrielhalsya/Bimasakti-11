@@ -45,13 +45,13 @@ namespace GLT00100FRONT
             var loEx = new R_Exception();
             try
             {
-                if (string.IsNullOrEmpty(_JournalEntryViewModel.JornalParam.CSEARCH_TEXT))
+                if (string.IsNullOrEmpty(_JournalEntryViewModel.JournalParam.CSEARCH_TEXT))
                 {
                     loEx.Add(new Exception("Please input keyword to search!"));
                     goto EndBlock;
                 }
-                if (!string.IsNullOrEmpty(_JournalEntryViewModel.JornalParam.CSEARCH_TEXT)
-                    && _JournalEntryViewModel.JornalParam.CSEARCH_TEXT.Length < 3)
+                if (!string.IsNullOrEmpty(_JournalEntryViewModel.JournalParam.CSEARCH_TEXT)
+                    && _JournalEntryViewModel.JournalParam.CSEARCH_TEXT.Length < 3)
                 {
                     loEx.Add(new Exception("Minimum search keyword is 3 characters!"));
                     goto EndBlock;
@@ -233,8 +233,8 @@ namespace GLT00100FRONT
                 return;
             }
 
-            _JournalEntryViewModel.JornalParam.CDEPT_CODE = loTempResult.CDEPT_CODE;
-            _JournalEntryViewModel.JornalParam.CDEPT_NAME = loTempResult.CDEPT_NAME;
+            _JournalEntryViewModel.JournalParam.CDEPT_CODE = loTempResult.CDEPT_CODE;
+            _JournalEntryViewModel.JournalParam.CDEPT_NAME = loTempResult.CDEPT_NAME;
         }
         private async Task OnLostFocus_LookupDept()
         {
@@ -245,7 +245,7 @@ namespace GLT00100FRONT
                 LookupGSL00700ViewModel loLookupViewModel = new LookupGSL00700ViewModel(); //use GSL's model
                 var loParam = new GSL00700ParameterDTO // use match param as GSL's dto, send as type in search texbox
                 {
-                    CSEARCH_TEXT = _JournalEntryViewModel.JornalParam.CDEPT_CODE, // property that bindded to search textbox
+                    CSEARCH_TEXT = _JournalEntryViewModel.JournalParam.CDEPT_CODE, // property that bindded to search textbox
                 };
 
 
@@ -257,11 +257,11 @@ namespace GLT00100FRONT
                     loEx.Add(R_FrontUtility.R_GetError(
                             typeof(Lookup_GSFrontResources.Resources_Dummy_Class),
                             "_ErrLookup01"));
-                    _JournalEntryViewModel.JornalParam.CDEPT_NAME = ""; //kosongin bind textbox name kalo gaada
+                    _JournalEntryViewModel.JournalParam.CDEPT_NAME = ""; //kosongin bind textbox name kalo gaada
                     //await GLAccount_TextBox.FocusAsync();
                 }
                 else
-                    _JournalEntryViewModel.JornalParam.CDEPT_NAME = loResult.CDEPT_NAME; //assign bind textbox name kalo ada
+                    _JournalEntryViewModel.JournalParam.CDEPT_NAME = loResult.CDEPT_NAME; //assign bind textbox name kalo ada
             }
             catch (Exception ex)
             {
@@ -310,7 +310,7 @@ namespace GLT00100FRONT
                     await R_MessageBox.Show("", "You don’t have right to approve this journal type!", R_eMessageBoxButtonType.OK);
                     goto EndBlock;
                 }
-                loData.CDEPT_NAME = _JournalEntryViewModel.JornalParam.CDEPT_NAME;
+                loData.CDEPT_NAME = _JournalEntryViewModel.JournalParam.CDEPT_NAME;
                 eventArgs.Parameter = loData;
                 eventArgs.TargetPageType = typeof(GLT00120);
             }
@@ -328,7 +328,7 @@ namespace GLT00100FRONT
         private void R_Before_Open_PopupRapidCommit(R_BeforeOpenPopupEventArgs eventArgs)
         {
             var loData = (GLT00100DTO)_conductorRef.R_GetCurrentData();
-            loData.CDEPT_NAME = _JournalEntryViewModel.JornalParam.CDEPT_NAME;
+            loData.CDEPT_NAME = _JournalEntryViewModel.JournalParam.CDEPT_NAME;
             eventArgs.Parameter = loData;
             eventArgs.TargetPageType = typeof(GLT00130);
         }
