@@ -236,22 +236,22 @@ namespace GLT00100FRONT
             _JournalEntryViewModel.JornalParam.CDEPT_CODE = loTempResult.CDEPT_CODE;
             _JournalEntryViewModel.JornalParam.CDEPT_NAME = loTempResult.CDEPT_NAME;
         }
-        private async Task LostFocusDeptCode()
+        private async Task OnLostFocus_LookupDept()
         {
             var loEx = new R_Exception();
 
             try
             {
-                LookupGSL00700ViewModel loLookupViewModel = new LookupGSL00700ViewModel(); //samain dengan GSLyang dipake
-                var loParam = new GSL00700ParameterDTO//param samain di before
+                LookupGSL00700ViewModel loLookupViewModel = new LookupGSL00700ViewModel(); //use GSL's model
+                var loParam = new GSL00700ParameterDTO // use match param as GSL's dto, send as type in search texbox
                 {
-                    CSEARCH_TEXT = _JournalEntryViewModel.JornalParam.CDEPT_CODE, //bind textbox
+                    CSEARCH_TEXT = _JournalEntryViewModel.JornalParam.CDEPT_CODE, // property that bindded to search textbox
                 };
 
 
-                var loResult = await loLookupViewModel.GetDepartment(loParam); //method single
+                var loResult = await loLookupViewModel.GetDepartment(loParam); //retrive single record 
 
-                //cek name apakah ada/tidak
+                //show result & show name/related another fields
                 if (loResult == null)
                 {
                     loEx.Add(R_FrontUtility.R_GetError(
