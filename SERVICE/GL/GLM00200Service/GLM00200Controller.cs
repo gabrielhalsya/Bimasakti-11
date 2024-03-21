@@ -6,6 +6,7 @@ using R_Common;
 using R_CommonFrontBackAPI;
 using System.Diagnostics;
 using System.Globalization;
+using System.Reflection;
 
 namespace GLM00200Service
 {
@@ -264,6 +265,75 @@ namespace GLM00200Service
             loEx.ThrowExceptionIfErrors();
 
             //_Logger.LogInfo("End GetLastCurrency");
+            return loRtn;
+        }
+
+        [HttpPost]
+        public IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList()
+        {
+            //using Activity activity = _activitySource.StartActivity("GetAllActualJournalDetailList");
+            var loEx = new R_Exception();
+            IAsyncEnumerable<JournalDetailActualGridDTO> loRtn = null;
+            //_Logger.LogInfo("Start GetAllActualJournalDetailList");
+
+            try
+            {
+                //_Logger.LogInfo("Set Param GetAllActualJournalDetailList");
+                var poParam = new RecurringJournalListParamDTO();
+                poParam.CDEPT_CODE = R_Utility.R_GetStreamingContext<string>(RecurringJournalContext.CDEPT_CODE);
+                poParam.CREF_NO = R_Utility.R_GetStreamingContext<string>(RecurringJournalContext.CREF_NO);
+
+                //_Logger.LogInfo("Call Back Method GetActualJournalList");
+                var loCls = new GLM00200Cls();
+                var loTempRtn = loCls.GetActualJournalList(poParam);
+
+                //_Logger.LogInfo("Call Stream Method Data GetAllActualJournalDetailList");
+                loRtn = GetStreamData<JournalDetailActualGridDTO>(loTempRtn);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            //_Logger.LogInfo("End GetAllActualJournalDetailList");
+
+            return loRtn;
+        }
+
+        [HttpPost]
+        public UploadByte DownloadTemplate()
+        {
+            //using Activity activity = _activitySource.StartActivity("DownloadTemplate");
+            var loEx = new R_Exception();
+            var loRtn = new UploadByte();
+            //_Logger.LogInfo("Start DownloadTemplate");
+
+            try
+            {
+                Assembly loAsm = Assembly.Load("BIMASAKTI_GL_API");
+
+                //_Logger.LogInfo("Load File Template From DownloadTemplateFile");
+                var lcResourceFile = "BIMASAKTI_GL_API.Template.GL_RECURRING_JOURNAL_UPLOAD.xlsx";
+                using (Stream resFilestream = loAsm.GetManifestResourceStream(lcResourceFile))
+                {
+                    var ms = new MemoryStream();
+                    resFilestream.CopyTo(ms);
+                    var bytes = ms.ToArray();
+
+                    loRtn.data = bytes;
+                }
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                //_Logger.LogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            //_Logger.LogInfo("End DownloadTemplateFile");
+
             return loRtn;
         }
     }

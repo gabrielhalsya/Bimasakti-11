@@ -1,7 +1,7 @@
 ﻿@using Lookup_GSCOMMON.DTOs;
 @inherits R_Page
 
-<R_GroupBox Title="Journal Description">
+<R_GroupBox Title="Journal Description" TitleClass="text-danger">
     <R_StackLayout Row>
         <R_ItemLayout col="1">
             <R_Label>Department</R_Label>
@@ -99,7 +99,8 @@
         <R_ItemLayout col="1">
             <R_TextBox @bind-Value="@_journalVM.Data.CDOC_NO"
                        R_ConductorSource="_conJournalNavigator"
-                       R_EnableAdd="true" />
+                       R_EnableAdd="true"
+                       R_EnableEdit/>
         </R_ItemLayout>
         <R_ItemLayout col="1">
             <R_Label>Doc Date.</R_Label>
@@ -264,7 +265,7 @@
             <R_TextBox @bind-value="@_journalVM.Data.CTRANS_DESC"
                        R_ConductorSource="_conJournalNavigator"
                        MaxLength="200"
-                       R_EnableAdd />
+                       R_EnableAdd R_EnableEdit/>
          </R_ItemLayout>
          <R_ItemLayout col="1">
              <R_Label>Created By</R_Label>
@@ -292,11 +293,11 @@
             <R_SaveButton R_Conductor="@_conJournalNavigator">Save</R_SaveButton>
         </R_ItemLayout>
         <R_ItemLayout col="1">
-            <R_Button R_ConductorSource="@_conJournalNavigator" R_EnableHasData>Print</R_Button>
+            <R_Popup R_ConductorSource="@_conJournalNavigator" R_EnableHasData R_Before_Open_Popup="@PrintBtn_Before_Open_Popup">Print</R_Popup>
         </R_ItemLayout>
-        <R_ItemLayout col="3">
+        <R_ItemLayout col="2">
         </R_ItemLayout>
-        <R_ItemLayout col="3">
+        <R_ItemLayout col="4">
             <R_Button R_ConductorSource="@_conJournalNavigator" Enabled="@((_journalVM.Data.CSTATUS != "00" || _journalVM.Data.CSTATUS != "10") && _conJournalNavigator.R_ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Normal)">@lcSubmit</R_Button>
             <R_Button R_ConductorSource="@_conJournalNavigator" Enabled="@(_journalVM.Data.CSTATUS != "10" && _conJournalNavigator.R_ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Normal && _journalVM.GSM_TRANSACTION_CODE.LAPPROVAL_FLAG == true)">Approve</R_Button>
             <R_Button R_ConductorSource="@_conJournalNavigator" Enabled="@(_conJournalNavigator.R_ConductorMode == R_BlazorFrontEnd.Enums.R_eConductorMode.Normal && (
@@ -309,10 +310,11 @@
     </R_StackLayout>
 </R_GroupBox>
 
-<R_GroupBox Title="Journal Detail">
+<R_GroupBox Title="Journal Detail" TitleClass="text-danger">
     <R_Grid @ref="@_gridJournalDet"
             DataSource="@_journalVM.JournaDetailGrid"
             Pageable
+            Height="250px"
             R_ConductorSource="@_conJournalNavigator"
              R_GridType="R_eGridType.Batch"
              R_ServiceGetListRecord="JournalDetGrid_ServiceGetListRecord"
@@ -326,6 +328,7 @@
              R_ServiceGetRecord="@JurnalDetail_GetRecord"
              R_Display="JurnalDetail_Display"
              R_AfterAdd="JurnalDetail_AfterAdd"
+             R_Saving="JurnalDetail_Saving"
              R_Validation="JurnalDetail_Validation">
          <R_GridColumns>
              <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.INO)"
@@ -333,8 +336,8 @@
                                   Enabled=false
                                   Width="100px" Max="0"></R_GridNumericColumn>
              <R_GridLookupColumn Width="300px" FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NO)" R_EnableAdd="true" R_EnableEdit="true" HeaderText="Account No." />
-             <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NAME)" HeaderText="Account Name" R_EnableAdd R_EnableEdit Width="400px" />
-            <R_GridComboBoxColumn Data=@_journalVM.CENTER_LIST
+             <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CGLACCOUNT_NAME)" HeaderText="Account Name" Enabled="false" Width="400px" />
+             <R_GridComboBoxColumn Data=@_journalVM.CENTER_LIST
                                    FieldName="@nameof(JournalDetailGridDTO.CCENTER_CODE)"
                                    ValueField="@nameof(GSL00900DTO.CCENTER_CODE)"
                                    TextField="@nameof(GSL00900DTO.CCENTER_NAME)"
@@ -343,13 +346,13 @@
                                    R_EnableEdit="true"
                                    Width="200px" />
              <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CDBCR)" HeaderText="D/C" Width="100px" />
-             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NDEBIT)" HeaderText="Debit" Width="100px" R_EnableAdd R_EnableEdit />
-             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NCREDIT)" HeaderText="Credit" Width="100px" R_EnableAdd R_EnableEdit />
-             <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CDETAIL_DESC)" HeaderText="Description" Width="450px" R_EnableAdd R_EnableEdit />
-             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NLDEBIT)" HeaderText="DB (Local)" Width="150px" R_EnableAdd R_EnableEdit />
-             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NLCREDIT)" HeaderText="CR (Local)" Width="150px" R_EnableAdd R_EnableEdit />
-             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NBDEBIT)" HeaderText="DB (Base)" Width="150px" R_EnableAdd R_EnableEdit />
-             <R_GridNumericColumn FieldName="@nameof(JournalDetailGridDTO.NBCREDIT)" HeaderText="CR (Base)" Width="150px" R_EnableAdd R_EnableEdit />
+             <R_GridNumericColumn Arrows="false" FieldName="@nameof(JournalDetailGridDTO.NDEBIT)" HeaderText="Debit" Width="100px" R_EnableAdd R_EnableEdit />
+             <R_GridNumericColumn Arrows="false" FieldName="@nameof(JournalDetailGridDTO.NCREDIT)" HeaderText="Credit" Width="100px" R_EnableAdd R_EnableEdit />
+             <R_GridTextColumn FieldName="@nameof(JournalDetailGridDTO.CDETAIL_DESC)" HeaderText="Description" Width="350px" R_EnableAdd R_EnableEdit />
+             <R_GridNumericColumn Arrows="false" FieldName="@nameof(JournalDetailGridDTO.NLDEBIT)" HeaderText="DB (Local)" Width="150px" R_EnableAdd R_EnableEdit />
+             <R_GridNumericColumn Arrows="false" FieldName="@nameof(JournalDetailGridDTO.NLCREDIT)" HeaderText="CR (Local)" Width="150px" R_EnableAdd R_EnableEdit />
+             <R_GridNumericColumn Arrows="false" FieldName="@nameof(JournalDetailGridDTO.NBDEBIT)" HeaderText="DB (Base)" Width="150px" R_EnableAdd R_EnableEdit />
+             <R_GridNumericColumn Arrows="false" FieldName="@nameof(JournalDetailGridDTO.NBCREDIT)" HeaderText="CR (Base)" Width="150px" R_EnableAdd R_EnableEdit />
          </R_GridColumns>
      </R_Grid>
  </R_GroupBox>

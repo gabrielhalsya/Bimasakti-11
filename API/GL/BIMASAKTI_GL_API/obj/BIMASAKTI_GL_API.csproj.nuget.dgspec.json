@@ -31,6 +31,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200SERVICE\\GLM00200Service.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200SERVICE\\GLM00200Service.csproj"
+              },
               "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100SERVICE\\GLT00100SERVICE.csproj": {
                 "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLT00100SERVICE\\GLT00100SERVICE.csproj"
               },
@@ -83,6 +86,83 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200BACK\\GLM00200Back.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200BACK\\GLM00200Back.csproj",
+        "projectName": "GLM00200Back",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200BACK\\GLM00200Back.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200BACK\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Realta.BackCollectionNuGet": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Realta.CommonCollectionNuGet": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -426,6 +506,69 @@
         }
       }
     },
+    "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
+        "projectName": "GLM00200Common",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\GLM00200Common.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200COMMON\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLT00100COMMON\\GLT00100COMMON.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -553,6 +696,86 @@
           "warn": true,
           "frameworkReferences": {
             "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200SERVICE\\GLM00200Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200SERVICE\\GLM00200Service.csproj",
+        "projectName": "GLM00200Service",
+        "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200SERVICE\\GLM00200Service.csproj",
+        "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\GL\\GLM00200SERVICE\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gabriel.codeid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://packagesource": {},
+          "https://www1.realta.net/realtanuget/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\GL\\GLM00200Back\\GLM00200Back.csproj"
+              },
+              "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200Common\\GLM00200Common.csproj": {
+                "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\GL\\GLM00200Common\\GLM00200Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Realta.BackCollectionNuGet": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },

@@ -40,8 +40,8 @@ D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLTR00100COMMON.
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLTR00100FrontResources.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\GLTR00100MODEL.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\Lookup_GSCOMMON.pdb
-D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\Lookup_GSModel.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\Lookup_GSFrontResources.pdb
+D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\Lookup_GSModel.pdb
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\bin\Debug\net6.0\id\R_BlazorFrontEnd.Controls.resources.dll
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Debug\net6.0\GLT00100FRONT.csproj.AssemblyReference.cache
 D:\repos\BS Program\SOURCE\FRONT\GLT00100FRONT\obj\Debug\net6.0\GLT00100FRONT.GeneratedMSBuildEditorConfig.editorconfig

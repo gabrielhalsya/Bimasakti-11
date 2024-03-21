@@ -2,7 +2,7 @@
 SELECT CCODE, CDESCRIPTION FROM RFT_GET_GSB_CODE_INFO ('BIMASAKTI', 'rcd', '_BS_UNIT_CHARGES_TYPE', '', 'en')
 EXEC RSP_GS_GET_PERIOD_DT_LIST 'rcd', '2024'
 
-EXEC RSP_LM_GET_DISCOUNT_LIST 
+EXEC RSP_LM_GET_AGREEMENT_CHARGES_DISC_LIST 
 'Login Company Id'
 , 'Selected Property Id'
 , 'Selected Charge Type'
@@ -10,10 +10,11 @@ EXEC RSP_LM_GET_DISCOUNT_LIST
 , 'Selected Discount'
 , 'Selected "Discount Type'
 , 'Selected "Invoice Period'
-, 'All Building Flag'
+, 1
 , 'Selected Building'
 , 'Selected Agreement Type'
 ,'Login User Id'
+
 
 
 

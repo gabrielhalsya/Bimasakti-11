@@ -64,7 +64,7 @@ namespace GLM00200Front
                     {
                         loEx.Add("", "Account No. is required!");
                     }
-                    if (_journalVM.RefDate == DateTime.MinValue)
+                    if (_journalVM.RefDate == null)
                     {
                         loEx.Add("", "Reference Date is required!");
                     }
@@ -80,19 +80,19 @@ namespace GLM00200Front
                     {
                         loEx.Add("", "Start Date cannot be before Current Period!");
                     }
-                    if (string.IsNullOrEmpty(loData.CDOC_NO) || string.IsNullOrWhiteSpace(loData.CDOC_NO) && _journalVM.DocDate != DateTime.MinValue)
+                    if (string.IsNullOrEmpty(loData.CDOC_NO) && _journalVM.DocDate.HasValue)
                     {
                         loEx.Add("", "Please input Document No.!");
                     }
-                    if (_journalVM.DocDate == DateTime.MinValue && _journalVM.DocDate > DateTime.Now)
+                    if (_journalVM.DocDate == null && _journalVM.DocDate > DateTime.Now)
                     {
                         loEx.Add("", "Document Date cannot be after today");
                     }
-                    if (_journalVM.DocDate == DateTime.MinValue && _journalVM.DocDate < DateTime.ParseExact(_journalVM.CURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                    if (_journalVM.DocDate == null && _journalVM.DocDate < DateTime.ParseExact(_journalVM.CURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
                     {
                         loEx.Add("", "Document Date cannot be before Current Period!");
                     }
-                    if (!string.IsNullOrEmpty(loData.CDOC_NO) || !string.IsNullOrWhiteSpace(loData.CDOC_NO) && _journalVM.DocDate == DateTime.MinValue)
+                    if (!string.IsNullOrEmpty(loData.CDOC_NO) && _journalVM.DocDate == null)
                     {
                         loEx.Add("", "Please input Document Date!");
                     }
@@ -193,9 +193,6 @@ namespace GLM00200Front
 
                     }
                 }
-                
-
-
             }
             catch (Exception ex)
             {
@@ -295,10 +292,7 @@ namespace GLM00200Front
         {
             var param = new GSL00500ParameterDTO
             {
-                CCOMPANY_ID = _clientHelper.CompanyId,
                 CPROGRAM_CODE = "GLM00200",
-                CUSER_ID = _clientHelper.UserId,
-                CUSER_LANGUAGE = _clientHelper.CultureUI.TwoLetterISOLanguageName,
                 CBSIS = "",
                 CDBCR = "",
                 CCENTER_CODE = "",
@@ -378,17 +372,17 @@ namespace GLM00200Front
                 var lodata = (JournalDetailGridDTO)eventArgs.Data;
 
                 //findout credit or debit
-                lodata.CDBCR = lodata.NDEBIT > 0 ? "D" : "C";
+                lodata.CDBCR = lodata.NDEBIT > 0 ? "D" : lodata.NCREDIT > 0 ? "C" : "";
 
                 //fill ccentercode if null based on ccentername
-                if (string.IsNullOrWhiteSpace(lodata.CCENTER_CODE) || string.IsNullOrWhiteSpace(lodata.CCENTER_CODE))
-                {
-                    foreach (var loitem in _journalVM.CENTER_LIST)
-                    {
-                        if (lodata.CCENTER_CODE == loitem.CCENTER_CODE)
-                            lodata.CCENTER_NAME = loitem.CCENTER_NAME;
-                    }
-                }
+                //if (string.IsNullOrWhiteSpace(lodata.CCENTER_CODE) || string.IsNullOrWhiteSpace(lodata.CCENTER_CODE))
+                //{
+                //    foreach (var loitem in _journalVM.CENTER_LIST)
+                //    {
+                //        if (lodata.CCENTER_CODE == loitem.CCENTER_CODE)
+                //            lodata.CCENTER_NAME = loitem.CCENTER_NAME;
+                //    }
+                //}
 
             }
             catch (Exception ex)
@@ -402,21 +396,29 @@ namespace GLM00200Front
             var loData = (JournalDetailGridDTO)eventArgs.Data;
 
             //create increment data grid
-            if (_journalVM.JournaDetailGrid.Any())
+            loData.INO = _gridJournalDet.DataSource.Count + 1;
+            loData.CCENTER_CODE = _journalVM.CENTER_LIST.FirstOrDefault().CCENTER_CODE;
+            loData.CDETAIL_DESC = _journalVM.Data.CTRANS_DESC;
+        }
+        private void JurnalDetail_Saving(R_SavingEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
             {
-                // Find the maximum INO value in the list and increment it by 1
-                int maxINO = _journalVM.JournaDetailGrid.Max(item => item.INO);
-                loData.INO = maxINO + 1;
+                var data = (JournalDetailGridDTO)eventArgs.Data;
+
+                data.CDBCR = data.NDEBIT > 0 ? "D" : data.NCREDIT > 0 ? "C" : "";
+                data.NAMOUNT = data.NDEBIT + data.NCREDIT;
+                data.CDOCUMENT_NO = string.IsNullOrWhiteSpace(_journalVM.Data.CDOC_NO) ? "" : _journalVM.Data.CDOC_NO;
+                data.CDOCUMENT_DATE = _journalVM.DocDate.HasValue == true ? _journalVM.DocDate.Value.ToString("yyyyMMdd") : "";
+
             }
-            else
+            catch (Exception ex)
             {
-                // If the list is empty, set INO to 1 (or another initial value)
-                loData.INO = 1;
+                loEx.Add(ex);
             }
 
-
-            //assign to data grid
-            eventArgs.Data = loData;
+            loEx.ThrowExceptionIfErrors();
         }
         #endregion
 
@@ -472,6 +474,24 @@ namespace GLM00200Front
             {
                 _journalVM.Data.CCURRENCY_CODE = pcParam;
                 await _journalVM.RefreshCurrencyRate();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+        }
+        #endregion
+
+        #region Print
+        private void PrintBtn_Before_Open_Popup(R_BeforeOpenPopupEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loParam = (JournalDTO)_conJournalNavigator.R_GetCurrentData();
+                eventArgs.Parameter = loParam;
+                eventArgs.TargetPageType = typeof(GLM00200PrintPopup);
             }
             catch (Exception ex)
             {

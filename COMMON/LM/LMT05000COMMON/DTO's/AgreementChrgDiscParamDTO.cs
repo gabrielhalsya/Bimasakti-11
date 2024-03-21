@@ -1,4 +1,5 @@
-﻿using System;
+﻿using R_APICommonDTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,5 +9,9 @@ namespace LMT05000COMMON.DTO_s
     {
         public string CDISCOUNT_CODE { get; set; }
         public List<AgreementChrgDiscDetailDTO> AgreementChrgDiscDetail { get; set; }
+    }
+
+    public class AgreementChrgDiscResultDTO : R_APIResultBaseDTO
+    {
     }
 }

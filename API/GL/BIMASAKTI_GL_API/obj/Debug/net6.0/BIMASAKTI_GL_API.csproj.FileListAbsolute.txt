@@ -231,3 +231,9 @@ D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\refint\BIMAS
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.pdb
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\BIMASAKTI_GL_API.genruntimeconfig.cache
 D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\obj\Debug\net6.0\ref\BIMASAKTI_GL_API.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Back.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Common.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Service.dll
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Service.pdb
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Back.pdb
+D:\repos\BS Program\SOURCE\API\GL\BIMASAKTI_GL_API\bin\Debug\net6.0\GLM00200Common.pdb

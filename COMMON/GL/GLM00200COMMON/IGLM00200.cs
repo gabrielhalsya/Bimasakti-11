@@ -15,10 +15,9 @@ namespace GLM00200Common
 
         IAsyncEnumerable<JournalDTO> GetAllRecurringList();
         IAsyncEnumerable<JournalDetailGridDTO> GetAllJournalDetailList();
+        IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList();
 
+        UploadByte DownloadTemplate();
         //IAsyncEnumerable<JournalGridDTO> GetFilteredRecurringList();
-        //IAsyncEnumerable<JournalDetailActualGridDTO> GetAllActualJournalDetailList();
-        //CurrencyRateResult RefreshCurrencyRate();
-        //JournalCommitApprovalRESULT JournalCommitApproval();
     }
 }

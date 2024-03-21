@@ -9,6 +9,7 @@ namespace LMT05000COMMON.DTO_s
         public string CCOMPANY_ID { get; set; }
         public string CPROPERTY_ID { get; set; }
         public string CREF_NO { get; set; }
+        public string CREF_DATE { get; set; }
         public string CCHARGES_TYPE { get; set; }
         public string CCHARGES_ID { get; set; }
         public string CDISCOUNT_CODE { get; set; }
@@ -19,5 +20,13 @@ namespace LMT05000COMMON.DTO_s
         public string CAGREEMENT_TYPE { get; set; }
         public string CACTION { get; set; }
         public string CUSER_ID { get; set; }
+
+        
+    }
+
+    public class AgreementChrgDiscListParamDTO : AgreementChrgDiscHeaderDTO
+    {
+        public string CDISCOUNT_TYPE { get; set; }
+        public string CINV_PRD { get; set; }
     }
 }

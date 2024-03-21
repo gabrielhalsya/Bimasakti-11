@@ -33,7 +33,7 @@ namespace GLM00200Model
 
 
         #region Property ViewModel
-        public DateTime RefDate { get; set; } = DateTime.Now;
+        public DateTime? RefDate { get; set; } = DateTime.Now;
         public DateTime? DocDate { get; set; } 
         public DateTime? StartDate { get; set; } = DateTime.Now;
         #endregion
@@ -71,6 +71,30 @@ namespace GLM00200Model
             try
             {
                 var loResult = await _model.GetJournalDataAsync(poEntity);
+                //if (DateTime.TryParseExact(loResult.CREF_DATE, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var ldRefDate))
+                //{
+                //    RefDate = ldRefDate;
+                //}
+                //else
+                //{
+                //    RefDate = null;
+                //}
+                //if (DateTime.TryParseExact(loResult.CDOC_DATE, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var ldDocDate))
+                //{
+                //    DocDate = ldDocDate;
+                //}
+                //else
+                //{
+                //    RefDate = null;
+                //}
+                //if (DateTime.TryParseExact(loResult.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var ldStartDate))
+                //{
+                //    StartDate = ldStartDate;
+                //}
+                //else
+                //{
+                //    StartDate = null;
+                //}
 
                 Journal = loResult;
             }
@@ -100,9 +124,9 @@ namespace GLM00200Model
             R_Exception loEx = new R_Exception();
             try
             {
-                poEntity.CDOC_DATE = DocDate.Value.ToString("yyyyMMdd");
-                poEntity.CSTART_DATE = StartDate.Value.ToString("yyyyMMdd");
-                poEntity.CREF_DATE = RefDate.ToString("yyyyMMdd");
+                poEntity.CDOC_DATE = DocDate.HasValue == true ? DocDate.Value.ToString("yyyyMMdd") : "";
+                poEntity.CSTART_DATE = StartDate.HasValue == true ? StartDate.Value.ToString("yyyyMMdd") : "";
+                poEntity.CREF_DATE = RefDate.HasValue == true ? RefDate.Value.ToString("yyyyMMdd") : "";
 
                 var loParam = new ParemeterRecordWithCRUDModeResultDTO<JournalParamDTO>();
                 loParam.data = poEntity;
