@@ -306,6 +306,14 @@ namespace GSM04000Front
             loEx.ThrowExceptionIfErrors();
         }
 
+        private void DeptGrid_SetAdd(R_SetEventArgs eventArgs)
+        {
+            _enableBtnActiveInactive = !eventArgs.Enable;
+        }
+        private void DeptGrid_SetEdit(R_SetEventArgs eventArgs)
+        {
+            _enableBtnActiveInactive = !eventArgs.Enable;
+        }
         private void DeptGrid_AfterAdd(R_AfterAddEventArgs eventArgs)
         {
             R_Exception loEx = new R_Exception();
@@ -315,7 +323,7 @@ namespace GSM04000Front
                 loData.LACTIVE = true;//set active=true as default
                 loData.DCREATE_DATE = DateTime.Now;//set now date when adding data
                 loData.DUPDATE_DATE = DateTime.Now;//set now date when adding data
-                _enableBtnActiveInactive = false;
+                //_enableBtnActiveInactive = false;
             }
             catch (Exception ex)
             {

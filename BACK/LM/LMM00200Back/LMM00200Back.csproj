@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,7 +9,7 @@
  
   <ItemGroup>
     <ProjectReference Include="..\..\..\COMMON\LM\LMM00200Common\LMM00200Common.csproj" />
-    <ProjectReference Include="..\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\RSP_LM_MAINTAIN_USER_PARAMResources.csproj" />
+    <ProjectReference Include="..\LM_SPR\RSP_LM_MAINTAIN_USER_PARAMResources\RSP_PM_MAINTAIN_USER_PARAMResources.csproj" />
   </ItemGroup>
 
   <ItemGroup>

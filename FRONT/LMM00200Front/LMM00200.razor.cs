@@ -16,7 +16,7 @@ namespace LMM00200Front
         private LMM00200ViewModel _viewModel = new();
         private R_Conductor _conductorRef;
         private R_Grid<LMM00200GridDTO> _gridRef;
-        private string _labelActiveInactive = "";
+        private string _labelActiveInactive = "ACTIVE/INACTIVE";
         private R_NumericTextBox<int> _numTextBoxUserLevel; //ref for Value textbox
 
         protected override async Task R_Init_From_Master(object poParameter)

@@ -1,21 +1,22 @@
-﻿EXEC RSP_GS_GET_PROPERTY_LIST 'rcd','ghc'
+﻿
+
+EXEC RSP_GS_GET_PROPERTY_LIST 'rcd','ghc'
 SELECT CCODE, CDESCRIPTION FROM RFT_GET_GSB_CODE_INFO ('BIMASAKTI', 'rcd', '_BS_UNIT_CHARGES_TYPE', '', 'en')
 EXEC RSP_GS_GET_PERIOD_DT_LIST 'rcd', '2024'
+EXEC RSP_GS_GET_BUILDING_LIST 'rcd','ASHMD','ghc'
 
-EXEC RSP_LM_GET_AGREEMENT_CHARGES_DISC_LIST 
-'Login Company Id'
-, 'Selected Property Id'
-, 'Selected Charge Type'
-, 'Selected Charge'
-, 'Selected Discount'
-, 'Selected "Discount Type'
-, 'Selected "Invoice Period'
+EXEC RSP_PM_GET_AGREEMENT_CHARGES_DISC_LIST
+'RCD' --company 
+, 'ASHMD' --property
+, '01' --charge type
+, 'G002' --unit charges
+, 'D001' --discount
+, 'Daily Percentage' --Selected "Discount Type'
+, '202401'
 , 1
-, 'Selected Building'
-, 'Selected Agreement Type'
-,'Login User Id'
-
-
+, 'TW-A'--building
+, 'A'--agreement type
+, 'ghc'--userid
 
 
 CREATE TABLE #LEASE_PRICING
@@ -50,6 +51,6 @@ EXEC RSP_LM_PROCESS_AGREEMENT_CHARGE_DISCOUNT
 , true
 , 'CBUILDING_ID			'
 , 'CAGREEMENT_TYPE		'
-, 'PROCESS'		
+, 'PROCESS'		---untuk proces undo hanya mengganti bagian ini
 , 'CUSER_ID'
 DROP TABLE #LEASE_PRICING

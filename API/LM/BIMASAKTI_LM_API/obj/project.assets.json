@@ -3909,7 +3909,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "LMM00200Common": "1.0.0",
-          "RSP_LM_MAINTAIN_USER_PARAMResources": "1.0.0"
+          "RSP_PM_MAINTAIN_USER_PARAMResources": "1.0.0"
         },
         "compile": {
           "bin/placeholder/LMM00200Back.dll": {}
@@ -3940,89 +3940,6 @@
         },
         "runtime": {
           "bin/placeholder/LMM00200Service.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "LMM02500Back/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "LMM02500Common": "1.0.0",
-          "RSP_LM_MAINTAIN_TENANT_GRPResources": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/LMM02500Back.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LMM02500Back.dll": {}
-        }
-      },
-      "LMM02500Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/LMM02500Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LMM02500Common.dll": {}
-        }
-      },
-      "LMM02500Service/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "LMM02500Back": "1.0.0",
-          "LMM02500Common": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/LMM02500Service.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LMM02500Service.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "LMM03700Back/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "LMM03700Common": "1.0.0",
-          "RSP_LM_MAINTAIN_TENANT_CLASSResources": "1.0.0",
-          "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/LMM03700Back.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LMM03700Back.dll": {}
-        }
-      },
-      "LMM03700Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/LMM03700Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LMM03700Common.dll": {}
-        }
-      },
-      "LMM03700Service/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "LMM03700Back": "1.0.0",
-          "LMM03700Common": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/LMM03700Service.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LMM03700Service.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -4109,44 +4026,14 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "RSP_LM_MAINTAIN_TENANT_CLASSResources/1.0.0": {
+      "RSP_PM_MAINTAIN_USER_PARAMResources/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "compile": {
-          "bin/placeholder/RSP_LM_MAINTAIN_TENANT_CLASSResources.dll": {}
+          "bin/placeholder/RSP_PM_MAINTAIN_USER_PARAMResources.dll": {}
         },
         "runtime": {
-          "bin/placeholder/RSP_LM_MAINTAIN_TENANT_CLASSResources.dll": {}
-        }
-      },
-      "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.dll": {}
-        }
-      },
-      "RSP_LM_MAINTAIN_TENANT_GRPResources/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/RSP_LM_MAINTAIN_TENANT_GRPResources.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RSP_LM_MAINTAIN_TENANT_GRPResources.dll": {}
-        }
-      },
-      "RSP_LM_MAINTAIN_USER_PARAMResources/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/RSP_LM_MAINTAIN_USER_PARAMResources.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RSP_LM_MAINTAIN_USER_PARAMResources.dll": {}
+          "bin/placeholder/RSP_PM_MAINTAIN_USER_PARAMResources.dll": {}
         }
       }
     }
@@ -11628,36 +11515,6 @@
       "path": "../../../SERVICE/LM/LMM00200Service/LMM00200Service.csproj",
       "msbuildProject": "../../../SERVICE/LM/LMM00200Service/LMM00200Service.csproj"
     },
-    "LMM02500Back/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/LM/LMM02500BACK/LMM02500Back.csproj",
-      "msbuildProject": "../../../BACK/LM/LMM02500BACK/LMM02500Back.csproj"
-    },
-    "LMM02500Common/1.0.0": {
-      "type": "project",
-      "path": "../../../COMMON/LM/LMM02500COMMON/LMM02500Common.csproj",
-      "msbuildProject": "../../../COMMON/LM/LMM02500COMMON/LMM02500Common.csproj"
-    },
-    "LMM02500Service/1.0.0": {
-      "type": "project",
-      "path": "../../../SERVICE/LM/LMM02500SERVICE/LMM02500Service.csproj",
-      "msbuildProject": "../../../SERVICE/LM/LMM02500SERVICE/LMM02500Service.csproj"
-    },
-    "LMM03700Back/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/LM/LMM03700Back/LMM03700Back.csproj",
-      "msbuildProject": "../../../BACK/LM/LMM03700Back/LMM03700Back.csproj"
-    },
-    "LMM03700Common/1.0.0": {
-      "type": "project",
-      "path": "../../../COMMON/LM/LMM03700Common/LMM03700Common.csproj",
-      "msbuildProject": "../../../COMMON/LM/LMM03700Common/LMM03700Common.csproj"
-    },
-    "LMM03700Service/1.0.0": {
-      "type": "project",
-      "path": "../../../SERVICE/LM/LMM03700Service/LMM03700Service.csproj",
-      "msbuildProject": "../../../SERVICE/LM/LMM03700Service/LMM03700Service.csproj"
-    },
     "LMM04500BACK/1.0.0": {
       "type": "project",
       "path": "../../../BACK/LM/LMM04500BACK/LMM04500BACK.csproj",
@@ -11688,32 +11545,15 @@
       "path": "../../../../../BS Shared Form/SOURCE/SERVICES/Lookup_LMSERVICES/Lookup_LMSERVICES.csproj",
       "msbuildProject": "../../../../../BS Shared Form/SOURCE/SERVICES/Lookup_LMSERVICES/Lookup_LMSERVICES.csproj"
     },
-    "RSP_LM_MAINTAIN_TENANT_CLASSResources/1.0.0": {
+    "RSP_PM_MAINTAIN_USER_PARAMResources/1.0.0": {
       "type": "project",
-      "path": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_TENANT_CLASSResources/RSP_LM_MAINTAIN_TENANT_CLASSResources.csproj",
-      "msbuildProject": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_TENANT_CLASSResources/RSP_LM_MAINTAIN_TENANT_CLASSResources.csproj"
-    },
-    "RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources/RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.csproj",
-      "msbuildProject": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources/RSP_LM_MAINTAIN_TENANT_CLASS_GRPResources.csproj"
-    },
-    "RSP_LM_MAINTAIN_TENANT_GRPResources/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_TENANT_GRPResources/RSP_LM_MAINTAIN_TENANT_GRPResources.csproj",
-      "msbuildProject": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_TENANT_GRPResources/RSP_LM_MAINTAIN_TENANT_GRPResources.csproj"
-    },
-    "RSP_LM_MAINTAIN_USER_PARAMResources/1.0.0": {
-      "type": "project",
-      "path": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_LM_MAINTAIN_USER_PARAMResources.csproj",
-      "msbuildProject": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_LM_MAINTAIN_USER_PARAMResources.csproj"
+      "path": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_PM_MAINTAIN_USER_PARAMResources.csproj",
+      "msbuildProject": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_PM_MAINTAIN_USER_PARAMResources.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "LMM00200Service >= 1.0.0",
-      "LMM02500Service >= 1.0.0",
-      "LMM03700Service >= 1.0.0",
       "LMM04500SERVICE >= 1.0.0",
       "Lookup_LMSERVICES >= 1.0.0",
       "Realta.BackCollectionNuGet >= 1.0.1",
@@ -11752,12 +11592,6 @@
           "projectReferences": {
             "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM00200Service\\LMM00200Service.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM00200Service\\LMM00200Service.csproj"
-            },
-            "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM02500SERVICE\\LMM02500Service.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM02500SERVICE\\LMM02500Service.csproj"
-            },
-            "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM03700Service\\LMM03700Service.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM03700Service\\LMM03700Service.csproj"
             },
             "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM04500SERVICE\\LMM04500SERVICE.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\SERVICE\\LM\\LMM04500SERVICE\\LMM04500SERVICE.csproj"

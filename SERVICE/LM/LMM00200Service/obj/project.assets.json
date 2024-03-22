@@ -7,7 +7,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "LMM00200Common": "1.0.0",
-          "RSP_LM_MAINTAIN_USER_PARAMResources": "1.0.0"
+          "RSP_PM_MAINTAIN_USER_PARAMResources": "1.0.0"
         },
         "compile": {
           "bin/placeholder/LMM00200Back.dll": {}
@@ -26,14 +26,14 @@
           "bin/placeholder/LMM00200Common.dll": {}
         }
       },
-      "RSP_LM_MAINTAIN_USER_PARAMResources/1.0.0": {
+      "RSP_PM_MAINTAIN_USER_PARAMResources/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "compile": {
-          "bin/placeholder/RSP_LM_MAINTAIN_USER_PARAMResources.dll": {}
+          "bin/placeholder/RSP_PM_MAINTAIN_USER_PARAMResources.dll": {}
         },
         "runtime": {
-          "bin/placeholder/RSP_LM_MAINTAIN_USER_PARAMResources.dll": {}
+          "bin/placeholder/RSP_PM_MAINTAIN_USER_PARAMResources.dll": {}
         }
       }
     }
@@ -49,10 +49,10 @@
       "path": "../../../COMMON/LM/LMM00200Common/LMM00200Common.csproj",
       "msbuildProject": "../../../COMMON/LM/LMM00200Common/LMM00200Common.csproj"
     },
-    "RSP_LM_MAINTAIN_USER_PARAMResources/1.0.0": {
+    "RSP_PM_MAINTAIN_USER_PARAMResources/1.0.0": {
       "type": "project",
-      "path": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_LM_MAINTAIN_USER_PARAMResources.csproj",
-      "msbuildProject": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_LM_MAINTAIN_USER_PARAMResources.csproj"
+      "path": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_PM_MAINTAIN_USER_PARAMResources.csproj",
+      "msbuildProject": "../../../BACK/LM/LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_PM_MAINTAIN_USER_PARAMResources.csproj"
     }
   },
   "projectFileDependencyGroups": {

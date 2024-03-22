@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RSP_LM_MAINTAIN_USER_PARAMResources {
+namespace RSP_PM_MAINTAIN_USER_PARAMResources {
     using System;
     
     

@@ -42,6 +42,12 @@ namespace GLT00100FRONT
 
         [Inject] IClientHelper clientHelper { get; set; }
 
+        private R_Lookup R_LookupBtnPrint;
+
+        private R_Lookup R_LookupBtnDept;
+
+        private R_TextBox _txt_CDEPT_CODE;
+
         protected override async Task R_Init_From_Master(object poParameter)
         {
             var loEx = new R_Exception();
@@ -86,44 +92,12 @@ namespace GLT00100FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
-        private async Task JournalForm_ServiceSave(R_ServiceSaveEventArgs eventArgs)
-        {
-            var loEx = new R_Exception();
-            try
-            {
-                var loHeaderData = R_FrontUtility.ConvertObjectToObject<GLT00110DTO>(eventArgs.Data);
-                var loParam = new GLT00110HeaderDetailDTO { HeaderData = loHeaderData };
-                var loDetailData = _gridDetailRef.DataSource;
-                var loMappingDetail = loDetailData.Select(
-                    item => new GLT00111DTO
-                    {
-                        CGLACCOUNT_NO = item.CGLACCOUNT_NO,
-                        CCENTER_CODE = item.CCENTER_CODE,
-                        CDBCR = item.CDBCR.FirstOrDefault(), // Assuming CDBCR is a string
-                        NAMOUNT = item.NDEBIT + item.NCREDIT,
-                        CDETAIL_DESC = item.CDETAIL_DESC,
-                        CDOCUMENT_NO = item.CDOCUMENT_NO,
-                        CDOCUMENT_DATE = item.CDOCUMENT_DATE
-                    }).ToList();
-                loParam.DetailData = loMappingDetail;
-                await _JournalEntryViewModel.SaveJournal(loParam, (eCRUDMode)eventArgs.ConductorMode);
-                eventArgs.Result = _JournalEntryViewModel.Journal;
-                //_gridDetailRef.R_RefreshGrid(_JournalEntryViewModel.Journal)
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-            }
-
-            loEx.ThrowExceptionIfErrors();
-        }
-
         private async Task JournalForm_AfterAddAsync(R_AfterAddEventArgs eventArgs)
         {
             var loEx = new R_Exception();
             try
             {
-                _JournalEntryViewModel.JournalDetailGridTemp = new(_gridDetailRef.DataSource.ToList());  ;//store detail to temp
+                _JournalEntryViewModel.JournalDetailGridTemp = new(_gridDetailRef.DataSource.ToList()); ;//store detail to temp
                 var data = (GLT00110DTO)eventArgs.Data;
                 data.CCREATE_BY = clientHelper.UserId;
                 data.CUPDATE_BY = clientHelper.UserId;
@@ -207,10 +181,24 @@ namespace GLT00100FRONT
                     loEx.Add("", "Reference No. is required!");
                 }
 
+                if (string.IsNullOrWhiteSpace(loParam.CDOC_NO))
+                {
+                    loEx.Add("", "Document No. is required");
+                }
+
+                if (_JournalEntryViewModel.DocDate == null)
+                {
+                    loEx.Add("", "Document Date is required");
+                }
 
                 if (_JournalEntryViewModel.RefDate < DateTime.ParseExact(_JournalEntryViewModel.VAR_CCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
                 {
                     loEx.Add("", "Reference Date cannot be before Current Period!");
+                }
+
+                if (_JournalEntryViewModel.DocDate < DateTime.ParseExact(_JournalEntryViewModel.VAR_CCURRENT_PERIOD_START_DATE.CSTART_DATE, "yyyyMMdd", CultureInfo.InvariantCulture))
+                {
+                    loEx.Add("", "Document Date cannot be before Current Period!");
                 }
 
                 if (string.IsNullOrWhiteSpace(loParam.CDOC_NO))
@@ -282,6 +270,36 @@ namespace GLT00100FRONT
             loEx.ThrowExceptionIfErrors();
         }
 
+        private async Task JournalForm_ServiceSave(R_ServiceSaveEventArgs eventArgs)
+        {
+            var loEx = new R_Exception();
+            try
+            {
+                var loHeaderData = R_FrontUtility.ConvertObjectToObject<GLT00110DTO>(eventArgs.Data);
+                var loParam = new GLT00110HeaderDetailDTO { HeaderData = loHeaderData };
+                var loDetailData = _gridDetailRef.DataSource;
+                var loMappingDetail = loDetailData.Select(item => new GLT00111DTO
+                {
+                    CGLACCOUNT_NO = item.CGLACCOUNT_NO,
+                    CCENTER_CODE = item.CCENTER_CODE,
+                    CDBCR = item.CDBCR.FirstOrDefault(),
+                    NAMOUNT = item.NDEBIT + item.NCREDIT,
+                    CDETAIL_DESC = item.CDETAIL_DESC,
+                    CDOCUMENT_NO = item.CDOCUMENT_NO,
+                    CDOCUMENT_DATE = item.CDOCUMENT_DATE
+                }).ToList();
+                loParam.DetailData = loMappingDetail;
+                await _JournalEntryViewModel.SaveJournal(loParam, (eCRUDMode)eventArgs.ConductorMode);
+                eventArgs.Result = _JournalEntryViewModel.Journal;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+        }
+
         private async Task JournalForm_BeforeCancel(R_BeforeCancelEventArgs eventArgs)
         {
             var res = await R_MessageBox.Show("", "You haven’t saved your changes. Are you sure want to cancel? [Yes/No]",
@@ -297,19 +315,39 @@ namespace GLT00100FRONT
             }
         }
 
-        private void CopyJournalEntryProcess()
+        private async Task CopyJournalEntryProcessAsync()
         {
             var loEx = new R_Exception();
             try
             {
-                //var eventArgs = new R_ServiceSaveEventArgs(_viewModel.Journal, R_eConductorMode.Edit);
-                //eventArgs.Data = _viewModel.Journal;
+                var loData = _JournalEntryViewModel.Journal; ;
+                DateTime? ParseDate(string dateStr)
+                {
+                    if (dateStr != null && DateTime.TryParseExact(dateStr, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                        return parsedDate;
+                    return null;
+                }
 
-                //var loParam = R_FrontUtility.ConvertObjectToObject<GLT00100DTO>(eventArgs.Data);
-                //loParam.DetailList = new List<GLT00100JournalGridDetailDTO>(_viewModel._JournaDetailList);
-
-                //await _viewModel.SaveJournal(loParam, eCRUDMode.EditMode);
-                //eventArgs.Result = _viewModel.Journal;
+                await _conductorRef.Add();
+                if (_conductorRef.R_ConductorMode == R_eConductorMode.Add)
+                {
+                    var loHeaderData = (GLT00110DTO)_conductorRef.R_GetCurrentData();
+                    loHeaderData.CDEPT_CODE = loData.CDEPT_CODE;
+                    loHeaderData.CDEPT_NAME = loData.CDEPT_NAME;
+                    loHeaderData.CDOC_NO = loData.CDOC_NO;
+                    loHeaderData.CREF_DATE = loData.CREF_DATE;
+                    loHeaderData.CDOC_DATE = loData.CDOC_DATE;
+                    loHeaderData.CTRANS_DESC = loData.CTRANS_DESC;
+                    loHeaderData.CSTATUS = loData.CSTATUS;
+                    loHeaderData.CCURRENCY_CODE = loData.CCURRENCY_CODE;
+                    loHeaderData.NPRELIST_AMOUNT = loData.NPRELIST_AMOUNT;
+                    loHeaderData.NDEBIT_AMOUNT = loData.NDEBIT_AMOUNT;
+                    loHeaderData.NCREDIT_AMOUNT = loData.NCREDIT_AMOUNT;
+                    _JournalEntryViewModel.JournalDetailGrid = _JournalEntryViewModel.JournalDetailGridTemp;
+                    _JournalEntryViewModel.RefDate = ParseDate(loHeaderData.CREF_DATE) ?? DateTime.MinValue;
+                    _JournalEntryViewModel.DocDate = ParseDate(loHeaderData.CDOC_DATE) ?? DateTime.MinValue;
+                    _txt_CDEPT_CODE.FocusAsync();
+                }
             }
             catch (Exception ex)
             {
@@ -317,6 +355,7 @@ namespace GLT00100FRONT
             }
 
             loEx.ThrowExceptionIfErrors();
+
         }
 
         private async Task BtnDelete_OnClick()
@@ -487,33 +526,48 @@ namespace GLT00100FRONT
             var loEx = new R_Exception();
             try
             {
-                var data = (GLT00101DTO)eventArgs.Data;
-                if (string.IsNullOrWhiteSpace(data.CGLACCOUNT_NO))
+                var loData = (GLT00101DTO)eventArgs.Data;
+                if (string.IsNullOrWhiteSpace(loData.CGLACCOUNT_NO))
                 {
                     loEx.Add("", "Account No. is required!");
                 }
 
-                if (string.IsNullOrWhiteSpace(data.CCENTER_CODE) && (data.CBSIS == "B" && _JournalEntryViewModel.VAR_GSM_COMPANY.LENABLE_CENTER_BS == true) || (data.CBSIS == "I" && _JournalEntryViewModel.VAR_GSM_COMPANY.LENABLE_CENTER_BS == true))
+                if (string.IsNullOrWhiteSpace(loData.CCENTER_CODE) && (loData.CBSIS == "B" && _JournalEntryViewModel.VAR_GSM_COMPANY.LENABLE_CENTER_BS == true) || (loData.CBSIS == "I" && _JournalEntryViewModel.VAR_GSM_COMPANY.LENABLE_CENTER_BS == true))
                 {
-                    loEx.Add("", $"Center Code is required for Account No. {data.CGLACCOUNT_NO}!");
+                    loEx.Add("", $"Center Code is required for Account No. {loData.CGLACCOUNT_NO}!");
                 }
 
-                if (data.NDEBIT == 0 && data.NCREDIT == 0)
+                if (loData.NDEBIT == 0 && loData.NCREDIT == 0)
                 {
                     loEx.Add("", "Journal amount cannot be 0!");
                 }
 
-                if (data.NDEBIT > 0 && data.NCREDIT > 0)
+                if (loData.NDEBIT > 0 && loData.NCREDIT > 0)
                 {
                     loEx.Add("", "Journal amount can only be either Debit or Credit!");
                 }
                 if (eventArgs.ConductorMode == R_eConductorMode.Add)
                 {
-                    if (_JournalEntryViewModel.JournalDetailGrid.Any(item => item.CGLACCOUNT_NO == data.CGLACCOUNT_NO))
+                    if (_JournalEntryViewModel.JournalDetailGrid.Any(item => item.CGLACCOUNT_NO == loData.CGLACCOUNT_NO))
                     {
-                        loEx.Add("", $"Account No. {data.CGLACCOUNT_NO} already exists!");
+                        loEx.Add("", $"Account No. {loData.CGLACCOUNT_NO} already exists!");
                     }
                 }
+                // CR04
+                if (string.IsNullOrWhiteSpace(loData.CDOCUMENT_NO))
+                {
+                    loEx.Add("", "Please input Document No. first before input Journal Detail!");
+                }
+                if (string.IsNullOrWhiteSpace(loData.CDOCUMENT_DATE) || _JournalEntryViewModel.DocDate == null || loData.DDOCUMENT_DATE == null)
+                {
+                    loEx.Add("", "Invalid Document Date! Document Date cannot be before Current Period!");
+                }
+                if (string.IsNullOrWhiteSpace(loData.CDETAIL_DESC))
+                {
+                    loEx.Add("", "Please input Description first before input Journal Detail!");
+                }
+                //end CR04
+
             }
             catch (Exception ex)
             {
@@ -531,10 +585,7 @@ namespace GLT00100FRONT
                 var loData = (GLT00101DTO)eventArgs.Data;
 
                 loData.INO = _JournalEntryViewModel.JournalDetailGrid.Count + 1;
-                var loFirstCenter = _JournalEntryViewModel.VAR_CENTER_LIST.FirstOrDefault();
                 loData.CDETAIL_DESC = _JournalEntryViewModel.Data.CTRANS_DESC;
-                loData.CCENTER_CODE = loFirstCenter.CCENTER_CODE;
-                loData.CCENTER_NAME = loFirstCenter.CCENTER_NAME;
                 loData.CDOCUMENT_NO = string.IsNullOrWhiteSpace(_JournalEntryViewModel.Data.CDOC_NO) ? "" : _JournalEntryViewModel.Data.CDOC_NO;
                 loData.CDOCUMENT_DATE = _JournalEntryViewModel.DocDate == null ? "" : _JournalEntryViewModel.DocDate.Value.ToString("yyyyMMdd");
                 loData.DDOCUMENT_DATE = _JournalEntryViewModel.DocDate.Value;
@@ -805,7 +856,7 @@ namespace GLT00100FRONT
                 loParam.LAUTO_COMMIT = false;
                 loParam.CNEW_STATUS = lcNewStatus;
                 await _JournalEntryViewModel.UpdateJournalStatus(loParam);
-                await _conductorRef.R_GetEntity(new GLT00110DTO() { CREC_ID=loParam.CREC_ID});
+                await _conductorRef.R_GetEntity(new GLT00110DTO() { CREC_ID = loParam.CREC_ID });
             }
             catch (Exception ex)
             {
@@ -819,8 +870,6 @@ namespace GLT00100FRONT
         #endregion
 
         #region Print
-
-        private R_Lookup R_LookupBtnPrint;
 
         private void Before_Open_lookupPrint(R_BeforeOpenLookupEventArgs eventArgs)
         {
@@ -843,7 +892,6 @@ namespace GLT00100FRONT
 
         #region lookupDept
 
-        private R_Lookup R_LookupBtnDept;
 
         private void Before_Open_lookupDept(R_BeforeOpenLookupEventArgs eventArgs)
         {
@@ -875,6 +923,8 @@ namespace GLT00100FRONT
 
             try
             {
+                if (_JournalEntryViewModel.Data.CDEPT_CODE.Length > 0) { }
+
                 LookupGSL00700ViewModel loLookupViewModel = new LookupGSL00700ViewModel(); //use GSL's model
                 var loParam = new GSL00700ParameterDTO // use match param as GSL's dto, send as type in search texbox
                 {
@@ -891,17 +941,18 @@ namespace GLT00100FRONT
                             typeof(Lookup_GSFrontResources.Resources_Dummy_Class),
                             "_ErrLookup01"));
                     _JournalEntryViewModel.Data.CDEPT_NAME = ""; //kosongin bind textbox name kalo gaada
-                    //await GLAccount_TextBox.FocusAsync();
+                    goto EndBlock;
                 }
-                else
-                    _JournalEntryViewModel.Data.CDEPT_NAME = loResult.CDEPT_NAME; //assign bind textbox name kalo ada
+                _JournalEntryViewModel.Data.CDEPT_CODE = loResult.CDEPT_CODE;
+                _JournalEntryViewModel.Data.CDEPT_NAME = loResult.CDEPT_NAME; //assign bind textbox name kalo ada
             }
             catch (Exception ex)
             {
                 loEx.Add(ex);
             }
-
+        EndBlock:
             R_DisplayException(loEx);
+
         }
 
         #endregion

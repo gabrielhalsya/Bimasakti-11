@@ -1,0 +1,7 @@
+Cara input
+----------------------------
+header->save, get header dapat detail 1
+validasi balace di commit, bukan di save
+jika trans currency IDR maka jika base(idr) convert local rate
+jika trans currency SGD maka jika base(sgd) convert local rate
+(grid detail)cash flow type di ambil tapi tidak di display

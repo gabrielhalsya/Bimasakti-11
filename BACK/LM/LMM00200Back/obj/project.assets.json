@@ -12,14 +12,14 @@
           "bin/placeholder/LMM00200Common.dll": {}
         }
       },
-      "RSP_LM_MAINTAIN_USER_PARAMResources/1.0.0": {
+      "RSP_PM_MAINTAIN_USER_PARAMResources/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "compile": {
-          "bin/placeholder/RSP_LM_MAINTAIN_USER_PARAMResources.dll": {}
+          "bin/placeholder/RSP_PM_MAINTAIN_USER_PARAMResources.dll": {}
         },
         "runtime": {
-          "bin/placeholder/RSP_LM_MAINTAIN_USER_PARAMResources.dll": {}
+          "bin/placeholder/RSP_PM_MAINTAIN_USER_PARAMResources.dll": {}
         }
       }
     }
@@ -30,16 +30,16 @@
       "path": "../../../COMMON/LM/LMM00200Common/LMM00200Common.csproj",
       "msbuildProject": "../../../COMMON/LM/LMM00200Common/LMM00200Common.csproj"
     },
-    "RSP_LM_MAINTAIN_USER_PARAMResources/1.0.0": {
+    "RSP_PM_MAINTAIN_USER_PARAMResources/1.0.0": {
       "type": "project",
-      "path": "../LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_LM_MAINTAIN_USER_PARAMResources.csproj",
-      "msbuildProject": "../LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_LM_MAINTAIN_USER_PARAMResources.csproj"
+      "path": "../LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_PM_MAINTAIN_USER_PARAMResources.csproj",
+      "msbuildProject": "../LM_SPR/RSP_LM_MAINTAIN_USER_PARAMResources/RSP_PM_MAINTAIN_USER_PARAMResources.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "LMM00200Common >= 1.0.0",
-      "RSP_LM_MAINTAIN_USER_PARAMResources >= 1.0.0"
+      "RSP_PM_MAINTAIN_USER_PARAMResources >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -72,8 +72,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_LM_MAINTAIN_USER_PARAMResources.csproj": {
-              "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_LM_MAINTAIN_USER_PARAMResources.csproj"
+            "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_PM_MAINTAIN_USER_PARAMResources.csproj": {
+              "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_PM_MAINTAIN_USER_PARAMResources.csproj"
             },
             "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj": {
               "projectPath": "D:\\repos\\BS Program\\SOURCE\\COMMON\\LM\\LMM00200Common\\LMM00200Common.csproj"

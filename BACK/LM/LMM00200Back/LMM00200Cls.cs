@@ -12,8 +12,7 @@ namespace LMM00200Back
 {
     public class LMM00200Cls : R_BusinessObject<LMM00200DTO>
     {
-
-        RSP_LM_MAINTAIN_USER_PARAMResources.Resources_Dummy_Class rspUserParam = new();
+        RSP_PM_MAINTAIN_USER_PARAMResources.Resources_Dummy_Class rspUserParam = new();
 
         private LMM00200Logger _logger;
 
@@ -45,7 +44,7 @@ namespace LMM00200Back
                 loConn = loDB.GetConnection("R_DefaultConnectionString");
                 loCmd = loDB.GetCommand();
 
-                lcQuery = "RSP_LM_GET_USER_PARAM_DETAIL";
+                lcQuery = "RSP_PM_GET_USER_PARAM_DETAIL";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
@@ -96,7 +95,7 @@ namespace LMM00200Back
                         break;
                 }
 
-                lcQuery = "RSP_LM_MAINTAIN_USER_PARAM";
+                lcQuery = "RSP_PM_MAINTAIN_USER_PARAM";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
@@ -163,7 +162,7 @@ namespace LMM00200Back
                 loConn = loDB.GetConnection("R_DefaultConnectionString");
                 loCmd = loDB.GetCommand();
 
-                lcQuery = "RSP_LM_GET_USER_PARAM_LIST";
+                lcQuery = "RSP_PM_GET_USER_PARAM_LIST";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 
@@ -196,7 +195,7 @@ namespace LMM00200Back
                 loDb = new R_Db();
                 loConn = loDb.GetConnection("R_DefaultConnectionString");
                 loCmd = loDb.GetCommand();
-                lcQuery = "RSP_LM_MAINTAIN_USER_PARAM";
+                lcQuery = "RSP_PM_MAINTAIN_USER_PARAM";
                 loCmd.CommandType = CommandType.StoredProcedure;
                 loCmd.CommandText = lcQuery;
 

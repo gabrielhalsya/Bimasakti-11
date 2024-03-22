@@ -10,7 +10,8 @@
                     <R_Label>Department</R_Label>
                 </R_ItemLayout>
                 <R_ItemLayout col="3">
-                    <R_TextBox @bind-Value="_JournalEntryViewModel.Data.CDEPT_CODE"
+                    <R_TextBox @ref="_txt_CDEPT_CODE"
+                               @bind-Value="_JournalEntryViewModel.Data.CDEPT_CODE"
                                R_ConductorSource="_conductorRef"
                                R_EnableAdd
                                R_EnableEdit
@@ -346,7 +347,7 @@
                 <R_AddButton R_Conductor="_conductorRef">Add</R_AddButton>
             </R_ItemLayout>
             <R_ItemLayout>
-                <R_Button OnClick="CopyJournalEntryProcess" Enabled="@(EnableHaveRecId && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)">Copy</R_Button>
+                <R_Button OnClick="CopyJournalEntryProcessAsync" Enabled="@(EnableHaveRecId && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)">Copy</R_Button>
             </R_ItemLayout>
             <R_ItemLayout>
                 <R_EditButton R_Conductor="_conductorRef" Enabled="@(EnableEdit && _conductorRef.R_ConductorMode == R_eConductorMode.Normal)"></R_EditButton>
@@ -387,8 +388,7 @@
              R_AfterAdd="@JournalForm_AfterAddAsync"
              R_Display="@JournalForm_RDisplay"
              R_BeforeCancel="@JournalForm_BeforeCancel"
-             R_Validation="@JournalForm_Validation"
-             >
+             R_Validation="@JournalForm_Validation">
 </R_Conductor>
 
 <R_ConductorGrid @ref="_conductorDetailRef"

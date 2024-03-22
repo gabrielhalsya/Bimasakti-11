@@ -11,3 +11,17 @@ D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\COMMON\LM\LMM02500C
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\COMMON\LM\LMM02500Common\obj\Debug\netstandard2.1\LMM02500Common.csproj.CopyComplete
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\COMMON\LM\LMM02500Common\obj\Debug\netstandard2.1\LMM02500Common.dll
 D:\WorkSheet\RSF\BIMASAKTI_11\1.00\PROGRAM\BS_Program\SOURCE\COMMON\LM\LMM02500Common\obj\Debug\netstandard2.1\LMM02500Common.pdb
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\bin\Debug\netstandard2.1\LMM02500Common.deps.json
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\bin\Debug\netstandard2.1\LMM02500Common.dll
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\bin\Debug\netstandard2.1\LMM02500Common.pdb
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\bin\Debug\netstandard2.1\R_APICommonDTO.dll
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\bin\Debug\netstandard2.1\R_CommonFrontBackAPI.dll
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500Common.csproj.AssemblyReference.cache
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500Common.AssemblyInfoInputs.cache
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500Common.AssemblyInfo.cs
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500Common.csproj.CoreCompileInputs.cache
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500Common.sourcelink.json
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500.98635FA0.Up2Date
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500Common.dll
+D:\repos\BS Program\SOURCE\COMMON\LM\LMM02500COMMON\obj\Debug\netstandard2.1\LMM02500Common.pdb

@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_LM_MAINTAIN_USER_PARAMResources.csproj",
-      "projectName": "RSP_LM_MAINTAIN_USER_PARAMResources",
-      "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_LM_MAINTAIN_USER_PARAMResources.csproj",
+      "projectUniqueName": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_PM_MAINTAIN_USER_PARAMResources.csproj",
+      "projectName": "RSP_PM_MAINTAIN_USER_PARAMResources",
+      "projectPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\RSP_PM_MAINTAIN_USER_PARAMResources.csproj",
       "packagesPath": "C:\\Users\\gabriel.codeid\\.nuget\\packages\\",
       "outputPath": "D:\\repos\\BS Program\\SOURCE\\BACK\\LM\\LM_SPR\\RSP_LM_MAINTAIN_USER_PARAMResources\\obj\\",
       "projectStyle": "PackageReference",
