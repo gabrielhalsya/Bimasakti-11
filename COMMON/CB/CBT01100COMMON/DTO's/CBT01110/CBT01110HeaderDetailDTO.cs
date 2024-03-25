@@ -8,6 +8,6 @@ namespace CBT01100COMMON
     public class CBT01110HeaderDetailDTO
     {
         public CBT01110DTO HeaderData { get; set; }
-        public List<CBT01111DTO> DetailData { get; set; }
+        //public List<CBT01111DTO> DetailData { get; set; }
     }
 }

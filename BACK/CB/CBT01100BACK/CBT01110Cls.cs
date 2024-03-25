@@ -13,7 +13,7 @@ using CBT01100COMMON.DTO_s;
 
 namespace CBT01100BACK
 {
-    public class CBT01110Cls : R_IBatchProcess
+    public class CBT01110Cls
     {
         private RSP_CB_DELETE_TRANS_JRNResources.Resources_Dummy_Class loDeleteCBTransJRNRes = new();
         private RSP_CB_SAVE_TRANS_JRNResources.Resources_Dummy_Class loSaveCBTransJRNRes = new();
@@ -29,136 +29,7 @@ namespace CBT01100BACK
             _logger = LoggerCBT01100.R_GetInstanceLogger();
             _activitySource = CBT01100Activity.R_GetInstanceActivitySource();
         }
-        #region Batch Proses
-        public void R_BatchProcess(R_BatchProcessPar poBatchProcessPar)
-        {
-            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
-            R_Exception loEx = new R_Exception();
-            var loDb = new R_Db();
 
-            try
-            {
-                if (loDb.R_TestConnection() == false)
-                {
-                    loEx.Add("01", "Database Connection Failed");
-                    goto EndBlock;
-                }
-
-                var loTask = Task.Run(() =>
-                {
-                    _BatchProcess(poBatchProcessPar);
-                });
-
-                while (!loTask.IsCompleted)
-                {
-                    Thread.Sleep(100);
-                }
-
-                if (loTask.IsFaulted)
-                {
-                    loEx.Add(loTask.Exception.InnerException != null ?
-                        loTask.Exception.InnerException :
-                        loTask.Exception);
-
-                    goto EndBlock;
-                }
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-            }
-
-        EndBlock:
-
-            loEx.ThrowExceptionIfErrors();
-        }
-        private async Task _BatchProcess(R_BatchProcessPar poBatchProcessPar)
-        {
-            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
-            R_Exception loEx = new R_Exception();
-            R_Db loDb = new R_Db();
-            DbCommand loCmd = null;
-            DbConnection loConn = null;
-            var lcQuery = "";
-
-            try
-            {
-                //// must delay for wait this method is completed in syncronous
-                //await Task.Delay(100);
-
-                //var loTempObject = R_NetCoreUtility.R_DeserializeObjectFromByte<List<LMM06501ErrorValidateDTO>>(poBatchProcessPar.BigObject);
-                //var loObject = R_Utility.R_ConvertCollectionToCollection<LMM06501ErrorValidateDTO, LMM06501RequestDTO>(loTempObject);
-
-                //var loVar = poBatchProcessPar.UserParameters.Where((x) => x.Key.Equals(ContextConstant.CPROPERTY_ID)).FirstOrDefault().Value;
-                //var lcPropertyId = ((System.Text.Json.JsonElement)loVar).GetString();
-
-                //loConn = loDb.GetConnection();
-                //loCmd = loDb.GetCommand();
-
-                //lcQuery = @"CREATE TABLE #GLT0100_JOURNAL_DETAIL 
-                //            (
-                //                CGLACCOUNT_NO   VARCHAR(20),
-                //                CCENTER_CODE    VARCHAR(10),
-                //                CDBCR           CHAR(1),
-                //                NAMOUNT         NUMERIC(19, 2),
-                //                CDETAIL_DESC    NVARCHAR(200),
-                //                CDOCUMENT_NO    VARCHAR(20),
-                //                CDOCUMENT_DATE  VARCHAR(8)
-                //            )";
-                ShowLogDebug(lcQuery, loCmd.Parameters);
-                //loDb.SqlExecNonQuery(lcQuery, loConn, false);
-
-                //loDb.R_BulkInsert<LMM06501RequestDTO>((SqlConnection)loConn, "#GLT0100_JOURNAL_DETAIL", loObject);
-
-                lcQuery = "RSP_GL_SAVE_JOURNAL";
-                loCmd.CommandText = lcQuery;
-                loCmd.CommandType = CommandType.StoredProcedure;
-
-                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, poBatchProcessPar.Key.COMPANY_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 20, poBatchProcessPar.Key.USER_ID);
-                loDb.R_AddCommandParameter(loCmd, "@CKEY_GUID", DbType.String, 100, poBatchProcessPar.Key.KEY_GUID);
-
-                loDb.SqlExecNonQuery(loConn, loCmd, false);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-            }
-            finally
-            {
-                if (loConn != null)
-                {
-                    if (!(loConn.State == ConnectionState.Closed))
-                        loConn.Close();
-                    loConn.Dispose();
-                    loConn = null;
-                }
-
-                if (loCmd != null)
-                {
-                    loCmd.Dispose();
-                    loCmd = null;
-                }
-            }
-
-            if (loEx.Haserror)
-            {
-                lcQuery = "INSERT INTO GST_UPLOAD_ERROR_STATUS(CCOMPANY_ID,CUSER_ID,CKEY_GUID,ISEQ_NO,CERROR_MESSAGE) VALUES" +
-                    string.Format("('{0}', '{1}', ", poBatchProcessPar.Key.COMPANY_ID, poBatchProcessPar.Key.USER_ID) +
-                    string.Format("'{0}', -1, '{1}')", poBatchProcessPar.Key.KEY_GUID, loEx.ErrorList[0].ErrDescp);
-                loDb.SqlExecNonQuery(lcQuery);
-
-                lcQuery = string.Format("EXEC RSP_WriteUploadProcessStatus '{0}', ", poBatchProcessPar.Key.COMPANY_ID) +
-                   string.Format("'{0}', ", poBatchProcessPar.Key.USER_ID) +
-                   string.Format("'{0}', ", poBatchProcessPar.Key.KEY_GUID) +
-                   string.Format("100, '{0}', 9", loEx.ErrorList[0].ErrDescp);
-
-                loDb.SqlExecNonQuery(lcQuery);
-            }
-        }
-        #endregion
         public CBT01110LastCurrencyRateDTO GetLastCurrency(CBT01110LastCurrencyRateDTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
@@ -265,8 +136,8 @@ namespace CBT01100BACK
                     ShowLogDebug(lcQuery, loCmd.Parameters);//log create
                     loDb.SqlExecNonQuery(lcQuery, loConn, false);
 
-                    _logger.LogDebug($"INSERT INTO #GLT0100_JOURNAL_DETAIL VALUES {poEntity.DetailData}");//log insert
-                    loDb.R_BulkInsert<CBT01111DTO>((SqlConnection)loConn, "#GLT0100_JOURNAL_DETAIL", poEntity.DetailData);
+                    //_logger.LogDebug($"INSERT INTO #GLT0100_JOURNAL_DETAIL VALUES {poEntity.DetailData}");//log insert
+                    //loDb.R_BulkInsert<CBT01111DTO>((SqlConnection)loConn, "#GLT0100_JOURNAL_DETAIL", poEntity.DetailData);
 
                     lcQuery = "RSP_GL_SAVE_JOURNAL";
                     loCmd.CommandText = lcQuery;
@@ -337,6 +208,62 @@ namespace CBT01100BACK
 
             loEx.ThrowExceptionIfErrors();
             return loRtn;
+        }
+
+        public CBT01110DTO SaveJournalDetail(CBT01111DTO poEntity)
+        {
+            using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
+            var loEx = new R_Exception();
+            CBT01110DTO loResult = null;
+
+            try
+            {
+                var loDb = new R_Db();
+                var loConn = loDb.GetConnection("R_DefaultConnectionString");
+                var loCmd = loDb.GetCommand();
+
+                var lcQuery = @"RSP_CB_SAVE_TRANS_JRN";
+                loCmd.CommandText = lcQuery;
+                loCmd.CommandType = CommandType.StoredProcedure;
+
+                loDb.R_AddCommandParameter(loCmd, "@CACTION", DbType.String,int.MaxValue, poEntity.CACTION);
+                loDb.R_AddCommandParameter(loCmd, "@CPARENT_ID", DbType.String,int.MaxValue, poEntity.CPARENT_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CREC_ID", DbType.String,int.MaxValue, poEntity.CREC_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String,int.MaxValue, R_BackGlobalVar.COMPANY_ID);
+                loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String,int.MaxValue, poEntity.CDEPT_CODE);
+                loDb.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String,int.MaxValue, ContextConstantCBT01100.VAR_TRANS_CODE);
+                loDb.R_AddCommandParameter(loCmd, "@CREF_NO", DbType.String,int.MaxValue, poEntity.CREF_NO);
+                loDb.R_AddCommandParameter(loCmd, "@CREF_DATE", DbType.String,int.MaxValue, poEntity.CREF_DATE);
+                loDb.R_AddCommandParameter(loCmd, "@CREF_DATE", DbType.String,int.MaxValue, poEntity.CREF_DATE);
+                loDb.R_AddCommandParameter(loCmd, "@CINPUT_TYPE", DbType.String,int.MaxValue, poEntity.CINPUT_TYPE);
+                loDb.R_AddCommandParameter(loCmd, "@CGLACCOUNT_NO", DbType.String,int.MaxValue, poEntity.CGLACCOUNT_NO);
+                loDb.R_AddCommandParameter(loCmd, "@CCENTER_CODE", DbType.String,int.MaxValue, poEntity.CCENTER_CODE);
+                loDb.R_AddCommandParameter(loCmd, "@CCASH_FLOW_GROUP_CODE", DbType.String,int.MaxValue, poEntity.CCASH_FLOW_GROUP_CODE);
+                loDb.R_AddCommandParameter(loCmd, "@CCASH_FLOW_CODE", DbType.String,int.MaxValue, poEntity.CCASH_FLOW_CODE);
+                loDb.R_AddCommandParameter(loCmd, "@CDBCR", DbType.String,int.MaxValue, poEntity.CDBCR);
+                loDb.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.String,int.MaxValue, poEntity.CCURRENCY_CODE);
+                loDb.R_AddCommandParameter(loCmd, "@NLTRANS_AMOUNT", DbType.Decimal,int.MaxValue, poEntity.NLTRANS_AMOUNT);
+                loDb.R_AddCommandParameter(loCmd, "@CDETAIL_DESC", DbType.String,int.MaxValue, poEntity.CDETAIL_DESC);
+                loDb.R_AddCommandParameter(loCmd, "@CDOCUMENT_NO", DbType.String,int.MaxValue, poEntity.CDOCUMENT_NO);
+                loDb.R_AddCommandParameter(loCmd, "@CDOCUMENT_DATE", DbType.String,int.MaxValue, poEntity.CDOCUMENT_DATE);
+                loDb.R_AddCommandParameter(loCmd, "@LSUSPENSE_ACCOUNT", DbType.Boolean,int.MaxValue, poEntity.LSUSPENSE_ACCOUNT);
+
+                //Debug Logs
+                ShowLogDebug(lcQuery, loCmd.Parameters);
+
+                var loDataTable = loDb.SqlExecQuery(loConn, loCmd, true);
+                var loTempResult = R_Utility.R_ConvertTo<ConvertRecID>(loDataTable).FirstOrDefault();
+                loResult.CREC_ID = loTempResult.CJRN_ID;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                ShowLogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return loResult;
         }
 
         #region log activity

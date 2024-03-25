@@ -7,6 +7,7 @@ namespace CBT01100COMMON
 {
     public class CBT01110DTO
     {
+        
         public string CREC_ID { get; set; }
         public string CACTION { get; set; }
         public string CCOMPANY_ID { get; set; }
