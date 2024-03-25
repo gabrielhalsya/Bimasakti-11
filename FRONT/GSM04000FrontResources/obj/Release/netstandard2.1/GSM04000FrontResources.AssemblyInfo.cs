@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GSM04000FrontResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d0aa1f84fead9aa6c8eda38a593809be8f406d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f37e9179e07adbc39b425ae65be3a3325ab7ed35")]
 [assembly: System.Reflection.AssemblyProductAttribute("GSM04000FrontResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GSM04000FrontResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RSP_GL_PROCESS_RECURRINGResources")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e651cb6357a95928e76b3751d90443d1156edef3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f37e9179e07adbc39b425ae65be3a3325ab7ed35")]
 [assembly: System.Reflection.AssemblyProductAttribute("RSP_GL_PROCESS_RECURRINGResources")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RSP_GL_PROCESS_RECURRINGResources")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

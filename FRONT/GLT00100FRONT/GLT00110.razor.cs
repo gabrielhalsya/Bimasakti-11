@@ -104,6 +104,9 @@ namespace GLT00100FRONT
                 data.DUPDATE_DATE = _JournalEntryViewModel.VAR_TODAY.DTODAY;
                 data.DCREATE_DATE = _JournalEntryViewModel.VAR_TODAY.DTODAY;
                 data.CCURRENCY_CODE = _JournalEntryViewModel.VAR_GSM_COMPANY.CLOCAL_CURRENCY_CODE;
+                data.CBASE_CURRENCY_CODE = _JournalEntryViewModel.VAR_GSM_COMPANY.CBASE_CURRENCY_CODE;
+                data.CDEPT_CODE = _JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.CCLOSE_DEPT_CODE;
+                data.CDEPT_NAME = _JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.CCLOSE_DEPT_NAME;
 
                 if (string.IsNullOrWhiteSpace(data.CDEPT_CODE))
                 {

@@ -1,7 +1,7 @@
 
 --EXEC RSP_GS_GET_TRANS_CODE_INFO 'RCD','000000';
---EXEC RSP_GL_GET_SYSTEM_PARAM 'RCD','en'
---EXEC RSP_GS_GET_COMPANY_INFO 'RCD'
+EXEC RSP_GL_GET_SYSTEM_PARAM 'BSI','en'
+EXEC RSP_GS_GET_COMPANY_INFO 'BSI'
 
 IF (OBJECT_ID('tempdb..#__SP_ERR_Table') is null) BEGIN
 	select SP_Name=cast('' as varchar(50)), Err_Code=cast('' as varchar(20)), Err_Detail=cast('' as nvarchar(max)) into #__SP_ERR_Table where 0=1

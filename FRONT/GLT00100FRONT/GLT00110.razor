@@ -56,7 +56,7 @@
             @*Document Ref*@
             <R_StackLayout Row>
                 <R_ItemLayout col="3">
-                    <R_Label>Document No</R_Label>
+                    <R_Label>Document No*</R_Label>
                 </R_ItemLayout>
                 <R_ItemLayout col="4">
                     <R_TextBox @bind-Value="_JournalEntryViewModel.Data.CDOC_NO"
@@ -199,7 +199,7 @@
                 </R_ItemLayout>
 
                 <R_ItemLayout col="2">
-                    <R_TextBox @bind-Value="_JournalEntryViewModel.VAR_GSM_COMPANY.CLOCAL_CURRENCY_CODE"
+                    <R_TextBox @bind-Value="_JournalEntryViewModel.VAR_GSM_COMPANY.CBASE_CURRENCY_CODE"
                                R_ConductorSource="_conductorRef"
                                Enabled="false" />
                 </R_ItemLayout>

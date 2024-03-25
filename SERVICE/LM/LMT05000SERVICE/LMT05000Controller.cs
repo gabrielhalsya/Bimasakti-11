@@ -15,13 +15,13 @@ namespace LMT05000SERVICE
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class LMT050000Controller : ControllerBase, ILMM05000
+    public class LMT05000Controller : ControllerBase, ILMM05000
     {
         private LogerLMT05000 _logger;
         
         private readonly ActivitySource _activitySource;
 
-        public LMT050000Controller(ILogger<LMT050000Controller> logger)
+        public LMT05000Controller(ILogger<LMT05000Controller> logger)
         {
             //initiate
             LogerLMT05000.R_InitializeLogger(logger);
