@@ -8,6 +8,7 @@ namespace CBT01100COMMON
         #region Universal
         CBT01100RecordResult<CBT01100GSCompanyInfoDTO> GetGSCompanyInfo();
         CBT01100RecordResult<CBT01100GLSystemParamDTO> GetGLSystemParam();
+        CBT01100RecordResult<CBT01100CBSystemParamDTO> GetCBSystemParam();
         CBT01100RecordResult<CBT01100GSPeriodDTInfoDTO> GetGSPeriodDTInfo(CBT01100ParamGSPeriodDTInfoDTO poEntity);
         CBT01100RecordResult<CBT01100GLSystemEnableOptionInfoDTO> GetGSSystemEnableOptionInfo();
         CBT01100RecordResult<CBT01100GSTransInfoDTO> GetGSTransCodeInfo();
@@ -18,7 +19,7 @@ namespace CBT01100COMMON
         IAsyncEnumerable<CBT01100GSCenterDTO> GetCenterList();
         #endregion
 
-        CBT01100RecordResult<CBT01100InitDTO> GetTabJournalListUniversalVar();
-        CBT01100RecordResult<CBT01110InitDTO> GetTabJournalEntryUniversalVar();
+        CBT01100RecordResult<CBT01100InitDTO> GetTabJournalListInitVar();
+        CBT01100RecordResult<CBT01110InitDTO> GetTabJournalEntryInitVar();
     }
 }

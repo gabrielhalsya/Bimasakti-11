@@ -125,6 +125,34 @@ namespace CBT01100SERVICE
         }
 
         [HttpPost]
+        public CBT01100RecordResult<CBT01100CBSystemParamDTO> GetCBSystemParam()
+        {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
+            ShowLogStart();
+            var loEx = new R_Exception();
+            CBT01100RecordResult<CBT01100CBSystemParamDTO> loRtn = new CBT01100RecordResult<CBT01100CBSystemParamDTO>();
+
+            try
+            {
+                var loCls = new CBT01100InitCls();
+
+                ShowLogExecute();
+                loRtn.Data = loCls.GetCBSystemParamRecord();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                ShowLogError(loEx);
+
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            ShowLogEnd();
+
+            return loRtn;
+        }
+
+        [HttpPost]
         public IAsyncEnumerable<CBT01100GSGSBCodeDTO> GetGSBCodeList()
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
@@ -295,7 +323,7 @@ namespace CBT01100SERVICE
         }
 
         [HttpPost]
-        public CBT01100RecordResult<CBT01100InitDTO> GetTabJournalListUniversalVar()
+        public CBT01100RecordResult<CBT01100InitDTO> GetTabJournalListInitVar()
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
@@ -358,7 +386,7 @@ namespace CBT01100SERVICE
         }
 
         [HttpPost]
-        public CBT01100RecordResult<CBT01110InitDTO> GetTabJournalEntryUniversalVar()
+        public CBT01100RecordResult<CBT01110InitDTO> GetTabJournalEntryInitVar()
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
@@ -404,6 +432,8 @@ namespace CBT01100SERVICE
         private void ShowLogEnd([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"End {pcMethodCallerName} in {GetType().Name}");
 
         private void ShowLogError(Exception exception, [CallerMemberName] string pcMethodCallerName = "") => _logger.LogError(exception);
+
+        
 
         #endregion
     }

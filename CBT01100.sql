@@ -1,8 +1,14 @@
 
---EXEC RSP_GS_GET_TRANS_CODE_INFO 'RCD','000000';
-EXEC RSP_GS_GET_COMPANY_INFO 'RND'
-EXEC RSP_GL_GET_SYSTEM_PARAM 'RND','en'
-EXEC RSP_CB_GET_SYSTEM_PARAM 'RND','en'
+EXEC RSP_GS_GET_COMPANY_INFO 'rcd'
+EXEC RSP_GL_GET_SYSTEM_PARAM 'rcd','en'
+EXEC RSP_CB_GET_SYSTEM_PARAM 'rcd','en'
+EXEC RSP_GS_GET_TRANS_CODE_INFO 'rcd','990030'
+EXEC RSP_GS_GET_PERIOD_YEAR_RANGE 'rcd','',''
+EXEC RSP_GS_GET_GSB_CODE_LIST 'BIMASAKTI','rcd','_CB_JOURNAL_STATUS','en'
+EXEC RSP_CB_SEARCH_TRANS_HD_LIST 'rcd','ghc','990030','ACC','202403','00','','en'
+
+
+
 
 IF (OBJECT_ID('tempdb..#__SP_ERR_Table') is null) BEGIN
 	select SP_Name=cast('' as varchar(50)), Err_Code=cast('' as varchar(20)), Err_Detail=cast('' as nvarchar(max)) into #__SP_ERR_Table where 0=1

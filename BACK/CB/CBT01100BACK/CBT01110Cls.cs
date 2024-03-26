@@ -253,7 +253,7 @@ namespace CBT01100BACK
 
                 var loDataTable = loDb.SqlExecQuery(loConn, loCmd, true);
                 var loTempResult = R_Utility.R_ConvertTo<ConvertRecID>(loDataTable).FirstOrDefault();
-                loResult.CREC_ID = loTempResult.CJRN_ID;
+                loResult.CREC_ID = loTempResult.CPARENT_ID;
             }
             catch (Exception ex)
             {
@@ -283,6 +283,7 @@ namespace CBT01100BACK
     internal class ConvertRecID
     {
         public string CJRN_ID { get; set; }
+        public string CPARENT_ID { get; set; }
     }
 
 

@@ -117,6 +117,35 @@ namespace CBT01100SERVICE
             return loRtn;
         }
 
+        [HttpPost]
+        public CBT01100RecordResult<CBT01110DTO> SaveJournalDetail(CBT01111DTO poEntity)
+        {
+            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
+            ShowLogStart();
+            var loEx = new R_Exception();
+            CBT01100RecordResult<CBT01110DTO> loRtn = new CBT01100RecordResult<CBT01110DTO>();
+
+            try
+            {
+                var loCls = new CBT01110Cls();
+
+                //Save
+                var loResult = loCls.SaveJournalDetail(poEntity);
+                //Get
+                loRtn.Data = loCls.GetJournalDisplay(loResult);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+                ShowLogError(loEx);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+            ShowLogEnd();
+
+            return loRtn;
+        }
+
         #region logger
 
         private void ShowLogStart([CallerMemberName] string pcMethodCallerName = "") => _logger.LogInfo($"Starting {pcMethodCallerName} in {GetType().Name}");

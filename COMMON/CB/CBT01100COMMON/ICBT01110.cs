@@ -9,5 +9,7 @@ namespace CBT01100COMMON
         CBT01100RecordResult<CBT01110LastCurrencyRateDTO> GetLastCurrency(CBT01110LastCurrencyRateDTO poEntity);
         CBT01100RecordResult<CBT01110DTO> GetJournalRecord(CBT01110DTO poEntity);
         CBT01100RecordResult<CBT01110DTO> SaveJournal(CBT01110HeaderDetailDTO poEntity);
+        CBT01100RecordResult<CBT01110DTO> SaveJournalDetail(CBT01111DTO poEntity);
+
     }
 }

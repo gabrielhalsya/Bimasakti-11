@@ -40,7 +40,7 @@ namespace GLT00100FRONT
         private bool EnableSetOther = false;
         #endregion
 
-        [Inject] IClientHelper clientHelper { get; set; }
+        [Inject] IClientHelper _clientHelper { get; set; }
 
         private R_Lookup R_LookupBtnPrint;
 
@@ -99,8 +99,8 @@ namespace GLT00100FRONT
             {
                 _JournalEntryViewModel.JournalDetailGridTemp = new(_gridDetailRef.DataSource.ToList()); ;//store detail to temp
                 var data = (GLT00110DTO)eventArgs.Data;
-                data.CCREATE_BY = clientHelper.UserId;
-                data.CUPDATE_BY = clientHelper.UserId;
+                data.CCREATE_BY = _clientHelper.UserId;
+                data.CUPDATE_BY = _clientHelper.UserId;
                 data.DUPDATE_DATE = _JournalEntryViewModel.VAR_TODAY.DTODAY;
                 data.DCREATE_DATE = _JournalEntryViewModel.VAR_TODAY.DTODAY;
                 data.CCURRENCY_CODE = _JournalEntryViewModel.VAR_GSM_COMPANY.CLOCAL_CURRENCY_CODE;
@@ -606,10 +606,10 @@ namespace GLT00100FRONT
         {
             var param = new GSL00500ParameterDTO
             {
-                CCOMPANY_ID = clientHelper.CompanyId,
+                CCOMPANY_ID = _clientHelper.CompanyId,
                 CPROGRAM_CODE = "GLM00100",
-                CUSER_ID = clientHelper.UserId,
-                CUSER_LANGUAGE = clientHelper.CultureUI.TwoLetterISOLanguageName,
+                CUSER_ID = _clientHelper.UserId,
+                CUSER_LANGUAGE = _clientHelper.CultureUI.TwoLetterISOLanguageName,
                 CBSIS = "",
                 CDBCR = "",
                 CCENTER_CODE = "",
@@ -900,8 +900,8 @@ namespace GLT00100FRONT
         {
             var param = new GSL00700ParameterDTO
             {
-                CUSER_ID = clientHelper.UserId,
-                CCOMPANY_ID = clientHelper.CompanyId
+                CUSER_ID = _clientHelper.UserId,
+                CCOMPANY_ID = _clientHelper.CompanyId
             };
             eventArgs.Parameter = param;
             eventArgs.TargetPageType = typeof(GSL00700);

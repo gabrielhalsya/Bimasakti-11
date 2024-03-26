@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace CBT01100COMMON
@@ -18,10 +19,10 @@ namespace CBT01100COMMON
         public string CTRANS_CODE { get; set; }
         public string CREF_NO { get; set; }
         public string CREF_DATE { get; set; }
-        public DateTime DREF_DATE 
-        { 
-            get => _REF_DATE; 
-            set => _REF_DATE = string.IsNullOrEmpty(CREF_DATE) ? DateTime.Now : DateTime.ParseExact(CREF_DATE, "yyyyMMdd", CultureInfo.InvariantCulture); 
+        public DateTime DREF_DATE
+        {
+            get => _REF_DATE;
+            set => _REF_DATE = string.IsNullOrEmpty(CREF_DATE) ? DateTime.Now : DateTime.ParseExact(CREF_DATE, "yyyyMMdd", CultureInfo.InvariantCulture);
         }
         public string CDOC_NO { get; set; }
         public string CDOC_DATE { get; set; }
@@ -38,7 +39,6 @@ namespace CBT01100COMMON
         public string CUPDATE_BY { get; set; }
         public DateTime DUPDATE_DATE { get; set; }
     }
-
     public class CBT01100ParamDTO
     {
         public string CDEPT_CODE { get; set; }

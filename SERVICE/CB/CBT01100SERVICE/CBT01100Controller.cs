@@ -29,7 +29,7 @@ namespace CBT01100SERVICE
         }
 
         [HttpPost]
-        public IAsyncEnumerable<CBT01110DTO> GetJournalDetailList()
+        public IAsyncEnumerable<CBT01101DTO> GetJournalDetailList()
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();
@@ -119,35 +119,8 @@ namespace CBT01100SERVICE
             return loRtn;
         }
 
-        [HttpPost]
-        public CBT01100RecordResult<CBT01100RapidApprovalValidationDTO> ValidationRapidApproval(CBT01100RapidApprovalValidationDTO poEntity)
-        {
-            using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
-            ShowLogStart();
-            var loEx = new R_Exception();
-            CBT01100RecordResult<CBT01100RapidApprovalValidationDTO> loRtn = new CBT01100RecordResult<CBT01100RapidApprovalValidationDTO>();
-
-            try
-            {
-                var loCls = new CBT01100Cls();
-
-                ShowLogExecute();
-                loRtn.Data = loCls.ValidationRapidAppro(poEntity);
-            }
-            catch (Exception ex)
-            {
-                loEx.Add(ex);
-                ShowLogError(loEx);
-
-            }
-
-            loEx.ThrowExceptionIfErrors();
-            ShowLogEnd();
-
-            return loRtn;
-        }
-
         #region Stream List Data
+
         private async IAsyncEnumerable<T> StreamListData<T>(List<T> poParameter)
         {
             foreach (var item in poParameter)
@@ -155,6 +128,7 @@ namespace CBT01100SERVICE
                 yield return item;
             }
         }
+
         #endregion
 
         #region logger
