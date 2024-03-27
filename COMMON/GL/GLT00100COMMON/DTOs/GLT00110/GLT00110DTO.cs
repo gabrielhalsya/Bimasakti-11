@@ -54,8 +54,10 @@ namespace GLT00100COMMON
         public bool LALLOW_APPROVE { get; set; }
 
         public string CCREATE_BY { get; set; }
-        public DateTime DCREATE_DATE { get; set; }
+        public DateTime? DCREATE_DATE { get; set; }
+        public string? CCREATE_DATE { get; set; }
         public string CUPDATE_BY { get; set; }
-        public DateTime DUPDATE_DATE { get; set; }
+        public DateTime? DUPDATE_DATE { get; set; }
+        public string? CUPDATE_DATE { get; set; }
     }
 }

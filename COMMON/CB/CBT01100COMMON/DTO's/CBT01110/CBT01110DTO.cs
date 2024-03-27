@@ -7,7 +7,11 @@ namespace CBT01100COMMON
 {
     public class CBT01110DTO
     {
-        
+        public string CINPUT_TYPE { get; set; }
+        public string CCB_CODE { get; set; }
+        public string CCB_NAME { get; set; }
+        public string CCB_ACCOUNT_NO { get; set; }
+
         public string CREC_ID { get; set; }
         public string CACTION { get; set; }
         public string CCOMPANY_ID { get; set; }

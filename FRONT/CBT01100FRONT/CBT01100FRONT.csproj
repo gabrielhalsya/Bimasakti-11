@@ -6,6 +6,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Content Remove="CBT01110.razor" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
@@ -20,6 +24,9 @@
 		<Reference Include="BlazorClientHelper">
 			<HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Menu\BlazorClientHelper.dll</HintPath>
 		</Reference>
+		<Reference Include="R_APICommonDTO">
+		  <HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_APICommonDTO.dll</HintPath>
+		</Reference>
 		<Reference Include="R_BlazorFrontEnd">
 			<HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_BlazorFrontEnd.dll</HintPath>
 		</Reference>
@@ -32,9 +39,16 @@
 		<Reference Include="R_ContextFrontEnd">
 			<HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_ContextFrontEnd.dll</HintPath>
 		</Reference>
+		<Reference Include="R_LockingFront">
+		  <HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_LockingFront.dll</HintPath>
+		</Reference>
 		<Reference Include="R_ProcessAndUploadFront">
 			<HintPath>..\..\..\..\SYSTEM\SOURCE\LIBRARY\Front\R_ProcessAndUploadFront.dll</HintPath>
 		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="CBT01110.razor" />
 	</ItemGroup>
 
 </Project>

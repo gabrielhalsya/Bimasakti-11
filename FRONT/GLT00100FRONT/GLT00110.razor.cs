@@ -16,6 +16,7 @@ using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Helpers;
 using R_CommonFrontBackAPI;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Globalization;
 
@@ -101,8 +102,8 @@ namespace GLT00100FRONT
                 var data = (GLT00110DTO)eventArgs.Data;
                 data.CCREATE_BY = _clientHelper.UserId;
                 data.CUPDATE_BY = _clientHelper.UserId;
-                data.DUPDATE_DATE = _JournalEntryViewModel.VAR_TODAY.DTODAY;
-                data.DCREATE_DATE = _JournalEntryViewModel.VAR_TODAY.DTODAY;
+                data.CCREATE_DATE = _JournalEntryViewModel.VAR_TODAY.ToString();
+                data.CUPDATE_DATE = _JournalEntryViewModel.VAR_TODAY.ToString();
                 data.CCURRENCY_CODE = _JournalEntryViewModel.VAR_GSM_COMPANY.CLOCAL_CURRENCY_CODE;
                 data.CBASE_CURRENCY_CODE = _JournalEntryViewModel.VAR_GSM_COMPANY.CBASE_CURRENCY_CODE;
                 data.CDEPT_CODE = _JournalEntryViewModel.VAR_GL_SYSTEM_PARAM.CCLOSE_DEPT_CODE;
@@ -160,11 +161,16 @@ namespace GLT00100FRONT
 
             if (eventArgs.ConductorMode == R_eConductorMode.Normal)
             {
-
+                //refresh grid if got crecid
                 if (!string.IsNullOrWhiteSpace(data.CREC_ID))
                 {
                     await _gridDetailRef.R_RefreshGrid(data);
                 }
+
+                //set update date & create date
+                data.CUPDATE_DATE = data.DUPDATE_DATE.HasValue ? data.DUPDATE_DATE.ToString() : "";
+                data.CCREATE_DATE = data.DCREATE_DATE.HasValue ? data.DCREATE_DATE.ToString() : "";
+
             }
         }
 
@@ -791,7 +797,7 @@ namespace GLT00100FRONT
                 var loParam = R_FrontUtility.ConvertObjectToObject<GLT00100UpdateStatusDTO>(loData);
                 loParam.LUNDO_COMMIT = loData.CSTATUS == "80";
                 loParam.LAUTO_COMMIT = false;
-                loParam.CNEW_STATUS = loData.CSTATUS == "80" ? "20" : "80";
+                loParam.CNEW_STATUS = loData.CSTATUS == "80" ? "10" : "80";
                 await _JournalEntryViewModel.UpdateJournalStatus(loParam);
 
                 if (loData.CSTATUS == "80")

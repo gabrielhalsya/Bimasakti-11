@@ -67,6 +67,7 @@ namespace CBT01100BACK
 
             return loResult;
         }
+
         public CBT01110DTO GetJournalDisplay(CBT01110DTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
@@ -105,7 +106,7 @@ namespace CBT01100BACK
             return loResult;
         }
 
-        public CBT01110DTO SaveJournal(CBT01110HeaderDetailDTO poEntity)
+        public CBT01110DTO SaveJournal(CBT01110DTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity(MethodBase.GetCurrentMethod().Name);
             var loEx = new R_Exception();
@@ -113,7 +114,7 @@ namespace CBT01100BACK
             var loDb = new R_Db();
             DbConnection loConn = null;
             DbCommand loCmd = null;
-            CBT01110DTO loRtn = poEntity.HeaderData;
+            CBT01110DTO loRtn = null;
 
             try
             {
@@ -121,47 +122,29 @@ namespace CBT01100BACK
                 {
                     loConn = loDb.GetConnection("R_DefaultConnectionString");
                     loCmd = loDb.GetCommand();
-
-                    //Bulk Insert Data
-                    lcQuery = @"CREATE TABLE #GLT0100_JOURNAL_DETAIL 
-                            (
-                                CGLACCOUNT_NO   VARCHAR(20),
-                                CCENTER_CODE    VARCHAR(10),
-                                CDBCR           CHAR(1),
-                                NAMOUNT         NUMERIC(19, 2),
-                                CDETAIL_DESC    NVARCHAR(200),
-                                CDOCUMENT_NO    VARCHAR(20),
-                                CDOCUMENT_DATE  VARCHAR(8)
-                            )";
-                    ShowLogDebug(lcQuery, loCmd.Parameters);//log create
-                    loDb.SqlExecNonQuery(lcQuery, loConn, false);
-
-                    //_logger.LogDebug($"INSERT INTO #GLT0100_JOURNAL_DETAIL VALUES {poEntity.DetailData}");//log insert
-                    //loDb.R_BulkInsert<CBT01111DTO>((SqlConnection)loConn, "#GLT0100_JOURNAL_DETAIL", poEntity.DetailData);
-
-                    lcQuery = "RSP_GL_SAVE_JOURNAL";
+                    lcQuery = "RSP_CB_SAVE_CA_WT_JOURNAL";
                     loCmd.CommandText = lcQuery;
                     loCmd.CommandType = CommandType.StoredProcedure;
 
                     loDb.R_AddCommandParameter(loCmd, "@CUSER_ID", DbType.String, 8, R_BackGlobalVar.USER_ID);
-                    loDb.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 100, poEntity.HeaderData.CREC_ID);
-                    loDb.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 10, poEntity.HeaderData.CACTION);
+                    loDb.R_AddCommandParameter(loCmd, "@CJRN_ID", DbType.String, 100, poEntity.CREC_ID);
+                    loDb.R_AddCommandParameter(loCmd, "@CACTION", DbType.String, 10, poEntity.CACTION);
                     loDb.R_AddCommandParameter(loCmd, "@CCOMPANY_ID", DbType.String, 8, R_BackGlobalVar.COMPANY_ID);
-                    loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 20, poEntity.HeaderData.CDEPT_CODE);
+                    loDb.R_AddCommandParameter(loCmd, "@CDEPT_CODE", DbType.String, 20, poEntity.CDEPT_CODE);
                     loDb.R_AddCommandParameter(loCmd, "@CTRANS_CODE", DbType.String, 20, ContextConstantCBT01100.VAR_TRANS_CODE);
-                    loDb.R_AddCommandParameter(loCmd, "@CREF_NO", DbType.String, 50, poEntity.HeaderData.CREF_NO);
-                    loDb.R_AddCommandParameter(loCmd, "@CDOC_NO", DbType.String, 50, poEntity.HeaderData.CDOC_NO);
-                    loDb.R_AddCommandParameter(loCmd, "@CDOC_DATE", DbType.String, 10, poEntity.HeaderData.CDOC_DATE);
-                    loDb.R_AddCommandParameter(loCmd, "@CREF_DATE", DbType.String, 10, poEntity.HeaderData.CREF_DATE);
+                    loDb.R_AddCommandParameter(loCmd, "@CREF_NO", DbType.String, 50, poEntity.CREF_NO);
+                    loDb.R_AddCommandParameter(loCmd, "@CDOC_NO", DbType.String, 50, poEntity.CDOC_NO);
+                    loDb.R_AddCommandParameter(loCmd, "@CDOC_DATE", DbType.String, 10, poEntity.CDOC_DATE);
+                    loDb.R_AddCommandParameter(loCmd, "@CREF_DATE", DbType.String, 10, poEntity.CREF_DATE);
                     loDb.R_AddCommandParameter(loCmd, "@CREVERSE_DATE", DbType.String, 10, "");
-                    loDb.R_AddCommandParameter(loCmd, "@LREVERSE", DbType.Boolean, 10, poEntity.HeaderData.LREVERSE);
-                    loDb.R_AddCommandParameter(loCmd, "@CTRANS_DESC", DbType.String, int.MaxValue, poEntity.HeaderData.CTRANS_DESC);
-                    loDb.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.String, 50, poEntity.HeaderData.CCURRENCY_CODE);
-                    loDb.R_AddCommandParameter(loCmd, "@NLBASE_RATE", DbType.Decimal, 100, poEntity.HeaderData.NLBASE_RATE);
-                    loDb.R_AddCommandParameter(loCmd, "@NLCURRENCY_RATE", DbType.Decimal, 100, poEntity.HeaderData.NLCURRENCY_RATE);
-                    loDb.R_AddCommandParameter(loCmd, "@NBBASE_RATE", DbType.Decimal, 100, poEntity.HeaderData.NBBASE_RATE);
-                    loDb.R_AddCommandParameter(loCmd, "@NBCURRENCY_RATE", DbType.Decimal, 100, poEntity.HeaderData.NBCURRENCY_RATE);
-                    loDb.R_AddCommandParameter(loCmd, "@NPRELIST_AMOUNT", DbType.Decimal, 100, poEntity.HeaderData.NPRELIST_AMOUNT);
+                    loDb.R_AddCommandParameter(loCmd, "@LREVERSE", DbType.Boolean, 10, poEntity.LREVERSE);
+                    loDb.R_AddCommandParameter(loCmd, "@CTRANS_DESC", DbType.String, int.MaxValue, poEntity.CTRANS_DESC);
+                    loDb.R_AddCommandParameter(loCmd, "@CCURRENCY_CODE", DbType.String, 50, poEntity.CCURRENCY_CODE);
+                    loDb.R_AddCommandParameter(loCmd, "@NLBASE_RATE", DbType.Decimal, 100, poEntity.NLBASE_RATE);
+                    loDb.R_AddCommandParameter(loCmd, "@NLCURRENCY_RATE", DbType.Decimal, 100, poEntity.NLCURRENCY_RATE);
+                    loDb.R_AddCommandParameter(loCmd, "@NBBASE_RATE", DbType.Decimal, 100, poEntity.NBBASE_RATE);
+                    loDb.R_AddCommandParameter(loCmd, "@NBCURRENCY_RATE", DbType.Decimal, 100, poEntity.NBCURRENCY_RATE);
+                    loDb.R_AddCommandParameter(loCmd, "@NPRELIST_AMOUNT", DbType.Decimal, 100, poEntity.NPRELIST_AMOUNT);
 
 
                     R_ExternalException.R_SP_Init_Exception(loConn);

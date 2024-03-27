@@ -89,7 +89,7 @@ namespace CBT01100SERVICE
         }
 
         [HttpPost]
-        public CBT01100RecordResult<CBT01110DTO> SaveJournal(CBT01110HeaderDetailDTO poEntity)
+        public CBT01100RecordResult<CBT01110DTO> SaveJournal(CBT01110DTO poEntity)
         {
             using Activity activity = _activitySource.StartActivity($"{GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ShowLogStart();

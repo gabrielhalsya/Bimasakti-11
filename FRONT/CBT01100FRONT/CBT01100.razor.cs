@@ -227,15 +227,25 @@ namespace CBT01100FRONT
         #endregion
 
         #region lookupDept
-        private void BeforeOpen_lookupDept(R_BeforeOpenLookupEventArgs eventArgs)
+        private async void BeforeOpen_lookupDept(R_BeforeOpenLookupEventArgs eventArgs)
         {
-            var param = new GSL00700ParameterDTO
+            R_Exception loEx = new R_Exception();
+            try
             {
-                CUSER_ID = clientHelper.UserId,
-                CCOMPANY_ID = clientHelper.CompanyId
-            };
-            eventArgs.Parameter = param;
-            eventArgs.TargetPageType = typeof(GSL00700);
+                var param = new GSL00700ParameterDTO
+                {
+                    CUSER_ID = clientHelper.UserId,
+                    CCOMPANY_ID = clientHelper.CompanyId
+                };
+                eventArgs.Parameter = param;
+                eventArgs.TargetPageType = typeof(GSL00700);
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+            loEx.ThrowExceptionIfErrors();
+
         }
         private void AfterOpen_lookupDept(R_AfterOpenLookupEventArgs eventArgs)
         {

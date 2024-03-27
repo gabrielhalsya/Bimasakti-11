@@ -86,7 +86,7 @@ namespace CBT01100MODEL
             return loRtn;
         }
 
-        public async Task<CBT01110DTO> SaveJournalAsync(CBT01110HeaderDetailDTO poEntity)
+        public async Task<CBT01110DTO> SaveJournalAsync(CBT01110DTO poEntity)
         {
             var loEx = new R_Exception();
             CBT01110DTO loRtn = null;
@@ -94,7 +94,7 @@ namespace CBT01100MODEL
             try
             {
                 R_HTTPClientWrapper.httpClientName = _HttpClientName;
-                var loTempResult = await R_HTTPClientWrapper.R_APIRequestObject<CBT01100RecordResult<CBT01110DTO>, CBT01110HeaderDetailDTO>(
+                var loTempResult = await R_HTTPClientWrapper.R_APIRequestObject<CBT01100RecordResult<CBT01110DTO>, CBT01110DTO>(
                     _RequestServiceEndPoint,
                     nameof(ICBT01110.SaveJournal),
                     poEntity,
@@ -152,7 +152,7 @@ namespace CBT01100MODEL
             throw new NotImplementedException();
         }
 
-        public CBT01100RecordResult<CBT01110DTO> SaveJournal(CBT01110HeaderDetailDTO poEntity)
+        public CBT01100RecordResult<CBT01110DTO> SaveJournal(CBT01110DTO poEntity)
         {
             throw new NotImplementedException();
         }
